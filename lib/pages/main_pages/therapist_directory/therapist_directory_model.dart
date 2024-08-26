@@ -1,0 +1,23 @@
+import '/flutter_flow/flutter_flow_google_map.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import 'therapist_directory_widget.dart' show TherapistDirectoryWidget;
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+
+class TherapistDirectoryModel
+    extends FlutterFlowModel<TherapistDirectoryWidget> {
+  ///  State fields for stateful widgets in this page.
+
+  // State field(s) for TherapistDirectoryMap widget.
+  LatLng? therapistDirectoryMapsCenter;
+  final therapistDirectoryMapsController = Completer<GoogleMapController>();
+
+  @override
+  void initState(BuildContext context) {}
+
+  @override
+  void dispose() {}
+}
