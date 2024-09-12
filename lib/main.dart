@@ -91,11 +91,11 @@ class _MyAppState extends State<MyApp> {
   }
 
   void setLocale(String language) {
-    setState(() => _locale = createLocale(language));
+    safeSetState(() => _locale = createLocale(language));
     FFLocalizations.storeLocale(language);
   }
 
-  void setThemeMode(ThemeMode mode) => setState(() {
+  void setThemeMode(ThemeMode mode) => safeSetState(() {
         _themeMode = mode;
         FlutterFlowTheme.saveThemeMode(mode);
       });
@@ -165,10 +165,10 @@ class _NavBarPageState extends State<NavBarPage> {
   Widget build(BuildContext context) {
     final tabs = {
       'NewHome': NewHomeWidget(),
-      'YogaHome': YogaHomeWidget(),
-      'UserCommunityPageViewFINAL': UserCommunityPageViewFINALWidget(),
-      'SoundsPageMain': SoundsPageMainWidget(),
       'MeditationPageMain': MeditationPageMainWidget(),
+      'UserCommunityPageViewFINAL': UserCommunityPageViewFINALWidget(),
+      'YogaHome': YogaHomeWidget(),
+      'SoundsPageMain': SoundsPageMainWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -181,13 +181,13 @@ class _NavBarPageState extends State<NavBarPage> {
         ),
         child: BottomNavigationBar(
           currentIndex: currentIndex,
-          onTap: (i) => setState(() {
+          onTap: (i) => safeSetState(() {
             _currentPage = null;
             _currentPageName = tabs.keys.toList()[i];
           }),
           backgroundColor: Color(0xFD000220),
-          selectedItemColor: FlutterFlowTheme.of(context).secondary,
-          unselectedItemColor: FlutterFlowTheme.of(context).secondaryText,
+          selectedItemColor: FlutterFlowTheme.of(context).accent3,
+          unselectedItemColor: FlutterFlowTheme.of(context).primary,
           showSelectedLabels: true,
           showUnselectedLabels: true,
           type: BottomNavigationBarType.fixed,
@@ -207,12 +207,16 @@ class _NavBarPageState extends State<NavBarPage> {
               tooltip: '',
             ),
             BottomNavigationBarItem(
-              icon: FaIcon(
-                FontAwesomeIcons.medrt,
+              icon: Icon(
+                Icons.air,
                 size: 28.0,
               ),
+              activeIcon: Icon(
+                Icons.air_rounded,
+                size: 36.0,
+              ),
               label: FFLocalizations.of(context).getText(
-                'csjrxrct' /* Body */,
+                '024qxadr' /* Meditate */,
               ),
               tooltip: '',
             ),
@@ -227,26 +231,22 @@ class _NavBarPageState extends State<NavBarPage> {
               tooltip: '',
             ),
             BottomNavigationBarItem(
+              icon: FaIcon(
+                FontAwesomeIcons.yinYang,
+                size: 28.0,
+              ),
+              label: FFLocalizations.of(context).getText(
+                'csjrxrct' /* Body */,
+              ),
+              tooltip: '',
+            ),
+            BottomNavigationBarItem(
               icon: Icon(
                 Icons.surround_sound,
                 size: 28.0,
               ),
               label: FFLocalizations.of(context).getText(
                 'z460edtc' /* Sounds */,
-              ),
-              tooltip: '',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.air,
-                size: 28.0,
-              ),
-              activeIcon: Icon(
-                Icons.air_rounded,
-                size: 36.0,
-              ),
-              label: FFLocalizations.of(context).getText(
-                '024qxadr' /* Meditate */,
               ),
               tooltip: '',
             )

@@ -313,9 +313,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => CompleteProfileFINALWidget(),
         ),
         FFRoute(
-          name: 'CreateaMantra',
-          path: '/createaMantra',
-          builder: (context, params) => CreateaMantraWidget(),
+          name: 'UpliftandAwareness',
+          path: '/upliftandAwareness',
+          builder: (context, params) => UpliftandAwarenessWidget(),
         ),
         FFRoute(
           name: 'TherapistDirectory',
@@ -336,11 +336,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ParamType.String,
             ),
           ),
-        ),
-        FFRoute(
-          name: 'YouTubePlaylistSampleCopy',
-          path: '/youTubePlaylistSampleCopy',
-          builder: (context, params) => YouTubePlaylistSampleCopyWidget(),
         ),
         FFRoute(
           name: 'SoundsDetailsAmbientMusic',
@@ -393,6 +388,101 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Home15Store',
           path: '/home15Store',
           builder: (context, params) => Home15StoreWidget(),
+        ),
+        FFRoute(
+          name: 'fetchapi',
+          path: '/fetchapi',
+          builder: (context, params) => FetchapiWidget(),
+        ),
+        FFRoute(
+          name: 'VideoPlayerFINAL',
+          path: '/videoPlayerFINAL',
+          builder: (context, params) => VideoPlayerFINALWidget(
+            videoId: params.getParam(
+              'videoId',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'VideoPlayerFINAL2',
+          path: '/videoPlayerFINAL2',
+          builder: (context, params) => VideoPlayerFINAL2Widget(
+            videoId: params.getParam(
+              'videoId',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'youtubetest',
+          path: '/youtubetest',
+          builder: (context, params) => YoutubetestWidget(
+            videoid: params.getParam(
+              'videoid',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'SoundsDetailsBody',
+          path: '/soundsDetailsBody',
+          builder: (context, params) => SoundsDetailsBodyWidget(),
+        ),
+        FFRoute(
+          name: 'EliminateDepression',
+          path: '/eliminateDepression',
+          builder: (context, params) => EliminateDepressionWidget(),
+        ),
+        FFRoute(
+          name: 'UsingVibration',
+          path: '/usingVibration',
+          builder: (context, params) => UsingVibrationWidget(),
+        ),
+        FFRoute(
+          name: 'HelpAnxiety',
+          path: '/helpAnxiety',
+          builder: (context, params) => HelpAnxietyWidget(),
+        ),
+        FFRoute(
+          name: 'KemeticYoga',
+          path: '/kemeticYoga',
+          builder: (context, params) => KemeticYogaWidget(),
+        ),
+        FFRoute(
+          name: 'YogaPoseVideos',
+          path: '/yogaPoseVideos',
+          builder: (context, params) => YogaPoseVideosWidget(),
+        ),
+        FFRoute(
+          name: 'BeginnersYoga',
+          path: '/beginnersYoga',
+          builder: (context, params) => BeginnersYogaWidget(),
+        ),
+        FFRoute(
+          name: 'EliminateDepressionCopy',
+          path: '/eliminateDepressionCopy',
+          builder: (context, params) => EliminateDepressionCopyWidget(),
+        ),
+        FFRoute(
+          name: 'youtubetestCopy',
+          path: '/youtubetestCopy',
+          builder: (context, params) => YoutubetestCopyWidget(
+            videoId: params.getParam(
+              'videoId',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'subsciption',
+          path: '/subsciption',
+          builder: (context, params) => SubsciptionWidget(),
+        ),
+        FFRoute(
+          name: 'SubscriptionComp',
+          path: '/subscriptionComp',
+          builder: (context, params) => SubscriptionCompWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

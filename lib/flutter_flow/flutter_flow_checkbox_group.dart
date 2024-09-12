@@ -60,7 +60,9 @@ class _FlutterFlowCheckboxGroupState extends State<FlutterFlowCheckboxGroup> {
     }
     _selectedValueListener = () {
       if (!listEquals(checkboxValues, selectedValues)) {
-        setState(() => checkboxValues = List.from(selectedValues));
+        if (mounted) {
+          setState(() => checkboxValues = List.from(selectedValues));
+        }
       }
       if (widget.onChanged != null) {
         widget.onChanged!(selectedValues);

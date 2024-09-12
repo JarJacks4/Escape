@@ -50,36 +50,6 @@ class _HeaderProviderCommunityWidgetState
           mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Align(
-              alignment: AlignmentDirectional(0.0, 0.0),
-              child: Container(
-                width: 159.0,
-                height: 118.0,
-                decoration: BoxDecoration(
-                  color: Color(0x00000220),
-                  borderRadius: BorderRadius.circular(15.0),
-                ),
-                child: Align(
-                  alignment: AlignmentDirectional(0.0, 0.0),
-                  child: Padding(
-                    padding: EdgeInsets.all(5.0),
-                    child: Hero(
-                      tag: 'ProviderCommunity',
-                      transitionOnUserGestures: true,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(15.0),
-                        child: Image.asset(
-                          'assets/images/image002.png',
-                          width: 109.0,
-                          height: 122.0,
-                          fit: BoxFit.contain,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(11.0, 16.0, 16.0, 8.0),
               child: Row(

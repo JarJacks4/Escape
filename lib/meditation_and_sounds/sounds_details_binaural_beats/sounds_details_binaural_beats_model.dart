@@ -1,4 +1,4 @@
-import '/components/binauralbeats_details_widget.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -12,19 +12,9 @@ import 'package:provider/provider.dart';
 
 class SoundsDetailsBinauralBeatsModel
     extends FlutterFlowModel<SoundsDetailsBinauralBeatsWidget> {
-  ///  State fields for stateful widgets in this page.
-
-  // Model for BinauralbeatsDetails component.
-  late BinauralbeatsDetailsModel binauralbeatsDetailsModel;
+  @override
+  void initState(BuildContext context) {}
 
   @override
-  void initState(BuildContext context) {
-    binauralbeatsDetailsModel =
-        createModel(context, () => BinauralbeatsDetailsModel());
-  }
-
-  @override
-  void dispose() {
-    binauralbeatsDetailsModel.dispose();
-  }
+  void dispose() {}
 }

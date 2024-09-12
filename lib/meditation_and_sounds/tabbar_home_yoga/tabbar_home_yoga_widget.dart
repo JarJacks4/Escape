@@ -1,3 +1,7 @@
+import '/components/beginners_yoga_comp/beginners_yoga_comp_widget.dart';
+import '/components/grounding_videos/grounding_videos_widget.dart';
+import '/components/pilates_videos_comp/pilates_videos_comp_widget.dart';
+import '/components/tai_chi_videos_comp/tai_chi_videos_comp_widget.dart';
 import '/flutter_flow/flutter_flow_button_tabbar.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -35,7 +39,7 @@ class _TabbarHomeYogaWidgetState extends State<TabbarHomeYogaWidget>
       vsync: this,
       length: 5,
       initialIndex: 0,
-    )..addListener(() => setState(() {}));
+    )..addListener(() => safeSetState(() {}));
   }
 
   @override
@@ -206,68 +210,99 @@ class _TabbarHomeYogaWidgetState extends State<TabbarHomeYogaWidget>
                                             children: [
                                               Expanded(
                                                 flex: 1,
-                                                child: Container(
-                                                  width: () {
-                                                    if (MediaQuery.sizeOf(
-                                                                context)
-                                                            .width <
-                                                        kBreakpointSmall) {
-                                                      return 160.0;
-                                                    } else if (MediaQuery
-                                                                .sizeOf(context)
-                                                            .width <
-                                                        kBreakpointMedium) {
-                                                      return 172.0;
-                                                    } else if (MediaQuery
-                                                                .sizeOf(context)
-                                                            .width <
-                                                        kBreakpointLarge) {
-                                                      return 195.0;
-                                                    } else {
-                                                      return MediaQuery.sizeOf(
-                                                              context)
-                                                          .width;
-                                                    }
-                                                  }(),
-                                                  height: 69.0,
-                                                  decoration: BoxDecoration(
-                                                    color: Color(0xBE84468E),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            11.0),
-                                                  ),
-                                                  child: Align(
-                                                    alignment:
-                                                        AlignmentDirectional(
-                                                            0.0, 0.0),
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsets.all(11.0),
-                                                      child: Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          '2ppotz15' /* Beginner's
-Guide */
-                                                          ,
+                                                child: InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    logFirebaseEvent(
+                                                        'TABBAR_HOME_YOGA_Container_8y2pd8b1_ON_T');
+                                                    logFirebaseEvent(
+                                                        'Container_navigate_to');
+
+                                                    context.pushNamed(
+                                                      'BeginnersYoga',
+                                                      extra: <String, dynamic>{
+                                                        kTransitionInfoKey:
+                                                            TransitionInfo(
+                                                          hasTransition: true,
+                                                          transitionType:
+                                                              PageTransitionType
+                                                                  .fade,
+                                                          duration: Duration(
+                                                              milliseconds: 2),
                                                         ),
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Inter',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryBackground,
-                                                                  fontSize:
-                                                                      20.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                ),
+                                                      },
+                                                    );
+                                                  },
+                                                  child: Container(
+                                                    width: () {
+                                                      if (MediaQuery.sizeOf(
+                                                                  context)
+                                                              .width <
+                                                          kBreakpointSmall) {
+                                                        return 160.0;
+                                                      } else if (MediaQuery
+                                                                  .sizeOf(
+                                                                      context)
+                                                              .width <
+                                                          kBreakpointMedium) {
+                                                        return 172.0;
+                                                      } else if (MediaQuery
+                                                                  .sizeOf(
+                                                                      context)
+                                                              .width <
+                                                          kBreakpointLarge) {
+                                                        return 195.0;
+                                                      } else {
+                                                        return MediaQuery
+                                                                .sizeOf(context)
+                                                            .width;
+                                                      }
+                                                    }(),
+                                                    height: 69.0,
+                                                    decoration: BoxDecoration(
+                                                      color: Color(0xBE84468E),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              11.0),
+                                                    ),
+                                                    child: Align(
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              0.0, 0.0),
+                                                      child: Padding(
+                                                        padding: EdgeInsets.all(
+                                                            11.0),
+                                                        child: Text(
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            '2ppotz15' /* Beginner's
+Guide */
+                                                            ,
+                                                          ),
+                                                          textAlign:
+                                                              TextAlign.center,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Inter',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryBackground,
+                                                                fontSize: 20.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
+                                                        ),
                                                       ),
                                                     ),
                                                   ),
@@ -319,61 +354,98 @@ Guide */
                                             children: [
                                               Expanded(
                                                 flex: 1,
-                                                child: Container(
-                                                  width: () {
-                                                    if (MediaQuery.sizeOf(
+                                                child: InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    logFirebaseEvent(
+                                                        'TABBAR_HOME_YOGA_Container_w48ns2bp_ON_T');
+                                                    logFirebaseEvent(
+                                                        'Container_navigate_to');
+
+                                                    context.pushNamed(
+                                                      'HelpAnxiety',
+                                                      extra: <String, dynamic>{
+                                                        kTransitionInfoKey:
+                                                            TransitionInfo(
+                                                          hasTransition: true,
+                                                          transitionType:
+                                                              PageTransitionType
+                                                                  .fade,
+                                                          duration: Duration(
+                                                              milliseconds: 2),
+                                                        ),
+                                                      },
+                                                    );
+                                                  },
+                                                  child: Container(
+                                                    width: () {
+                                                      if (MediaQuery.sizeOf(
+                                                                  context)
+                                                              .width <
+                                                          kBreakpointSmall) {
+                                                        return 160.0;
+                                                      } else if (MediaQuery
+                                                                  .sizeOf(
+                                                                      context)
+                                                              .width <
+                                                          kBreakpointMedium) {
+                                                        return 172.0;
+                                                      } else if (MediaQuery
+                                                                  .sizeOf(
+                                                                      context)
+                                                              .width <
+                                                          kBreakpointLarge) {
+                                                        return 195.0;
+                                                      } else {
+                                                        return MediaQuery
+                                                                .sizeOf(context)
+                                                            .width;
+                                                      }
+                                                    }(),
+                                                    height: 69.0,
+                                                    decoration: BoxDecoration(
+                                                      color: Color(0xBE84468E),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              11.0),
+                                                    ),
+                                                    child: Align(
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              0.0, 0.0),
+                                                      child: Text(
+                                                        FFLocalizations.of(
                                                                 context)
-                                                            .width <
-                                                        kBreakpointSmall) {
-                                                      return 160.0;
-                                                    } else if (MediaQuery
-                                                                .sizeOf(context)
-                                                            .width <
-                                                        kBreakpointMedium) {
-                                                      return 172.0;
-                                                    } else if (MediaQuery
-                                                                .sizeOf(context)
-                                                            .width <
-                                                        kBreakpointLarge) {
-                                                      return 195.0;
-                                                    } else {
-                                                      return MediaQuery.sizeOf(
-                                                              context)
-                                                          .width;
-                                                    }
-                                                  }(),
-                                                  height: 69.0,
-                                                  decoration: BoxDecoration(
-                                                    color: Color(0xBE84468E),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            11.0),
-                                                  ),
-                                                  child: Align(
-                                                    alignment:
-                                                        AlignmentDirectional(
-                                                            0.0, 0.0),
-                                                    child: Text(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        'fd9w4b1o' /* Help
+                                                            .getText(
+                                                          'fd9w4b1o' /* Help
 Anxiety */
-                                                        ,
+                                                          ,
+                                                        ),
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryBackground,
+                                                                  fontSize:
+                                                                      20.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                       ),
-                                                      textAlign:
-                                                          TextAlign.center,
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily: 'Inter',
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primaryBackground,
-                                                            fontSize: 20.0,
-                                                            letterSpacing: 0.0,
-                                                          ),
                                                     ),
                                                   ),
                                                 ),
@@ -399,7 +471,7 @@ Anxiety */
                                           image: DecorationImage(
                                             fit: BoxFit.cover,
                                             image: Image.network(
-                                              'https://images.unsplash.com/photo-1562088287-bde35a1ea917?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwxMXx8WW9nYXxlbnwwfHx8fDE3MDkxNDE1MTd8MA&ixlib=rb-4.0.3&q=80&w=1080',
+                                              'https://images.unsplash.com/photo-1562679299-d21b8e13ac09?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwxNHx8ZWd5cHQlMjB8ZW58MHx8fHwxNzI1NTU0MDAwfDA&ixlib=rb-4.0.3&q=80&w=1080',
                                             ).image,
                                           ),
                                           boxShadow: [
@@ -428,44 +500,74 @@ Anxiety */
                                                   alignment:
                                                       AlignmentDirectional(
                                                           0.0, 1.0),
-                                                  child: Container(
-                                                    width: 200.0,
-                                                    height: 70.0,
-                                                    decoration: BoxDecoration(
-                                                      color: Color(0xBE84468E),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              11.0),
-                                                    ),
-                                                    child: Align(
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              0.0, 0.0),
-                                                      child: Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          'bhcxsiry' /* 30 Seconds of 
-Yoga */
-                                                          ,
+                                                  child: InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      logFirebaseEvent(
+                                                          'TABBAR_HOME_YOGA_Container_9qhg0yc3_ON_T');
+                                                      logFirebaseEvent(
+                                                          'Container_navigate_to');
+
+                                                      context.pushNamed(
+                                                        'KemeticYoga',
+                                                        extra: <String,
+                                                            dynamic>{
+                                                          kTransitionInfoKey:
+                                                              TransitionInfo(
+                                                            hasTransition: true,
+                                                            transitionType:
+                                                                PageTransitionType
+                                                                    .fade,
+                                                            duration: Duration(
+                                                                milliseconds:
+                                                                    2),
+                                                          ),
+                                                        },
+                                                      );
+                                                    },
+                                                    child: Container(
+                                                      width: 200.0,
+                                                      height: 70.0,
+                                                      decoration: BoxDecoration(
+                                                        color:
+                                                            Color(0xBE84468E),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(11.0),
+                                                      ),
+                                                      child: Align(
+                                                        alignment:
+                                                            AlignmentDirectional(
+                                                                0.0, 0.0),
+                                                        child: Text(
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            'bhcxsiry' /* Kemetic Yoga */,
+                                                          ),
+                                                          textAlign:
+                                                              TextAlign.center,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Inter',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryBackground,
+                                                                fontSize: 20.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
                                                         ),
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Inter',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryBackground,
-                                                                  fontSize:
-                                                                      20.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                ),
                                                       ),
                                                     ),
                                                   ),
@@ -517,59 +619,96 @@ Yoga */
                                             children: [
                                               Expanded(
                                                 flex: 1,
-                                                child: Container(
-                                                  width: () {
-                                                    if (MediaQuery.sizeOf(
+                                                child: InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    logFirebaseEvent(
+                                                        'TABBAR_HOME_YOGA_Container_p0lf548e_ON_T');
+                                                    logFirebaseEvent(
+                                                        'Container_navigate_to');
+
+                                                    context.pushNamed(
+                                                      'YogaPoseVideos',
+                                                      extra: <String, dynamic>{
+                                                        kTransitionInfoKey:
+                                                            TransitionInfo(
+                                                          hasTransition: true,
+                                                          transitionType:
+                                                              PageTransitionType
+                                                                  .fade,
+                                                          duration: Duration(
+                                                              milliseconds: 2),
+                                                        ),
+                                                      },
+                                                    );
+                                                  },
+                                                  child: Container(
+                                                    width: () {
+                                                      if (MediaQuery.sizeOf(
+                                                                  context)
+                                                              .width <
+                                                          kBreakpointSmall) {
+                                                        return 160.0;
+                                                      } else if (MediaQuery
+                                                                  .sizeOf(
+                                                                      context)
+                                                              .width <
+                                                          kBreakpointMedium) {
+                                                        return 172.0;
+                                                      } else if (MediaQuery
+                                                                  .sizeOf(
+                                                                      context)
+                                                              .width <
+                                                          kBreakpointLarge) {
+                                                        return 220.0;
+                                                      } else {
+                                                        return MediaQuery
+                                                                .sizeOf(context)
+                                                            .width;
+                                                      }
+                                                    }(),
+                                                    height: 69.0,
+                                                    decoration: BoxDecoration(
+                                                      color: Color(0xBE84468E),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              11.0),
+                                                    ),
+                                                    child: Align(
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              0.0, 0.0),
+                                                      child: Text(
+                                                        FFLocalizations.of(
                                                                 context)
-                                                            .width <
-                                                        kBreakpointSmall) {
-                                                      return 160.0;
-                                                    } else if (MediaQuery
-                                                                .sizeOf(context)
-                                                            .width <
-                                                        kBreakpointMedium) {
-                                                      return 172.0;
-                                                    } else if (MediaQuery
-                                                                .sizeOf(context)
-                                                            .width <
-                                                        kBreakpointLarge) {
-                                                      return 220.0;
-                                                    } else {
-                                                      return MediaQuery.sizeOf(
-                                                              context)
-                                                          .width;
-                                                    }
-                                                  }(),
-                                                  height: 69.0,
-                                                  decoration: BoxDecoration(
-                                                    color: Color(0xBE84468E),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            11.0),
-                                                  ),
-                                                  child: Align(
-                                                    alignment:
-                                                        AlignmentDirectional(
-                                                            0.0, 0.0),
-                                                    child: Text(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        '6bjyvt1j' /* Yoga Poses */,
+                                                            .getText(
+                                                          '6bjyvt1j' /* Yoga Poses */,
+                                                        ),
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryBackground,
+                                                                  fontSize:
+                                                                      20.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
                                                       ),
-                                                      textAlign:
-                                                          TextAlign.center,
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily: 'Inter',
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primaryBackground,
-                                                            fontSize: 20.0,
-                                                            letterSpacing: 0.0,
-                                                          ),
                                                     ),
                                                   ),
                                                 ),
@@ -585,340 +724,26 @@ Yoga */
                         ),
                       ],
                     ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(15.0, 20.0, 15.0, 0.0),
-                      child: MasonryGridView.builder(
-                        gridDelegate:
-                            SliverSimpleGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                        ),
-                        crossAxisSpacing: 15.0,
-                        mainAxisSpacing: 11.0,
-                        itemCount: 4,
-                        shrinkWrap: true,
-                        itemBuilder: (context, index) {
-                          return [
-                            () => Material(
-                                  color: Colors.transparent,
-                                  elevation: 8.0,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(15.0),
-                                  ),
-                                  child: Container(
-                                    width: 88.0,
-                                    height: 271.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      image: DecorationImage(
-                                        fit: BoxFit.cover,
-                                        image: Image.network(
-                                          'https://images.unsplash.com/photo-1624824216985-5639b3071ce6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHw0fHxiZWdpbm5lcnxlbnwwfHx8fDE3MDkxNzU3NjV8MA&ixlib=rb-4.0.3&q=80&w=1080',
-                                        ).image,
-                                      ),
-                                      boxShadow: [
-                                        BoxShadow(
-                                          blurRadius: 4.0,
-                                          color: Color(0x33000000),
-                                          offset: Offset(
-                                            0.0,
-                                            2.0,
-                                          ),
-                                          spreadRadius: 2.0,
-                                        )
-                                      ],
-                                      borderRadius: BorderRadius.circular(15.0),
-                                    ),
-                                    child: Align(
-                                      alignment: AlignmentDirectional(0.0, 1.0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Expanded(
-                                            flex: 1,
-                                            child: Container(
-                                              width: 176.0,
-                                              height: 69.0,
-                                              decoration: BoxDecoration(
-                                                color: Color(0xBE84468E),
-                                                borderRadius:
-                                                    BorderRadius.circular(11.0),
-                                              ),
-                                              child: Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
-                                                child: Padding(
-                                                  padding: EdgeInsets.all(11.0),
-                                                  child: Text(
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                      'endbfxgw' /* Beginner's Guide */,
-                                                    ),
-                                                    textAlign: TextAlign.center,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryBackground,
-                                                          fontSize: 20.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                            () => Material(
-                                  color: Colors.transparent,
-                                  elevation: 8.0,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(15.0),
-                                  ),
-                                  child: Container(
-                                    width: 88.0,
-                                    height: 183.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      image: DecorationImage(
-                                        fit: BoxFit.cover,
-                                        image: Image.network(
-                                          'https://images.unsplash.com/photo-1442128788708-15f1811dd622?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHw5fHxjaGFsbGVuZ2V8ZW58MHx8fHwxNzA5MTc1ODAwfDA&ixlib=rb-4.0.3&q=80&w=1080',
-                                        ).image,
-                                      ),
-                                      boxShadow: [
-                                        BoxShadow(
-                                          blurRadius: 4.0,
-                                          color: Color(0x33000000),
-                                          offset: Offset(
-                                            0.0,
-                                            2.0,
-                                          ),
-                                          spreadRadius: 2.0,
-                                        )
-                                      ],
-                                      borderRadius: BorderRadius.circular(15.0),
-                                    ),
-                                    child: Align(
-                                      alignment: AlignmentDirectional(0.0, 1.0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Expanded(
-                                            flex: 1,
-                                            child: Container(
-                                              width: 177.0,
-                                              height: 69.0,
-                                              decoration: BoxDecoration(
-                                                color: Color(0xBE84468E),
-                                                borderRadius:
-                                                    BorderRadius.circular(11.0),
-                                              ),
-                                              child: Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
-                                                child: Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'h523fj9h' /* Learn About
- Poses */
-                                                    ,
-                                                  ),
-                                                  textAlign: TextAlign.center,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Inter',
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .primaryBackground,
-                                                        fontSize: 20.0,
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                            () => Material(
-                                  color: Colors.transparent,
-                                  elevation: 8.0,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(11.0),
-                                  ),
-                                  child: Container(
-                                    width: 88.0,
-                                    height: 300.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      image: DecorationImage(
-                                        fit: BoxFit.cover,
-                                        image: Image.network(
-                                          'https://images.unsplash.com/photo-1562088287-bde35a1ea917?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwxMXx8WW9nYXxlbnwwfHx8fDE3MDkxNDE1MTd8MA&ixlib=rb-4.0.3&q=80&w=1080',
-                                        ).image,
-                                      ),
-                                      boxShadow: [
-                                        BoxShadow(
-                                          blurRadius: 4.0,
-                                          color: Color(0x33000000),
-                                          offset: Offset(
-                                            0.0,
-                                            2.0,
-                                          ),
-                                          spreadRadius: 2.0,
-                                        )
-                                      ],
-                                      borderRadius: BorderRadius.circular(11.0),
-                                    ),
-                                    child: Align(
-                                      alignment: AlignmentDirectional(0.0, 1.0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Expanded(
-                                            flex: 1,
-                                            child: Align(
-                                              alignment: AlignmentDirectional(
-                                                  0.0, 1.0),
-                                              child: Container(
-                                                width: 200.0,
-                                                height: 70.0,
-                                                decoration: BoxDecoration(
-                                                  color: Color(0xBE84468E),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          11.0),
-                                                ),
-                                                child: Align(
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                          0.0, 0.0),
-                                                  child: Text(
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                      'sgprej1x' /* How to Stretch */,
-                                                    ),
-                                                    textAlign: TextAlign.center,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryBackground,
-                                                          fontSize: 20.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                            () => Material(
-                                  color: Colors.transparent,
-                                  elevation: 8.0,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(15.0),
-                                  ),
-                                  child: Container(
-                                    width: 88.0,
-                                    height: 243.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      image: DecorationImage(
-                                        fit: BoxFit.cover,
-                                        image: Image.network(
-                                          'https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHw1fHx5b2dhfGVufDB8fHx8MTcwOTEzMjIyNHww&ixlib=rb-4.0.3&q=80&w=1080',
-                                        ).image,
-                                      ),
-                                      boxShadow: [
-                                        BoxShadow(
-                                          blurRadius: 4.0,
-                                          color: Color(0x33000000),
-                                          offset: Offset(
-                                            0.0,
-                                            2.0,
-                                          ),
-                                          spreadRadius: 2.0,
-                                        )
-                                      ],
-                                      borderRadius: BorderRadius.circular(15.0),
-                                    ),
-                                    child: Align(
-                                      alignment: AlignmentDirectional(0.0, 1.0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Expanded(
-                                            flex: 1,
-                                            child: Container(
-                                              width: 176.0,
-                                              height: 69.0,
-                                              decoration: BoxDecoration(
-                                                color: Color(0xBE84468E),
-                                                borderRadius:
-                                                    BorderRadius.circular(11.0),
-                                              ),
-                                              child: Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
-                                                child: Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    '906q7abl' /* Benefits of 
-Yoga */
-                                                    ,
-                                                  ),
-                                                  textAlign: TextAlign.center,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Inter',
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .primaryBackground,
-                                                        fontSize: 20.0,
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                          ][index]();
-                        },
-                      ),
+                    wrapWithModel(
+                      model: _model.beginnersYogaCompModel,
+                      updateCallback: () => safeSetState(() {}),
+                      child: BeginnersYogaCompWidget(),
                     ),
-                    Container(),
-                    Container(),
-                    Container(),
+                    wrapWithModel(
+                      model: _model.pilatesVideosCompModel,
+                      updateCallback: () => safeSetState(() {}),
+                      child: PilatesVideosCompWidget(),
+                    ),
+                    wrapWithModel(
+                      model: _model.taiChiVideosCompModel,
+                      updateCallback: () => safeSetState(() {}),
+                      child: TaiChiVideosCompWidget(),
+                    ),
+                    wrapWithModel(
+                      model: _model.groundingVideosModel,
+                      updateCallback: () => safeSetState(() {}),
+                      child: GroundingVideosWidget(),
+                    ),
                   ],
                 ),
               ),

@@ -44,7 +44,7 @@ class _MeditationTeachingPagesWidgetState
       vsync: this,
       length: 2,
       initialIndex: 0,
-    )..addListener(() => setState(() {}));
+    )..addListener(() => safeSetState(() {}));
     animationsMap.addAll({
       'imageOnPageLoadAnimation': AnimationInfo(
         loop: true,
@@ -1206,7 +1206,7 @@ Time */
                                                                   500),
                                                           curve: Curves.ease,
                                                         );
-                                                        setState(() {});
+                                                        safeSetState(() {});
                                                       },
                                                       effect: smooth_page_indicator
                                                           .ExpandingDotsEffect(

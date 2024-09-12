@@ -94,7 +94,7 @@ class _PageViewBlogsWidgetState extends State<PageViewBlogsWidget> {
                             duration: Duration(milliseconds: 500),
                             curve: Curves.ease,
                           );
-                          setState(() {});
+                          safeSetState(() {});
                         },
                         effect: smooth_page_indicator.SlideEffect(
                           spacing: 8.0,

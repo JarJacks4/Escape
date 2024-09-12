@@ -423,8 +423,9 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                           'ruzdky0a' /* Bio */,
                                         ))
                                       ],
-                                      onChanged: (val) => setState(() => _model
-                                          .choiceChipsValue = val?.firstOrNull),
+                                      onChanged: (val) => safeSetState(() =>
+                                          _model.choiceChipsValue =
+                                              val?.firstOrNull),
                                       selectedChipStyle: ChipStyle(
                                         backgroundColor:
                                             FlutterFlowTheme.of(context)

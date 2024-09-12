@@ -66,6 +66,11 @@ class MusicRecord extends FirestoreRecord {
   int get playCount => _playCount ?? 0;
   bool hasPlayCount() => _playCount != null;
 
+  // "mp3File" field.
+  String? _mp3File;
+  String get mp3File => _mp3File ?? '';
+  bool hasMp3File() => _mp3File != null;
+
   void _initializeFields() {
     _musicName = snapshotData['music_name'] as String?;
     _artistName = snapshotData['artist_name'] as String?;
@@ -77,6 +82,7 @@ class MusicRecord extends FirestoreRecord {
     _duration = castToType<int>(snapshotData['duration']);
     _likes = castToType<int>(snapshotData['likes']);
     _playCount = castToType<int>(snapshotData['playCount']);
+    _mp3File = snapshotData['mp3File'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -123,6 +129,7 @@ Map<String, dynamic> createMusicRecordData({
   int? duration,
   int? likes,
   int? playCount,
+  String? mp3File,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -136,6 +143,7 @@ Map<String, dynamic> createMusicRecordData({
       'duration': duration,
       'likes': likes,
       'playCount': playCount,
+      'mp3File': mp3File,
     }.withoutNulls,
   );
 
@@ -156,7 +164,8 @@ class MusicRecordDocumentEquality implements Equality<MusicRecord> {
         e1?.releaseDate == e2?.releaseDate &&
         e1?.duration == e2?.duration &&
         e1?.likes == e2?.likes &&
-        e1?.playCount == e2?.playCount;
+        e1?.playCount == e2?.playCount &&
+        e1?.mp3File == e2?.mp3File;
   }
 
   @override
@@ -170,7 +179,8 @@ class MusicRecordDocumentEquality implements Equality<MusicRecord> {
         e?.releaseDate,
         e?.duration,
         e?.likes,
-        e?.playCount
+        e?.playCount,
+        e?.mp3File
       ]);
 
   @override

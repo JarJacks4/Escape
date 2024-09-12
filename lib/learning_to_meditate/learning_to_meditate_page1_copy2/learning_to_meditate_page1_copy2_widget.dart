@@ -46,7 +46,7 @@ class _LearningToMeditatePage1Copy2WidgetState
       vsync: this,
       length: 2,
       initialIndex: 0,
-    )..addListener(() => setState(() {}));
+    )..addListener(() => safeSetState(() {}));
     animationsMap.addAll({
       'imageOnPageLoadAnimation': AnimationInfo(
         loop: true,
@@ -1299,7 +1299,8 @@ Time */
                                                                 curve:
                                                                     Curves.ease,
                                                               );
-                                                              setState(() {});
+                                                              safeSetState(
+                                                                  () {});
                                                             },
                                                             effect: smooth_page_indicator
                                                                 .ExpandingDotsEffect(

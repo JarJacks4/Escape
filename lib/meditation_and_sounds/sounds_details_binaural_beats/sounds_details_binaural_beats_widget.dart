@@ -1,4 +1,4 @@
-import '/components/binauralbeats_details_widget.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -118,12 +118,13 @@ class _SoundsDetailsBinauralBeatsWidgetState
                             decoration: BoxDecoration(
                               gradient: LinearGradient(
                                 colors: [
+                                  Color(0xFFD2394E),
                                   FlutterFlowTheme.of(context).primary,
-                                  FlutterFlowTheme.of(context).tertiary
+                                  Color(0xFFEF39D4)
                                 ],
-                                stops: [0.0, 0.9],
-                                begin: AlignmentDirectional(0.0, -1.0),
-                                end: AlignmentDirectional(0, 1.0),
+                                stops: [0.0, 0.0, 0.5],
+                                begin: AlignmentDirectional(1.0, -0.77),
+                                end: AlignmentDirectional(-1.0, 0.77),
                               ),
                               borderRadius: BorderRadius.only(
                                 bottomLeft: Radius.circular(30.0),
@@ -188,19 +189,240 @@ class _SoundsDetailsBinauralBeatsWidgetState
                             ),
                           ),
                         ),
-                        wrapWithModel(
-                          model: _model.binauralbeatsDetailsModel,
-                          updateCallback: () => setState(() {}),
-                          child: Hero(
-                            tag: 'details',
-                            transitionOnUserGestures: true,
-                            child: Material(
-                              color: Colors.transparent,
-                              child: BinauralbeatsDetailsWidget(
-                                details: () async {},
-                              ),
-                            ),
-                          ),
+                        FutureBuilder<ApiCallResponse>(
+                          future: YouTubeDataBinauralBeatsAPICopyCall.call(),
+                          builder: (context, snapshot) {
+                            // Customize what your widget looks like when it's loading.
+                            if (!snapshot.hasData) {
+                              return Center(
+                                child: SizedBox(
+                                  width: 50.0,
+                                  height: 50.0,
+                                  child: CircularProgressIndicator(
+                                    valueColor: AlwaysStoppedAnimation<Color>(
+                                      FlutterFlowTheme.of(context).primary,
+                                    ),
+                                  ),
+                                ),
+                              );
+                            }
+                            final listViewYouTubeDataBinauralBeatsAPICopyResponse =
+                                snapshot.data!;
+
+                            return Builder(
+                              builder: (context) {
+                                final binauralBeats = getJsonField(
+                                  listViewYouTubeDataBinauralBeatsAPICopyResponse
+                                      .jsonBody,
+                                  r'''$.items[:].snippet''',
+                                ).toList();
+
+                                return ListView.builder(
+                                  padding: EdgeInsets.zero,
+                                  primary: false,
+                                  shrinkWrap: true,
+                                  scrollDirection: Axis.vertical,
+                                  itemCount: binauralBeats.length,
+                                  itemBuilder: (context, binauralBeatsIndex) {
+                                    final binauralBeatsItem =
+                                        binauralBeats[binauralBeatsIndex];
+                                    return Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          5.0, 12.0, 5.0, 0.0),
+                                      child: Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                1.099,
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          boxShadow: [
+                                            BoxShadow(
+                                              blurRadius: 3.0,
+                                              color: Color(0x25000000),
+                                              offset: Offset(
+                                                0.0,
+                                                2.0,
+                                              ),
+                                            )
+                                          ],
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                        ),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            Hero(
+                                              tag: getJsonField(
+                                                binauralBeatsItem,
+                                                r'''$.thumbnails.default.url''',
+                                              ).toString(),
+                                              transitionOnUserGestures: true,
+                                              child: ClipRRect(
+                                                borderRadius: BorderRadius.only(
+                                                  bottomLeft:
+                                                      Radius.circular(5.0),
+                                                  bottomRight:
+                                                      Radius.circular(0.0),
+                                                  topLeft: Radius.circular(5.0),
+                                                  topRight:
+                                                      Radius.circular(0.0),
+                                                ),
+                                                child: Image.network(
+                                                  getJsonField(
+                                                    binauralBeatsItem,
+                                                    r'''$.thumbnails.default.url''',
+                                                  ).toString(),
+                                                  width: 112.0,
+                                                  height: 112.0,
+                                                  fit: BoxFit.cover,
+                                                ),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(8.0, 8.0, 4.0, 8.0),
+                                              child: Container(
+                                                width: 4.0,
+                                                height: 90.0,
+                                                decoration: BoxDecoration(
+                                                  color: Color(0xFF4B39EF),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          4.0),
+                                                ),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      12.0, 12.0, 16.0, 12.0),
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    valueOrDefault<String>(
+                                                      getJsonField(
+                                                        binauralBeatsItem,
+                                                        r'''$.title''',
+                                                      )?.toString(),
+                                                      'Title',
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .headlineMedium
+                                                        .override(
+                                                          fontFamily: 'Outfit',
+                                                          color:
+                                                              Color(0xFF101213),
+                                                          fontSize: 16.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w500,
+                                                        ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 4.0,
+                                                                0.0, 0.0),
+                                                    child: Text(
+                                                      valueOrDefault<String>(
+                                                        getJsonField(
+                                                          binauralBeatsItem,
+                                                          r'''$.channelTitle''',
+                                                        )?.toString(),
+                                                        'ChannelTitle',
+                                                      ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodySmall
+                                                          .override(
+                                                            fontFamily:
+                                                                'Outfit',
+                                                            color: Color(
+                                                                0xFF57636C),
+                                                            fontSize: 14.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .normal,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 4.0,
+                                                                0.0, 0.0),
+                                                    child: InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        logFirebaseEvent(
+                                                            'SOUNDS_DETAILS_BINAURAL_BEATS_Text_dsu6f');
+                                                        logFirebaseEvent(
+                                                            'Text_navigate_to');
+
+                                                        context.pushNamed(
+                                                          'youtubetest',
+                                                          queryParameters: {
+                                                            'videoid':
+                                                                serializeParam(
+                                                              getJsonField(
+                                                                binauralBeatsItem,
+                                                                r'''$.resource.videoId''',
+                                                              ).toString(),
+                                                              ParamType.String,
+                                                            ),
+                                                          }.withoutNulls,
+                                                        );
+                                                      },
+                                                      child: Text(
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          'm2s6hak9' /* Click Here to Play */,
+                                                        ),
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Outfit',
+                                                              color: Color(
+                                                                  0xFF4B39EF),
+                                                              fontSize: 14.0,
+                                                              letterSpacing:
+                                                                  0.0,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
+                                                            ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                );
+                              },
+                            );
+                          },
                         ),
                       ],
                     ),

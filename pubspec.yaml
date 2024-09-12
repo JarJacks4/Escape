@@ -32,6 +32,7 @@ dependencies:
   auto_size_text: 3.0.0
   cached_network_image: 3.3.1
   carousel_slider: 4.2.1
+  chewie: 1.8.1
   cloud_firestore: 4.17.3
   cloud_firestore_platform_interface: 6.2.3
   cloud_firestore_web: 3.12.3
@@ -142,6 +143,7 @@ dependencies:
   webview_flutter_wkwebview: 3.12.0
   webviewx_plus: 0.5.0
   xml: 6.5.0
+  youtube_player_flutter: ^9.0.3
   youtube_player_iframe: 
     git:
       url: https://github.com/FlutterFlow/youtube_player_flutter.git

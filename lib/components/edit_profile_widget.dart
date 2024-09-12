@@ -228,7 +228,8 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                     selectedMedia.every((m) =>
                                         validateFileFormat(
                                             m.storagePath, context))) {
-                                  setState(() => _model.isDataUploading = true);
+                                  safeSetState(
+                                      () => _model.isDataUploading = true);
                                   var selectedUploadedFiles =
                                       <FFUploadedFile>[];
 
@@ -248,12 +249,12 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                   }
                                   if (selectedUploadedFiles.length ==
                                       selectedMedia.length) {
-                                    setState(() {
+                                    safeSetState(() {
                                       _model.uploadedLocalFile =
                                           selectedUploadedFiles.first;
                                     });
                                   } else {
-                                    setState(() {});
+                                    safeSetState(() {});
                                     return;
                                   }
                                 }

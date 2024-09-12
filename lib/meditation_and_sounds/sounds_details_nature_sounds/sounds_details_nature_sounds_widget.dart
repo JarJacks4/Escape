@@ -1,9 +1,9 @@
 import '/backend/api_requests/api_calls.dart';
+import '/components/videoplayer_comp_copy_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/meditation_and_sounds/music_player_comp/music_player_comp_widget.dart';
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -120,12 +120,13 @@ class _SoundsDetailsNatureSoundsWidgetState
                             decoration: BoxDecoration(
                               gradient: LinearGradient(
                                 colors: [
-                                  FlutterFlowTheme.of(context).primary,
-                                  FlutterFlowTheme.of(context).tertiary
+                                  Color(0xFFFF4848),
+                                  Color(0xFFEF39D4),
+                                  Color(0xFFD2CB39)
                                 ],
-                                stops: [0.0, 0.9],
-                                begin: AlignmentDirectional(0.0, -1.0),
-                                end: AlignmentDirectional(0, 1.0),
+                                stops: [0.3, 0.7, 0.9],
+                                begin: AlignmentDirectional(1.0, -0.77),
+                                end: AlignmentDirectional(-1.0, 0.77),
                               ),
                               borderRadius: BorderRadius.only(
                                 bottomLeft: Radius.circular(30.0),
@@ -195,11 +196,7 @@ class _SoundsDetailsNatureSoundsWidgetState
                           height: 692.0,
                           decoration: BoxDecoration(),
                           child: FutureBuilder<ApiCallResponse>(
-                            future: YouTubeDataAPIBinauralBeatsCall.call(
-                              playlistId: 'PLyC3pcUWmqsTalfauEnixmkhUeV7g9TdU',
-                              apiKey: 'AIzaSyB7aTJq3vp0n_4k4ct5d4Z0jOjjAeqSQis',
-                              maxResults: '50',
-                            ),
+                            future: YouTubeDataAPIBaseCall.call(),
                             builder: (context, snapshot) {
                               // Customize what your widget looks like when it's loading.
                               if (!snapshot.hasData) {
@@ -215,14 +212,13 @@ class _SoundsDetailsNatureSoundsWidgetState
                                   ),
                                 );
                               }
-                              final listViewYouTubeDataAPIBinauralBeatsResponse =
+                              final listViewYouTubeDataAPIBaseResponse =
                                   snapshot.data!;
 
                               return Builder(
                                 builder: (context) {
                                   final binauralBeatsItems = getJsonField(
-                                    listViewYouTubeDataAPIBinauralBeatsResponse
-                                        .jsonBody,
+                                    listViewYouTubeDataAPIBaseResponse.jsonBody,
                                     r'''$.items[:].snippet''',
                                   ).toList().take(100).toList();
 
@@ -321,7 +317,7 @@ class _SoundsDetailsNatureSoundsWidgetState
                                                     Text(
                                                       getJsonField(
                                                         binauralBeatsItemsItem,
-                                                        r'''$.items[:].snippet.title''',
+                                                        r'''$.title''',
                                                       ).toString(),
                                                       style: FlutterFlowTheme
                                                               .of(context)
@@ -348,7 +344,7 @@ class _SoundsDetailsNatureSoundsWidgetState
                                                       child: Text(
                                                         getJsonField(
                                                           binauralBeatsItemsItem,
-                                                          r'''$.items[:].snippet.channelTitle''',
+                                                          r'''$.channelTitle''',
                                                         ).toString(),
                                                         style: FlutterFlowTheme
                                                                 .of(context)
@@ -388,36 +384,47 @@ class _SoundsDetailsNatureSoundsWidgetState
                                                           logFirebaseEvent(
                                                               'SOUNDS_DETAILS_NATURE_SOUNDS_Text_wafkbz');
                                                           logFirebaseEvent(
-                                                              'Text_navigate_to');
-
-                                                          context.pushNamed(
-                                                            'VideoPlayer',
-                                                            queryParameters: {
-                                                              'videoId':
-                                                                  serializeParam(
-                                                                getJsonField(
-                                                                  binauralBeatsItemsItem,
-                                                                  r'''$.items[:].snippet.resourceId.videoId''',
-                                                                ).toString(),
-                                                                ParamType
-                                                                    .String,
-                                                              ),
-                                                            }.withoutNulls,
-                                                            extra: <String,
-                                                                dynamic>{
-                                                              kTransitionInfoKey:
-                                                                  TransitionInfo(
-                                                                hasTransition:
-                                                                    true,
-                                                                transitionType:
-                                                                    PageTransitionType
-                                                                        .fade,
-                                                                duration: Duration(
-                                                                    milliseconds:
-                                                                        3),
-                                                              ),
+                                                              'Text_bottom_sheet');
+                                                          await showModalBottomSheet(
+                                                            isScrollControlled:
+                                                                true,
+                                                            backgroundColor:
+                                                                Colors
+                                                                    .transparent,
+                                                            context: context,
+                                                            builder: (context) {
+                                                              return WebViewAware(
+                                                                child:
+                                                                    GestureDetector(
+                                                                  onTap: () =>
+                                                                      FocusScope.of(
+                                                                              context)
+                                                                          .unfocus(),
+                                                                  child:
+                                                                      Padding(
+                                                                    padding: MediaQuery
+                                                                        .viewInsetsOf(
+                                                                            context),
+                                                                    child:
+                                                                        Container(
+                                                                      height: double
+                                                                          .infinity,
+                                                                      child:
+                                                                          VideoplayerCompCopyWidget(
+                                                                        parameter1:
+                                                                            getJsonField(
+                                                                          binauralBeatsItemsItem,
+                                                                          r'''$.resource.videoId''',
+                                                                        ).toString(),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              );
                                                             },
-                                                          );
+                                                          ).then((value) =>
+                                                              safeSetState(
+                                                                  () {}));
                                                         },
                                                         child: Text(
                                                           FFLocalizations.of(
@@ -497,7 +504,13 @@ class _SoundsDetailsNatureSoundsWidgetState
                                                                     height: double
                                                                         .infinity,
                                                                     child:
-                                                                        MusicPlayerCompWidget(),
+                                                                        VideoplayerCompCopyWidget(
+                                                                      parameter1:
+                                                                          getJsonField(
+                                                                        binauralBeatsItemsItem,
+                                                                        r'''$.resource.videoId''',
+                                                                      ).toString(),
+                                                                    ),
                                                                   ),
                                                                 ),
                                                               ),

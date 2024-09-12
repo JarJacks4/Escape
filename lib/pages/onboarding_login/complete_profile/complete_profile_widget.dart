@@ -139,8 +139,8 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
                                     'u8d952fj' /* Rather not say */,
                                   )
                                 ],
-                                onChanged: (val) =>
-                                    setState(() => _model.dropDownValue = val),
+                                onChanged: (val) => safeSetState(
+                                    () => _model.dropDownValue = val),
                                 width: 180.0,
                                 height: 50.0,
                                 textStyle: FlutterFlowTheme.of(context)
@@ -421,7 +421,7 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
                         },
                         child: wrapWithModel(
                           model: _model.primaryButtonModel,
-                          updateCallback: () => setState(() {}),
+                          updateCallback: () => safeSetState(() {}),
                           child: PrimaryButtonWidget(
                             buttonText: 'Next',
                           ),

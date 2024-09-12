@@ -53,7 +53,7 @@ class _EventsFINALWidgetState extends State<EventsFINALWidget> {
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+        backgroundColor: Colors.white,
         body: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
@@ -110,9 +110,26 @@ class _EventsFINALWidgetState extends State<EventsFINALWidget> {
                               borderRadius: BorderRadius.circular(22.0),
                             ),
                             child: Container(
-                              height: 200.0,
+                              height: 251.0,
                               decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                  colors: [
+                                    FlutterFlowTheme.of(context).primary,
+                                    FlutterFlowTheme.of(context).secondary
+                                  ],
+                                  stops: [0.0, 1.0],
+                                  begin: AlignmentDirectional(0.0, -1.0),
+                                  end: AlignmentDirectional(0, 1.0),
+                                ),
                                 borderRadius: BorderRadius.circular(22.0),
+                              ),
+                              child: Container(
+                                width: 375.0,
+                                height: 230.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                ),
                               ),
                             ),
                           ),
@@ -158,7 +175,9 @@ class _EventsFINALWidgetState extends State<EventsFINALWidget> {
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Inter',
-                                                color: Colors.white,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
                                                 fontSize: 22.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
@@ -219,7 +238,9 @@ class _EventsFINALWidgetState extends State<EventsFINALWidget> {
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Inter',
-                                              color: Color(0x7BFFFFFF),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
                                               fontSize: 14.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w300,
@@ -251,7 +272,8 @@ class _EventsFINALWidgetState extends State<EventsFINALWidget> {
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Inter',
-                                            color: Color(0x7BFFFFFF),
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w300,
                                           ),
@@ -285,7 +307,8 @@ class _EventsFINALWidgetState extends State<EventsFINALWidget> {
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Inter',
-                                        color: Colors.white,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
                                         fontSize: 20.0,
                                         letterSpacing: 0.0,
                                       ),
@@ -303,7 +326,8 @@ class _EventsFINALWidgetState extends State<EventsFINALWidget> {
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Inter',
-                                  color: Color(0x7BFFFFFF),
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w300,
                                 ),

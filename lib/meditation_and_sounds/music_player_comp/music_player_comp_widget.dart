@@ -29,7 +29,7 @@ class _MusicPlayerCompWidgetState extends State<MusicPlayerCompWidget> {
     super.initState();
     _model = createModel(context, () => MusicPlayerCompModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -270,7 +270,8 @@ class _MusicPlayerCompWidgetState extends State<MusicPlayerCompWidget> {
                                 max: 9.0,
                                 value: _model.sliderValue ??= 9.0,
                                 onChanged: (newValue) {
-                                  setState(() => _model.sliderValue = newValue);
+                                  safeSetState(
+                                      () => _model.sliderValue = newValue);
                                 },
                               ),
                             ),

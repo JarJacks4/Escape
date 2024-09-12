@@ -1,5 +1,4 @@
 import '/components/side_nav_widget.dart';
-import '/components/sounds_comp/sounds_comp_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -44,7 +43,7 @@ class _HeaderMainSoundsWidgetState extends State<HeaderMainSoundsWidget> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: double.infinity,
+      height: MediaQuery.sizeOf(context).height * 0.309,
       decoration: BoxDecoration(
         color: Color(0x00FCFFF9),
         borderRadius: BorderRadius.circular(15.0),
@@ -66,120 +65,125 @@ class _HeaderMainSoundsWidgetState extends State<HeaderMainSoundsWidget> {
                             mainAxisSize: MainAxisSize.max,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    5.0, 44.0, 8.0, 0.0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    Align(
-                                      alignment:
-                                          AlignmentDirectional(-1.0, -1.0),
-                                      child: Padding(
+                              Flexible(
+                                flex: 1,
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      5.0, 44.0, 8.0, 0.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(-1.0, -1.0),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 175.0, 0.0),
+                                          child: FlutterFlowIconButton(
+                                            borderColor: Colors.transparent,
+                                            borderRadius: 30.0,
+                                            borderWidth: 1.0,
+                                            buttonSize: 56.0,
+                                            icon: Icon(
+                                              Icons.menu_rounded,
+                                              color: Color(0xFFECD8E3),
+                                              size: 36.0,
+                                            ),
+                                            onPressed: () async {
+                                              logFirebaseEvent(
+                                                  'HEADER_MAIN_SOUNDS_menu_rounded_ICN_ON_T');
+                                              logFirebaseEvent(
+                                                  'IconButton_bottom_sheet');
+                                              await showModalBottomSheet(
+                                                isScrollControlled: true,
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                enableDrag: false,
+                                                context: context,
+                                                builder: (context) {
+                                                  return WebViewAware(
+                                                    child: Padding(
+                                                      padding: MediaQuery
+                                                          .viewInsetsOf(
+                                                              context),
+                                                      child: SideNavWidget(),
+                                                    ),
+                                                  );
+                                                },
+                                              ).then((value) =>
+                                                  safeSetState(() {}));
+                                            },
+                                          ),
+                                        ),
+                                      ),
+                                      Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 175.0, 0.0),
+                                            0.0, 0.0, 15.0, 0.0),
                                         child: FlutterFlowIconButton(
                                           borderColor: Colors.transparent,
                                           borderRadius: 30.0,
                                           borderWidth: 1.0,
-                                          buttonSize: 56.0,
+                                          buttonSize: 52.0,
+                                          fillColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .alternate,
                                           icon: Icon(
-                                            Icons.menu_rounded,
-                                            color: Color(0xFFECD8E3),
+                                            Icons.notifications,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryBackground,
                                             size: 36.0,
                                           ),
-                                          onPressed: () async {
-                                            logFirebaseEvent(
-                                                'HEADER_MAIN_SOUNDS_menu_rounded_ICN_ON_T');
-                                            logFirebaseEvent(
-                                                'IconButton_bottom_sheet');
-                                            await showModalBottomSheet(
-                                              isScrollControlled: true,
-                                              backgroundColor:
-                                                  Colors.transparent,
-                                              enableDrag: false,
-                                              context: context,
-                                              builder: (context) {
-                                                return WebViewAware(
-                                                  child: Padding(
-                                                    padding:
-                                                        MediaQuery.viewInsetsOf(
-                                                            context),
-                                                    child: SideNavWidget(),
-                                                  ),
-                                                );
-                                              },
-                                            ).then(
-                                                (value) => safeSetState(() {}));
+                                          onPressed: () {
+                                            print('IconButton pressed ...');
                                           },
                                         ),
                                       ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 15.0, 0.0),
-                                      child: FlutterFlowIconButton(
-                                        borderColor: Colors.transparent,
-                                        borderRadius: 30.0,
-                                        borderWidth: 1.0,
-                                        buttonSize: 52.0,
-                                        fillColor: FlutterFlowTheme.of(context)
-                                            .alternate,
-                                        icon: Icon(
-                                          Icons.notifications,
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryBackground,
-                                          size: 36.0,
-                                        ),
-                                        onPressed: () {
-                                          print('IconButton pressed ...');
-                                        },
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 25.0, 0.0),
-                                      child: InkWell(
-                                        splashColor: Colors.transparent,
-                                        focusColor: Colors.transparent,
-                                        hoverColor: Colors.transparent,
-                                        highlightColor: Colors.transparent,
-                                        onTap: () async {
-                                          logFirebaseEvent(
-                                              'HEADER_MAIN_SOUNDS_userAvatar_ON_TAP');
-                                          logFirebaseEvent(
-                                              'userAvatar_navigate_to');
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 25.0, 0.0),
+                                        child: InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            logFirebaseEvent(
+                                                'HEADER_MAIN_SOUNDS_userAvatar_ON_TAP');
+                                            logFirebaseEvent(
+                                                'userAvatar_navigate_to');
 
-                                          context.pushNamed(
-                                            'ProfilePage',
-                                            extra: <String, dynamic>{
-                                              kTransitionInfoKey:
-                                                  TransitionInfo(
-                                                hasTransition: true,
-                                                transitionType:
-                                                    PageTransitionType.fade,
-                                                duration:
-                                                    Duration(milliseconds: 3),
-                                              ),
-                                            },
-                                          );
-                                        },
-                                        child: Container(
-                                          width: 60.0,
-                                          height: 60.0,
-                                          clipBehavior: Clip.antiAlias,
-                                          decoration: BoxDecoration(
-                                            shape: BoxShape.circle,
-                                          ),
-                                          child: Image.network(
-                                            'https://images.unsplash.com/photo-1611590027211-b954fd027b51?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1338&q=80',
-                                            fit: BoxFit.cover,
+                                            context.pushNamed(
+                                              'ProfilePage',
+                                              extra: <String, dynamic>{
+                                                kTransitionInfoKey:
+                                                    TransitionInfo(
+                                                  hasTransition: true,
+                                                  transitionType:
+                                                      PageTransitionType.fade,
+                                                  duration:
+                                                      Duration(milliseconds: 3),
+                                                ),
+                                              },
+                                            );
+                                          },
+                                          child: Container(
+                                            width: 60.0,
+                                            height: 60.0,
+                                            clipBehavior: Clip.antiAlias,
+                                            decoration: BoxDecoration(
+                                              shape: BoxShape.circle,
+                                            ),
+                                            child: Image.network(
+                                              'https://images.unsplash.com/photo-1611590027211-b954fd027b51?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1338&q=80',
+                                              fit: BoxFit.cover,
+                                            ),
                                           ),
                                         ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               ),
                               Padding(
@@ -227,7 +231,8 @@ class _HeaderMainSoundsWidgetState extends State<HeaderMainSoundsWidget> {
                                         letterSpacing: 0.0,
                                       ),
                                   colors: [
-                                    FlutterFlowTheme.of(context).primary,
+                                    FlutterFlowTheme.of(context)
+                                        .primaryBackground,
                                     FlutterFlowTheme.of(context).secondary
                                   ],
                                   gradientDirection: GradientDirection.ltr,
@@ -252,13 +257,8 @@ class _HeaderMainSoundsWidgetState extends State<HeaderMainSoundsWidget> {
               alignment: AlignmentDirectional(0.0, 0.34),
               child: Container(
                 width: 437.0,
-                height: 874.0,
+                height: 809.0,
                 decoration: BoxDecoration(),
-                child: wrapWithModel(
-                  model: _model.soundsCompModel,
-                  updateCallback: () => setState(() {}),
-                  child: SoundsCompWidget(),
-                ),
               ),
             ),
           ],

@@ -74,12 +74,12 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                 children: [
                   wrapWithModel(
                     model: _model.headerHomeModel,
-                    updateCallback: () => setState(() {}),
+                    updateCallback: () => safeSetState(() {}),
                     child: HeaderHomeWidget(),
                   ),
                   wrapWithModel(
                     model: _model.homeCompModel,
-                    updateCallback: () => setState(() {}),
+                    updateCallback: () => safeSetState(() {}),
                     child: HomeCompWidget(),
                   ),
                 ],
