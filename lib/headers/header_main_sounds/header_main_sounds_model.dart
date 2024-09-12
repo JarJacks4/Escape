@@ -1,5 +1,4 @@
 import '/components/side_nav_widget.dart';
-import '/components/sounds_comp/sounds_comp_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -11,18 +10,9 @@ import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 
 class HeaderMainSoundsModel extends FlutterFlowModel<HeaderMainSoundsWidget> {
-  ///  State fields for stateful widgets in this component.
-
-  // Model for SoundsComp component.
-  late SoundsCompModel soundsCompModel;
+  @override
+  void initState(BuildContext context) {}
 
   @override
-  void initState(BuildContext context) {
-    soundsCompModel = createModel(context, () => SoundsCompModel());
-  }
-
-  @override
-  void dispose() {
-    soundsCompModel.dispose();
-  }
+  void dispose() {}
 }

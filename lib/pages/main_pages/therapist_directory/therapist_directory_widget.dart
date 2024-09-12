@@ -31,7 +31,7 @@ class _TherapistDirectoryWidgetState extends State<TherapistDirectoryWidget> {
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'TherapistDirectory'});
     getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
-        .then((loc) => setState(() => currentUserLocationValue = loc));
+        .then((loc) => safeSetState(() => currentUserLocationValue = loc));
   }
 
   @override
@@ -73,7 +73,7 @@ class _TherapistDirectoryWidgetState extends State<TherapistDirectoryWidget> {
             Expanded(
               child: FlutterFlowGoogleMap(
                 controller: _model.therapistDirectoryMapsController,
-                onCameraIdle: (latLng) => setState(
+                onCameraIdle: (latLng) => safeSetState(
                     () => _model.therapistDirectoryMapsCenter = latLng),
                 initialLocation: _model.therapistDirectoryMapsCenter ??=
                     currentUserLocationValue!,

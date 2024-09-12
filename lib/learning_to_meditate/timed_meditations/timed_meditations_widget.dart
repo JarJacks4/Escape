@@ -60,7 +60,7 @@ class _TimedMeditationsWidgetState extends State<TimedMeditationsWidget> {
                     PageView(
                       controller: _model.pageViewController ??=
                           PageController(initialPage: 0),
-                      onPageChanged: (_) => setState(() {}),
+                      onPageChanged: (_) => safeSetState(() {}),
                       scrollDirection: Axis.horizontal,
                       children: [
                         Container(
@@ -216,7 +216,7 @@ class _TimedMeditationsWidgetState extends State<TimedMeditationsWidget> {
                                             model: _model
                                                 .environmentChoiceCarouselModel,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child:
                                                 EnvironmentChoiceCarouselWidget(),
                                           ),
@@ -423,7 +423,7 @@ Woul... */
                                           child: wrapWithModel(
                                             model: _model.timeCarouselCopyModel,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: TimeCarouselCopyWidget(),
                                           ),
                                         ),
@@ -657,7 +657,7 @@ You Have to Med... */
                                             model:
                                                 _model.meditationCarouselModel,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: Hero(
                                               tag: 'TimeCarousel',
                                               transitionOnUserGestures: true,
@@ -742,7 +742,7 @@ How... */
                               duration: Duration(milliseconds: 500),
                               curve: Curves.ease,
                             );
-                            setState(() {});
+                            safeSetState(() {});
                           },
                           effect: smooth_page_indicator.ExpandingDotsEffect(
                             expansionFactor: 4.0,

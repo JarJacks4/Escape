@@ -1161,7 +1161,7 @@ class _UserCommunityOnboardingWidgetState
                                                                       )
                                                                     ],
                                                                     onChanged: (val) =>
-                                                                        setState(() =>
+                                                                        safeSetState(() =>
                                                                             _model.dropDownValue =
                                                                                 val),
                                                                     width:
@@ -1954,7 +1954,7 @@ class _UserCommunityOnboardingWidgetState
                                                             )
                                                           ],
                                                           onChanged: (val) =>
-                                                              setState(() =>
+                                                              safeSetState(() =>
                                                                   _model.checkboxGroupValues1 =
                                                                       val),
                                                           controller: _model
@@ -2296,7 +2296,7 @@ class _UserCommunityOnboardingWidgetState
                                                             )
                                                           ],
                                                           onChanged: (val) =>
-                                                              setState(() =>
+                                                              safeSetState(() =>
                                                                   _model.checkboxGroupValues2 =
                                                                       val),
                                                           controller: _model
@@ -2479,7 +2479,7 @@ class _UserCommunityOnboardingWidgetState
                         duration: Duration(milliseconds: 500),
                         curve: Curves.ease,
                       );
-                      setState(() {});
+                      safeSetState(() {});
                     },
                     effect: smooth_page_indicator.ExpandingDotsEffect(
                       expansionFactor: 2.0,

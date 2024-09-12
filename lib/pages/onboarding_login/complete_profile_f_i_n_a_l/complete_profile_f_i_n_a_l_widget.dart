@@ -182,8 +182,9 @@ class _CompleteProfileFINALWidgetState
                                                 'y88hst6n' /* Rather not say */,
                                               )
                                             ],
-                                            onChanged: (val) => setState(() =>
-                                                _model.dropDownValue1 = val),
+                                            onChanged: (val) => safeSetState(
+                                                () => _model.dropDownValue1 =
+                                                    val),
                                             width: 180.0,
                                             height: 50.0,
                                             textStyle:
@@ -513,7 +514,7 @@ class _CompleteProfileFINALWidgetState
                                     },
                                     child: wrapWithModel(
                                       model: _model.primaryButtonModel1,
-                                      updateCallback: () => setState(() {}),
+                                      updateCallback: () => safeSetState(() {}),
                                       child: PrimaryButtonWidget(
                                         buttonText: 'Next',
                                       ),
@@ -616,7 +617,8 @@ class _CompleteProfileFINALWidgetState
                               if (selectedMedia != null &&
                                   selectedMedia.every((m) => validateFileFormat(
                                       m.storagePath, context))) {
-                                setState(() => _model.isDataUploading = true);
+                                safeSetState(
+                                    () => _model.isDataUploading = true);
                                 var selectedUploadedFiles = <FFUploadedFile>[];
 
                                 try {
@@ -634,12 +636,12 @@ class _CompleteProfileFINALWidgetState
                                 }
                                 if (selectedUploadedFiles.length ==
                                     selectedMedia.length) {
-                                  setState(() {
+                                  safeSetState(() {
                                     _model.uploadedLocalFile =
                                         selectedUploadedFiles.first;
                                   });
                                 } else {
-                                  setState(() {});
+                                  safeSetState(() {});
                                   return;
                                 }
                               }
@@ -751,8 +753,9 @@ class _CompleteProfileFINALWidgetState
                                                 'zao1yu9e' /* Self-Care Provider */,
                                               )
                                             ],
-                                            onChanged: (val) => setState(() =>
-                                                _model.dropDownValue2 = val),
+                                            onChanged: (val) => safeSetState(
+                                                () => _model.dropDownValue2 =
+                                                    val),
                                             width: 180.0,
                                             height: 50.0,
                                             textStyle:
@@ -1082,7 +1085,7 @@ class _CompleteProfileFINALWidgetState
                                     },
                                     child: wrapWithModel(
                                       model: _model.primaryButtonModel2,
-                                      updateCallback: () => setState(() {}),
+                                      updateCallback: () => safeSetState(() {}),
                                       child: PrimaryButtonWidget(
                                         buttonText: 'Next',
                                       ),
@@ -1113,7 +1116,7 @@ class _CompleteProfileFINALWidgetState
                         duration: Duration(milliseconds: 500),
                         curve: Curves.ease,
                       );
-                      setState(() {});
+                      safeSetState(() {});
                     },
                     effect: smooth_page_indicator.ExpandingDotsEffect(
                       expansionFactor: 3.0,

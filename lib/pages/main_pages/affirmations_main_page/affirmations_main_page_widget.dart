@@ -81,7 +81,7 @@ class _AffirmationsMainPageWidgetState
                   decoration: BoxDecoration(),
                   child: wrapWithModel(
                     model: _model.headerAffirmationsModel,
-                    updateCallback: () => setState(() {}),
+                    updateCallback: () => safeSetState(() {}),
                     child: HeaderAffirmationsWidget(),
                   ),
                 ),
@@ -90,7 +90,7 @@ class _AffirmationsMainPageWidgetState
                     padding: EdgeInsets.all(8.0),
                     child: wrapWithModel(
                       model: _model.tabbarHomeAffirmationsModel,
-                      updateCallback: () => setState(() {}),
+                      updateCallback: () => safeSetState(() {}),
                       updateOnChange: true,
                       child: Hero(
                         tag: 'TabBar',

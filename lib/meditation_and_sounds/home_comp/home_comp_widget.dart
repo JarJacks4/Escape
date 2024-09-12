@@ -206,7 +206,7 @@ Meditations */
                               image: DecorationImage(
                                 fit: BoxFit.cover,
                                 image: Image.network(
-                                  'https://images.unsplash.com/photo-1617791160536-598cf32026fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwxfHxicmFpbnxlbnwwfHx8fDE3MDkwMTM0NzR8MA&ixlib=rb-4.0.3&q=80&w=1080',
+                                  'https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHw0fHxmb2N1c3xlbnwwfHx8fDE3MjU1NDkyNzN8MA&ixlib=rb-4.0.3&q=80&w=1080',
                                 ).image,
                               ),
                               borderRadius: BorderRadius.circular(15.0),
@@ -298,7 +298,7 @@ Meditations */
                               image: DecorationImage(
                                 fit: BoxFit.cover,
                                 image: Image.network(
-                                  'https://images.unsplash.com/photo-1604881991720-f91add269bed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHw0fHx0aGVyYXB5fGVufDB8fHx8MTcwOTA2MTk3MXww&ixlib=rb-4.0.3&q=80&w=1080',
+                                  'https://images.unsplash.com/photo-1716637644831-e046c73be197?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwyNHx8YXJ0aWZpY2lhbCUyMGludGVsbGlnZW5jZXxlbnwwfHx8fDE3MjU1NDU4MDh8MA&ixlib=rb-4.0.3&q=80&w=1080',
                                 ).image,
                               ),
                               borderRadius: BorderRadius.circular(15.0),
@@ -350,7 +350,7 @@ Meditations */
                                             child: Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                '0dochtsl' /* Therapy Directory */,
+                                                '0dochtsl' /* Self-Care AI: Lucille */,
                                               ),
                                               textAlign: TextAlign.center,
                                               style:
@@ -390,7 +390,7 @@ Meditations */
                               image: DecorationImage(
                                 fit: BoxFit.cover,
                                 image: Image.network(
-                                  'https://images.unsplash.com/photo-1533228876829-65c94e7b5025?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHw0fHxoYXBwaW5lc3N8ZW58MHx8fHwxNzA5MDYxOTk5fDA&ixlib=rb-4.0.3&q=80&w=1080',
+                                  'https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwyfHxwcm9maWxlfGVufDB8fHx8MTcyNTQ5MzQzNnww&ixlib=rb-4.0.3&q=80&w=1080',
                                 ).image,
                               ),
                               borderRadius: BorderRadius.circular(15.0),

@@ -413,7 +413,7 @@ class _Header02BusinessSummaryWidgetState
                                   duration: Duration(milliseconds: 500),
                                   curve: Curves.ease,
                                 );
-                                setState(() {});
+                                safeSetState(() {});
                               },
                               effect: smooth_page_indicator.ExpandingDotsEffect(
                                 expansionFactor: 2.0,

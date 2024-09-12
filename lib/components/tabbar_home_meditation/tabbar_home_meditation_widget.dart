@@ -1,4 +1,4 @@
-import '/backend/api_requests/api_calls.dart';
+import '/components/meditation_help_comp_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_button_tabbar.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -10,9 +10,9 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'tabbar_home_meditation_model.dart';
 export 'tabbar_home_meditation_model.dart';
 
@@ -45,7 +45,7 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
       vsync: this,
       length: 5,
       initialIndex: 0,
-    )..addListener(() => setState(() {}));
+    )..addListener(() => safeSetState(() {}));
     animationsMap.addAll({
       'containerOnPageLoadAnimation1': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
@@ -1325,38 +1325,78 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
-                                          Flexible(
+                                          Expanded(
                                             flex: 1,
-                                            child: Container(
-                                              width: 179.0,
-                                              height: 69.0,
-                                              decoration: BoxDecoration(
-                                                color: Color(0xAE6450A5),
-                                                borderRadius:
-                                                    BorderRadius.circular(15.0),
-                                              ),
-                                              child: Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
-                                                child: Padding(
-                                                  padding: EdgeInsets.all(11.0),
-                                                  child: Text(
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                      '43h056s4' /* How to Meditate */,
-                                                    ),
-                                                    textAlign: TextAlign.center,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryBackground,
-                                                          fontSize: 20.0,
-                                                          letterSpacing: 0.0,
+                                            child: InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                logFirebaseEvent(
+                                                    'TABBAR_HOME_MEDITATION_Container_estzhi1');
+                                                logFirebaseEvent(
+                                                    'Container_bottom_sheet');
+                                                await showModalBottomSheet(
+                                                  isScrollControlled: true,
+                                                  backgroundColor:
+                                                      Colors.transparent,
+                                                  context: context,
+                                                  builder: (context) {
+                                                    return WebViewAware(
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child: Container(
+                                                          height:
+                                                              double.infinity,
+                                                          child:
+                                                              MeditationHelpCompWidget(),
                                                         ),
+                                                      ),
+                                                    );
+                                                  },
+                                                ).then((value) =>
+                                                    safeSetState(() {}));
+                                              },
+                                              child: Container(
+                                                width: 179.0,
+                                                height: 69.0,
+                                                decoration: BoxDecoration(
+                                                  color: Color(0xAE6450A5),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          15.0),
+                                                ),
+                                                child: Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          0.0, 0.0),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsets.all(11.0),
+                                                    child: Text(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        '43h056s4' /* How to Meditate */,
+                                                      ),
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily: 'Inter',
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryBackground,
+                                                            fontSize: 20.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
+                                                    ),
                                                   ),
                                                 ),
                                               ),
@@ -1394,36 +1434,69 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
                                         children: [
                                           Flexible(
                                             flex: 1,
-                                            child: Container(
-                                              width: 192.0,
-                                              height: 69.0,
-                                              decoration: BoxDecoration(
-                                                color: Color(0xAE6450A5),
-                                                borderRadius:
-                                                    BorderRadius.circular(15.0),
-                                              ),
-                                              child: Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
-                                                child: Padding(
-                                                  padding: EdgeInsets.all(11.0),
-                                                  child: Text(
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                      'i3yqwv7e' /* Uplift & Awareness */,
+                                            child: InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                logFirebaseEvent(
+                                                    'TABBAR_HOME_MEDITATION_Container_7wo5flp');
+                                                logFirebaseEvent(
+                                                    'Container_navigate_to');
+
+                                                context.pushNamed(
+                                                  'UpliftandAwareness',
+                                                  extra: <String, dynamic>{
+                                                    kTransitionInfoKey:
+                                                        TransitionInfo(
+                                                      hasTransition: true,
+                                                      transitionType:
+                                                          PageTransitionType
+                                                              .fade,
+                                                      duration: Duration(
+                                                          milliseconds: 2),
                                                     ),
-                                                    textAlign: TextAlign.center,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryBackground,
-                                                          fontSize: 20.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                  },
+                                                );
+                                              },
+                                              child: Container(
+                                                width: 192.0,
+                                                height: 69.0,
+                                                decoration: BoxDecoration(
+                                                  color: Color(0xAE6450A5),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          15.0),
+                                                ),
+                                                child: Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          0.0, 0.0),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsets.all(11.0),
+                                                    child: Text(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'i3yqwv7e' /* Uplift & Awareness */,
+                                                      ),
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily: 'Inter',
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryBackground,
+                                                            fontSize: 20.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
+                                                    ),
                                                   ),
                                                 ),
                                               ),
@@ -1461,36 +1534,69 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
                                         children: [
                                           Flexible(
                                             flex: 1,
-                                            child: Container(
-                                              width: 192.0,
-                                              height: 69.0,
-                                              decoration: BoxDecoration(
-                                                color: Color(0xAE6450A5),
-                                                borderRadius:
-                                                    BorderRadius.circular(15.0),
-                                              ),
-                                              child: Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
-                                                child: Padding(
-                                                  padding: EdgeInsets.all(11.0),
-                                                  child: Text(
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                      '251v88nk' /* Using Vibration */,
+                                            child: InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                logFirebaseEvent(
+                                                    'TABBAR_HOME_MEDITATION_Container_d18ss3z');
+                                                logFirebaseEvent(
+                                                    'Container_navigate_to');
+
+                                                context.pushNamed(
+                                                  'UsingVibration',
+                                                  extra: <String, dynamic>{
+                                                    kTransitionInfoKey:
+                                                        TransitionInfo(
+                                                      hasTransition: true,
+                                                      transitionType:
+                                                          PageTransitionType
+                                                              .fade,
+                                                      duration: Duration(
+                                                          milliseconds: 2),
                                                     ),
-                                                    textAlign: TextAlign.center,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryBackground,
-                                                          fontSize: 20.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                  },
+                                                );
+                                              },
+                                              child: Container(
+                                                width: 192.0,
+                                                height: 69.0,
+                                                decoration: BoxDecoration(
+                                                  color: Color(0xAE6450A5),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          15.0),
+                                                ),
+                                                child: Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          0.0, 0.0),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsets.all(11.0),
+                                                    child: Text(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        '251v88nk' /* Using Vibration */,
+                                                      ),
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily: 'Inter',
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryBackground,
+                                                            fontSize: 20.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
+                                                    ),
                                                   ),
                                                 ),
                                               ),
@@ -1526,40 +1632,73 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
-                                          Flexible(
+                                          Expanded(
                                             flex: 1,
-                                            child: Container(
-                                              width: 179.0,
-                                              height: 69.0,
-                                              decoration: BoxDecoration(
-                                                color: Color(0xAE6450A5),
-                                                borderRadius:
-                                                    BorderRadius.circular(15.0),
-                                              ),
-                                              child: Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
-                                                child: Padding(
-                                                  padding: EdgeInsets.all(11.0),
-                                                  child: Text(
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                      'u50gh3w9' /* Eliminate
-Depression */
-                                                      ,
+                                            child: InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                logFirebaseEvent(
+                                                    'TABBAR_HOME_MEDITATION_Container_b21eza0');
+                                                logFirebaseEvent(
+                                                    'Container_navigate_to');
+
+                                                context.pushNamed(
+                                                  'EliminateDepression',
+                                                  extra: <String, dynamic>{
+                                                    kTransitionInfoKey:
+                                                        TransitionInfo(
+                                                      hasTransition: true,
+                                                      transitionType:
+                                                          PageTransitionType
+                                                              .fade,
+                                                      duration: Duration(
+                                                          milliseconds: 2),
                                                     ),
-                                                    textAlign: TextAlign.center,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryBackground,
-                                                          fontSize: 20.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                  },
+                                                );
+                                              },
+                                              child: Container(
+                                                width: 179.0,
+                                                height: 69.0,
+                                                decoration: BoxDecoration(
+                                                  color: Color(0xAE6450A5),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          15.0),
+                                                ),
+                                                child: Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          0.0, 0.0),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsets.all(11.0),
+                                                    child: Text(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'u50gh3w9' /* Eliminate
+Depression */
+                                                        ,
+                                                      ),
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily: 'Inter',
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryBackground,
+                                                            fontSize: 20.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
+                                                    ),
                                                   ),
                                                 ),
                                               ),
@@ -1622,93 +1761,37 @@ Depression */
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Expanded(
-                                          child: PagedListView<ApiPagingParams,
-                                              dynamic>(
-                                            pagingController:
-                                                _model.setListViewController1(
-                                              (nextPageMarker) =>
-                                                  YouTubeDataAPICall.call(
-                                                playlistId: nextPageMarker
-                                                    .numItems
-                                                    .toString(),
-                                              ),
-                                            ),
+                                          child: ListView(
                                             padding: EdgeInsets.zero,
-                                            reverse: false,
                                             scrollDirection: Axis.horizontal,
-                                            builderDelegate:
-                                                PagedChildBuilderDelegate<
-                                                    dynamic>(
-                                              // Customize what your widget looks like when it's loading the first page.
-                                              firstPageProgressIndicatorBuilder:
-                                                  (_) => Center(
-                                                child: SizedBox(
-                                                  width: 50.0,
+                                            children: [
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        10.0, 0.0, 0.0, 0.0),
+                                                child: Container(
+                                                  width: 70.0,
                                                   height: 50.0,
-                                                  child:
-                                                      CircularProgressIndicator(
-                                                    valueColor:
-                                                        AlwaysStoppedAnimation<
-                                                            Color>(
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .primary,
-                                                    ),
+                                                  decoration: BoxDecoration(
+                                                    color: Colors.transparent,
                                                   ),
-                                                ),
-                                              ),
-                                              // Customize what your widget looks like when it's loading another page.
-                                              newPageProgressIndicatorBuilder:
-                                                  (_) => Center(
-                                                child: SizedBox(
-                                                  width: 50.0,
-                                                  height: 50.0,
-                                                  child:
-                                                      CircularProgressIndicator(
-                                                    valueColor:
-                                                        AlwaysStoppedAnimation<
-                                                            Color>(
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .primary,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-
-                                              itemBuilder: (context, _,
-                                                  thumbnailsIndex) {
-                                                final thumbnailsItem = _model
-                                                    .listViewPagingController1!
-                                                    .itemList![thumbnailsIndex];
-                                                return Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          10.0, 0.0, 0.0, 0.0),
                                                   child: Container(
-                                                    width: 70.0,
-                                                    height: 50.0,
+                                                    width: 90.0,
+                                                    height: 90.0,
+                                                    clipBehavior:
+                                                        Clip.antiAlias,
                                                     decoration: BoxDecoration(
-                                                      color: Colors.transparent,
+                                                      shape: BoxShape.circle,
                                                     ),
-                                                    child: Container(
-                                                      width: 90.0,
-                                                      height: 90.0,
-                                                      clipBehavior:
-                                                          Clip.antiAlias,
-                                                      decoration: BoxDecoration(
-                                                        shape: BoxShape.circle,
-                                                      ),
-                                                      child: Image.asset(
-                                                        'assets/images/user3.png',
-                                                        fit: BoxFit.cover,
-                                                      ),
+                                                    child: Image.asset(
+                                                      'assets/images/user3.png',
+                                                      fit: BoxFit.cover,
                                                     ),
-                                                  ).animateOnPageLoad(animationsMap[
-                                                      'containerOnPageLoadAnimation1']!),
-                                                );
-                                              },
-                                            ),
+                                                  ),
+                                                ).animateOnPageLoad(animationsMap[
+                                                    'containerOnPageLoadAnimation1']!),
+                                              ),
+                                            ],
                                           ),
                                         ),
                                       ],
@@ -2239,153 +2322,102 @@ Depression */
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Expanded(
-                                            child: PagedListView<
-                                                ApiPagingParams, dynamic>(
-                                              pagingController:
-                                                  _model.setListViewController4(
-                                                (nextPageMarker) =>
-                                                    YouTubeDataAPICall.call(
-                                                  playlistId: nextPageMarker
-                                                      .numItems
-                                                      .toString(),
-                                                ),
-                                              ),
+                                            child: ListView(
                                               padding: EdgeInsets.zero,
                                               shrinkWrap: true,
-                                              reverse: false,
                                               scrollDirection: Axis.horizontal,
-                                              builderDelegate:
-                                                  PagedChildBuilderDelegate<
-                                                      dynamic>(
-                                                // Customize what your widget looks like when it's loading the first page.
-                                                firstPageProgressIndicatorBuilder:
-                                                    (_) => Center(
-                                                  child: SizedBox(
-                                                    width: 50.0,
-                                                    height: 50.0,
-                                                    child:
-                                                        CircularProgressIndicator(
-                                                      valueColor:
-                                                          AlwaysStoppedAnimation<
-                                                              Color>(
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .primary,
-                                                      ),
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 10.0, 0.0),
+                                                  child: Container(
+                                                    width: 100.0,
+                                                    height: 100.0,
+                                                    decoration: BoxDecoration(
+                                                      color: Color(0x50090F13),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              9.0),
                                                     ),
-                                                  ),
-                                                ),
-                                                // Customize what your widget looks like when it's loading another page.
-                                                newPageProgressIndicatorBuilder:
-                                                    (_) => Center(
-                                                  child: SizedBox(
-                                                    width: 50.0,
-                                                    height: 50.0,
-                                                    child:
-                                                        CircularProgressIndicator(
-                                                      valueColor:
-                                                          AlwaysStoppedAnimation<
-                                                              Color>(
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .primary,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-
-                                                itemBuilder: (context, _,
-                                                    anxietyMeditationsIndex) {
-                                                  final anxietyMeditationsItem =
-                                                      _model.listViewPagingController4!
-                                                              .itemList![
-                                                          anxietyMeditationsIndex];
-                                                  return Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                10.0, 0.0),
-                                                    child: Container(
-                                                      width: 100.0,
-                                                      height: 100.0,
-                                                      decoration: BoxDecoration(
-                                                        color:
-                                                            Color(0x50090F13),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(9.0),
-                                                      ),
-                                                      child: Column(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .center,
-                                                        children: [
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0.0,
-                                                                        0.0,
-                                                                        1.0,
-                                                                        0.0),
-                                                            child: ClipRRect(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          9.0),
-                                                              child:
-                                                                  Image.asset(
-                                                                'assets/images/user6.png',
-                                                                width: 100.0,
-                                                                height: 100.0,
-                                                                fit: BoxFit
-                                                                    .cover,
-                                                              ),
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      1.0,
+                                                                      0.0),
+                                                          child: ClipRRect(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        9.0),
+                                                            child: Image.asset(
+                                                              'assets/images/user6.png',
+                                                              width: 100.0,
+                                                              height: 100.0,
+                                                              fit: BoxFit.cover,
                                                             ),
                                                           ),
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        3.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      3.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child:
+                                                              AnimatedDefaultTextStyle(
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryBackground,
+                                                                  fontSize:
+                                                                      12.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .normal,
+                                                                ),
+                                                            duration: Duration(
+                                                                milliseconds:
+                                                                    600),
+                                                            curve:
+                                                                Curves.easeIn,
                                                             child: Text(
-                                                              anxietyMeditationsItem
-                                                                  .toString(),
+                                                              FFLocalizations.of(
+                                                                      context)
+                                                                  .getText(
+                                                                'cq33oc4l' /* Don´t Cry now */,
+                                                              ),
                                                               textAlign:
                                                                   TextAlign
                                                                       .center,
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Inter',
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primaryBackground,
-                                                                    fontSize:
-                                                                        12.0,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .normal,
-                                                                  ),
                                                             ),
                                                           ),
-                                                        ],
-                                                      ),
-                                                    ).animateOnPageLoad(
-                                                        animationsMap[
-                                                            'containerOnPageLoadAnimation8']!),
-                                                  );
-                                                },
-                                              ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ).animateOnPageLoad(animationsMap[
+                                                      'containerOnPageLoadAnimation8']!),
+                                                ),
+                                              ],
                                             ),
                                           ),
                                         ],

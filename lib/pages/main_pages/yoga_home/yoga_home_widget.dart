@@ -102,7 +102,7 @@ class _YogaHomeWidgetState extends State<YogaHomeWidget>
                     Expanded(
                       child: wrapWithModel(
                         model: _model.headerYogaModel,
-                        updateCallback: () => setState(() {}),
+                        updateCallback: () => safeSetState(() {}),
                         child: HeaderYogaWidget(),
                       ),
                     ),
@@ -111,7 +111,7 @@ class _YogaHomeWidgetState extends State<YogaHomeWidget>
                 Expanded(
                   child: wrapWithModel(
                     model: _model.tabbarHomeYogaModel,
-                    updateCallback: () => setState(() {}),
+                    updateCallback: () => safeSetState(() {}),
                     child: TabbarHomeYogaWidget(),
                   ),
                 ),

@@ -42,7 +42,7 @@ class _MeditationPlayerTimerWidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'MeditationPlayerTimer'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -266,7 +266,8 @@ class _MeditationPlayerTimerWidgetState
                                               shouldUpdate) {
                                             _model.timerMilliseconds = value;
                                             _model.timerValue = displayTime;
-                                            if (shouldUpdate) setState(() {});
+                                            if (shouldUpdate)
+                                              safeSetState(() {});
                                           },
                                           textAlign: TextAlign.center,
                                           style: FlutterFlowTheme.of(context)
@@ -301,7 +302,7 @@ class _MeditationPlayerTimerWidgetState
                                         icon: Icon(
                                           Icons.pause_rounded,
                                           color: FlutterFlowTheme.of(context)
-                                              .primaryText,
+                                              .error,
                                           size: 30.0,
                                         ),
                                         onPressed: () async {
@@ -323,7 +324,7 @@ class _MeditationPlayerTimerWidgetState
                                         icon: Icon(
                                           Icons.play_arrow_rounded,
                                           color: FlutterFlowTheme.of(context)
-                                              .primary,
+                                              .success,
                                           size: 36.0,
                                         ),
                                         onPressed: () async {
@@ -413,6 +414,9 @@ class _MeditationPlayerTimerWidgetState
                                                                 .override(
                                                                   fontFamily:
                                                                       'Roboto',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryBackground,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -463,6 +467,9 @@ class _MeditationPlayerTimerWidgetState
                                                                 .override(
                                                                   fontFamily:
                                                                       'Roboto',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryBackground,
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
@@ -480,6 +487,9 @@ class _MeditationPlayerTimerWidgetState
                                                                 .override(
                                                                   fontFamily:
                                                                       'Roboto',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryBackground,
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:

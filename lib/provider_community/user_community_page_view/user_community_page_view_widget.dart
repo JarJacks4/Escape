@@ -89,7 +89,7 @@ class _UserCommunityPageViewWidgetState
                 child: PageView(
                   controller: _model.pageViewController ??=
                       PageController(initialPage: 0),
-                  onPageChanged: (_) => setState(() {}),
+                  onPageChanged: (_) => safeSetState(() {}),
                   scrollDirection: Axis.horizontal,
                   children: [
                     Container(
@@ -131,7 +131,7 @@ class _UserCommunityPageViewWidgetState
                                 Expanded(
                                   child: wrapWithModel(
                                     model: _model.tabbarHomeCommunityModel,
-                                    updateCallback: () => setState(() {}),
+                                    updateCallback: () => safeSetState(() {}),
                                     child: TabbarHomeCommunityWidget(),
                                   ),
                                 ),

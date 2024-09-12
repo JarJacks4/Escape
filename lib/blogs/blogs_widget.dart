@@ -52,7 +52,7 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                 children: [
                   wrapWithModel(
                     model: _model.pageViewBlogsModel,
-                    updateCallback: () => setState(() {}),
+                    updateCallback: () => safeSetState(() {}),
                     child: PageViewBlogsWidget(),
                   ),
                   Column(

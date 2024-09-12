@@ -117,39 +117,44 @@ class _HeaderHomeWidgetState extends State<HeaderHomeWidget> {
                     },
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 22.0, 0.0),
-                  child: AuthUserStreamWidget(
-                    builder: (context) => InkWell(
-                      splashColor: Colors.transparent,
-                      focusColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () async {
-                        logFirebaseEvent('HEADER_HOME_COMP_userAvatar_ON_TAP');
-                        logFirebaseEvent('userAvatar_navigate_to');
+                Flexible(
+                  flex: 1,
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 22.0, 0.0),
+                    child: AuthUserStreamWidget(
+                      builder: (context) => InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          logFirebaseEvent(
+                              'HEADER_HOME_COMP_userAvatar_ON_TAP');
+                          logFirebaseEvent('userAvatar_navigate_to');
 
-                        context.pushNamed(
-                          'ProfilePage',
-                          extra: <String, dynamic>{
-                            kTransitionInfoKey: TransitionInfo(
-                              hasTransition: true,
-                              transitionType: PageTransitionType.fade,
-                              duration: Duration(milliseconds: 3),
-                            ),
-                          },
-                        );
-                      },
-                      child: Container(
-                        width: 60.0,
-                        height: 60.0,
-                        clipBehavior: Clip.antiAlias,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                        ),
-                        child: Image.network(
-                          currentUserPhoto,
-                          fit: BoxFit.cover,
+                          context.pushNamed(
+                            'ProfilePage',
+                            extra: <String, dynamic>{
+                              kTransitionInfoKey: TransitionInfo(
+                                hasTransition: true,
+                                transitionType: PageTransitionType.fade,
+                                duration: Duration(milliseconds: 3),
+                              ),
+                            },
+                          );
+                        },
+                        child: Container(
+                          width: 60.0,
+                          height: 60.0,
+                          clipBehavior: Clip.antiAlias,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                          ),
+                          child: Image.network(
+                            currentUserPhoto,
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
                     ),

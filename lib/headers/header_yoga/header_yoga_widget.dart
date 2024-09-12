@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/components/side_nav_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -81,12 +82,16 @@ class _HeaderYogaWidgetState extends State<HeaderYogaWidget> {
                             await showModalBottomSheet(
                               isScrollControlled: true,
                               backgroundColor: Colors.transparent,
+                              barrierColor: Color(0xBF000000),
                               context: context,
                               builder: (context) {
                                 return WebViewAware(
                                   child: Padding(
                                     padding: MediaQuery.viewInsetsOf(context),
-                                    child: SideNavWidget(),
+                                    child: Container(
+                                      height: double.infinity,
+                                      child: SideNavWidget(),
+                                    ),
                                   ),
                                 );
                               },
@@ -117,37 +122,39 @@ class _HeaderYogaWidgetState extends State<HeaderYogaWidget> {
                     Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 30.0, 0.0),
-                      child: InkWell(
-                        splashColor: Colors.transparent,
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () async {
-                          logFirebaseEvent(
-                              'HEADER_YOGA_COMP_userAvatar_ON_TAP');
-                          logFirebaseEvent('userAvatar_navigate_to');
+                      child: AuthUserStreamWidget(
+                        builder: (context) => InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            logFirebaseEvent(
+                                'HEADER_YOGA_COMP_userAvatar_ON_TAP');
+                            logFirebaseEvent('userAvatar_navigate_to');
 
-                          context.pushNamed(
-                            'ProfilePage',
-                            extra: <String, dynamic>{
-                              kTransitionInfoKey: TransitionInfo(
-                                hasTransition: true,
-                                transitionType: PageTransitionType.fade,
-                                duration: Duration(milliseconds: 3),
-                              ),
-                            },
-                          );
-                        },
-                        child: Container(
-                          width: 60.0,
-                          height: 60.0,
-                          clipBehavior: Clip.antiAlias,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                          ),
-                          child: Image.network(
-                            'https://images.unsplash.com/photo-1611590027211-b954fd027b51?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1338&q=80',
-                            fit: BoxFit.cover,
+                            context.pushNamed(
+                              'ProfilePage',
+                              extra: <String, dynamic>{
+                                kTransitionInfoKey: TransitionInfo(
+                                  hasTransition: true,
+                                  transitionType: PageTransitionType.fade,
+                                  duration: Duration(milliseconds: 3),
+                                ),
+                              },
+                            );
+                          },
+                          child: Container(
+                            width: 60.0,
+                            height: 60.0,
+                            clipBehavior: Clip.antiAlias,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                            ),
+                            child: Image.network(
+                              currentUserPhoto,
+                              fit: BoxFit.cover,
+                            ),
                           ),
                         ),
                       ),

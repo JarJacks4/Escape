@@ -29,7 +29,7 @@ class _Details15TimerWidgetState extends State<Details15TimerWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'Details15Timer'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -117,7 +117,7 @@ class _Details15TimerWidgetState extends State<Details15TimerWidget> {
                             onChanged: (value, displayTime, shouldUpdate) {
                               _model.timerMilliseconds = value;
                               _model.timerValue = displayTime;
-                              if (shouldUpdate) setState(() {});
+                              if (shouldUpdate) safeSetState(() {});
                             },
                             textAlign: TextAlign.center,
                             style: FlutterFlowTheme.of(context)

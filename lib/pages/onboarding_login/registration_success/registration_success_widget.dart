@@ -143,7 +143,7 @@ class _RegistrationSuccessWidgetState extends State<RegistrationSuccessWidget> {
                         },
                         child: wrapWithModel(
                           model: _model.primaryButtonModel,
-                          updateCallback: () => setState(() {}),
+                          updateCallback: () => safeSetState(() {}),
                           child: PrimaryButtonWidget(
                             buttonText: 'Go To Home',
                           ),

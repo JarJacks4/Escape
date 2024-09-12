@@ -702,7 +702,7 @@ With Meditati... */
                       logFirebaseEvent('ONBOARDING_Container_0dk592ls_ON_TAP');
                       logFirebaseEvent('Container_update_page_state');
                       _model.page = _model.page! + 0.25;
-                      setState(() {});
+                      safeSetState(() {});
                       logFirebaseEvent('Container_page_view');
                       await _model.pageViewController?.nextPage(
                         duration: Duration(milliseconds: 300),
@@ -722,7 +722,7 @@ With Meditati... */
                           children: [
                             wrapWithModel(
                               model: _model.onboardingButtonModel1,
-                              updateCallback: () => setState(() {}),
+                              updateCallback: () => safeSetState(() {}),
                               child: OnboardingButtonWidget(),
                             ),
                             InkWell(
@@ -795,7 +795,7 @@ With Meditati... */
                           children: [
                             wrapWithModel(
                               model: _model.onboardingButtonModel2,
-                              updateCallback: () => setState(() {}),
+                              updateCallback: () => safeSetState(() {}),
                               child: OnboardingButtonWidget(),
                             ),
                             CircularPercentIndicator(

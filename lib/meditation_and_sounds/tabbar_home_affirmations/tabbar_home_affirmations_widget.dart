@@ -38,7 +38,7 @@ class _TabbarHomeAffirmationsWidgetState
       vsync: this,
       length: 12,
       initialIndex: 0,
-    )..addListener(() => setState(() {}));
+    )..addListener(() => safeSetState(() {}));
   }
 
   @override
@@ -277,7 +277,7 @@ class _TabbarHomeAffirmationsWidgetState
                                                   Duration(milliseconds: 500),
                                               curve: Curves.ease,
                                             );
-                                            setState(() {});
+                                            safeSetState(() {});
                                           },
                                           effect:
                                               smooth_page_indicator.SlideEffect(
@@ -305,7 +305,7 @@ class _TabbarHomeAffirmationsWidgetState
                               0.0, 22.0, 0.0, 0.0),
                           child: wrapWithModel(
                             model: _model.staggeredViewAffirmationsModel,
-                            updateCallback: () => setState(() {}),
+                            updateCallback: () => safeSetState(() {}),
                             child: StaggeredViewAffirmationsWidget(),
                           ),
                         ),

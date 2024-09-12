@@ -36,7 +36,7 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
       vsync: this,
       length: 15,
       initialIndex: 0,
-    )..addListener(() => setState(() {}));
+    )..addListener(() => safeSetState(() {}));
   }
 
   @override
@@ -513,7 +513,7 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                   ),
                   wrapWithModel(
                     model: _model.meditationSoundsListModel,
-                    updateCallback: () => setState(() {}),
+                    updateCallback: () => safeSetState(() {}),
                     child: MeditationSoundsListWidget(),
                   ),
                   Container(),

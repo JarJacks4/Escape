@@ -1,9 +1,9 @@
 import '/backend/api_requests/api_calls.dart';
+import '/components/videoplayer_comp_copy_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/meditation_and_sounds/music_player_comp/music_player_comp_widget.dart';
 import 'dart:ui';
 import 'sounds_details_nature_sounds_widget.dart'
     show SoundsDetailsNatureSoundsWidget;

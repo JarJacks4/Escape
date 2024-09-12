@@ -1,4 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
+import '/components/videoplayer_comp_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -120,12 +121,13 @@ class _SoundsDetailsAmbientMusicWidgetState
                             decoration: BoxDecoration(
                               gradient: LinearGradient(
                                 colors: [
+                                  Color(0xFFEF39D4),
                                   FlutterFlowTheme.of(context).primary,
-                                  FlutterFlowTheme.of(context).tertiary
+                                  Color(0xFF48C8FF)
                                 ],
-                                stops: [0.0, 0.9],
-                                begin: AlignmentDirectional(0.0, -1.0),
-                                end: AlignmentDirectional(0, 1.0),
+                                stops: [0.0, 0.0, 0.8],
+                                begin: AlignmentDirectional(1.0, -0.77),
+                                end: AlignmentDirectional(-1.0, 0.77),
                               ),
                               borderRadius: BorderRadius.only(
                                 bottomLeft: Radius.circular(30.0),
@@ -195,11 +197,7 @@ class _SoundsDetailsAmbientMusicWidgetState
                           height: 692.0,
                           decoration: BoxDecoration(),
                           child: FutureBuilder<ApiCallResponse>(
-                            future: YouTubeDataAPIBinauralBeatsCall.call(
-                              playlistId: 'PLyC3pcUWmqsTalfauEnixmkhUeV7g9TdU',
-                              apiKey: 'AIzaSyB7aTJq3vp0n_4k4ct5d4Z0jOjjAeqSQis',
-                              maxResults: '50',
-                            ),
+                            future: YouTubeDataAPIBaseCall.call(),
                             builder: (context, snapshot) {
                               // Customize what your widget looks like when it's loading.
                               if (!snapshot.hasData) {
@@ -215,14 +213,13 @@ class _SoundsDetailsAmbientMusicWidgetState
                                   ),
                                 );
                               }
-                              final listViewYouTubeDataAPIBinauralBeatsResponse =
+                              final listViewYouTubeDataAPIBaseResponse =
                                   snapshot.data!;
 
                               return Builder(
                                 builder: (context) {
                                   final binauralBeatsItems = getJsonField(
-                                    listViewYouTubeDataAPIBinauralBeatsResponse
-                                        .jsonBody,
+                                    listViewYouTubeDataAPIBaseResponse.jsonBody,
                                     r'''$.items[:].snippet''',
                                   ).toList().take(100).toList();
 
@@ -388,36 +385,47 @@ class _SoundsDetailsAmbientMusicWidgetState
                                                           logFirebaseEvent(
                                                               'SOUNDS_DETAILS_AMBIENT_MUSIC_Text_ycjwn8');
                                                           logFirebaseEvent(
-                                                              'Text_navigate_to');
-
-                                                          context.pushNamed(
-                                                            'VideoPlayer',
-                                                            queryParameters: {
-                                                              'videoId':
-                                                                  serializeParam(
-                                                                getJsonField(
-                                                                  binauralBeatsItemsItem,
-                                                                  r'''$.items[:].snippet.resourceId.videoId''',
-                                                                ).toString(),
-                                                                ParamType
-                                                                    .String,
-                                                              ),
-                                                            }.withoutNulls,
-                                                            extra: <String,
-                                                                dynamic>{
-                                                              kTransitionInfoKey:
-                                                                  TransitionInfo(
-                                                                hasTransition:
-                                                                    true,
-                                                                transitionType:
-                                                                    PageTransitionType
-                                                                        .fade,
-                                                                duration: Duration(
-                                                                    milliseconds:
-                                                                        3),
-                                                              ),
+                                                              'Text_bottom_sheet');
+                                                          await showModalBottomSheet(
+                                                            isScrollControlled:
+                                                                true,
+                                                            backgroundColor:
+                                                                Colors
+                                                                    .transparent,
+                                                            context: context,
+                                                            builder: (context) {
+                                                              return WebViewAware(
+                                                                child:
+                                                                    GestureDetector(
+                                                                  onTap: () =>
+                                                                      FocusScope.of(
+                                                                              context)
+                                                                          .unfocus(),
+                                                                  child:
+                                                                      Padding(
+                                                                    padding: MediaQuery
+                                                                        .viewInsetsOf(
+                                                                            context),
+                                                                    child:
+                                                                        Container(
+                                                                      height: double
+                                                                          .infinity,
+                                                                      child:
+                                                                          VideoplayerCompWidget(
+                                                                        parameter1:
+                                                                            getJsonField(
+                                                                          binauralBeatsItemsItem,
+                                                                          r'''$.resource.videoId''',
+                                                                        ).toString(),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              );
                                                             },
-                                                          );
+                                                          ).then((value) =>
+                                                              safeSetState(
+                                                                  () {}));
                                                         },
                                                         child: Text(
                                                           FFLocalizations.of(

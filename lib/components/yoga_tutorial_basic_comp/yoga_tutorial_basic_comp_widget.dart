@@ -933,7 +933,7 @@ class _YogaTutorialBasicCompWidgetState
                             duration: Duration(milliseconds: 500),
                             curve: Curves.ease,
                           );
-                          setState(() {});
+                          safeSetState(() {});
                         },
                         effect: smooth_page_indicator.ExpandingDotsEffect(
                           expansionFactor: 4.0,

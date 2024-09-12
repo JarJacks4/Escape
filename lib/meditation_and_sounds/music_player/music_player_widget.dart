@@ -27,7 +27,7 @@ class _MusicPlayerWidgetState extends State<MusicPlayerWidget> {
     _model = createModel(context, () => MusicPlayerModel());
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'MusicPlayer'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -270,7 +270,7 @@ class _MusicPlayerWidgetState extends State<MusicPlayerWidget> {
                                   max: 9.0,
                                   value: _model.sliderValue ??= 9.0,
                                   onChanged: (newValue) {
-                                    setState(
+                                    safeSetState(
                                         () => _model.sliderValue = newValue);
                                   },
                                 ),

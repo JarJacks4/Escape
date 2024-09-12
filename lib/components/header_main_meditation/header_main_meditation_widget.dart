@@ -90,14 +90,17 @@ class _HeaderMainMeditationWidgetState
                                     await showModalBottomSheet(
                                       isScrollControlled: true,
                                       backgroundColor: Color(0x37000000),
-                                      enableDrag: false,
+                                      barrierColor: Color(0xA0000000),
                                       context: context,
                                       builder: (context) {
                                         return WebViewAware(
                                           child: Padding(
                                             padding: MediaQuery.viewInsetsOf(
                                                 context),
-                                            child: SideNavWidget(),
+                                            child: Container(
+                                              height: double.infinity,
+                                              child: SideNavWidget(),
+                                            ),
                                           ),
                                         );
                                       },
@@ -127,40 +130,44 @@ class _HeaderMainMeditationWidgetState
                                 },
                               ),
                             ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 22.0, 0.0),
-                              child: InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  logFirebaseEvent(
-                                      'HEADER_MAIN_MEDITATION_userAvatar_ON_TAP');
-                                  logFirebaseEvent('userAvatar_navigate_to');
+                            Flexible(
+                              flex: 1,
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 22.0, 0.0),
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    logFirebaseEvent(
+                                        'HEADER_MAIN_MEDITATION_userAvatar_ON_TAP');
+                                    logFirebaseEvent('userAvatar_navigate_to');
 
-                                  context.pushNamed(
-                                    'ProfilePage',
-                                    extra: <String, dynamic>{
-                                      kTransitionInfoKey: TransitionInfo(
-                                        hasTransition: true,
-                                        transitionType: PageTransitionType.fade,
-                                        duration: Duration(milliseconds: 3),
-                                      ),
-                                    },
-                                  );
-                                },
-                                child: Container(
-                                  width: 60.0,
-                                  height: 60.0,
-                                  clipBehavior: Clip.antiAlias,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Image.network(
-                                    'https://images.unsplash.com/photo-1611590027211-b954fd027b51?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1338&q=80',
-                                    fit: BoxFit.cover,
+                                    context.pushNamed(
+                                      'ProfilePage',
+                                      extra: <String, dynamic>{
+                                        kTransitionInfoKey: TransitionInfo(
+                                          hasTransition: true,
+                                          transitionType:
+                                              PageTransitionType.fade,
+                                          duration: Duration(milliseconds: 3),
+                                        ),
+                                      },
+                                    );
+                                  },
+                                  child: Container(
+                                    width: 60.0,
+                                    height: 60.0,
+                                    clipBehavior: Clip.antiAlias,
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: Image.network(
+                                      'https://images.unsplash.com/photo-1611590027211-b954fd027b51?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1338&q=80',
+                                      fit: BoxFit.cover,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -190,7 +197,7 @@ class _HeaderMainMeditationWidgetState
                                   ),
                               colors: [
                                 FlutterFlowTheme.of(context).primary,
-                                Color(0xEB6450A5)
+                                FlutterFlowTheme.of(context).secondaryBackground
                               ],
                               gradientDirection: GradientDirection.ltr,
                               gradientType: GradientType.linear,

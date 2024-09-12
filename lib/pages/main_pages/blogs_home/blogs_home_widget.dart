@@ -156,7 +156,7 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                   Expanded(
                                     child: wrapWithModel(
                                       model: _model.headerBlogsModel,
-                                      updateCallback: () => setState(() {}),
+                                      updateCallback: () => safeSetState(() {}),
                                       child: HeaderBlogsWidget(),
                                     ),
                                   ),
@@ -316,7 +316,7 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                                           milliseconds: 500),
                                                       curve: Curves.ease,
                                                     );
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                   },
                                                   effect: smooth_page_indicator
                                                       .SlideEffect(
@@ -423,8 +423,8 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                                       ),
                                                       Icons.storm_rounded)
                                                 ],
-                                                onChanged: (val) => setState(
-                                                    () => _model
+                                                onChanged: (val) =>
+                                                    safeSetState(() => _model
                                                             .choiceChipsValue =
                                                         val?.firstOrNull),
                                                 selectedChipStyle: ChipStyle(

@@ -60,7 +60,7 @@ class _RegisterSignUpWidgetState extends State<RegisterSignUpWidget> {
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryText,
+        backgroundColor: Colors.white,
         body: Padding(
           padding: EdgeInsetsDirectional.fromSTEB(30.0, 0.0, 30.0, 0.0),
           child: Column(
@@ -313,7 +313,7 @@ class _RegisterSignUpWidgetState extends State<RegisterSignUpWidget> {
                                               size: 18.0,
                                             ),
                                             suffixIcon: InkWell(
-                                              onTap: () => setState(
+                                              onTap: () => safeSetState(
                                                 () => _model
                                                         .passwordVisibility1 =
                                                     !_model.passwordVisibility1,
@@ -476,7 +476,7 @@ class _RegisterSignUpWidgetState extends State<RegisterSignUpWidget> {
                                           child: wrapWithModel(
                                             model: _model.primaryButtonModel1,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: Hero(
                                               tag: 'Button',
                                               transitionOnUserGestures: true,
@@ -1081,7 +1081,7 @@ class _RegisterSignUpWidgetState extends State<RegisterSignUpWidget> {
                                               size: 18.0,
                                             ),
                                             suffixIcon: InkWell(
-                                              onTap: () => setState(
+                                              onTap: () => safeSetState(
                                                 () => _model
                                                         .passwordVisibility2 =
                                                     !_model.passwordVisibility2,
@@ -1135,7 +1135,7 @@ class _RegisterSignUpWidgetState extends State<RegisterSignUpWidget> {
                                               value: _model.checkboxValue ??=
                                                   false,
                                               onChanged: (newValue) async {
-                                                setState(() => _model
+                                                safeSetState(() => _model
                                                     .checkboxValue = newValue!);
                                               },
                                               side: BorderSide(
@@ -1233,7 +1233,7 @@ class _RegisterSignUpWidgetState extends State<RegisterSignUpWidget> {
                                           child: wrapWithModel(
                                             model: _model.primaryButtonModel2,
                                             updateCallback: () =>
-                                                setState(() {}),
+                                                safeSetState(() {}),
                                             child: PrimaryButtonWidget(
                                               buttonText: 'Register',
                                             ),
@@ -1458,7 +1458,7 @@ class _RegisterSignUpWidgetState extends State<RegisterSignUpWidget> {
                                 duration: Duration(milliseconds: 500),
                                 curve: Curves.ease,
                               );
-                              setState(() {});
+                              safeSetState(() {});
                             },
                             effect: smooth_page_indicator.ExpandingDotsEffect(
                               expansionFactor: 3.0,
