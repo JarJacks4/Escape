@@ -104,15 +104,6 @@ class _YogaPoseVideosWidgetState extends State<YogaPoseVideosWidget> {
                                     end: AlignmentDirectional(0, 1.0),
                                   ),
                                 ),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  child: Image.asset(
-                                    'assets/images/ESCAPE_Logo_Clear.png',
-                                    width: 300.0,
-                                    height: 200.0,
-                                    fit: BoxFit.contain,
-                                  ),
-                                ),
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
@@ -134,25 +125,54 @@ class _YogaPoseVideosWidgetState extends State<YogaPoseVideosWidget> {
                                             .secondaryBackground,
                                         size: 30.0,
                                       ),
-                                      onPressed: () {
-                                        print('IconButton pressed ...');
+                                      onPressed: () async {
+                                        logFirebaseEvent(
+                                            'YOGA_POSE_VIDEOS_chevron_left_ICN_ON_TAP');
+                                        logFirebaseEvent(
+                                            'IconButton_navigate_back');
+                                        context.safePop();
                                       },
                                     ),
-                                    FlutterFlowIconButton(
-                                      borderColor: Colors.transparent,
-                                      borderRadius: 30.0,
-                                      borderWidth: 1.0,
-                                      buttonSize: 50.0,
-                                      fillColor: Color(0xC1E7C8E7),
-                                      icon: Icon(
-                                        Icons.menu,
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        size: 30.0,
-                                      ),
-                                      onPressed: () {
-                                        print('IconButton pressed ...');
+                                    InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        logFirebaseEvent(
+                                            'YOGA_POSE_VIDEOS_CircleImage_4jzibx75_ON');
+                                        logFirebaseEvent(
+                                            'CircleImage_navigate_to');
+
+                                        context.pushNamed(
+                                          'NewHome',
+                                          extra: <String, dynamic>{
+                                            kTransitionInfoKey: TransitionInfo(
+                                              hasTransition: true,
+                                              transitionType:
+                                                  PageTransitionType.fade,
+                                              duration:
+                                                  Duration(milliseconds: 2),
+                                            ),
+                                          },
+                                        );
                                       },
+                                      child: Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.2,
+                                        height:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.2,
+                                        clipBehavior: Clip.antiAlias,
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                        ),
+                                        child: Image.asset(
+                                          'assets/images/ESCAPE_Logo_Clear.png',
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
                                     ),
                                   ],
                                 ),

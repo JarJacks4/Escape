@@ -5,11 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
-import 'blog_card1_model.dart';
-export 'blog_card1_model.dart';
+import 'events_card1_model.dart';
+export 'events_card1_model.dart';
 
-class BlogCard1Widget extends StatefulWidget {
-  const BlogCard1Widget({
+class EventsCard1Widget extends StatefulWidget {
+  const EventsCard1Widget({
     super.key,
     required this.eventName,
     required this.eventDate,
@@ -23,11 +23,11 @@ class BlogCard1Widget extends StatefulWidget {
   final DocumentReference? eventLocation;
 
   @override
-  State<BlogCard1Widget> createState() => _BlogCard1WidgetState();
+  State<EventsCard1Widget> createState() => _EventsCard1WidgetState();
 }
 
-class _BlogCard1WidgetState extends State<BlogCard1Widget> {
-  late BlogCard1Model _model;
+class _EventsCard1WidgetState extends State<EventsCard1Widget> {
+  late EventsCard1Model _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -38,7 +38,7 @@ class _BlogCard1WidgetState extends State<BlogCard1Widget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => BlogCard1Model());
+    _model = createModel(context, () => EventsCard1Model());
   }
 
   @override
@@ -57,8 +57,8 @@ class _BlogCard1WidgetState extends State<BlogCard1Widget> {
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              FlutterFlowTheme.of(context).secondaryBackground,
-              FlutterFlowTheme.of(context).tertiary
+              FlutterFlowTheme.of(context).primaryBackground,
+              FlutterFlowTheme.of(context).primary
             ],
             stops: [0.8, 1.0],
             begin: AlignmentDirectional(0.0, -1.0),
@@ -115,7 +115,7 @@ class _BlogCard1WidgetState extends State<BlogCard1Widget> {
                                     8.0, 0.0, 0.0, 0.0),
                                 child: GradientText(
                                   FFLocalizations.of(context).getText(
-                                    'p991gl1a' /* Events */,
+                                    'p991gl1a' /* Classes & Events */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
@@ -173,7 +173,7 @@ class _BlogCard1WidgetState extends State<BlogCard1Widget> {
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
                                       logFirebaseEvent(
-                                          'BLOG_CARD1_COMP_Icon_7i1g1eti_ON_TAP');
+                                          'EVENTS_CARD1_COMP_Icon_7i1g1eti_ON_TAP');
                                       logFirebaseEvent('Icon_navigate_to');
 
                                       context.pushNamed(
@@ -233,7 +233,7 @@ class _BlogCard1WidgetState extends State<BlogCard1Widget> {
                 ),
                 style: FlutterFlowTheme.of(context).titleLarge.override(
                       fontFamily: 'Readex Pro',
-                      color: FlutterFlowTheme.of(context).primaryBackground,
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
                       fontSize: 18.0,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.w300,
@@ -249,7 +249,7 @@ class _BlogCard1WidgetState extends State<BlogCard1Widget> {
                 ),
                 style: FlutterFlowTheme.of(context).labelMedium.override(
                       fontFamily: 'Inter',
-                      color: FlutterFlowTheme.of(context).primaryBackground,
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
                       letterSpacing: 0.0,
                     ),
               ),
@@ -283,7 +283,7 @@ class _BlogCard1WidgetState extends State<BlogCard1Widget> {
                       highlightColor: Colors.transparent,
                       onTap: () async {
                         logFirebaseEvent(
-                            'BLOG_CARD1_COMP_Text_qevzp435_ON_TAP');
+                            'EVENTS_CARD1_COMP_Text_qevzp435_ON_TAP');
                         logFirebaseEvent('Text_navigate_to');
 
                         context.pushNamed(
@@ -323,7 +323,7 @@ class _BlogCard1WidgetState extends State<BlogCard1Widget> {
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Inter',
                               color: FlutterFlowTheme.of(context)
-                                  .primaryBackground,
+                                  .secondaryBackground,
                               fontSize: 16.0,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.normal,

@@ -54,13 +54,13 @@ class _HeaderProviderCommunityWidgetState
               padding: EdgeInsetsDirectional.fromSTEB(11.0, 16.0, 16.0, 8.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
                     FFLocalizations.of(context).getText(
                       'm5r1oc5t' /* Provider Community */,
                     ),
-                    textAlign: TextAlign.center,
+                    textAlign: TextAlign.start,
                     style: FlutterFlowTheme.of(context).displaySmall.override(
                           fontFamily: 'Roboto',
                           color:
@@ -81,7 +81,7 @@ class _HeaderProviderCommunityWidgetState
                   FFLocalizations.of(context).getText(
                     'xz5yc6o2' /* See what we have to offer in o... */,
                   ),
-                  textAlign: TextAlign.center,
+                  textAlign: TextAlign.start,
                   style: FlutterFlowTheme.of(context).labelMedium.override(
                         fontFamily: 'Roboto',
                         color: FlutterFlowTheme.of(context).primary,

@@ -1,13 +1,16 @@
+import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'blog_card1_widget.dart' show BlogCard1Widget;
-import 'package:cloud_firestore/cloud_firestore.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import 'subscription_comp2_widget.dart' show SubscriptionComp2Widget;
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 
-class BlogCard1Model extends FlutterFlowModel<BlogCard1Widget> {
+class SubscriptionComp2Model extends FlutterFlowModel<SubscriptionComp2Widget> {
   @override
   void initState(BuildContext context) {}
 

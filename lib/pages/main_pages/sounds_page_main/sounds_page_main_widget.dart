@@ -63,7 +63,7 @@ class _SoundsPageMainWidgetState extends State<SoundsPageMainWidget> {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(8.0),
                       child: Image.network(
-                        'https://images.unsplash.com/photo-1507041957456-9c397ce39c97?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHw1fHxmb3Jlc3R8ZW58MHx8fHwxNzI0MzkzMjc5fDA&ixlib=rb-4.0.3&q=80&w=1080',
+                        'https://images.unsplash.com/photo-1433086966358-54859d0ed716?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwyfHxuYXR1cmV8ZW58MHx8fHwxNzI2MTAxMTMyfDA&ixlib=rb-4.0.3&q=80&w=1080',
                         width: 300.0,
                         height: 200.0,
                         fit: BoxFit.cover,

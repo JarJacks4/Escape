@@ -100,7 +100,7 @@ class _HeaderHomeWidgetState extends State<HeaderHomeWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 18.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
                   child: FlutterFlowIconButton(
                     borderColor: Colors.transparent,
                     borderRadius: 30.0,
@@ -117,47 +117,16 @@ class _HeaderHomeWidgetState extends State<HeaderHomeWidget> {
                     },
                   ),
                 ),
-                Flexible(
-                  flex: 1,
-                  child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 22.0, 0.0),
-                    child: AuthUserStreamWidget(
-                      builder: (context) => InkWell(
-                        splashColor: Colors.transparent,
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () async {
-                          logFirebaseEvent(
-                              'HEADER_HOME_COMP_userAvatar_ON_TAP');
-                          logFirebaseEvent('userAvatar_navigate_to');
-
-                          context.pushNamed(
-                            'ProfilePage',
-                            extra: <String, dynamic>{
-                              kTransitionInfoKey: TransitionInfo(
-                                hasTransition: true,
-                                transitionType: PageTransitionType.fade,
-                                duration: Duration(milliseconds: 3),
-                              ),
-                            },
-                          );
-                        },
-                        child: Container(
-                          width: 60.0,
-                          height: 60.0,
-                          clipBehavior: Clip.antiAlias,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                          ),
-                          child: Image.network(
-                            currentUserPhoto,
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                    ),
+                Container(
+                  width: MediaQuery.sizeOf(context).width * 0.2,
+                  height: MediaQuery.sizeOf(context).width * 0.2,
+                  clipBehavior: Clip.antiAlias,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                  ),
+                  child: Image.asset(
+                    'assets/images/ESCAPE_Logo_Clear.png',
+                    fit: BoxFit.cover,
                   ),
                 ),
               ],
@@ -169,29 +138,15 @@ class _HeaderHomeWidgetState extends State<HeaderHomeWidget> {
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Text(
-                  FFLocalizations.of(context).getText(
-                    'c92aab97' /* Hello, */,
-                  ),
-                  style: FlutterFlowTheme.of(context).displaySmall.override(
-                        fontFamily: 'Readex Pro',
-                        color: Color(0xF96450A5),
-                        letterSpacing: 0.0,
-                        fontWeight: FontWeight.normal,
-                      ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 0.0, 0.0),
-                  child: AuthUserStreamWidget(
-                    builder: (context) => Text(
-                      currentUserDisplayName,
-                      style: FlutterFlowTheme.of(context).displaySmall.override(
-                            fontFamily: 'Readex Pro',
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                            letterSpacing: 0.0,
-                          ),
-                    ),
+                AuthUserStreamWidget(
+                  builder: (context) => Text(
+                    'Hello,${currentUserDisplayName}!',
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Inter',
+                          color: Color(0xFF000220),
+                          fontSize: 28.0,
+                          letterSpacing: 0.0,
+                        ),
                   ),
                 ),
               ],

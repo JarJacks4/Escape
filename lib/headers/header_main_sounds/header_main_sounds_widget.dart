@@ -120,7 +120,7 @@ class _HeaderMainSoundsWidgetState extends State<HeaderMainSoundsWidget> {
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 15.0, 0.0),
+                                            0.0, 0.0, 10.0, 0.0),
                                         child: FlutterFlowIconButton(
                                           borderColor: Colors.transparent,
                                           borderRadius: 30.0,
@@ -142,43 +142,21 @@ class _HeaderMainSoundsWidgetState extends State<HeaderMainSoundsWidget> {
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 25.0, 0.0),
-                                        child: InkWell(
-                                          splashColor: Colors.transparent,
-                                          focusColor: Colors.transparent,
-                                          hoverColor: Colors.transparent,
-                                          highlightColor: Colors.transparent,
-                                          onTap: () async {
-                                            logFirebaseEvent(
-                                                'HEADER_MAIN_SOUNDS_userAvatar_ON_TAP');
-                                            logFirebaseEvent(
-                                                'userAvatar_navigate_to');
-
-                                            context.pushNamed(
-                                              'ProfilePage',
-                                              extra: <String, dynamic>{
-                                                kTransitionInfoKey:
-                                                    TransitionInfo(
-                                                  hasTransition: true,
-                                                  transitionType:
-                                                      PageTransitionType.fade,
-                                                  duration:
-                                                      Duration(milliseconds: 3),
-                                                ),
-                                              },
-                                            );
-                                          },
-                                          child: Container(
-                                            width: 60.0,
-                                            height: 60.0,
-                                            clipBehavior: Clip.antiAlias,
-                                            decoration: BoxDecoration(
-                                              shape: BoxShape.circle,
-                                            ),
-                                            child: Image.network(
-                                              'https://images.unsplash.com/photo-1611590027211-b954fd027b51?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1338&q=80',
-                                              fit: BoxFit.cover,
-                                            ),
+                                            0.0, 0.0, 15.0, 0.0),
+                                        child: Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  0.2,
+                                          height:
+                                              MediaQuery.sizeOf(context).width *
+                                                  0.2,
+                                          clipBehavior: Clip.antiAlias,
+                                          decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                          ),
+                                          child: Image.asset(
+                                            'assets/images/ESCAPE_Logo_Clear.png',
+                                            fit: BoxFit.cover,
                                           ),
                                         ),
                                       ),

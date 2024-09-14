@@ -263,7 +263,7 @@ class _SoundsDetailsTaiChiWidgetState extends State<SoundsDetailsTaiChiWidget> {
                                               Hero(
                                                 tag: getJsonField(
                                                   binauralBeatsItemsItem,
-                                                  r'''$.snippetThumbnailsDefault''',
+                                                  r'''$.thumbnails.default.url''',
                                                 ).toString(),
                                                 transitionOnUserGestures: true,
                                                 child: ClipRRect(
@@ -281,7 +281,7 @@ class _SoundsDetailsTaiChiWidgetState extends State<SoundsDetailsTaiChiWidget> {
                                                   child: Image.network(
                                                     getJsonField(
                                                       binauralBeatsItemsItem,
-                                                      r'''$.snippetThumbnailsDefault''',
+                                                      r'''$.thumbnails.default.url''',
                                                     ).toString(),
                                                     width: 112.0,
                                                     height: 112.0,
@@ -317,7 +317,7 @@ class _SoundsDetailsTaiChiWidgetState extends State<SoundsDetailsTaiChiWidget> {
                                                     Text(
                                                       getJsonField(
                                                         binauralBeatsItemsItem,
-                                                        r'''$.items[:].snippet.title''',
+                                                        r'''$.title''',
                                                       ).toString(),
                                                       style: FlutterFlowTheme
                                                               .of(context)
@@ -344,7 +344,7 @@ class _SoundsDetailsTaiChiWidgetState extends State<SoundsDetailsTaiChiWidget> {
                                                       child: Text(
                                                         getJsonField(
                                                           binauralBeatsItemsItem,
-                                                          r'''$.items[:].snippet.channelTitle''',
+                                                          r'''$.channelTitle''',
                                                         ).toString(),
                                                         style: FlutterFlowTheme
                                                                 .of(context)

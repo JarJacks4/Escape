@@ -583,10 +583,24 @@ class _RegisterSignUpWidgetState extends State<RegisterSignUpWidget> {
                                                     if (user == null) {
                                                       return;
                                                     }
+                                                    logFirebaseEvent(
+                                                        'Container_navigate_to');
 
-                                                    context.goNamedAuth(
-                                                        'NewHome',
-                                                        context.mounted);
+                                                    context.pushNamedAuth(
+                                                      'registrationSuccess',
+                                                      context.mounted,
+                                                      extra: <String, dynamic>{
+                                                        kTransitionInfoKey:
+                                                            TransitionInfo(
+                                                          hasTransition: true,
+                                                          transitionType:
+                                                              PageTransitionType
+                                                                  .fade,
+                                                          duration: Duration(
+                                                              milliseconds: 3),
+                                                        ),
+                                                      },
+                                                    );
                                                   },
                                                   child: Container(
                                                     decoration: BoxDecoration(
@@ -673,10 +687,27 @@ class _RegisterSignUpWidgetState extends State<RegisterSignUpWidget> {
                                                         if (user == null) {
                                                           return;
                                                         }
+                                                        logFirebaseEvent(
+                                                            'IconButton_navigate_to');
 
-                                                        context.goNamedAuth(
-                                                            'NewHome',
-                                                            context.mounted);
+                                                        context.pushNamedAuth(
+                                                          'registrationSuccess',
+                                                          context.mounted,
+                                                          extra: <String,
+                                                              dynamic>{
+                                                            kTransitionInfoKey:
+                                                                TransitionInfo(
+                                                              hasTransition:
+                                                                  true,
+                                                              transitionType:
+                                                                  PageTransitionType
+                                                                      .fade,
+                                                              duration: Duration(
+                                                                  milliseconds:
+                                                                      3),
+                                                            ),
+                                                          },
+                                                        );
                                                       },
                                                     ),
                                                   ),

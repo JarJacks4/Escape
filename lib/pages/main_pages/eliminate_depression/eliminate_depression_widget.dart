@@ -96,27 +96,17 @@ class _EliminateDepressionWidgetState extends State<EliminateDepressionWidget> {
                                       .primaryBackground,
                                 ),
                               ),
-                              Material(
-                                color: Colors.transparent,
-                                elevation: 8.0,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15.0),
-                                ),
-                                child: Container(
-                                  width: 393.0,
-                                  height: 250.0,
-                                  decoration: BoxDecoration(
-                                    gradient: LinearGradient(
-                                      colors: [
-                                        Color(0xD3FFFFFF),
-                                        Color(0xDEFFFFFF)
-                                      ],
-                                      stops: [0.2, 1.0],
-                                      begin: AlignmentDirectional(0.0, -1.0),
-                                      end: AlignmentDirectional(0, 1.0),
-                                    ),
-                                    borderRadius: BorderRadius.circular(15.0),
+                              Container(
+                                width: 393.0,
+                                height: 250.0,
+                                decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                    colors: [Color(0x93FFFFFF), Colors.white],
+                                    stops: [0.2, 1.0],
+                                    begin: AlignmentDirectional(0.0, -1.0),
+                                    end: AlignmentDirectional(0, 1.0),
                                   ),
+                                  borderRadius: BorderRadius.circular(0.0),
                                 ),
                               ),
                               Padding(
@@ -147,21 +137,19 @@ class _EliminateDepressionWidgetState extends State<EliminateDepressionWidget> {
                                         context.safePop();
                                       },
                                     ),
-                                    FlutterFlowIconButton(
-                                      borderColor: Colors.transparent,
-                                      borderRadius: 30.0,
-                                      borderWidth: 1.0,
-                                      buttonSize: 50.0,
-                                      fillColor: Color(0xC1E7C8E7),
-                                      icon: Icon(
-                                        Icons.menu,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        size: 30.0,
+                                    Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.2,
+                                      height: MediaQuery.sizeOf(context).width *
+                                          0.2,
+                                      clipBehavior: Clip.antiAlias,
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
                                       ),
-                                      onPressed: () {
-                                        print('IconButton pressed ...');
-                                      },
+                                      child: Image.asset(
+                                        'assets/images/ESCAPE_Logo_Clear.png',
+                                        fit: BoxFit.cover,
+                                      ),
                                     ),
                                   ],
                                 ),

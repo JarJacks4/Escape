@@ -1,13 +1,13 @@
 import '/backend/api_requests/api_calls.dart';
 import '/components/videoplayer_comp_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -181,22 +181,22 @@ class _EliminateDepressionCompSoundsWidgetState
           ),
         ],
       ),
-      'staggeredViewOnPageLoadAnimation': AnimationInfo(
+      'containerOnPageLoadAnimation8': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           VisibilityEffect(duration: 1.ms),
           FadeEffect(
-            curve: Curves.easeInOut,
+            curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
             begin: 0.0,
             end: 1.0,
           ),
           MoveEffect(
-            curve: Curves.easeInOut,
+            curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(0.0, -18.0),
+            begin: Offset(100.0, 0.0),
             end: Offset(0.0, 0.0),
           ),
         ],
@@ -256,7 +256,7 @@ class _EliminateDepressionCompSoundsWidgetState
                   ),
                   Container(
                     width: double.infinity,
-                    height: 100.0,
+                    height: 254.0,
                     decoration: BoxDecoration(
                       color: Colors.transparent,
                     ),
@@ -264,73 +264,160 @@ class _EliminateDepressionCompSoundsWidgetState
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Expanded(
-                          child: FutureBuilder<ApiCallResponse>(
-                            future:
-                                YouTubeDataEliminateDepressionAPICall.call(),
-                            builder: (context, snapshot) {
-                              // Customize what your widget looks like when it's loading.
-                              if (!snapshot.hasData) {
-                                return Center(
-                                  child: SizedBox(
-                                    width: 50.0,
-                                    height: 50.0,
-                                    child: CircularProgressIndicator(
-                                      valueColor: AlwaysStoppedAnimation<Color>(
-                                        FlutterFlowTheme.of(context).primary,
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 8.0, 0.0, 8.0),
+                            child: FutureBuilder<ApiCallResponse>(
+                              future:
+                                  YouTubeDataMeditationAPIFINALCopyCall.call(),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 50.0,
+                                      height: 50.0,
+                                      child: CircularProgressIndicator(
+                                        valueColor:
+                                            AlwaysStoppedAnimation<Color>(
+                                          FlutterFlowTheme.of(context).primary,
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                );
-                              }
-                              final listViewYouTubeDataEliminateDepressionAPIResponse =
-                                  snapshot.data!;
-
-                              return Builder(
-                                builder: (context) {
-                                  final soundsthumbnails = getJsonField(
-                                    listViewYouTubeDataEliminateDepressionAPIResponse
-                                        .jsonBody,
-                                    r'''$.thumbnails.default.url''',
-                                  ).toList();
-
-                                  return ListView.builder(
-                                    padding: EdgeInsets.zero,
-                                    scrollDirection: Axis.horizontal,
-                                    itemCount: soundsthumbnails.length,
-                                    itemBuilder:
-                                        (context, soundsthumbnailsIndex) {
-                                      final soundsthumbnailsItem =
-                                          soundsthumbnails[
-                                              soundsthumbnailsIndex];
-                                      return Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 0.0, 0.0, 0.0),
-                                        child: Container(
-                                          width: 70.0,
-                                          height: 50.0,
-                                          decoration: BoxDecoration(
-                                            color: Colors.transparent,
-                                          ),
-                                          child: Container(
-                                            width: 80.0,
-                                            height: 80.0,
-                                            clipBehavior: Clip.antiAlias,
-                                            decoration: BoxDecoration(
-                                              shape: BoxShape.circle,
-                                            ),
-                                            child: Image.asset(
-                                              'assets/images/user3.png',
-                                              fit: BoxFit.cover,
-                                            ),
-                                          ),
-                                        ).animateOnPageLoad(animationsMap[
-                                            'containerOnPageLoadAnimation1']!),
-                                      );
-                                    },
                                   );
-                                },
-                              );
-                            },
+                                }
+                                final listViewYouTubeDataMeditationAPIFINALCopyResponse =
+                                    snapshot.data!;
+
+                                return Builder(
+                                  builder: (context) {
+                                    final meditations = getJsonField(
+                                      listViewYouTubeDataMeditationAPIFINALCopyResponse
+                                          .jsonBody,
+                                      r'''$.items[:].snippet''',
+                                    ).toList();
+
+                                    return ListView.builder(
+                                      padding: EdgeInsets.zero,
+                                      scrollDirection: Axis.horizontal,
+                                      itemCount: meditations.length,
+                                      itemBuilder: (context, meditationsIndex) {
+                                        final meditationsItem =
+                                            meditations[meditationsIndex];
+                                        return Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  10.0, 0.0, 0.0, 0.0),
+                                          child: Container(
+                                            width: 187.0,
+                                            height: 215.0,
+                                            decoration: BoxDecoration(
+                                              color: Colors.transparent,
+                                            ),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 1.0, 0.0),
+                                                  child: Hero(
+                                                    tag: getJsonField(
+                                                      meditationsItem,
+                                                      r'''$.thumbnails.default.url''',
+                                                    ).toString(),
+                                                    transitionOnUserGestures:
+                                                        true,
+                                                    child: ClipRRect(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              9.0),
+                                                      child: Image.network(
+                                                        getJsonField(
+                                                          meditationsItem,
+                                                          r'''$.thumbnails.default.url''',
+                                                        ).toString(),
+                                                        width: 245.0,
+                                                        height: 100.0,
+                                                        fit: BoxFit.cover,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          -1.0, 0.0),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsets.all(15.0),
+                                                    child: Text(
+                                                      getJsonField(
+                                                        meditationsItem,
+                                                        r'''$.title''',
+                                                      ).toString(),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily: 'Inter',
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryBackground,
+                                                            fontSize: 12.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .normal,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          1.0, 1.0),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsets.all(8.0),
+                                                    child:
+                                                        FlutterFlowIconButton(
+                                                      borderColor:
+                                                          Colors.transparent,
+                                                      borderRadius: 8.0,
+                                                      buttonSize: 40.0,
+                                                      fillColor:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .tertiary,
+                                                      icon: Icon(
+                                                        Icons.play_circle,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .info,
+                                                        size: 24.0,
+                                                      ),
+                                                      onPressed: () {
+                                                        print(
+                                                            'IconButton pressed ...');
+                                                      },
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ).animateOnPageLoad(animationsMap[
+                                              'containerOnPageLoadAnimation1']!),
+                                        );
+                                      },
+                                    );
+                                  },
+                                );
+                              },
+                            ),
                           ),
                         ),
                       ],
@@ -428,23 +515,50 @@ class _EliminateDepressionCompSoundsWidgetState
                                         borderRadius:
                                             BorderRadius.circular(10.0),
                                       ),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            FFLocalizations.of(context).getText(
-                                              '6egqt7d8' /* Binaural Beats */,
+                                      child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          logFirebaseEvent(
+                                              'ELIMINATE_DEPRESSION_SOUNDS_Row_1ivqqz5p');
+                                          logFirebaseEvent('Row_navigate_to');
+
+                                          context.pushNamed(
+                                            'SoundsDetailsBinauralBeats',
+                                            extra: <String, dynamic>{
+                                              kTransitionInfoKey:
+                                                  TransitionInfo(
+                                                hasTransition: true,
+                                                transitionType:
+                                                    PageTransitionType.fade,
+                                                duration:
+                                                    Duration(milliseconds: 2),
+                                              ),
+                                            },
+                                          );
+                                        },
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                '6egqt7d8' /* Binaural Beats */,
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                             ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Inter',
-                                                  letterSpacing: 0.0,
-                                                ),
-                                          ),
-                                        ],
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ).animateOnPageLoad(animationsMap[
@@ -769,7 +883,7 @@ for D... */
                   Expanded(
                     child: Container(
                       width: double.infinity,
-                      height: 142.0,
+                      height: 193.0,
                       decoration: BoxDecoration(
                         color: Colors.transparent,
                       ),
@@ -819,7 +933,7 @@ for D... */
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 10.0, 0.0),
                                           child: Container(
-                                            width: 100.0,
+                                            width: 160.0,
                                             height: 137.0,
                                             decoration: BoxDecoration(
                                               color: Color(0x50090F13),
@@ -892,7 +1006,7 @@ for D... */
                                                             recentItemsItem,
                                                             r'''$.thumbnails.default.url''',
                                                           ).toString(),
-                                                          width: 100.0,
+                                                          width: 169.0,
                                                           height: 100.0,
                                                           fit: BoxFit.cover,
                                                         ),
@@ -902,7 +1016,7 @@ for D... */
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(3.0, 0.0,
+                                                            .fromSTEB(3.0, 15.0,
                                                                 0.0, 0.0),
                                                     child: Text(
                                                       getJsonField(
@@ -989,73 +1103,167 @@ for D... */
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Expanded(
-                            child: FutureBuilder<ApiCallResponse>(
-                              future:
-                                  YouTubeDataEliminateDepressionAPICall.call(),
-                              builder: (context, snapshot) {
-                                // Customize what your widget looks like when it's loading.
-                                if (!snapshot.hasData) {
-                                  return Center(
-                                    child: SizedBox(
-                                      width: 50.0,
-                                      height: 50.0,
-                                      child: CircularProgressIndicator(
-                                        valueColor:
-                                            AlwaysStoppedAnimation<Color>(
-                                          FlutterFlowTheme.of(context).primary,
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 8.0, 0.0, 8.0),
+                              child: FutureBuilder<ApiCallResponse>(
+                                future: YouTubeDataMeditationAPIFINALCopyCall
+                                    .call(),
+                                builder: (context, snapshot) {
+                                  // Customize what your widget looks like when it's loading.
+                                  if (!snapshot.hasData) {
+                                    return Center(
+                                      child: SizedBox(
+                                        width: 50.0,
+                                        height: 50.0,
+                                        child: CircularProgressIndicator(
+                                          valueColor:
+                                              AlwaysStoppedAnimation<Color>(
+                                            FlutterFlowTheme.of(context)
+                                                .primary,
+                                          ),
                                         ),
                                       ),
-                                    ),
+                                    );
+                                  }
+                                  final listViewYouTubeDataMeditationAPIFINALCopyResponse =
+                                      snapshot.data!;
+
+                                  return Builder(
+                                    builder: (context) {
+                                      final meditations = getJsonField(
+                                        listViewYouTubeDataMeditationAPIFINALCopyResponse
+                                            .jsonBody,
+                                        r'''$.items[:].snippet''',
+                                      ).toList();
+
+                                      return ListView.builder(
+                                        padding: EdgeInsets.zero,
+                                        shrinkWrap: true,
+                                        scrollDirection: Axis.vertical,
+                                        itemCount: meditations.length,
+                                        itemBuilder:
+                                            (context, meditationsIndex) {
+                                          final meditationsItem =
+                                              meditations[meditationsIndex];
+                                          return Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    10.0, 0.0, 0.0, 0.0),
+                                            child: Container(
+                                              width: 187.0,
+                                              height: 215.0,
+                                              decoration: BoxDecoration(
+                                                color: Colors.transparent,
+                                              ),
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                1.0, 0.0),
+                                                    child: Hero(
+                                                      tag: getJsonField(
+                                                        meditationsItem,
+                                                        r'''$.thumbnails.default.url''',
+                                                      ).toString(),
+                                                      transitionOnUserGestures:
+                                                          true,
+                                                      child: ClipRRect(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(9.0),
+                                                        child: Image.network(
+                                                          getJsonField(
+                                                            meditationsItem,
+                                                            r'''$.thumbnails.default.url''',
+                                                          ).toString(),
+                                                          width: 425.0,
+                                                          height: 100.0,
+                                                          fit: BoxFit.cover,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            -1.0, 0.0),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsets.all(15.0),
+                                                      child: Text(
+                                                        getJsonField(
+                                                          meditationsItem,
+                                                          r'''$.title''',
+                                                        ).toString(),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryBackground,
+                                                                  fontSize:
+                                                                      12.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .normal,
+                                                                ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            1.0, 1.0),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsets.all(8.0),
+                                                      child:
+                                                          FlutterFlowIconButton(
+                                                        borderColor:
+                                                            Colors.transparent,
+                                                        borderRadius: 8.0,
+                                                        buttonSize: 40.0,
+                                                        fillColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .tertiary,
+                                                        icon: Icon(
+                                                          Icons.play_circle,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .info,
+                                                          size: 24.0,
+                                                        ),
+                                                        onPressed: () {
+                                                          print(
+                                                              'IconButton pressed ...');
+                                                        },
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ).animateOnPageLoad(animationsMap[
+                                                'containerOnPageLoadAnimation8']!),
+                                          );
+                                        },
+                                      );
+                                    },
                                   );
-                                }
-                                final staggeredViewYouTubeDataEliminateDepressionAPIResponse =
-                                    snapshot.data!;
-
-                                return Builder(
-                                  builder: (context) {
-                                    final channels = getJsonField(
-                                      staggeredViewYouTubeDataEliminateDepressionAPIResponse
-                                          .jsonBody,
-                                      r'''$.items[:].snippet''',
-                                    ).toList();
-
-                                    return MasonryGridView.builder(
-                                      gridDelegate:
-                                          SliverSimpleGridDelegateWithFixedCrossAxisCount(
-                                        crossAxisCount: 2,
-                                      ),
-                                      crossAxisSpacing: 10.0,
-                                      mainAxisSpacing: 10.0,
-                                      itemCount: channels.length,
-                                      itemBuilder: (context, channelsIndex) {
-                                        final channelsItem =
-                                            channels[channelsIndex];
-                                        return Hero(
-                                          tag: getJsonField(
-                                            channelsItem,
-                                            r'''$.thumbnails.default.url''',
-                                          ).toString(),
-                                          transitionOnUserGestures: true,
-                                          child: ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(10.0),
-                                            child: Image.network(
-                                              getJsonField(
-                                                channelsItem,
-                                                r'''$.thumbnails.default.url''',
-                                              ).toString(),
-                                              width: 200.0,
-                                              height: 100.0,
-                                              fit: BoxFit.cover,
-                                            ),
-                                          ),
-                                        );
-                                      },
-                                    ).animateOnPageLoad(animationsMap[
-                                        'staggeredViewOnPageLoadAnimation']!);
-                                  },
-                                );
-                              },
+                                },
+                              ),
                             ),
                           ),
                         ],

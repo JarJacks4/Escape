@@ -4,8 +4,9 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_video_player.dart';
 import 'dart:math';
+import '/custom_code/widgets/index.dart' as custom_widgets;
+import 'package:aligned_tooltip/aligned_tooltip.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -13,24 +14,31 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
-import 'video_player_comp_model.dart';
-export 'video_player_comp_model.dart';
+import 'video_player_high_fidelity_model.dart';
+export 'video_player_high_fidelity_model.dart';
 
-class VideoPlayerCompWidget extends StatefulWidget {
-  const VideoPlayerCompWidget({
+class VideoPlayerHighFidelityWidget extends StatefulWidget {
+  const VideoPlayerHighFidelityWidget({
     super.key,
     this.parameter1,
+    required this.videoTitle,
+    required this.channelTitle,
+    required this.description,
   });
 
   final String? parameter1;
+  final String? videoTitle;
+  final String? channelTitle;
+  final String? description;
 
   @override
-  State<VideoPlayerCompWidget> createState() => _VideoPlayerCompWidgetState();
+  State<VideoPlayerHighFidelityWidget> createState() =>
+      _VideoPlayerHighFidelityWidgetState();
 }
 
-class _VideoPlayerCompWidgetState extends State<VideoPlayerCompWidget>
-    with TickerProviderStateMixin {
-  late VideoPlayerCompModel _model;
+class _VideoPlayerHighFidelityWidgetState
+    extends State<VideoPlayerHighFidelityWidget> with TickerProviderStateMixin {
+  late VideoPlayerHighFidelityModel _model;
 
   final animationsMap = <String, AnimationInfo>{};
 
@@ -43,7 +51,7 @@ class _VideoPlayerCompWidgetState extends State<VideoPlayerCompWidget>
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => VideoPlayerCompModel());
+    _model = createModel(context, () => VideoPlayerHighFidelityModel());
 
     animationsMap.addAll({
       'containerOnPageLoadAnimation': AnimationInfo(
@@ -102,7 +110,7 @@ class _VideoPlayerCompWidgetState extends State<VideoPlayerCompWidget>
             ),
             child: Container(
               width: 100.0,
-              height: MediaQuery.sizeOf(context).height * 0.7,
+              height: MediaQuery.sizeOf(context).height * 0.788,
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   colors: [
@@ -124,43 +132,20 @@ class _VideoPlayerCompWidgetState extends State<VideoPlayerCompWidget>
                         children: [
                           Container(
                             width: double.infinity,
-                            height: 200.0,
+                            height: 248.0,
                             decoration: BoxDecoration(),
-                            child: FlutterFlowVideoPlayer(
-                              path:
-                                  'https://www.youtube.com/watch?v=${widget!.parameter1}',
-                              videoType: VideoType.network,
-                              autoPlay: true,
-                              looping: true,
-                              showControls: true,
-                              allowFullScreen: true,
-                              allowPlaybackSpeedMenu: false,
+                            child: Container(
+                              width: double.infinity,
+                              height: 248.0,
+                              child: custom_widgets.YouTubePlayerDemo(
+                                width: double.infinity,
+                                height: 248.0,
+                                vidId:
+                                    'https://www.youtube.com/watch?v=${widget!.parameter1}',
+                              ),
                             ),
                           ),
                         ],
-                      ),
-                    ),
-                    Align(
-                      alignment: AlignmentDirectional(-1.0, 1.0),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            12.0, 22.0, 8.0, 0.0),
-                        child: FlutterFlowIconButton(
-                          borderRadius: 8.0,
-                          buttonSize: 40.0,
-                          fillColor: FlutterFlowTheme.of(context).primary,
-                          icon: FaIcon(
-                            FontAwesomeIcons.angleDown,
-                            color: FlutterFlowTheme.of(context).info,
-                            size: 24.0,
-                          ),
-                          onPressed: () async {
-                            logFirebaseEvent(
-                                'VIDEO_PLAYER_angleDown_ICN_ON_TAP');
-                            logFirebaseEvent('IconButton_bottom_sheet');
-                            Navigator.pop(context);
-                          },
-                        ),
                       ),
                     ),
                     Padding(
@@ -186,6 +171,8 @@ class _VideoPlayerCompWidgetState extends State<VideoPlayerCompWidget>
                                 children: [
                                   Column(
                                     mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
@@ -193,8 +180,9 @@ class _VideoPlayerCompWidgetState extends State<VideoPlayerCompWidget>
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             5.0, 0.0, 0.0, 2.0),
                                         child: Text(
-                                          FFLocalizations.of(context).getText(
-                                            '37pbr7lc' /* Hellow World */,
+                                          valueOrDefault<String>(
+                                            widget!.videoTitle,
+                                            'Title:',
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .headlineMedium
@@ -205,7 +193,7 @@ class _VideoPlayerCompWidgetState extends State<VideoPlayerCompWidget>
                                                         .secondaryBackground,
                                                 fontSize: 22.0,
                                                 letterSpacing: 0.0,
-                                                fontWeight: FontWeight.normal,
+                                                fontWeight: FontWeight.w500,
                                               ),
                                         ),
                                       ),
@@ -213,14 +201,16 @@ class _VideoPlayerCompWidgetState extends State<VideoPlayerCompWidget>
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             8.0, 0.0, 0.0, 0.0),
                                         child: Text(
-                                          FFLocalizations.of(context).getText(
-                                            'jbflcwc0' /* Hello World */,
+                                          valueOrDefault<String>(
+                                            widget!.channelTitle,
+                                            'Channel Title:',
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Inter',
                                                 letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w300,
                                               ),
                                         ),
                                       ),
@@ -257,8 +247,9 @@ class _VideoPlayerCompWidgetState extends State<VideoPlayerCompWidget>
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         11.0, 0.0, 0.0, 2.0),
                                     child: Text(
-                                      FFLocalizations.of(context).getText(
-                                        'tv7iocgp' /* Hellow World */,
+                                      valueOrDefault<String>(
+                                        widget!.description,
+                                        'Description:',
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .headlineMedium
@@ -268,7 +259,7 @@ class _VideoPlayerCompWidgetState extends State<VideoPlayerCompWidget>
                                                 .secondaryBackground,
                                             fontSize: 14.0,
                                             letterSpacing: 0.0,
-                                            fontWeight: FontWeight.normal,
+                                            fontWeight: FontWeight.w300,
                                           ),
                                     ),
                                   ),
@@ -279,8 +270,67 @@ class _VideoPlayerCompWidgetState extends State<VideoPlayerCompWidget>
                         ),
                       ),
                     ),
+                    Align(
+                      alignment: AlignmentDirectional(1.0, 1.0),
+                      child: Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: AlignedTooltip(
+                          content: Padding(
+                            padding: EdgeInsets.all(4.0),
+                            child: Text(
+                              FFLocalizations.of(context).getText(
+                                'x7ovbey2' /* Message... */,
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyLarge
+                                  .override(
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
+                                  ),
+                            ),
+                          ),
+                          offset: 4.0,
+                          preferredDirection: AxisDirection.down,
+                          borderRadius: BorderRadius.circular(8.0),
+                          backgroundColor:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          elevation: 4.0,
+                          tailBaseWidth: 24.0,
+                          tailLength: 12.0,
+                          waitDuration: Duration(milliseconds: 100),
+                          showDuration: Duration(milliseconds: 1500),
+                          triggerMode: TooltipTriggerMode.tap,
+                          child: Align(
+                            alignment: AlignmentDirectional(1.0, 1.0),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  12.0, 22.0, 8.0, 0.0),
+                              child: FlutterFlowIconButton(
+                                borderColor: Colors.transparent,
+                                borderRadius: 8.0,
+                                buttonSize: 40.0,
+                                fillColor: FlutterFlowTheme.of(context).primary,
+                                icon: FaIcon(
+                                  FontAwesomeIcons.angleDown,
+                                  color: FlutterFlowTheme.of(context).info,
+                                  size: 24.0,
+                                ),
+                                onPressed: () async {
+                                  logFirebaseEvent(
+                                      'VIDEO_PLAYER_HIGH_FIDELITY_angleDown_ICN');
+                                  logFirebaseEvent('IconButton_bottom_sheet');
+                                  Navigator.pop(context);
+                                },
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
                     Divider(
                       thickness: 2.0,
+                      indent: 55.0,
+                      endIndent: 55.0,
                       color: FlutterFlowTheme.of(context).alternate,
                     ),
                     Padding(
@@ -320,7 +370,7 @@ class _VideoPlayerCompWidgetState extends State<VideoPlayerCompWidget>
                           Expanded(
                             child: Container(
                               width: double.infinity,
-                              height: 142.0,
+                              height: 161.0,
                               decoration: BoxDecoration(
                                 color: Colors.transparent,
                               ),
@@ -373,8 +423,8 @@ class _VideoPlayerCompWidgetState extends State<VideoPlayerCompWidget>
                                                       .fromSTEB(
                                                           0.0, 0.0, 10.0, 0.0),
                                                   child: Container(
-                                                    width: 100.0,
-                                                    height: 137.0,
+                                                    width: 147.0,
+                                                    height: 142.0,
                                                     decoration: BoxDecoration(
                                                       color: Color(0x50090F13),
                                                       borderRadius:
@@ -392,7 +442,7 @@ class _VideoPlayerCompWidgetState extends State<VideoPlayerCompWidget>
                                                           Colors.transparent,
                                                       onTap: () async {
                                                         logFirebaseEvent(
-                                                            'VIDEO_PLAYER_Column_zmdilu0n_ON_TAP');
+                                                            'VIDEO_PLAYER_HIGH_FIDELITY_Column_zmdilu');
                                                         logFirebaseEvent(
                                                             'Column_bottom_sheet');
                                                         await showModalBottomSheet(
@@ -461,7 +511,7 @@ class _VideoPlayerCompWidgetState extends State<VideoPlayerCompWidget>
                                                                     recentItemsItem,
                                                                     r'''$.thumbnails.default.url''',
                                                                   ).toString(),
-                                                                  width: 100.0,
+                                                                  width: 153.0,
                                                                   height: 100.0,
                                                                   fit: BoxFit
                                                                       .cover,
@@ -474,7 +524,7 @@ class _VideoPlayerCompWidgetState extends State<VideoPlayerCompWidget>
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         3.0,
-                                                                        0.0,
+                                                                        15.0,
                                                                         0.0,
                                                                         0.0),
                                                             child: Text(
@@ -493,9 +543,9 @@ class _VideoPlayerCompWidgetState extends State<VideoPlayerCompWidget>
                                                                         'Inter',
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .primaryBackground,
+                                                                        .secondaryBackground,
                                                                     fontSize:
-                                                                        12.0,
+                                                                        14.0,
                                                                     letterSpacing:
                                                                         0.0,
                                                                     fontWeight:

@@ -1,7 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/flutter_flow_youtube_player.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -43,51 +42,47 @@ class _YoutubetestCopyWidgetState extends State<YoutubetestCopyWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return YoutubeFullScreenWrapper(
-      child: GestureDetector(
-        onTap: () => FocusScope.of(context).unfocus(),
-        child: Scaffold(
-          key: scaffoldKey,
-          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-          body: Visibility(
-            visible: responsiveVisibility(
-              context: context,
-              tablet: false,
-              tabletLandscape: false,
-              desktop: false,
-            ),
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                if (responsiveVisibility(
-                  context: context,
-                  tablet: false,
-                  tabletLandscape: false,
-                  desktop: false,
-                ))
-                  Flexible(
-                    flex: 1,
-                    child: Container(
-                      width: 427.0,
-                      height: MediaQuery.sizeOf(context).height * 0.4,
-                      decoration: BoxDecoration(
-                        color: Color(0x00000220),
-                      ),
-                      child: FlutterFlowYoutubePlayer(
-                        url:
-                            'https://www.youtube.com/watch?v=${widget!.videoId}',
-                        autoPlay: false,
-                        looping: true,
-                        mute: false,
-                        showControls: true,
-                        showFullScreen: true,
-                        strictRelatedVideos: true,
-                      ),
-                    ),
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).unfocus(),
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        body: Visibility(
+          visible: responsiveVisibility(
+            context: context,
+            tablet: false,
+            tabletLandscape: false,
+            desktop: false,
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Container(
+                width: double.infinity,
+                height: 289.0,
+                decoration: BoxDecoration(),
+              ),
+              Container(
+                width: double.infinity,
+                height: 659.0,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: Image.network(
+                      'https://images.unsplash.com/photo-1536954480657-e7e726f2dd90?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHw3fHxzZWxmJTIwY2FyZXxlbnwwfHx8fDE3MjYyODAyMTB8MA&ixlib=rb-4.0.3&q=80&w=1080',
+                    ).image,
                   ),
-              ],
-            ),
+                ),
+                child: Container(
+                  width: 100.0,
+                  height: 100.0,
+                  decoration: BoxDecoration(
+                    color: Color(0xBCFFFFFF),
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ),
