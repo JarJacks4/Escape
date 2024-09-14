@@ -105,22 +105,7 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
                         child: FlutterFlowSwipeableStack(
                           onSwipeFn: (index) {},
                           onLeftSwipe: (index) {},
-                          onRightSwipe: (index) async {
-                            logFirebaseEvent(
-                                'USER_GOALS_SWIPE_STACK_SwipeableStack_3j');
-                            logFirebaseEvent('SwipeableStack_navigate_to');
-
-                            context.goNamed(
-                              'registrationSuccess',
-                              extra: <String, dynamic>{
-                                kTransitionInfoKey: TransitionInfo(
-                                  hasTransition: true,
-                                  transitionType: PageTransitionType.fade,
-                                  duration: Duration(milliseconds: 400),
-                                ),
-                              },
-                            );
-                          },
+                          onRightSwipe: (index) {},
                           onUpSwipe: (index) {},
                           onDownSwipe: (index) {},
                           itemBuilder: (context, index) {

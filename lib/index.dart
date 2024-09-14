@@ -61,19 +61,14 @@ export '/provider_community/classes_page/classes_page_widget.dart'
     show ClassesPageWidget;
 export '/provider_community/events_page/events_page_widget.dart'
     show EventsPageWidget;
-export '/pages/start_logo_screen/start_logo_screen_widget.dart'
+export '/pages/main_pages/start_logo_screen/start_logo_screen_widget.dart'
     show StartLogoScreenWidget;
-export '/profile_page2/profile_page2_widget.dart' show ProfilePage2Widget;
 export '/pages/main_pages/events_f_i_n_a_l/events_f_i_n_a_l_widget.dart'
     show EventsFINALWidget;
 export '/pages/onboarding_login/complete_profile_f_i_n_a_l/complete_profile_f_i_n_a_l_widget.dart'
     show CompleteProfileFINALWidget;
 export '/pages/main_pages/upliftand_awareness/upliftand_awareness_widget.dart'
     show UpliftandAwarenessWidget;
-export '/pages/main_pages/therapist_directory/therapist_directory_widget.dart'
-    show TherapistDirectoryWidget;
-export '/pages/main_pages/increase_focus/increase_focus_widget.dart'
-    show IncreaseFocusWidget;
 export '/meditation_and_sounds/video_player/video_player_widget.dart'
     show VideoPlayerWidget;
 export '/meditation_and_sounds/sounds_details_ambient_music/sounds_details_ambient_music_widget.dart'
@@ -106,18 +101,20 @@ export '/pages/main_pages/eliminate_depression/eliminate_depression_widget.dart'
     show EliminateDepressionWidget;
 export '/pages/main_pages/using_vibration/using_vibration_widget.dart'
     show UsingVibrationWidget;
-export '/pages/main_pages/help_anxiety/help_anxiety_widget.dart'
-    show HelpAnxietyWidget;
 export '/pages/main_pages/kemetic_yoga/kemetic_yoga_widget.dart'
     show KemeticYogaWidget;
 export '/pages/main_pages/yoga_pose_videos/yoga_pose_videos_widget.dart'
     show YogaPoseVideosWidget;
 export '/pages/main_pages/beginners_yoga/beginners_yoga_widget.dart'
     show BeginnersYogaWidget;
-export '/pages/main_pages/eliminate_depression_copy/eliminate_depression_copy_widget.dart'
-    show EliminateDepressionCopyWidget;
 export '/meditation_and_sounds/youtubetest_copy/youtubetest_copy_widget.dart'
     show YoutubetestCopyWidget;
 export '/subsciption/subsciption_widget.dart' show SubsciptionWidget;
 export '/pages/main_pages/subscription_comp/subscription_comp_widget.dart'
     show SubscriptionCompWidget;
+export '/pages/main_pages/increase_focus_f_i_n_a_l/increase_focus_f_i_n_a_l_widget.dart'
+    show IncreaseFocusFINALWidget;
+export '/pages/main_pages/classes_and_events/classes_and_events_widget.dart'
+    show ClassesAndEventsWidget;
+export '/pages/main_pages/help_anxiety/help_anxiety_widget.dart'
+    show HelpAnxietyWidget;

@@ -89,7 +89,8 @@ class _EventsFINALWidgetState extends State<EventsFINALWidget> {
                                       .secondaryBackground,
                                   icon: Icon(
                                     Icons.chevron_left,
-                                    color: Colors.white,
+                                    color:
+                                        FlutterFlowTheme.of(context).alternate,
                                     size: 30.0,
                                   ),
                                   onPressed: () async {
@@ -100,36 +101,42 @@ class _EventsFINALWidgetState extends State<EventsFINALWidget> {
                                     context.safePop();
                                   },
                                 ),
+                                Container(
+                                  width: MediaQuery.sizeOf(context).width * 0.2,
+                                  height:
+                                      MediaQuery.sizeOf(context).width * 0.2,
+                                  clipBehavior: Clip.antiAlias,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: Image.asset(
+                                    'assets/images/ESCAPE_Logo_Clear.png',
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
                               ],
                             ),
                           ),
-                          Material(
-                            color: Colors.transparent,
-                            elevation: 8.0,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(22.0),
+                          Container(
+                            height: 251.0,
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                colors: [
+                                  Color(0x14562A83),
+                                  FlutterFlowTheme.of(context).primaryBackground
+                                ],
+                                stops: [0.0, 1.0],
+                                begin: AlignmentDirectional(0.0, -1.0),
+                                end: AlignmentDirectional(0, 1.0),
+                              ),
+                              borderRadius: BorderRadius.circular(0.0),
                             ),
                             child: Container(
-                              height: 251.0,
+                              width: 375.0,
+                              height: 230.0,
                               decoration: BoxDecoration(
-                                gradient: LinearGradient(
-                                  colors: [
-                                    FlutterFlowTheme.of(context).primary,
-                                    FlutterFlowTheme.of(context).secondary
-                                  ],
-                                  stops: [0.0, 1.0],
-                                  begin: AlignmentDirectional(0.0, -1.0),
-                                  end: AlignmentDirectional(0, 1.0),
-                                ),
-                                borderRadius: BorderRadius.circular(22.0),
-                              ),
-                              child: Container(
-                                width: 375.0,
-                                height: 230.0,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                ),
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
                               ),
                             ),
                           ),

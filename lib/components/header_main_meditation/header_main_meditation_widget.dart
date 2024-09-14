@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'header_main_meditation_model.dart';
 export 'header_main_meditation_model.dart';
@@ -45,13 +44,13 @@ class _HeaderMainMeditationWidgetState
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.sizeOf(context).width * 1.0,
-      height: MediaQuery.sizeOf(context).height * 0.346,
+      height: MediaQuery.sizeOf(context).height * 0.34,
       decoration: BoxDecoration(
         color: Color(0x00FCFFF9),
         borderRadius: BorderRadius.circular(15.0),
       ),
       child: Container(
-        height: MediaQuery.sizeOf(context).height * 0.063,
+        height: MediaQuery.sizeOf(context).height * 0.052,
         child: Stack(
           children: [
             Stack(
@@ -80,7 +79,8 @@ class _HeaderMainMeditationWidgetState
                                   buttonSize: 50.0,
                                   icon: Icon(
                                     Icons.menu_rounded,
-                                    color: Color(0xFF000220),
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryBackground,
                                     size: 36.0,
                                   ),
                                   onPressed: () async {
@@ -89,8 +89,7 @@ class _HeaderMainMeditationWidgetState
                                     logFirebaseEvent('IconButton_bottom_sheet');
                                     await showModalBottomSheet(
                                       isScrollControlled: true,
-                                      backgroundColor: Color(0x37000000),
-                                      barrierColor: Color(0xA0000000),
+                                      backgroundColor: Colors.transparent,
                                       context: context,
                                       builder: (context) {
                                         return WebViewAware(
@@ -111,7 +110,7 @@ class _HeaderMainMeditationWidgetState
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 18.0, 0.0),
+                                  0.0, 0.0, 10.0, 0.0),
                               child: FlutterFlowIconButton(
                                 borderColor: Colors.transparent,
                                 borderRadius: 30.0,
@@ -130,44 +129,41 @@ class _HeaderMainMeditationWidgetState
                                 },
                               ),
                             ),
-                            Flexible(
-                              flex: 1,
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 22.0, 0.0),
-                                child: InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    logFirebaseEvent(
-                                        'HEADER_MAIN_MEDITATION_userAvatar_ON_TAP');
-                                    logFirebaseEvent('userAvatar_navigate_to');
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 15.0, 0.0),
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  logFirebaseEvent(
+                                      'HEADER_MAIN_MEDITATION_CircleImage_p0xle');
+                                  logFirebaseEvent('CircleImage_navigate_to');
 
-                                    context.pushNamed(
-                                      'ProfilePage',
-                                      extra: <String, dynamic>{
-                                        kTransitionInfoKey: TransitionInfo(
-                                          hasTransition: true,
-                                          transitionType:
-                                              PageTransitionType.fade,
-                                          duration: Duration(milliseconds: 3),
-                                        ),
-                                      },
-                                    );
-                                  },
-                                  child: Container(
-                                    width: 60.0,
-                                    height: 60.0,
-                                    clipBehavior: Clip.antiAlias,
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                    ),
-                                    child: Image.network(
-                                      'https://images.unsplash.com/photo-1611590027211-b954fd027b51?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1338&q=80',
-                                      fit: BoxFit.cover,
-                                    ),
+                                  context.pushNamed(
+                                    'NewHome',
+                                    extra: <String, dynamic>{
+                                      kTransitionInfoKey: TransitionInfo(
+                                        hasTransition: true,
+                                        transitionType: PageTransitionType.fade,
+                                        duration: Duration(milliseconds: 2),
+                                      ),
+                                    },
+                                  );
+                                },
+                                child: Container(
+                                  width: MediaQuery.sizeOf(context).width * 0.2,
+                                  height:
+                                      MediaQuery.sizeOf(context).width * 0.2,
+                                  clipBehavior: Clip.antiAlias,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: Image.asset(
+                                    'assets/images/ESCAPE_Logo_Clear.png',
+                                    fit: BoxFit.cover,
                                   ),
                                 ),
                               ),
@@ -182,7 +178,7 @@ class _HeaderMainMeditationWidgetState
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            GradientText(
+                            Text(
                               FFLocalizations.of(context).getText(
                                 '1mrrjjvs' /* Meditation */,
                               ),
@@ -193,14 +189,8 @@ class _HeaderMainMeditationWidgetState
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
                                     letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w300,
+                                    fontWeight: FontWeight.normal,
                                   ),
-                              colors: [
-                                FlutterFlowTheme.of(context).primary,
-                                FlutterFlowTheme.of(context).secondaryBackground
-                              ],
-                              gradientDirection: GradientDirection.ltr,
-                              gradientType: GradientType.linear,
                             ),
                           ],
                         ),
@@ -212,15 +202,15 @@ class _HeaderMainMeditationWidgetState
                           FFLocalizations.of(context).getText(
                             'z1f32dbi' /* Start or continue your journey... */,
                           ),
-                          style: FlutterFlowTheme.of(context)
-                              .labelMedium
-                              .override(
-                                fontFamily: 'Roboto',
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                fontSize: 22.0,
-                                letterSpacing: 0.0,
-                                fontWeight: FontWeight.normal,
-                              ),
+                          style:
+                              FlutterFlowTheme.of(context).labelMedium.override(
+                                    fontFamily: 'Roboto',
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryBackground,
+                                    fontSize: 22.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w300,
+                                  ),
                         ),
                       ),
                     ],

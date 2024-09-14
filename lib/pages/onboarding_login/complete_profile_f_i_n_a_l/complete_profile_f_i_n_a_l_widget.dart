@@ -1,4 +1,7 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/components/primary_button/primary_button_widget.dart';
+import '/components/subscription_comp2_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -8,10 +11,11 @@ import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
-import 'package:flutter/foundation.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'complete_profile_f_i_n_a_l_model.dart';
 export 'complete_profile_f_i_n_a_l_model.dart';
 
@@ -47,12 +51,6 @@ class _CompleteProfileFINALWidgetState
 
     _model.textController4 ??= TextEditingController();
     _model.textFieldFocusNode4 ??= FocusNode();
-
-    _model.textController5 ??= TextEditingController();
-    _model.textFieldFocusNode5 ??= FocusNode();
-
-    _model.textController6 ??= TextEditingController();
-    _model.textFieldFocusNode6 ??= FocusNode();
   }
 
   @override
@@ -219,105 +217,13 @@ class _CompleteProfileFINALWidgetState
                                     ),
                                   ),
                                 ),
-                                TextFormField(
-                                  controller: _model.textController1,
-                                  focusNode: _model.textFieldFocusNode1,
-                                  onFieldSubmitted: (_) async {
-                                    logFirebaseEvent(
-                                        'COMPLETE_PROFILE_F_I_N_A_L_TextField_nw4');
-                                    logFirebaseEvent(
-                                        'TextField_date_time_picker');
-                                    final _datePicked1Date =
-                                        await showDatePicker(
-                                      context: context,
-                                      initialDate: getCurrentTimestamp,
-                                      firstDate: DateTime(1900),
-                                      lastDate: getCurrentTimestamp,
-                                    );
-
-                                    if (_datePicked1Date != null) {
-                                      safeSetState(() {
-                                        _model.datePicked1 = DateTime(
-                                          _datePicked1Date.year,
-                                          _datePicked1Date.month,
-                                          _datePicked1Date.day,
-                                        );
-                                      });
-                                    }
-                                  },
-                                  autofocus: true,
-                                  obscureText: false,
-                                  decoration: InputDecoration(
-                                    hintText:
-                                        FFLocalizations.of(context).getText(
-                                      'cclv7enh' /* Date of birth */,
-                                    ),
-                                    hintStyle: FlutterFlowTheme.of(context)
-                                        .bodySmall
-                                        .override(
-                                          fontFamily: 'Inter',
-                                          color: Color(0xFFADA4A5),
-                                          letterSpacing: 0.0,
-                                          lineHeight: 1.5,
-                                        ),
-                                    enabledBorder: UnderlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        width: 1.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(14.0),
-                                    ),
-                                    focusedBorder: UnderlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondary,
-                                        width: 1.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(14.0),
-                                    ),
-                                    errorBorder: UnderlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Color(0x00000000),
-                                        width: 1.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(14.0),
-                                    ),
-                                    focusedErrorBorder: UnderlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Color(0x00000000),
-                                        width: 1.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(14.0),
-                                    ),
-                                    filled: true,
-                                    fillColor:
-                                        FlutterFlowTheme.of(context).accent4,
-                                    prefixIcon: Icon(
-                                      Icons.calendar_today_outlined,
-                                      color:
-                                          FlutterFlowTheme.of(context).accent1,
-                                      size: 18.0,
-                                    ),
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Inter',
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                        letterSpacing: 0.0,
-                                      ),
-                                  validator: _model.textController1Validator
-                                      .asValidator(context),
-                                ),
                                 Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Expanded(
                                       child: TextFormField(
-                                        controller: _model.textController2,
-                                        focusNode: _model.textFieldFocusNode2,
+                                        controller: _model.textController1,
+                                        focusNode: _model.textFieldFocusNode1,
                                         autofocus: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
@@ -392,7 +298,7 @@ class _CompleteProfileFINALWidgetState
                                               letterSpacing: 0.0,
                                             ),
                                         validator: _model
-                                            .textController2Validator
+                                            .textController1Validator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -403,8 +309,8 @@ class _CompleteProfileFINALWidgetState
                                   children: [
                                     Expanded(
                                       child: TextFormField(
-                                        controller: _model.textController3,
-                                        focusNode: _model.textFieldFocusNode3,
+                                        controller: _model.textController2,
+                                        focusNode: _model.textFieldFocusNode2,
                                         autofocus: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
@@ -479,7 +385,7 @@ class _CompleteProfileFINALWidgetState
                                               letterSpacing: 0.0,
                                             ),
                                         validator: _model
-                                            .textController3Validator
+                                            .textController2Validator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -513,7 +419,7 @@ class _CompleteProfileFINALWidgetState
                                       );
                                     },
                                     child: wrapWithModel(
-                                      model: _model.primaryButtonModel1,
+                                      model: _model.primaryButtonModel,
                                       updateCallback: () => safeSetState(() {}),
                                       child: PrimaryButtonWidget(
                                         buttonText: 'Next',
@@ -753,9 +659,41 @@ class _CompleteProfileFINALWidgetState
                                                 'zao1yu9e' /* Self-Care Provider */,
                                               )
                                             ],
-                                            onChanged: (val) => safeSetState(
-                                                () => _model.dropDownValue2 =
-                                                    val),
+                                            onChanged: (val) async {
+                                              safeSetState(() =>
+                                                  _model.dropDownValue2 = val);
+                                              logFirebaseEvent(
+                                                  'COMPLETE_PROFILE_F_I_N_A_L_DropDown_x5wv');
+                                              logFirebaseEvent(
+                                                  'DropDown_bottom_sheet');
+                                              await showModalBottomSheet(
+                                                isScrollControlled: true,
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                context: context,
+                                                builder: (context) {
+                                                  return WebViewAware(
+                                                    child: GestureDetector(
+                                                      onTap: () =>
+                                                          FocusScope.of(context)
+                                                              .unfocus(),
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child: Container(
+                                                          height:
+                                                              double.infinity,
+                                                          child:
+                                                              SubscriptionComp2Widget(),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                              ).then((value) =>
+                                                  safeSetState(() {}));
+                                            },
                                             width: 180.0,
                                             height: 50.0,
                                             textStyle:
@@ -790,105 +728,13 @@ class _CompleteProfileFINALWidgetState
                                     ),
                                   ),
                                 ),
-                                TextFormField(
-                                  controller: _model.textController4,
-                                  focusNode: _model.textFieldFocusNode4,
-                                  onFieldSubmitted: (_) async {
-                                    logFirebaseEvent(
-                                        'COMPLETE_PROFILE_F_I_N_A_L_TextField_o1k');
-                                    logFirebaseEvent(
-                                        'TextField_date_time_picker');
-                                    final _datePicked2Date =
-                                        await showDatePicker(
-                                      context: context,
-                                      initialDate: getCurrentTimestamp,
-                                      firstDate: DateTime(1900),
-                                      lastDate: getCurrentTimestamp,
-                                    );
-
-                                    if (_datePicked2Date != null) {
-                                      safeSetState(() {
-                                        _model.datePicked2 = DateTime(
-                                          _datePicked2Date.year,
-                                          _datePicked2Date.month,
-                                          _datePicked2Date.day,
-                                        );
-                                      });
-                                    }
-                                  },
-                                  autofocus: true,
-                                  obscureText: false,
-                                  decoration: InputDecoration(
-                                    hintText:
-                                        FFLocalizations.of(context).getText(
-                                      'cymtb9bg' /* Email */,
-                                    ),
-                                    hintStyle: FlutterFlowTheme.of(context)
-                                        .bodySmall
-                                        .override(
-                                          fontFamily: 'Inter',
-                                          color: Color(0xFFADA4A5),
-                                          letterSpacing: 0.0,
-                                          lineHeight: 1.5,
-                                        ),
-                                    enabledBorder: UnderlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        width: 1.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(14.0),
-                                    ),
-                                    focusedBorder: UnderlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondary,
-                                        width: 1.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(14.0),
-                                    ),
-                                    errorBorder: UnderlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Color(0x00000000),
-                                        width: 1.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(14.0),
-                                    ),
-                                    focusedErrorBorder: UnderlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: Color(0x00000000),
-                                        width: 1.0,
-                                      ),
-                                      borderRadius: BorderRadius.circular(14.0),
-                                    ),
-                                    filled: true,
-                                    fillColor:
-                                        FlutterFlowTheme.of(context).accent4,
-                                    prefixIcon: Icon(
-                                      Icons.calendar_today_outlined,
-                                      color:
-                                          FlutterFlowTheme.of(context).accent1,
-                                      size: 18.0,
-                                    ),
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Inter',
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                        letterSpacing: 0.0,
-                                      ),
-                                  validator: _model.textController4Validator
-                                      .asValidator(context),
-                                ),
                                 Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Expanded(
                                       child: TextFormField(
-                                        controller: _model.textController5,
-                                        focusNode: _model.textFieldFocusNode5,
+                                        controller: _model.textController3,
+                                        focusNode: _model.textFieldFocusNode3,
                                         autofocus: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
@@ -963,7 +809,7 @@ class _CompleteProfileFINALWidgetState
                                               letterSpacing: 0.0,
                                             ),
                                         validator: _model
-                                            .textController5Validator
+                                            .textController3Validator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -974,8 +820,8 @@ class _CompleteProfileFINALWidgetState
                                   children: [
                                     Expanded(
                                       child: TextFormField(
-                                        controller: _model.textController6,
-                                        focusNode: _model.textFieldFocusNode6,
+                                        controller: _model.textController4,
+                                        focusNode: _model.textFieldFocusNode4,
                                         autofocus: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
@@ -1050,46 +896,58 @@ class _CompleteProfileFINALWidgetState
                                               letterSpacing: 0.0,
                                             ),
                                         validator: _model
-                                            .textController6Validator
+                                            .textController4Validator
                                             .asValidator(context),
                                       ),
                                     ),
                                   ],
                                 ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 16.0, 0.0, 0.0),
-                                  child: InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      logFirebaseEvent(
-                                          'COMPLETE_PROFILE_F_I_N_A_L_Container_hnr');
-                                      logFirebaseEvent(
-                                          'primaryButton_navigate_to');
+                                FFButtonWidget(
+                                  onPressed: () async {
+                                    logFirebaseEvent(
+                                        'COMPLETE_PROFILE_F_I_N_A_L_PICK_YOUR_SEL');
+                                    logFirebaseEvent('Button_backend_call');
 
-                                      context.pushNamed(
-                                        'UserGoalsSwipeStack',
-                                        extra: <String, dynamic>{
-                                          kTransitionInfoKey: TransitionInfo(
-                                            hasTransition: true,
-                                            transitionType:
-                                                PageTransitionType.fade,
-                                            duration:
-                                                Duration(milliseconds: 400),
-                                          ),
-                                        },
-                                      );
-                                    },
-                                    child: wrapWithModel(
-                                      model: _model.primaryButtonModel2,
-                                      updateCallback: () => safeSetState(() {}),
-                                      child: PrimaryButtonWidget(
-                                        buttonText: 'Next',
-                                      ),
-                                    ),
+                                    await currentUserReference!
+                                        .update(createUsersRecordData(
+                                      userName: _model.textController2.text,
+                                      role: _model.dropDownValue2,
+                                    ));
+                                    logFirebaseEvent('Button_navigate_to');
+
+                                    context.pushNamed(
+                                      'UserGoalsSwipeStack',
+                                      extra: <String, dynamic>{
+                                        kTransitionInfoKey: TransitionInfo(
+                                          hasTransition: true,
+                                          transitionType:
+                                              PageTransitionType.fade,
+                                          duration: Duration(milliseconds: 2),
+                                        ),
+                                      },
+                                    );
+                                  },
+                                  text: FFLocalizations.of(context).getText(
+                                    'yfe91rk0' /* Pick Your Self Care Goals */,
+                                  ),
+                                  options: FFButtonOptions(
+                                    width:
+                                        MediaQuery.sizeOf(context).width * 0.8,
+                                    height: 48.0,
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        16.0, 0.0, 16.0, 0.0),
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          color: Colors.white,
+                                          letterSpacing: 0.0,
+                                        ),
+                                    elevation: 8.0,
+                                    borderRadius: BorderRadius.circular(22.0),
                                   ),
                                 ),
                               ],

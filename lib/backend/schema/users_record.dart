@@ -61,6 +61,21 @@ class UsersRecord extends FirestoreRecord {
   bool get freeUser => _freeUser ?? false;
   bool hasFreeUser() => _freeUser != null;
 
+  // "favoriteTimeToMeditate" field.
+  DateTime? _favoriteTimeToMeditate;
+  DateTime? get favoriteTimeToMeditate => _favoriteTimeToMeditate;
+  bool hasFavoriteTimeToMeditate() => _favoriteTimeToMeditate != null;
+
+  // "isSubscriber" field.
+  DocumentReference? _isSubscriber;
+  DocumentReference? get isSubscriber => _isSubscriber;
+  bool hasIsSubscriber() => _isSubscriber != null;
+
+  // "isSubscribed" field.
+  bool? _isSubscribed;
+  bool get isSubscribed => _isSubscribed ?? false;
+  bool hasIsSubscribed() => _isSubscribed != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _photoUrl = snapshotData['photo_url'] as String?;
@@ -71,6 +86,10 @@ class UsersRecord extends FirestoreRecord {
     _displayName = snapshotData['display_name'] as String?;
     _phoneNumber = snapshotData['phone_number'] as String?;
     _freeUser = snapshotData['freeUser'] as bool?;
+    _favoriteTimeToMeditate =
+        snapshotData['favoriteTimeToMeditate'] as DateTime?;
+    _isSubscriber = snapshotData['isSubscriber'] as DocumentReference?;
+    _isSubscribed = snapshotData['isSubscribed'] as bool?;
   }
 
   static CollectionReference get collection =>
@@ -116,6 +135,9 @@ Map<String, dynamic> createUsersRecordData({
   String? displayName,
   String? phoneNumber,
   bool? freeUser,
+  DateTime? favoriteTimeToMeditate,
+  DocumentReference? isSubscriber,
+  bool? isSubscribed,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -128,6 +150,9 @@ Map<String, dynamic> createUsersRecordData({
       'display_name': displayName,
       'phone_number': phoneNumber,
       'freeUser': freeUser,
+      'favoriteTimeToMeditate': favoriteTimeToMeditate,
+      'isSubscriber': isSubscriber,
+      'isSubscribed': isSubscribed,
     }.withoutNulls,
   );
 
@@ -147,7 +172,10 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.role == e2?.role &&
         e1?.displayName == e2?.displayName &&
         e1?.phoneNumber == e2?.phoneNumber &&
-        e1?.freeUser == e2?.freeUser;
+        e1?.freeUser == e2?.freeUser &&
+        e1?.favoriteTimeToMeditate == e2?.favoriteTimeToMeditate &&
+        e1?.isSubscriber == e2?.isSubscriber &&
+        e1?.isSubscribed == e2?.isSubscribed;
   }
 
   @override
@@ -160,7 +188,10 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.role,
         e?.displayName,
         e?.phoneNumber,
-        e?.freeUser
+        e?.freeUser,
+        e?.favoriteTimeToMeditate,
+        e?.isSubscriber,
+        e?.isSubscribed
       ]);
 
   @override

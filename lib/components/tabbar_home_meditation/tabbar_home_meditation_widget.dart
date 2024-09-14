@@ -1,6 +1,9 @@
+import '/backend/api_requests/api_calls.dart';
 import '/components/meditation_help_comp_widget.dart';
+import '/components/videoplayer_comp_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_button_tabbar.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:math';
@@ -507,26 +510,6 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
           ),
         ],
       ),
-      'staggeredViewOnPageLoadAnimation1': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 1.ms),
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          MoveEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: Offset(0.0, -18.0),
-            end: Offset(0.0, 0.0),
-          ),
-        ],
-      ),
       'containerOnPageLoadAnimation24': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
@@ -703,466 +686,6 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
             delay: 0.0.ms,
             duration: 600.0.ms,
             begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-      'containerOnPageLoadAnimation33': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 1.ms),
-          FadeEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          MoveEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-      'containerOnPageLoadAnimation34': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 1.ms),
-          FadeEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          MoveEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-      'containerOnPageLoadAnimation35': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 1.ms),
-          FadeEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          MoveEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-      'containerOnPageLoadAnimation36': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 1.ms),
-          FadeEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          MoveEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-      'containerOnPageLoadAnimation37': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 1.ms),
-          FadeEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          MoveEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-      'containerOnPageLoadAnimation38': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 1.ms),
-          FadeEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          MoveEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-      'staggeredViewOnPageLoadAnimation2': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 1.ms),
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          MoveEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: Offset(0.0, -18.0),
-            end: Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-      'containerOnPageLoadAnimation39': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 1.ms),
-          FadeEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          MoveEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-      'containerOnPageLoadAnimation40': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 1.ms),
-          FadeEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          MoveEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-      'containerOnPageLoadAnimation41': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 1.ms),
-          FadeEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          MoveEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-      'containerOnPageLoadAnimation42': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 1.ms),
-          FadeEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          MoveEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-      'containerOnPageLoadAnimation43': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 1.ms),
-          FadeEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          MoveEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-      'containerOnPageLoadAnimation44': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 1.ms),
-          FadeEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          MoveEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-      'containerOnPageLoadAnimation45': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 1.ms),
-          FadeEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          MoveEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-      'containerOnPageLoadAnimation46': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 1.ms),
-          FadeEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          MoveEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-      'containerOnPageLoadAnimation47': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 1.ms),
-          FadeEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          MoveEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-      'containerOnPageLoadAnimation48': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 1.ms),
-          FadeEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          MoveEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-      'containerOnPageLoadAnimation49': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 1.ms),
-          FadeEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          MoveEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-      'containerOnPageLoadAnimation50': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 1.ms),
-          FadeEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          MoveEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-      'containerOnPageLoadAnimation51': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 1.ms),
-          FadeEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          MoveEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-      'containerOnPageLoadAnimation52': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 1.ms),
-          FadeEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          MoveEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-      'containerOnPageLoadAnimation53': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 1.ms),
-          FadeEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          MoveEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-      'staggeredViewOnPageLoadAnimation3': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 1.ms),
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          MoveEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: Offset(0.0, -18.0),
             end: Offset(0.0, 0.0),
           ),
         ],
@@ -1389,12 +912,15 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            fontFamily: 'Inter',
+                                                            fontFamily:
+                                                                'Roboto',
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryBackground,
                                                             fontSize: 20.0,
                                                             letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w300,
                                                           ),
                                                     ),
                                                   ),
@@ -1489,12 +1015,15 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            fontFamily: 'Inter',
+                                                            fontFamily:
+                                                                'Roboto',
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryBackground,
                                                             fontSize: 20.0,
                                                             letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w300,
                                                           ),
                                                     ),
                                                   ),
@@ -1589,12 +1118,15 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            fontFamily: 'Inter',
+                                                            fontFamily:
+                                                                'Roboto',
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryBackground,
                                                             fontSize: 20.0,
                                                             letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w300,
                                                           ),
                                                     ),
                                                   ),
@@ -1691,12 +1223,15 @@ Depression */
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            fontFamily: 'Inter',
+                                                            fontFamily:
+                                                                'Roboto',
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .primaryBackground,
                                                             fontSize: 20.0,
                                                             letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w300,
                                                           ),
                                                     ),
                                                   ),
@@ -1743,7 +1278,7 @@ Depression */
                                                 fontFamily: 'Inter',
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .primaryBackground,
+                                                        .secondaryBackground,
                                                 fontSize: 20.0,
                                                 letterSpacing: 0.0,
                                               ),
@@ -1753,7 +1288,7 @@ Depression */
                                   ),
                                   Container(
                                     width: double.infinity,
-                                    height: 100.0,
+                                    height: 230.0,
                                     decoration: BoxDecoration(
                                       color: Colors.transparent,
                                     ),
@@ -1761,37 +1296,202 @@ Depression */
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Expanded(
-                                          child: ListView(
-                                            padding: EdgeInsets.zero,
-                                            scrollDirection: Axis.horizontal,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 0.0, 0.0, 0.0),
-                                                child: Container(
-                                                  width: 70.0,
-                                                  height: 50.0,
-                                                  decoration: BoxDecoration(
-                                                    color: Colors.transparent,
-                                                  ),
-                                                  child: Container(
-                                                    width: 90.0,
-                                                    height: 90.0,
-                                                    clipBehavior:
-                                                        Clip.antiAlias,
-                                                    decoration: BoxDecoration(
-                                                      shape: BoxShape.circle,
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 8.0, 0.0, 8.0),
+                                            child:
+                                                FutureBuilder<ApiCallResponse>(
+                                              future:
+                                                  YouTubeDataStressAndAnxietyMeditationsAPIFINALCall
+                                                      .call(),
+                                              builder: (context, snapshot) {
+                                                // Customize what your widget looks like when it's loading.
+                                                if (!snapshot.hasData) {
+                                                  return Center(
+                                                    child: SizedBox(
+                                                      width: 50.0,
+                                                      height: 50.0,
+                                                      child:
+                                                          CircularProgressIndicator(
+                                                        valueColor:
+                                                            AlwaysStoppedAnimation<
+                                                                Color>(
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primary,
+                                                        ),
+                                                      ),
                                                     ),
-                                                    child: Image.asset(
-                                                      'assets/images/user3.png',
-                                                      fit: BoxFit.cover,
-                                                    ),
-                                                  ),
-                                                ).animateOnPageLoad(animationsMap[
-                                                    'containerOnPageLoadAnimation1']!),
-                                              ),
-                                            ],
+                                                  );
+                                                }
+                                                final listViewYouTubeDataStressAndAnxietyMeditationsAPIFINALResponse =
+                                                    snapshot.data!;
+
+                                                return Builder(
+                                                  builder: (context) {
+                                                    final meditations =
+                                                        getJsonField(
+                                                      listViewYouTubeDataStressAndAnxietyMeditationsAPIFINALResponse
+                                                          .jsonBody,
+                                                      r'''$.items[:].snippet''',
+                                                    ).toList();
+
+                                                    return ListView.builder(
+                                                      padding: EdgeInsets.zero,
+                                                      scrollDirection:
+                                                          Axis.horizontal,
+                                                      itemCount:
+                                                          meditations.length,
+                                                      itemBuilder: (context,
+                                                          meditationsIndex) {
+                                                        final meditationsItem =
+                                                            meditations[
+                                                                meditationsIndex];
+                                                        return Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      10.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: Container(
+                                                            width: 187.0,
+                                                            height: 215.0,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: Colors
+                                                                  .transparent,
+                                                            ),
+                                                            child: Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .center,
+                                                              children: [
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          1.0,
+                                                                          0.0),
+                                                                  child: Hero(
+                                                                    tag:
+                                                                        getJsonField(
+                                                                      meditationsItem,
+                                                                      r'''$.thumbnails.default.url''',
+                                                                    ).toString(),
+                                                                    transitionOnUserGestures:
+                                                                        true,
+                                                                    child:
+                                                                        ClipRRect(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              9.0),
+                                                                      child: Image
+                                                                          .network(
+                                                                        getJsonField(
+                                                                          meditationsItem,
+                                                                          r'''$.thumbnails.default.url''',
+                                                                        ).toString(),
+                                                                        width:
+                                                                            245.0,
+                                                                        height:
+                                                                            100.0,
+                                                                        fit: BoxFit
+                                                                            .cover,
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                                Align(
+                                                                  alignment:
+                                                                      AlignmentDirectional(
+                                                                          -1.0,
+                                                                          0.0),
+                                                                  child:
+                                                                      Padding(
+                                                                    padding:
+                                                                        EdgeInsets.all(
+                                                                            15.0),
+                                                                    child: Text(
+                                                                      getJsonField(
+                                                                        meditationsItem,
+                                                                        r'''$.title''',
+                                                                      ).toString(),
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Inter',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).secondaryBackground,
+                                                                            fontSize:
+                                                                                12.0,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                          ),
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                                Align(
+                                                                  alignment:
+                                                                      AlignmentDirectional(
+                                                                          1.0,
+                                                                          1.0),
+                                                                  child:
+                                                                      Padding(
+                                                                    padding:
+                                                                        EdgeInsets.all(
+                                                                            8.0),
+                                                                    child:
+                                                                        FlutterFlowIconButton(
+                                                                      borderColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      borderRadius:
+                                                                          8.0,
+                                                                      buttonSize:
+                                                                          40.0,
+                                                                      fillColor:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .tertiary,
+                                                                      icon:
+                                                                          Icon(
+                                                                        Icons
+                                                                            .play_circle,
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .info,
+                                                                        size:
+                                                                            24.0,
+                                                                      ),
+                                                                      onPressed:
+                                                                          () {
+                                                                        print(
+                                                                            'IconButton pressed ...');
+                                                                      },
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ).animateOnPageLoad(
+                                                              animationsMap[
+                                                                  'containerOnPageLoadAnimation1']!),
+                                                        );
+                                                      },
+                                                    );
+                                                  },
+                                                );
+                                              },
+                                            ),
                                           ),
                                         ),
                                       ],
@@ -1816,7 +1516,7 @@ Depression */
                                         .override(
                                           fontFamily: 'Inter',
                                           color: FlutterFlowTheme.of(context)
-                                              .primaryBackground,
+                                              .secondaryBackground,
                                           fontSize: 20.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w300,
@@ -2149,7 +1849,7 @@ Depression */
                                         .override(
                                           fontFamily: 'Inter',
                                           color: FlutterFlowTheme.of(context)
-                                              .primaryBackground,
+                                              .secondaryBackground,
                                           fontSize: 20.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w300,
@@ -2172,7 +1872,7 @@ Depression */
                                   Expanded(
                                     child: Container(
                                       width: double.infinity,
-                                      height: 120.0,
+                                      height: 170.0,
                                       decoration: BoxDecoration(
                                         color: Colors.transparent,
                                       ),
@@ -2180,92 +1880,211 @@ Depression */
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Expanded(
-                                            child: ListView(
-                                              padding: EdgeInsets.zero,
-                                              scrollDirection: Axis.horizontal,
-                                              children: [
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 10.0, 0.0),
-                                                  child: Container(
-                                                    width: 100.0,
-                                                    height: 100.0,
-                                                    decoration: BoxDecoration(
-                                                      color: Color(0x50090F13),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              9.0),
+                                            child:
+                                                FutureBuilder<ApiCallResponse>(
+                                              future:
+                                                  YouTubeDataStressAndAnxietyYogaAPIFINALCall
+                                                      .call(),
+                                              builder: (context, snapshot) {
+                                                // Customize what your widget looks like when it's loading.
+                                                if (!snapshot.hasData) {
+                                                  return Center(
+                                                    child: SizedBox(
+                                                      width: 50.0,
+                                                      height: 50.0,
+                                                      child:
+                                                          CircularProgressIndicator(
+                                                        valueColor:
+                                                            AlwaysStoppedAnimation<
+                                                                Color>(
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primary,
+                                                        ),
+                                                      ),
                                                     ),
-                                                    child: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        Padding(
+                                                  );
+                                                }
+                                                final listViewYouTubeDataStressAndAnxietyYogaAPIFINALResponse =
+                                                    snapshot.data!;
+
+                                                return Builder(
+                                                  builder: (context) {
+                                                    final recentItems =
+                                                        getJsonField(
+                                                      listViewYouTubeDataStressAndAnxietyYogaAPIFINALResponse
+                                                          .jsonBody,
+                                                      r'''$.items[:].snippet''',
+                                                    ).toList();
+
+                                                    return ListView.builder(
+                                                      padding: EdgeInsets.zero,
+                                                      scrollDirection:
+                                                          Axis.horizontal,
+                                                      itemCount:
+                                                          recentItems.length,
+                                                      itemBuilder: (context,
+                                                          recentItemsIndex) {
+                                                        final recentItemsItem =
+                                                            recentItems[
+                                                                recentItemsIndex];
+                                                        return Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
-                                                                      1.0,
+                                                                      10.0,
                                                                       0.0),
-                                                          child: ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        9.0),
-                                                            child: Image.asset(
-                                                              'assets/images/user6.png',
-                                                              width: 100.0,
-                                                              height: 100.0,
-                                                              fit: BoxFit.cover,
+                                                          child: Container(
+                                                            width: 172.0,
+                                                            height: 137.0,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: Color(
+                                                                  0x50090F13),
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          9.0),
                                                             ),
-                                                          ),
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      3.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Text(
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .getText(
-                                                              'wh8eaavj' /* Don´t Cry now */,
+                                                            child: InkWell(
+                                                              splashColor: Colors
+                                                                  .transparent,
+                                                              focusColor: Colors
+                                                                  .transparent,
+                                                              hoverColor: Colors
+                                                                  .transparent,
+                                                              highlightColor:
+                                                                  Colors
+                                                                      .transparent,
+                                                              onTap: () async {
+                                                                logFirebaseEvent(
+                                                                    'TABBAR_HOME_MEDITATION_Column_w8dvjknt_O');
+                                                                logFirebaseEvent(
+                                                                    'Column_bottom_sheet');
+                                                                await showModalBottomSheet(
+                                                                  isScrollControlled:
+                                                                      true,
+                                                                  backgroundColor:
+                                                                      Colors
+                                                                          .transparent,
+                                                                  context:
+                                                                      context,
+                                                                  builder:
+                                                                      (context) {
+                                                                    return WebViewAware(
+                                                                      child:
+                                                                          Padding(
+                                                                        padding:
+                                                                            MediaQuery.viewInsetsOf(context),
+                                                                        child:
+                                                                            Container(
+                                                                          height:
+                                                                              double.infinity,
+                                                                          child:
+                                                                              VideoplayerCompWidget(
+                                                                            parameter1:
+                                                                                getJsonField(
+                                                                              recentItemsItem,
+                                                                              r'''$.resource.videoId''',
+                                                                            ).toString(),
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    );
+                                                                  },
+                                                                ).then((value) =>
+                                                                    safeSetState(
+                                                                        () {}));
+                                                              },
+                                                              child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .center,
+                                                                children: [
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            1.0,
+                                                                            0.0),
+                                                                    child: Hero(
+                                                                      tag:
+                                                                          getJsonField(
+                                                                        recentItemsItem,
+                                                                        r'''$.thumbnails.default.url''',
+                                                                      ).toString(),
+                                                                      transitionOnUserGestures:
+                                                                          true,
+                                                                      child:
+                                                                          ClipRRect(
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(9.0),
+                                                                        child: Image
+                                                                            .network(
+                                                                          getJsonField(
+                                                                            recentItemsItem,
+                                                                            r'''$.thumbnails.default.url''',
+                                                                          ).toString(),
+                                                                          width:
+                                                                              100.0,
+                                                                          height:
+                                                                              100.0,
+                                                                          fit: BoxFit
+                                                                              .cover,
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            3.0,
+                                                                            15.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                    child: Text(
+                                                                      getJsonField(
+                                                                        recentItemsItem,
+                                                                        r'''$.title''',
+                                                                      ).toString(),
+                                                                      textAlign:
+                                                                          TextAlign
+                                                                              .center,
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Inter',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).primaryBackground,
+                                                                            fontSize:
+                                                                                12.0,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                          ),
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                              ),
                                                             ),
-                                                            textAlign: TextAlign
-                                                                .center,
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Inter',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryBackground,
-                                                                  fontSize:
-                                                                      12.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ).animateOnPageLoad(animationsMap[
-                                                      'containerOnPageLoadAnimation7']!),
-                                                ),
-                                              ],
+                                                          ).animateOnPageLoad(
+                                                              animationsMap[
+                                                                  'containerOnPageLoadAnimation7']!),
+                                                        );
+                                                      },
+                                                    );
+                                                  },
+                                                );
+                                              },
                                             ),
                                           ),
                                         ],
@@ -2291,7 +2110,7 @@ Depression */
                                         .override(
                                           fontFamily: 'Roboto',
                                           color: FlutterFlowTheme.of(context)
-                                              .primaryBackground,
+                                              .secondaryBackground,
                                           fontSize: 26.0,
                                           letterSpacing: 0.0,
                                         ),
@@ -2314,7 +2133,7 @@ Depression */
                                   Expanded(
                                     child: Container(
                                       width: double.infinity,
-                                      height: 127.0,
+                                      height: 169.0,
                                       decoration: BoxDecoration(
                                         color: Colors.transparent,
                                       ),
@@ -2322,102 +2141,212 @@ Depression */
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Expanded(
-                                            child: ListView(
-                                              padding: EdgeInsets.zero,
-                                              shrinkWrap: true,
-                                              scrollDirection: Axis.horizontal,
-                                              children: [
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 10.0, 0.0),
-                                                  child: Container(
-                                                    width: 100.0,
-                                                    height: 100.0,
-                                                    decoration: BoxDecoration(
-                                                      color: Color(0x50090F13),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              9.0),
-                                                    ),
-                                                    child: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      1.0,
-                                                                      0.0),
-                                                          child: ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        9.0),
-                                                            child: Image.asset(
-                                                              'assets/images/user6.png',
-                                                              width: 100.0,
-                                                              height: 100.0,
-                                                              fit: BoxFit.cover,
-                                                            ),
-                                                          ),
+                                            child:
+                                                FutureBuilder<ApiCallResponse>(
+                                              future:
+                                                  YouTubeDataStressAndAnxietyMeditationsAPIFINALCall
+                                                      .call(),
+                                              builder: (context, snapshot) {
+                                                // Customize what your widget looks like when it's loading.
+                                                if (!snapshot.hasData) {
+                                                  return Center(
+                                                    child: SizedBox(
+                                                      width: 50.0,
+                                                      height: 50.0,
+                                                      child:
+                                                          CircularProgressIndicator(
+                                                        valueColor:
+                                                            AlwaysStoppedAnimation<
+                                                                Color>(
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primary,
                                                         ),
-                                                        Padding(
+                                                      ),
+                                                    ),
+                                                  );
+                                                }
+                                                final listViewYouTubeDataStressAndAnxietyMeditationsAPIFINALResponse =
+                                                    snapshot.data!;
+
+                                                return Builder(
+                                                  builder: (context) {
+                                                    final recentItems =
+                                                        getJsonField(
+                                                      listViewYouTubeDataStressAndAnxietyMeditationsAPIFINALResponse
+                                                          .jsonBody,
+                                                      r'''$.items[:].snippet''',
+                                                    ).toList();
+
+                                                    return ListView.builder(
+                                                      padding: EdgeInsets.zero,
+                                                      shrinkWrap: true,
+                                                      scrollDirection:
+                                                          Axis.horizontal,
+                                                      itemCount:
+                                                          recentItems.length,
+                                                      itemBuilder: (context,
+                                                          recentItemsIndex) {
+                                                        final recentItemsItem =
+                                                            recentItems[
+                                                                recentItemsIndex];
+                                                        return Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
                                                                   .fromSTEB(
-                                                                      3.0,
                                                                       0.0,
                                                                       0.0,
+                                                                      10.0,
                                                                       0.0),
-                                                          child:
-                                                              AnimatedDefaultTextStyle(
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Inter',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryBackground,
-                                                                  fontSize:
-                                                                      12.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
-                                                                ),
-                                                            duration: Duration(
-                                                                milliseconds:
-                                                                    600),
-                                                            curve:
-                                                                Curves.easeIn,
-                                                            child: Text(
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                                'cq33oc4l' /* Don´t Cry now */,
+                                                          child: Container(
+                                                            width: 128.0,
+                                                            height: 137.0,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: Color(
+                                                                  0x50090F13),
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          9.0),
+                                                            ),
+                                                            child: InkWell(
+                                                              splashColor: Colors
+                                                                  .transparent,
+                                                              focusColor: Colors
+                                                                  .transparent,
+                                                              hoverColor: Colors
+                                                                  .transparent,
+                                                              highlightColor:
+                                                                  Colors
+                                                                      .transparent,
+                                                              onTap: () async {
+                                                                logFirebaseEvent(
+                                                                    'TABBAR_HOME_MEDITATION_Column_zttmv31a_O');
+                                                                logFirebaseEvent(
+                                                                    'Column_bottom_sheet');
+                                                                await showModalBottomSheet(
+                                                                  isScrollControlled:
+                                                                      true,
+                                                                  backgroundColor:
+                                                                      Colors
+                                                                          .transparent,
+                                                                  context:
+                                                                      context,
+                                                                  builder:
+                                                                      (context) {
+                                                                    return WebViewAware(
+                                                                      child:
+                                                                          Padding(
+                                                                        padding:
+                                                                            MediaQuery.viewInsetsOf(context),
+                                                                        child:
+                                                                            Container(
+                                                                          height:
+                                                                              double.infinity,
+                                                                          child:
+                                                                              VideoplayerCompWidget(
+                                                                            parameter1:
+                                                                                getJsonField(
+                                                                              recentItemsItem,
+                                                                              r'''$.resource.videoId''',
+                                                                            ).toString(),
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    );
+                                                                  },
+                                                                ).then((value) =>
+                                                                    safeSetState(
+                                                                        () {}));
+                                                              },
+                                                              child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .center,
+                                                                children: [
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            1.0,
+                                                                            0.0),
+                                                                    child: Hero(
+                                                                      tag:
+                                                                          getJsonField(
+                                                                        recentItemsItem,
+                                                                        r'''$.thumbnails.default.url''',
+                                                                      ).toString(),
+                                                                      transitionOnUserGestures:
+                                                                          true,
+                                                                      child:
+                                                                          ClipRRect(
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(9.0),
+                                                                        child: Image
+                                                                            .network(
+                                                                          getJsonField(
+                                                                            recentItemsItem,
+                                                                            r'''$.thumbnails.default.url''',
+                                                                          ).toString(),
+                                                                          width:
+                                                                              100.0,
+                                                                          height:
+                                                                              100.0,
+                                                                          fit: BoxFit
+                                                                              .cover,
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            3.0,
+                                                                            15.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                    child: Text(
+                                                                      getJsonField(
+                                                                        recentItemsItem,
+                                                                        r'''$.title''',
+                                                                      ).toString(),
+                                                                      textAlign:
+                                                                          TextAlign
+                                                                              .center,
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Inter',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).primaryBackground,
+                                                                            fontSize:
+                                                                                12.0,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                          ),
+                                                                    ),
+                                                                  ),
+                                                                ],
                                                               ),
-                                                              textAlign:
-                                                                  TextAlign
-                                                                      .center,
                                                             ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ).animateOnPageLoad(animationsMap[
-                                                      'containerOnPageLoadAnimation8']!),
-                                                ),
-                                              ],
+                                                          ).animateOnPageLoad(
+                                                              animationsMap[
+                                                                  'containerOnPageLoadAnimation8']!),
+                                                        );
+                                                      },
+                                                    );
+                                                  },
+                                                );
+                                              },
                                             ),
                                           ),
                                         ],
@@ -2471,7 +2400,7 @@ Depression */
                                   ),
                                   Container(
                                     width: double.infinity,
-                                    height: 100.0,
+                                    height: 240.0,
                                     decoration: BoxDecoration(
                                       color: Colors.transparent,
                                     ),
@@ -2479,141 +2408,202 @@ Depression */
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Expanded(
-                                          child: ListView(
-                                            padding: EdgeInsets.zero,
-                                            scrollDirection: Axis.horizontal,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 0.0, 0.0, 0.0),
-                                                child: Container(
-                                                  width: 70.0,
-                                                  height: 50.0,
-                                                  decoration: BoxDecoration(
-                                                    color: Colors.transparent,
-                                                  ),
-                                                  child: Container(
-                                                    width: 90.0,
-                                                    height: 90.0,
-                                                    clipBehavior:
-                                                        Clip.antiAlias,
-                                                    decoration: BoxDecoration(
-                                                      shape: BoxShape.circle,
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 8.0, 0.0, 8.0),
+                                            child:
+                                                FutureBuilder<ApiCallResponse>(
+                                              future:
+                                                  YouTubeDataStressAndAnxietyMeditationsAPIFINALCall
+                                                      .call(),
+                                              builder: (context, snapshot) {
+                                                // Customize what your widget looks like when it's loading.
+                                                if (!snapshot.hasData) {
+                                                  return Center(
+                                                    child: SizedBox(
+                                                      width: 50.0,
+                                                      height: 50.0,
+                                                      child:
+                                                          CircularProgressIndicator(
+                                                        valueColor:
+                                                            AlwaysStoppedAnimation<
+                                                                Color>(
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primary,
+                                                        ),
+                                                      ),
                                                     ),
-                                                    child: Image.asset(
-                                                      'assets/images/user3.png',
-                                                      fit: BoxFit.cover,
-                                                    ),
-                                                  ),
-                                                ).animateOnPageLoad(animationsMap[
-                                                    'containerOnPageLoadAnimation9']!),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 0.0, 0.0, 0.0),
-                                                child: Container(
-                                                  width: 70.0,
-                                                  height: 50.0,
-                                                  decoration: BoxDecoration(
-                                                    color: Colors.transparent,
-                                                  ),
-                                                  child: Container(
-                                                    width: 90.0,
-                                                    height: 90.0,
-                                                    clipBehavior:
-                                                        Clip.antiAlias,
-                                                    decoration: BoxDecoration(
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Image.asset(
-                                                      'assets/images/user7.png',
-                                                      fit: BoxFit.cover,
-                                                    ),
-                                                  ),
-                                                ).animateOnPageLoad(animationsMap[
-                                                    'containerOnPageLoadAnimation10']!),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 0.0, 0.0, 0.0),
-                                                child: Container(
-                                                  width: 70.0,
-                                                  height: 50.0,
-                                                  decoration: BoxDecoration(
-                                                    color: Colors.transparent,
-                                                  ),
-                                                  child: Container(
-                                                    width: 90.0,
-                                                    height: 90.0,
-                                                    clipBehavior:
-                                                        Clip.antiAlias,
-                                                    decoration: BoxDecoration(
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Image.asset(
-                                                      'assets/images/user.webp',
-                                                      fit: BoxFit.cover,
-                                                    ),
-                                                  ),
-                                                ).animateOnPageLoad(animationsMap[
-                                                    'containerOnPageLoadAnimation11']!),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 0.0, 0.0, 0.0),
-                                                child: Container(
-                                                  width: 70.0,
-                                                  height: 50.0,
-                                                  decoration: BoxDecoration(
-                                                    color: Colors.transparent,
-                                                  ),
-                                                  child: Container(
-                                                    width: 90.0,
-                                                    height: 90.0,
-                                                    clipBehavior:
-                                                        Clip.antiAlias,
-                                                    decoration: BoxDecoration(
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Image.asset(
-                                                      'assets/images/user6.png',
-                                                      fit: BoxFit.cover,
-                                                    ),
-                                                  ),
-                                                ).animateOnPageLoad(animationsMap[
-                                                    'containerOnPageLoadAnimation12']!),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 0.0, 0.0, 0.0),
-                                                child: Container(
-                                                  width: 70.0,
-                                                  height: 50.0,
-                                                  decoration: BoxDecoration(
-                                                    color: Colors.transparent,
-                                                  ),
-                                                  child: Container(
-                                                    width: 90.0,
-                                                    height: 90.0,
-                                                    clipBehavior:
-                                                        Clip.antiAlias,
-                                                    decoration: BoxDecoration(
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Image.asset(
-                                                      'assets/images/jax.png',
-                                                      fit: BoxFit.cover,
-                                                    ),
-                                                  ),
-                                                ).animateOnPageLoad(animationsMap[
-                                                    'containerOnPageLoadAnimation13']!),
-                                              ),
-                                            ],
+                                                  );
+                                                }
+                                                final listViewYouTubeDataStressAndAnxietyMeditationsAPIFINALResponse =
+                                                    snapshot.data!;
+
+                                                return Builder(
+                                                  builder: (context) {
+                                                    final meditations =
+                                                        getJsonField(
+                                                      listViewYouTubeDataStressAndAnxietyMeditationsAPIFINALResponse
+                                                          .jsonBody,
+                                                      r'''$.items[:].snippet''',
+                                                    ).toList();
+
+                                                    return ListView.builder(
+                                                      padding: EdgeInsets.zero,
+                                                      scrollDirection:
+                                                          Axis.horizontal,
+                                                      itemCount:
+                                                          meditations.length,
+                                                      itemBuilder: (context,
+                                                          meditationsIndex) {
+                                                        final meditationsItem =
+                                                            meditations[
+                                                                meditationsIndex];
+                                                        return Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      10.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: Container(
+                                                            width: 187.0,
+                                                            height: 215.0,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: Colors
+                                                                  .transparent,
+                                                            ),
+                                                            child: Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .center,
+                                                              children: [
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          1.0,
+                                                                          0.0),
+                                                                  child: Hero(
+                                                                    tag:
+                                                                        getJsonField(
+                                                                      meditationsItem,
+                                                                      r'''$.thumbnails.default.url''',
+                                                                    ).toString(),
+                                                                    transitionOnUserGestures:
+                                                                        true,
+                                                                    child:
+                                                                        ClipRRect(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              9.0),
+                                                                      child: Image
+                                                                          .network(
+                                                                        getJsonField(
+                                                                          meditationsItem,
+                                                                          r'''$.thumbnails.default.url''',
+                                                                        ).toString(),
+                                                                        width:
+                                                                            245.0,
+                                                                        height:
+                                                                            100.0,
+                                                                        fit: BoxFit
+                                                                            .cover,
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                                Align(
+                                                                  alignment:
+                                                                      AlignmentDirectional(
+                                                                          -1.0,
+                                                                          0.0),
+                                                                  child:
+                                                                      Padding(
+                                                                    padding:
+                                                                        EdgeInsets.all(
+                                                                            15.0),
+                                                                    child: Text(
+                                                                      getJsonField(
+                                                                        meditationsItem,
+                                                                        r'''$.title''',
+                                                                      ).toString(),
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Inter',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).secondaryBackground,
+                                                                            fontSize:
+                                                                                12.0,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                          ),
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                                Align(
+                                                                  alignment:
+                                                                      AlignmentDirectional(
+                                                                          1.0,
+                                                                          1.0),
+                                                                  child:
+                                                                      Padding(
+                                                                    padding:
+                                                                        EdgeInsets.all(
+                                                                            8.0),
+                                                                    child:
+                                                                        FlutterFlowIconButton(
+                                                                      borderColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      borderRadius:
+                                                                          8.0,
+                                                                      buttonSize:
+                                                                          40.0,
+                                                                      fillColor:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .tertiary,
+                                                                      icon:
+                                                                          Icon(
+                                                                        Icons
+                                                                            .play_circle,
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .info,
+                                                                        size:
+                                                                            24.0,
+                                                                      ),
+                                                                      onPressed:
+                                                                          () {
+                                                                        print(
+                                                                            'IconButton pressed ...');
+                                                                      },
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ).animateOnPageLoad(
+                                                              animationsMap[
+                                                                  'containerOnPageLoadAnimation9']!),
+                                                        );
+                                                      },
+                                                    );
+                                                  },
+                                                );
+                                              },
+                                            ),
                                           ),
                                         ),
                                       ],
@@ -2725,7 +2715,7 @@ Depression */
                                                       ],
                                                     ),
                                                   ).animateOnPageLoad(animationsMap[
-                                                      'containerOnPageLoadAnimation14']!),
+                                                      'containerOnPageLoadAnimation10']!),
                                                 ),
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
@@ -2781,7 +2771,7 @@ Depression */
                                                       ],
                                                     ),
                                                   ).animateOnPageLoad(animationsMap[
-                                                      'containerOnPageLoadAnimation15']!),
+                                                      'containerOnPageLoadAnimation11']!),
                                                 ),
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
@@ -2835,7 +2825,7 @@ Depression */
                                                       ],
                                                     ),
                                                   ).animateOnPageLoad(animationsMap[
-                                                      'containerOnPageLoadAnimation16']!),
+                                                      'containerOnPageLoadAnimation12']!),
                                                 ),
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
@@ -2889,7 +2879,7 @@ Depression */
                                                       ],
                                                     ),
                                                   ).animateOnPageLoad(animationsMap[
-                                                      'containerOnPageLoadAnimation17']!),
+                                                      'containerOnPageLoadAnimation13']!),
                                                 ),
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
@@ -2943,7 +2933,7 @@ Depression */
                                                       ],
                                                     ),
                                                   ).animateOnPageLoad(animationsMap[
-                                                      'containerOnPageLoadAnimation18']!),
+                                                      'containerOnPageLoadAnimation14']!),
                                                 ),
                                               ],
                                             ),
@@ -2994,7 +2984,7 @@ Depression */
                                   Expanded(
                                     child: Container(
                                       width: double.infinity,
-                                      height: 120.0,
+                                      height: 169.0,
                                       decoration: BoxDecoration(
                                         color: Colors.transparent,
                                       ),
@@ -3002,450 +2992,211 @@ Depression */
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Expanded(
-                                            child: ListView(
-                                              padding: EdgeInsets.zero,
-                                              scrollDirection: Axis.horizontal,
-                                              children: [
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 10.0, 0.0),
-                                                  child: Container(
-                                                    width: 100.0,
-                                                    height: 100.0,
-                                                    decoration: BoxDecoration(
-                                                      color: Color(0x50090F13),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              9.0),
+                                            child:
+                                                FutureBuilder<ApiCallResponse>(
+                                              future:
+                                                  YouTubeDataStressAndAnxietyMeditationsAPIFINALCall
+                                                      .call(),
+                                              builder: (context, snapshot) {
+                                                // Customize what your widget looks like when it's loading.
+                                                if (!snapshot.hasData) {
+                                                  return Center(
+                                                    child: SizedBox(
+                                                      width: 50.0,
+                                                      height: 50.0,
+                                                      child:
+                                                          CircularProgressIndicator(
+                                                        valueColor:
+                                                            AlwaysStoppedAnimation<
+                                                                Color>(
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primary,
+                                                        ),
+                                                      ),
                                                     ),
-                                                    child: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        Padding(
+                                                  );
+                                                }
+                                                final listViewYouTubeDataStressAndAnxietyMeditationsAPIFINALResponse =
+                                                    snapshot.data!;
+
+                                                return Builder(
+                                                  builder: (context) {
+                                                    final recentItems =
+                                                        getJsonField(
+                                                      listViewYouTubeDataStressAndAnxietyMeditationsAPIFINALResponse
+                                                          .jsonBody,
+                                                      r'''$.items[:].snippet''',
+                                                    ).toList();
+
+                                                    return ListView.builder(
+                                                      padding: EdgeInsets.zero,
+                                                      scrollDirection:
+                                                          Axis.horizontal,
+                                                      itemCount:
+                                                          recentItems.length,
+                                                      itemBuilder: (context,
+                                                          recentItemsIndex) {
+                                                        final recentItemsItem =
+                                                            recentItems[
+                                                                recentItemsIndex];
+                                                        return Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
-                                                                      1.0,
+                                                                      10.0,
                                                                       0.0),
-                                                          child: ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        9.0),
-                                                            child: Image.asset(
-                                                              'assets/images/user6.png',
-                                                              width: 100.0,
-                                                              height: 100.0,
-                                                              fit: BoxFit.cover,
+                                                          child: Container(
+                                                            width: 128.0,
+                                                            height: 137.0,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: Color(
+                                                                  0x50090F13),
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          9.0),
                                                             ),
-                                                          ),
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      3.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Text(
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .getText(
-                                                              'xnksr8am' /* Don´t Cry now */,
+                                                            child: InkWell(
+                                                              splashColor: Colors
+                                                                  .transparent,
+                                                              focusColor: Colors
+                                                                  .transparent,
+                                                              hoverColor: Colors
+                                                                  .transparent,
+                                                              highlightColor:
+                                                                  Colors
+                                                                      .transparent,
+                                                              onTap: () async {
+                                                                logFirebaseEvent(
+                                                                    'TABBAR_HOME_MEDITATION_Column_nw63nxh0_O');
+                                                                logFirebaseEvent(
+                                                                    'Column_bottom_sheet');
+                                                                await showModalBottomSheet(
+                                                                  isScrollControlled:
+                                                                      true,
+                                                                  backgroundColor:
+                                                                      Colors
+                                                                          .transparent,
+                                                                  context:
+                                                                      context,
+                                                                  builder:
+                                                                      (context) {
+                                                                    return WebViewAware(
+                                                                      child:
+                                                                          Padding(
+                                                                        padding:
+                                                                            MediaQuery.viewInsetsOf(context),
+                                                                        child:
+                                                                            Container(
+                                                                          height:
+                                                                              double.infinity,
+                                                                          child:
+                                                                              VideoplayerCompWidget(
+                                                                            parameter1:
+                                                                                getJsonField(
+                                                                              recentItemsItem,
+                                                                              r'''$.resource.videoId''',
+                                                                            ).toString(),
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    );
+                                                                  },
+                                                                ).then((value) =>
+                                                                    safeSetState(
+                                                                        () {}));
+                                                              },
+                                                              child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .center,
+                                                                children: [
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            1.0,
+                                                                            0.0),
+                                                                    child: Hero(
+                                                                      tag:
+                                                                          getJsonField(
+                                                                        recentItemsItem,
+                                                                        r'''$.thumbnails.default.url''',
+                                                                      ).toString(),
+                                                                      transitionOnUserGestures:
+                                                                          true,
+                                                                      child:
+                                                                          ClipRRect(
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(9.0),
+                                                                        child: Image
+                                                                            .network(
+                                                                          getJsonField(
+                                                                            recentItemsItem,
+                                                                            r'''$.thumbnails.default.url''',
+                                                                          ).toString(),
+                                                                          width:
+                                                                              100.0,
+                                                                          height:
+                                                                              100.0,
+                                                                          fit: BoxFit
+                                                                              .cover,
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            3.0,
+                                                                            15.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                    child: Text(
+                                                                      getJsonField(
+                                                                        recentItemsItem,
+                                                                        r'''$.title''',
+                                                                      ).toString(),
+                                                                      textAlign:
+                                                                          TextAlign
+                                                                              .center,
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Inter',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).primaryBackground,
+                                                                            fontSize:
+                                                                                12.0,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                          ),
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                              ),
                                                             ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Inter',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryBackground,
-                                                                  fontSize:
-                                                                      12.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ).animateOnPageLoad(animationsMap[
-                                                      'containerOnPageLoadAnimation19']!),
-                                                ),
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 10.0, 0.0),
-                                                  child: Container(
-                                                    width: 100.0,
-                                                    height: 100.0,
-                                                    decoration: BoxDecoration(
-                                                      color: Color(0x4D090F13),
-                                                      boxShadow: [
-                                                        BoxShadow(
-                                                          blurRadius: 4.0,
-                                                          color:
-                                                              Color(0x33000000),
-                                                          offset: Offset(
-                                                            6.0,
-                                                            2.0,
-                                                          ),
-                                                        )
-                                                      ],
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              9.0),
-                                                    ),
-                                                    child: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      1.0,
-                                                                      0.0),
-                                                          child: ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        9.0),
-                                                            child: Image.asset(
-                                                              'assets/images/user.webp',
-                                                              width: 100.0,
-                                                              height: 100.0,
-                                                              fit: BoxFit.cover,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      3.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Text(
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .getText(
-                                                              'a0yf8jsk' /* See you latter */,
-                                                            ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Inter',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                  fontSize:
-                                                                      12.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ).animateOnPageLoad(animationsMap[
-                                                      'containerOnPageLoadAnimation20']!),
-                                                ),
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 10.0, 0.0),
-                                                  child: Container(
-                                                    width: 100.0,
-                                                    height: 100.0,
-                                                    decoration: BoxDecoration(
-                                                      color: Color(0x4F090F13),
-                                                      boxShadow: [
-                                                        BoxShadow(
-                                                          blurRadius: 4.0,
-                                                          color:
-                                                              Color(0x33000000),
-                                                          offset: Offset(
-                                                            6.0,
-                                                            2.0,
-                                                          ),
-                                                        )
-                                                      ],
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              9.0),
-                                                    ),
-                                                    child: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      1.0,
-                                                                      0.0),
-                                                          child: ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        9.0),
-                                                            child: Image.asset(
-                                                              'assets/images/user7.png',
-                                                              width: 100.0,
-                                                              height: 100.0,
-                                                              fit: BoxFit.cover,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      3.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Text(
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .getText(
-                                                              'padvg54g' /* River of love */,
-                                                            ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Inter',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                  fontSize:
-                                                                      12.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ).animateOnPageLoad(animationsMap[
-                                                      'containerOnPageLoadAnimation21']!),
-                                                ),
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 10.0, 0.0),
-                                                  child: Container(
-                                                    width: 100.0,
-                                                    height: 100.0,
-                                                    decoration: BoxDecoration(
-                                                      color: Color(0x4F090F13),
-                                                      boxShadow: [
-                                                        BoxShadow(
-                                                          blurRadius: 4.0,
-                                                          color:
-                                                              Color(0x33000000),
-                                                          offset: Offset(
-                                                            6.0,
-                                                            2.0,
-                                                          ),
-                                                        )
-                                                      ],
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              9.0),
-                                                    ),
-                                                    child: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      1.0,
-                                                                      0.0),
-                                                          child: ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        9.0),
-                                                            child: Image.asset(
-                                                              'assets/images/user6.png',
-                                                              width: 100.0,
-                                                              height: 100.0,
-                                                              fit: BoxFit.cover,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      3.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Text(
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .getText(
-                                                              'ponatp55' /* River of love */,
-                                                            ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Inter',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                  fontSize:
-                                                                      12.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ).animateOnPageLoad(animationsMap[
-                                                      'containerOnPageLoadAnimation22']!),
-                                                ),
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 10.0, 0.0),
-                                                  child: Container(
-                                                    width: 100.0,
-                                                    height: 100.0,
-                                                    decoration: BoxDecoration(
-                                                      color: Color(0x4F090F13),
-                                                      boxShadow: [
-                                                        BoxShadow(
-                                                          blurRadius: 4.0,
-                                                          color:
-                                                              Color(0x33000000),
-                                                          offset: Offset(
-                                                            6.0,
-                                                            2.0,
-                                                          ),
-                                                        )
-                                                      ],
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              9.0),
-                                                    ),
-                                                    child: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      1.0,
-                                                                      0.0),
-                                                          child: ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        9.0),
-                                                            child: Image.asset(
-                                                              'assets/images/user3.png',
-                                                              width: 100.0,
-                                                              height: 100.0,
-                                                              fit: BoxFit.cover,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      3.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Text(
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .getText(
-                                                              'nzg785x1' /* River of love */,
-                                                            ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Inter',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                  fontSize:
-                                                                      12.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ).animateOnPageLoad(animationsMap[
-                                                      'containerOnPageLoadAnimation23']!),
-                                                ),
-                                              ],
+                                                          ).animateOnPageLoad(
+                                                              animationsMap[
+                                                                  'containerOnPageLoadAnimation15']!),
+                                                        );
+                                                      },
+                                                    );
+                                                  },
+                                                );
+                                              },
                                             ),
                                           ),
                                         ],
@@ -3498,70 +3249,198 @@ Depression */
                                       decoration: BoxDecoration(
                                         color: Colors.transparent,
                                       ),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Expanded(
-                                            child: MasonryGridView.builder(
-                                              gridDelegate:
-                                                  SliverSimpleGridDelegateWithFixedCrossAxisCount(
-                                                crossAxisCount: 2,
-                                              ),
-                                              crossAxisSpacing: 10.0,
-                                              mainAxisSpacing: 10.0,
-                                              itemCount: 4,
-                                              itemBuilder: (context, index) {
-                                                return [
-                                                  () => ClipRRect(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(10.0),
-                                                        child: Image.asset(
-                                                          'assets/images/jax.png',
-                                                          width: 200.0,
-                                                          height: 100.0,
-                                                          fit: BoxFit.cover,
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 8.0, 0.0, 8.0),
+                                        child: FutureBuilder<ApiCallResponse>(
+                                          future:
+                                              YouTubeDataStressAndAnxietyMeditationsAPIFINALCall
+                                                  .call(),
+                                          builder: (context, snapshot) {
+                                            // Customize what your widget looks like when it's loading.
+                                            if (!snapshot.hasData) {
+                                              return Center(
+                                                child: SizedBox(
+                                                  width: 50.0,
+                                                  height: 50.0,
+                                                  child:
+                                                      CircularProgressIndicator(
+                                                    valueColor:
+                                                        AlwaysStoppedAnimation<
+                                                            Color>(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .primary,
+                                                    ),
+                                                  ),
+                                                ),
+                                              );
+                                            }
+                                            final listViewYouTubeDataStressAndAnxietyMeditationsAPIFINALResponse =
+                                                snapshot.data!;
+
+                                            return Builder(
+                                              builder: (context) {
+                                                final meditations =
+                                                    getJsonField(
+                                                  listViewYouTubeDataStressAndAnxietyMeditationsAPIFINALResponse
+                                                      .jsonBody,
+                                                  r'''$.items[:].snippet''',
+                                                ).toList();
+
+                                                return ListView.builder(
+                                                  padding: EdgeInsets.zero,
+                                                  scrollDirection:
+                                                      Axis.vertical,
+                                                  itemCount: meditations.length,
+                                                  itemBuilder: (context,
+                                                      meditationsIndex) {
+                                                    final meditationsItem =
+                                                        meditations[
+                                                            meditationsIndex];
+                                                    return Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  10.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: Container(
+                                                        width: 187.0,
+                                                        height: 215.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: Colors
+                                                              .transparent,
                                                         ),
-                                                      ),
-                                                  () => ClipRRect(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(10.0),
-                                                        child: Image.asset(
-                                                          'assets/images/user.webp',
-                                                          width: 100.0,
-                                                          height: 210.0,
-                                                          fit: BoxFit.cover,
+                                                        child: Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .center,
+                                                          children: [
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          1.0,
+                                                                          0.0),
+                                                              child: Hero(
+                                                                tag:
+                                                                    getJsonField(
+                                                                  meditationsItem,
+                                                                  r'''$.thumbnails.default.url''',
+                                                                ).toString(),
+                                                                transitionOnUserGestures:
+                                                                    true,
+                                                                child:
+                                                                    ClipRRect(
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              9.0),
+                                                                  child: Image
+                                                                      .network(
+                                                                    getJsonField(
+                                                                      meditationsItem,
+                                                                      r'''$.thumbnails.default.url''',
+                                                                    ).toString(),
+                                                                    width:
+                                                                        374.0,
+                                                                    height:
+                                                                        100.0,
+                                                                    fit: BoxFit
+                                                                        .cover,
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                            Align(
+                                                              alignment:
+                                                                  AlignmentDirectional(
+                                                                      -1.0,
+                                                                      0.0),
+                                                              child: Padding(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            15.0),
+                                                                child: Text(
+                                                                  getJsonField(
+                                                                    meditationsItem,
+                                                                    r'''$.title''',
+                                                                  ).toString(),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Inter',
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .secondaryBackground,
+                                                                        fontSize:
+                                                                            12.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                      ),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                            Align(
+                                                              alignment:
+                                                                  AlignmentDirectional(
+                                                                      1.0, 1.0),
+                                                              child: Padding(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            8.0),
+                                                                child:
+                                                                    FlutterFlowIconButton(
+                                                                  borderColor:
+                                                                      Colors
+                                                                          .transparent,
+                                                                  borderRadius:
+                                                                      8.0,
+                                                                  buttonSize:
+                                                                      40.0,
+                                                                  fillColor: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .tertiary,
+                                                                  icon: Icon(
+                                                                    Icons
+                                                                        .play_circle,
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .info,
+                                                                    size: 24.0,
+                                                                  ),
+                                                                  onPressed:
+                                                                      () {
+                                                                    print(
+                                                                        'IconButton pressed ...');
+                                                                  },
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ],
                                                         ),
-                                                      ),
-                                                  () => ClipRRect(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(10.0),
-                                                        child: Image.asset(
-                                                          'assets/images/user7.png',
-                                                          width: 100.0,
-                                                          height: 250.0,
-                                                          fit: BoxFit.cover,
-                                                        ),
-                                                      ),
-                                                  () => ClipRRect(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(10.0),
-                                                        child: Image.asset(
-                                                          'assets/images/user6.png',
-                                                          width: 400.0,
-                                                          height: 140.0,
-                                                          fit: BoxFit.cover,
-                                                        ),
-                                                      ),
-                                                ][index]();
+                                                      ).animateOnPageLoad(
+                                                          animationsMap[
+                                                              'containerOnPageLoadAnimation16']!),
+                                                    );
+                                                  },
+                                                );
                                               },
-                                            ).animateOnPageLoad(animationsMap[
-                                                'staggeredViewOnPageLoadAnimation1']!),
-                                          ),
-                                        ],
+                                            );
+                                          },
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -3612,7 +3491,7 @@ Depression */
                                   ),
                                   Container(
                                     width: double.infinity,
-                                    height: 100.0,
+                                    height: 260.0,
                                     decoration: BoxDecoration(
                                       color: Colors.transparent,
                                     ),
@@ -3620,141 +3499,202 @@ Depression */
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Expanded(
-                                          child: ListView(
-                                            padding: EdgeInsets.zero,
-                                            scrollDirection: Axis.horizontal,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 0.0, 0.0, 0.0),
-                                                child: Container(
-                                                  width: 70.0,
-                                                  height: 50.0,
-                                                  decoration: BoxDecoration(
-                                                    color: Colors.transparent,
-                                                  ),
-                                                  child: Container(
-                                                    width: 90.0,
-                                                    height: 90.0,
-                                                    clipBehavior:
-                                                        Clip.antiAlias,
-                                                    decoration: BoxDecoration(
-                                                      shape: BoxShape.circle,
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 8.0, 0.0, 8.0),
+                                            child:
+                                                FutureBuilder<ApiCallResponse>(
+                                              future:
+                                                  YouTubeDataSleepMeditationsAPIFINALCopyCopyCopyCall
+                                                      .call(),
+                                              builder: (context, snapshot) {
+                                                // Customize what your widget looks like when it's loading.
+                                                if (!snapshot.hasData) {
+                                                  return Center(
+                                                    child: SizedBox(
+                                                      width: 50.0,
+                                                      height: 50.0,
+                                                      child:
+                                                          CircularProgressIndicator(
+                                                        valueColor:
+                                                            AlwaysStoppedAnimation<
+                                                                Color>(
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primary,
+                                                        ),
+                                                      ),
                                                     ),
-                                                    child: Image.asset(
-                                                      'assets/images/user3.png',
-                                                      fit: BoxFit.cover,
-                                                    ),
-                                                  ),
-                                                ).animateOnPageLoad(animationsMap[
-                                                    'containerOnPageLoadAnimation24']!),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 0.0, 0.0, 0.0),
-                                                child: Container(
-                                                  width: 70.0,
-                                                  height: 50.0,
-                                                  decoration: BoxDecoration(
-                                                    color: Colors.transparent,
-                                                  ),
-                                                  child: Container(
-                                                    width: 90.0,
-                                                    height: 90.0,
-                                                    clipBehavior:
-                                                        Clip.antiAlias,
-                                                    decoration: BoxDecoration(
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Image.asset(
-                                                      'assets/images/user7.png',
-                                                      fit: BoxFit.cover,
-                                                    ),
-                                                  ),
-                                                ).animateOnPageLoad(animationsMap[
-                                                    'containerOnPageLoadAnimation25']!),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 0.0, 0.0, 0.0),
-                                                child: Container(
-                                                  width: 70.0,
-                                                  height: 50.0,
-                                                  decoration: BoxDecoration(
-                                                    color: Colors.transparent,
-                                                  ),
-                                                  child: Container(
-                                                    width: 90.0,
-                                                    height: 90.0,
-                                                    clipBehavior:
-                                                        Clip.antiAlias,
-                                                    decoration: BoxDecoration(
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Image.asset(
-                                                      'assets/images/user.webp',
-                                                      fit: BoxFit.cover,
-                                                    ),
-                                                  ),
-                                                ).animateOnPageLoad(animationsMap[
-                                                    'containerOnPageLoadAnimation26']!),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 0.0, 0.0, 0.0),
-                                                child: Container(
-                                                  width: 70.0,
-                                                  height: 50.0,
-                                                  decoration: BoxDecoration(
-                                                    color: Colors.transparent,
-                                                  ),
-                                                  child: Container(
-                                                    width: 90.0,
-                                                    height: 90.0,
-                                                    clipBehavior:
-                                                        Clip.antiAlias,
-                                                    decoration: BoxDecoration(
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Image.asset(
-                                                      'assets/images/user6.png',
-                                                      fit: BoxFit.cover,
-                                                    ),
-                                                  ),
-                                                ).animateOnPageLoad(animationsMap[
-                                                    'containerOnPageLoadAnimation27']!),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 0.0, 0.0, 0.0),
-                                                child: Container(
-                                                  width: 70.0,
-                                                  height: 50.0,
-                                                  decoration: BoxDecoration(
-                                                    color: Colors.transparent,
-                                                  ),
-                                                  child: Container(
-                                                    width: 90.0,
-                                                    height: 90.0,
-                                                    clipBehavior:
-                                                        Clip.antiAlias,
-                                                    decoration: BoxDecoration(
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Image.asset(
-                                                      'assets/images/jax.png',
-                                                      fit: BoxFit.cover,
-                                                    ),
-                                                  ),
-                                                ).animateOnPageLoad(animationsMap[
-                                                    'containerOnPageLoadAnimation28']!),
-                                              ),
-                                            ],
+                                                  );
+                                                }
+                                                final listViewYouTubeDataSleepMeditationsAPIFINALCopyCopyCopyResponse =
+                                                    snapshot.data!;
+
+                                                return Builder(
+                                                  builder: (context) {
+                                                    final meditations =
+                                                        getJsonField(
+                                                      listViewYouTubeDataSleepMeditationsAPIFINALCopyCopyCopyResponse
+                                                          .jsonBody,
+                                                      r'''$.items[:].snippet''',
+                                                    ).toList();
+
+                                                    return ListView.builder(
+                                                      padding: EdgeInsets.zero,
+                                                      scrollDirection:
+                                                          Axis.horizontal,
+                                                      itemCount:
+                                                          meditations.length,
+                                                      itemBuilder: (context,
+                                                          meditationsIndex) {
+                                                        final meditationsItem =
+                                                            meditations[
+                                                                meditationsIndex];
+                                                        return Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      10.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: Container(
+                                                            width: 187.0,
+                                                            height: 215.0,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: Colors
+                                                                  .transparent,
+                                                            ),
+                                                            child: Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .center,
+                                                              children: [
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          1.0,
+                                                                          0.0),
+                                                                  child: Hero(
+                                                                    tag:
+                                                                        getJsonField(
+                                                                      meditationsItem,
+                                                                      r'''$.thumbnails.default.url''',
+                                                                    ).toString(),
+                                                                    transitionOnUserGestures:
+                                                                        true,
+                                                                    child:
+                                                                        ClipRRect(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              9.0),
+                                                                      child: Image
+                                                                          .network(
+                                                                        getJsonField(
+                                                                          meditationsItem,
+                                                                          r'''$.thumbnails.default.url''',
+                                                                        ).toString(),
+                                                                        width:
+                                                                            245.0,
+                                                                        height:
+                                                                            100.0,
+                                                                        fit: BoxFit
+                                                                            .cover,
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                                Align(
+                                                                  alignment:
+                                                                      AlignmentDirectional(
+                                                                          -1.0,
+                                                                          0.0),
+                                                                  child:
+                                                                      Padding(
+                                                                    padding:
+                                                                        EdgeInsets.all(
+                                                                            15.0),
+                                                                    child: Text(
+                                                                      getJsonField(
+                                                                        meditationsItem,
+                                                                        r'''$.title''',
+                                                                      ).toString(),
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Inter',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).secondaryBackground,
+                                                                            fontSize:
+                                                                                12.0,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                          ),
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                                Align(
+                                                                  alignment:
+                                                                      AlignmentDirectional(
+                                                                          1.0,
+                                                                          1.0),
+                                                                  child:
+                                                                      Padding(
+                                                                    padding:
+                                                                        EdgeInsets.all(
+                                                                            8.0),
+                                                                    child:
+                                                                        FlutterFlowIconButton(
+                                                                      borderColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      borderRadius:
+                                                                          8.0,
+                                                                      buttonSize:
+                                                                          40.0,
+                                                                      fillColor:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .tertiary,
+                                                                      icon:
+                                                                          Icon(
+                                                                        Icons
+                                                                            .play_circle,
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .info,
+                                                                        size:
+                                                                            24.0,
+                                                                      ),
+                                                                      onPressed:
+                                                                          () {
+                                                                        print(
+                                                                            'IconButton pressed ...');
+                                                                      },
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ).animateOnPageLoad(
+                                                              animationsMap[
+                                                                  'containerOnPageLoadAnimation17']!),
+                                                        );
+                                                      },
+                                                    );
+                                                  },
+                                                );
+                                              },
+                                            ),
                                           ),
                                         ),
                                       ],
@@ -3866,7 +3806,7 @@ Depression */
                                                       ],
                                                     ),
                                                   ).animateOnPageLoad(animationsMap[
-                                                      'containerOnPageLoadAnimation29']!),
+                                                      'containerOnPageLoadAnimation18']!),
                                                 ),
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
@@ -3922,7 +3862,7 @@ Depression */
                                                       ],
                                                     ),
                                                   ).animateOnPageLoad(animationsMap[
-                                                      'containerOnPageLoadAnimation30']!),
+                                                      'containerOnPageLoadAnimation19']!),
                                                 ),
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
@@ -3976,7 +3916,7 @@ Depression */
                                                       ],
                                                     ),
                                                   ).animateOnPageLoad(animationsMap[
-                                                      'containerOnPageLoadAnimation31']!),
+                                                      'containerOnPageLoadAnimation20']!),
                                                 ),
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
@@ -4030,7 +3970,7 @@ Depression */
                                                       ],
                                                     ),
                                                   ).animateOnPageLoad(animationsMap[
-                                                      'containerOnPageLoadAnimation32']!),
+                                                      'containerOnPageLoadAnimation21']!),
                                                 ),
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
@@ -4084,7 +4024,7 @@ Depression */
                                                       ],
                                                     ),
                                                   ).animateOnPageLoad(animationsMap[
-                                                      'containerOnPageLoadAnimation33']!),
+                                                      'containerOnPageLoadAnimation22']!),
                                                 ),
                                               ],
                                             ),
@@ -4135,7 +4075,7 @@ Depression */
                                   Expanded(
                                     child: Container(
                                       width: double.infinity,
-                                      height: 120.0,
+                                      height: 177.0,
                                       decoration: BoxDecoration(
                                         color: Colors.transparent,
                                       ),
@@ -4143,450 +4083,216 @@ Depression */
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Expanded(
-                                            child: ListView(
-                                              padding: EdgeInsets.zero,
-                                              scrollDirection: Axis.horizontal,
-                                              children: [
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 10.0, 0.0),
-                                                  child: Container(
-                                                    width: 100.0,
-                                                    height: 100.0,
-                                                    decoration: BoxDecoration(
-                                                      color: Color(0x50090F13),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              9.0),
-                                                    ),
-                                                    child: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      1.0,
-                                                                      0.0),
-                                                          child: ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        9.0),
-                                                            child: Image.asset(
-                                                              'assets/images/user6.png',
-                                                              width: 100.0,
-                                                              height: 100.0,
-                                                              fit: BoxFit.cover,
-                                                            ),
-                                                          ),
+                                            child:
+                                                FutureBuilder<ApiCallResponse>(
+                                              future:
+                                                  YouTubeDataSleepMeditationsAPIFINALCopyCopyCopyCall
+                                                      .call(),
+                                              builder: (context, snapshot) {
+                                                // Customize what your widget looks like when it's loading.
+                                                if (!snapshot.hasData) {
+                                                  return Center(
+                                                    child: SizedBox(
+                                                      width: 50.0,
+                                                      height: 50.0,
+                                                      child:
+                                                          CircularProgressIndicator(
+                                                        valueColor:
+                                                            AlwaysStoppedAnimation<
+                                                                Color>(
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primary,
                                                         ),
-                                                        Padding(
+                                                      ),
+                                                    ),
+                                                  );
+                                                }
+                                                final listViewYouTubeDataSleepMeditationsAPIFINALCopyCopyCopyResponse =
+                                                    snapshot.data!;
+
+                                                return Builder(
+                                                  builder: (context) {
+                                                    final recentItems =
+                                                        getJsonField(
+                                                      listViewYouTubeDataSleepMeditationsAPIFINALCopyCopyCopyResponse
+                                                          .jsonBody,
+                                                      r'''$.items[:].snippet''',
+                                                    ).toList();
+
+                                                    return ListView.builder(
+                                                      padding: EdgeInsets.zero,
+                                                      scrollDirection:
+                                                          Axis.horizontal,
+                                                      itemCount:
+                                                          recentItems.length,
+                                                      itemBuilder: (context,
+                                                          recentItemsIndex) {
+                                                        final recentItemsItem =
+                                                            recentItems[
+                                                                recentItemsIndex];
+                                                        return Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
                                                                   .fromSTEB(
-                                                                      3.0,
                                                                       0.0,
                                                                       0.0,
+                                                                      10.0,
                                                                       0.0),
-                                                          child: Text(
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .getText(
-                                                              'xqjtndgz' /* Don´t Cry now */,
+                                                          child: Material(
+                                                            color: Colors
+                                                                .transparent,
+                                                            elevation: 8.0,
+                                                            shape:
+                                                                RoundedRectangleBorder(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          9.0),
                                                             ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Inter',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                  fontSize:
-                                                                      12.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
+                                                            child: Container(
+                                                              width: 128.0,
+                                                              height: 137.0,
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                color: Color(
+                                                                    0x50090F13),
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            9.0),
+                                                              ),
+                                                              child: InkWell(
+                                                                splashColor: Colors
+                                                                    .transparent,
+                                                                focusColor: Colors
+                                                                    .transparent,
+                                                                hoverColor: Colors
+                                                                    .transparent,
+                                                                highlightColor:
+                                                                    Colors
+                                                                        .transparent,
+                                                                onTap:
+                                                                    () async {
+                                                                  logFirebaseEvent(
+                                                                      'TABBAR_HOME_MEDITATION_Column_k5r55kor_O');
+                                                                  logFirebaseEvent(
+                                                                      'Column_bottom_sheet');
+                                                                  await showModalBottomSheet(
+                                                                    isScrollControlled:
+                                                                        true,
+                                                                    backgroundColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    context:
+                                                                        context,
+                                                                    builder:
+                                                                        (context) {
+                                                                      return WebViewAware(
+                                                                        child:
+                                                                            Padding(
+                                                                          padding:
+                                                                              MediaQuery.viewInsetsOf(context),
+                                                                          child:
+                                                                              Container(
+                                                                            height:
+                                                                                double.infinity,
+                                                                            child:
+                                                                                VideoplayerCompWidget(
+                                                                              parameter1: getJsonField(
+                                                                                recentItemsItem,
+                                                                                r'''$.resource.videoId''',
+                                                                              ).toString(),
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                      );
+                                                                    },
+                                                                  ).then((value) =>
+                                                                      safeSetState(
+                                                                          () {}));
+                                                                },
+                                                                child: Column(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  crossAxisAlignment:
+                                                                      CrossAxisAlignment
+                                                                          .center,
+                                                                  children: [
+                                                                    Padding(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          1.0,
+                                                                          0.0),
+                                                                      child:
+                                                                          Hero(
+                                                                        tag:
+                                                                            getJsonField(
+                                                                          recentItemsItem,
+                                                                          r'''$.thumbnails.default.url''',
+                                                                        ).toString(),
+                                                                        transitionOnUserGestures:
+                                                                            true,
+                                                                        child:
+                                                                            ClipRRect(
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(9.0),
+                                                                          child:
+                                                                              Image.network(
+                                                                            getJsonField(
+                                                                              recentItemsItem,
+                                                                              r'''$.thumbnails.default.url''',
+                                                                            ).toString(),
+                                                                            width:
+                                                                                100.0,
+                                                                            height:
+                                                                                100.0,
+                                                                            fit:
+                                                                                BoxFit.cover,
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                    Padding(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          3.0,
+                                                                          15.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                      child:
+                                                                          Text(
+                                                                        getJsonField(
+                                                                          recentItemsItem,
+                                                                          r'''$.title''',
+                                                                        ).toString(),
+                                                                        textAlign:
+                                                                            TextAlign.center,
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Inter',
+                                                                              color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                              fontSize: 12.0,
+                                                                              letterSpacing: 0.0,
+                                                                              fontWeight: FontWeight.normal,
+                                                                            ),
+                                                                      ),
+                                                                    ),
+                                                                  ],
                                                                 ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ).animateOnPageLoad(animationsMap[
-                                                      'containerOnPageLoadAnimation34']!),
-                                                ),
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 10.0, 0.0),
-                                                  child: Container(
-                                                    width: 100.0,
-                                                    height: 100.0,
-                                                    decoration: BoxDecoration(
-                                                      color: Color(0x4D090F13),
-                                                      boxShadow: [
-                                                        BoxShadow(
-                                                          blurRadius: 4.0,
-                                                          color:
-                                                              Color(0x33000000),
-                                                          offset: Offset(
-                                                            6.0,
-                                                            2.0,
-                                                          ),
-                                                        )
-                                                      ],
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              9.0),
-                                                    ),
-                                                    child: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      1.0,
-                                                                      0.0),
-                                                          child: ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        9.0),
-                                                            child: Image.asset(
-                                                              'assets/images/user.webp',
-                                                              width: 100.0,
-                                                              height: 100.0,
-                                                              fit: BoxFit.cover,
+                                                              ),
                                                             ),
-                                                          ),
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      3.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Text(
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .getText(
-                                                              'sn3njp0e' /* See you latter */,
-                                                            ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Inter',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                  fontSize:
-                                                                      12.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ).animateOnPageLoad(animationsMap[
-                                                      'containerOnPageLoadAnimation35']!),
-                                                ),
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 10.0, 0.0),
-                                                  child: Container(
-                                                    width: 100.0,
-                                                    height: 100.0,
-                                                    decoration: BoxDecoration(
-                                                      color: Color(0x4F090F13),
-                                                      boxShadow: [
-                                                        BoxShadow(
-                                                          blurRadius: 4.0,
-                                                          color:
-                                                              Color(0x33000000),
-                                                          offset: Offset(
-                                                            6.0,
-                                                            2.0,
-                                                          ),
-                                                        )
-                                                      ],
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              9.0),
-                                                    ),
-                                                    child: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      1.0,
-                                                                      0.0),
-                                                          child: ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        9.0),
-                                                            child: Image.asset(
-                                                              'assets/images/user7.png',
-                                                              width: 100.0,
-                                                              height: 100.0,
-                                                              fit: BoxFit.cover,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      3.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Text(
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .getText(
-                                                              'qdph8lfr' /* River of love */,
-                                                            ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Inter',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                  fontSize:
-                                                                      12.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ).animateOnPageLoad(animationsMap[
-                                                      'containerOnPageLoadAnimation36']!),
-                                                ),
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 10.0, 0.0),
-                                                  child: Container(
-                                                    width: 100.0,
-                                                    height: 100.0,
-                                                    decoration: BoxDecoration(
-                                                      color: Color(0x4F090F13),
-                                                      boxShadow: [
-                                                        BoxShadow(
-                                                          blurRadius: 4.0,
-                                                          color:
-                                                              Color(0x33000000),
-                                                          offset: Offset(
-                                                            6.0,
-                                                            2.0,
-                                                          ),
-                                                        )
-                                                      ],
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              9.0),
-                                                    ),
-                                                    child: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      1.0,
-                                                                      0.0),
-                                                          child: ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        9.0),
-                                                            child: Image.asset(
-                                                              'assets/images/user6.png',
-                                                              width: 100.0,
-                                                              height: 100.0,
-                                                              fit: BoxFit.cover,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      3.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Text(
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .getText(
-                                                              '50fg9byd' /* River of love */,
-                                                            ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Inter',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                  fontSize:
-                                                                      12.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ).animateOnPageLoad(animationsMap[
-                                                      'containerOnPageLoadAnimation37']!),
-                                                ),
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 10.0, 0.0),
-                                                  child: Container(
-                                                    width: 100.0,
-                                                    height: 100.0,
-                                                    decoration: BoxDecoration(
-                                                      color: Color(0x4F090F13),
-                                                      boxShadow: [
-                                                        BoxShadow(
-                                                          blurRadius: 4.0,
-                                                          color:
-                                                              Color(0x33000000),
-                                                          offset: Offset(
-                                                            6.0,
-                                                            2.0,
-                                                          ),
-                                                        )
-                                                      ],
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              9.0),
-                                                    ),
-                                                    child: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      1.0,
-                                                                      0.0),
-                                                          child: ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        9.0),
-                                                            child: Image.asset(
-                                                              'assets/images/user3.png',
-                                                              width: 100.0,
-                                                              height: 100.0,
-                                                              fit: BoxFit.cover,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      3.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Text(
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .getText(
-                                                              'cxlh0b41' /* River of love */,
-                                                            ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Inter',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                  fontSize:
-                                                                      12.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ).animateOnPageLoad(animationsMap[
-                                                      'containerOnPageLoadAnimation38']!),
-                                                ),
-                                              ],
+                                                          ).animateOnPageLoad(
+                                                              animationsMap[
+                                                                  'containerOnPageLoadAnimation23']!),
+                                                        );
+                                                      },
+                                                    );
+                                                  },
+                                                );
+                                              },
                                             ),
                                           ),
                                         ],
@@ -4642,65 +4348,203 @@ Depression */
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
-                                          Expanded(
-                                            child: MasonryGridView.builder(
-                                              gridDelegate:
-                                                  SliverSimpleGridDelegateWithFixedCrossAxisCount(
-                                                crossAxisCount: 2,
-                                              ),
-                                              crossAxisSpacing: 10.0,
-                                              mainAxisSpacing: 10.0,
-                                              itemCount: 4,
-                                              itemBuilder: (context, index) {
-                                                return [
-                                                  () => ClipRRect(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(10.0),
-                                                        child: Image.asset(
-                                                          'assets/images/jax.png',
-                                                          width: 200.0,
-                                                          height: 100.0,
-                                                          fit: BoxFit.cover,
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 8.0, 0.0, 8.0),
+                                            child:
+                                                FutureBuilder<ApiCallResponse>(
+                                              future:
+                                                  YouTubeDataSleepMeditationsAPIFINALCopyCopyCopyCall
+                                                      .call(),
+                                              builder: (context, snapshot) {
+                                                // Customize what your widget looks like when it's loading.
+                                                if (!snapshot.hasData) {
+                                                  return Center(
+                                                    child: SizedBox(
+                                                      width: 50.0,
+                                                      height: 50.0,
+                                                      child:
+                                                          CircularProgressIndicator(
+                                                        valueColor:
+                                                            AlwaysStoppedAnimation<
+                                                                Color>(
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primary,
                                                         ),
                                                       ),
-                                                  () => ClipRRect(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(10.0),
-                                                        child: Image.asset(
-                                                          'assets/images/user.webp',
-                                                          width: 100.0,
-                                                          height: 210.0,
-                                                          fit: BoxFit.cover,
-                                                        ),
-                                                      ),
-                                                  () => ClipRRect(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(10.0),
-                                                        child: Image.asset(
-                                                          'assets/images/user7.png',
-                                                          width: 100.0,
-                                                          height: 250.0,
-                                                          fit: BoxFit.cover,
-                                                        ),
-                                                      ),
-                                                  () => ClipRRect(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(10.0),
-                                                        child: Image.asset(
-                                                          'assets/images/user6.png',
-                                                          width: 400.0,
-                                                          height: 140.0,
-                                                          fit: BoxFit.cover,
-                                                        ),
-                                                      ),
-                                                ][index]();
+                                                    ),
+                                                  );
+                                                }
+                                                final listViewYouTubeDataSleepMeditationsAPIFINALCopyCopyCopyResponse =
+                                                    snapshot.data!;
+
+                                                return Builder(
+                                                  builder: (context) {
+                                                    final meditations =
+                                                        getJsonField(
+                                                      listViewYouTubeDataSleepMeditationsAPIFINALCopyCopyCopyResponse
+                                                          .jsonBody,
+                                                      r'''$.items[:].snippet''',
+                                                    ).toList();
+
+                                                    return ListView.builder(
+                                                      padding: EdgeInsets.zero,
+                                                      shrinkWrap: true,
+                                                      scrollDirection:
+                                                          Axis.vertical,
+                                                      itemCount:
+                                                          meditations.length,
+                                                      itemBuilder: (context,
+                                                          meditationsIndex) {
+                                                        final meditationsItem =
+                                                            meditations[
+                                                                meditationsIndex];
+                                                        return Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      10.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: Container(
+                                                            width: 187.0,
+                                                            height: 215.0,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: Colors
+                                                                  .transparent,
+                                                            ),
+                                                            child: Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .center,
+                                                              children: [
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          1.0,
+                                                                          0.0),
+                                                                  child: Hero(
+                                                                    tag:
+                                                                        getJsonField(
+                                                                      meditationsItem,
+                                                                      r'''$.thumbnails.default.url''',
+                                                                    ).toString(),
+                                                                    transitionOnUserGestures:
+                                                                        true,
+                                                                    child:
+                                                                        ClipRRect(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              9.0),
+                                                                      child: Image
+                                                                          .network(
+                                                                        getJsonField(
+                                                                          meditationsItem,
+                                                                          r'''$.thumbnails.default.url''',
+                                                                        ).toString(),
+                                                                        width:
+                                                                            245.0,
+                                                                        height:
+                                                                            100.0,
+                                                                        fit: BoxFit
+                                                                            .cover,
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                                Align(
+                                                                  alignment:
+                                                                      AlignmentDirectional(
+                                                                          -1.0,
+                                                                          0.0),
+                                                                  child:
+                                                                      Padding(
+                                                                    padding:
+                                                                        EdgeInsets.all(
+                                                                            15.0),
+                                                                    child: Text(
+                                                                      getJsonField(
+                                                                        meditationsItem,
+                                                                        r'''$.title''',
+                                                                      ).toString(),
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Inter',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).secondaryBackground,
+                                                                            fontSize:
+                                                                                12.0,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                          ),
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                                Align(
+                                                                  alignment:
+                                                                      AlignmentDirectional(
+                                                                          1.0,
+                                                                          1.0),
+                                                                  child:
+                                                                      Padding(
+                                                                    padding:
+                                                                        EdgeInsets.all(
+                                                                            8.0),
+                                                                    child:
+                                                                        FlutterFlowIconButton(
+                                                                      borderColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      borderRadius:
+                                                                          8.0,
+                                                                      buttonSize:
+                                                                          40.0,
+                                                                      fillColor:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .tertiary,
+                                                                      icon:
+                                                                          Icon(
+                                                                        Icons
+                                                                            .play_circle,
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .info,
+                                                                        size:
+                                                                            24.0,
+                                                                      ),
+                                                                      onPressed:
+                                                                          () {
+                                                                        print(
+                                                                            'IconButton pressed ...');
+                                                                      },
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ).animateOnPageLoad(
+                                                              animationsMap[
+                                                                  'containerOnPageLoadAnimation24']!),
+                                                        );
+                                                      },
+                                                    );
+                                                  },
+                                                );
                                               },
-                                            ).animateOnPageLoad(animationsMap[
-                                                'staggeredViewOnPageLoadAnimation2']!),
+                                            ),
                                           ),
                                         ],
                                       ),
@@ -4762,7 +4606,7 @@ Depression */
                                   ),
                                   Container(
                                     width: double.infinity,
-                                    height: 100.0,
+                                    height: 274.0,
                                     decoration: BoxDecoration(
                                       color: Colors.transparent,
                                     ),
@@ -4770,141 +4614,202 @@ Depression */
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Expanded(
-                                          child: ListView(
-                                            padding: EdgeInsets.zero,
-                                            scrollDirection: Axis.horizontal,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 0.0, 0.0, 0.0),
-                                                child: Container(
-                                                  width: 70.0,
-                                                  height: 50.0,
-                                                  decoration: BoxDecoration(
-                                                    color: Colors.transparent,
-                                                  ),
-                                                  child: Container(
-                                                    width: 90.0,
-                                                    height: 90.0,
-                                                    clipBehavior:
-                                                        Clip.antiAlias,
-                                                    decoration: BoxDecoration(
-                                                      shape: BoxShape.circle,
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 8.0, 0.0, 8.0),
+                                            child:
+                                                FutureBuilder<ApiCallResponse>(
+                                              future:
+                                                  YouTubeDataGroundingFINALAPICall
+                                                      .call(),
+                                              builder: (context, snapshot) {
+                                                // Customize what your widget looks like when it's loading.
+                                                if (!snapshot.hasData) {
+                                                  return Center(
+                                                    child: SizedBox(
+                                                      width: 50.0,
+                                                      height: 50.0,
+                                                      child:
+                                                          CircularProgressIndicator(
+                                                        valueColor:
+                                                            AlwaysStoppedAnimation<
+                                                                Color>(
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primary,
+                                                        ),
+                                                      ),
                                                     ),
-                                                    child: Image.asset(
-                                                      'assets/images/user3.png',
-                                                      fit: BoxFit.cover,
-                                                    ),
-                                                  ),
-                                                ).animateOnPageLoad(animationsMap[
-                                                    'containerOnPageLoadAnimation39']!),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 0.0, 0.0, 0.0),
-                                                child: Container(
-                                                  width: 70.0,
-                                                  height: 50.0,
-                                                  decoration: BoxDecoration(
-                                                    color: Colors.transparent,
-                                                  ),
-                                                  child: Container(
-                                                    width: 90.0,
-                                                    height: 90.0,
-                                                    clipBehavior:
-                                                        Clip.antiAlias,
-                                                    decoration: BoxDecoration(
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Image.asset(
-                                                      'assets/images/user7.png',
-                                                      fit: BoxFit.cover,
-                                                    ),
-                                                  ),
-                                                ).animateOnPageLoad(animationsMap[
-                                                    'containerOnPageLoadAnimation40']!),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 0.0, 0.0, 0.0),
-                                                child: Container(
-                                                  width: 70.0,
-                                                  height: 50.0,
-                                                  decoration: BoxDecoration(
-                                                    color: Colors.transparent,
-                                                  ),
-                                                  child: Container(
-                                                    width: 90.0,
-                                                    height: 90.0,
-                                                    clipBehavior:
-                                                        Clip.antiAlias,
-                                                    decoration: BoxDecoration(
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Image.asset(
-                                                      'assets/images/user.webp',
-                                                      fit: BoxFit.cover,
-                                                    ),
-                                                  ),
-                                                ).animateOnPageLoad(animationsMap[
-                                                    'containerOnPageLoadAnimation41']!),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 0.0, 0.0, 0.0),
-                                                child: Container(
-                                                  width: 70.0,
-                                                  height: 50.0,
-                                                  decoration: BoxDecoration(
-                                                    color: Colors.transparent,
-                                                  ),
-                                                  child: Container(
-                                                    width: 90.0,
-                                                    height: 90.0,
-                                                    clipBehavior:
-                                                        Clip.antiAlias,
-                                                    decoration: BoxDecoration(
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Image.asset(
-                                                      'assets/images/user6.png',
-                                                      fit: BoxFit.cover,
-                                                    ),
-                                                  ),
-                                                ).animateOnPageLoad(animationsMap[
-                                                    'containerOnPageLoadAnimation42']!),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 0.0, 0.0, 0.0),
-                                                child: Container(
-                                                  width: 70.0,
-                                                  height: 50.0,
-                                                  decoration: BoxDecoration(
-                                                    color: Colors.transparent,
-                                                  ),
-                                                  child: Container(
-                                                    width: 90.0,
-                                                    height: 90.0,
-                                                    clipBehavior:
-                                                        Clip.antiAlias,
-                                                    decoration: BoxDecoration(
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Image.asset(
-                                                      'assets/images/jax.png',
-                                                      fit: BoxFit.cover,
-                                                    ),
-                                                  ),
-                                                ).animateOnPageLoad(animationsMap[
-                                                    'containerOnPageLoadAnimation43']!),
-                                              ),
-                                            ],
+                                                  );
+                                                }
+                                                final listViewYouTubeDataGroundingFINALAPIResponse =
+                                                    snapshot.data!;
+
+                                                return Builder(
+                                                  builder: (context) {
+                                                    final meditations =
+                                                        getJsonField(
+                                                      listViewYouTubeDataGroundingFINALAPIResponse
+                                                          .jsonBody,
+                                                      r'''$.items[:].snippet''',
+                                                    ).toList();
+
+                                                    return ListView.builder(
+                                                      padding: EdgeInsets.zero,
+                                                      scrollDirection:
+                                                          Axis.horizontal,
+                                                      itemCount:
+                                                          meditations.length,
+                                                      itemBuilder: (context,
+                                                          meditationsIndex) {
+                                                        final meditationsItem =
+                                                            meditations[
+                                                                meditationsIndex];
+                                                        return Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      10.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: Container(
+                                                            width: 187.0,
+                                                            height: 215.0,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: Colors
+                                                                  .transparent,
+                                                            ),
+                                                            child: Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .center,
+                                                              children: [
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          1.0,
+                                                                          0.0),
+                                                                  child: Hero(
+                                                                    tag:
+                                                                        getJsonField(
+                                                                      meditationsItem,
+                                                                      r'''$.thumbnails.default.url''',
+                                                                    ).toString(),
+                                                                    transitionOnUserGestures:
+                                                                        true,
+                                                                    child:
+                                                                        ClipRRect(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              9.0),
+                                                                      child: Image
+                                                                          .network(
+                                                                        getJsonField(
+                                                                          meditationsItem,
+                                                                          r'''$.thumbnails.default.url''',
+                                                                        ).toString(),
+                                                                        width:
+                                                                            245.0,
+                                                                        height:
+                                                                            100.0,
+                                                                        fit: BoxFit
+                                                                            .cover,
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                                Align(
+                                                                  alignment:
+                                                                      AlignmentDirectional(
+                                                                          -1.0,
+                                                                          0.0),
+                                                                  child:
+                                                                      Padding(
+                                                                    padding:
+                                                                        EdgeInsets.all(
+                                                                            15.0),
+                                                                    child: Text(
+                                                                      getJsonField(
+                                                                        meditationsItem,
+                                                                        r'''$.title''',
+                                                                      ).toString(),
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Inter',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).secondaryBackground,
+                                                                            fontSize:
+                                                                                12.0,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                          ),
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                                Align(
+                                                                  alignment:
+                                                                      AlignmentDirectional(
+                                                                          1.0,
+                                                                          1.0),
+                                                                  child:
+                                                                      Padding(
+                                                                    padding:
+                                                                        EdgeInsets.all(
+                                                                            8.0),
+                                                                    child:
+                                                                        FlutterFlowIconButton(
+                                                                      borderColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      borderRadius:
+                                                                          8.0,
+                                                                      buttonSize:
+                                                                          40.0,
+                                                                      fillColor:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .tertiary,
+                                                                      icon:
+                                                                          Icon(
+                                                                        Icons
+                                                                            .play_circle,
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .info,
+                                                                        size:
+                                                                            24.0,
+                                                                      ),
+                                                                      onPressed:
+                                                                          () {
+                                                                        print(
+                                                                            'IconButton pressed ...');
+                                                                      },
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ).animateOnPageLoad(
+                                                              animationsMap[
+                                                                  'containerOnPageLoadAnimation25']!),
+                                                        );
+                                                      },
+                                                    );
+                                                  },
+                                                );
+                                              },
+                                            ),
                                           ),
                                         ),
                                       ],
@@ -5022,7 +4927,7 @@ Depression */
                                                       ],
                                                     ),
                                                   ).animateOnPageLoad(animationsMap[
-                                                      'containerOnPageLoadAnimation44']!),
+                                                      'containerOnPageLoadAnimation26']!),
                                                 ),
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
@@ -5078,7 +4983,7 @@ Depression */
                                                       ],
                                                     ),
                                                   ).animateOnPageLoad(animationsMap[
-                                                      'containerOnPageLoadAnimation45']!),
+                                                      'containerOnPageLoadAnimation27']!),
                                                 ),
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
@@ -5132,7 +5037,7 @@ Depression */
                                                       ],
                                                     ),
                                                   ).animateOnPageLoad(animationsMap[
-                                                      'containerOnPageLoadAnimation46']!),
+                                                      'containerOnPageLoadAnimation28']!),
                                                 ),
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
@@ -5186,7 +5091,7 @@ Depression */
                                                       ],
                                                     ),
                                                   ).animateOnPageLoad(animationsMap[
-                                                      'containerOnPageLoadAnimation47']!),
+                                                      'containerOnPageLoadAnimation29']!),
                                                 ),
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
@@ -5240,7 +5145,7 @@ Depression */
                                                       ],
                                                     ),
                                                   ).animateOnPageLoad(animationsMap[
-                                                      'containerOnPageLoadAnimation48']!),
+                                                      'containerOnPageLoadAnimation30']!),
                                                 ),
                                               ],
                                             ),
@@ -5297,7 +5202,7 @@ Depression */
                                   Expanded(
                                     child: Container(
                                       width: double.infinity,
-                                      height: 120.0,
+                                      height: 177.0,
                                       decoration: BoxDecoration(
                                         color: Colors.transparent,
                                       ),
@@ -5305,450 +5210,211 @@ Depression */
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Expanded(
-                                            child: ListView(
-                                              padding: EdgeInsets.zero,
-                                              scrollDirection: Axis.horizontal,
-                                              children: [
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 10.0, 0.0),
-                                                  child: Container(
-                                                    width: 100.0,
-                                                    height: 100.0,
-                                                    decoration: BoxDecoration(
-                                                      color: Color(0x50090F13),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              9.0),
+                                            child:
+                                                FutureBuilder<ApiCallResponse>(
+                                              future:
+                                                  YouTubeDataGroundingFINALAPICall
+                                                      .call(),
+                                              builder: (context, snapshot) {
+                                                // Customize what your widget looks like when it's loading.
+                                                if (!snapshot.hasData) {
+                                                  return Center(
+                                                    child: SizedBox(
+                                                      width: 50.0,
+                                                      height: 50.0,
+                                                      child:
+                                                          CircularProgressIndicator(
+                                                        valueColor:
+                                                            AlwaysStoppedAnimation<
+                                                                Color>(
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primary,
+                                                        ),
+                                                      ),
                                                     ),
-                                                    child: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        Padding(
+                                                  );
+                                                }
+                                                final listViewYouTubeDataGroundingFINALAPIResponse =
+                                                    snapshot.data!;
+
+                                                return Builder(
+                                                  builder: (context) {
+                                                    final recentItems =
+                                                        getJsonField(
+                                                      listViewYouTubeDataGroundingFINALAPIResponse
+                                                          .jsonBody,
+                                                      r'''$.items[:].snippet''',
+                                                    ).toList();
+
+                                                    return ListView.builder(
+                                                      padding: EdgeInsets.zero,
+                                                      scrollDirection:
+                                                          Axis.horizontal,
+                                                      itemCount:
+                                                          recentItems.length,
+                                                      itemBuilder: (context,
+                                                          recentItemsIndex) {
+                                                        final recentItemsItem =
+                                                            recentItems[
+                                                                recentItemsIndex];
+                                                        return Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       0.0,
-                                                                      1.0,
+                                                                      10.0,
                                                                       0.0),
-                                                          child: ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        9.0),
-                                                            child: Image.asset(
-                                                              'assets/images/user6.png',
-                                                              width: 100.0,
-                                                              height: 100.0,
-                                                              fit: BoxFit.cover,
+                                                          child: Container(
+                                                            width: 128.0,
+                                                            height: 137.0,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: Color(
+                                                                  0x50090F13),
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          9.0),
                                                             ),
-                                                          ),
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      3.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Text(
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .getText(
-                                                              'twssm4eb' /* Don´t Cry now */,
+                                                            child: InkWell(
+                                                              splashColor: Colors
+                                                                  .transparent,
+                                                              focusColor: Colors
+                                                                  .transparent,
+                                                              hoverColor: Colors
+                                                                  .transparent,
+                                                              highlightColor:
+                                                                  Colors
+                                                                      .transparent,
+                                                              onTap: () async {
+                                                                logFirebaseEvent(
+                                                                    'TABBAR_HOME_MEDITATION_Column_vv4u6n35_O');
+                                                                logFirebaseEvent(
+                                                                    'Column_bottom_sheet');
+                                                                await showModalBottomSheet(
+                                                                  isScrollControlled:
+                                                                      true,
+                                                                  backgroundColor:
+                                                                      Colors
+                                                                          .transparent,
+                                                                  context:
+                                                                      context,
+                                                                  builder:
+                                                                      (context) {
+                                                                    return WebViewAware(
+                                                                      child:
+                                                                          Padding(
+                                                                        padding:
+                                                                            MediaQuery.viewInsetsOf(context),
+                                                                        child:
+                                                                            Container(
+                                                                          height:
+                                                                              double.infinity,
+                                                                          child:
+                                                                              VideoplayerCompWidget(
+                                                                            parameter1:
+                                                                                getJsonField(
+                                                                              recentItemsItem,
+                                                                              r'''$.resource.videoId''',
+                                                                            ).toString(),
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    );
+                                                                  },
+                                                                ).then((value) =>
+                                                                    safeSetState(
+                                                                        () {}));
+                                                              },
+                                                              child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .center,
+                                                                children: [
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            1.0,
+                                                                            0.0),
+                                                                    child: Hero(
+                                                                      tag:
+                                                                          getJsonField(
+                                                                        recentItemsItem,
+                                                                        r'''$.thumbnails.default.url''',
+                                                                      ).toString(),
+                                                                      transitionOnUserGestures:
+                                                                          true,
+                                                                      child:
+                                                                          ClipRRect(
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(9.0),
+                                                                        child: Image
+                                                                            .network(
+                                                                          getJsonField(
+                                                                            recentItemsItem,
+                                                                            r'''$.thumbnails.default.url''',
+                                                                          ).toString(),
+                                                                          width:
+                                                                              100.0,
+                                                                          height:
+                                                                              100.0,
+                                                                          fit: BoxFit
+                                                                              .cover,
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            3.0,
+                                                                            15.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                    child: Text(
+                                                                      getJsonField(
+                                                                        recentItemsItem,
+                                                                        r'''$.title''',
+                                                                      ).toString(),
+                                                                      textAlign:
+                                                                          TextAlign
+                                                                              .center,
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Inter',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).primaryBackground,
+                                                                            fontSize:
+                                                                                12.0,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                          ),
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                              ),
                                                             ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Inter',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryBackground,
-                                                                  fontSize:
-                                                                      12.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ).animateOnPageLoad(animationsMap[
-                                                      'containerOnPageLoadAnimation49']!),
-                                                ),
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 10.0, 0.0),
-                                                  child: Container(
-                                                    width: 100.0,
-                                                    height: 100.0,
-                                                    decoration: BoxDecoration(
-                                                      color: Color(0x4D090F13),
-                                                      boxShadow: [
-                                                        BoxShadow(
-                                                          blurRadius: 4.0,
-                                                          color:
-                                                              Color(0x33000000),
-                                                          offset: Offset(
-                                                            6.0,
-                                                            2.0,
-                                                          ),
-                                                        )
-                                                      ],
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              9.0),
-                                                    ),
-                                                    child: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      1.0,
-                                                                      0.0),
-                                                          child: ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        9.0),
-                                                            child: Image.asset(
-                                                              'assets/images/user.webp',
-                                                              width: 100.0,
-                                                              height: 100.0,
-                                                              fit: BoxFit.cover,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      3.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Text(
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .getText(
-                                                              '04986oa3' /* See you latter */,
-                                                            ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Inter',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryBackground,
-                                                                  fontSize:
-                                                                      12.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ).animateOnPageLoad(animationsMap[
-                                                      'containerOnPageLoadAnimation50']!),
-                                                ),
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 10.0, 0.0),
-                                                  child: Container(
-                                                    width: 100.0,
-                                                    height: 100.0,
-                                                    decoration: BoxDecoration(
-                                                      color: Color(0x4F090F13),
-                                                      boxShadow: [
-                                                        BoxShadow(
-                                                          blurRadius: 4.0,
-                                                          color:
-                                                              Color(0x33000000),
-                                                          offset: Offset(
-                                                            6.0,
-                                                            2.0,
-                                                          ),
-                                                        )
-                                                      ],
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              9.0),
-                                                    ),
-                                                    child: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      1.0,
-                                                                      0.0),
-                                                          child: ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        9.0),
-                                                            child: Image.asset(
-                                                              'assets/images/user7.png',
-                                                              width: 100.0,
-                                                              height: 100.0,
-                                                              fit: BoxFit.cover,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      3.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Text(
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .getText(
-                                                              'vkny18br' /* River of love */,
-                                                            ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Inter',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryBackground,
-                                                                  fontSize:
-                                                                      12.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ).animateOnPageLoad(animationsMap[
-                                                      'containerOnPageLoadAnimation51']!),
-                                                ),
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 10.0, 0.0),
-                                                  child: Container(
-                                                    width: 100.0,
-                                                    height: 100.0,
-                                                    decoration: BoxDecoration(
-                                                      color: Color(0x4F090F13),
-                                                      boxShadow: [
-                                                        BoxShadow(
-                                                          blurRadius: 4.0,
-                                                          color:
-                                                              Color(0x33000000),
-                                                          offset: Offset(
-                                                            6.0,
-                                                            2.0,
-                                                          ),
-                                                        )
-                                                      ],
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              9.0),
-                                                    ),
-                                                    child: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      1.0,
-                                                                      0.0),
-                                                          child: ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        9.0),
-                                                            child: Image.asset(
-                                                              'assets/images/user6.png',
-                                                              width: 100.0,
-                                                              height: 100.0,
-                                                              fit: BoxFit.cover,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      3.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Text(
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .getText(
-                                                              'a7ivyztj' /* River of love */,
-                                                            ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Inter',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryBackground,
-                                                                  fontSize:
-                                                                      12.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ).animateOnPageLoad(animationsMap[
-                                                      'containerOnPageLoadAnimation52']!),
-                                                ),
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 10.0, 0.0),
-                                                  child: Container(
-                                                    width: 100.0,
-                                                    height: 100.0,
-                                                    decoration: BoxDecoration(
-                                                      color: Color(0x4F090F13),
-                                                      boxShadow: [
-                                                        BoxShadow(
-                                                          blurRadius: 4.0,
-                                                          color:
-                                                              Color(0x33000000),
-                                                          offset: Offset(
-                                                            6.0,
-                                                            2.0,
-                                                          ),
-                                                        )
-                                                      ],
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              9.0),
-                                                    ),
-                                                    child: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      1.0,
-                                                                      0.0),
-                                                          child: ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        9.0),
-                                                            child: Image.asset(
-                                                              'assets/images/user3.png',
-                                                              width: 100.0,
-                                                              height: 100.0,
-                                                              fit: BoxFit.cover,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      3.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Text(
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .getText(
-                                                              'uyjzmhlz' /* River of love */,
-                                                            ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Inter',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                  fontSize:
-                                                                      12.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ).animateOnPageLoad(animationsMap[
-                                                      'containerOnPageLoadAnimation53']!),
-                                                ),
-                                              ],
+                                                          ).animateOnPageLoad(
+                                                              animationsMap[
+                                                                  'containerOnPageLoadAnimation31']!),
+                                                        );
+                                                      },
+                                                    );
+                                                  },
+                                                );
+                                              },
                                             ),
                                           ),
                                         ],
@@ -5810,65 +5476,203 @@ Depression */
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
-                                          Expanded(
-                                            child: MasonryGridView.builder(
-                                              gridDelegate:
-                                                  SliverSimpleGridDelegateWithFixedCrossAxisCount(
-                                                crossAxisCount: 2,
-                                              ),
-                                              crossAxisSpacing: 10.0,
-                                              mainAxisSpacing: 10.0,
-                                              itemCount: 4,
-                                              itemBuilder: (context, index) {
-                                                return [
-                                                  () => ClipRRect(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(10.0),
-                                                        child: Image.asset(
-                                                          'assets/images/jax.png',
-                                                          width: 200.0,
-                                                          height: 100.0,
-                                                          fit: BoxFit.cover,
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 8.0, 0.0, 8.0),
+                                            child:
+                                                FutureBuilder<ApiCallResponse>(
+                                              future:
+                                                  YouTubeDataGroundingFINALAPICall
+                                                      .call(),
+                                              builder: (context, snapshot) {
+                                                // Customize what your widget looks like when it's loading.
+                                                if (!snapshot.hasData) {
+                                                  return Center(
+                                                    child: SizedBox(
+                                                      width: 50.0,
+                                                      height: 50.0,
+                                                      child:
+                                                          CircularProgressIndicator(
+                                                        valueColor:
+                                                            AlwaysStoppedAnimation<
+                                                                Color>(
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primary,
                                                         ),
                                                       ),
-                                                  () => ClipRRect(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(10.0),
-                                                        child: Image.asset(
-                                                          'assets/images/user.webp',
-                                                          width: 100.0,
-                                                          height: 210.0,
-                                                          fit: BoxFit.cover,
-                                                        ),
-                                                      ),
-                                                  () => ClipRRect(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(10.0),
-                                                        child: Image.asset(
-                                                          'assets/images/user7.png',
-                                                          width: 100.0,
-                                                          height: 250.0,
-                                                          fit: BoxFit.cover,
-                                                        ),
-                                                      ),
-                                                  () => ClipRRect(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(10.0),
-                                                        child: Image.asset(
-                                                          'assets/images/user6.png',
-                                                          width: 400.0,
-                                                          height: 140.0,
-                                                          fit: BoxFit.cover,
-                                                        ),
-                                                      ),
-                                                ][index]();
+                                                    ),
+                                                  );
+                                                }
+                                                final listViewYouTubeDataGroundingFINALAPIResponse =
+                                                    snapshot.data!;
+
+                                                return Builder(
+                                                  builder: (context) {
+                                                    final meditations =
+                                                        getJsonField(
+                                                      listViewYouTubeDataGroundingFINALAPIResponse
+                                                          .jsonBody,
+                                                      r'''$.items[:].snippet''',
+                                                    ).toList();
+
+                                                    return ListView.builder(
+                                                      padding: EdgeInsets.zero,
+                                                      shrinkWrap: true,
+                                                      scrollDirection:
+                                                          Axis.vertical,
+                                                      itemCount:
+                                                          meditations.length,
+                                                      itemBuilder: (context,
+                                                          meditationsIndex) {
+                                                        final meditationsItem =
+                                                            meditations[
+                                                                meditationsIndex];
+                                                        return Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      10.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: Container(
+                                                            width: 187.0,
+                                                            height: 215.0,
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: Colors
+                                                                  .transparent,
+                                                            ),
+                                                            child: Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .center,
+                                                              children: [
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          1.0,
+                                                                          0.0),
+                                                                  child: Hero(
+                                                                    tag:
+                                                                        getJsonField(
+                                                                      meditationsItem,
+                                                                      r'''$.thumbnails.default.url''',
+                                                                    ).toString(),
+                                                                    transitionOnUserGestures:
+                                                                        true,
+                                                                    child:
+                                                                        ClipRRect(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              9.0),
+                                                                      child: Image
+                                                                          .network(
+                                                                        getJsonField(
+                                                                          meditationsItem,
+                                                                          r'''$.thumbnails.default.url''',
+                                                                        ).toString(),
+                                                                        width:
+                                                                            397.0,
+                                                                        height:
+                                                                            100.0,
+                                                                        fit: BoxFit
+                                                                            .cover,
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                                Align(
+                                                                  alignment:
+                                                                      AlignmentDirectional(
+                                                                          -1.0,
+                                                                          0.0),
+                                                                  child:
+                                                                      Padding(
+                                                                    padding:
+                                                                        EdgeInsets.all(
+                                                                            15.0),
+                                                                    child: Text(
+                                                                      getJsonField(
+                                                                        meditationsItem,
+                                                                        r'''$.title''',
+                                                                      ).toString(),
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Inter',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).secondaryBackground,
+                                                                            fontSize:
+                                                                                12.0,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                          ),
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                                Align(
+                                                                  alignment:
+                                                                      AlignmentDirectional(
+                                                                          1.0,
+                                                                          1.0),
+                                                                  child:
+                                                                      Padding(
+                                                                    padding:
+                                                                        EdgeInsets.all(
+                                                                            8.0),
+                                                                    child:
+                                                                        FlutterFlowIconButton(
+                                                                      borderColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      borderRadius:
+                                                                          8.0,
+                                                                      buttonSize:
+                                                                          40.0,
+                                                                      fillColor:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .tertiary,
+                                                                      icon:
+                                                                          Icon(
+                                                                        Icons
+                                                                            .play_circle,
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .info,
+                                                                        size:
+                                                                            24.0,
+                                                                      ),
+                                                                      onPressed:
+                                                                          () {
+                                                                        print(
+                                                                            'IconButton pressed ...');
+                                                                      },
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ).animateOnPageLoad(
+                                                              animationsMap[
+                                                                  'containerOnPageLoadAnimation32']!),
+                                                        );
+                                                      },
+                                                    );
+                                                  },
+                                                );
                                               },
-                                            ).animateOnPageLoad(animationsMap[
-                                                'staggeredViewOnPageLoadAnimation3']!),
+                                            ),
                                           ),
                                         ],
                                       ),

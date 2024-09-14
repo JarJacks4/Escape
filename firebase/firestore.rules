@@ -147,5 +147,29 @@ service cloud.firestore {
       allow read: if request.auth != null;
     }
 
+
+    match /Users/{parent}/Subscriptions/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if true;
+    }
+
+    match /{path=**}/Subscriptions/{document} {
+      allow read: if true;
+    }
+
+
+    match /Users/{parent}/Playlists/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if true;
+    }
+
+    match /{path=**}/Playlists/{document} {
+      allow read: if true;
+    }
+
   }
 }

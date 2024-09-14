@@ -1,9 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/learning_to_meditate/meditation_carousel/meditation_carousel_widget.dart';
-import '/meditation_and_sounds/environment_choice_carousel/environment_choice_carousel_widget.dart';
-import '/meditation_and_sounds/time_carousel_copy/time_carousel_copy_widget.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
@@ -194,34 +191,6 @@ class _TimedMeditationsWidgetState extends State<TimedMeditationsWidget> {
                                           ),
                                         ),
                                       ),
-                                      Expanded(
-                                        child: InkWell(
-                                          splashColor: Colors.transparent,
-                                          focusColor: Colors.transparent,
-                                          hoverColor: Colors.transparent,
-                                          highlightColor: Colors.transparent,
-                                          onTap: () async {
-                                            logFirebaseEvent(
-                                                'TIMED_MEDITATIONS_Container_jok40vvm_ON_');
-                                            logFirebaseEvent(
-                                                'EnvironmentChoiceCarousel_page_view');
-                                            await _model.pageViewController
-                                                ?.nextPage(
-                                              duration:
-                                                  Duration(milliseconds: 300),
-                                              curve: Curves.ease,
-                                            );
-                                          },
-                                          child: wrapWithModel(
-                                            model: _model
-                                                .environmentChoiceCarouselModel,
-                                            updateCallback: () =>
-                                                safeSetState(() {}),
-                                            child:
-                                                EnvironmentChoiceCarouselWidget(),
-                                          ),
-                                        ),
-                                      ),
                                       Align(
                                         alignment:
                                             AlignmentDirectional(0.0, -1.0),
@@ -402,32 +371,6 @@ Woul... */
                                           ),
                                         ),
                                       ),
-                                      Expanded(
-                                        child: InkWell(
-                                          splashColor: Colors.transparent,
-                                          focusColor: Colors.transparent,
-                                          hoverColor: Colors.transparent,
-                                          highlightColor: Colors.transparent,
-                                          onTap: () async {
-                                            logFirebaseEvent(
-                                                'TIMED_MEDITATIONS_Container_gfhymaki_ON_');
-                                            logFirebaseEvent(
-                                                'TimeCarouselCopy_page_view');
-                                            await _model.pageViewController
-                                                ?.nextPage(
-                                              duration:
-                                                  Duration(milliseconds: 300),
-                                              curve: Curves.ease,
-                                            );
-                                          },
-                                          child: wrapWithModel(
-                                            model: _model.timeCarouselCopyModel,
-                                            updateCallback: () =>
-                                                safeSetState(() {}),
-                                            child: TimeCarouselCopyWidget(),
-                                          ),
-                                        ),
-                                      ),
                                       Align(
                                         alignment:
                                             AlignmentDirectional(0.0, -1.0),
@@ -605,68 +548,6 @@ You Have to Med... */
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
                                                 ),
-                                          ),
-                                        ),
-                                      ),
-                                      Expanded(
-                                        child: InkWell(
-                                          splashColor: Colors.transparent,
-                                          focusColor: Colors.transparent,
-                                          hoverColor: Colors.transparent,
-                                          highlightColor: Colors.transparent,
-                                          onTap: () async {
-                                            logFirebaseEvent(
-                                                'TIMED_MEDITATIONS_Container_jq9ao6t8_ON_');
-                                            logFirebaseEvent(
-                                                'MeditationCarousel_navigate_to');
-
-                                            context.pushNamed(
-                                              'MeditationPlayerTimer',
-                                              queryParameters: {
-                                                'meditationPose':
-                                                    serializeParam(
-                                                  _model.meditationCarouselModel
-                                                      .carouselCurrentIndex
-                                                      .toString(),
-                                                  ParamType.String,
-                                                ),
-                                                'meditationPlace':
-                                                    serializeParam(
-                                                  '',
-                                                  ParamType.String,
-                                                ),
-                                                'meditationTime':
-                                                    serializeParam(
-                                                  '',
-                                                  ParamType.String,
-                                                ),
-                                              }.withoutNulls,
-                                              extra: <String, dynamic>{
-                                                kTransitionInfoKey:
-                                                    TransitionInfo(
-                                                  hasTransition: true,
-                                                  transitionType:
-                                                      PageTransitionType.fade,
-                                                  duration:
-                                                      Duration(milliseconds: 3),
-                                                ),
-                                              },
-                                            );
-                                          },
-                                          child: wrapWithModel(
-                                            model:
-                                                _model.meditationCarouselModel,
-                                            updateCallback: () =>
-                                                safeSetState(() {}),
-                                            child: Hero(
-                                              tag: 'TimeCarousel',
-                                              transitionOnUserGestures: true,
-                                              child: Material(
-                                                color: Colors.transparent,
-                                                child:
-                                                    MeditationCarouselWidget(),
-                                              ),
-                                            ),
                                           ),
                                         ),
                                       ),

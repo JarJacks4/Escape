@@ -281,11 +281,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => StartLogoScreenWidget(),
         ),
         FFRoute(
-          name: 'ProfilePage2',
-          path: '/profilePage2',
-          builder: (context, params) => ProfilePage2Widget(),
-        ),
-        FFRoute(
           name: 'EventsFINAL',
           path: '/eventsFINAL',
           builder: (context, params) => EventsFINALWidget(
@@ -316,16 +311,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'UpliftandAwareness',
           path: '/upliftandAwareness',
           builder: (context, params) => UpliftandAwarenessWidget(),
-        ),
-        FFRoute(
-          name: 'TherapistDirectory',
-          path: '/therapistDirectory',
-          builder: (context, params) => TherapistDirectoryWidget(),
-        ),
-        FFRoute(
-          name: 'IncreaseFocus',
-          path: '/increaseFocus',
-          builder: (context, params) => IncreaseFocusWidget(),
         ),
         FFRoute(
           name: 'VideoPlayer',
@@ -440,11 +425,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => UsingVibrationWidget(),
         ),
         FFRoute(
-          name: 'HelpAnxiety',
-          path: '/helpAnxiety',
-          builder: (context, params) => HelpAnxietyWidget(),
-        ),
-        FFRoute(
           name: 'KemeticYoga',
           path: '/kemeticYoga',
           builder: (context, params) => KemeticYogaWidget(),
@@ -458,11 +438,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'BeginnersYoga',
           path: '/beginnersYoga',
           builder: (context, params) => BeginnersYogaWidget(),
-        ),
-        FFRoute(
-          name: 'EliminateDepressionCopy',
-          path: '/eliminateDepressionCopy',
-          builder: (context, params) => EliminateDepressionCopyWidget(),
         ),
         FFRoute(
           name: 'youtubetestCopy',
@@ -483,6 +458,21 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'SubscriptionComp',
           path: '/subscriptionComp',
           builder: (context, params) => SubscriptionCompWidget(),
+        ),
+        FFRoute(
+          name: 'IncreaseFocusFINAL',
+          path: '/increaseFocusFINAL',
+          builder: (context, params) => IncreaseFocusFINALWidget(),
+        ),
+        FFRoute(
+          name: 'ClassesAndEvents',
+          path: '/classesAndEvents',
+          builder: (context, params) => ClassesAndEventsWidget(),
+        ),
+        FFRoute(
+          name: 'HelpAnxiety',
+          path: '/helpAnxiety',
+          builder: (context, params) => HelpAnxietyWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

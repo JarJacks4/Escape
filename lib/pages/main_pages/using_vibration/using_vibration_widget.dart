@@ -104,15 +104,6 @@ class _UsingVibrationWidgetState extends State<UsingVibrationWidget> {
                                     end: AlignmentDirectional(0, 1.0),
                                   ),
                                 ),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  child: Image.asset(
-                                    'assets/images/ESCAPE_Logo_Clear.png',
-                                    width: 300.0,
-                                    height: 200.0,
-                                    fit: BoxFit.contain,
-                                  ),
-                                ),
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
@@ -142,21 +133,19 @@ class _UsingVibrationWidgetState extends State<UsingVibrationWidget> {
                                         context.safePop();
                                       },
                                     ),
-                                    FlutterFlowIconButton(
-                                      borderColor: Colors.transparent,
-                                      borderRadius: 30.0,
-                                      borderWidth: 1.0,
-                                      buttonSize: 50.0,
-                                      fillColor: Color(0xC1E7C8E7),
-                                      icon: Icon(
-                                        Icons.menu,
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        size: 30.0,
+                                    Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.2,
+                                      height: MediaQuery.sizeOf(context).width *
+                                          0.2,
+                                      clipBehavior: Clip.antiAlias,
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
                                       ),
-                                      onPressed: () {
-                                        print('IconButton pressed ...');
-                                      },
+                                      child: Image.asset(
+                                        'assets/images/ESCAPE_Logo_Clear.png',
+                                        fit: BoxFit.cover,
+                                      ),
                                     ),
                                   ],
                                 ),

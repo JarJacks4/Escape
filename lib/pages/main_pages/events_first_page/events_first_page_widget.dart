@@ -1,5 +1,5 @@
 import '/backend/backend.dart';
-import '/components/blog_card1_widget.dart';
+import '/components/events_card1_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -45,7 +45,7 @@ class _EventsFirstPageWidgetState extends State<EventsFirstPageWidget> {
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
@@ -119,7 +119,7 @@ class _EventsFirstPageWidgetState extends State<EventsFirstPageWidget> {
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Inter',
-                                    color: Colors.white,
+                                    color: Color(0xFF000220),
                                     fontSize: 36.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w500,
@@ -185,7 +185,7 @@ class _EventsFirstPageWidgetState extends State<EventsFirstPageWidget> {
                                     transitionOnUserGestures: true,
                                     child: Material(
                                       color: Colors.transparent,
-                                      child: BlogCard1Widget(
+                                      child: EventsCard1Widget(
                                         key: Key(
                                             'Keyur1_${listViewIndex}_of_${_model.listViewPagingController!.itemList!.length}'),
                                         eventName:
@@ -220,6 +220,47 @@ class _EventsFirstPageWidgetState extends State<EventsFirstPageWidget> {
                             fit: BoxFit.contain,
                           ),
                         ),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(15.0, 40.0, 15.0, 0.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          FlutterFlowIconButton(
+                            borderColor: Colors.transparent,
+                            borderRadius: 30.0,
+                            borderWidth: 1.0,
+                            buttonSize: 50.0,
+                            fillColor: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            icon: Icon(
+                              Icons.chevron_left,
+                              color: FlutterFlowTheme.of(context).alternate,
+                              size: 30.0,
+                            ),
+                            onPressed: () async {
+                              logFirebaseEvent(
+                                  'EVENTS_FIRST_chevron_left_ICN_ON_TAP');
+                              logFirebaseEvent('IconButton_navigate_back');
+                              context.safePop();
+                            },
+                          ),
+                          Container(
+                            width: MediaQuery.sizeOf(context).width * 0.2,
+                            height: MediaQuery.sizeOf(context).width * 0.2,
+                            clipBehavior: Clip.antiAlias,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                            ),
+                            child: Image.asset(
+                              'assets/images/ESCAPE_Logo_Clear.png',
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ],

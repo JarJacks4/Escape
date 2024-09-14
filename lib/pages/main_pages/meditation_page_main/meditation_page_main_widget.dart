@@ -77,7 +77,7 @@ class _MeditationPageMainWidgetState extends State<MeditationPageMainWidget> {
               children: [
                 Container(
                   width: double.infinity,
-                  height: 198.0,
+                  height: 252.0,
                   decoration: BoxDecoration(),
                   child: wrapWithModel(
                     model: _model.headerMainMeditationModel,

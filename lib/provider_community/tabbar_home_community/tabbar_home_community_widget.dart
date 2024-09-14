@@ -494,9 +494,9 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                                               child: Text(
                                                 FFLocalizations.of(context)
                                                     .getText(
-                                                  'q1sm38yv' /* Classes and Events */,
+                                                  'q1sm38yv' /* Classes & Events */,
                                                 ),
-                                                textAlign: TextAlign.center,
+                                                textAlign: TextAlign.start,
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -905,30 +905,35 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                                                                     alignment:
                                                                         AlignmentDirectional(
                                                                             1.0,
-                                                                            -1.0),
+                                                                            1.0),
                                                                     child:
-                                                                        FlutterFlowIconButton(
-                                                                      borderRadius:
-                                                                          8.0,
-                                                                      buttonSize:
-                                                                          40.0,
-                                                                      fillColor:
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .tertiary,
-                                                                      icon:
-                                                                          Icon(
-                                                                        Icons
-                                                                            .play_circle,
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .info,
-                                                                        size:
-                                                                            24.0,
+                                                                        Padding(
+                                                                      padding:
+                                                                          EdgeInsets.all(
+                                                                              8.0),
+                                                                      child:
+                                                                          FlutterFlowIconButton(
+                                                                        borderRadius:
+                                                                            8.0,
+                                                                        buttonSize:
+                                                                            40.0,
+                                                                        fillColor:
+                                                                            FlutterFlowTheme.of(context).tertiary,
+                                                                        icon:
+                                                                            Icon(
+                                                                          Icons
+                                                                              .play_circle,
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).info,
+                                                                          size:
+                                                                              24.0,
+                                                                        ),
+                                                                        onPressed:
+                                                                            () {
+                                                                          print(
+                                                                              'IconButton pressed ...');
+                                                                        },
                                                                       ),
-                                                                      onPressed:
-                                                                          () {
-                                                                        print(
-                                                                            'IconButton pressed ...');
-                                                                      },
                                                                     ),
                                                                   ),
                                                                 ],

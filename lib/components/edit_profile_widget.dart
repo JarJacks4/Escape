@@ -91,9 +91,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
     return Container(
       width: double.infinity,
       height: double.infinity,
-      decoration: BoxDecoration(
-        color: FlutterFlowTheme.of(context).accent4,
-      ),
+      decoration: BoxDecoration(),
       child: Column(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -179,35 +177,36 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                               ),
                               child: Padding(
                                 padding: EdgeInsets.all(2.0),
-                                child: InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    logFirebaseEvent(
-                                        'EDIT_PROFILE_CircleImage_fxugtfo0_ON_TAP');
-                                    logFirebaseEvent(
-                                        'CircleImage_update_app_state');
-                                    FFAppState().ProfilePicture =
-                                        currentUserPhoto;
-                                    FFAppState().update(() {});
-                                  },
-                                  child: Container(
-                                    width: 90.0,
-                                    height: 90.0,
-                                    clipBehavior: Clip.antiAlias,
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                    ),
-                                    child: CachedNetworkImage(
-                                      fadeInDuration:
-                                          Duration(milliseconds: 500),
-                                      fadeOutDuration:
-                                          Duration(milliseconds: 500),
-                                      imageUrl:
-                                          'https://images.unsplash.com/photo-1536164261511-3a17e671d380?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=630&q=80',
-                                      fit: BoxFit.fitWidth,
+                                child: AuthUserStreamWidget(
+                                  builder: (context) => InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      logFirebaseEvent(
+                                          'EDIT_PROFILE_CircleImage_fxugtfo0_ON_TAP');
+                                      logFirebaseEvent(
+                                          'CircleImage_update_app_state');
+                                      FFAppState().ProfilePicture =
+                                          currentUserPhoto;
+                                      FFAppState().update(() {});
+                                    },
+                                    child: Container(
+                                      width: 90.0,
+                                      height: 90.0,
+                                      clipBehavior: Clip.antiAlias,
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: CachedNetworkImage(
+                                        fadeInDuration:
+                                            Duration(milliseconds: 500),
+                                        fadeOutDuration:
+                                            Duration(milliseconds: 500),
+                                        imageUrl: currentUserPhoto,
+                                        fit: BoxFit.fitWidth,
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -716,7 +715,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                     _model.yourNameTextController1.text,
                               ));
                               logFirebaseEvent('Button_navigate_back');
-                              context.pop();
+                              context.safePop();
                               logFirebaseEvent('Button_show_snack_bar');
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(

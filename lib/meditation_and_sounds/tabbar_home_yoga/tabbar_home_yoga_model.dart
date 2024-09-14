@@ -2,6 +2,7 @@ import '/components/beginners_yoga_comp/beginners_yoga_comp_widget.dart';
 import '/components/grounding_videos/grounding_videos_widget.dart';
 import '/components/pilates_videos_comp/pilates_videos_comp_widget.dart';
 import '/components/tai_chi_videos_comp/tai_chi_videos_comp_widget.dart';
+import '/components/yoga_tutorial_basic_comp/yoga_tutorial_basic_comp_widget.dart';
 import '/flutter_flow/flutter_flow_button_tabbar.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -11,6 +12,7 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 
 class TabbarHomeYogaModel extends FlutterFlowModel<TabbarHomeYogaWidget> {
   ///  State fields for stateful widgets in this component.

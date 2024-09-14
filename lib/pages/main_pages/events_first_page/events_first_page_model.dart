@@ -1,5 +1,5 @@
 import '/backend/backend.dart';
-import '/components/blog_card1_widget.dart';
+import '/components/events_card1_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
