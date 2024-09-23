@@ -69,7 +69,7 @@ class _PrimaryButtonWidgetState extends State<PrimaryButtonWidget> {
                 widget!.buttonText,
                 textAlign: TextAlign.center,
                 style: FlutterFlowTheme.of(context).bodyLarge.override(
-                      fontFamily: 'Inter',
+                      fontFamily: 'Roboto',
                       color: Colors.white,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.bold,

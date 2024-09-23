@@ -43,7 +43,7 @@ class _BeginnersYogaWidgetState extends State<BeginnersYogaWidget> {
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: Color(0xFAFFFFFF),
         body: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
@@ -81,7 +81,7 @@ class _BeginnersYogaWidgetState extends State<BeginnersYogaWidget> {
                           child: Stack(
                             children: [
                               Image.network(
-                                'https://images.unsplash.com/photo-1630700559821-c56d17d21af8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwxOXx8eW9nYSUyMGNsYXNzfGVufDB8fHx8MTcyNTU1NzY0Nnww&ixlib=rb-4.0.3&q=80&w=1080',
+                                'https://images.unsplash.com/photo-1529693662653-9d480530a697?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHw4fHx5b2dhfGVufDB8fHx8MTcyNjk5NDA2N3ww&ixlib=rb-4.0.3&q=80&w=1080',
                                 width: double.infinity,
                                 height: 250.0,
                                 fit: BoxFit.cover,
@@ -95,11 +95,7 @@ class _BeginnersYogaWidgetState extends State<BeginnersYogaWidget> {
                                 height: 252.0,
                                 decoration: BoxDecoration(
                                   gradient: LinearGradient(
-                                    colors: [
-                                      Color(0x83FFFFFF),
-                                      FlutterFlowTheme.of(context)
-                                          .primaryBackground
-                                    ],
+                                    colors: [Color(0xA3FFFFFF), Colors.white],
                                     stops: [0.2, 1.0],
                                     begin: AlignmentDirectional(0.0, -1.0),
                                     end: AlignmentDirectional(0, 1.0),
@@ -134,18 +130,42 @@ class _BeginnersYogaWidgetState extends State<BeginnersYogaWidget> {
                                         context.safePop();
                                       },
                                     ),
-                                    Container(
-                                      width: MediaQuery.sizeOf(context).width *
-                                          0.2,
-                                      height: MediaQuery.sizeOf(context).width *
-                                          0.2,
-                                      clipBehavior: Clip.antiAlias,
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                      ),
-                                      child: Image.asset(
-                                        'assets/images/ESCAPE_Logo_Clear.png',
-                                        fit: BoxFit.cover,
+                                    InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        logFirebaseEvent(
+                                            'BEGINNERS_YOGA_Image_b0sdto5u_ON_TAP');
+                                        logFirebaseEvent('Image_navigate_to');
+
+                                        context.pushNamed(
+                                          'NewHome',
+                                          extra: <String, dynamic>{
+                                            kTransitionInfoKey: TransitionInfo(
+                                              hasTransition: true,
+                                              transitionType:
+                                                  PageTransitionType.fade,
+                                              duration:
+                                                  Duration(milliseconds: 2),
+                                            ),
+                                          },
+                                        );
+                                      },
+                                      child: Hero(
+                                        tag: 'BackgroundPicture',
+                                        transitionOnUserGestures: true,
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                          child: Image.asset(
+                                            'assets/images/ESCAPE_Logo_Clear.png',
+                                            width: 97.0,
+                                            height: 85.0,
+                                            fit: BoxFit.contain,
+                                          ),
+                                        ),
                                       ),
                                     ),
                                   ],
@@ -164,7 +184,7 @@ class _BeginnersYogaWidgetState extends State<BeginnersYogaWidget> {
                             children: [
                               Container(
                                 width: double.infinity,
-                                height: 66.0,
+                                height: 244.0,
                                 decoration: BoxDecoration(
                                   color: Color(0x00FFFFFF),
                                 ),
@@ -206,6 +226,27 @@ class _BeginnersYogaWidgetState extends State<BeginnersYogaWidget> {
                                                   ),
                                             )),
                                           ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 30.0, 0.0, 0.0),
+                                            child: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'f2cxau5z' /* Get simple and concise teachin... */,
+                                              ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Roboto',
+                                                    color: Color(0xF6000220),
+                                                    fontSize: 18.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.w300,
+                                                  ),
+                                            ),
+                                          ),
                                         ],
                                       ),
                                     ],
@@ -225,7 +266,15 @@ class _BeginnersYogaWidgetState extends State<BeginnersYogaWidget> {
               child: wrapWithModel(
                 model: _model.beginnersYogaCompModel,
                 updateCallback: () => safeSetState(() {}),
-                child: BeginnersYogaCompWidget(),
+                updateOnChange: true,
+                child: Hero(
+                  tag: 'SoundsPage',
+                  transitionOnUserGestures: true,
+                  child: Material(
+                    color: Colors.transparent,
+                    child: BeginnersYogaCompWidget(),
+                  ),
+                ),
               ),
             ),
           ],

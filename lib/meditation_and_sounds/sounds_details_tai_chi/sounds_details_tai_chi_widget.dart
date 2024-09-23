@@ -1,15 +1,18 @@
 import '/backend/api_requests/api_calls.dart';
-import '/components/videoplayer_comp_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/meditation_and_sounds/music_player_comp/music_player_comp_widget.dart';
+import 'dart:math';
 import 'dart:ui';
+import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
-import 'package:webviewx_plus/webviewx_plus.dart';
 import 'sounds_details_tai_chi_model.dart';
 export 'sounds_details_tai_chi_model.dart';
 
@@ -21,10 +24,13 @@ class SoundsDetailsTaiChiWidget extends StatefulWidget {
       _SoundsDetailsTaiChiWidgetState();
 }
 
-class _SoundsDetailsTaiChiWidgetState extends State<SoundsDetailsTaiChiWidget> {
+class _SoundsDetailsTaiChiWidgetState extends State<SoundsDetailsTaiChiWidget>
+    with TickerProviderStateMixin {
   late SoundsDetailsTaiChiModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -33,6 +39,46 @@ class _SoundsDetailsTaiChiWidgetState extends State<SoundsDetailsTaiChiWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'SoundsDetailsTaiChi'});
+    animationsMap.addAll({
+      'stackOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'listViewOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -119,12 +165,8 @@ class _SoundsDetailsTaiChiWidgetState extends State<SoundsDetailsTaiChiWidget> {
                             height: 250.0,
                             decoration: BoxDecoration(
                               gradient: LinearGradient(
-                                colors: [
-                                  Color(0xFF39EFED),
-                                  Color(0xFFD2CB39),
-                                  Color(0xFFEB0D70)
-                                ],
-                                stops: [0.0, 1.0, 1.0],
+                                colors: [Color(0xFF39EFED), Color(0xFF1807C0)],
+                                stops: [0.0, 1.0],
                                 begin: AlignmentDirectional(1.0, -0.77),
                                 end: AlignmentDirectional(-1.0, 0.77),
                               ),
@@ -147,9 +189,9 @@ class _SoundsDetailsTaiChiWidgetState extends State<SoundsDetailsTaiChiWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Inter',
+                                          fontFamily: 'Roboto',
                                           color: FlutterFlowTheme.of(context)
-                                              .primary,
+                                              .primaryBackground,
                                           fontSize: 90.0,
                                           letterSpacing: 0.0,
                                           lineHeight: 0.6,
@@ -163,6 +205,8 @@ class _SoundsDetailsTaiChiWidgetState extends State<SoundsDetailsTaiChiWidget> {
                                         10.0, 55.0, 10.0, 10.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
                                       children: [
                                         FlutterFlowIconButton(
                                           borderColor: Colors.transparent,
@@ -183,24 +227,84 @@ class _SoundsDetailsTaiChiWidgetState extends State<SoundsDetailsTaiChiWidget> {
                                             context.safePop();
                                           },
                                         ),
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            logFirebaseEvent(
+                                                'SOUNDS_DETAILS_TAI_CHI_Image_ftevseiy_ON');
+                                            logFirebaseEvent(
+                                                'Image_navigate_to');
+
+                                            context.pushNamed(
+                                              'NewHome',
+                                              extra: <String, dynamic>{
+                                                kTransitionInfoKey:
+                                                    TransitionInfo(
+                                                  hasTransition: true,
+                                                  transitionType:
+                                                      PageTransitionType.fade,
+                                                  duration:
+                                                      Duration(milliseconds: 2),
+                                                ),
+                                              },
+                                            );
+                                          },
+                                          child: Hero(
+                                            tag: 'logo',
+                                            transitionOnUserGestures: true,
+                                            child: ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                              child: Image.asset(
+                                                'assets/images/ESCAPE_Logo_Clear.png',
+                                                width: 85.0,
+                                                height: 81.0,
+                                                fit: BoxFit.contain,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
                                       ],
                                     ),
                                   ),
                                 ),
                               ],
-                            ),
+                            ).animateOnPageLoad(
+                                animationsMap['stackOnPageLoadAnimation']!),
                           ),
                         ),
                         Container(
                           width: double.infinity,
                           height: 692.0,
                           decoration: BoxDecoration(),
-                          child: FutureBuilder<ApiCallResponse>(
-                            future: YouTubeDataAPIBaseCall.call(),
-                            builder: (context, snapshot) {
-                              // Customize what your widget looks like when it's loading.
-                              if (!snapshot.hasData) {
-                                return Center(
+                          child: RefreshIndicator(
+                            onRefresh: () async {
+                              logFirebaseEvent(
+                                  'SOUNDS_DETAILS_TAI_CHI_ListView_q3u7wou3');
+                              logFirebaseEvent(
+                                  'ListView_refresh_database_request');
+                              safeSetState(() =>
+                                  _model.listViewPagingController?.refresh());
+                              await _model.waitForOnePageForListView();
+                            },
+                            child: PagedListView<ApiPagingParams, dynamic>(
+                              pagingController: _model.setListViewController(
+                                (nextPageMarker) =>
+                                    YouTubeDataTaiChiAPIFINALCall.call(),
+                              ),
+                              padding: EdgeInsets.zero,
+                              primary: false,
+                              shrinkWrap: true,
+                              reverse: false,
+                              scrollDirection: Axis.vertical,
+                              builderDelegate:
+                                  PagedChildBuilderDelegate<dynamic>(
+                                // Customize what your widget looks like when it's loading the first page.
+                                firstPageProgressIndicatorBuilder: (_) =>
+                                    Center(
                                   child: SizedBox(
                                     width: 50.0,
                                     height: 50.0,
@@ -210,324 +314,245 @@ class _SoundsDetailsTaiChiWidgetState extends State<SoundsDetailsTaiChiWidget> {
                                       ),
                                     ),
                                   ),
-                                );
-                              }
-                              final listViewYouTubeDataAPIBaseResponse =
-                                  snapshot.data!;
+                                ),
+                                // Customize what your widget looks like when it's loading another page.
+                                newPageProgressIndicatorBuilder: (_) => Center(
+                                  child: SizedBox(
+                                    width: 50.0,
+                                    height: 50.0,
+                                    child: CircularProgressIndicator(
+                                      valueColor: AlwaysStoppedAnimation<Color>(
+                                        FlutterFlowTheme.of(context).primary,
+                                      ),
+                                    ),
+                                  ),
+                                ),
 
-                              return Builder(
-                                builder: (context) {
-                                  final binauralBeatsItems = getJsonField(
-                                    listViewYouTubeDataAPIBaseResponse.jsonBody,
-                                    r'''$.items[:].snippet''',
-                                  ).toList().take(100).toList();
-
-                                  return ListView.builder(
-                                    padding: EdgeInsets.zero,
-                                    primary: false,
-                                    shrinkWrap: true,
-                                    scrollDirection: Axis.vertical,
-                                    itemCount: binauralBeatsItems.length,
-                                    itemBuilder:
-                                        (context, binauralBeatsItemsIndex) {
-                                      final binauralBeatsItemsItem =
-                                          binauralBeatsItems[
-                                              binauralBeatsItemsIndex];
-                                      return Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 12.0, 16.0, 0.0),
-                                        child: Container(
-                                          width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  1.0,
-                                          decoration: BoxDecoration(
-                                            color: Colors.white,
-                                            boxShadow: [
-                                              BoxShadow(
-                                                blurRadius: 3.0,
-                                                color: Color(0x25000000),
-                                                offset: Offset(
-                                                  0.0,
-                                                  2.0,
-                                                ),
-                                              )
-                                            ],
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                          ),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            children: [
-                                              Hero(
-                                                tag: getJsonField(
+                                itemBuilder:
+                                    (context, _, binauralBeatsItemsIndex) {
+                                  final binauralBeatsItemsItem = _model
+                                      .listViewPagingController!
+                                      .itemList![binauralBeatsItemsIndex];
+                                  return Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        16.0, 12.0, 16.0, 0.0),
+                                    child: Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          1.0,
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            blurRadius: 3.0,
+                                            color: Color(0x25000000),
+                                            offset: Offset(
+                                              0.0,
+                                              2.0,
+                                            ),
+                                          )
+                                        ],
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: [
+                                          Hero(
+                                            tag: getJsonField(
+                                              binauralBeatsItemsItem,
+                                              r'''$.thumbnails.default.url''',
+                                            ).toString(),
+                                            transitionOnUserGestures: true,
+                                            child: ClipRRect(
+                                              borderRadius: BorderRadius.only(
+                                                bottomLeft:
+                                                    Radius.circular(5.0),
+                                                bottomRight:
+                                                    Radius.circular(0.0),
+                                                topLeft: Radius.circular(5.0),
+                                                topRight: Radius.circular(0.0),
+                                              ),
+                                              child: Image.network(
+                                                getJsonField(
                                                   binauralBeatsItemsItem,
                                                   r'''$.thumbnails.default.url''',
                                                 ).toString(),
-                                                transitionOnUserGestures: true,
-                                                child: ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.only(
-                                                    bottomLeft:
-                                                        Radius.circular(5.0),
-                                                    bottomRight:
-                                                        Radius.circular(0.0),
-                                                    topLeft:
-                                                        Radius.circular(5.0),
-                                                    topRight:
-                                                        Radius.circular(0.0),
-                                                  ),
-                                                  child: Image.network(
+                                                width: 112.0,
+                                                height: 112.0,
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    8.0, 8.0, 4.0, 8.0),
+                                            child: Container(
+                                              width: 4.0,
+                                              height: 90.0,
+                                              decoration: BoxDecoration(
+                                                color: Color(0xFF4B39EF),
+                                                borderRadius:
+                                                    BorderRadius.circular(4.0),
+                                              ),
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 12.0, 16.0, 12.0),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  getJsonField(
+                                                    binauralBeatsItemsItem,
+                                                    r'''$.title''',
+                                                  ).toString(),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .headlineMedium
+                                                      .override(
+                                                        fontFamily: 'Outfit',
+                                                        color:
+                                                            Color(0xFF101213),
+                                                        fontSize: 16.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 4.0, 0.0, 0.0),
+                                                  child: Text(
                                                     getJsonField(
                                                       binauralBeatsItemsItem,
-                                                      r'''$.thumbnails.default.url''',
+                                                      r'''$.channelTitle''',
                                                     ).toString(),
-                                                    width: 112.0,
-                                                    height: 112.0,
-                                                    fit: BoxFit.cover,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodySmall
+                                                        .override(
+                                                          fontFamily: 'Outfit',
+                                                          color:
+                                                              Color(0xFF57636C),
+                                                          fontSize: 14.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                        ),
                                                   ),
                                                 ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        8.0, 8.0, 4.0, 8.0),
-                                                child: Container(
-                                                  width: 4.0,
-                                                  height: 90.0,
-                                                  decoration: BoxDecoration(
-                                                    color: Color(0xFF4B39EF),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            4.0),
-                                                  ),
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        12.0, 12.0, 16.0, 12.0),
-                                                child: Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: [
-                                                    Text(
-                                                      getJsonField(
-                                                        binauralBeatsItemsItem,
-                                                        r'''$.title''',
-                                                      ).toString(),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 4.0, 0.0, 0.0),
+                                                  child: InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      logFirebaseEvent(
+                                                          'SOUNDS_DETAILS_TAI_CHI_Text_8s805oec_ON_');
+                                                      logFirebaseEvent(
+                                                          'Text_navigate_to');
+
+                                                      context.pushNamed(
+                                                        'youtubetestFINAL',
+                                                        queryParameters: {
+                                                          'videoid':
+                                                              serializeParam(
+                                                            getJsonField(
+                                                              binauralBeatsItemsItem,
+                                                              r'''$.resourceid.videoid''',
+                                                            ).toString(),
+                                                            ParamType.String,
+                                                          ),
+                                                          'description':
+                                                              serializeParam(
+                                                            getJsonField(
+                                                              binauralBeatsItemsItem,
+                                                              r'''$.description''',
+                                                            ).toString(),
+                                                            ParamType.String,
+                                                          ),
+                                                          'channelTitle':
+                                                              serializeParam(
+                                                            getJsonField(
+                                                              binauralBeatsItemsItem,
+                                                              r'''$.channelTitle''',
+                                                            ).toString(),
+                                                            ParamType.String,
+                                                          ),
+                                                          'videoTitle':
+                                                              serializeParam(
+                                                            getJsonField(
+                                                              binauralBeatsItemsItem,
+                                                              r'''$.title''',
+                                                            ).toString(),
+                                                            ParamType.String,
+                                                          ),
+                                                        }.withoutNulls,
+                                                        extra: <String,
+                                                            dynamic>{
+                                                          kTransitionInfoKey:
+                                                              TransitionInfo(
+                                                            hasTransition: true,
+                                                            transitionType:
+                                                                PageTransitionType
+                                                                    .fade,
+                                                            duration: Duration(
+                                                                milliseconds:
+                                                                    2),
+                                                          ),
+                                                        },
+                                                      );
+                                                    },
+                                                    child: Text(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'p53jryen' /* Click Here to Play */,
+                                                      ),
                                                       style: FlutterFlowTheme
                                                               .of(context)
-                                                          .headlineMedium
+                                                          .bodyMedium
                                                           .override(
                                                             fontFamily:
                                                                 'Outfit',
                                                             color: Color(
-                                                                0xFF101213),
-                                                            fontSize: 16.0,
+                                                                0xFF4B39EF),
+                                                            fontSize: 14.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w500,
                                                           ),
                                                     ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  4.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: Text(
-                                                        getJsonField(
-                                                          binauralBeatsItemsItem,
-                                                          r'''$.channelTitle''',
-                                                        ).toString(),
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodySmall
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Outfit',
-                                                              color: Color(
-                                                                  0xFF57636C),
-                                                              fontSize: 14.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .normal,
-                                                            ),
-                                                      ),
-                                                    ),
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  4.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: InkWell(
-                                                        splashColor:
-                                                            Colors.transparent,
-                                                        focusColor:
-                                                            Colors.transparent,
-                                                        hoverColor:
-                                                            Colors.transparent,
-                                                        highlightColor:
-                                                            Colors.transparent,
-                                                        onTap: () async {
-                                                          logFirebaseEvent(
-                                                              'SOUNDS_DETAILS_TAI_CHI_Text_8s805oec_ON_');
-                                                          logFirebaseEvent(
-                                                              'Text_bottom_sheet');
-                                                          await showModalBottomSheet(
-                                                            isScrollControlled:
-                                                                true,
-                                                            backgroundColor:
-                                                                Colors
-                                                                    .transparent,
-                                                            context: context,
-                                                            builder: (context) {
-                                                              return WebViewAware(
-                                                                child:
-                                                                    GestureDetector(
-                                                                  onTap: () =>
-                                                                      FocusScope.of(
-                                                                              context)
-                                                                          .unfocus(),
-                                                                  child:
-                                                                      Padding(
-                                                                    padding: MediaQuery
-                                                                        .viewInsetsOf(
-                                                                            context),
-                                                                    child:
-                                                                        Container(
-                                                                      height: double
-                                                                          .infinity,
-                                                                      child:
-                                                                          VideoplayerCompWidget(
-                                                                        parameter1:
-                                                                            getJsonField(
-                                                                          binauralBeatsItemsItem,
-                                                                          r'''$.resource.VideoId''',
-                                                                        ).toString(),
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              );
-                                                            },
-                                                          ).then((value) =>
-                                                              safeSetState(
-                                                                  () {}));
-                                                        },
-                                                        child: Text(
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                            'p53jryen' /* Click Here to Play */,
-                                                          ),
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Outfit',
-                                                                color: Color(
-                                                                    0xFF4B39EF),
-                                                                fontSize: 14.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ],
+                                                  ),
                                                 ),
-                                              ),
-                                              Expanded(
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.end,
-                                                  children: [
-                                                    FlutterFlowIconButton(
-                                                      borderColor:
-                                                          Colors.transparent,
-                                                      borderRadius: 30.0,
-                                                      borderWidth: 1.0,
-                                                      buttonSize: 60.0,
-                                                      icon: Icon(
-                                                        Icons
-                                                            .play_circle_outline_rounded,
-                                                        color:
-                                                            Color(0xF3E00B67),
-                                                        size: 30.0,
-                                                      ),
-                                                      onPressed: () async {
-                                                        logFirebaseEvent(
-                                                            'SOUNDS_DETAILS_TAI_CHI_play_circle_outli');
-                                                        logFirebaseEvent(
-                                                            'IconButton_bottom_sheet');
-                                                        await showModalBottomSheet(
-                                                          isScrollControlled:
-                                                              true,
-                                                          backgroundColor:
-                                                              Colors
-                                                                  .transparent,
-                                                          barrierColor:
-                                                              Color(0x00000000),
-                                                          context: context,
-                                                          builder: (context) {
-                                                            return WebViewAware(
-                                                              child:
-                                                                  GestureDetector(
-                                                                onTap: () =>
-                                                                    FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
-                                                                child: Padding(
-                                                                  padding: MediaQuery
-                                                                      .viewInsetsOf(
-                                                                          context),
-                                                                  child:
-                                                                      Container(
-                                                                    height: double
-                                                                        .infinity,
-                                                                    child:
-                                                                        MusicPlayerCompWidget(),
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                            );
-                                                          },
-                                                        ).then((value) =>
-                                                            safeSetState(
-                                                                () {}));
-                                                      },
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                            ],
+                                              ],
+                                            ),
                                           ),
-                                        ),
-                                      );
-                                    },
+                                        ],
+                                      ),
+                                    ),
                                   );
                                 },
-                              );
-                            },
-                          ),
+                              ),
+                            ),
+                          ).animateOnPageLoad(
+                              animationsMap['listViewOnPageLoadAnimation']!),
                         ),
                       ],
                     ),

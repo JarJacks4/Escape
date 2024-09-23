@@ -9,8 +9,6 @@ export '/pages/onboarding_login/registration_success/registration_success_widget
     show RegistrationSuccessWidget;
 export '/pages/onboarding_login/register_sign_up/register_sign_up_widget.dart'
     show RegisterSignUpWidget;
-export '/meditation_and_sounds/sounds_details_artist/sounds_details_artist_widget.dart'
-    show SoundsDetailsArtistWidget;
 export '/pages/main_pages/sounds_page_main/sounds_page_main_widget.dart'
     show SoundsPageMainWidget;
 export '/pages/main_pages/new_home/new_home_widget.dart' show NewHomeWidget;
@@ -19,14 +17,6 @@ export '/pages/main_pages/meditation_page_main/meditation_page_main_widget.dart'
     show MeditationPageMainWidget;
 export '/meditation_and_sounds/music_player/music_player_widget.dart'
     show MusicPlayerWidget;
-export '/meditation_and_sounds/sounds_details_albums/sounds_details_albums_widget.dart'
-    show SoundsDetailsAlbumsWidget;
-export '/meditation_and_sounds/sounds_details_metaphysics/sounds_details_metaphysics_widget.dart'
-    show SoundsDetailsMetaphysicsWidget;
-export '/meditation_and_sounds/sounds_details_sleep/sounds_details_sleep_widget.dart'
-    show SoundsDetailsSleepWidget;
-export '/meditation_and_sounds/sounds_details_kids/sounds_details_kids_widget.dart'
-    show SoundsDetailsKidsWidget;
 export '/meditation_and_sounds/sounds_details_playlists/sounds_details_playlists_widget.dart'
     show SoundsDetailsPlaylistsWidget;
 export '/meditation_and_sounds/sounds_details_binaural_beats/sounds_details_binaural_beats_widget.dart'
@@ -61,16 +51,17 @@ export '/provider_community/classes_page/classes_page_widget.dart'
     show ClassesPageWidget;
 export '/provider_community/events_page/events_page_widget.dart'
     show EventsPageWidget;
-export '/pages/main_pages/start_logo_screen/start_logo_screen_widget.dart'
+export '/pages/onboarding_login/start_logo_screen/start_logo_screen_widget.dart'
     show StartLogoScreenWidget;
+export '/profile_page2/profile_page2_widget.dart' show ProfilePage2Widget;
 export '/pages/main_pages/events_f_i_n_a_l/events_f_i_n_a_l_widget.dart'
     show EventsFINALWidget;
 export '/pages/onboarding_login/complete_profile_f_i_n_a_l/complete_profile_f_i_n_a_l_widget.dart'
     show CompleteProfileFINALWidget;
 export '/pages/main_pages/upliftand_awareness/upliftand_awareness_widget.dart'
     show UpliftandAwarenessWidget;
-export '/meditation_and_sounds/video_player/video_player_widget.dart'
-    show VideoPlayerWidget;
+export '/pages/main_pages/increase_focus/increase_focus_widget.dart'
+    show IncreaseFocusWidget;
 export '/meditation_and_sounds/sounds_details_ambient_music/sounds_details_ambient_music_widget.dart'
     show SoundsDetailsAmbientMusicWidget;
 export '/meditation_and_sounds/sounds_details_nature_sounds/sounds_details_nature_sounds_widget.dart'
@@ -81,40 +72,53 @@ export '/profile_page/profile_page_widget.dart' show ProfilePageWidget;
 export '/profile_page3/profile_page3_widget.dart' show ProfilePage3Widget;
 export '/notifications_screen/notifications_screen_widget.dart'
     show NotificationsScreenWidget;
-export '/pages/main_pages/user_community_page_view_f_i_n_a_l/user_community_page_view_f_i_n_a_l_widget.dart'
-    show UserCommunityPageViewFINALWidget;
-export '/meditation_and_sounds/sounds_details_albums_copy/sounds_details_albums_copy_widget.dart'
-    show SoundsDetailsAlbumsCopyWidget;
 export '/pages/main_pages/events_first_page/events_first_page_widget.dart'
     show EventsFirstPageWidget;
 export '/home15_store/home15_store_widget.dart' show Home15StoreWidget;
 export '/fetchapi_test/fetchapi/fetchapi_widget.dart' show FetchapiWidget;
-export '/meditation_and_sounds/video_player_f_i_n_a_l/video_player_f_i_n_a_l_widget.dart'
-    show VideoPlayerFINALWidget;
-export '/meditation_and_sounds/video_player_f_i_n_a_l2/video_player_f_i_n_a_l2_widget.dart'
-    show VideoPlayerFINAL2Widget;
-export '/meditation_and_sounds/youtubetest/youtubetest_widget.dart'
-    show YoutubetestWidget;
 export '/meditation_and_sounds/sounds_details_body/sounds_details_body_widget.dart'
     show SoundsDetailsBodyWidget;
 export '/pages/main_pages/eliminate_depression/eliminate_depression_widget.dart'
     show EliminateDepressionWidget;
 export '/pages/main_pages/using_vibration/using_vibration_widget.dart'
     show UsingVibrationWidget;
+export '/pages/main_pages/help_anxiety/help_anxiety_widget.dart'
+    show HelpAnxietyWidget;
 export '/pages/main_pages/kemetic_yoga/kemetic_yoga_widget.dart'
     show KemeticYogaWidget;
 export '/pages/main_pages/yoga_pose_videos/yoga_pose_videos_widget.dart'
     show YogaPoseVideosWidget;
 export '/pages/main_pages/beginners_yoga/beginners_yoga_widget.dart'
     show BeginnersYogaWidget;
-export '/meditation_and_sounds/youtubetest_copy/youtubetest_copy_widget.dart'
-    show YoutubetestCopyWidget;
-export '/subsciption/subsciption_widget.dart' show SubsciptionWidget;
-export '/pages/main_pages/subscription_comp/subscription_comp_widget.dart'
-    show SubscriptionCompWidget;
-export '/pages/main_pages/increase_focus_f_i_n_a_l/increase_focus_f_i_n_a_l_widget.dart'
-    show IncreaseFocusFINALWidget;
-export '/pages/main_pages/classes_and_events/classes_and_events_widget.dart'
-    show ClassesAndEventsWidget;
-export '/pages/main_pages/help_anxiety/help_anxiety_widget.dart'
-    show HelpAnxietyWidget;
+export '/meditation_and_sounds/youtubetest_f_i_n_a_l/youtubetest_f_i_n_a_l_widget.dart'
+    show YoutubetestFINALWidget;
+export '/pages/main_pages/self_care_a_i_promo/self_care_a_i_promo_widget.dart'
+    show SelfCareAIPromoWidget;
+export '/pages/main_pages/user_community_page_view_f_i_n_a_l_copy/user_community_page_view_f_i_n_a_l_copy_widget.dart'
+    show UserCommunityPageViewFINALCopyWidget;
+export '/meditation_and_sounds/sounds_details_fire_sounds/sounds_details_fire_sounds_widget.dart'
+    show SoundsDetailsFireSoundsWidget;
+export '/meditation_and_sounds/sounds_details_thunderstorms/sounds_details_thunderstorms_widget.dart'
+    show SoundsDetailsThunderstormsWidget;
+export '/meditation_and_sounds/sounds_details_tai_chi_form8/sounds_details_tai_chi_form8_widget.dart'
+    show SoundsDetailsTaiChiForm8Widget;
+export '/meditation_and_sounds/sounds_details_tai_ch_qigong/sounds_details_tai_ch_qigong_widget.dart'
+    show SoundsDetailsTaiChQigongWidget;
+export '/meditation_and_sounds/sounds_details_tai_ch_mindfulness/sounds_details_tai_ch_mindfulness_widget.dart'
+    show SoundsDetailsTaiChMindfulnessWidget;
+export '/meditation_and_sounds/sounds_details_tai_ch_spirit/sounds_details_tai_ch_spirit_widget.dart'
+    show SoundsDetailsTaiChSpiritWidget;
+export '/meditation_and_sounds/sounds_details_dark_ambient/sounds_details_dark_ambient_widget.dart'
+    show SoundsDetailsDarkAmbientWidget;
+export '/pages/main_pages/events_and_classes_first_page_f_i_n_a_l/events_and_classes_first_page_f_i_n_a_l_widget.dart'
+    show EventsAndClassesFirstPageFINALWidget;
+export '/pages/main_pages/classes_f_i_n_a_l/classes_f_i_n_a_l_widget.dart'
+    show ClassesFINALWidget;
+export '/meditation_and_sounds/sounds_details_guided_meditations/sounds_details_guided_meditations_widget.dart'
+    show SoundsDetailsGuidedMeditationsWidget;
+export '/meditation_and_sounds/sounds_details_sleep/sounds_details_sleep_widget.dart'
+    show SoundsDetailsSleepWidget;
+export '/meditation_and_sounds/sounds_details_grounding/sounds_details_grounding_widget.dart'
+    show SoundsDetailsGroundingWidget;
+export '/pages/onboarding_login/register_sign_in_f_i_n_a_l/register_sign_in_f_i_n_a_l_widget.dart'
+    show RegisterSignInFINALWidget;

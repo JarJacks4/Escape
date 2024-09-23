@@ -1,9 +1,13 @@
 import '/components/uplift_and_awareness_sounds_comp/uplift_and_awareness_sounds_comp_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'upliftand_awareness_model.dart';
@@ -17,10 +21,13 @@ class UpliftandAwarenessWidget extends StatefulWidget {
       _UpliftandAwarenessWidgetState();
 }
 
-class _UpliftandAwarenessWidgetState extends State<UpliftandAwarenessWidget> {
+class _UpliftandAwarenessWidgetState extends State<UpliftandAwarenessWidget>
+    with TickerProviderStateMixin {
   late UpliftandAwarenessModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -29,6 +36,46 @@ class _UpliftandAwarenessWidgetState extends State<UpliftandAwarenessWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'UpliftandAwareness'});
+    animationsMap.addAll({
+      'columnOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'upliftAndAwarenessSoundsCompOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -80,11 +127,15 @@ class _UpliftandAwarenessWidgetState extends State<UpliftandAwarenessWidget> {
                           width: double.infinity,
                           child: Stack(
                             children: [
-                              Image.network(
-                                'https://images.unsplash.com/photo-1597119162008-7e9d0ca2bd95?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwxfHx1cGxpZnR8ZW58MHx8fHwxNzI1MzQzOTE5fDA&ixlib=rb-4.0.3&q=80&w=1080',
-                                width: double.infinity,
-                                height: 250.0,
-                                fit: BoxFit.cover,
+                              Hero(
+                                tag: 'BackgroundPicture',
+                                transitionOnUserGestures: true,
+                                child: Image.network(
+                                  'https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHw1fHxwb3NpdGl2aXR5fGVufDB8fHx8MTcyNjQ3MTE4NXww&ixlib=rb-4.0.3&q=80&w=1080',
+                                  width: double.infinity,
+                                  height: 250.0,
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                               Container(
                                 height: 200.0,
@@ -103,6 +154,15 @@ class _UpliftandAwarenessWidgetState extends State<UpliftandAwarenessWidget> {
                                     stops: [0.2, 1.0],
                                     begin: AlignmentDirectional(0.0, -1.0),
                                     end: AlignmentDirectional(0, 1.0),
+                                  ),
+                                ),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  child: Image.asset(
+                                    'assets/images/ESCAPE_Logo_Clear.png',
+                                    width: 300.0,
+                                    height: 200.0,
+                                    fit: BoxFit.contain,
                                   ),
                                 ),
                               ),
@@ -134,19 +194,21 @@ class _UpliftandAwarenessWidgetState extends State<UpliftandAwarenessWidget> {
                                         context.safePop();
                                       },
                                     ),
-                                    Container(
-                                      width: MediaQuery.sizeOf(context).width *
-                                          0.2,
-                                      height: MediaQuery.sizeOf(context).width *
-                                          0.2,
-                                      clipBehavior: Clip.antiAlias,
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
+                                    FlutterFlowIconButton(
+                                      borderColor: Colors.transparent,
+                                      borderRadius: 30.0,
+                                      borderWidth: 1.0,
+                                      buttonSize: 50.0,
+                                      fillColor: Color(0xC1E7C8E7),
+                                      icon: Icon(
+                                        Icons.bookmark_border,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                        size: 30.0,
                                       ),
-                                      child: Image.asset(
-                                        'assets/images/ESCAPE_Logo_Clear.png',
-                                        fit: BoxFit.cover,
-                                      ),
+                                      onPressed: () {
+                                        print('IconButton pressed ...');
+                                      },
                                     ),
                                   ],
                                 ),
@@ -164,7 +226,7 @@ class _UpliftandAwarenessWidgetState extends State<UpliftandAwarenessWidget> {
                             children: [
                               Container(
                                 width: double.infinity,
-                                height: 110.0,
+                                height: 243.0,
                                 decoration: BoxDecoration(
                                   color: Color(0x00FFFFFF),
                                 ),
@@ -206,8 +268,32 @@ class _UpliftandAwarenessWidgetState extends State<UpliftandAwarenessWidget> {
                                                   ),
                                             )),
                                           ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 30.0, 0.0, 0.0),
+                                            child: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'tvl6q4nb' /* Add to the great amounts 
+of f... */
+                                                ,
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Roboto',
+                                                        fontSize: 18.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w300,
+                                                      ),
+                                            ),
+                                          ),
                                         ],
-                                      ),
+                                      ).animateOnPageLoad(animationsMap[
+                                          'columnOnPageLoadAnimation']!),
                                     ],
                                   ),
                                 ),
@@ -226,7 +312,8 @@ class _UpliftandAwarenessWidgetState extends State<UpliftandAwarenessWidget> {
                 model: _model.upliftAndAwarenessSoundsCompModel,
                 updateCallback: () => safeSetState(() {}),
                 child: UpliftAndAwarenessSoundsCompWidget(),
-              ),
+              ).animateOnPageLoad(animationsMap[
+                  'upliftAndAwarenessSoundsCompOnPageLoadAnimation']!),
             ),
           ],
         ),

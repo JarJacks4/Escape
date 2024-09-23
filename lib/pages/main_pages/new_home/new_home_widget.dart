@@ -1,9 +1,13 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/meditation_and_sounds/header_home/header_home_widget.dart';
 import '/meditation_and_sounds/home_comp/home_comp_widget.dart';
+import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'new_home_model.dart';
@@ -16,10 +20,13 @@ class NewHomeWidget extends StatefulWidget {
   State<NewHomeWidget> createState() => _NewHomeWidgetState();
 }
 
-class _NewHomeWidgetState extends State<NewHomeWidget> {
+class _NewHomeWidgetState extends State<NewHomeWidget>
+    with TickerProviderStateMixin {
   late NewHomeModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -27,6 +34,46 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
     _model = createModel(context, () => NewHomeModel());
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'NewHome'});
+    animationsMap.addAll({
+      'headerHomeOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'homeCompOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -72,15 +119,23 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  wrapWithModel(
-                    model: _model.headerHomeModel,
-                    updateCallback: () => safeSetState(() {}),
-                    child: HeaderHomeWidget(),
+                  Flexible(
+                    flex: 1,
+                    child: wrapWithModel(
+                      model: _model.headerHomeModel,
+                      updateCallback: () => safeSetState(() {}),
+                      child: HeaderHomeWidget(),
+                    ).animateOnPageLoad(
+                        animationsMap['headerHomeOnPageLoadAnimation']!),
                   ),
-                  wrapWithModel(
-                    model: _model.homeCompModel,
-                    updateCallback: () => safeSetState(() {}),
-                    child: HomeCompWidget(),
+                  Flexible(
+                    flex: 1,
+                    child: wrapWithModel(
+                      model: _model.homeCompModel,
+                      updateCallback: () => safeSetState(() {}),
+                      child: HomeCompWidget(),
+                    ).animateOnPageLoad(
+                        animationsMap['homeCompOnPageLoadAnimation']!),
                   ),
                 ],
               ),

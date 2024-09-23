@@ -1,0 +1,48 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/components/primary_button/primary_button_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
+import 'register_sign_in_f_i_n_a_l_widget.dart' show RegisterSignInFINALWidget;
+import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+
+class RegisterSignInFINALModel
+    extends FlutterFlowModel<RegisterSignInFINALWidget> {
+  ///  State fields for stateful widgets in this page.
+
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode1;
+  TextEditingController? emailTextController;
+  String? Function(BuildContext, String?)? emailTextControllerValidator;
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode2;
+  TextEditingController? passwordTextController;
+  late bool passwordVisibility;
+  String? Function(BuildContext, String?)? passwordTextControllerValidator;
+  // Model for primaryButton component.
+  late PrimaryButtonModel primaryButtonModel;
+
+  @override
+  void initState(BuildContext context) {
+    passwordVisibility = false;
+    primaryButtonModel = createModel(context, () => PrimaryButtonModel());
+  }
+
+  @override
+  void dispose() {
+    textFieldFocusNode1?.dispose();
+    emailTextController?.dispose();
+
+    textFieldFocusNode2?.dispose();
+    passwordTextController?.dispose();
+
+    primaryButtonModel.dispose();
+  }
+}

@@ -60,7 +60,7 @@ class _Header02BusinessSummaryWidgetState
                     'x3c8ylre' /* Hello, */,
                   ),
                   style: FlutterFlowTheme.of(context).displaySmall.override(
-                        fontFamily: 'Readex Pro',
+                        fontFamily: 'Roboto',
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
@@ -120,7 +120,7 @@ class _Header02BusinessSummaryWidgetState
                       'tgsp4wc0' /* Maverick */,
                     ),
                     style: FlutterFlowTheme.of(context).displaySmall.override(
-                          fontFamily: 'Readex Pro',
+                          fontFamily: 'Roboto',
                           color: FlutterFlowTheme.of(context).primary,
                           letterSpacing: 0.0,
                         ),
@@ -199,8 +199,7 @@ class _Header02BusinessSummaryWidgetState
                                                     FlutterFlowTheme.of(context)
                                                         .headlineMedium
                                                         .override(
-                                                          fontFamily:
-                                                              'Readex Pro',
+                                                          fontFamily: 'Roboto',
                                                           letterSpacing: 0.0,
                                                         ),
                                               ),
@@ -217,7 +216,7 @@ class _Header02BusinessSummaryWidgetState
                                                           context)
                                                       .labelSmall
                                                       .override(
-                                                        fontFamily: 'Inter',
+                                                        fontFamily: 'Roboto',
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ),
@@ -281,8 +280,7 @@ class _Header02BusinessSummaryWidgetState
                                                     FlutterFlowTheme.of(context)
                                                         .headlineMedium
                                                         .override(
-                                                          fontFamily:
-                                                              'Readex Pro',
+                                                          fontFamily: 'Roboto',
                                                           letterSpacing: 0.0,
                                                         ),
                                               ),
@@ -299,7 +297,7 @@ class _Header02BusinessSummaryWidgetState
                                                           context)
                                                       .labelSmall
                                                       .override(
-                                                        fontFamily: 'Inter',
+                                                        fontFamily: 'Roboto',
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ),
@@ -363,8 +361,7 @@ class _Header02BusinessSummaryWidgetState
                                                     FlutterFlowTheme.of(context)
                                                         .headlineMedium
                                                         .override(
-                                                          fontFamily:
-                                                              'Readex Pro',
+                                                          fontFamily: 'Roboto',
                                                           letterSpacing: 0.0,
                                                         ),
                                               ),
@@ -381,7 +378,7 @@ class _Header02BusinessSummaryWidgetState
                                                           context)
                                                       .labelSmall
                                                       .override(
-                                                        fontFamily: 'Inter',
+                                                        fontFamily: 'Roboto',
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ),

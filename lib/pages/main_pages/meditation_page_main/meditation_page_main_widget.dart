@@ -1,9 +1,13 @@
 import '/components/header_main_meditation/header_main_meditation_widget.dart';
 import '/components/tabbar_home_meditation/tabbar_home_meditation_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'meditation_page_main_model.dart';
@@ -17,10 +21,13 @@ class MeditationPageMainWidget extends StatefulWidget {
       _MeditationPageMainWidgetState();
 }
 
-class _MeditationPageMainWidgetState extends State<MeditationPageMainWidget> {
+class _MeditationPageMainWidgetState extends State<MeditationPageMainWidget>
+    with TickerProviderStateMixin {
   late MeditationPageMainModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -29,6 +36,46 @@ class _MeditationPageMainWidgetState extends State<MeditationPageMainWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'MeditationPageMain'});
+    animationsMap.addAll({
+      'headerMainMeditationOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'tabbarHomeMeditationOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -77,20 +124,22 @@ class _MeditationPageMainWidgetState extends State<MeditationPageMainWidget> {
               children: [
                 Container(
                   width: double.infinity,
-                  height: 252.0,
+                  height: 198.0,
                   decoration: BoxDecoration(),
                   child: wrapWithModel(
                     model: _model.headerMainMeditationModel,
                     updateCallback: () => safeSetState(() {}),
                     child: HeaderMainMeditationWidget(),
-                  ),
+                  ).animateOnPageLoad(animationsMap[
+                      'headerMainMeditationOnPageLoadAnimation']!),
                 ),
                 Expanded(
                   child: wrapWithModel(
                     model: _model.tabbarHomeMeditationModel,
                     updateCallback: () => safeSetState(() {}),
                     child: TabbarHomeMeditationWidget(),
-                  ),
+                  ).animateOnPageLoad(animationsMap[
+                      'tabbarHomeMeditationOnPageLoadAnimation']!),
                 ),
               ],
             ),

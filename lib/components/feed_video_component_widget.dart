@@ -228,7 +228,7 @@ class _FeedVideoComponentWidgetState extends State<FeedVideoComponentWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Inter',
+                                                        fontFamily: 'Roboto',
                                                         color: FlutterFlowTheme
                                                                 .of(context)
                                                             .primaryBackground,
@@ -255,7 +255,7 @@ class _FeedVideoComponentWidgetState extends State<FeedVideoComponentWidget>
                                 style: FlutterFlowTheme.of(context)
                                     .bodySmall
                                     .override(
-                                      fontFamily: 'Inter',
+                                      fontFamily: 'Roboto',
                                       color: Colors.white,
                                       fontSize: 16.0,
                                       letterSpacing: 0.0,

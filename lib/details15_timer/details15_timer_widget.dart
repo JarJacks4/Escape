@@ -72,7 +72,7 @@ class _Details15TimerWidgetState extends State<Details15TimerWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .headlineSmall
                                 .override(
-                                  fontFamily: 'Readex Pro',
+                                  fontFamily: 'Roboto',
                                   letterSpacing: 0.0,
                                 ),
                           ),
@@ -123,7 +123,7 @@ class _Details15TimerWidgetState extends State<Details15TimerWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .displaySmall
                                 .override(
-                                  fontFamily: 'Readex Pro',
+                                  fontFamily: 'Roboto',
                                   fontSize: 64.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,
@@ -234,7 +234,7 @@ class _Details15TimerWidgetState extends State<Details15TimerWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .headlineSmall
                                               .override(
-                                                fontFamily: 'Readex Pro',
+                                                fontFamily: 'Roboto',
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -246,7 +246,7 @@ class _Details15TimerWidgetState extends State<Details15TimerWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .headlineSmall
                                             .override(
-                                              fontFamily: 'Readex Pro',
+                                              fontFamily: 'Roboto',
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primary,
@@ -270,7 +270,7 @@ class _Details15TimerWidgetState extends State<Details15TimerWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .headlineMedium
                                               .override(
-                                                fontFamily: 'Readex Pro',
+                                                fontFamily: 'Roboto',
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -281,7 +281,7 @@ class _Details15TimerWidgetState extends State<Details15TimerWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .headlineMedium
                                               .override(
-                                                fontFamily: 'Readex Pro',
+                                                fontFamily: 'Roboto',
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w300,
                                               ),
@@ -296,7 +296,7 @@ class _Details15TimerWidgetState extends State<Details15TimerWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          fontFamily: 'Inter',
+                                          fontFamily: 'Roboto',
                                           letterSpacing: 0.0,
                                         ),
                                   ),
@@ -325,7 +325,7 @@ class _Details15TimerWidgetState extends State<Details15TimerWidget> {
                                   textStyle: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
-                                        fontFamily: 'Inter',
+                                        fontFamily: 'Roboto',
                                         color: FlutterFlowTheme.of(context)
                                             .primaryBackground,
                                         letterSpacing: 0.0,

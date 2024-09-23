@@ -1,13 +1,15 @@
 import '/backend/api_requests/api_calls.dart';
 import '/components/pilates_videos_comp/pilates_videos_comp_widget.dart';
 import '/components/tai_chi_videos_comp/tai_chi_videos_comp_widget.dart';
-import '/components/videoplayer_comp_copy_widget.dart';
 import '/components/yoga_videos_comp/yoga_videos_comp_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_youtube_player.dart';
 import 'dart:math';
+import 'dart:async';
+import 'package:aligned_tooltip/aligned_tooltip.dart';
 import 'tabbar_home_community_widget.dart' show TabbarHomeCommunityWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -29,8 +31,8 @@ class TabbarHomeCommunityModel
 
   // State field(s) for ListView widget.
 
-  PagingController<ApiPagingParams, dynamic>? listViewPagingController4;
-  Function(ApiPagingParams nextPageMarker)? listViewApiCall4;
+  PagingController<ApiPagingParams, dynamic>? listViewPagingController5;
+  Function(ApiPagingParams nextPageMarker)? listViewApiCall5;
 
   // Model for YogaVideosComp component.
   late YogaVideosCompModel yogaVideosCompModel;
@@ -50,21 +52,21 @@ class TabbarHomeCommunityModel
   @override
   void dispose() {
     tabBarController?.dispose();
-    listViewPagingController4?.dispose();
+    listViewPagingController5?.dispose();
     yogaVideosCompModel.dispose();
     pilatesVideosCompModel.dispose();
     taiChiVideosCompModel.dispose();
   }
 
   /// Additional helper methods.
-  PagingController<ApiPagingParams, dynamic> setListViewController4(
+  PagingController<ApiPagingParams, dynamic> setListViewController5(
     Function(ApiPagingParams) apiCall,
   ) {
-    listViewApiCall4 = apiCall;
-    return listViewPagingController4 ??= _createListViewController4(apiCall);
+    listViewApiCall5 = apiCall;
+    return listViewPagingController5 ??= _createListViewController5(apiCall);
   }
 
-  PagingController<ApiPagingParams, dynamic> _createListViewController4(
+  PagingController<ApiPagingParams, dynamic> _createListViewController5(
     Function(ApiPagingParams) query,
   ) {
     final controller = PagingController<ApiPagingParams, dynamic>(
@@ -74,29 +76,44 @@ class TabbarHomeCommunityModel
         lastResponse: null,
       ),
     );
-    return controller
-      ..addPageRequestListener(listViewYouTubeDataAPIVibrationPage4);
+    return controller..addPageRequestListener(listViewYouTubeDataAPIBasePage5);
   }
 
-  void listViewYouTubeDataAPIVibrationPage4(ApiPagingParams nextPageMarker) =>
-      listViewApiCall4!(nextPageMarker)
-          .then((listViewYouTubeDataAPIVibrationResponse) {
+  void listViewYouTubeDataAPIBasePage5(ApiPagingParams nextPageMarker) =>
+      listViewApiCall5!(nextPageMarker)
+          .then((listViewYouTubeDataAPIBaseResponse) {
         final pageItems = (getJsonField(
-                  listViewYouTubeDataAPIVibrationResponse.jsonBody,
+                  listViewYouTubeDataAPIBaseResponse.jsonBody,
                   r'''$.resource.videoId''',
                 ) ??
                 [])
             .toList() as List;
         final newNumItems = nextPageMarker.numItems + pageItems.length;
-        listViewPagingController4?.appendPage(
+        listViewPagingController5?.appendPage(
           pageItems,
           (pageItems.length > 0)
               ? ApiPagingParams(
                   nextPageNumber: nextPageMarker.nextPageNumber + 1,
                   numItems: newNumItems,
-                  lastResponse: listViewYouTubeDataAPIVibrationResponse,
+                  lastResponse: listViewYouTubeDataAPIBaseResponse,
                 )
               : null,
         );
       });
+
+  Future waitForOnePageForListView5({
+    double minWait = 0,
+    double maxWait = double.infinity,
+  }) async {
+    final stopwatch = Stopwatch()..start();
+    while (true) {
+      await Future.delayed(Duration(milliseconds: 50));
+      final timeElapsed = stopwatch.elapsedMilliseconds;
+      final requestComplete =
+          (listViewPagingController5?.nextPageKey?.nextPageNumber ?? 0) > 0;
+      if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
+        break;
+      }
+    }
+  }
 }

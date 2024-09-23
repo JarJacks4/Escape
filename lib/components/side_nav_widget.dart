@@ -1,8 +1,12 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:math';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'side_nav_model.dart';
@@ -15,8 +19,11 @@ class SideNavWidget extends StatefulWidget {
   State<SideNavWidget> createState() => _SideNavWidgetState();
 }
 
-class _SideNavWidgetState extends State<SideNavWidget> {
+class _SideNavWidgetState extends State<SideNavWidget>
+    with TickerProviderStateMixin {
   late SideNavModel _model;
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void setState(VoidCallback callback) {
@@ -28,6 +35,28 @@ class _SideNavWidgetState extends State<SideNavWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => SideNavModel());
+
+    animationsMap.addAll({
+      'columnOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -79,13 +108,17 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(8.0),
-                          child: Image.asset(
-                            'assets/images/ESCAPE_Logo_Clear.png',
-                            width: 233.0,
-                            height: 237.0,
-                            fit: BoxFit.cover,
+                        Hero(
+                          tag: 'logo',
+                          transitionOnUserGestures: true,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8.0),
+                            child: Image.asset(
+                              'assets/images/ESCAPE_Logo_Clear.png',
+                              width: 233.0,
+                              height: 237.0,
+                              fit: BoxFit.cover,
+                            ),
                           ),
                         ),
                       ],
@@ -159,7 +192,7 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
-                                        fontFamily: 'Inter',
+                                        fontFamily: 'Roboto',
                                         color:
                                             FlutterFlowTheme.of(context).info,
                                         letterSpacing: 0.0,
@@ -185,12 +218,12 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                         logFirebaseEvent('contentView_1_navigate_to');
 
                         context.pushNamed(
-                          'UserCommunityPageViewFINAL',
+                          'UserCommunityPageViewFINALCopy',
                           extra: <String, dynamic>{
                             kTransitionInfoKey: TransitionInfo(
                               hasTransition: true,
                               transitionType: PageTransitionType.fade,
-                              duration: Duration(milliseconds: 3),
+                              duration: Duration(milliseconds: 2),
                             ),
                           },
                         );
@@ -236,10 +269,12 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        fontFamily: 'Inter',
+                                        fontFamily: 'Roboto',
                                         color: FlutterFlowTheme.of(context)
                                             .accent4,
+                                        fontSize: 16.0,
                                         letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w500,
                                       ),
                                 ),
                               ),
@@ -313,10 +348,12 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        fontFamily: 'Inter',
+                                        fontFamily: 'Roboto',
                                         color: FlutterFlowTheme.of(context)
                                             .accent4,
+                                        fontSize: 16.0,
                                         letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w500,
                                       ),
                                 ),
                               ),
@@ -339,12 +376,12 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                         logFirebaseEvent('contentView_1_navigate_to');
 
                         context.pushNamed(
-                          'ProfilePage',
+                          'ProfilePage3',
                           extra: <String, dynamic>{
                             kTransitionInfoKey: TransitionInfo(
                               hasTransition: true,
                               transitionType: PageTransitionType.fade,
-                              duration: Duration(milliseconds: 3),
+                              duration: Duration(milliseconds: 2),
                             ),
                           },
                         );
@@ -390,7 +427,7 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
-                                        fontFamily: 'Inter',
+                                        fontFamily: 'Roboto',
                                         color: FlutterFlowTheme.of(context)
                                             .accent4,
                                         letterSpacing: 0.0,
@@ -462,7 +499,7 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
-                                        fontFamily: 'Inter',
+                                        fontFamily: 'Roboto',
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
                                         letterSpacing: 0.0,
@@ -509,18 +546,47 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                                   child: Padding(
                                     padding: EdgeInsets.all(2.0),
                                     child: AuthUserStreamWidget(
-                                      builder: (context) => ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                        child: CachedNetworkImage(
-                                          fadeInDuration:
-                                              Duration(milliseconds: 500),
-                                          fadeOutDuration:
-                                              Duration(milliseconds: 500),
-                                          imageUrl: currentUserPhoto,
-                                          width: 44.0,
-                                          height: 44.0,
-                                          fit: BoxFit.cover,
+                                      builder: (context) => InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          logFirebaseEvent(
+                                              'SIDE_NAV_COMP_Image_u53ah6id_ON_TAP');
+                                          logFirebaseEvent('Image_navigate_to');
+
+                                          context.pushNamed(
+                                            'ProfilePage3',
+                                            extra: <String, dynamic>{
+                                              kTransitionInfoKey:
+                                                  TransitionInfo(
+                                                hasTransition: true,
+                                                transitionType:
+                                                    PageTransitionType.fade,
+                                                duration:
+                                                    Duration(milliseconds: 2),
+                                              ),
+                                            },
+                                          );
+                                        },
+                                        child: Hero(
+                                          tag: currentUserPhoto,
+                                          transitionOnUserGestures: true,
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            child: CachedNetworkImage(
+                                              fadeInDuration:
+                                                  Duration(milliseconds: 500),
+                                              fadeOutDuration:
+                                                  Duration(milliseconds: 500),
+                                              imageUrl: currentUserPhoto,
+                                              width: 44.0,
+                                              height: 44.0,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -541,7 +607,7 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .titleSmall
                                                 .override(
-                                                  fontFamily: 'Inter',
+                                                  fontFamily: 'Roboto',
                                                   letterSpacing: 0.0,
                                                 ),
                                           ),
@@ -550,17 +616,23 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 4.0, 0.0, 0.0),
-                                          child: Text(
-                                            currentUserEmail,
-                                            style: FlutterFlowTheme.of(context)
-                                                .labelMedium
-                                                .override(
-                                                  fontFamily: 'Inter',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .accent4,
-                                                  letterSpacing: 0.0,
-                                                ),
+                                          child: AuthUserStreamWidget(
+                                            builder: (context) => Text(
+                                              valueOrDefault(
+                                                  currentUserDocument?.role,
+                                                  ''),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelMedium
+                                                      .override(
+                                                        fontFamily: 'Roboto',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondary,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                            ),
                                           ),
                                         ),
                                       ],
@@ -575,7 +647,7 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                     ),
                   ),
                 ],
-              ),
+              ).animateOnPageLoad(animationsMap['columnOnPageLoadAnimation']!),
             ),
           ),
         ),

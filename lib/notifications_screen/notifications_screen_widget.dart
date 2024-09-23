@@ -51,7 +51,7 @@ class _NotificationsScreenWidgetState extends State<NotificationsScreenWidget> {
               'he1560nz' /* Notifications */,
             ),
             style: FlutterFlowTheme.of(context).headlineLarge.override(
-                  fontFamily: 'Readex Pro',
+                  fontFamily: 'Roboto',
                   letterSpacing: 0.0,
                 ),
           ),
@@ -93,7 +93,7 @@ class _NotificationsScreenWidgetState extends State<NotificationsScreenWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyLarge
                                   .override(
-                                    fontFamily: 'Inter',
+                                    fontFamily: 'Roboto',
                                     letterSpacing: 0.0,
                                   ),
                             ),
@@ -108,7 +108,7 @@ class _NotificationsScreenWidgetState extends State<NotificationsScreenWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .labelMedium
                                     .override(
-                                      fontFamily: 'Inter',
+                                      fontFamily: 'Roboto',
                                       letterSpacing: 0.0,
                                     ),
                               ),
@@ -162,7 +162,7 @@ class _NotificationsScreenWidgetState extends State<NotificationsScreenWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyLarge
                                               .override(
-                                                fontFamily: 'Inter',
+                                                fontFamily: 'Roboto',
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -177,7 +177,7 @@ class _NotificationsScreenWidgetState extends State<NotificationsScreenWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .labelSmall
                                                 .override(
-                                                  fontFamily: 'Inter',
+                                                  fontFamily: 'Roboto',
                                                   letterSpacing: 0.0,
                                                 ),
                                           ),
@@ -198,7 +198,7 @@ class _NotificationsScreenWidgetState extends State<NotificationsScreenWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .labelSmall
                                     .override(
-                                      fontFamily: 'Inter',
+                                      fontFamily: 'Roboto',
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryText,
                                       letterSpacing: 0.0,
@@ -259,7 +259,7 @@ class _NotificationsScreenWidgetState extends State<NotificationsScreenWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyLarge
                                   .override(
-                                    fontFamily: 'Inter',
+                                    fontFamily: 'Roboto',
                                     letterSpacing: 0.0,
                                   ),
                             ),
@@ -274,7 +274,7 @@ class _NotificationsScreenWidgetState extends State<NotificationsScreenWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .labelMedium
                                     .override(
-                                      fontFamily: 'Inter',
+                                      fontFamily: 'Roboto',
                                       color: FlutterFlowTheme.of(context)
                                           .primaryText,
                                       letterSpacing: 0.0,
@@ -331,7 +331,7 @@ class _NotificationsScreenWidgetState extends State<NotificationsScreenWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .bodyLarge
                                               .override(
-                                                fontFamily: 'Inter',
+                                                fontFamily: 'Roboto',
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -346,7 +346,7 @@ class _NotificationsScreenWidgetState extends State<NotificationsScreenWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .labelSmall
                                                 .override(
-                                                  fontFamily: 'Inter',
+                                                  fontFamily: 'Roboto',
                                                   letterSpacing: 0.0,
                                                 ),
                                           ),
@@ -367,7 +367,7 @@ class _NotificationsScreenWidgetState extends State<NotificationsScreenWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .labelSmall
                                     .override(
-                                      fontFamily: 'Inter',
+                                      fontFamily: 'Roboto',
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryText,
                                       letterSpacing: 0.0,
@@ -428,7 +428,7 @@ class _NotificationsScreenWidgetState extends State<NotificationsScreenWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyLarge
                                   .override(
-                                    fontFamily: 'Inter',
+                                    fontFamily: 'Roboto',
                                     letterSpacing: 0.0,
                                   ),
                             ),
@@ -443,7 +443,7 @@ class _NotificationsScreenWidgetState extends State<NotificationsScreenWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .labelMedium
                                     .override(
-                                      fontFamily: 'Inter',
+                                      fontFamily: 'Roboto',
                                       letterSpacing: 0.0,
                                     ),
                               ),
@@ -471,7 +471,7 @@ class _NotificationsScreenWidgetState extends State<NotificationsScreenWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .labelSmall
                                     .override(
-                                      fontFamily: 'Inter',
+                                      fontFamily: 'Roboto',
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryText,
                                       letterSpacing: 0.0,
@@ -532,7 +532,7 @@ class _NotificationsScreenWidgetState extends State<NotificationsScreenWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyLarge
                                   .override(
-                                    fontFamily: 'Inter',
+                                    fontFamily: 'Roboto',
                                     letterSpacing: 0.0,
                                   ),
                             ),
@@ -547,7 +547,7 @@ class _NotificationsScreenWidgetState extends State<NotificationsScreenWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .labelMedium
                                     .override(
-                                      fontFamily: 'Inter',
+                                      fontFamily: 'Roboto',
                                       letterSpacing: 0.0,
                                     ),
                               ),
@@ -562,7 +562,7 @@ class _NotificationsScreenWidgetState extends State<NotificationsScreenWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .labelSmall
                                     .override(
-                                      fontFamily: 'Inter',
+                                      fontFamily: 'Roboto',
                                       letterSpacing: 0.0,
                                     ),
                               ),

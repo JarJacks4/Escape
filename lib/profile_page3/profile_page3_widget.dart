@@ -1,5 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/components/edit_profile_widget.dart';
+import '/components/subscribe_now_promo_bottom_sheet_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -76,8 +77,11 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
                             color: FlutterFlowTheme.of(context).primaryText,
                             size: 24.0,
                           ),
-                          onPressed: () {
-                            print('IconButton pressed ...');
+                          onPressed: () async {
+                            logFirebaseEvent(
+                                'PROFILE_PAGE3_PAGE_arrow_back_ICN_ON_TAP');
+                            logFirebaseEvent('IconButton_navigate_back');
+                            context.safePop();
                           },
                         ),
                       ),
@@ -95,7 +99,7 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
                                 style: FlutterFlowTheme.of(context)
                                     .headlineSmall
                                     .override(
-                                      fontFamily: 'Readex Pro',
+                                      fontFamily: 'Roboto',
                                       letterSpacing: 0.0,
                                     ),
                               ),
@@ -109,7 +113,7 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
                                 style: FlutterFlowTheme.of(context)
                                     .labelMedium
                                     .override(
-                                      fontFamily: 'Inter',
+                                      fontFamily: 'Roboto',
                                       letterSpacing: 0.0,
                                     ),
                               ),
@@ -160,72 +164,79 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
                   'v849lmvr' /* Account */,
                 ),
                 style: FlutterFlowTheme.of(context).labelLarge.override(
-                      fontFamily: 'Inter',
+                      fontFamily: 'Roboto',
                       letterSpacing: 0.0,
                     ),
               ),
             ),
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
-              child: InkWell(
-                splashColor: Colors.transparent,
-                focusColor: Colors.transparent,
-                hoverColor: Colors.transparent,
-                highlightColor: Colors.transparent,
-                onTap: () async {
-                  logFirebaseEvent('PROFILE_PAGE3_Container_orcdus6b_ON_TAP');
-                  logFirebaseEvent('Container_navigate_to');
-
-                  context.pushNamed(
-                    'subsciption',
-                    extra: <String, dynamic>{
-                      kTransitionInfoKey: TransitionInfo(
-                        hasTransition: true,
-                        transitionType: PageTransitionType.fade,
-                        duration: Duration(milliseconds: 2),
+              child: Container(
+                width: double.infinity,
+                height: 60.0,
+                decoration: BoxDecoration(
+                  color: FlutterFlowTheme.of(context).secondary,
+                  borderRadius: BorderRadius.circular(12.0),
+                ),
+                alignment: AlignmentDirectional(0.0, 0.0),
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Icon(
+                        Icons.attach_money_rounded,
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        size: 24.0,
                       ),
-                    },
-                  );
-                },
-                child: Container(
-                  width: double.infinity,
-                  height: 60.0,
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondary,
-                    borderRadius: BorderRadius.circular(12.0),
-                  ),
-                  alignment: AlignmentDirectional(0.0, 0.0),
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Icon(
-                          Icons.attach_money_rounded,
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          size: 24.0,
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              12.0, 0.0, 0.0, 0.0),
-                          child: Text(
-                            FFLocalizations.of(context).getText(
-                              'clm3bqfe' /* Subscription Options */,
-                            ),
-                            style: FlutterFlowTheme.of(context)
-                                .labelMedium
-                                .override(
-                                  fontFamily: 'Inter',
-                                  color: FlutterFlowTheme.of(context)
-                                      .primaryBackground,
-                                  letterSpacing: 0.0,
-                                ),
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
+                        child: Text(
+                          FFLocalizations.of(context).getText(
+                            'clm3bqfe' /* Subscription Options */,
                           ),
+                          style:
+                              FlutterFlowTheme.of(context).labelMedium.override(
+                                    fontFamily: 'Roboto',
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryBackground,
+                                    letterSpacing: 0.0,
+                                  ),
                         ),
-                        Expanded(
-                          child: Align(
-                            alignment: AlignmentDirectional(0.9, 0.0),
+                      ),
+                      Expanded(
+                        child: Align(
+                          alignment: AlignmentDirectional(0.9, 0.0),
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              logFirebaseEvent(
+                                  'PROFILE_PAGE3_PAGE_Icon_jklrjkte_ON_TAP');
+                              logFirebaseEvent('Icon_bottom_sheet');
+                              await showModalBottomSheet(
+                                isScrollControlled: true,
+                                backgroundColor: Colors.transparent,
+                                context: context,
+                                builder: (context) {
+                                  return WebViewAware(
+                                    child: GestureDetector(
+                                      onTap: () =>
+                                          FocusScope.of(context).unfocus(),
+                                      child: Padding(
+                                        padding:
+                                            MediaQuery.viewInsetsOf(context),
+                                        child:
+                                            SubscribeNowPromoBottomSheetWidget(),
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ).then((value) => safeSetState(() {}));
+                            },
                             child: Icon(
                               Icons.arrow_forward_ios,
                               color: FlutterFlowTheme.of(context)
@@ -234,8 +245,8 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
                             ),
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
               ),
@@ -291,7 +302,7 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
                             style: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
-                                  fontFamily: 'Inter',
+                                  fontFamily: 'Roboto',
                                   color: FlutterFlowTheme.of(context)
                                       .primaryBackground,
                                   letterSpacing: 0.0,
@@ -301,11 +312,33 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
                         Expanded(
                           child: Align(
                             alignment: AlignmentDirectional(0.9, 0.0),
-                            child: Icon(
-                              Icons.arrow_forward_ios,
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                              size: 18.0,
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                logFirebaseEvent(
+                                    'PROFILE_PAGE3_PAGE_Icon_9i0658gq_ON_TAP');
+                                logFirebaseEvent('Icon_navigate_to');
+
+                                context.pushNamed(
+                                  'ProfilePage',
+                                  extra: <String, dynamic>{
+                                    kTransitionInfoKey: TransitionInfo(
+                                      hasTransition: true,
+                                      transitionType: PageTransitionType.fade,
+                                      duration: Duration(milliseconds: 3),
+                                    ),
+                                  },
+                                );
+                              },
+                              child: Icon(
+                                Icons.arrow_forward_ios,
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                                size: 18.0,
+                              ),
                             ),
                           ),
                         ),
@@ -371,7 +404,7 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
                             style: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
-                                  fontFamily: 'Inter',
+                                  fontFamily: 'Roboto',
                                   color: FlutterFlowTheme.of(context)
                                       .primaryBackground,
                                   letterSpacing: 0.0,
@@ -381,11 +414,40 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
                         Expanded(
                           child: Align(
                             alignment: AlignmentDirectional(0.9, 0.0),
-                            child: Icon(
-                              Icons.arrow_forward_ios,
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                              size: 18.0,
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                logFirebaseEvent(
+                                    'PROFILE_PAGE3_PAGE_Icon_6jvl7jfm_ON_TAP');
+                                logFirebaseEvent('Icon_bottom_sheet');
+                                await showModalBottomSheet(
+                                  isScrollControlled: true,
+                                  backgroundColor: Colors.transparent,
+                                  context: context,
+                                  builder: (context) {
+                                    return WebViewAware(
+                                      child: GestureDetector(
+                                        onTap: () =>
+                                            FocusScope.of(context).unfocus(),
+                                        child: Padding(
+                                          padding:
+                                              MediaQuery.viewInsetsOf(context),
+                                          child: EditProfileWidget(),
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                ).then((value) => safeSetState(() {}));
+                              },
+                              child: Icon(
+                                Icons.arrow_forward_ios,
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                                size: 18.0,
+                              ),
                             ),
                           ),
                         ),
@@ -440,7 +502,7 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
                             style: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
-                                  fontFamily: 'Inter',
+                                  fontFamily: 'Roboto',
                                   color: FlutterFlowTheme.of(context)
                                       .primaryBackground,
                                   letterSpacing: 0.0,
@@ -450,11 +512,28 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
                         Expanded(
                           child: Align(
                             alignment: AlignmentDirectional(0.9, 0.0),
-                            child: Icon(
-                              Icons.arrow_forward_ios,
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                              size: 18.0,
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                logFirebaseEvent(
+                                    'PROFILE_PAGE3_PAGE_Icon_9eqvo9ym_ON_TAP');
+                                logFirebaseEvent('Icon_auth');
+                                GoRouter.of(context).prepareAuthEvent();
+                                await authManager.signOut();
+                                GoRouter.of(context).clearRedirectLocation();
+
+                                context.goNamedAuth(
+                                    'StartLogoScreen', context.mounted);
+                              },
+                              child: Icon(
+                                Icons.arrow_forward_ios,
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                                size: 18.0,
+                              ),
                             ),
                           ),
                         ),
@@ -471,7 +550,7 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
                   'jpf7p2oj' /* General */,
                 ),
                 style: FlutterFlowTheme.of(context).labelLarge.override(
-                      fontFamily: 'Inter',
+                      fontFamily: 'Roboto',
                       letterSpacing: 0.0,
                     ),
               ),
@@ -517,7 +596,7 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
                             style: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
-                                  fontFamily: 'Inter',
+                                  fontFamily: 'Roboto',
                                   color: FlutterFlowTheme.of(context)
                                       .primaryBackground,
                                   letterSpacing: 0.0,
@@ -527,11 +606,23 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
                         Expanded(
                           child: Align(
                             alignment: AlignmentDirectional(0.9, 0.0),
-                            child: Icon(
-                              Icons.arrow_forward_ios,
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                              size: 18.0,
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                logFirebaseEvent(
+                                    'PROFILE_PAGE3_PAGE_Icon_ai5xebnn_ON_TAP');
+                                logFirebaseEvent('Icon_launch_u_r_l');
+                                await launchURL('www.escapeapp.ai');
+                              },
+                              child: Icon(
+                                Icons.arrow_forward_ios,
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                                size: 18.0,
+                              ),
                             ),
                           ),
                         ),
@@ -582,7 +673,7 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
                             style: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
-                                  fontFamily: 'Inter',
+                                  fontFamily: 'Roboto',
                                   color: FlutterFlowTheme.of(context)
                                       .primaryBackground,
                                   letterSpacing: 0.0,
@@ -592,11 +683,24 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
                         Expanded(
                           child: Align(
                             alignment: AlignmentDirectional(0.9, 0.0),
-                            child: Icon(
-                              Icons.arrow_forward_ios,
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                              size: 18.0,
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                logFirebaseEvent(
+                                    'PROFILE_PAGE3_PAGE_Icon_me95cn8v_ON_TAP');
+                                logFirebaseEvent('Icon_launch_u_r_l');
+                                await launchURL(
+                                    'https://www.escapeapp.ai/terms');
+                              },
+                              child: Icon(
+                                Icons.arrow_forward_ios,
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                                size: 18.0,
+                              ),
                             ),
                           ),
                         ),
@@ -649,7 +753,7 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
                             style: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
-                                  fontFamily: 'Inter',
+                                  fontFamily: 'Roboto',
                                   color: FlutterFlowTheme.of(context)
                                       .primaryBackground,
                                   letterSpacing: 0.0,
@@ -659,11 +763,25 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
                         Expanded(
                           child: Align(
                             alignment: AlignmentDirectional(0.9, 0.0),
-                            child: Icon(
-                              Icons.arrow_forward_ios,
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                              size: 18.0,
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                logFirebaseEvent(
+                                    'PROFILE_PAGE3_PAGE_Icon_bjbgroeb_ON_TAP');
+                                logFirebaseEvent('Icon_auth');
+                                await authManager.deleteUser(context);
+
+                                context.goNamedAuth('NewHome', context.mounted);
+                              },
+                              child: Icon(
+                                Icons.arrow_forward_ios,
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                                size: 18.0,
+                              ),
                             ),
                           ),
                         ),

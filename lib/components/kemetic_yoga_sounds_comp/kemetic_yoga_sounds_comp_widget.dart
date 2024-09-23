@@ -1,5 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
-import '/components/videoplayer_comp_widget.dart';
+import '/components/video_player_comp_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -244,7 +244,7 @@ class _KemeticYogaSoundsCompWidgetState
                           ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Inter',
+                                    fontFamily: 'Roboto',
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
                                     fontSize: 20.0,
@@ -355,7 +355,7 @@ class _KemeticYogaSoundsCompWidgetState
                       '6bklph1l' /* Trending */,
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Inter',
+                          fontFamily: 'Roboto',
                           color: FlutterFlowTheme.of(context).primaryBackground,
                           fontSize: 20.0,
                           letterSpacing: 0.0,
@@ -451,7 +451,7 @@ class _KemeticYogaSoundsCompWidgetState
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Inter',
+                                                  fontFamily: 'Roboto',
                                                   letterSpacing: 0.0,
                                                 ),
                                           ),
@@ -543,7 +543,7 @@ class _KemeticYogaSoundsCompWidgetState
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Inter',
+                                                        fontFamily: 'Roboto',
                                                         letterSpacing: 0.0,
                                                       ),
                                             ),
@@ -635,7 +635,7 @@ class _KemeticYogaSoundsCompWidgetState
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Inter',
+                                                        fontFamily: 'Roboto',
                                                         letterSpacing: 0.0,
                                                       ),
                                             ),
@@ -676,7 +676,7 @@ class _KemeticYogaSoundsCompWidgetState
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Inter',
+                                                fontFamily: 'Roboto',
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -717,7 +717,7 @@ class _KemeticYogaSoundsCompWidgetState
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Inter',
+                                                fontFamily: 'Roboto',
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -747,7 +747,7 @@ class _KemeticYogaSoundsCompWidgetState
                       'n87bh0eq' /* Recent Played */,
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Inter',
+                          fontFamily: 'Roboto',
                           color: FlutterFlowTheme.of(context).primaryBackground,
                           fontSize: 20.0,
                           letterSpacing: 0.0,
@@ -825,7 +825,7 @@ class _KemeticYogaSoundsCompWidgetState
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 10.0, 0.0),
                                           child: Container(
-                                            width: 100.0,
+                                            width: 146.0,
                                             height: 137.0,
                                             decoration: BoxDecoration(
                                               color: Color(0x50090F13),
@@ -858,11 +858,11 @@ class _KemeticYogaSoundsCompWidgetState
                                                           height:
                                                               double.infinity,
                                                           child:
-                                                              VideoplayerCompWidget(
+                                                              VideoPlayerCompWidget(
                                                             parameter1:
                                                                 getJsonField(
                                                               recentItemsItem,
-                                                              r'''$.resource.videoId''',
+                                                              r'''$.resourceid.videoid''',
                                                             ).toString(),
                                                           ),
                                                         ),
@@ -917,20 +917,23 @@ class _KemeticYogaSoundsCompWidgetState
                                                       ).toString(),
                                                       textAlign:
                                                           TextAlign.center,
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily: 'Inter',
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primaryBackground,
-                                                            fontSize: 12.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .normal,
-                                                          ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Roboto',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryBackground,
+                                                                fontSize: 12.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                              ),
                                                     ),
                                                   ),
                                                 ],

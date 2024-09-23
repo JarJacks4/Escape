@@ -1,9 +1,13 @@
 import '/components/yoga_poses_sounds_comp/yoga_poses_sounds_comp_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'yoga_pose_videos_model.dart';
@@ -16,10 +20,13 @@ class YogaPoseVideosWidget extends StatefulWidget {
   State<YogaPoseVideosWidget> createState() => _YogaPoseVideosWidgetState();
 }
 
-class _YogaPoseVideosWidgetState extends State<YogaPoseVideosWidget> {
+class _YogaPoseVideosWidgetState extends State<YogaPoseVideosWidget>
+    with TickerProviderStateMixin {
   late YogaPoseVideosModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -28,6 +35,65 @@ class _YogaPoseVideosWidgetState extends State<YogaPoseVideosWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'YogaPoseVideos'});
+    animationsMap.addAll({
+      'stackOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'rowOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'yogaPosesSoundsCompOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -140,37 +206,23 @@ class _YogaPoseVideosWidgetState extends State<YogaPoseVideosWidget> {
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
                                         logFirebaseEvent(
-                                            'YOGA_POSE_VIDEOS_CircleImage_4jzibx75_ON');
-                                        logFirebaseEvent(
-                                            'CircleImage_navigate_to');
+                                            'YOGA_POSE_VIDEOS_Image_275oqha2_ON_TAP');
+                                        logFirebaseEvent('Image_navigate_to');
 
-                                        context.pushNamed(
-                                          'NewHome',
-                                          extra: <String, dynamic>{
-                                            kTransitionInfoKey: TransitionInfo(
-                                              hasTransition: true,
-                                              transitionType:
-                                                  PageTransitionType.fade,
-                                              duration:
-                                                  Duration(milliseconds: 2),
-                                            ),
-                                          },
-                                        );
+                                        context.pushNamed('NewHome');
                                       },
-                                      child: Container(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                0.2,
-                                        height:
-                                            MediaQuery.sizeOf(context).width *
-                                                0.2,
-                                        clipBehavior: Clip.antiAlias,
-                                        decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                        ),
-                                        child: Image.asset(
-                                          'assets/images/ESCAPE_Logo_Clear.png',
-                                          fit: BoxFit.cover,
+                                      child: Hero(
+                                        tag: 'logo',
+                                        transitionOnUserGestures: true,
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                          child: Image.asset(
+                                            'assets/images/ESCAPE_Logo_Clear.png',
+                                            width: 113.0,
+                                            height: 95.0,
+                                            fit: BoxFit.contain,
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -179,7 +231,8 @@ class _YogaPoseVideosWidgetState extends State<YogaPoseVideosWidget> {
                               ),
                             ],
                           ),
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['stackOnPageLoadAnimation']!),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               5.0, 0.0, 5.0, 0.0),
@@ -234,7 +287,8 @@ class _YogaPoseVideosWidgetState extends State<YogaPoseVideosWidget> {
                                         ],
                                       ),
                                     ],
-                                  ),
+                                  ).animateOnPageLoad(
+                                      animationsMap['rowOnPageLoadAnimation']!),
                                 ),
                               ),
                             ],
@@ -251,7 +305,8 @@ class _YogaPoseVideosWidgetState extends State<YogaPoseVideosWidget> {
                 model: _model.yogaPosesSoundsCompModel,
                 updateCallback: () => safeSetState(() {}),
                 child: YogaPosesSoundsCompWidget(),
-              ),
+              ).animateOnPageLoad(
+                  animationsMap['yogaPosesSoundsCompOnPageLoadAnimation']!),
             ),
           ],
         ),

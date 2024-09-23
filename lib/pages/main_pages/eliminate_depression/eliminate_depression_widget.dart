@@ -1,9 +1,13 @@
 import '/components/eliminate_depression_comp_sounds/eliminate_depression_comp_sounds_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'eliminate_depression_model.dart';
@@ -17,10 +21,13 @@ class EliminateDepressionWidget extends StatefulWidget {
       _EliminateDepressionWidgetState();
 }
 
-class _EliminateDepressionWidgetState extends State<EliminateDepressionWidget> {
+class _EliminateDepressionWidgetState extends State<EliminateDepressionWidget>
+    with TickerProviderStateMixin {
   late EliminateDepressionModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -29,6 +36,84 @@ class _EliminateDepressionWidgetState extends State<EliminateDepressionWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'EliminateDepression'});
+    animationsMap.addAll({
+      'columnOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'rowOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'columnOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'eliminateDepressionCompSoundsOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -44,7 +129,7 @@ class _EliminateDepressionWidgetState extends State<EliminateDepressionWidget> {
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: Colors.white,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
@@ -66,10 +151,7 @@ class _EliminateDepressionWidgetState extends State<EliminateDepressionWidget> {
                   height: MediaQuery.sizeOf(context).height * 0.7,
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
-                      colors: [
-                        Color(0xFCFFFFFF),
-                        FlutterFlowTheme.of(context).primaryBackground
-                      ],
+                      colors: [Color(0xFCFFFFFF), Colors.white],
                       stops: [0.5, 0.7],
                       begin: AlignmentDirectional(0.0, -1.0),
                       end: AlignmentDirectional(0, 1.0),
@@ -91,22 +173,22 @@ class _EliminateDepressionWidgetState extends State<EliminateDepressionWidget> {
                               ),
                               Container(
                                 height: 200.0,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .primaryBackground,
-                                ),
+                                decoration: BoxDecoration(),
                               ),
                               Container(
                                 width: 393.0,
-                                height: 250.0,
+                                height: 254.0,
                                 decoration: BoxDecoration(
                                   gradient: LinearGradient(
-                                    colors: [Color(0x93FFFFFF), Colors.white],
+                                    colors: [
+                                      Color(0x83FFFFFF),
+                                      FlutterFlowTheme.of(context)
+                                          .primaryBackground
+                                    ],
                                     stops: [0.2, 1.0],
                                     begin: AlignmentDirectional(0.0, -1.0),
                                     end: AlignmentDirectional(0, 1.0),
                                   ),
-                                  borderRadius: BorderRadius.circular(0.0),
                                 ),
                               ),
                               Padding(
@@ -137,101 +219,161 @@ class _EliminateDepressionWidgetState extends State<EliminateDepressionWidget> {
                                         context.safePop();
                                       },
                                     ),
-                                    Container(
-                                      width: MediaQuery.sizeOf(context).width *
-                                          0.2,
-                                      height: MediaQuery.sizeOf(context).width *
-                                          0.2,
-                                      clipBehavior: Clip.antiAlias,
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                      ),
-                                      child: Image.asset(
-                                        'assets/images/ESCAPE_Logo_Clear.png',
-                                        fit: BoxFit.cover,
+                                    InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        logFirebaseEvent(
+                                            'ELIMINATE_DEPRESSION_Image_1frxf6vo_ON_T');
+                                        logFirebaseEvent('Image_navigate_to');
+
+                                        context.pushNamed(
+                                          'NewHome',
+                                          extra: <String, dynamic>{
+                                            kTransitionInfoKey: TransitionInfo(
+                                              hasTransition: true,
+                                              transitionType:
+                                                  PageTransitionType.fade,
+                                              duration:
+                                                  Duration(milliseconds: 2),
+                                            ),
+                                          },
+                                        );
+                                      },
+                                      child: ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        child: Image.asset(
+                                          'assets/images/ESCAPE_Logo_Clear.png',
+                                          width: 107.0,
+                                          height: 86.0,
+                                          fit: BoxFit.contain,
+                                        ),
                                       ),
                                     ),
                                   ],
-                                ),
+                                ).animateOnPageLoad(
+                                    animationsMap['rowOnPageLoadAnimation']!),
                               ),
                             ],
                           ),
                         ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              5.0, 0.0, 5.0, 0.0),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                width: double.infinity,
-                                height: 140.0,
-                                decoration: BoxDecoration(
-                                  color: Color(0x00FFFFFF),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsets.all(8.0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 2.0),
-                                            child: SelectionArea(
-                                                child: Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                '8co3k232' /* Eliminate Depression */,
-                                              ),
-                                              textAlign: TextAlign.start,
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .headlineMedium
-                                                  .override(
-                                                    fontFamily: 'Roboto',
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primary,
-                                                    fontSize: 36.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.w200,
+                        Flexible(
+                          flex: 1,
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                5.0, 0.0, 5.0, 0.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                  width: double.infinity,
+                                  height: 226.0,
+                                  decoration: BoxDecoration(
+                                    color: Color(0x00FFFFFF),
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsets.all(8.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Expanded(
+                                          flex: 1,
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        5.0, 0.0, 0.0, 2.0),
+                                                child: SelectionArea(
+                                                    child: Text(
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    '8co3k232' /* Eliminate Depression */,
                                                   ),
-                                            )),
-                                          ),
-                                        ],
-                                      ),
-                                    ],
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .headlineMedium
+                                                      .override(
+                                                        fontFamily: 'Roboto',
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
+                                                        fontSize: 36.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w200,
+                                                      ),
+                                                )),
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        8.0, 30.0, 0.0, 0.0),
+                                                child: Text(
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'cizlkr70' /* Disintegrate all avenues of de... */,
+                                                  ),
+                                                  textAlign: TextAlign.start,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Roboto',
+                                                        fontSize: 18.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w300,
+                                                      ),
+                                                ),
+                                              ),
+                                            ],
+                                          ).animateOnPageLoad(animationsMap[
+                                              'columnOnPageLoadAnimation2']!),
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                       ],
                     ),
-                  ),
+                  ).animateOnPageLoad(
+                      animationsMap['columnOnPageLoadAnimation1']!),
                 ),
               ),
             ),
             Expanded(
+              flex: 1,
               child: wrapWithModel(
                 model: _model.eliminateDepressionCompSoundsModel,
                 updateCallback: () => safeSetState(() {}),
-                child: EliminateDepressionCompSoundsWidget(),
-              ),
+                updateOnChange: true,
+                child: Hero(
+                  tag: 'SoundsScreen',
+                  transitionOnUserGestures: true,
+                  child: Material(
+                    color: Colors.transparent,
+                    child: EliminateDepressionCompSoundsWidget(),
+                  ),
+                ),
+              ).animateOnPageLoad(animationsMap[
+                  'eliminateDepressionCompSoundsOnPageLoadAnimation']!),
             ),
           ],
         ),

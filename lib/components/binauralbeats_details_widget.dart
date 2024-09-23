@@ -47,6 +47,8 @@ class _BinauralbeatsDetailsWidgetState
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Container(
       width: double.infinity,
       height: 692.0,
@@ -193,7 +195,10 @@ class _BinauralbeatsDetailsWidgetState
                                     padding: MediaQuery.viewInsetsOf(context),
                                     child: Container(
                                       height: double.infinity,
-                                      child: MusicPlayerCompWidget(),
+                                      child: MusicPlayerCompWidget(
+                                        ambientMusic:
+                                            FFAppState().sampleSongsEpidemic,
+                                      ),
                                     ),
                                   ),
                                 );

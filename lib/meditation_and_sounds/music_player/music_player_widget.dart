@@ -118,7 +118,7 @@ class _MusicPlayerWidgetState extends State<MusicPlayerWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Inter',
+                                            fontFamily: 'Roboto',
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
                                             fontSize: 22.0,
@@ -205,7 +205,7 @@ class _MusicPlayerWidgetState extends State<MusicPlayerWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
+                                        fontFamily: 'Roboto',
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
                                         fontSize: 26.0,
@@ -240,7 +240,7 @@ class _MusicPlayerWidgetState extends State<MusicPlayerWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Inter',
+                                    fontFamily: 'Roboto',
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
                                     fontSize: 16.0,
@@ -293,7 +293,7 @@ class _MusicPlayerWidgetState extends State<MusicPlayerWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Inter',
+                                    fontFamily: 'Roboto',
                                     color: FlutterFlowTheme.of(context)
                                         .primaryText,
                                     fontSize: 14.0,
@@ -308,7 +308,7 @@ class _MusicPlayerWidgetState extends State<MusicPlayerWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Inter',
+                                    fontFamily: 'Roboto',
                                     color: FlutterFlowTheme.of(context)
                                         .primaryText,
                                     fontSize: 14.0,

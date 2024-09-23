@@ -137,7 +137,7 @@ class _MeditationPlayerTimerWidgetState
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Inter',
+                                              fontFamily: 'Roboto',
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
@@ -555,7 +555,7 @@ class _MeditationPlayerTimerWidgetState
                                                     FlutterFlowTheme.of(context)
                                                         .titleSmall
                                                         .override(
-                                                          fontFamily: 'Inter',
+                                                          fontFamily: 'Roboto',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryText,

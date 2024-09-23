@@ -5,6 +5,8 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:math';
 import 'onboarding_widget.dart' show OnboardingWidget;
+import 'package:smooth_page_indicator/smooth_page_indicator.dart'
+    as smooth_page_indicator;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';

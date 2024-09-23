@@ -165,10 +165,10 @@ class _NavBarPageState extends State<NavBarPage> {
   Widget build(BuildContext context) {
     final tabs = {
       'NewHome': NewHomeWidget(),
-      'MeditationPageMain': MeditationPageMainWidget(),
-      'UserCommunityPageViewFINAL': UserCommunityPageViewFINALWidget(),
-      'YogaHome': YogaHomeWidget(),
       'SoundsPageMain': SoundsPageMainWidget(),
+      'UserCommunityPageViewFINALCopy': UserCommunityPageViewFINALCopyWidget(),
+      'YogaHome': YogaHomeWidget(),
+      'MeditationPageMain': MeditationPageMainWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -208,15 +208,11 @@ class _NavBarPageState extends State<NavBarPage> {
             ),
             BottomNavigationBarItem(
               icon: Icon(
-                Icons.air,
+                Icons.surround_sound,
                 size: 28.0,
               ),
-              activeIcon: Icon(
-                Icons.air_rounded,
-                size: 36.0,
-              ),
               label: FFLocalizations.of(context).getText(
-                '024qxadr' /* Meditate */,
+                'z460edtc' /* Sounds */,
               ),
               tooltip: '',
             ),
@@ -226,7 +222,7 @@ class _NavBarPageState extends State<NavBarPage> {
                 size: 24.0,
               ),
               label: FFLocalizations.of(context).getText(
-                '303mgjfb' /* Community */,
+                'j4d1zpoh' /* Community */,
               ),
               tooltip: '',
             ),
@@ -242,11 +238,15 @@ class _NavBarPageState extends State<NavBarPage> {
             ),
             BottomNavigationBarItem(
               icon: Icon(
-                Icons.surround_sound,
+                Icons.air,
                 size: 28.0,
               ),
+              activeIcon: Icon(
+                Icons.air_rounded,
+                size: 36.0,
+              ),
               label: FFLocalizations.of(context).getText(
-                'z460edtc' /* Sounds */,
+                '024qxadr' /* Meditate */,
               ),
               tooltip: '',
             )

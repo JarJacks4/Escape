@@ -101,7 +101,7 @@ class _StaggeredViewAffirmationsWidgetState
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Inter',
+                                            fontFamily: 'Roboto',
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryBackground,
                                             fontSize: 20.0,
@@ -160,7 +160,7 @@ class _StaggeredViewAffirmationsWidgetState
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Inter',
+                                            fontFamily: 'Roboto',
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryBackground,
                                             fontSize: 20.0,
@@ -221,7 +221,7 @@ class _StaggeredViewAffirmationsWidgetState
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Inter',
+                                              fontFamily: 'Roboto',
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryBackground,
@@ -284,7 +284,7 @@ Anxiety */
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Inter',
+                                            fontFamily: 'Roboto',
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryBackground,
                                             fontSize: 20.0,

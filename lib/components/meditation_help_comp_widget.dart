@@ -423,7 +423,7 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Inter',
+                                                          fontFamily: 'Roboto',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryBackground,
@@ -450,7 +450,7 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .bodySmall
                                           .override(
-                                            fontFamily: 'Inter',
+                                            fontFamily: 'Roboto',
                                             color: Colors.white,
                                             fontSize: 18.0,
                                             letterSpacing: 0.0,
@@ -605,7 +605,7 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Inter',
+                                                          fontFamily: 'Roboto',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryBackground,

@@ -147,7 +147,7 @@ class _ClassesCardWidgetState extends State<ClassesCardWidget>
                         'w5sniixn' /* Learn to breath */,
                       ),
                       style: FlutterFlowTheme.of(context).bodyLarge.override(
-                            fontFamily: 'Inter',
+                            fontFamily: 'Roboto',
                             letterSpacing: 0.0,
                           ),
                     ),
@@ -159,7 +159,7 @@ class _ClassesCardWidgetState extends State<ClassesCardWidget>
                         '0qe70x0c' /* 4 Min */,
                       ),
                       style: FlutterFlowTheme.of(context).labelSmall.override(
-                            fontFamily: 'Inter',
+                            fontFamily: 'Roboto',
                             letterSpacing: 0.0,
                           ),
                     ),
@@ -185,7 +185,7 @@ class _ClassesCardWidgetState extends State<ClassesCardWidget>
                           ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Inter',
+                                    fontFamily: 'Roboto',
                                     color: FlutterFlowTheme.of(context).primary,
                                     letterSpacing: 0.0,
                                   ),

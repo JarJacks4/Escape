@@ -4,6 +4,8 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:math';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart'
+    as smooth_page_indicator;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -49,6 +51,25 @@ class _OnboardingWidgetState extends State<OnboardingWidget>
           ),
         ],
       ),
+      'lottieAnimationOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
       'rowOnPageLoadAnimation1': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
@@ -75,6 +96,25 @@ class _OnboardingWidgetState extends State<OnboardingWidget>
           ),
         ],
       ),
+      'textOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
       'containerOnPageLoadAnimation2': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
@@ -88,6 +128,25 @@ class _OnboardingWidgetState extends State<OnboardingWidget>
           ),
         ],
       ),
+      'lottieAnimationOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
       'rowOnPageLoadAnimation3': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
@@ -96,6 +155,25 @@ class _OnboardingWidgetState extends State<OnboardingWidget>
             delay: 0.0.ms,
             duration: 400.0.ms,
             begin: Offset(40.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(100.0, 0.0),
             end: Offset(0.0, 0.0),
           ),
         ],
@@ -113,6 +191,25 @@ class _OnboardingWidgetState extends State<OnboardingWidget>
           ),
         ],
       ),
+      'textOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
       'containerOnPageLoadAnimation3': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
@@ -123,6 +220,25 @@ class _OnboardingWidgetState extends State<OnboardingWidget>
             duration: 600.0.ms,
             begin: 0.0,
             end: 1.0,
+          ),
+        ],
+      ),
+      'lottieAnimationOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -151,6 +267,25 @@ class _OnboardingWidgetState extends State<OnboardingWidget>
           ),
         ],
       ),
+      'textOnPageLoadAnimation4': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
       'containerOnPageLoadAnimation4': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
@@ -161,6 +296,25 @@ class _OnboardingWidgetState extends State<OnboardingWidget>
             duration: 600.0.ms,
             begin: 0.0,
             end: 1.0,
+          ),
+        ],
+      ),
+      'lottieAnimationOnPageLoadAnimation4': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -177,6 +331,25 @@ class _OnboardingWidgetState extends State<OnboardingWidget>
           ),
         ],
       ),
+      'textOnPageLoadAnimation5': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
       'rowOnPageLoadAnimation8': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
@@ -186,6 +359,44 @@ class _OnboardingWidgetState extends State<OnboardingWidget>
             delay: 200.0.ms,
             duration: 600.0.ms,
             begin: Offset(60.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation6': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'progressBarOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(100.0, 0.0),
             end: Offset(0.0, 0.0),
           ),
         ],
@@ -214,474 +425,630 @@ class _OnboardingWidgetState extends State<OnboardingWidget>
               child: Container(
                 width: double.infinity,
                 height: 500.0,
-                child: PageView(
-                  physics: const NeverScrollableScrollPhysics(),
-                  controller: _model.pageViewController ??=
-                      PageController(initialPage: 0),
-                  scrollDirection: Axis.horizontal,
+                child: Stack(
                   children: [
-                    Column(
-                      mainAxisSize: MainAxisSize.max,
+                    PageView(
+                      controller: _model.pageViewController ??=
+                          PageController(initialPage: 0),
+                      scrollDirection: Axis.horizontal,
                       children: [
-                        Container(
-                          width: MediaQuery.sizeOf(context).width * 1.0,
-                          decoration: BoxDecoration(),
-                          child: Lottie.asset(
-                            'assets/lottie_animations/Animation_-_1708889929967.json',
-                            width: 103.0,
-                            height: 467.0,
-                            fit: BoxFit.contain,
-                            animate: true,
-                          ),
-                        ).animateOnPageLoad(
-                            animationsMap['containerOnPageLoadAnimation1']!),
-                        Expanded(
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                30.0, 20.0, 30.0, 30.0),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Expanded(
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Row(
+                        Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Flexible(
+                              flex: 1,
+                              child: Container(
+                                width: MediaQuery.sizeOf(context).width * 1.0,
+                                decoration: BoxDecoration(),
+                                child: Lottie.asset(
+                                  'assets/lottie_animations/Animation_-_1708889929967.json',
+                                  width: 103.0,
+                                  height: 467.0,
+                                  fit: BoxFit.contain,
+                                  animate: true,
+                                ).animateOnPageLoad(animationsMap[
+                                    'lottieAnimationOnPageLoadAnimation1']!),
+                              ).animateOnPageLoad(animationsMap[
+                                  'containerOnPageLoadAnimation1']!),
+                            ),
+                            Expanded(
+                              flex: 1,
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    30.0, 20.0, 30.0, 30.0),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Expanded(
+                                      flex: 1,
+                                      child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
                                         children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 8.0),
-                                            child: Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                'o5fprmdq' /* Track Your 
+                                          Flexible(
+                                            flex: 1,
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 0.0, 8.0),
+                                                  child: Text(
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                      'o5fprmdq' /* Track Your 
 Progress */
-                                                ,
-                                              ),
-                                              textAlign: TextAlign.center,
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .headlineSmall
-                                                  .override(
-                                                    fontFamily: 'Readex Pro',
-                                                    color: FlutterFlowTheme.of(
+                                                      ,
+                                                    ),
+                                                    textAlign: TextAlign.center,
+                                                    style: FlutterFlowTheme.of(
                                                             context)
-                                                        .secondaryBackground,
-                                                    fontSize: 32.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.bold,
-                                                    lineHeight: 1.5,
+                                                        .headlineSmall
+                                                        .override(
+                                                          fontFamily: 'Roboto',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryBackground,
+                                                          fontSize: 32.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          lineHeight: 1.5,
+                                                        ),
                                                   ),
-                                            ),
-                                          ),
-                                        ],
-                                      ).animateOnPageLoad(animationsMap[
-                                          'rowOnPageLoadAnimation1']!),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 4.0, 0.0, 0.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Expanded(
-                                              child: Wrap(
-                                                spacing: 0.0,
-                                                runSpacing: 1.428,
-                                                alignment: WrapAlignment.start,
-                                                crossAxisAlignment:
-                                                    WrapCrossAlignment.start,
-                                                direction: Axis.horizontal,
-                                                runAlignment:
-                                                    WrapAlignment.start,
-                                                verticalDirection:
-                                                    VerticalDirection.down,
-                                                clipBehavior: Clip.none,
-                                                children: [
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsets.all(8.0),
-                                                    child: Text(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        'hmoowgq5' /* Don't worry if you have troubl... */,
-                                                      ),
-                                                      textAlign:
-                                                          TextAlign.center,
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily: 'Inter',
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryBackground,
-                                                            fontSize: 20.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.w300,
-                                                            lineHeight: 1.5,
-                                                          ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ],
-                                        ).animateOnPageLoad(animationsMap[
-                                            'rowOnPageLoadAnimation2']!),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Container(
-                          width: MediaQuery.sizeOf(context).width * 1.0,
-                          decoration: BoxDecoration(),
-                          child: Lottie.asset(
-                            'assets/lottie_animations/Animation_-_1708891000222.json',
-                            width: 150.0,
-                            height: 424.0,
-                            fit: BoxFit.contain,
-                            animate: true,
-                          ),
-                        ).animateOnPageLoad(
-                            animationsMap['containerOnPageLoadAnimation2']!),
-                        Expanded(
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                30.0, 32.0, 30.0, 30.0),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Expanded(
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            FFLocalizations.of(context).getText(
-                                              'lt2iuzef' /* Book A Therapist */,
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .headlineSmall
-                                                .override(
-                                                  fontFamily: 'Readex Pro',
-                                                  fontSize: 32.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.bold,
-                                                  lineHeight: 1.5,
                                                 ),
+                                              ],
+                                            ).animateOnPageLoad(animationsMap[
+                                                'rowOnPageLoadAnimation1']!),
                                           ),
-                                        ],
-                                      ).animateOnPageLoad(animationsMap[
-                                          'rowOnPageLoadAnimation3']!),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 4.0, 0.0, 0.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Expanded(
-                                              child: Wrap(
-                                                spacing: 0.0,
-                                                runSpacing: 1.428,
-                                                alignment: WrapAlignment.start,
-                                                crossAxisAlignment:
-                                                    WrapCrossAlignment.start,
-                                                direction: Axis.horizontal,
-                                                runAlignment:
-                                                    WrapAlignment.start,
-                                                verticalDirection:
-                                                    VerticalDirection.down,
-                                                clipBehavior: Clip.none,
+                                          Flexible(
+                                            flex: 1,
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 4.0, 0.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
                                                 children: [
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsets.all(8.0),
-                                                    child: Text(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        's8kgfy7o' /* With goal tracking, we offer t... */,
-                                                      ),
-                                                      textAlign:
-                                                          TextAlign.center,
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily: 'Inter',
-                                                            color: FlutterFlowTheme
+                                                  Expanded(
+                                                    child: Wrap(
+                                                      spacing: 0.0,
+                                                      runSpacing: 1.428,
+                                                      alignment:
+                                                          WrapAlignment.start,
+                                                      crossAxisAlignment:
+                                                          WrapCrossAlignment
+                                                              .start,
+                                                      direction:
+                                                          Axis.horizontal,
+                                                      runAlignment:
+                                                          WrapAlignment.start,
+                                                      verticalDirection:
+                                                          VerticalDirection
+                                                              .down,
+                                                      clipBehavior: Clip.none,
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  8.0),
+                                                          child: Text(
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                              'hmoowgq5' /* Don't worry if you have troubl... */,
+                                                            ),
+                                                            textAlign: TextAlign
+                                                                .center,
+                                                            style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .secondaryText,
-                                                            fontSize: 20.0,
-                                                            letterSpacing: 0.0,
-                                                            lineHeight: 1.5,
-                                                          ),
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Roboto',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryBackground,
+                                                                  fontSize:
+                                                                      20.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w300,
+                                                                  lineHeight:
+                                                                      1.5,
+                                                                ),
+                                                          ).animateOnPageLoad(
+                                                              animationsMap[
+                                                                  'textOnPageLoadAnimation1']!),
+                                                        ),
+                                                      ],
                                                     ),
                                                   ),
                                                 ],
-                                              ),
+                                              ).animateOnPageLoad(animationsMap[
+                                                  'rowOnPageLoadAnimation2']!),
                                             ),
-                                          ],
-                                        ).animateOnPageLoad(animationsMap[
-                                            'rowOnPageLoadAnimation4']!),
+                                          ),
+                                        ],
                                       ),
-                                    ],
-                                  ),
+                                    ),
+                                  ],
                                 ),
-                              ],
+                              ),
                             ),
-                          ),
+                          ],
                         ),
-                      ],
-                    ),
-                    Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Container(
-                          width: MediaQuery.sizeOf(context).width * 1.0,
-                          decoration: BoxDecoration(),
-                          child: Lottie.asset(
-                            'assets/lottie_animations/Animation_-_1708891973631.json',
-                            width: 150.0,
-                            height: 404.0,
-                            fit: BoxFit.contain,
-                            animate: true,
-                          ),
-                        ).animateOnPageLoad(
-                            animationsMap['containerOnPageLoadAnimation3']!),
-                        Expanded(
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                30.0, 32.0, 30.0, 30.0),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Expanded(
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Row(
+                        Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Flexible(
+                              flex: 1,
+                              child: Container(
+                                width: MediaQuery.sizeOf(context).width * 1.0,
+                                decoration: BoxDecoration(),
+                                child: Lottie.asset(
+                                  'assets/lottie_animations/Animation_-_1708891000222.json',
+                                  width: 150.0,
+                                  height: 424.0,
+                                  fit: BoxFit.contain,
+                                  animate: true,
+                                ).animateOnPageLoad(animationsMap[
+                                    'lottieAnimationOnPageLoadAnimation2']!),
+                              ).animateOnPageLoad(animationsMap[
+                                  'containerOnPageLoadAnimation2']!),
+                            ),
+                            Expanded(
+                              flex: 1,
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    30.0, 32.0, 30.0, 30.0),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Expanded(
+                                      flex: 1,
+                                      child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
                                         children: [
-                                          Text(
-                                            FFLocalizations.of(context).getText(
-                                              'ymn3jycf' /* Join Our 
+                                          Flexible(
+                                            flex: 1,
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Text(
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'lt2iuzef' /* Book A Therapist */,
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .headlineSmall
+                                                      .override(
+                                                        fontFamily: 'Roboto',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
+                                                        fontSize: 32.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        lineHeight: 1.5,
+                                                      ),
+                                                ).animateOnPageLoad(animationsMap[
+                                                    'textOnPageLoadAnimation2']!),
+                                              ],
+                                            ).animateOnPageLoad(animationsMap[
+                                                'rowOnPageLoadAnimation3']!),
+                                          ),
+                                          Flexible(
+                                            flex: 1,
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 4.0, 0.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Expanded(
+                                                    child: Wrap(
+                                                      spacing: 0.0,
+                                                      runSpacing: 1.428,
+                                                      alignment:
+                                                          WrapAlignment.start,
+                                                      crossAxisAlignment:
+                                                          WrapCrossAlignment
+                                                              .start,
+                                                      direction:
+                                                          Axis.horizontal,
+                                                      runAlignment:
+                                                          WrapAlignment.start,
+                                                      verticalDirection:
+                                                          VerticalDirection
+                                                              .down,
+                                                      clipBehavior: Clip.none,
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  8.0),
+                                                          child: Text(
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                              's8kgfy7o' /* With goal tracking, we offer t... */,
+                                                            ),
+                                                            textAlign: TextAlign
+                                                                .center,
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Roboto',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryText,
+                                                                  fontSize:
+                                                                      20.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  lineHeight:
+                                                                      1.5,
+                                                                ),
+                                                          ).animateOnPageLoad(
+                                                              animationsMap[
+                                                                  'textOnPageLoadAnimation3']!),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ],
+                                              ).animateOnPageLoad(animationsMap[
+                                                  'rowOnPageLoadAnimation4']!),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Flexible(
+                              flex: 1,
+                              child: Container(
+                                width: MediaQuery.sizeOf(context).width * 1.0,
+                                decoration: BoxDecoration(),
+                                child: Lottie.asset(
+                                  'assets/lottie_animations/Animation_-_1708891973631.json',
+                                  width: 150.0,
+                                  height: 404.0,
+                                  fit: BoxFit.contain,
+                                  animate: true,
+                                ).animateOnPageLoad(animationsMap[
+                                    'lottieAnimationOnPageLoadAnimation3']!),
+                              ).animateOnPageLoad(animationsMap[
+                                  'containerOnPageLoadAnimation3']!),
+                            ),
+                            Expanded(
+                              flex: 1,
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    30.0, 32.0, 30.0, 30.0),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Expanded(
+                                      flex: 1,
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Flexible(
+                                            flex: 1,
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Text(
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'ymn3jycf' /* Join Our 
 Community */
-                                              ,
-                                            ),
-                                            textAlign: TextAlign.center,
-                                            style: FlutterFlowTheme.of(context)
-                                                .headlineSmall
-                                                .override(
-                                                  fontFamily: 'Readex Pro',
-                                                  fontSize: 32.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.bold,
-                                                  lineHeight: 1.5,
-                                                ),
-                                          ),
-                                        ],
-                                      ).animateOnPageLoad(animationsMap[
-                                          'rowOnPageLoadAnimation5']!),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 4.0, 0.0, 0.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Expanded(
-                                              child: Wrap(
-                                                spacing: 0.0,
-                                                runSpacing: 1.428,
-                                                alignment: WrapAlignment.start,
-                                                crossAxisAlignment:
-                                                    WrapCrossAlignment.start,
-                                                direction: Axis.horizontal,
-                                                runAlignment:
-                                                    WrapAlignment.start,
-                                                verticalDirection:
-                                                    VerticalDirection.down,
-                                                clipBehavior: Clip.none,
-                                                children: [
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsets.all(8.0),
-                                                    child: Text(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        'goqkqih6' /* Share your self-care talents a... */,
+                                                    ,
+                                                  ),
+                                                  textAlign: TextAlign.center,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .headlineSmall
+                                                      .override(
+                                                        fontFamily: 'Roboto',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
+                                                        fontSize: 32.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        lineHeight: 1.5,
                                                       ),
-                                                      textAlign:
-                                                          TextAlign.center,
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily: 'Inter',
-                                                            color: FlutterFlowTheme
+                                                ),
+                                              ],
+                                            ).animateOnPageLoad(animationsMap[
+                                                'rowOnPageLoadAnimation5']!),
+                                          ),
+                                          Flexible(
+                                            flex: 1,
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 4.0, 0.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Expanded(
+                                                    child: Wrap(
+                                                      spacing: 0.0,
+                                                      runSpacing: 1.428,
+                                                      alignment:
+                                                          WrapAlignment.start,
+                                                      crossAxisAlignment:
+                                                          WrapCrossAlignment
+                                                              .start,
+                                                      direction:
+                                                          Axis.horizontal,
+                                                      runAlignment:
+                                                          WrapAlignment.start,
+                                                      verticalDirection:
+                                                          VerticalDirection
+                                                              .down,
+                                                      clipBehavior: Clip.none,
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  8.0),
+                                                          child: Text(
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                              'goqkqih6' /* Share your self-care talents a... */,
+                                                            ),
+                                                            textAlign: TextAlign
+                                                                .center,
+                                                            style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .secondaryText,
-                                                            fontSize: 20.0,
-                                                            letterSpacing: 0.0,
-                                                            lineHeight: 1.5,
-                                                          ),
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Roboto',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryText,
+                                                                  fontSize:
+                                                                      20.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  lineHeight:
+                                                                      1.5,
+                                                                ),
+                                                          ).animateOnPageLoad(
+                                                              animationsMap[
+                                                                  'textOnPageLoadAnimation4']!),
+                                                        ),
+                                                      ],
                                                     ),
                                                   ),
                                                 ],
-                                              ),
+                                              ).animateOnPageLoad(animationsMap[
+                                                  'rowOnPageLoadAnimation6']!),
                                             ),
-                                          ],
-                                        ).animateOnPageLoad(animationsMap[
-                                            'rowOnPageLoadAnimation6']!),
+                                          ),
+                                        ],
                                       ),
-                                    ],
-                                  ),
+                                    ),
+                                  ],
                                 ),
-                              ],
+                              ),
                             ),
-                          ),
+                          ],
                         ),
-                      ],
-                    ),
-                    Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Container(
-                          width: MediaQuery.sizeOf(context).width * 1.0,
-                          decoration: BoxDecoration(),
-                          child: Lottie.asset(
-                            'assets/lottie_animations/Animation_-_1708892458656.json',
-                            width: 150.0,
-                            height: 469.0,
-                            fit: BoxFit.contain,
-                            animate: true,
-                          ),
-                        ).animateOnPageLoad(
-                            animationsMap['containerOnPageLoadAnimation4']!),
-                        Expanded(
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                30.0, 32.0, 30.0, 30.0),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Expanded(
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Row(
+                        Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Flexible(
+                              flex: 1,
+                              child: Container(
+                                width: MediaQuery.sizeOf(context).width * 1.0,
+                                decoration: BoxDecoration(),
+                                child: Lottie.asset(
+                                  'assets/lottie_animations/Animation_-_1708892458656.json',
+                                  width: 150.0,
+                                  height: 469.0,
+                                  fit: BoxFit.contain,
+                                  animate: true,
+                                ).animateOnPageLoad(animationsMap[
+                                    'lottieAnimationOnPageLoadAnimation4']!),
+                              ).animateOnPageLoad(animationsMap[
+                                  'containerOnPageLoadAnimation4']!),
+                            ),
+                            Expanded(
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    30.0, 32.0, 30.0, 30.0),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Expanded(
+                                      child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
                                         children: [
-                                          Text(
-                                            FFLocalizations.of(context).getText(
-                                              'e3z4fztw' /* Improve Success 
+                                          Flexible(
+                                            flex: 1,
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Text(
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'e3z4fztw' /* Improve Success 
 With Meditati... */
-                                              ,
-                                            ),
-                                            textAlign: TextAlign.center,
-                                            style: FlutterFlowTheme.of(context)
-                                                .headlineSmall
-                                                .override(
-                                                  fontFamily: 'Readex Pro',
-                                                  fontSize: 32.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.bold,
-                                                  lineHeight: 1.5,
-                                                ),
-                                          ),
-                                        ],
-                                      ).animateOnPageLoad(animationsMap[
-                                          'rowOnPageLoadAnimation7']!),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 4.0, 0.0, 0.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Expanded(
-                                              child: Wrap(
-                                                spacing: 0.0,
-                                                runSpacing: 1.428,
-                                                alignment: WrapAlignment.start,
-                                                crossAxisAlignment:
-                                                    WrapCrossAlignment.start,
-                                                direction: Axis.horizontal,
-                                                runAlignment:
-                                                    WrapAlignment.start,
-                                                verticalDirection:
-                                                    VerticalDirection.down,
-                                                clipBehavior: Clip.none,
-                                                children: [
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 8.0,
-                                                                0.0, 0.0),
-                                                    child: Text(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        'yz4p09kz' /* Improve the quality of your we... */,
+                                                    ,
+                                                  ),
+                                                  textAlign: TextAlign.center,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .headlineSmall
+                                                      .override(
+                                                        fontFamily: 'Roboto',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
+                                                        fontSize: 32.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        lineHeight: 1.5,
                                                       ),
-                                                      textAlign:
-                                                          TextAlign.center,
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily: 'Inter',
-                                                            color: FlutterFlowTheme
+                                                ).animateOnPageLoad(animationsMap[
+                                                    'textOnPageLoadAnimation5']!),
+                                              ],
+                                            ).animateOnPageLoad(animationsMap[
+                                                'rowOnPageLoadAnimation7']!),
+                                          ),
+                                          Flexible(
+                                            flex: 1,
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 4.0, 0.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Expanded(
+                                                    child: Wrap(
+                                                      spacing: 0.0,
+                                                      runSpacing: 1.428,
+                                                      alignment:
+                                                          WrapAlignment.start,
+                                                      crossAxisAlignment:
+                                                          WrapCrossAlignment
+                                                              .start,
+                                                      direction:
+                                                          Axis.horizontal,
+                                                      runAlignment:
+                                                          WrapAlignment.start,
+                                                      verticalDirection:
+                                                          VerticalDirection
+                                                              .down,
+                                                      clipBehavior: Clip.none,
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      8.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: Text(
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                              'yz4p09kz' /* Improve the quality of your we... */,
+                                                            ),
+                                                            textAlign: TextAlign
+                                                                .center,
+                                                            style: FlutterFlowTheme
                                                                     .of(context)
-                                                                .secondaryText,
-                                                            fontSize: 20.0,
-                                                            letterSpacing: 0.0,
-                                                            lineHeight: 1.5,
-                                                          ),
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Roboto',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryText,
+                                                                  fontSize:
+                                                                      20.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  lineHeight:
+                                                                      1.5,
+                                                                ),
+                                                          ).animateOnPageLoad(
+                                                              animationsMap[
+                                                                  'textOnPageLoadAnimation6']!),
+                                                        ),
+                                                      ],
                                                     ),
                                                   ),
                                                 ],
-                                              ),
+                                              ).animateOnPageLoad(animationsMap[
+                                                  'rowOnPageLoadAnimation8']!),
                                             ),
-                                          ],
-                                        ).animateOnPageLoad(animationsMap[
-                                            'rowOnPageLoadAnimation8']!),
+                                          ),
+                                        ],
                                       ),
-                                    ],
-                                  ),
+                                    ),
+                                  ],
                                 ),
-                              ],
+                              ),
                             ),
-                          ),
+                          ],
                         ),
                       ],
+                    ),
+                    Align(
+                      alignment: AlignmentDirectional(0.0, 1.0),
+                      child: Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                        child: smooth_page_indicator.SmoothPageIndicator(
+                          controller: _model.pageViewController ??=
+                              PageController(initialPage: 0),
+                          count: 4,
+                          axisDirection: Axis.horizontal,
+                          onDotClicked: (i) async {
+                            await _model.pageViewController!.animateToPage(
+                              i,
+                              duration: Duration(milliseconds: 500),
+                              curve: Curves.ease,
+                            );
+                            safeSetState(() {});
+                          },
+                          effect: smooth_page_indicator.ExpandingDotsEffect(
+                            expansionFactor: 2.0,
+                            spacing: 8.0,
+                            radius: 16.0,
+                            dotWidth: 16.0,
+                            dotHeight: 16.0,
+                            dotColor: FlutterFlowTheme.of(context).primary,
+                            activeDotColor:
+                                FlutterFlowTheme.of(context).alternate,
+                            paintStyle: PaintingStyle.fill,
+                          ),
+                        ),
+                      ),
                     ),
                   ],
                 ),
@@ -723,7 +1090,14 @@ With Meditati... */
                             wrapWithModel(
                               model: _model.onboardingButtonModel1,
                               updateCallback: () => safeSetState(() {}),
-                              child: OnboardingButtonWidget(),
+                              child: Hero(
+                                tag: 'Button',
+                                transitionOnUserGestures: true,
+                                child: Material(
+                                  color: Colors.transparent,
+                                  child: OnboardingButtonWidget(),
+                                ),
+                              ),
                             ),
                             InkWell(
                               splashColor: Colors.transparent,
@@ -740,8 +1114,7 @@ With Meditati... */
                                   extra: <String, dynamic>{
                                     kTransitionInfoKey: TransitionInfo(
                                       hasTransition: true,
-                                      transitionType:
-                                          PageTransitionType.rightToLeft,
+                                      transitionType: PageTransitionType.fade,
                                       duration: Duration(milliseconds: 2),
                                     ),
                                   },
@@ -754,58 +1127,63 @@ With Meditati... */
                                 animation: true,
                                 animateFromLastPercent: true,
                                 progressColor:
-                                    FlutterFlowTheme.of(context).primaryText,
+                                    FlutterFlowTheme.of(context).tertiary,
                               ),
-                            ),
+                            ).animateOnPageLoad(animationsMap[
+                                'progressBarOnPageLoadAnimation']!),
                           ],
                         ),
                       ),
                     ),
                   ),
                   if (_model.page == 1.0)
-                    Container(
-                      width: 60.0,
-                      height: 60.0,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                      ),
-                      child: InkWell(
-                        splashColor: Colors.transparent,
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () async {
-                          logFirebaseEvent(
-                              'ONBOARDING_PAGE_Stack_g3fj8f6q_ON_TAP');
-                          logFirebaseEvent('Stack_navigate_to');
+                    Flexible(
+                      flex: 1,
+                      child: Container(
+                        width: 60.0,
+                        height: 60.0,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                        ),
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            logFirebaseEvent(
+                                'ONBOARDING_PAGE_Stack_g3fj8f6q_ON_TAP');
+                            logFirebaseEvent('Stack_navigate_to');
 
-                          context.pushNamed(
-                            'registrationSuccess',
-                            extra: <String, dynamic>{
-                              kTransitionInfoKey: TransitionInfo(
-                                hasTransition: true,
-                                transitionType: PageTransitionType.rightToLeft,
-                                duration: Duration(milliseconds: 300),
+                            context.pushNamed(
+                              'registrationSuccess',
+                              extra: <String, dynamic>{
+                                kTransitionInfoKey: TransitionInfo(
+                                  hasTransition: true,
+                                  transitionType:
+                                      PageTransitionType.rightToLeft,
+                                  duration: Duration(milliseconds: 300),
+                                ),
+                              },
+                            );
+                          },
+                          child: Stack(
+                            alignment: AlignmentDirectional(0.0, 0.0),
+                            children: [
+                              wrapWithModel(
+                                model: _model.onboardingButtonModel2,
+                                updateCallback: () => safeSetState(() {}),
+                                child: OnboardingButtonWidget(),
                               ),
-                            },
-                          );
-                        },
-                        child: Stack(
-                          alignment: AlignmentDirectional(0.0, 0.0),
-                          children: [
-                            wrapWithModel(
-                              model: _model.onboardingButtonModel2,
-                              updateCallback: () => safeSetState(() {}),
-                              child: OnboardingButtonWidget(),
-                            ),
-                            CircularPercentIndicator(
-                              percent: 1.0,
-                              radius: 30.0,
-                              lineWidth: 2.0,
-                              animation: true,
-                              animateFromLastPercent: true,
-                            ),
-                          ],
+                              CircularPercentIndicator(
+                                percent: 1.0,
+                                radius: 30.0,
+                                lineWidth: 2.0,
+                                animation: true,
+                                animateFromLastPercent: true,
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),

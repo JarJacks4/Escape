@@ -1,5 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
-import '/components/videoplayer_comp_widget.dart';
+import '/components/video_player_comp_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -7,7 +7,6 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -180,26 +179,6 @@ class _SleepMeditationsCompWidgetState extends State<SleepMeditationsCompWidget>
           ),
         ],
       ),
-      'staggeredViewOnPageLoadAnimation': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 1.ms),
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          MoveEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: Offset(0.0, -18.0),
-            end: Offset(0.0, 0.0),
-          ),
-        ],
-      ),
     });
     setupAnimations(
       animationsMap.values.where((anim) =>
@@ -243,7 +222,7 @@ class _SleepMeditationsCompWidgetState extends State<SleepMeditationsCompWidget>
                           ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Inter',
+                                    fontFamily: 'Roboto',
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
                                     fontSize: 20.0,
@@ -309,18 +288,6 @@ class _SleepMeditationsCompWidgetState extends State<SleepMeditationsCompWidget>
                                           decoration: BoxDecoration(
                                             color: Colors.transparent,
                                           ),
-                                          child: Container(
-                                            width: 80.0,
-                                            height: 80.0,
-                                            clipBehavior: Clip.antiAlias,
-                                            decoration: BoxDecoration(
-                                              shape: BoxShape.circle,
-                                            ),
-                                            child: Image.asset(
-                                              'assets/images/user3.png',
-                                              fit: BoxFit.cover,
-                                            ),
-                                          ),
                                         ).animateOnPageLoad(animationsMap[
                                             'containerOnPageLoadAnimation1']!),
                                       );
@@ -348,7 +315,7 @@ class _SleepMeditationsCompWidgetState extends State<SleepMeditationsCompWidget>
                       'qu8t9l0e' /* Trending */,
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Inter',
+                          fontFamily: 'Roboto',
                           color: FlutterFlowTheme.of(context).primaryBackground,
                           fontSize: 20.0,
                           letterSpacing: 0.0,
@@ -438,7 +405,7 @@ class _SleepMeditationsCompWidgetState extends State<SleepMeditationsCompWidget>
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Inter',
+                                                  fontFamily: 'Roboto',
                                                   letterSpacing: 0.0,
                                                 ),
                                           ),
@@ -530,7 +497,7 @@ class _SleepMeditationsCompWidgetState extends State<SleepMeditationsCompWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Inter',
+                                                        fontFamily: 'Roboto',
                                                         letterSpacing: 0.0,
                                                       ),
                                             ),
@@ -622,7 +589,7 @@ class _SleepMeditationsCompWidgetState extends State<SleepMeditationsCompWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Inter',
+                                                        fontFamily: 'Roboto',
                                                         letterSpacing: 0.0,
                                                       ),
                                             ),
@@ -663,7 +630,7 @@ class _SleepMeditationsCompWidgetState extends State<SleepMeditationsCompWidget>
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Inter',
+                                                fontFamily: 'Roboto',
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -704,7 +671,7 @@ class _SleepMeditationsCompWidgetState extends State<SleepMeditationsCompWidget>
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Inter',
+                                                fontFamily: 'Roboto',
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -734,7 +701,7 @@ class _SleepMeditationsCompWidgetState extends State<SleepMeditationsCompWidget>
                       'aebliu5f' /* Recent Played */,
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Inter',
+                          fontFamily: 'Roboto',
                           color: FlutterFlowTheme.of(context).primaryBackground,
                           fontSize: 20.0,
                           letterSpacing: 0.0,
@@ -806,7 +773,7 @@ class _SleepMeditationsCompWidgetState extends State<SleepMeditationsCompWidget>
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 10.0, 0.0),
                                           child: Container(
-                                            width: 100.0,
+                                            width: 147.0,
                                             height: 137.0,
                                             decoration: BoxDecoration(
                                               color: Color(0x50090F13),
@@ -839,11 +806,11 @@ class _SleepMeditationsCompWidgetState extends State<SleepMeditationsCompWidget>
                                                           height:
                                                               double.infinity,
                                                           child:
-                                                              VideoplayerCompWidget(
+                                                              VideoPlayerCompWidget(
                                                             parameter1:
                                                                 getJsonField(
                                                               recentItemsItem,
-                                                              r'''$.resource.videoId''',
+                                                              r'''$.resourceid.videoid''',
                                                             ).toString(),
                                                           ),
                                                         ),
@@ -898,20 +865,23 @@ class _SleepMeditationsCompWidgetState extends State<SleepMeditationsCompWidget>
                                                       ).toString(),
                                                       textAlign:
                                                           TextAlign.center,
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily: 'Inter',
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .primaryBackground,
-                                                            fontSize: 12.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .normal,
-                                                          ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Roboto',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryBackground,
+                                                                fontSize: 12.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                              ),
                                                     ),
                                                   ),
                                                 ],
@@ -973,77 +943,7 @@ class _SleepMeditationsCompWidgetState extends State<SleepMeditationsCompWidget>
                       ),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Expanded(
-                            child: FutureBuilder<ApiCallResponse>(
-                              future: YouTubeDataAPIBaseCall.call(),
-                              builder: (context, snapshot) {
-                                // Customize what your widget looks like when it's loading.
-                                if (!snapshot.hasData) {
-                                  return Center(
-                                    child: SizedBox(
-                                      width: 50.0,
-                                      height: 50.0,
-                                      child: CircularProgressIndicator(
-                                        valueColor:
-                                            AlwaysStoppedAnimation<Color>(
-                                          FlutterFlowTheme.of(context).primary,
-                                        ),
-                                      ),
-                                    ),
-                                  );
-                                }
-                                final staggeredViewYouTubeDataAPIBaseResponse =
-                                    snapshot.data!;
-
-                                return Builder(
-                                  builder: (context) {
-                                    final channels = getJsonField(
-                                      staggeredViewYouTubeDataAPIBaseResponse
-                                          .jsonBody,
-                                      r'''$.items[:].snippet''',
-                                    ).toList();
-
-                                    return MasonryGridView.builder(
-                                      gridDelegate:
-                                          SliverSimpleGridDelegateWithFixedCrossAxisCount(
-                                        crossAxisCount: 2,
-                                      ),
-                                      crossAxisSpacing: 10.0,
-                                      mainAxisSpacing: 10.0,
-                                      itemCount: channels.length,
-                                      itemBuilder: (context, channelsIndex) {
-                                        final channelsItem =
-                                            channels[channelsIndex];
-                                        return Hero(
-                                          tag: getJsonField(
-                                            channelsItem,
-                                            r'''$.thumbnails.default.url''',
-                                          ).toString(),
-                                          transitionOnUserGestures: true,
-                                          child: ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(10.0),
-                                            child: Image.network(
-                                              getJsonField(
-                                                channelsItem,
-                                                r'''$.thumbnails.default.url''',
-                                              ).toString(),
-                                              width: 200.0,
-                                              height: 100.0,
-                                              fit: BoxFit.cover,
-                                            ),
-                                          ),
-                                        );
-                                      },
-                                    ).animateOnPageLoad(animationsMap[
-                                        'staggeredViewOnPageLoadAnimation']!);
-                                  },
-                                );
-                              },
-                            ),
-                          ),
-                        ],
+                        children: [],
                       ),
                     ),
                   ),

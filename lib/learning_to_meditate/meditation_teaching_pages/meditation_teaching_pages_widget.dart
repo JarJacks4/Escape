@@ -225,7 +225,7 @@ class _MeditationTeachingPagesWidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Inter',
+                                      fontFamily: 'Roboto',
                                       fontSize: 32.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.bold,
@@ -257,7 +257,7 @@ class _MeditationTeachingPagesWidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
+                                        fontFamily: 'Roboto',
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -288,7 +288,7 @@ class _MeditationTeachingPagesWidgetState
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Inter',
+                                              fontFamily: 'Roboto',
                                               fontSize: 12.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
@@ -345,7 +345,7 @@ class _MeditationTeachingPagesWidgetState
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Inter',
+                                            fontFamily: 'Roboto',
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryText,
                                             letterSpacing: 0.0,
@@ -377,7 +377,7 @@ class _MeditationTeachingPagesWidgetState
                                       labelStyle: FlutterFlowTheme.of(context)
                                           .titleSmall
                                           .override(
-                                            fontFamily: 'Inter',
+                                            fontFamily: 'Roboto',
                                             letterSpacing: 0.0,
                                           ),
                                       unselectedLabelStyle: TextStyle(),
@@ -505,7 +505,7 @@ meditation */
                                                                       .bodyMedium
                                                                       .override(
                                                                         fontFamily:
-                                                                            'Inter',
+                                                                            'Roboto',
                                                                         fontSize:
                                                                             18.0,
                                                                         letterSpacing:
@@ -636,7 +636,7 @@ yourself */
                                                                       .bodyMedium
                                                                       .override(
                                                                         fontFamily:
-                                                                            'Inter',
+                                                                            'Roboto',
                                                                         fontSize:
                                                                             18.0,
                                                                         letterSpacing:
@@ -755,7 +755,7 @@ Stress */
                                                                       .bodyMedium
                                                                       .override(
                                                                         fontFamily:
-                                                                            'Inter',
+                                                                            'Roboto',
                                                                         fontSize:
                                                                             18.0,
                                                                         letterSpacing:
@@ -931,7 +931,7 @@ Meditation */
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
-                                                                              fontFamily: 'Inter',
+                                                                              fontFamily: 'Roboto',
                                                                               fontSize: 18.0,
                                                                               letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.bold,
@@ -1040,7 +1040,7 @@ Meditation */
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
-                                                                              fontFamily: 'Inter',
+                                                                              fontFamily: 'Roboto',
                                                                               fontSize: 18.0,
                                                                               letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.bold,
@@ -1149,7 +1149,7 @@ Time */
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
-                                                                              fontFamily: 'Inter',
+                                                                              fontFamily: 'Roboto',
                                                                               fontSize: 18.0,
                                                                               letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.bold,

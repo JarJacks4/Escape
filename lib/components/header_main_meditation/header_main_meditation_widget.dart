@@ -44,13 +44,13 @@ class _HeaderMainMeditationWidgetState
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.sizeOf(context).width * 1.0,
-      height: MediaQuery.sizeOf(context).height * 0.34,
+      height: MediaQuery.sizeOf(context).height * 0.346,
       decoration: BoxDecoration(
         color: Color(0x00FCFFF9),
         borderRadius: BorderRadius.circular(15.0),
       ),
       child: Container(
-        height: MediaQuery.sizeOf(context).height * 0.052,
+        height: MediaQuery.sizeOf(context).height * 0.063,
         child: Stack(
           children: [
             Stack(
@@ -96,10 +96,7 @@ class _HeaderMainMeditationWidgetState
                                           child: Padding(
                                             padding: MediaQuery.viewInsetsOf(
                                                 context),
-                                            child: Container(
-                                              height: double.infinity,
-                                              child: SideNavWidget(),
-                                            ),
+                                            child: SideNavWidget(),
                                           ),
                                         );
                                       },
@@ -110,7 +107,7 @@ class _HeaderMainMeditationWidgetState
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 10.0, 0.0),
+                                  0.0, 0.0, 18.0, 0.0),
                               child: FlutterFlowIconButton(
                                 borderColor: Colors.transparent,
                                 borderRadius: 30.0,
@@ -129,9 +126,8 @@ class _HeaderMainMeditationWidgetState
                                 },
                               ),
                             ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 15.0, 0.0),
+                            Flexible(
+                              flex: 1,
                               child: InkWell(
                                 splashColor: Colors.transparent,
                                 focusColor: Colors.transparent,
@@ -139,8 +135,8 @@ class _HeaderMainMeditationWidgetState
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
                                   logFirebaseEvent(
-                                      'HEADER_MAIN_MEDITATION_CircleImage_p0xle');
-                                  logFirebaseEvent('CircleImage_navigate_to');
+                                      'HEADER_MAIN_MEDITATION_Image_1mqoxaer_ON');
+                                  logFirebaseEvent('Image_navigate_to');
 
                                   context.pushNamed(
                                     'NewHome',
@@ -153,17 +149,17 @@ class _HeaderMainMeditationWidgetState
                                     },
                                   );
                                 },
-                                child: Container(
-                                  width: MediaQuery.sizeOf(context).width * 0.2,
-                                  height:
-                                      MediaQuery.sizeOf(context).width * 0.2,
-                                  clipBehavior: Clip.antiAlias,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Image.asset(
-                                    'assets/images/ESCAPE_Logo_Clear.png',
-                                    fit: BoxFit.cover,
+                                child: Hero(
+                                  tag: 'logo',
+                                  transitionOnUserGestures: true,
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                    child: Image.asset(
+                                      'assets/images/ESCAPE_Logo_Clear.png',
+                                      width: 90.0,
+                                      height: 102.0,
+                                      fit: BoxFit.contain,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -189,7 +185,7 @@ class _HeaderMainMeditationWidgetState
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
                                     letterSpacing: 0.0,
-                                    fontWeight: FontWeight.normal,
+                                    fontWeight: FontWeight.w300,
                                   ),
                             ),
                           ],
@@ -209,7 +205,7 @@ class _HeaderMainMeditationWidgetState
                                         .primaryBackground,
                                     fontSize: 22.0,
                                     letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w300,
+                                    fontWeight: FontWeight.normal,
                                   ),
                         ),
                       ),

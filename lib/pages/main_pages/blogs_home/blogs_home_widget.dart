@@ -180,7 +180,7 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                               FlutterFlowTheme.of(context)
                                                   .bodyMedium
                                                   .override(
-                                                    fontFamily: 'Inter',
+                                                    fontFamily: 'Roboto',
                                                     color: Color(0xFF070707),
                                                     letterSpacing: 0.0,
                                                   ),
@@ -231,7 +231,7 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Inter',
+                                              fontFamily: 'Roboto',
                                               color: Color(0xC4000811),
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
@@ -356,7 +356,7 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Inter',
+                                                fontFamily: 'Roboto',
                                                 fontSize: 23.0,
                                                 letterSpacing: 0.0,
                                               ),
@@ -432,34 +432,32 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                                       FlutterFlowTheme.of(
                                                               context)
                                                           .secondaryBackground,
-                                                  textStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily: 'Inter',
-                                                            color: Colors.white,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.w500,
-                                                          ),
+                                                  textStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Roboto',
+                                                        color: Colors.white,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                      ),
                                                   iconColor: Colors.white,
                                                   iconSize: 15.0,
                                                   elevation: 2.0,
                                                 ),
                                                 unselectedChipStyle: ChipStyle(
                                                   backgroundColor: Colors.white,
-                                                  textStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodySmall
-                                                          .override(
-                                                            fontFamily: 'Inter',
-                                                            color: Colors.black,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.w600,
-                                                          ),
+                                                  textStyle: FlutterFlowTheme
+                                                          .of(context)
+                                                      .bodySmall
+                                                      .override(
+                                                        fontFamily: 'Roboto',
+                                                        color: Colors.black,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                      ),
                                                   iconColor: Colors.black,
                                                   iconSize: 18.0,
                                                   elevation: 0.0,
@@ -718,7 +716,7 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Inter',
+                                        fontFamily: 'Roboto',
                                         fontSize: 23.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
@@ -843,7 +841,7 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                                               .bodyMedium
                                                               .override(
                                                                 fontFamily:
-                                                                    'Inter',
+                                                                    'Roboto',
                                                                 fontSize: 20.0,
                                                                 letterSpacing:
                                                                     0.0,
@@ -871,7 +869,7 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                                               .bodyMedium
                                                               .override(
                                                                 fontFamily:
-                                                                    'Inter',
+                                                                    'Roboto',
                                                                 fontSize: 16.0,
                                                                 letterSpacing:
                                                                     0.0,
@@ -891,7 +889,7 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                                             .bodyMedium
                                                             .override(
                                                               fontFamily:
-                                                                  'Inter',
+                                                                  'Roboto',
                                                               color:
                                                                   Colors.black,
                                                               letterSpacing:
@@ -938,7 +936,7 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                                                     .titleSmall
                                                                     .override(
                                                                       fontFamily:
-                                                                          'Inter',
+                                                                          'Roboto',
                                                                       color: Colors
                                                                           .white,
                                                                       fontSize:

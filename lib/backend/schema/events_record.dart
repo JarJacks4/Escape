@@ -66,6 +66,11 @@ class EventsRecord extends FirestoreRecord {
   List<String> get participants => _participants ?? const [];
   bool hasParticipants() => _participants != null;
 
+  // "eventPrice" field.
+  double? _eventPrice;
+  double get eventPrice => _eventPrice ?? 0.0;
+  bool hasEventPrice() => _eventPrice != null;
+
   DocumentReference get parentReference => reference.parent.parent!;
 
   void _initializeFields() {
@@ -79,6 +84,7 @@ class EventsRecord extends FirestoreRecord {
     _eventImage = snapshotData['eventImage'] as String?;
     _organizerID = snapshotData['organizerID'] as String?;
     _participants = getDataList(snapshotData['participants']);
+    _eventPrice = castToType<double>(snapshotData['eventPrice']);
   }
 
   static Query<Map<String, dynamic>> collection([DocumentReference? parent]) =>
@@ -129,6 +135,7 @@ Map<String, dynamic> createEventsRecordData({
   String? eventCategory,
   String? eventImage,
   String? organizerID,
+  double? eventPrice,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -141,6 +148,7 @@ Map<String, dynamic> createEventsRecordData({
       'eventCategory': eventCategory,
       'eventImage': eventImage,
       'organizerID': organizerID,
+      'eventPrice': eventPrice,
     }.withoutNulls,
   );
 
@@ -162,7 +170,8 @@ class EventsRecordDocumentEquality implements Equality<EventsRecord> {
         e1?.eventCategory == e2?.eventCategory &&
         e1?.eventImage == e2?.eventImage &&
         e1?.organizerID == e2?.organizerID &&
-        listEquality.equals(e1?.participants, e2?.participants);
+        listEquality.equals(e1?.participants, e2?.participants) &&
+        e1?.eventPrice == e2?.eventPrice;
   }
 
   @override
@@ -176,7 +185,8 @@ class EventsRecordDocumentEquality implements Equality<EventsRecord> {
         e?.eventCategory,
         e?.eventImage,
         e?.organizerID,
-        e?.participants
+        e?.participants,
+        e?.eventPrice
       ]);
 
   @override

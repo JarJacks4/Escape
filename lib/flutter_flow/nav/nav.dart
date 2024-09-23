@@ -115,11 +115,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => RegisterSignUpWidget(),
         ),
         FFRoute(
-          name: 'SoundsDetailsArtist',
-          path: '/soundsDetailsArtist',
-          builder: (context, params) => SoundsDetailsArtistWidget(),
-        ),
-        FFRoute(
           name: 'SoundsPageMain',
           path: '/soundsPageMain',
           builder: (context, params) => params.isEmpty
@@ -151,26 +146,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'MusicPlayer',
           path: '/musicPlayer',
           builder: (context, params) => MusicPlayerWidget(),
-        ),
-        FFRoute(
-          name: 'SoundsDetailsAlbums',
-          path: '/soundsDetailsAlbums',
-          builder: (context, params) => SoundsDetailsAlbumsWidget(),
-        ),
-        FFRoute(
-          name: 'SoundsDetailsMetaphysics',
-          path: '/soundsDetailsMetaphysics',
-          builder: (context, params) => SoundsDetailsMetaphysicsWidget(),
-        ),
-        FFRoute(
-          name: 'SoundsDetailsSleep',
-          path: '/soundsDetailsSleep',
-          builder: (context, params) => SoundsDetailsSleepWidget(),
-        ),
-        FFRoute(
-          name: 'SoundsDetailsKids',
-          path: '/soundsDetailsKids',
-          builder: (context, params) => SoundsDetailsKidsWidget(),
         ),
         FFRoute(
           name: 'SoundsDetailsPlaylists',
@@ -281,6 +256,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => StartLogoScreenWidget(),
         ),
         FFRoute(
+          name: 'ProfilePage2',
+          path: '/profilePage2',
+          builder: (context, params) => ProfilePage2Widget(),
+        ),
+        FFRoute(
           name: 'EventsFINAL',
           path: '/eventsFINAL',
           builder: (context, params) => EventsFINALWidget(
@@ -296,9 +276,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               'eventDescription',
               ParamType.String,
             ),
-            eventLocation: params.getParam(
-              'eventLocation',
-              ParamType.String,
+            eventPrice: params.getParam(
+              'eventPrice',
+              ParamType.double,
             ),
           ),
         ),
@@ -313,14 +293,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => UpliftandAwarenessWidget(),
         ),
         FFRoute(
-          name: 'VideoPlayer',
-          path: '/videoPlayer',
-          builder: (context, params) => VideoPlayerWidget(
-            videoId: params.getParam(
-              'videoId',
-              ParamType.String,
-            ),
-          ),
+          name: 'IncreaseFocus',
+          path: '/increaseFocus',
+          builder: (context, params) => IncreaseFocusWidget(),
         ),
         FFRoute(
           name: 'SoundsDetailsAmbientMusic',
@@ -353,18 +328,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => NotificationsScreenWidget(),
         ),
         FFRoute(
-          name: 'UserCommunityPageViewFINAL',
-          path: '/userCommunityPageViewFINAL',
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'UserCommunityPageViewFINAL')
-              : UserCommunityPageViewFINALWidget(),
-        ),
-        FFRoute(
-          name: 'SoundsDetailsAlbumsCopy',
-          path: '/soundsDetailsAlbumsCopy',
-          builder: (context, params) => SoundsDetailsAlbumsCopyWidget(),
-        ),
-        FFRoute(
           name: 'EventsFirstPage',
           path: '/eventsFirstPage',
           builder: (context, params) => EventsFirstPageWidget(),
@@ -378,36 +341,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'fetchapi',
           path: '/fetchapi',
           builder: (context, params) => FetchapiWidget(),
-        ),
-        FFRoute(
-          name: 'VideoPlayerFINAL',
-          path: '/videoPlayerFINAL',
-          builder: (context, params) => VideoPlayerFINALWidget(
-            videoId: params.getParam(
-              'videoId',
-              ParamType.String,
-            ),
-          ),
-        ),
-        FFRoute(
-          name: 'VideoPlayerFINAL2',
-          path: '/videoPlayerFINAL2',
-          builder: (context, params) => VideoPlayerFINAL2Widget(
-            videoId: params.getParam(
-              'videoId',
-              ParamType.String,
-            ),
-          ),
-        ),
-        FFRoute(
-          name: 'youtubetest',
-          path: '/youtubetest',
-          builder: (context, params) => YoutubetestWidget(
-            videoid: params.getParam(
-              'videoid',
-              ParamType.String,
-            ),
-          ),
         ),
         FFRoute(
           name: 'SoundsDetailsBody',
@@ -425,6 +358,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => UsingVibrationWidget(),
         ),
         FFRoute(
+          name: 'HelpAnxiety',
+          path: '/helpAnxiety',
+          builder: (context, params) => HelpAnxietyWidget(),
+        ),
+        FFRoute(
           name: 'KemeticYoga',
           path: '/kemeticYoga',
           builder: (context, params) => KemeticYogaWidget(),
@@ -440,39 +378,120 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => BeginnersYogaWidget(),
         ),
         FFRoute(
-          name: 'youtubetestCopy',
-          path: '/youtubetestCopy',
-          builder: (context, params) => YoutubetestCopyWidget(
-            videoId: params.getParam(
-              'videoId',
+          name: 'youtubetestFINAL',
+          path: '/youtubetestFINAL',
+          builder: (context, params) => YoutubetestFINALWidget(
+            videoid: params.getParam(
+              'videoid',
+              ParamType.String,
+            ),
+            description: params.getParam(
+              'description',
+              ParamType.String,
+            ),
+            channelTitle: params.getParam(
+              'channelTitle',
+              ParamType.String,
+            ),
+            videoTitle: params.getParam(
+              'videoTitle',
               ParamType.String,
             ),
           ),
         ),
         FFRoute(
-          name: 'subsciption',
-          path: '/subsciption',
-          builder: (context, params) => SubsciptionWidget(),
+          name: 'SelfCareAIPromo',
+          path: '/selfCareAIPromo',
+          builder: (context, params) => SelfCareAIPromoWidget(),
         ),
         FFRoute(
-          name: 'SubscriptionComp',
-          path: '/subscriptionComp',
-          builder: (context, params) => SubscriptionCompWidget(),
+          name: 'UserCommunityPageViewFINALCopy',
+          path: '/userCommunityPageViewFINALCopy',
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'UserCommunityPageViewFINALCopy')
+              : UserCommunityPageViewFINALCopyWidget(),
         ),
         FFRoute(
-          name: 'IncreaseFocusFINAL',
-          path: '/increaseFocusFINAL',
-          builder: (context, params) => IncreaseFocusFINALWidget(),
+          name: 'SoundsDetailsFireSounds',
+          path: '/soundsDetailsFireSounds',
+          builder: (context, params) => SoundsDetailsFireSoundsWidget(),
         ),
         FFRoute(
-          name: 'ClassesAndEvents',
-          path: '/classesAndEvents',
-          builder: (context, params) => ClassesAndEventsWidget(),
+          name: 'SoundsDetailsThunderstorms',
+          path: '/soundsDetailsThunderstorms',
+          builder: (context, params) => SoundsDetailsThunderstormsWidget(),
         ),
         FFRoute(
-          name: 'HelpAnxiety',
-          path: '/helpAnxiety',
-          builder: (context, params) => HelpAnxietyWidget(),
+          name: 'SoundsDetailsTaiChiForm8',
+          path: '/soundsDetailsTaiChiForm8',
+          builder: (context, params) => SoundsDetailsTaiChiForm8Widget(),
+        ),
+        FFRoute(
+          name: 'SoundsDetailsTaiChQigong',
+          path: '/soundsDetailsTaiChQigong',
+          builder: (context, params) => SoundsDetailsTaiChQigongWidget(),
+        ),
+        FFRoute(
+          name: 'SoundsDetailsTaiChMindfulness',
+          path: '/soundsDetailsTaiChMindfulness',
+          builder: (context, params) => SoundsDetailsTaiChMindfulnessWidget(),
+        ),
+        FFRoute(
+          name: 'SoundsDetailsTaiChSpirit',
+          path: '/soundsDetailsTaiChSpirit',
+          builder: (context, params) => SoundsDetailsTaiChSpiritWidget(),
+        ),
+        FFRoute(
+          name: 'SoundsDetailsDarkAmbient',
+          path: '/soundsDetailsDarkAmbient',
+          builder: (context, params) => SoundsDetailsDarkAmbientWidget(),
+        ),
+        FFRoute(
+          name: 'EventsAndClassesFirstPageFINAL',
+          path: '/eventsAndClassesFirstPageFINAL',
+          builder: (context, params) => EventsAndClassesFirstPageFINALWidget(),
+        ),
+        FFRoute(
+          name: 'ClassesFINAL',
+          path: '/classesFINAL',
+          builder: (context, params) => ClassesFINALWidget(
+            classesName: params.getParam(
+              'classesName',
+              ParamType.String,
+            ),
+            classDate: params.getParam(
+              'classDate',
+              ParamType.String,
+            ),
+            classDescription: params.getParam(
+              'classDescription',
+              ParamType.String,
+            ),
+            classPrice: params.getParam(
+              'classPrice',
+              ParamType.double,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: 'SoundsDetailsGuidedMeditations',
+          path: '/soundsDetailsGuidedMeditations',
+          builder: (context, params) => SoundsDetailsGuidedMeditationsWidget(),
+        ),
+        FFRoute(
+          name: 'SoundsDetailsSleep',
+          path: '/soundsDetailsSleep',
+          builder: (context, params) => SoundsDetailsSleepWidget(),
+        ),
+        FFRoute(
+          name: 'SoundsDetailsGrounding',
+          path: '/soundsDetailsGrounding',
+          builder: (context, params) => SoundsDetailsGroundingWidget(),
+        ),
+        FFRoute(
+          name: 'registerSignInFINAL',
+          path: '/register2',
+          builder: (context, params) => RegisterSignInFINALWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

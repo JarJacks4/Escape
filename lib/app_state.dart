@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'flutter_flow/request_manager.dart';
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import 'backend/api_requests/api_manager.dart';
@@ -19,12 +18,24 @@ class FFAppState extends ChangeNotifier {
     _instance = FFAppState._internal();
   }
 
-  Future initializePersistedState() async {}
+  Future initializePersistedState() async {
+    prefs = await SharedPreferences.getInstance();
+    _safeInit(() {
+      _sampleSongsEpidemic =
+          prefs.getStringList('ff_sampleSongsEpidemic') ?? _sampleSongsEpidemic;
+    });
+    _safeInit(() {
+      _uploadedSongs =
+          prefs.getString('ff_uploadedSongs')?.ref ?? _uploadedSongs;
+    });
+  }
 
   void update(VoidCallback callback) {
     callback();
     notifyListeners();
   }
+
+  late SharedPreferences prefs;
 
   String _ProfilePicture = '';
   String get ProfilePicture => _ProfilePicture;
@@ -61,18 +72,59 @@ class FFAppState extends ChangeNotifier {
     TherapistLocation.insert(index, value);
   }
 
-  final _increaseFocusManager = FutureRequestManager<ApiCallResponse>();
-  Future<ApiCallResponse> increaseFocus({
-    String? uniqueQueryKey,
-    bool? overrideCache,
-    required Future<ApiCallResponse> Function() requestFn,
-  }) =>
-      _increaseFocusManager.performRequest(
-        uniqueQueryKey: uniqueQueryKey,
-        overrideCache: overrideCache,
-        requestFn: requestFn,
-      );
-  void clearIncreaseFocusCache() => _increaseFocusManager.clear();
-  void clearIncreaseFocusCacheKey(String? uniqueKey) =>
-      _increaseFocusManager.clearRequest(uniqueKey);
+  List<String> _sampleSongsEpidemic = ['gs://escape-ujuzxr.appspot.com'];
+  List<String> get sampleSongsEpidemic => _sampleSongsEpidemic;
+  set sampleSongsEpidemic(List<String> value) {
+    _sampleSongsEpidemic = value;
+    prefs.setStringList('ff_sampleSongsEpidemic', value);
+  }
+
+  void addToSampleSongsEpidemic(String value) {
+    sampleSongsEpidemic.add(value);
+    prefs.setStringList('ff_sampleSongsEpidemic', _sampleSongsEpidemic);
+  }
+
+  void removeFromSampleSongsEpidemic(String value) {
+    sampleSongsEpidemic.remove(value);
+    prefs.setStringList('ff_sampleSongsEpidemic', _sampleSongsEpidemic);
+  }
+
+  void removeAtIndexFromSampleSongsEpidemic(int index) {
+    sampleSongsEpidemic.removeAt(index);
+    prefs.setStringList('ff_sampleSongsEpidemic', _sampleSongsEpidemic);
+  }
+
+  void updateSampleSongsEpidemicAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    sampleSongsEpidemic[index] = updateFn(_sampleSongsEpidemic[index]);
+    prefs.setStringList('ff_sampleSongsEpidemic', _sampleSongsEpidemic);
+  }
+
+  void insertAtIndexInSampleSongsEpidemic(int index, String value) {
+    sampleSongsEpidemic.insert(index, value);
+    prefs.setStringList('ff_sampleSongsEpidemic', _sampleSongsEpidemic);
+  }
+
+  DocumentReference? _uploadedSongs;
+  DocumentReference? get uploadedSongs => _uploadedSongs;
+  set uploadedSongs(DocumentReference? value) {
+    _uploadedSongs = value;
+    value != null
+        ? prefs.setString('ff_uploadedSongs', value.path)
+        : prefs.remove('ff_uploadedSongs');
+  }
+}
+
+void _safeInit(Function() initializeField) {
+  try {
+    initializeField();
+  } catch (_) {}
+}
+
+Future _safeInitAsync(Function() initializeField) async {
+  try {
+    await initializeField();
+  } catch (_) {}
 }

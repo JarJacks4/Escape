@@ -1,15 +1,16 @@
 import '/backend/api_requests/api_calls.dart';
-import '/components/videoplayer_comp_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/meditation_and_sounds/music_player_comp/music_player_comp_widget.dart';
+import 'dart:math';
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:webviewx_plus/webviewx_plus.dart';
 import 'sounds_details_body_model.dart';
 export 'sounds_details_body_model.dart';
 
@@ -21,10 +22,13 @@ class SoundsDetailsBodyWidget extends StatefulWidget {
       _SoundsDetailsBodyWidgetState();
 }
 
-class _SoundsDetailsBodyWidgetState extends State<SoundsDetailsBodyWidget> {
+class _SoundsDetailsBodyWidgetState extends State<SoundsDetailsBodyWidget>
+    with TickerProviderStateMixin {
   late SoundsDetailsBodyModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -33,6 +37,46 @@ class _SoundsDetailsBodyWidgetState extends State<SoundsDetailsBodyWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'SoundsDetailsBody'});
+    animationsMap.addAll({
+      'stackOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'listViewOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -120,12 +164,10 @@ class _SoundsDetailsBodyWidgetState extends State<SoundsDetailsBodyWidget> {
                             decoration: BoxDecoration(
                               gradient: LinearGradient(
                                 colors: [
-                                  Color(0xFF39EFED),
-                                  FlutterFlowTheme.of(context)
-                                      .primaryBackground,
-                                  Color(0xFFEB0D70)
+                                  Color(0xFF39B3EF),
+                                  FlutterFlowTheme.of(context).primaryBackground
                                 ],
-                                stops: [0.0, 1.0, 1.0],
+                                stops: [0.0, 1.0],
                                 begin: AlignmentDirectional(1.0, -0.77),
                                 end: AlignmentDirectional(-1.0, 0.77),
                               ),
@@ -148,9 +190,9 @@ class _SoundsDetailsBodyWidgetState extends State<SoundsDetailsBodyWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Inter',
+                                          fontFamily: 'Roboto',
                                           color: FlutterFlowTheme.of(context)
-                                              .primary,
+                                              .primaryBackground,
                                           fontSize: 90.0,
                                           letterSpacing: 0.0,
                                           lineHeight: 0.6,
@@ -164,6 +206,8 @@ class _SoundsDetailsBodyWidgetState extends State<SoundsDetailsBodyWidget> {
                                         10.0, 55.0, 10.0, 10.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
                                       children: [
                                         FlutterFlowIconButton(
                                           borderColor: Colors.transparent,
@@ -184,12 +228,53 @@ class _SoundsDetailsBodyWidgetState extends State<SoundsDetailsBodyWidget> {
                                             context.safePop();
                                           },
                                         ),
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            logFirebaseEvent(
+                                                'SOUNDS_DETAILS_BODY_Image_upqbufe9_ON_TA');
+                                            logFirebaseEvent(
+                                                'Image_navigate_to');
+
+                                            context.pushNamed(
+                                              'NewHome',
+                                              extra: <String, dynamic>{
+                                                kTransitionInfoKey:
+                                                    TransitionInfo(
+                                                  hasTransition: true,
+                                                  transitionType:
+                                                      PageTransitionType.fade,
+                                                  duration:
+                                                      Duration(milliseconds: 2),
+                                                ),
+                                              },
+                                            );
+                                          },
+                                          child: Hero(
+                                            tag: 'logo',
+                                            transitionOnUserGestures: true,
+                                            child: ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                              child: Image.asset(
+                                                'assets/images/ESCAPE_Logo_Clear.png',
+                                                width: 108.0,
+                                                height: 94.0,
+                                                fit: BoxFit.contain,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
                                       ],
                                     ),
                                   ),
                                 ),
                               ],
-                            ),
+                            ).animateOnPageLoad(
+                                animationsMap['stackOnPageLoadAnimation']!),
                           ),
                         ),
                         Container(
@@ -197,7 +282,7 @@ class _SoundsDetailsBodyWidgetState extends State<SoundsDetailsBodyWidget> {
                           height: 692.0,
                           decoration: BoxDecoration(),
                           child: FutureBuilder<ApiCallResponse>(
-                            future: YouTubeDataAPIBaseCall.call(),
+                            future: YouTubeDataYogaAPICall.call(),
                             builder: (context, snapshot) {
                               // Customize what your widget looks like when it's loading.
                               if (!snapshot.hasData) {
@@ -213,13 +298,13 @@ class _SoundsDetailsBodyWidgetState extends State<SoundsDetailsBodyWidget> {
                                   ),
                                 );
                               }
-                              final listViewYouTubeDataAPIBaseResponse =
+                              final listViewYouTubeDataYogaAPIResponse =
                                   snapshot.data!;
 
                               return Builder(
                                 builder: (context) {
                                   final binauralBeatsItems = getJsonField(
-                                    listViewYouTubeDataAPIBaseResponse.jsonBody,
+                                    listViewYouTubeDataYogaAPIResponse.jsonBody,
                                     r'''$.items[:].snippet''',
                                   ).toList().take(100).toList();
 
@@ -264,7 +349,7 @@ class _SoundsDetailsBodyWidgetState extends State<SoundsDetailsBodyWidget> {
                                               Hero(
                                                 tag: getJsonField(
                                                   binauralBeatsItemsItem,
-                                                  r'''$.snippetThumbnailsDefault''',
+                                                  r'''$.thumbnails.default.url''',
                                                 ).toString(),
                                                 transitionOnUserGestures: true,
                                                 child: ClipRRect(
@@ -282,7 +367,7 @@ class _SoundsDetailsBodyWidgetState extends State<SoundsDetailsBodyWidget> {
                                                   child: Image.network(
                                                     getJsonField(
                                                       binauralBeatsItemsItem,
-                                                      r'''$.snippetThumbnailsDefault''',
+                                                      r'''$.thumbnails.default.url''',
                                                     ).toString(),
                                                     width: 112.0,
                                                     height: 112.0,
@@ -318,7 +403,7 @@ class _SoundsDetailsBodyWidgetState extends State<SoundsDetailsBodyWidget> {
                                                     Text(
                                                       getJsonField(
                                                         binauralBeatsItemsItem,
-                                                        r'''$.items[:].snippet.title''',
+                                                        r'''$.title''',
                                                       ).toString(),
                                                       style: FlutterFlowTheme
                                                               .of(context)
@@ -345,7 +430,7 @@ class _SoundsDetailsBodyWidgetState extends State<SoundsDetailsBodyWidget> {
                                                       child: Text(
                                                         getJsonField(
                                                           binauralBeatsItemsItem,
-                                                          r'''$.items[:].snippet.channelTitle''',
+                                                          r'''$.channelTitle''',
                                                         ).toString(),
                                                         style: FlutterFlowTheme
                                                                 .of(context)
@@ -385,47 +470,63 @@ class _SoundsDetailsBodyWidgetState extends State<SoundsDetailsBodyWidget> {
                                                           logFirebaseEvent(
                                                               'SOUNDS_DETAILS_BODY_Text_d2wuyb9o_ON_TAP');
                                                           logFirebaseEvent(
-                                                              'Text_bottom_sheet');
-                                                          await showModalBottomSheet(
-                                                            isScrollControlled:
-                                                                true,
-                                                            backgroundColor:
-                                                                Colors
-                                                                    .transparent,
-                                                            context: context,
-                                                            builder: (context) {
-                                                              return WebViewAware(
-                                                                child:
-                                                                    GestureDetector(
-                                                                  onTap: () =>
-                                                                      FocusScope.of(
-                                                                              context)
-                                                                          .unfocus(),
-                                                                  child:
-                                                                      Padding(
-                                                                    padding: MediaQuery
-                                                                        .viewInsetsOf(
-                                                                            context),
-                                                                    child:
-                                                                        Container(
-                                                                      height: double
-                                                                          .infinity,
-                                                                      child:
-                                                                          VideoplayerCompWidget(
-                                                                        parameter1:
-                                                                            getJsonField(
-                                                                          binauralBeatsItemsItem,
-                                                                          r'''$.resource.videoId''',
-                                                                        ).toString(),
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              );
+                                                              'Text_navigate_to');
+
+                                                          context.pushNamed(
+                                                            'youtubetestFINAL',
+                                                            queryParameters: {
+                                                              'videoid':
+                                                                  serializeParam(
+                                                                getJsonField(
+                                                                  binauralBeatsItemsItem,
+                                                                  r'''$.resourceid.videoid''',
+                                                                ).toString(),
+                                                                ParamType
+                                                                    .String,
+                                                              ),
+                                                              'description':
+                                                                  serializeParam(
+                                                                getJsonField(
+                                                                  binauralBeatsItemsItem,
+                                                                  r'''$.description''',
+                                                                ).toString(),
+                                                                ParamType
+                                                                    .String,
+                                                              ),
+                                                              'channelTitle':
+                                                                  serializeParam(
+                                                                getJsonField(
+                                                                  binauralBeatsItemsItem,
+                                                                  r'''$.channelTitle''',
+                                                                ).toString(),
+                                                                ParamType
+                                                                    .String,
+                                                              ),
+                                                              'videoTitle':
+                                                                  serializeParam(
+                                                                getJsonField(
+                                                                  binauralBeatsItemsItem,
+                                                                  r'''$.title''',
+                                                                ).toString(),
+                                                                ParamType
+                                                                    .String,
+                                                              ),
+                                                            }.withoutNulls,
+                                                            extra: <String,
+                                                                dynamic>{
+                                                              kTransitionInfoKey:
+                                                                  TransitionInfo(
+                                                                hasTransition:
+                                                                    true,
+                                                                transitionType:
+                                                                    PageTransitionType
+                                                                        .fade,
+                                                                duration: Duration(
+                                                                    milliseconds:
+                                                                        2),
+                                                              ),
                                                             },
-                                                          ).then((value) =>
-                                                              safeSetState(
-                                                                  () {}));
+                                                          );
                                                         },
                                                         child: Text(
                                                           FFLocalizations.of(
@@ -454,77 +555,13 @@ class _SoundsDetailsBodyWidgetState extends State<SoundsDetailsBodyWidget> {
                                                   ],
                                                 ),
                                               ),
-                                              Expanded(
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.end,
-                                                  children: [
-                                                    FlutterFlowIconButton(
-                                                      borderColor:
-                                                          Colors.transparent,
-                                                      borderRadius: 30.0,
-                                                      borderWidth: 1.0,
-                                                      buttonSize: 60.0,
-                                                      icon: Icon(
-                                                        Icons
-                                                            .play_circle_outline_rounded,
-                                                        color:
-                                                            Color(0xF3E00B67),
-                                                        size: 30.0,
-                                                      ),
-                                                      onPressed: () async {
-                                                        logFirebaseEvent(
-                                                            'SOUNDS_DETAILS_BODY_play_circle_outline_');
-                                                        logFirebaseEvent(
-                                                            'IconButton_bottom_sheet');
-                                                        await showModalBottomSheet(
-                                                          isScrollControlled:
-                                                              true,
-                                                          backgroundColor:
-                                                              Colors
-                                                                  .transparent,
-                                                          barrierColor:
-                                                              Color(0x00000000),
-                                                          context: context,
-                                                          builder: (context) {
-                                                            return WebViewAware(
-                                                              child:
-                                                                  GestureDetector(
-                                                                onTap: () =>
-                                                                    FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
-                                                                child: Padding(
-                                                                  padding: MediaQuery
-                                                                      .viewInsetsOf(
-                                                                          context),
-                                                                  child:
-                                                                      Container(
-                                                                    height: double
-                                                                        .infinity,
-                                                                    child:
-                                                                        MusicPlayerCompWidget(),
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                            );
-                                                          },
-                                                        ).then((value) =>
-                                                            safeSetState(
-                                                                () {}));
-                                                      },
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
                                             ],
                                           ),
                                         ),
                                       );
                                     },
-                                  );
+                                  ).animateOnPageLoad(animationsMap[
+                                      'listViewOnPageLoadAnimation']!);
                                 },
                               );
                             },

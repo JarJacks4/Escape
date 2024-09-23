@@ -1,6 +1,9 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/learning_to_meditate/meditation_carousel/meditation_carousel_widget.dart';
+import '/meditation_and_sounds/environment_choice_carousel/environment_choice_carousel_widget.dart';
+import '/meditation_and_sounds/time_carousel_copy/time_carousel_copy_widget.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'timed_meditations_widget.dart' show TimedMeditationsWidget;
@@ -20,10 +23,26 @@ class TimedMeditationsModel extends FlutterFlowModel<TimedMeditationsWidget> {
           pageViewController!.page != null
       ? pageViewController!.page!.round()
       : 0;
+  // Model for EnvironmentChoiceCarousel component.
+  late EnvironmentChoiceCarouselModel environmentChoiceCarouselModel;
+  // Model for TimeCarouselCopy component.
+  late TimeCarouselCopyModel timeCarouselCopyModel;
+  // Model for MeditationCarousel component.
+  late MeditationCarouselModel meditationCarouselModel;
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    environmentChoiceCarouselModel =
+        createModel(context, () => EnvironmentChoiceCarouselModel());
+    timeCarouselCopyModel = createModel(context, () => TimeCarouselCopyModel());
+    meditationCarouselModel =
+        createModel(context, () => MeditationCarouselModel());
+  }
 
   @override
-  void dispose() {}
+  void dispose() {
+    environmentChoiceCarouselModel.dispose();
+    timeCarouselCopyModel.dispose();
+    meditationCarouselModel.dispose();
+  }
 }

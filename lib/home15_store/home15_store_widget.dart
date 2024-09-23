@@ -208,7 +208,7 @@ class _Home15StoreWidgetState extends State<Home15StoreWidget>
               't6pbdeup' /* Self-Care Products */,
             ),
             style: FlutterFlowTheme.of(context).displaySmall.override(
-                  fontFamily: 'Readex Pro',
+                  fontFamily: 'Roboto',
                   color: FlutterFlowTheme.of(context).primaryText,
                   letterSpacing: 0.0,
                 ),
@@ -249,7 +249,7 @@ class _Home15StoreWidgetState extends State<Home15StoreWidget>
                         '2i3nk2ra' /* Items uploaded by providers */,
                       ),
                       style: FlutterFlowTheme.of(context).labelMedium.override(
-                            fontFamily: 'Inter',
+                            fontFamily: 'Roboto',
                             letterSpacing: 0.0,
                           ),
                     ),
@@ -359,7 +359,7 @@ class _Home15StoreWidgetState extends State<Home15StoreWidget>
                       ),
                       style:
                           FlutterFlowTheme.of(context).headlineSmall.override(
-                                fontFamily: 'Readex Pro',
+                                fontFamily: 'Roboto',
                                 letterSpacing: 0.0,
                               ),
                     ),
@@ -376,7 +376,7 @@ class _Home15StoreWidgetState extends State<Home15StoreWidget>
                         'aayfh2sn' /* Find the latest look in our re... */,
                       ),
                       style: FlutterFlowTheme.of(context).labelMedium.override(
-                            fontFamily: 'Inter',
+                            fontFamily: 'Roboto',
                             letterSpacing: 0.0,
                           ),
                     ),
@@ -470,7 +470,7 @@ class _Home15StoreWidgetState extends State<Home15StoreWidget>
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Inter',
+                                                fontFamily: 'Roboto',
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -490,7 +490,7 @@ class _Home15StoreWidgetState extends State<Home15StoreWidget>
                                           style: FlutterFlowTheme.of(context)
                                               .labelMedium
                                               .override(
-                                                fontFamily: 'Inter',
+                                                fontFamily: 'Roboto',
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -573,7 +573,7 @@ class _Home15StoreWidgetState extends State<Home15StoreWidget>
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Inter',
+                                                fontFamily: 'Roboto',
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -593,7 +593,7 @@ class _Home15StoreWidgetState extends State<Home15StoreWidget>
                                           style: FlutterFlowTheme.of(context)
                                               .labelMedium
                                               .override(
-                                                fontFamily: 'Inter',
+                                                fontFamily: 'Roboto',
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -676,7 +676,7 @@ class _Home15StoreWidgetState extends State<Home15StoreWidget>
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Inter',
+                                                fontFamily: 'Roboto',
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -696,7 +696,7 @@ class _Home15StoreWidgetState extends State<Home15StoreWidget>
                                           style: FlutterFlowTheme.of(context)
                                               .labelMedium
                                               .override(
-                                                fontFamily: 'Inter',
+                                                fontFamily: 'Roboto',
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
@@ -727,7 +727,7 @@ class _Home15StoreWidgetState extends State<Home15StoreWidget>
                           ),
                           style:
                               FlutterFlowTheme.of(context).bodyLarge.override(
-                                    fontFamily: 'Inter',
+                                    fontFamily: 'Roboto',
                                     letterSpacing: 0.0,
                                   ),
                         ),

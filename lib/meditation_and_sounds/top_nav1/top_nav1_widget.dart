@@ -136,7 +136,7 @@ class _TopNav1WidgetState extends State<TopNav1Widget> {
                                           style: FlutterFlowTheme.of(context)
                                               .titleSmall
                                               .override(
-                                                fontFamily: 'Inter',
+                                                fontFamily: 'Roboto',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondary,
@@ -215,7 +215,7 @@ class _TopNav1WidgetState extends State<TopNav1Widget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
                                           .override(
-                                            fontFamily: 'Inter',
+                                            fontFamily: 'Roboto',
                                             letterSpacing: 0.0,
                                           ),
                                     )),
@@ -227,7 +227,7 @@ class _TopNav1WidgetState extends State<TopNav1Widget> {
                                       style: FlutterFlowTheme.of(context)
                                           .labelSmall
                                           .override(
-                                            fontFamily: 'Inter',
+                                            fontFamily: 'Roboto',
                                             letterSpacing: 0.0,
                                           ),
                                     )),

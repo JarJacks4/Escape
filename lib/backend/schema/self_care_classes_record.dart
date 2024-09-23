@@ -61,9 +61,9 @@ class SelfCareClassesRecord extends FirestoreRecord {
   String get classID => _classID ?? '';
   bool hasClassID() => _classID != null;
 
-  // "ProfilePicture" field.
-  String? _profilePicture;
-  String get profilePicture => _profilePicture ?? '';
+  // "profilePicture" field.
+  DocumentReference? _profilePicture;
+  DocumentReference? get profilePicture => _profilePicture;
   bool hasProfilePicture() => _profilePicture != null;
 
   void _initializeFields() {
@@ -76,7 +76,7 @@ class SelfCareClassesRecord extends FirestoreRecord {
     _provider = snapshotData['provider'] as DocumentReference?;
     _reviews = getDataList(snapshotData['reviews']);
     _classID = snapshotData['classID'] as String?;
-    _profilePicture = snapshotData['ProfilePicture'] as String?;
+    _profilePicture = snapshotData['profilePicture'] as DocumentReference?;
   }
 
   static CollectionReference get collection =>
@@ -122,7 +122,7 @@ Map<String, dynamic> createSelfCareClassesRecordData({
   String? location,
   DocumentReference? provider,
   String? classID,
-  String? profilePicture,
+  DocumentReference? profilePicture,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -134,7 +134,7 @@ Map<String, dynamic> createSelfCareClassesRecordData({
       'location': location,
       'provider': provider,
       'classID': classID,
-      'ProfilePicture': profilePicture,
+      'profilePicture': profilePicture,
     }.withoutNulls,
   );
 
