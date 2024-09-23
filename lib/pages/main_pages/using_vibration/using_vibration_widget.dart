@@ -1,9 +1,13 @@
 import '/components/using_vibrationsounds_comp/using_vibrationsounds_comp_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'using_vibration_model.dart';
@@ -16,10 +20,13 @@ class UsingVibrationWidget extends StatefulWidget {
   State<UsingVibrationWidget> createState() => _UsingVibrationWidgetState();
 }
 
-class _UsingVibrationWidgetState extends State<UsingVibrationWidget> {
+class _UsingVibrationWidgetState extends State<UsingVibrationWidget>
+    with TickerProviderStateMixin {
   late UsingVibrationModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -28,6 +35,46 @@ class _UsingVibrationWidgetState extends State<UsingVibrationWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'UsingVibration'});
+    animationsMap.addAll({
+      'columnOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'usingVibrationsoundsCompOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -133,18 +180,38 @@ class _UsingVibrationWidgetState extends State<UsingVibrationWidget> {
                                         context.safePop();
                                       },
                                     ),
-                                    Container(
-                                      width: MediaQuery.sizeOf(context).width *
-                                          0.2,
-                                      height: MediaQuery.sizeOf(context).width *
-                                          0.2,
-                                      clipBehavior: Clip.antiAlias,
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                      ),
-                                      child: Image.asset(
-                                        'assets/images/ESCAPE_Logo_Clear.png',
-                                        fit: BoxFit.cover,
+                                    InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        logFirebaseEvent(
+                                            'USING_VIBRATION_Image_atkc8jyf_ON_TAP');
+                                        logFirebaseEvent('Image_navigate_to');
+
+                                        context.pushNamed(
+                                          'NewHome',
+                                          extra: <String, dynamic>{
+                                            kTransitionInfoKey: TransitionInfo(
+                                              hasTransition: true,
+                                              transitionType:
+                                                  PageTransitionType.fade,
+                                              duration:
+                                                  Duration(milliseconds: 2),
+                                            ),
+                                          },
+                                        );
+                                      },
+                                      child: ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        child: Image.asset(
+                                          'assets/images/ESCAPE_Logo_Clear.png',
+                                          width: 92.0,
+                                          height: 87.0,
+                                          fit: BoxFit.contain,
+                                        ),
                                       ),
                                     ),
                                   ],
@@ -215,7 +282,8 @@ class _UsingVibrationWidgetState extends State<UsingVibrationWidget> {
                         ),
                       ],
                     ),
-                  ),
+                  ).animateOnPageLoad(
+                      animationsMap['columnOnPageLoadAnimation']!),
                 ),
               ),
             ),
@@ -224,7 +292,8 @@ class _UsingVibrationWidgetState extends State<UsingVibrationWidget> {
                 model: _model.usingVibrationsoundsCompModel,
                 updateCallback: () => safeSetState(() {}),
                 child: UsingVibrationsoundsCompWidget(),
-              ),
+              ).animateOnPageLoad(animationsMap[
+                  'usingVibrationsoundsCompOnPageLoadAnimation']!),
             ),
           ],
         ),

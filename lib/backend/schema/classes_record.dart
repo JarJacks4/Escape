@@ -66,6 +66,11 @@ class ClassesRecord extends FirestoreRecord {
   String get profilePicture => _profilePicture ?? '';
   bool hasProfilePicture() => _profilePicture != null;
 
+  // "classPicture" field.
+  String? _classPicture;
+  String get classPicture => _classPicture ?? '';
+  bool hasClassPicture() => _classPicture != null;
+
   DocumentReference get parentReference => reference.parent.parent!;
 
   void _initializeFields() {
@@ -79,6 +84,7 @@ class ClassesRecord extends FirestoreRecord {
     _reviews = getDataList(snapshotData['reviews']);
     _classID = snapshotData['classID'] as String?;
     _profilePicture = snapshotData['ProfilePicture'] as String?;
+    _classPicture = snapshotData['classPicture'] as String?;
   }
 
   static Query<Map<String, dynamic>> collection([DocumentReference? parent]) =>
@@ -130,6 +136,7 @@ Map<String, dynamic> createClassesRecordData({
   DocumentReference? provider,
   String? classID,
   String? profilePicture,
+  String? classPicture,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -142,6 +149,7 @@ Map<String, dynamic> createClassesRecordData({
       'provider': provider,
       'classID': classID,
       'ProfilePicture': profilePicture,
+      'classPicture': classPicture,
     }.withoutNulls,
   );
 
@@ -163,7 +171,8 @@ class ClassesRecordDocumentEquality implements Equality<ClassesRecord> {
         e1?.provider == e2?.provider &&
         listEquality.equals(e1?.reviews, e2?.reviews) &&
         e1?.classID == e2?.classID &&
-        e1?.profilePicture == e2?.profilePicture;
+        e1?.profilePicture == e2?.profilePicture &&
+        e1?.classPicture == e2?.classPicture;
   }
 
   @override
@@ -177,7 +186,8 @@ class ClassesRecordDocumentEquality implements Equality<ClassesRecord> {
         e?.provider,
         e?.reviews,
         e?.classID,
-        e?.profilePicture
+        e?.profilePicture,
+        e?.classPicture
       ]);
 
   @override

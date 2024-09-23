@@ -67,34 +67,11 @@ class _HeaderProviderCommunityWidgetState
                               FlutterFlowTheme.of(context).secondaryBackground,
                           fontSize: 36.0,
                           letterSpacing: 0.0,
-                          fontWeight: FontWeight.w300,
+                          fontWeight: FontWeight.w500,
                         ),
                   ),
                 ],
               ),
-            ),
-            Align(
-              alignment: AlignmentDirectional(0.0, 0.0),
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(11.0, 0.0, 24.0, 0.0),
-                child: Text(
-                  FFLocalizations.of(context).getText(
-                    'xz5yc6o2' /* See what we have to offer in o... */,
-                  ),
-                  textAlign: TextAlign.start,
-                  style: FlutterFlowTheme.of(context).labelMedium.override(
-                        fontFamily: 'Roboto',
-                        color: FlutterFlowTheme.of(context).primary,
-                        fontSize: 22.0,
-                        letterSpacing: 0.0,
-                        fontWeight: FontWeight.w300,
-                      ),
-                ),
-              ),
-            ),
-            Divider(
-              thickness: 1.0,
-              color: FlutterFlowTheme.of(context).secondary,
             ),
           ],
         ),

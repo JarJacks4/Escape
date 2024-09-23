@@ -145,7 +145,7 @@ class _Card14VideoWidgetState extends State<Card14VideoWidget>
                       '439c9p3r' /* Learn to breath */,
                     ),
                     style: FlutterFlowTheme.of(context).bodyLarge.override(
-                          fontFamily: 'Inter',
+                          fontFamily: 'Roboto',
                           letterSpacing: 0.0,
                         ),
                   ),
@@ -156,7 +156,7 @@ class _Card14VideoWidgetState extends State<Card14VideoWidget>
                         'lrm9cuzw' /* 4 Min */,
                       ),
                       style: FlutterFlowTheme.of(context).labelSmall.override(
-                            fontFamily: 'Inter',
+                            fontFamily: 'Roboto',
                             letterSpacing: 0.0,
                           ),
                     ),
@@ -182,7 +182,7 @@ class _Card14VideoWidgetState extends State<Card14VideoWidget>
                           ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Inter',
+                                    fontFamily: 'Roboto',
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
                                     letterSpacing: 0.0,

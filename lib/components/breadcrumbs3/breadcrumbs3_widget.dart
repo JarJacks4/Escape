@@ -87,7 +87,7 @@ class _Breadcrumbs3WidgetState extends State<Breadcrumbs3Widget> {
                         '8fzrewdd' /* Page Title */,
                       ),
                       style: FlutterFlowTheme.of(context).labelLarge.override(
-                            fontFamily: 'Inter',
+                            fontFamily: 'Roboto',
                             color: FlutterFlowTheme.of(context).accent3,
                             letterSpacing: 0.0,
                           ),
@@ -119,7 +119,7 @@ class _Breadcrumbs3WidgetState extends State<Breadcrumbs3Widget> {
                         '4lj1hjvj' /* Page Details */,
                       ),
                       style: FlutterFlowTheme.of(context).bodyLarge.override(
-                            fontFamily: 'Inter',
+                            fontFamily: 'Roboto',
                             color:
                                 FlutterFlowTheme.of(context).primaryBackground,
                             letterSpacing: 0.0,

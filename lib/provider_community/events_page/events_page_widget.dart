@@ -72,7 +72,7 @@ class _EventsPageWidgetState extends State<EventsPageWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .headlineMedium
                                     .override(
-                                      fontFamily: 'Readex Pro',
+                                      fontFamily: 'Roboto',
                                       letterSpacing: 0.0,
                                     ),
                               ),
@@ -121,7 +121,7 @@ class _EventsPageWidgetState extends State<EventsPageWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .labelMedium
                                     .override(
-                                      fontFamily: 'Inter',
+                                      fontFamily: 'Roboto',
                                       letterSpacing: 0.0,
                                     ),
                               ),
@@ -148,7 +148,7 @@ class _EventsPageWidgetState extends State<EventsPageWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .headlineSmall
                                       .override(
-                                        fontFamily: 'Readex Pro',
+                                        fontFamily: 'Roboto',
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -170,7 +170,7 @@ class _EventsPageWidgetState extends State<EventsPageWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          fontFamily: 'Inter',
+                                          fontFamily: 'Roboto',
                                           letterSpacing: 0.0,
                                         ),
                                   ),
@@ -189,7 +189,7 @@ class _EventsPageWidgetState extends State<EventsPageWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
-                                            fontFamily: 'Inter',
+                                            fontFamily: 'Roboto',
                                             letterSpacing: 0.0,
                                           ),
                                     ),
@@ -222,7 +222,7 @@ class _EventsPageWidgetState extends State<EventsPageWidget> {
                           ),
                           style:
                               FlutterFlowTheme.of(context).labelLarge.override(
-                                    fontFamily: 'Inter',
+                                    fontFamily: 'Roboto',
                                     letterSpacing: 0.0,
                                   ),
                         ),
@@ -284,7 +284,7 @@ class _EventsPageWidgetState extends State<EventsPageWidget> {
                           ),
                           style:
                               FlutterFlowTheme.of(context).labelLarge.override(
-                                    fontFamily: 'Inter',
+                                    fontFamily: 'Roboto',
                                     letterSpacing: 0.0,
                                   ),
                         ),
@@ -299,7 +299,7 @@ class _EventsPageWidgetState extends State<EventsPageWidget> {
                           style: FlutterFlowTheme.of(context)
                               .headlineSmall
                               .override(
-                                fontFamily: 'Readex Pro',
+                                fontFamily: 'Roboto',
                                 letterSpacing: 0.0,
                               ),
                         ),
@@ -313,7 +313,7 @@ class _EventsPageWidgetState extends State<EventsPageWidget> {
                           ),
                           style:
                               FlutterFlowTheme.of(context).labelLarge.override(
-                                    fontFamily: 'Inter',
+                                    fontFamily: 'Roboto',
                                     letterSpacing: 0.0,
                                   ),
                         ),
@@ -355,7 +355,7 @@ class _EventsPageWidgetState extends State<EventsPageWidget> {
                       'f0nblqoi' /* Get Tickets */,
                     ),
                     style: FlutterFlowTheme.of(context).titleSmall.override(
-                          fontFamily: 'Inter',
+                          fontFamily: 'Roboto',
                           letterSpacing: 0.0,
                         ),
                   ),
@@ -390,7 +390,7 @@ class _EventsPageWidgetState extends State<EventsPageWidget> {
                       'h6u0uh7h' /* View in Map */,
                     ),
                     style: FlutterFlowTheme.of(context).bodyLarge.override(
-                          fontFamily: 'Inter',
+                          fontFamily: 'Roboto',
                           color: FlutterFlowTheme.of(context).secondary,
                           letterSpacing: 0.0,
                         ),

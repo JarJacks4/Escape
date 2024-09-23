@@ -192,7 +192,7 @@ class _LearningToMeditatePage1WidgetState
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Inter',
+                                          fontFamily: 'Roboto',
                                           color: FlutterFlowTheme.of(context)
                                               .primaryBackground,
                                           fontSize: 32.0,
@@ -234,7 +234,7 @@ class _LearningToMeditatePage1WidgetState
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Inter',
+                                            fontFamily: 'Roboto',
                                             letterSpacing: 0.0,
                                           ),
                                     ),
@@ -267,7 +267,7 @@ class _LearningToMeditatePage1WidgetState
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Inter',
+                                                  fontFamily: 'Roboto',
                                                   color: Color(0xFF405090),
                                                   fontSize: 12.0,
                                                   letterSpacing: 0.0,
@@ -333,7 +333,7 @@ class _LearningToMeditatePage1WidgetState
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Inter',
+                                                fontFamily: 'Roboto',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryBackground,
@@ -389,7 +389,7 @@ class _LearningToMeditatePage1WidgetState
                                       textStyle: FlutterFlowTheme.of(context)
                                           .titleSmall
                                           .override(
-                                            fontFamily: 'Inter',
+                                            fontFamily: 'Roboto',
                                             color: Colors.white,
                                             letterSpacing: 0.0,
                                           ),

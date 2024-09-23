@@ -132,7 +132,7 @@ class _HeaderMainWidgetState extends State<HeaderMainWidget> {
                       'wcn9386l' /* Hello, */,
                     ),
                     style: FlutterFlowTheme.of(context).displaySmall.override(
-                          fontFamily: 'Readex Pro',
+                          fontFamily: 'Roboto',
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.normal,
                         ),
@@ -144,7 +144,7 @@ class _HeaderMainWidgetState extends State<HeaderMainWidget> {
                         'aig2uvoz' /* Stephanie! */,
                       ),
                       style: FlutterFlowTheme.of(context).displaySmall.override(
-                            fontFamily: 'Readex Pro',
+                            fontFamily: 'Roboto',
                             color: FlutterFlowTheme.of(context).primary,
                             letterSpacing: 0.0,
                           ),
@@ -160,7 +160,7 @@ class _HeaderMainWidgetState extends State<HeaderMainWidget> {
                   '0feil5x0' /* Start or continue your journey... */,
                 ),
                 style: FlutterFlowTheme.of(context).labelMedium.override(
-                      fontFamily: 'Inter',
+                      fontFamily: 'Roboto',
                       fontSize: 20.0,
                       letterSpacing: 0.0,
                     ),

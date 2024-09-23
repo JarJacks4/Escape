@@ -64,10 +64,11 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
                         FFLocalizations.of(context).getText(
                           'r4pfdw58' /* What's your goal? */,
                         ),
+                        textAlign: TextAlign.center,
                         style: FlutterFlowTheme.of(context).titleLarge.override(
-                              fontFamily: 'Readex Pro',
+                              fontFamily: 'Roboto',
                               color: FlutterFlowTheme.of(context).secondary,
-                              fontSize: 20.0,
+                              fontSize: 22.0,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.bold,
                               lineHeight: 1.5,
@@ -81,14 +82,14 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
                             'rvgb019l' /* It will help us categorize con... */,
                           ),
                           textAlign: TextAlign.center,
-                          style: FlutterFlowTheme.of(context)
-                              .bodyLarge
-                              .override(
-                                fontFamily: 'Inter',
-                                color: FlutterFlowTheme.of(context).secondary,
-                                letterSpacing: 0.0,
-                                lineHeight: 1.5,
-                              ),
+                          style:
+                              FlutterFlowTheme.of(context).bodyLarge.override(
+                                    fontFamily: 'Roboto',
+                                    color: Color(0xFF898F98),
+                                    fontSize: 18.0,
+                                    letterSpacing: 0.0,
+                                    lineHeight: 1.5,
+                                  ),
                         ),
                       ),
                     ],
@@ -105,7 +106,22 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
                         child: FlutterFlowSwipeableStack(
                           onSwipeFn: (index) {},
                           onLeftSwipe: (index) {},
-                          onRightSwipe: (index) {},
+                          onRightSwipe: (index) async {
+                            logFirebaseEvent(
+                                'USER_GOALS_SWIPE_STACK_SwipeableStack_3j');
+                            logFirebaseEvent('SwipeableStack_navigate_to');
+
+                            context.goNamed(
+                              'registrationSuccess',
+                              extra: <String, dynamic>{
+                                kTransitionInfoKey: TransitionInfo(
+                                  hasTransition: true,
+                                  transitionType: PageTransitionType.fade,
+                                  duration: Duration(milliseconds: 400),
+                                ),
+                              },
+                            );
+                          },
                           onUpSwipe: (index) {},
                           onDownSwipe: (index) {},
                           itemBuilder: (context, index) {
@@ -183,7 +199,8 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            fontFamily: 'Inter',
+                                                            fontFamily:
+                                                                'Roboto',
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .secondaryBackground,
@@ -258,7 +275,7 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
                                                                         .bodyMedium
                                                                         .override(
                                                                           fontFamily:
-                                                                              'Inter',
+                                                                              'Roboto',
                                                                           color:
                                                                               FlutterFlowTheme.of(context).secondaryBackground,
                                                                           fontSize:
@@ -399,7 +416,7 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Inter',
+                                                        fontFamily: 'Roboto',
                                                         color: Colors.white,
                                                         fontSize: 20.0,
                                                         letterSpacing: 0.0,
@@ -418,7 +435,7 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Inter',
+                                                          fontFamily: 'Roboto',
                                                           color: Colors.white,
                                                           fontSize: 16.0,
                                                           letterSpacing: 0.0,
@@ -492,7 +509,8 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            fontFamily: 'Inter',
+                                                            fontFamily:
+                                                                'Roboto',
                                                             color: Colors.white,
                                                             fontSize: 20.0,
                                                             letterSpacing: 0.0,
@@ -564,7 +582,7 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
                                                                       .bodyMedium
                                                                       .override(
                                                                         fontFamily:
-                                                                            'Inter',
+                                                                            'Roboto',
                                                                         color: Colors
                                                                             .white,
                                                                         fontSize:
@@ -646,7 +664,7 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Inter',
+                                                          fontFamily: 'Roboto',
                                                           color: Colors.white,
                                                           fontSize: 20.0,
                                                           letterSpacing: 0.0,
@@ -717,7 +735,7 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
                                                                       .bodyMedium
                                                                       .override(
                                                                         fontFamily:
-                                                                            'Inter',
+                                                                            'Roboto',
                                                                         color: Colors
                                                                             .white,
                                                                         fontSize:
@@ -805,7 +823,8 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            fontFamily: 'Inter',
+                                                            fontFamily:
+                                                                'Roboto',
                                                             color: FlutterFlowTheme
                                                                     .of(context)
                                                                 .secondaryBackground,
@@ -879,7 +898,7 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
                                                                       .bodyMedium
                                                                       .override(
                                                                         fontFamily:
-                                                                            'Inter',
+                                                                            'Roboto',
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .secondaryBackground,
                                                                         fontSize:

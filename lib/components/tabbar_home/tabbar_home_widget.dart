@@ -63,14 +63,14 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                 useToggleButtonStyle: false,
                 isScrollable: true,
                 labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
-                      fontFamily: 'Inter',
+                      fontFamily: 'Roboto',
                       fontSize: 14.0,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.w500,
                     ),
                 unselectedLabelStyle:
                     FlutterFlowTheme.of(context).labelMedium.override(
-                          fontFamily: 'Inter',
+                          fontFamily: 'Roboto',
                           fontSize: 14.0,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w500,
@@ -299,7 +299,7 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Inter',
+                                                          fontFamily: 'Roboto',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryBackground,
@@ -363,7 +363,7 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Inter',
+                                                          fontFamily: 'Roboto',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryBackground,
@@ -427,7 +427,7 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Inter',
+                                                          fontFamily: 'Roboto',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryBackground,
@@ -491,7 +491,7 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Inter',
+                                                          fontFamily: 'Roboto',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryBackground,

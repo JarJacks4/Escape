@@ -74,7 +74,7 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
                         'gdzxtnqh' /* Let’s complete your profile */,
                       ),
                       style: FlutterFlowTheme.of(context).titleLarge.override(
-                            fontFamily: 'Readex Pro',
+                            fontFamily: 'Roboto',
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
                             fontSize: 20.0,
@@ -88,7 +88,7 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
                         '5i094xyq' /* It will help us to know more a... */,
                       ),
                       style: FlutterFlowTheme.of(context).labelMedium.override(
-                            fontFamily: 'Inter',
+                            fontFamily: 'Roboto',
                             color: FlutterFlowTheme.of(context).secondaryText,
                             letterSpacing: 0.0,
                             lineHeight: 1.5,
@@ -146,7 +146,7 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
                                 textStyle: FlutterFlowTheme.of(context)
                                     .labelMedium
                                     .override(
-                                      fontFamily: 'Inter',
+                                      fontFamily: 'Roboto',
                                       color: Color(0xFFADA4A5),
                                       letterSpacing: 0.0,
                                     ),
@@ -201,7 +201,7 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
                         ),
                         hintStyle:
                             FlutterFlowTheme.of(context).bodySmall.override(
-                                  fontFamily: 'Inter',
+                                  fontFamily: 'Roboto',
                                   color: Color(0xFFADA4A5),
                                   letterSpacing: 0.0,
                                   lineHeight: 1.5,
@@ -244,7 +244,7 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
                         ),
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Inter',
+                            fontFamily: 'Roboto',
                             color: FlutterFlowTheme.of(context).secondaryText,
                             letterSpacing: 0.0,
                           ),
@@ -267,7 +267,7 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
                               hintStyle: FlutterFlowTheme.of(context)
                                   .bodySmall
                                   .override(
-                                    fontFamily: 'Inter',
+                                    fontFamily: 'Roboto',
                                     color: Color(0xFFADA4A5),
                                     letterSpacing: 0.0,
                                     lineHeight: 1.5,
@@ -312,7 +312,7 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'Inter',
+                                  fontFamily: 'Roboto',
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryText,
                                   letterSpacing: 0.0,
@@ -339,7 +339,7 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
                               hintStyle: FlutterFlowTheme.of(context)
                                   .bodySmall
                                   .override(
-                                    fontFamily: 'Inter',
+                                    fontFamily: 'Roboto',
                                     color: Color(0xFFADA4A5),
                                     letterSpacing: 0.0,
                                     lineHeight: 1.5,
@@ -384,7 +384,7 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'Inter',
+                                  fontFamily: 'Roboto',
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryText,
                                   letterSpacing: 0.0,

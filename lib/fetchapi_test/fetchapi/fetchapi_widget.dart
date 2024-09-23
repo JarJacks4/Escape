@@ -118,7 +118,7 @@ class _FetchapiWidgetState extends State<FetchapiWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .titleMedium
                                             .override(
-                                              fontFamily: 'Readex Pro',
+                                              fontFamily: 'Roboto',
                                               letterSpacing: 0.0,
                                             ),
                                       ),
@@ -129,7 +129,7 @@ class _FetchapiWidgetState extends State<FetchapiWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .titleMedium
                                             .override(
-                                              fontFamily: 'Readex Pro',
+                                              fontFamily: 'Roboto',
                                               letterSpacing: 0.0,
                                             ),
                                       ),

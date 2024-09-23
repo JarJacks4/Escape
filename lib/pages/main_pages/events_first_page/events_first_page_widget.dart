@@ -1,5 +1,5 @@
 import '/backend/backend.dart';
-import '/components/events_card1_widget.dart';
+import '/components/side_nav_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'events_first_page_model.dart';
 export 'events_first_page_model.dart';
 
@@ -84,8 +85,48 @@ class _EventsFirstPageWidgetState extends State<EventsFirstPageWidget> {
                                     color: Colors.white,
                                     size: 30.0,
                                   ),
-                                  onPressed: () {
-                                    print('IconButton pressed ...');
+                                  onPressed: () async {
+                                    logFirebaseEvent(
+                                        'EVENTS_FIRST_chevron_left_ICN_ON_TAP');
+                                    logFirebaseEvent(
+                                        'IconButton_navigate_back');
+                                    context.safePop();
+                                  },
+                                ),
+                                FlutterFlowIconButton(
+                                  borderColor: Colors.transparent,
+                                  borderRadius: 30.0,
+                                  borderWidth: 1.0,
+                                  buttonSize: 50.0,
+                                  fillColor: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  icon: Icon(
+                                    Icons.menu,
+                                    color: Colors.white,
+                                    size: 30.0,
+                                  ),
+                                  onPressed: () async {
+                                    logFirebaseEvent(
+                                        'EVENTS_FIRST_PAGE_PAGE_menu_ICN_ON_TAP');
+                                    logFirebaseEvent('IconButton_bottom_sheet');
+                                    await showModalBottomSheet(
+                                      isScrollControlled: true,
+                                      backgroundColor: Colors.transparent,
+                                      context: context,
+                                      builder: (context) {
+                                        return WebViewAware(
+                                          child: GestureDetector(
+                                            onTap: () => FocusScope.of(context)
+                                                .unfocus(),
+                                            child: Padding(
+                                              padding: MediaQuery.viewInsetsOf(
+                                                  context),
+                                              child: SideNavWidget(),
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                    ).then((value) => safeSetState(() {}));
                                   },
                                 ),
                               ],
@@ -118,7 +159,7 @@ class _EventsFirstPageWidgetState extends State<EventsFirstPageWidget> {
                           ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Inter',
+                                    fontFamily: 'Roboto',
                                     color: Color(0xFF000220),
                                     fontSize: 36.0,
                                     letterSpacing: 0.0,
@@ -180,25 +221,10 @@ class _EventsFirstPageWidgetState extends State<EventsFirstPageWidget> {
                                   final listViewEventsRecord = _model
                                       .listViewPagingController!
                                       .itemList![listViewIndex];
-                                  return Hero(
-                                    tag: 'eventsComp',
-                                    transitionOnUserGestures: true,
-                                    child: Material(
-                                      color: Colors.transparent,
-                                      child: EventsCard1Widget(
-                                        key: Key(
-                                            'Keyur1_${listViewIndex}_of_${_model.listViewPagingController!.itemList!.length}'),
-                                        eventName:
-                                            listViewEventsRecord.reference,
-                                        eventDate:
-                                            listViewEventsRecord.reference,
-                                        eventDescription:
-                                            listViewEventsRecord.reference,
-                                        eventLocation:
-                                            listViewEventsRecord.reference,
-                                      ),
-                                    ),
-                                  );
+                                  return Container(
+                                      width: 100,
+                                      height: 100,
+                                      color: Colors.green);
                                 },
                               ),
                             ),
@@ -211,56 +237,19 @@ class _EventsFirstPageWidgetState extends State<EventsFirstPageWidget> {
                       child: Padding(
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(8.0),
-                          child: Image.asset(
-                            'assets/images/ESCAPE_Logo_Clear.png',
-                            width: 300.0,
-                            height: 200.0,
-                            fit: BoxFit.contain,
+                        child: Hero(
+                          tag: 'BackgroundPicture',
+                          transitionOnUserGestures: true,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(8.0),
+                            child: Image.asset(
+                              'assets/images/image002.png',
+                              width: 300.0,
+                              height: 200.0,
+                              fit: BoxFit.contain,
+                            ),
                           ),
                         ),
-                      ),
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(15.0, 40.0, 15.0, 0.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          FlutterFlowIconButton(
-                            borderColor: Colors.transparent,
-                            borderRadius: 30.0,
-                            borderWidth: 1.0,
-                            buttonSize: 50.0,
-                            fillColor: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                            icon: Icon(
-                              Icons.chevron_left,
-                              color: FlutterFlowTheme.of(context).alternate,
-                              size: 30.0,
-                            ),
-                            onPressed: () async {
-                              logFirebaseEvent(
-                                  'EVENTS_FIRST_chevron_left_ICN_ON_TAP');
-                              logFirebaseEvent('IconButton_navigate_back');
-                              context.safePop();
-                            },
-                          ),
-                          Container(
-                            width: MediaQuery.sizeOf(context).width * 0.2,
-                            height: MediaQuery.sizeOf(context).width * 0.2,
-                            clipBehavior: Clip.antiAlias,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                            ),
-                            child: Image.asset(
-                              'assets/images/ESCAPE_Logo_Clear.png',
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ],
                       ),
                     ),
                   ],

@@ -79,18 +79,13 @@ class _HeaderHomeWidgetState extends State<HeaderHomeWidget> {
                         logFirebaseEvent('IconButton_bottom_sheet');
                         await showModalBottomSheet(
                           isScrollControlled: true,
-                          backgroundColor: Color(0x63000000),
-                          barrierColor:
-                              FlutterFlowTheme.of(context).primaryText,
+                          backgroundColor: Colors.transparent,
                           context: context,
                           builder: (context) {
                             return WebViewAware(
                               child: Padding(
                                 padding: MediaQuery.viewInsetsOf(context),
-                                child: Container(
-                                  height: double.infinity,
-                                  child: SideNavWidget(),
-                                ),
+                                child: SideNavWidget(),
                               ),
                             );
                           },
@@ -100,7 +95,7 @@ class _HeaderHomeWidgetState extends State<HeaderHomeWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 18.0, 0.0),
                   child: FlutterFlowIconButton(
                     borderColor: Colors.transparent,
                     borderRadius: 30.0,
@@ -117,16 +112,42 @@ class _HeaderHomeWidgetState extends State<HeaderHomeWidget> {
                     },
                   ),
                 ),
-                Container(
-                  width: MediaQuery.sizeOf(context).width * 0.2,
-                  height: MediaQuery.sizeOf(context).width * 0.2,
-                  clipBehavior: Clip.antiAlias,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                  ),
-                  child: Image.asset(
-                    'assets/images/ESCAPE_Logo_Clear.png',
-                    fit: BoxFit.cover,
+                Flexible(
+                  flex: 1,
+                  child: InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      logFirebaseEvent(
+                          'HEADER_HOME_COMP_Image_kdmexyfo_ON_TAP');
+                      logFirebaseEvent('Image_navigate_to');
+
+                      context.pushNamed(
+                        'NewHome',
+                        extra: <String, dynamic>{
+                          kTransitionInfoKey: TransitionInfo(
+                            hasTransition: true,
+                            transitionType: PageTransitionType.fade,
+                            duration: Duration(milliseconds: 2),
+                          ),
+                        },
+                      );
+                    },
+                    child: Hero(
+                      tag: 'logo',
+                      transitionOnUserGestures: true,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(8.0),
+                        child: Image.asset(
+                          'assets/images/ESCAPE_Logo_Clear.png',
+                          width: 80.0,
+                          height: 92.0,
+                          fit: BoxFit.contain,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ],
@@ -138,15 +159,29 @@ class _HeaderHomeWidgetState extends State<HeaderHomeWidget> {
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                AuthUserStreamWidget(
-                  builder: (context) => Text(
-                    'Hello,${currentUserDisplayName}!',
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Inter',
-                          color: Color(0xFF000220),
-                          fontSize: 28.0,
-                          letterSpacing: 0.0,
-                        ),
+                Text(
+                  FFLocalizations.of(context).getText(
+                    'c92aab97' /* Hello, */,
+                  ),
+                  style: FlutterFlowTheme.of(context).displaySmall.override(
+                        fontFamily: 'Roboto',
+                        color: Color(0xF96450A5),
+                        letterSpacing: 0.0,
+                        fontWeight: FontWeight.normal,
+                      ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 0.0, 0.0),
+                  child: AuthUserStreamWidget(
+                    builder: (context) => Text(
+                      currentUserDisplayName,
+                      style: FlutterFlowTheme.of(context).displaySmall.override(
+                            fontFamily: 'Roboto',
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            letterSpacing: 0.0,
+                          ),
+                    ),
                   ),
                 ),
               ],
@@ -159,7 +194,7 @@ class _HeaderHomeWidgetState extends State<HeaderHomeWidget> {
                 '3fak2gg9' /* Start or continue your journey... */,
               ),
               style: FlutterFlowTheme.of(context).labelMedium.override(
-                    fontFamily: 'Inter',
+                    fontFamily: 'Roboto',
                     color: FlutterFlowTheme.of(context).tertiary,
                     fontSize: 20.0,
                     letterSpacing: 0.0,
@@ -198,7 +233,7 @@ class _HeaderHomeWidgetState extends State<HeaderHomeWidget> {
                           '7gledzeo' /* Daily Affirmation */,
                         ),
                         style: FlutterFlowTheme.of(context).titleLarge.override(
-                              fontFamily: 'Readex Pro',
+                              fontFamily: 'Roboto',
                               color: FlutterFlowTheme.of(context)
                                   .primaryBackground,
                               fontSize: 20.0,
@@ -214,7 +249,7 @@ class _HeaderHomeWidgetState extends State<HeaderHomeWidget> {
                           'mp9t0cse' /* "You are loved just for being ... */,
                         ),
                         style: FlutterFlowTheme.of(context).titleLarge.override(
-                              fontFamily: 'Readex Pro',
+                              fontFamily: 'Roboto',
                               fontSize: 16.0,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.w200,
@@ -239,7 +274,7 @@ class _HeaderHomeWidgetState extends State<HeaderHomeWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .headlineLarge
                                     .override(
-                                      fontFamily: 'Readex Pro',
+                                      fontFamily: 'Roboto',
                                       color: FlutterFlowTheme.of(context)
                                           .primaryBackground,
                                       fontSize: 16.0,

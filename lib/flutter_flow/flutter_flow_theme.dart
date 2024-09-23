@@ -181,108 +181,109 @@ class ThemeTypography extends Typography {
 
   final FlutterFlowTheme theme;
 
-  String get displayLargeFamily => 'Readex Pro';
+  String get displayLargeFamily => 'Roboto';
   TextStyle get displayLarge => GoogleFonts.getFont(
-        'Readex Pro',
+        'Roboto',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 60.0,
       );
-  String get displayMediumFamily => 'Readex Pro';
+  String get displayMediumFamily => 'Roboto';
   TextStyle get displayMedium => GoogleFonts.getFont(
-        'Readex Pro',
+        'Roboto',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 45.0,
       );
-  String get displaySmallFamily => 'Readex Pro';
+  String get displaySmallFamily => 'Roboto';
   TextStyle get displaySmall => GoogleFonts.getFont(
-        'Readex Pro',
+        'Roboto',
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 32.0,
       );
-  String get headlineLargeFamily => 'Readex Pro';
+  String get headlineLargeFamily => 'Roboto';
   TextStyle get headlineLarge => GoogleFonts.getFont(
-        'Readex Pro',
+        'Roboto',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 32.0,
       );
-  String get headlineMediumFamily => 'Readex Pro';
+  String get headlineMediumFamily => 'Roboto';
   TextStyle get headlineMedium => GoogleFonts.getFont(
-        'Readex Pro',
+        'Roboto',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 22.0,
       );
-  String get headlineSmallFamily => 'Readex Pro';
+  String get headlineSmallFamily => 'Roboto';
   TextStyle get headlineSmall => GoogleFonts.getFont(
-        'Readex Pro',
+        'Roboto',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 20.0,
       );
-  String get titleLargeFamily => 'Readex Pro';
+  String get titleLargeFamily => 'Roboto';
   TextStyle get titleLarge => GoogleFonts.getFont(
-        'Readex Pro',
+        'Roboto',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 22.0,
       );
-  String get titleMediumFamily => 'Readex Pro';
+  String get titleMediumFamily => 'Roboto';
   TextStyle get titleMedium => GoogleFonts.getFont(
-        'Readex Pro',
+        'Roboto',
         color: theme.info,
         fontWeight: FontWeight.w500,
         fontSize: 18.0,
       );
-  String get titleSmallFamily => 'Inter';
+  String get titleSmallFamily => 'Roboto';
   TextStyle get titleSmall => GoogleFonts.getFont(
-        'Inter',
+        'Roboto',
         color: theme.info,
         fontWeight: FontWeight.w500,
         fontSize: 16.0,
       );
-  String get labelLargeFamily => 'Inter';
+  String get labelLargeFamily => 'Roboto';
   TextStyle get labelLarge => GoogleFonts.getFont(
-        'Inter',
+        'Roboto',
         color: theme.secondaryText,
-        fontWeight: FontWeight.w500,
+        fontWeight: FontWeight.w300,
         fontSize: 16.0,
       );
-  String get labelMediumFamily => 'Inter';
+  String get labelMediumFamily => 'Roboto';
   TextStyle get labelMedium => GoogleFonts.getFont(
-        'Inter',
+        'Roboto',
         color: theme.secondaryText,
-        fontWeight: FontWeight.w500,
+        fontWeight: FontWeight.w300,
         fontSize: 14.0,
       );
-  String get labelSmallFamily => 'Inter';
+  String get labelSmallFamily => 'Roboto';
   TextStyle get labelSmall => GoogleFonts.getFont(
-        'Inter',
+        'Roboto',
         color: theme.secondaryText,
-        fontWeight: FontWeight.w500,
+        fontWeight: FontWeight.w300,
         fontSize: 12.0,
       );
-  String get bodyLargeFamily => 'Inter';
+  String get bodyLargeFamily => 'Roboto';
   TextStyle get bodyLarge => GoogleFonts.getFont(
-        'Inter',
+        'Roboto',
         color: theme.primaryText,
+        fontWeight: FontWeight.w200,
         fontSize: 16.0,
       );
-  String get bodyMediumFamily => 'Inter';
+  String get bodyMediumFamily => 'Roboto';
   TextStyle get bodyMedium => GoogleFonts.getFont(
-        'Inter',
+        'Roboto',
         color: theme.primaryText,
-        fontWeight: FontWeight.normal,
+        fontWeight: FontWeight.w300,
         fontSize: 14.0,
       );
-  String get bodySmallFamily => 'Inter';
+  String get bodySmallFamily => 'Roboto';
   TextStyle get bodySmall => GoogleFonts.getFont(
-        'Inter',
+        'Roboto',
         color: theme.primaryText,
-        fontWeight: FontWeight.normal,
+        fontWeight: FontWeight.w300,
         fontSize: 12.0,
       );
 }

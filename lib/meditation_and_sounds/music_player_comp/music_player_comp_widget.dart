@@ -9,7 +9,12 @@ import 'music_player_comp_model.dart';
 export 'music_player_comp_model.dart';
 
 class MusicPlayerCompWidget extends StatefulWidget {
-  const MusicPlayerCompWidget({super.key});
+  const MusicPlayerCompWidget({
+    super.key,
+    required this.ambientMusic,
+  });
+
+  final List<String>? ambientMusic;
 
   @override
   State<MusicPlayerCompWidget> createState() => _MusicPlayerCompWidgetState();
@@ -118,7 +123,7 @@ class _MusicPlayerCompWidgetState extends State<MusicPlayerCompWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Inter',
+                                          fontFamily: 'Roboto',
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
                                           fontSize: 22.0,
@@ -205,7 +210,7 @@ class _MusicPlayerCompWidgetState extends State<MusicPlayerCompWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Inter',
+                                      fontFamily: 'Roboto',
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
                                       fontSize: 26.0,
@@ -240,7 +245,7 @@ class _MusicPlayerCompWidgetState extends State<MusicPlayerCompWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'Inter',
+                                  fontFamily: 'Roboto',
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
                                   fontSize: 16.0,
@@ -293,7 +298,7 @@ class _MusicPlayerCompWidgetState extends State<MusicPlayerCompWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'Inter',
+                                  fontFamily: 'Roboto',
                                   color: FlutterFlowTheme.of(context)
                                       .primaryBackground,
                                   fontSize: 14.0,
@@ -308,7 +313,7 @@ class _MusicPlayerCompWidgetState extends State<MusicPlayerCompWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'Inter',
+                                  fontFamily: 'Roboto',
                                   color: FlutterFlowTheme.of(context)
                                       .primaryBackground,
                                   fontSize: 14.0,
@@ -320,106 +325,10 @@ class _MusicPlayerCompWidgetState extends State<MusicPlayerCompWidget> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          25.0, 15.0, 25.0, 15.0),
+                      padding: EdgeInsets.all(30.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          FlutterFlowIconButton(
-                            borderColor: Colors.transparent,
-                            borderRadius: 30.0,
-                            borderWidth: 0.0,
-                            buttonSize: 60.0,
-                            icon: Icon(
-                              Icons.repeat,
-                              color: Color(0xFF8F559A),
-                              size: 30.0,
-                            ),
-                            onPressed: () {
-                              print('IconButton pressed ...');
-                            },
-                          ),
-                          FlutterFlowIconButton(
-                            borderColor: Colors.transparent,
-                            borderRadius: 25.0,
-                            borderWidth: 0.0,
-                            buttonSize: 60.0,
-                            icon: FaIcon(
-                              FontAwesomeIcons.backward,
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                              size: 30.0,
-                            ),
-                            onPressed: () {
-                              print('IconButton pressed ...');
-                            },
-                          ),
-                          Container(
-                            width: 100.0,
-                            height: 100.0,
-                            decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                colors: [
-                                  FlutterFlowTheme.of(context).alternate,
-                                  Color(0xFFF501C4)
-                                ],
-                                stops: [0.0, 1.0],
-                                begin: AlignmentDirectional(0.87, 1.0),
-                                end: AlignmentDirectional(-0.87, -1.0),
-                              ),
-                              borderRadius: BorderRadius.circular(50.0),
-                            ),
-                            child: FlutterFlowIconButton(
-                              borderColor: Colors.transparent,
-                              borderRadius: 30.0,
-                              borderWidth: 1.0,
-                              buttonSize: 60.0,
-                              icon: Icon(
-                                Icons.pause_rounded,
-                                color: FlutterFlowTheme.of(context)
-                                    .primaryBackground,
-                                size: 60.0,
-                              ),
-                              onPressed: () {
-                                print('IconButton pressed ...');
-                              },
-                            ),
-                          ),
-                          FlutterFlowIconButton(
-                            borderColor: Colors.transparent,
-                            borderRadius: 30.0,
-                            borderWidth: 0.0,
-                            buttonSize: 60.0,
-                            icon: Icon(
-                              Icons.fast_forward_sharp,
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                              size: 36.0,
-                            ),
-                            onPressed: () {
-                              print('IconButton pressed ...');
-                            },
-                          ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 10.0, 0.0),
-                            child: FlutterFlowIconButton(
-                              borderColor: Colors.transparent,
-                              borderRadius: 30.0,
-                              borderWidth: 0.0,
-                              buttonSize: 60.0,
-                              icon: Icon(
-                                Icons.replay_outlined,
-                                color: Color(0xFF8F559A),
-                                size: 36.0,
-                              ),
-                              onPressed: () {
-                                print('IconButton pressed ...');
-                              },
-                            ),
-                          ),
-                        ],
+                        children: [],
                       ),
                     ),
                   ],

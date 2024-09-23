@@ -1,7 +1,8 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/primary_button/primary_button_widget.dart';
-import '/components/subscription_comp2_widget.dart';
+import '/components/subscribe_now_promo_bottom_sheet_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -9,10 +10,14 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
+import 'dart:math';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -27,11 +32,13 @@ class CompleteProfileFINALWidget extends StatefulWidget {
       _CompleteProfileFINALWidgetState();
 }
 
-class _CompleteProfileFINALWidgetState
-    extends State<CompleteProfileFINALWidget> {
+class _CompleteProfileFINALWidgetState extends State<CompleteProfileFINALWidget>
+    with TickerProviderStateMixin {
   late CompleteProfileFINALModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -51,6 +58,104 @@ class _CompleteProfileFINALWidgetState
 
     _model.textController4 ??= TextEditingController();
     _model.textFieldFocusNode4 ??= FocusNode();
+
+    animationsMap.addAll({
+      'columnOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'imageOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'columnOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'columnOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'primaryButtonOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -89,7 +194,8 @@ class _CompleteProfileFINALWidgetState
                           Image.asset(
                             'assets/images/Register.png',
                             fit: BoxFit.cover,
-                          ),
+                          ).animateOnPageLoad(
+                              animationsMap['imageOnPageLoadAnimation']!),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 20.0, 0.0, 30.0),
@@ -103,7 +209,7 @@ class _CompleteProfileFINALWidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .titleLarge
                                       .override(
-                                        fontFamily: 'Readex Pro',
+                                        fontFamily: 'Roboto',
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
                                         fontSize: 20.0,
@@ -119,7 +225,7 @@ class _CompleteProfileFINALWidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        fontFamily: 'Inter',
+                                        fontFamily: 'Roboto',
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryText,
                                         letterSpacing: 0.0,
@@ -134,96 +240,290 @@ class _CompleteProfileFINALWidgetState
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(14.0),
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      color:
-                                          FlutterFlowTheme.of(context).accent4,
+                                TextFormField(
+                                  controller: _model.textController1,
+                                  focusNode: _model.textFieldFocusNode1,
+                                  onFieldSubmitted: (_) async {
+                                    logFirebaseEvent(
+                                        'COMPLETE_PROFILE_F_I_N_A_L_TextField_aes');
+                                    logFirebaseEvent(
+                                        'TextField_date_time_picker');
+                                    final _datePicked1Date =
+                                        await showDatePicker(
+                                      context: context,
+                                      initialDate: getCurrentTimestamp,
+                                      firstDate: DateTime(1900),
+                                      lastDate: getCurrentTimestamp,
+                                    );
+
+                                    if (_datePicked1Date != null) {
+                                      safeSetState(() {
+                                        _model.datePicked1 = DateTime(
+                                          _datePicked1Date.year,
+                                          _datePicked1Date.month,
+                                          _datePicked1Date.day,
+                                        );
+                                      });
+                                    }
+                                  },
+                                  autofocus: true,
+                                  obscureText: false,
+                                  decoration: InputDecoration(
+                                    hintText:
+                                        FFLocalizations.of(context).getText(
+                                      'sopdntd5' /* Display Name */,
+                                    ),
+                                    hintStyle: FlutterFlowTheme.of(context)
+                                        .bodySmall
+                                        .override(
+                                          fontFamily: 'Roboto',
+                                          color: Color(0xFFADA4A5),
+                                          letterSpacing: 0.0,
+                                          lineHeight: 1.5,
+                                        ),
+                                    enabledBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        width: 1.0,
+                                      ),
                                       borderRadius: BorderRadius.circular(14.0),
                                     ),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  10.0, 0.0, 0.0, 0.0),
-                                          child: Icon(
-                                            Icons.settings_outlined,
-                                            color: FlutterFlowTheme.of(context)
-                                                .accent1,
-                                            size: 18.0,
-                                          ),
-                                        ),
-                                        Expanded(
-                                          child: FlutterFlowDropDown<String>(
-                                            controller: _model
-                                                    .dropDownValueController1 ??=
-                                                FormFieldController<String>(
-                                                    null),
-                                            options: [
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                'jf9vit5z' /* Male */,
-                                              ),
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                'dm9bfkh4' /* Female */,
-                                              ),
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                'l1i0z9o2' /* Other */,
-                                              ),
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                'y88hst6n' /* Rather not say */,
-                                              )
-                                            ],
-                                            onChanged: (val) => safeSetState(
-                                                () => _model.dropDownValue1 =
-                                                    val),
-                                            width: 180.0,
-                                            height: 50.0,
-                                            textStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .labelMedium
-                                                    .override(
-                                                      fontFamily: 'Inter',
-                                                      color: Color(0xFFADA4A5),
-                                                      letterSpacing: 0.0,
-                                                    ),
-                                            hintText:
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                              '1hjhnkf3' /* Your gender */,
-                                            ),
-                                            fillColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .accent4,
-                                            elevation: 2.0,
-                                            borderColor: Colors.transparent,
-                                            borderWidth: 0.0,
-                                            borderRadius: 0.0,
-                                            margin:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    12.0, 4.0, 12.0, 4.0),
-                                            hidesUnderline: true,
-                                            isSearchable: false,
-                                            isMultiSelect: false,
-                                          ),
-                                        ),
-                                      ],
+                                    focusedBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondary,
+                                        width: 1.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(14.0),
+                                    ),
+                                    errorBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color(0x00000000),
+                                        width: 1.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(14.0),
+                                    ),
+                                    focusedErrorBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color(0x00000000),
+                                        width: 1.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(14.0),
+                                    ),
+                                    filled: true,
+                                    fillColor:
+                                        FlutterFlowTheme.of(context).accent4,
+                                    prefixIcon: Icon(
+                                      Icons.calendar_today_outlined,
+                                      color:
+                                          FlutterFlowTheme.of(context).accent1,
+                                      size: 18.0,
                                     ),
                                   ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Roboto',
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                        letterSpacing: 0.0,
+                                      ),
+                                  validator: _model.textController1Validator
+                                      .asValidator(context),
+                                ),
+                                Material(
+                                  color: Colors.transparent,
+                                  elevation: 3.0,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(14.0),
+                                  ),
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(14.0),
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .accent4,
+                                        borderRadius:
+                                            BorderRadius.circular(14.0),
+                                      ),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    10.0, 0.0, 0.0, 0.0),
+                                            child: Icon(
+                                              Icons.settings_outlined,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .accent1,
+                                              size: 18.0,
+                                            ),
+                                          ),
+                                          Expanded(
+                                            child: FlutterFlowDropDown<String>(
+                                              controller: _model
+                                                      .dropDownValueController ??=
+                                                  FormFieldController<String>(
+                                                      null),
+                                              options: [
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'jf9vit5z' /* Male */,
+                                                ),
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'dm9bfkh4' /* Female */,
+                                                ),
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'l1i0z9o2' /* Other */,
+                                                ),
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'y88hst6n' /* Rather not say */,
+                                                )
+                                              ],
+                                              onChanged: (val) => safeSetState(
+                                                  () => _model.dropDownValue =
+                                                      val),
+                                              width: 180.0,
+                                              height: 50.0,
+                                              textStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelMedium
+                                                      .override(
+                                                        fontFamily: 'Roboto',
+                                                        color:
+                                                            Color(0xFFADA4A5),
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                              hintText:
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                '1hjhnkf3' /* Your gender */,
+                                              ),
+                                              fillColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .accent4,
+                                              elevation: 8.0,
+                                              borderColor: Colors.transparent,
+                                              borderWidth: 0.0,
+                                              borderRadius: 0.0,
+                                              margin: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      12.0, 4.0, 12.0, 4.0),
+                                              hidesUnderline: true,
+                                              isSearchable: false,
+                                              isMultiSelect: false,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                TextFormField(
+                                  controller: _model.textController2,
+                                  focusNode: _model.textFieldFocusNode2,
+                                  onFieldSubmitted: (_) async {
+                                    logFirebaseEvent(
+                                        'COMPLETE_PROFILE_F_I_N_A_L_TextField_nw4');
+                                    logFirebaseEvent(
+                                        'TextField_date_time_picker');
+                                    final _datePicked2Date =
+                                        await showDatePicker(
+                                      context: context,
+                                      initialDate: getCurrentTimestamp,
+                                      firstDate: DateTime(1900),
+                                      lastDate: getCurrentTimestamp,
+                                    );
+
+                                    if (_datePicked2Date != null) {
+                                      safeSetState(() {
+                                        _model.datePicked2 = DateTime(
+                                          _datePicked2Date.year,
+                                          _datePicked2Date.month,
+                                          _datePicked2Date.day,
+                                        );
+                                      });
+                                    }
+                                  },
+                                  autofocus: true,
+                                  obscureText: false,
+                                  decoration: InputDecoration(
+                                    hintText:
+                                        FFLocalizations.of(context).getText(
+                                      'cclv7enh' /* Date of birth */,
+                                    ),
+                                    hintStyle: FlutterFlowTheme.of(context)
+                                        .bodySmall
+                                        .override(
+                                          fontFamily: 'Roboto',
+                                          color: Color(0xFFADA4A5),
+                                          letterSpacing: 0.0,
+                                          lineHeight: 1.5,
+                                        ),
+                                    enabledBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        width: 1.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(14.0),
+                                    ),
+                                    focusedBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondary,
+                                        width: 1.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(14.0),
+                                    ),
+                                    errorBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color(0x00000000),
+                                        width: 1.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(14.0),
+                                    ),
+                                    focusedErrorBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color(0x00000000),
+                                        width: 1.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(14.0),
+                                    ),
+                                    filled: true,
+                                    fillColor:
+                                        FlutterFlowTheme.of(context).accent4,
+                                    prefixIcon: Icon(
+                                      Icons.calendar_today_outlined,
+                                      color:
+                                          FlutterFlowTheme.of(context).accent1,
+                                      size: 18.0,
+                                    ),
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Roboto',
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                        letterSpacing: 0.0,
+                                      ),
+                                  validator: _model.textController2Validator
+                                      .asValidator(context),
                                 ),
                                 Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Expanded(
                                       child: TextFormField(
-                                        controller: _model.textController1,
-                                        focusNode: _model.textFieldFocusNode1,
+                                        controller: _model.textController3,
+                                        focusNode: _model.textFieldFocusNode3,
                                         autofocus: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
@@ -235,7 +535,7 @@ class _CompleteProfileFINALWidgetState
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
                                                   .override(
-                                                    fontFamily: 'Inter',
+                                                    fontFamily: 'Roboto',
                                                     color: Color(0xFFADA4A5),
                                                     letterSpacing: 0.0,
                                                     lineHeight: 1.5,
@@ -291,101 +591,14 @@ class _CompleteProfileFINALWidgetState
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Inter',
+                                              fontFamily: 'Roboto',
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryText,
                                               letterSpacing: 0.0,
                                             ),
                                         validator: _model
-                                            .textController1Validator
-                                            .asValidator(context),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Expanded(
-                                      child: TextFormField(
-                                        controller: _model.textController2,
-                                        focusNode: _model.textFieldFocusNode2,
-                                        autofocus: true,
-                                        obscureText: false,
-                                        decoration: InputDecoration(
-                                          hintText: FFLocalizations.of(context)
-                                              .getText(
-                                            'fqo1981t' /* Username */,
-                                          ),
-                                          hintStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodySmall
-                                                  .override(
-                                                    fontFamily: 'Inter',
-                                                    color: Color(0xFFADA4A5),
-                                                    letterSpacing: 0.0,
-                                                    lineHeight: 1.5,
-                                                  ),
-                                          enabledBorder: UnderlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                              width: 1.0,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(14.0),
-                                          ),
-                                          focusedBorder: UnderlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondary,
-                                              width: 1.0,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(14.0),
-                                          ),
-                                          errorBorder: UnderlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color: Color(0x00000000),
-                                              width: 1.0,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(14.0),
-                                          ),
-                                          focusedErrorBorder:
-                                              UnderlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color: Color(0x00000000),
-                                              width: 1.0,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(14.0),
-                                          ),
-                                          filled: true,
-                                          fillColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .accent4,
-                                          prefixIcon: Icon(
-                                            Icons.games_outlined,
-                                            color: FlutterFlowTheme.of(context)
-                                                .accent1,
-                                            size: 18.0,
-                                          ),
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Inter',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryText,
-                                              letterSpacing: 0.0,
-                                            ),
-                                        validator: _model
-                                            .textController2Validator
+                                            .textController3Validator
                                             .asValidator(context),
                                       ),
                                     ),
@@ -419,7 +632,7 @@ class _CompleteProfileFINALWidgetState
                                       );
                                     },
                                     child: wrapWithModel(
-                                      model: _model.primaryButtonModel,
+                                      model: _model.primaryButtonModel1,
                                       updateCallback: () => safeSetState(() {}),
                                       child: PrimaryButtonWidget(
                                         buttonText: 'Next',
@@ -431,7 +644,8 @@ class _CompleteProfileFINALWidgetState
                             ),
                           ),
                         ],
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['columnOnPageLoadAnimation1']!),
                     ),
                     Padding(
                       padding:
@@ -465,7 +679,8 @@ class _CompleteProfileFINALWidgetState
                                               'COMPLETE_PROFILE_F_I_N_A_L_CircleImage_c');
                                           logFirebaseEvent(
                                               'CircleImage_update_app_state');
-                                          FFAppState().ProfilePicture = '';
+                                          FFAppState().ProfilePicture =
+                                              currentUserPhoto;
                                           FFAppState().update(() {});
                                         },
                                         child: Container(
@@ -565,7 +780,7 @@ class _CompleteProfileFINALWidgetState
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
-                                    fontFamily: 'Inter',
+                                    fontFamily: 'Roboto',
                                     color: Colors.white,
                                     letterSpacing: 0.0,
                                   ),
@@ -590,7 +805,7 @@ class _CompleteProfileFINALWidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .titleLarge
                                       .override(
-                                        fontFamily: 'Readex Pro',
+                                        fontFamily: 'Roboto',
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
                                         fontSize: 20.0,
@@ -606,7 +821,7 @@ class _CompleteProfileFINALWidgetState
                                   style: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        fontFamily: 'Inter',
+                                        fontFamily: 'Roboto',
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryText,
                                         letterSpacing: 0.0,
@@ -646,7 +861,7 @@ class _CompleteProfileFINALWidgetState
                                         Expanded(
                                           child: FlutterFlowDropDown<String>(
                                             controller: _model
-                                                    .dropDownValueController2 ??=
+                                                    .roleDrowdownValueController ??=
                                                 FormFieldController<String>(
                                                     null),
                                             options: [
@@ -659,48 +874,16 @@ class _CompleteProfileFINALWidgetState
                                                 'zao1yu9e' /* Self-Care Provider */,
                                               )
                                             ],
-                                            onChanged: (val) async {
-                                              safeSetState(() =>
-                                                  _model.dropDownValue2 = val);
-                                              logFirebaseEvent(
-                                                  'COMPLETE_PROFILE_F_I_N_A_L_DropDown_x5wv');
-                                              logFirebaseEvent(
-                                                  'DropDown_bottom_sheet');
-                                              await showModalBottomSheet(
-                                                isScrollControlled: true,
-                                                backgroundColor:
-                                                    Colors.transparent,
-                                                context: context,
-                                                builder: (context) {
-                                                  return WebViewAware(
-                                                    child: GestureDetector(
-                                                      onTap: () =>
-                                                          FocusScope.of(context)
-                                                              .unfocus(),
-                                                      child: Padding(
-                                                        padding: MediaQuery
-                                                            .viewInsetsOf(
-                                                                context),
-                                                        child: Container(
-                                                          height:
-                                                              double.infinity,
-                                                          child:
-                                                              SubscriptionComp2Widget(),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  );
-                                                },
-                                              ).then((value) =>
-                                                  safeSetState(() {}));
-                                            },
+                                            onChanged: (val) => safeSetState(
+                                                () => _model.roleDrowdownValue =
+                                                    val),
                                             width: 180.0,
                                             height: 50.0,
                                             textStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .labelMedium
                                                     .override(
-                                                      fontFamily: 'Inter',
+                                                      fontFamily: 'Roboto',
                                                       color: Color(0xFFADA4A5),
                                                       letterSpacing: 0.0,
                                                     ),
@@ -731,22 +914,117 @@ class _CompleteProfileFINALWidgetState
                                 Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          10.0, 0.0, 0.0, 0.0),
+                                      child: Icon(
+                                        Icons.settings_outlined,
+                                        color: FlutterFlowTheme.of(context)
+                                            .accent1,
+                                        size: 18.0,
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: FlutterFlowDropDown<String>(
+                                        controller: _model
+                                                .planDropdownValueController ??=
+                                            FormFieldController<String>(null),
+                                        options: [
+                                          FFLocalizations.of(context).getText(
+                                            'r62v70op' /* Free Plan */,
+                                          ),
+                                          FFLocalizations.of(context).getText(
+                                            '9vcps7fb' /* Premium Plan */,
+                                          )
+                                        ],
+                                        onChanged: (val) async {
+                                          safeSetState(() =>
+                                              _model.planDropdownValue = val);
+                                          logFirebaseEvent(
+                                              'COMPLETE_PROFILE_F_I_N_A_L_PlanDropdown_');
+                                          logFirebaseEvent(
+                                              'PlanDropdown_bottom_sheet');
+                                          await showModalBottomSheet(
+                                            isScrollControlled: true,
+                                            backgroundColor: Colors.transparent,
+                                            context: context,
+                                            builder: (context) {
+                                              return WebViewAware(
+                                                child: GestureDetector(
+                                                  onTap: () =>
+                                                      FocusScope.of(context)
+                                                          .unfocus(),
+                                                  child: Padding(
+                                                    padding:
+                                                        MediaQuery.viewInsetsOf(
+                                                            context),
+                                                    child: Container(
+                                                      height: double.infinity,
+                                                      child:
+                                                          SubscribeNowPromoBottomSheetWidget(),
+                                                    ),
+                                                  ),
+                                                ),
+                                              );
+                                            },
+                                          ).then(
+                                              (value) => safeSetState(() {}));
+
+                                          if (valueOrDefault<bool>(
+                                                  currentUserDocument
+                                                      ?.isSubscriber,
+                                                  false) !=
+                                              true) {
+                                            return;
+                                          }
+                                        },
+                                        width: 180.0,
+                                        height: 50.0,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .override(
+                                              fontFamily: 'Roboto',
+                                              color: Color(0xFFADA4A5),
+                                              letterSpacing: 0.0,
+                                            ),
+                                        hintText:
+                                            FFLocalizations.of(context).getText(
+                                          '9w7hs27l' /* Which plan will you choose? */,
+                                        ),
+                                        fillColor: FlutterFlowTheme.of(context)
+                                            .accent4,
+                                        elevation: 2.0,
+                                        borderColor: Colors.transparent,
+                                        borderWidth: 0.0,
+                                        borderRadius: 0.0,
+                                        margin: EdgeInsetsDirectional.fromSTEB(
+                                            12.0, 4.0, 12.0, 4.0),
+                                        hidesUnderline: true,
+                                        isSearchable: false,
+                                        isMultiSelect: false,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
                                     Expanded(
                                       child: TextFormField(
-                                        controller: _model.textController3,
-                                        focusNode: _model.textFieldFocusNode3,
+                                        controller: _model.textController4,
+                                        focusNode: _model.textFieldFocusNode4,
                                         autofocus: true,
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           hintText: FFLocalizations.of(context)
                                               .getText(
-                                            'h927rwu4' /* Favorite Time to Meditate */,
+                                            'h927rwu4' /* Phone Number */,
                                           ),
                                           hintStyle:
                                               FlutterFlowTheme.of(context)
                                                   .bodySmall
                                                   .override(
-                                                    fontFamily: 'Inter',
+                                                    fontFamily: 'Roboto',
                                                     color: Color(0xFFADA4A5),
                                                     letterSpacing: 0.0,
                                                     lineHeight: 1.5,
@@ -802,94 +1080,7 @@ class _CompleteProfileFINALWidgetState
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Inter',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryText,
-                                              letterSpacing: 0.0,
-                                            ),
-                                        validator: _model
-                                            .textController3Validator
-                                            .asValidator(context),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Expanded(
-                                      child: TextFormField(
-                                        controller: _model.textController4,
-                                        focusNode: _model.textFieldFocusNode4,
-                                        autofocus: true,
-                                        obscureText: false,
-                                        decoration: InputDecoration(
-                                          hintText: FFLocalizations.of(context)
-                                              .getText(
-                                            'bbezcn1o' /* Username */,
-                                          ),
-                                          hintStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodySmall
-                                                  .override(
-                                                    fontFamily: 'Inter',
-                                                    color: Color(0xFFADA4A5),
-                                                    letterSpacing: 0.0,
-                                                    lineHeight: 1.5,
-                                                  ),
-                                          enabledBorder: UnderlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                              width: 1.0,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(14.0),
-                                          ),
-                                          focusedBorder: UnderlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondary,
-                                              width: 1.0,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(14.0),
-                                          ),
-                                          errorBorder: UnderlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color: Color(0x00000000),
-                                              width: 1.0,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(14.0),
-                                          ),
-                                          focusedErrorBorder:
-                                              UnderlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color: Color(0x00000000),
-                                              width: 1.0,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(14.0),
-                                          ),
-                                          filled: true,
-                                          fillColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .accent4,
-                                          prefixIcon: Icon(
-                                            Icons.games_outlined,
-                                            color: FlutterFlowTheme.of(context)
-                                                .accent1,
-                                            size: 18.0,
-                                          ),
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Inter',
+                                              fontFamily: 'Roboto',
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryText,
@@ -902,59 +1093,86 @@ class _CompleteProfileFINALWidgetState
                                     ),
                                   ],
                                 ),
-                                FFButtonWidget(
-                                  onPressed: () async {
-                                    logFirebaseEvent(
-                                        'COMPLETE_PROFILE_F_I_N_A_L_PICK_YOUR_SEL');
-                                    logFirebaseEvent('Button_backend_call');
+                                if (_model.pageViewCurrentIndex != null)
+                                  Opacity(
+                                    opacity:
+                                        _model.pageViewCurrentIndex.toDouble(),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 16.0, 0.0, 0.0),
+                                      child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          logFirebaseEvent(
+                                              'COMPLETE_PROFILE_F_I_N_A_L_Container_hnr');
+                                          logFirebaseEvent(
+                                              'primaryButton_backend_call');
 
-                                    await currentUserReference!
-                                        .update(createUsersRecordData(
-                                      userName: _model.textController2.text,
-                                      role: _model.dropDownValue2,
-                                    ));
-                                    logFirebaseEvent('Button_navigate_to');
+                                          await currentUserReference!
+                                              .update(createUsersRecordData(
+                                            photoUrl: currentUserPhoto,
+                                            createdTime: getCurrentTimestamp,
+                                            role: _model.roleDrowdownValue,
+                                            phoneNumber:
+                                                _model.textController4.text,
+                                            isSubscriber: _model
+                                                            .planDropdownValue !=
+                                                        null &&
+                                                    _model.planDropdownValue !=
+                                                        ''
+                                                ? valueOrDefault<bool>(
+                                                    currentUserDocument
+                                                        ?.isSubscriber,
+                                                    false)
+                                                : valueOrDefault<bool>(
+                                                    currentUserDocument
+                                                        ?.freeUser,
+                                                    false),
+                                            gender: _model.dropDownValue,
+                                            favoriteTimeToMeditate:
+                                                _model.datePicked2,
+                                            displayName:
+                                                _model.textController1.text,
+                                          ));
+                                          logFirebaseEvent(
+                                              'primaryButton_navigate_to');
 
-                                    context.pushNamed(
-                                      'UserGoalsSwipeStack',
-                                      extra: <String, dynamic>{
-                                        kTransitionInfoKey: TransitionInfo(
-                                          hasTransition: true,
-                                          transitionType:
-                                              PageTransitionType.fade,
-                                          duration: Duration(milliseconds: 2),
+                                          context.pushNamed(
+                                            'UserGoalsSwipeStack',
+                                            extra: <String, dynamic>{
+                                              kTransitionInfoKey:
+                                                  TransitionInfo(
+                                                hasTransition: true,
+                                                transitionType:
+                                                    PageTransitionType.fade,
+                                                duration:
+                                                    Duration(milliseconds: 400),
+                                              ),
+                                            },
+                                          );
+                                        },
+                                        child: wrapWithModel(
+                                          model: _model.primaryButtonModel2,
+                                          updateCallback: () =>
+                                              safeSetState(() {}),
+                                          child: PrimaryButtonWidget(
+                                            buttonText: 'Next',
+                                          ),
                                         ),
-                                      },
-                                    );
-                                  },
-                                  text: FFLocalizations.of(context).getText(
-                                    'yfe91rk0' /* Pick Your Self Care Goals */,
+                                      ).animateOnPageLoad(animationsMap[
+                                          'primaryButtonOnPageLoadAnimation']!),
+                                    ),
                                   ),
-                                  options: FFButtonOptions(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 0.8,
-                                    height: 48.0,
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        16.0, 0.0, 16.0, 0.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
-                                    color: FlutterFlowTheme.of(context).primary,
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .titleSmall
-                                        .override(
-                                          fontFamily: 'Inter',
-                                          color: Colors.white,
-                                          letterSpacing: 0.0,
-                                        ),
-                                    elevation: 8.0,
-                                    borderRadius: BorderRadius.circular(22.0),
-                                  ),
-                                ),
                               ],
-                            ),
+                            ).animateOnPageLoad(
+                                animationsMap['columnOnPageLoadAnimation3']!),
                           ),
                         ],
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['columnOnPageLoadAnimation2']!),
                     ),
                   ],
                 ),

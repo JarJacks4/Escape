@@ -91,7 +91,9 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
     return Container(
       width: double.infinity,
       height: double.infinity,
-      decoration: BoxDecoration(),
+      decoration: BoxDecoration(
+        color: Color(0x81FCFFF9),
+      ),
       child: Column(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -131,7 +133,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                       style: FlutterFlowTheme.of(context)
                           .headlineMedium
                           .override(
-                            fontFamily: 'Readex Pro',
+                            fontFamily: 'Roboto',
                             color:
                                 FlutterFlowTheme.of(context).primaryBackground,
                             letterSpacing: 0.0,
@@ -146,7 +148,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                         'aor6gsvi' /* Below are your profile details */,
                       ),
                       style: FlutterFlowTheme.of(context).labelMedium.override(
-                            fontFamily: 'Inter',
+                            fontFamily: 'Roboto',
                             color:
                                 FlutterFlowTheme.of(context).primaryBackground,
                             letterSpacing: 0.0,
@@ -177,36 +179,35 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                               ),
                               child: Padding(
                                 padding: EdgeInsets.all(2.0),
-                                child: AuthUserStreamWidget(
-                                  builder: (context) => InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      logFirebaseEvent(
-                                          'EDIT_PROFILE_CircleImage_fxugtfo0_ON_TAP');
-                                      logFirebaseEvent(
-                                          'CircleImage_update_app_state');
-                                      FFAppState().ProfilePicture =
-                                          currentUserPhoto;
-                                      FFAppState().update(() {});
-                                    },
-                                    child: Container(
-                                      width: 90.0,
-                                      height: 90.0,
-                                      clipBehavior: Clip.antiAlias,
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                      ),
-                                      child: CachedNetworkImage(
-                                        fadeInDuration:
-                                            Duration(milliseconds: 500),
-                                        fadeOutDuration:
-                                            Duration(milliseconds: 500),
-                                        imageUrl: currentUserPhoto,
-                                        fit: BoxFit.fitWidth,
-                                      ),
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    logFirebaseEvent(
+                                        'EDIT_PROFILE_CircleImage_fxugtfo0_ON_TAP');
+                                    logFirebaseEvent(
+                                        'CircleImage_update_app_state');
+                                    FFAppState().ProfilePicture =
+                                        currentUserPhoto;
+                                    FFAppState().update(() {});
+                                  },
+                                  child: Container(
+                                    width: 90.0,
+                                    height: 90.0,
+                                    clipBehavior: Clip.antiAlias,
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: CachedNetworkImage(
+                                      fadeInDuration:
+                                          Duration(milliseconds: 500),
+                                      fadeOutDuration:
+                                          Duration(milliseconds: 500),
+                                      imageUrl:
+                                          'https://images.unsplash.com/photo-1536164261511-3a17e671d380?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=630&q=80',
+                                      fit: BoxFit.fitWidth,
                                     ),
                                   ),
                                 ),
@@ -271,12 +272,11 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                     24.0, 0.0, 24.0, 0.0),
                                 iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
-                                color: FlutterFlowTheme.of(context)
-                                    .primaryBackground,
+                                color: FlutterFlowTheme.of(context).tertiary,
                                 textStyle: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Inter',
+                                      fontFamily: 'Roboto',
                                       letterSpacing: 0.0,
                                     ),
                                 elevation: 0.0,
@@ -310,7 +310,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                             labelStyle: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
-                                  fontFamily: 'Inter',
+                                  fontFamily: 'Roboto',
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
                                   letterSpacing: 0.0,
@@ -318,7 +318,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                             hintStyle: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
-                                  fontFamily: 'Inter',
+                                  fontFamily: 'Roboto',
                                   letterSpacing: 0.0,
                                 ),
                             enabledBorder: OutlineInputBorder(
@@ -356,7 +356,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                           ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Inter',
+                                    fontFamily: 'Roboto',
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
                                     letterSpacing: 0.0,
@@ -381,7 +381,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                             labelStyle: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
-                                  fontFamily: 'Inter',
+                                  fontFamily: 'Roboto',
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
                                   letterSpacing: 0.0,
@@ -389,7 +389,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                             hintStyle: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
-                                  fontFamily: 'Inter',
+                                  fontFamily: 'Roboto',
                                   letterSpacing: 0.0,
                                 ),
                             enabledBorder: OutlineInputBorder(
@@ -427,7 +427,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                           ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Inter',
+                                    fontFamily: 'Roboto',
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
                                     letterSpacing: 0.0,
@@ -454,7 +454,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                             labelStyle: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
-                                  fontFamily: 'Inter',
+                                  fontFamily: 'Roboto',
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
                                   letterSpacing: 0.0,
@@ -462,7 +462,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                             hintStyle: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
-                                  fontFamily: 'Inter',
+                                  fontFamily: 'Roboto',
                                   letterSpacing: 0.0,
                                 ),
                             enabledBorder: OutlineInputBorder(
@@ -500,7 +500,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                           ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Inter',
+                                    fontFamily: 'Roboto',
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
                                     letterSpacing: 0.0,
@@ -533,7 +533,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
-                                            fontFamily: 'Inter',
+                                            fontFamily: 'Roboto',
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryBackground,
                                             letterSpacing: 0.0,
@@ -549,7 +549,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
                                           .override(
-                                            fontFamily: 'Inter',
+                                            fontFamily: 'Roboto',
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryBackground,
                                             letterSpacing: 0.0,
@@ -576,7 +576,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
-                                            fontFamily: 'Inter',
+                                            fontFamily: 'Roboto',
                                             letterSpacing: 0.0,
                                           ),
                                     )),
@@ -584,20 +584,26 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         16.0, 4.0, 0.0, 0.0),
-                                    child: SelectionArea(
-                                        child: Text(
-                                      FFLocalizations.of(context).getText(
-                                        '9pgrnwvz' /* July 12th, 2023 */,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyLarge
-                                          .override(
-                                            fontFamily: 'Inter',
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryBackground,
-                                            letterSpacing: 0.0,
-                                          ),
-                                    )),
+                                    child: AuthUserStreamWidget(
+                                      builder: (context) => SelectionArea(
+                                          child: Text(
+                                        dateTimeFormat(
+                                          "yMMMd",
+                                          currentUserDocument!.createdTime!,
+                                          locale: FFLocalizations.of(context)
+                                              .languageCode,
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyLarge
+                                            .override(
+                                              fontFamily: 'Roboto',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryBackground,
+                                              letterSpacing: 0.0,
+                                            ),
+                                      )),
+                                    ),
                                   ),
                                 ],
                               ),
@@ -619,7 +625,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
-                                            fontFamily: 'Inter',
+                                            fontFamily: 'Roboto',
                                             letterSpacing: 0.0,
                                           ),
                                     )),
@@ -627,20 +633,26 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         16.0, 4.0, 0.0, 0.0),
-                                    child: SelectionArea(
-                                        child: Text(
-                                      FFLocalizations.of(context).getText(
-                                        'ofcoealc' /* Just Now */,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyLarge
-                                          .override(
-                                            fontFamily: 'Inter',
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryBackground,
-                                            letterSpacing: 0.0,
-                                          ),
-                                    )),
+                                    child: AuthUserStreamWidget(
+                                      builder: (context) => SelectionArea(
+                                          child: Text(
+                                        dateTimeFormat(
+                                          "relative",
+                                          currentUserDocument!.createdTime!,
+                                          locale: FFLocalizations.of(context)
+                                              .languageCode,
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyLarge
+                                            .override(
+                                              fontFamily: 'Roboto',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryBackground,
+                                              letterSpacing: 0.0,
+                                            ),
+                                      )),
+                                    ),
                                   ),
                                 ],
                               ),
@@ -680,7 +692,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                               textStyle: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Inter',
+                                    fontFamily: 'Roboto',
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
                                     letterSpacing: 0.0,
@@ -715,7 +727,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                     _model.yourNameTextController1.text,
                               ));
                               logFirebaseEvent('Button_navigate_back');
-                              context.safePop();
+                              context.pop();
                               logFirebaseEvent('Button_show_snack_bar');
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
@@ -724,7 +736,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Inter',
+                                          fontFamily: 'Roboto',
                                           color: Colors.white,
                                           letterSpacing: 0.0,
                                         ),
@@ -748,7 +760,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
-                                    fontFamily: 'Inter',
+                                    fontFamily: 'Roboto',
                                     letterSpacing: 0.0,
                                   ),
                               elevation: 3.0,

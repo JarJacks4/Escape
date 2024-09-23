@@ -232,7 +232,7 @@ class _Details14DestinationWidgetState extends State<Details14DestinationWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Inter',
+                                              fontFamily: 'Roboto',
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryBackground,
@@ -257,7 +257,7 @@ class _Details14DestinationWidgetState extends State<Details14DestinationWidget>
                           ),
                           style:
                               FlutterFlowTheme.of(context).bodySmall.override(
-                                    fontFamily: 'Inter',
+                                    fontFamily: 'Roboto',
                                     color: Colors.white,
                                     letterSpacing: 0.0,
                                   ),

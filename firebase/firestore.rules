@@ -2,10 +2,10 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
     match /Users/{document} {
-      allow create: if true;
-      allow read: if true;
-      allow write: if true;
-      allow delete: if true;
+      allow create: if request.auth.uid == document;
+      allow read: if request.auth.uid == document;
+      allow write: if request.auth.uid == document;
+      allow delete: if request.auth.uid == document;
     }
 
     match /Providers/{document} {
@@ -30,43 +30,43 @@ service cloud.firestore {
     match /Products/{document} {
       allow create: if true;
       allow read: if true;
-      allow write: if request.auth != null;
-      allow delete: if false;
+      allow write: if true;
+      allow delete: if true;
     }
 
     match /Self-CareClasses/{document} {
       allow create: if true;
       allow read: if true;
-      allow write: if request.auth != null;
-      allow delete: if false;
+      allow write: if true;
+      allow delete: if true;
     }
 
     match /Orders/{document} {
       allow create: if true;
       allow read: if true;
       allow write: if false;
-      allow delete: if false;
+      allow delete: if true;
     }
 
     match /MeditationSessions/{document} {
       allow create: if true;
       allow read: if true;
       allow write: if false;
-      allow delete: if false;
+      allow delete: if true;
     }
 
     match /SelfCareGoals/{document} {
       allow create: if true;
       allow read: if true;
       allow write: if false;
-      allow delete: if false;
+      allow delete: if true;
     }
 
     match /SelfCareGoals/{parent}/Progress/{document} {
       allow create: if true;
       allow read: if true;
       allow write: if false;
-      allow delete: if false;
+      allow delete: if true;
     }
 
     match /{path=**}/Progress/{document} {
@@ -78,14 +78,14 @@ service cloud.firestore {
       allow create: if true;
       allow read: if true;
       allow write: if false;
-      allow delete: if false;
+      allow delete: if true;
     }
 
     match /TherapistDirectory/{parent}/location/{document} {
       allow create: if true;
       allow read: if true;
       allow write: if false;
-      allow delete: if false;
+      allow delete: if true;
     }
 
     match /{path=**}/location/{document} {
@@ -97,7 +97,7 @@ service cloud.firestore {
       allow create: if true;
       allow read: if true;
       allow write: if false;
-      allow delete: if false;
+      allow delete: if true;
     }
 
     match /{path=**}/services/{document} {
@@ -121,7 +121,7 @@ service cloud.firestore {
       allow create: if true;
       allow read: if true;
       allow write: if false;
-      allow delete: if false;
+      allow delete: if true;
     }
 
     match /Providers/{parent}/Classes/{document} {
@@ -148,28 +148,11 @@ service cloud.firestore {
     }
 
 
-    match /Users/{parent}/Subscriptions/{document} {
-      allow create: if true;
-      allow read: if true;
-      allow write: if true;
-      allow delete: if true;
+    match /Users/{parent}/Videos/{document} {
+      allow create: if request.auth.uid == parent;
+      allow read: if request.auth.uid == parent;
+      allow write: if request.auth.uid == parent;
+      allow delete: if request.auth.uid == parent;
     }
-
-    match /{path=**}/Subscriptions/{document} {
-      allow read: if true;
-    }
-
-
-    match /Users/{parent}/Playlists/{document} {
-      allow create: if true;
-      allow read: if true;
-      allow write: if true;
-      allow delete: if true;
-    }
-
-    match /{path=**}/Playlists/{document} {
-      allow read: if true;
-    }
-
   }
 }

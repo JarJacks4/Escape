@@ -215,7 +215,7 @@ class _LearningToMeditatePage2WidgetState
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
-                                  fontFamily: 'Inter',
+                                  fontFamily: 'Roboto',
                                   color: Colors.white,
                                   letterSpacing: 0.0,
                                 ),

@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/components/side_nav_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -81,16 +82,12 @@ class _HeaderYogaWidgetState extends State<HeaderYogaWidget> {
                             await showModalBottomSheet(
                               isScrollControlled: true,
                               backgroundColor: Colors.transparent,
-                              barrierColor: Color(0xBF000000),
                               context: context,
                               builder: (context) {
                                 return WebViewAware(
                                   child: Padding(
                                     padding: MediaQuery.viewInsetsOf(context),
-                                    child: Container(
-                                      height: double.infinity,
-                                      child: SideNavWidget(),
-                                    ),
+                                    child: SideNavWidget(),
                                   ),
                                 );
                               },
@@ -99,31 +96,63 @@ class _HeaderYogaWidgetState extends State<HeaderYogaWidget> {
                         ),
                       ),
                     ),
-                    FlutterFlowIconButton(
-                      borderColor: Colors.transparent,
-                      borderRadius: 30.0,
-                      borderWidth: 1.0,
-                      buttonSize: 52.0,
-                      fillColor: FlutterFlowTheme.of(context).primary,
-                      icon: Icon(
-                        Icons.notifications,
-                        color: FlutterFlowTheme.of(context).primaryBackground,
-                        size: 36.0,
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+                      child: FlutterFlowIconButton(
+                        borderColor: Colors.transparent,
+                        borderRadius: 30.0,
+                        borderWidth: 1.0,
+                        buttonSize: 52.0,
+                        fillColor: FlutterFlowTheme.of(context).primary,
+                        icon: Icon(
+                          Icons.notifications,
+                          color: FlutterFlowTheme.of(context).primaryBackground,
+                          size: 36.0,
+                        ),
+                        onPressed: () {
+                          print('IconButton pressed ...');
+                        },
                       ),
-                      onPressed: () {
-                        print('IconButton pressed ...');
-                      },
                     ),
-                    Container(
-                      width: MediaQuery.sizeOf(context).width * 0.2,
-                      height: MediaQuery.sizeOf(context).width * 0.2,
-                      clipBehavior: Clip.antiAlias,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                      ),
-                      child: Image.asset(
-                        'assets/images/ESCAPE_Logo_Clear.png',
-                        fit: BoxFit.cover,
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 30.0, 0.0),
+                      child: AuthUserStreamWidget(
+                        builder: (context) => InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            logFirebaseEvent(
+                                'HEADER_YOGA_COMP_userAvatar_ON_TAP');
+                            logFirebaseEvent('userAvatar_navigate_to');
+
+                            context.pushNamed(
+                              'ProfilePage',
+                              extra: <String, dynamic>{
+                                kTransitionInfoKey: TransitionInfo(
+                                  hasTransition: true,
+                                  transitionType: PageTransitionType.fade,
+                                  duration: Duration(milliseconds: 3),
+                                ),
+                              },
+                            );
+                          },
+                          child: Container(
+                            width: 60.0,
+                            height: 60.0,
+                            clipBehavior: Clip.antiAlias,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                            ),
+                            child: Image.network(
+                              currentUserPhoto,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                   ],
@@ -157,7 +186,7 @@ class _HeaderYogaWidgetState extends State<HeaderYogaWidget> {
                   '5enqxlfb' /* Start or continue your journey... */,
                 ),
                 style: FlutterFlowTheme.of(context).labelMedium.override(
-                      fontFamily: 'Inter',
+                      fontFamily: 'Roboto',
                       color: Color(0xC46450A5),
                       fontSize: 20.0,
                       letterSpacing: 0.0,

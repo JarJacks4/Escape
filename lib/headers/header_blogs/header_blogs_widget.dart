@@ -155,7 +155,7 @@ class _HeaderBlogsWidgetState extends State<HeaderBlogsWidget> {
                       'nxngqig5' /* Blogs */,
                     ),
                     style: FlutterFlowTheme.of(context).displaySmall.override(
-                          fontFamily: 'Readex Pro',
+                          fontFamily: 'Roboto',
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
                           letterSpacing: 0.0,
@@ -174,7 +174,7 @@ our colle... */
                   ,
                 ),
                 style: FlutterFlowTheme.of(context).labelMedium.override(
-                      fontFamily: 'Inter',
+                      fontFamily: 'Roboto',
                       color: FlutterFlowTheme.of(context).primaryBackground,
                       fontSize: 20.0,
                       letterSpacing: 0.0,

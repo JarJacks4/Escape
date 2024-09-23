@@ -1,4 +1,4 @@
-import '/components/self_care_a_i_bottom_sheet_widget.dart';
+import '/components/lucille_promo_bottom_sheet_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'home_comp_widget.dart' show HomeCompWidget;

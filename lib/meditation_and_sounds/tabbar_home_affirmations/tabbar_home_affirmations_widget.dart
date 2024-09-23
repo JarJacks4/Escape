@@ -65,14 +65,14 @@ class _TabbarHomeAffirmationsWidgetState
                 useToggleButtonStyle: false,
                 isScrollable: true,
                 labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
-                      fontFamily: 'Inter',
+                      fontFamily: 'Roboto',
                       fontSize: 14.0,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.w500,
                     ),
                 unselectedLabelStyle:
                     FlutterFlowTheme.of(context).labelMedium.override(
-                          fontFamily: 'Inter',
+                          fontFamily: 'Roboto',
                           fontSize: 14.0,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w500,

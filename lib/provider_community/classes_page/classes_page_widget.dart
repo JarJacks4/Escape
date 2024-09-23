@@ -109,7 +109,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                         ),
                         style:
                             FlutterFlowTheme.of(context).displaySmall.override(
-                                  fontFamily: 'Readex Pro',
+                                  fontFamily: 'Roboto',
                                   letterSpacing: 0.0,
                                 ),
                       ),
@@ -124,7 +124,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                         textAlign: TextAlign.start,
                         style:
                             FlutterFlowTheme.of(context).labelMedium.override(
-                                  fontFamily: 'Inter',
+                                  fontFamily: 'Roboto',
                                   letterSpacing: 0.0,
                                 ),
                       ),
@@ -145,7 +145,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                         style: FlutterFlowTheme.of(context)
                             .headlineMedium
                             .override(
-                              fontFamily: 'Readex Pro',
+                              fontFamily: 'Roboto',
                               letterSpacing: 0.0,
                             ),
                       ),
@@ -159,7 +159,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                         ),
                         textAlign: TextAlign.start,
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Inter',
+                              fontFamily: 'Roboto',
                               letterSpacing: 0.0,
                             ),
                       ),
@@ -174,7 +174,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                         textAlign: TextAlign.start,
                         style:
                             FlutterFlowTheme.of(context).labelMedium.override(
-                                  fontFamily: 'Inter',
+                                  fontFamily: 'Roboto',
                                   letterSpacing: 0.0,
                                 ),
                       ).animateOnPageLoad(
@@ -189,7 +189,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                         ),
                         textAlign: TextAlign.start,
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Inter',
+                              fontFamily: 'Roboto',
                               letterSpacing: 0.0,
                             ),
                       ),
@@ -248,7 +248,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .bodyLarge
                                                       .override(
-                                                        fontFamily: 'Inter',
+                                                        fontFamily: 'Roboto',
                                                         letterSpacing: 0.0,
                                                       ),
                                             ),
@@ -264,7 +264,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .labelMedium
                                                         .override(
-                                                          fontFamily: 'Inter',
+                                                          fontFamily: 'Roboto',
                                                           letterSpacing: 0.0,
                                                         ),
                                               ),
@@ -281,7 +281,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .headlineSmall
                                           .override(
-                                            fontFamily: 'Readex Pro',
+                                            fontFamily: 'Roboto',
                                             letterSpacing: 0.0,
                                           ),
                                     ),
@@ -335,7 +335,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .bodyLarge
                                                       .override(
-                                                        fontFamily: 'Inter',
+                                                        fontFamily: 'Roboto',
                                                         letterSpacing: 0.0,
                                                       ),
                                             ),
@@ -351,7 +351,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .labelMedium
                                                         .override(
-                                                          fontFamily: 'Inter',
+                                                          fontFamily: 'Roboto',
                                                           letterSpacing: 0.0,
                                                         ),
                                               ),
@@ -368,7 +368,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .headlineSmall
                                           .override(
-                                            fontFamily: 'Readex Pro',
+                                            fontFamily: 'Roboto',
                                             letterSpacing: 0.0,
                                           ),
                                     ),
@@ -422,7 +422,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .bodyLarge
                                                       .override(
-                                                        fontFamily: 'Inter',
+                                                        fontFamily: 'Roboto',
                                                         letterSpacing: 0.0,
                                                       ),
                                             ),
@@ -438,7 +438,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .labelMedium
                                                         .override(
-                                                          fontFamily: 'Inter',
+                                                          fontFamily: 'Roboto',
                                                           letterSpacing: 0.0,
                                                         ),
                                               ),
@@ -455,7 +455,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .headlineSmall
                                           .override(
-                                            fontFamily: 'Readex Pro',
+                                            fontFamily: 'Roboto',
                                             letterSpacing: 0.0,
                                           ),
                                     ),
@@ -509,7 +509,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .bodyLarge
                                                       .override(
-                                                        fontFamily: 'Inter',
+                                                        fontFamily: 'Roboto',
                                                         letterSpacing: 0.0,
                                                       ),
                                             ),
@@ -525,7 +525,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .labelMedium
                                                         .override(
-                                                          fontFamily: 'Inter',
+                                                          fontFamily: 'Roboto',
                                                           letterSpacing: 0.0,
                                                         ),
                                               ),
@@ -542,7 +542,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .headlineSmall
                                           .override(
-                                            fontFamily: 'Readex Pro',
+                                            fontFamily: 'Roboto',
                                             letterSpacing: 0.0,
                                           ),
                                     ),
@@ -576,7 +576,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                       EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                   color: FlutterFlowTheme.of(context).primary,
                   textStyle: FlutterFlowTheme.of(context).titleMedium.override(
-                        fontFamily: 'Readex Pro',
+                        fontFamily: 'Roboto',
                         letterSpacing: 0.0,
                       ),
                   borderSide: BorderSide(
@@ -608,7 +608,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                       EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                   color: FlutterFlowTheme.of(context).accent1,
                   textStyle: FlutterFlowTheme.of(context).titleLarge.override(
-                        fontFamily: 'Readex Pro',
+                        fontFamily: 'Roboto',
                         color: FlutterFlowTheme.of(context).primary,
                         letterSpacing: 0.0,
                       ),

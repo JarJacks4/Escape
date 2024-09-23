@@ -139,7 +139,7 @@ class _HeaderTherapistDirectoryWidgetState
                       '99iu8x7v' /* Therapist Directory */,
                     ),
                     style: FlutterFlowTheme.of(context).displaySmall.override(
-                          fontFamily: 'Readex Pro',
+                          fontFamily: 'Roboto',
                           color: FlutterFlowTheme.of(context).primary,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.normal,
@@ -155,7 +155,7 @@ class _HeaderTherapistDirectoryWidgetState
                   '75pewyb9' /* Start or continue your journey... */,
                 ),
                 style: FlutterFlowTheme.of(context).labelMedium.override(
-                      fontFamily: 'Inter',
+                      fontFamily: 'Roboto',
                       fontSize: 20.0,
                       letterSpacing: 0.0,
                     ),

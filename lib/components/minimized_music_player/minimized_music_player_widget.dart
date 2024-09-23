@@ -71,13 +71,13 @@ class _MinimizedMusicPlayerWidgetState
               ),
             ),
             titleTextStyle: FlutterFlowTheme.of(context).titleLarge.override(
-                  fontFamily: 'Readex Pro',
+                  fontFamily: 'Roboto',
                   color: FlutterFlowTheme.of(context).secondary,
                   letterSpacing: 0.0,
                 ),
             playbackDurationTextStyle:
                 FlutterFlowTheme.of(context).labelMedium.override(
-                      fontFamily: 'Inter',
+                      fontFamily: 'Roboto',
                       color: FlutterFlowTheme.of(context).success,
                       fontSize: 16.0,
                       letterSpacing: 0.0,

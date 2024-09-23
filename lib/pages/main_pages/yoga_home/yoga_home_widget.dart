@@ -48,6 +48,44 @@ class _YogaHomeWidgetState extends State<YogaHomeWidget>
           ),
         ],
       ),
+      'headerYogaOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'tabbarHomeYogaOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
     });
   }
 
@@ -104,7 +142,8 @@ class _YogaHomeWidgetState extends State<YogaHomeWidget>
                         model: _model.headerYogaModel,
                         updateCallback: () => safeSetState(() {}),
                         child: HeaderYogaWidget(),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['headerYogaOnPageLoadAnimation']!),
                     ),
                   ],
                 ).animateOnPageLoad(animationsMap['rowOnPageLoadAnimation']!),
@@ -113,7 +152,8 @@ class _YogaHomeWidgetState extends State<YogaHomeWidget>
                     model: _model.tabbarHomeYogaModel,
                     updateCallback: () => safeSetState(() {}),
                     child: TabbarHomeYogaWidget(),
-                  ),
+                  ).animateOnPageLoad(
+                      animationsMap['tabbarHomeYogaOnPageLoadAnimation']!),
                 ),
               ],
             ),

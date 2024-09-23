@@ -108,6 +108,25 @@ class _UserCommunityOnboardingWidgetState
           ),
         ],
       ),
+      'containerOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          MoveEffect(
+            curve: Curves.linear,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
       'imageOnPageLoadAnimation1': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
@@ -134,7 +153,7 @@ class _UserCommunityOnboardingWidgetState
           ),
         ],
       ),
-      'containerOnPageLoadAnimation2': AnimationInfo(
+      'containerOnPageLoadAnimation3': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           FadeEffect(
@@ -217,7 +236,7 @@ class _UserCommunityOnboardingWidgetState
           ),
         ],
       ),
-      'containerOnPageLoadAnimation3': AnimationInfo(
+      'containerOnPageLoadAnimation4': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           FadeEffect(
@@ -300,7 +319,7 @@ class _UserCommunityOnboardingWidgetState
           ),
         ],
       ),
-      'containerOnPageLoadAnimation4': AnimationInfo(
+      'containerOnPageLoadAnimation5': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           FadeEffect(
@@ -383,7 +402,7 @@ class _UserCommunityOnboardingWidgetState
           ),
         ],
       ),
-      'containerOnPageLoadAnimation5': AnimationInfo(
+      'containerOnPageLoadAnimation6': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           FadeEffect(
@@ -467,12 +486,6 @@ class _UserCommunityOnboardingWidgetState
         ],
       ),
     });
-    setupAnimations(
-      animationsMap.values.where((anim) =>
-          anim.trigger == AnimationTrigger.onActionTrigger ||
-          !anim.applyInitialState),
-      this,
-    );
   }
 
   @override
@@ -587,37 +600,48 @@ class _UserCommunityOnboardingWidgetState
                                         Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
-                                            Container(
-                                              width: 396.0,
-                                              height: 256.0,
-                                              decoration: BoxDecoration(
-                                                color: Color(0x00000811),
-                                              ),
-                                              child: Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
-                                                child: Padding(
-                                                  padding: EdgeInsets.all(20.0),
-                                                  child: Text(
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                      '65xwidg2' /* Click the continue button belo... */,
+                                            Flexible(
+                                              flex: 1,
+                                              child: Container(
+                                                width: 396.0,
+                                                height: 256.0,
+                                                decoration: BoxDecoration(
+                                                  color: Color(0x00000811),
+                                                ),
+                                                child: Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          0.0, 0.0),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(20.0, 0.0,
+                                                                20.0, 0.0),
+                                                    child: Text(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        '65xwidg2' /* Click the continue button belo... */,
+                                                      ),
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Roboto',
+                                                            fontSize: 22.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w300,
+                                                            lineHeight: 1.5,
+                                                          ),
                                                     ),
-                                                    textAlign: TextAlign.center,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Roboto',
-                                                          fontSize: 22.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w300,
-                                                          lineHeight: 1.5,
-                                                        ),
                                                   ),
                                                 ),
-                                              ),
+                                              ).animateOnPageLoad(animationsMap[
+                                                  'containerOnPageLoadAnimation2']!),
                                             ),
                                           ],
                                         ),
@@ -669,7 +693,7 @@ class _UserCommunityOnboardingWidgetState
                                                             .of(context)
                                                         .titleSmall
                                                         .override(
-                                                          fontFamily: 'Inter',
+                                                          fontFamily: 'Roboto',
                                                           color: Colors.white,
                                                           fontSize: 22.0,
                                                           letterSpacing: 0.0,
@@ -882,7 +906,7 @@ class _UserCommunityOnboardingWidgetState
                                                             .of(context)
                                                         .titleSmall
                                                         .override(
-                                                          fontFamily: 'Inter',
+                                                          fontFamily: 'Roboto',
                                                           color: Colors.white,
                                                           fontSize: 22.0,
                                                           letterSpacing: 0.0,
@@ -939,7 +963,7 @@ class _UserCommunityOnboardingWidgetState
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Inter',
+                                                        fontFamily: 'Roboto',
                                                         fontSize: 18.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -965,7 +989,7 @@ class _UserCommunityOnboardingWidgetState
                                 ),
                               ),
                             ).animateOnPageLoad(animationsMap[
-                                'containerOnPageLoadAnimation2']!),
+                                'containerOnPageLoadAnimation3']!),
                           ),
                         ),
                       ],
@@ -1173,7 +1197,7 @@ class _UserCommunityOnboardingWidgetState
                                                                         .labelMedium
                                                                         .override(
                                                                           fontFamily:
-                                                                              'Inter',
+                                                                              'Roboto',
                                                                           color:
                                                                               FlutterFlowTheme.of(context).secondaryBackground,
                                                                           fontSize:
@@ -1279,7 +1303,7 @@ class _UserCommunityOnboardingWidgetState
                                                                   .bodySmall
                                                                   .override(
                                                                     fontFamily:
-                                                                        'Inter',
+                                                                        'Roboto',
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .secondaryBackground,
@@ -1364,7 +1388,7 @@ class _UserCommunityOnboardingWidgetState
                                                                 .bodyMedium
                                                                 .override(
                                                                   fontFamily:
-                                                                      'Inter',
+                                                                      'Roboto',
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .secondaryText,
@@ -1412,7 +1436,7 @@ class _UserCommunityOnboardingWidgetState
                                                                     .bodySmall
                                                                     .override(
                                                                       fontFamily:
-                                                                          'Inter',
+                                                                          'Roboto',
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .secondaryBackground,
@@ -1496,7 +1520,7 @@ class _UserCommunityOnboardingWidgetState
                                                                   .bodyMedium
                                                                   .override(
                                                                     fontFamily:
-                                                                        'Inter',
+                                                                        'Roboto',
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .secondaryText,
@@ -1547,7 +1571,7 @@ class _UserCommunityOnboardingWidgetState
                                                                     .bodySmall
                                                                     .override(
                                                                       fontFamily:
-                                                                          'Inter',
+                                                                          'Roboto',
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .secondaryBackground,
@@ -1632,7 +1656,7 @@ class _UserCommunityOnboardingWidgetState
                                                                   .bodyMedium
                                                                   .override(
                                                                     fontFamily:
-                                                                        'Inter',
+                                                                        'Roboto',
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .secondaryText,
@@ -1702,7 +1726,7 @@ class _UserCommunityOnboardingWidgetState
                                                             .of(context)
                                                         .titleSmall
                                                         .override(
-                                                          fontFamily: 'Inter',
+                                                          fontFamily: 'Roboto',
                                                           color: Colors.white,
                                                           fontSize: 22.0,
                                                           letterSpacing: 0.0,
@@ -1738,7 +1762,7 @@ class _UserCommunityOnboardingWidgetState
                                 ),
                               ),
                             ).animateOnPageLoad(animationsMap[
-                                'containerOnPageLoadAnimation3']!),
+                                'containerOnPageLoadAnimation4']!),
                           ),
                         ),
                       ],
@@ -1981,7 +2005,7 @@ class _UserCommunityOnboardingWidgetState
                                                                   .bodyMedium
                                                                   .override(
                                                                     fontFamily:
-                                                                        'Inter',
+                                                                        'Roboto',
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -1991,7 +2015,7 @@ class _UserCommunityOnboardingWidgetState
                                                                   .bodyMedium
                                                                   .override(
                                                                     fontFamily:
-                                                                        'Inter',
+                                                                        'Roboto',
                                                                     fontSize:
                                                                         16.0,
                                                                     letterSpacing:
@@ -2063,7 +2087,7 @@ class _UserCommunityOnboardingWidgetState
                                                             .of(context)
                                                         .titleSmall
                                                         .override(
-                                                          fontFamily: 'Inter',
+                                                          fontFamily: 'Roboto',
                                                           color: Colors.white,
                                                           fontSize: 22.0,
                                                           letterSpacing: 0.0,
@@ -2099,7 +2123,7 @@ class _UserCommunityOnboardingWidgetState
                                 ),
                               ),
                             ).animateOnPageLoad(animationsMap[
-                                'containerOnPageLoadAnimation4']!),
+                                'containerOnPageLoadAnimation5']!),
                           ),
                         ),
                       ],
@@ -2181,7 +2205,7 @@ class _UserCommunityOnboardingWidgetState
                                             style: FlutterFlowTheme.of(context)
                                                 .titleSmall
                                                 .override(
-                                                  fontFamily: 'Inter',
+                                                  fontFamily: 'Roboto',
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .primaryText,
@@ -2216,7 +2240,7 @@ class _UserCommunityOnboardingWidgetState
                                                               -1.0, -1.0),
                                                       child: Container(
                                                         width: double.infinity,
-                                                        height: 277.0,
+                                                        height: 304.0,
                                                         decoration:
                                                             BoxDecoration(
                                                           color:
@@ -2330,7 +2354,7 @@ class _UserCommunityOnboardingWidgetState
                                                                   .bodyMedium
                                                                   .override(
                                                                     fontFamily:
-                                                                        'Inter',
+                                                                        'Roboto',
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -2340,7 +2364,7 @@ class _UserCommunityOnboardingWidgetState
                                                                   .bodyMedium
                                                                   .override(
                                                                     fontFamily:
-                                                                        'Inter',
+                                                                        'Roboto',
                                                                     fontSize:
                                                                         16.0,
                                                                     letterSpacing:
@@ -2382,7 +2406,7 @@ class _UserCommunityOnboardingWidgetState
                                                         'Button_navigate_to');
 
                                                     context.pushNamed(
-                                                      'UserCommunityPageViewFINAL',
+                                                      'NewHome',
                                                       extra: <String, dynamic>{
                                                         kTransitionInfoKey:
                                                             TransitionInfo(
@@ -2391,7 +2415,7 @@ class _UserCommunityOnboardingWidgetState
                                                               PageTransitionType
                                                                   .fade,
                                                           duration: Duration(
-                                                              milliseconds: 3),
+                                                              milliseconds: 2),
                                                         ),
                                                       },
                                                     );
@@ -2420,7 +2444,7 @@ class _UserCommunityOnboardingWidgetState
                                                             .of(context)
                                                         .titleSmall
                                                         .override(
-                                                          fontFamily: 'Inter',
+                                                          fontFamily: 'Roboto',
                                                           color: Colors.white,
                                                           fontSize: 22.0,
                                                           letterSpacing: 0.0,
@@ -2456,7 +2480,7 @@ class _UserCommunityOnboardingWidgetState
                                 ),
                               ),
                             ).animateOnPageLoad(animationsMap[
-                                'containerOnPageLoadAnimation5']!),
+                                'containerOnPageLoadAnimation6']!),
                           ),
                         ),
                       ],
