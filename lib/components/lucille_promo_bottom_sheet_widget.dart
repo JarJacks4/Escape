@@ -2,6 +2,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/revenue_cat_util.dart' as revenue_cat;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -305,8 +306,48 @@ meditation exer... */
                                   child: Padding(
                                     padding: EdgeInsets.all(40.0),
                                     child: FFButtonWidget(
-                                      onPressed: () {
-                                        print('Button pressed ...');
+                                      onPressed: () async {
+                                        logFirebaseEvent(
+                                            'LUCILLE_PROMO_BOTTOM_SHEET_SUBSCRIBE_NOW');
+                                        logFirebaseEvent('Button_revenue_cat');
+                                        final isEntitled = await revenue_cat
+                                                .isEntitled('Premium User') ??
+                                            false;
+                                        if (!isEntitled) {
+                                          await revenue_cat.loadOfferings();
+                                        }
+
+                                        if (isEntitled) {
+                                          logFirebaseEvent(
+                                              'Button_show_snack_bar');
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(
+                                            SnackBar(
+                                              content: Text(
+                                                'You are already a subscriber!',
+                                                style: TextStyle(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText,
+                                                ),
+                                              ),
+                                              duration:
+                                                  Duration(milliseconds: 4000),
+                                              backgroundColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondary,
+                                            ),
+                                          );
+                                        } else {
+                                          logFirebaseEvent(
+                                              'Button_revenue_cat');
+                                          final isEntitled = await revenue_cat
+                                                  .isEntitled('Premium User') ??
+                                              false;
+                                          if (!isEntitled) {
+                                            await revenue_cat.loadOfferings();
+                                          }
+                                        }
                                       },
                                       text: FFLocalizations.of(context).getText(
                                         'ez7ogye7' /* Subscribe Now */,

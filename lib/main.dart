@@ -19,6 +19,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'flutter_flow/nav/nav.dart';
 import 'index.dart';
+import 'flutter_flow/revenue_cat_util.dart' as revenue_cat;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -32,6 +33,12 @@ void main() async {
 
   final appState = FFAppState(); // Initialize FFAppState
   await appState.initializePersistedState();
+
+  await revenue_cat.initialize(
+    "appl_DmOdmFfHvXLKVCiHDehBvGvUeSa",
+    "",
+    loadDataAfterLaunch: true,
+  );
 
   if (!kIsWeb) {
     FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
@@ -64,7 +71,9 @@ class _MyAppState extends State<MyApp> {
 
   late Stream<BaseAuthUser> userStream;
 
-  final authUserSub = authenticatedUserStream.listen((_) {});
+  final authUserSub = authenticatedUserStream.listen((user) {
+    revenue_cat.login(user?.uid);
+  });
 
   @override
   void initState() {

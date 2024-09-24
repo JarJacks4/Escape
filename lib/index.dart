@@ -60,7 +60,7 @@ export '/pages/onboarding_login/complete_profile_f_i_n_a_l/complete_profile_f_i_
     show CompleteProfileFINALWidget;
 export '/pages/main_pages/upliftand_awareness/upliftand_awareness_widget.dart'
     show UpliftandAwarenessWidget;
-export '/pages/main_pages/increase_focus/increase_focus_widget.dart'
+export '/pages/increase_focus/increase_focus_widget.dart'
     show IncreaseFocusWidget;
 export '/meditation_and_sounds/sounds_details_ambient_music/sounds_details_ambient_music_widget.dart'
     show SoundsDetailsAmbientMusicWidget;
