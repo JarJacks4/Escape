@@ -28,6 +28,9 @@ class FFAppState extends ChangeNotifier {
       _uploadedSongs =
           prefs.getString('ff_uploadedSongs')?.ref ?? _uploadedSongs;
     });
+    _safeInit(() {
+      _isSubscriber = prefs.getBool('ff_isSubscriber') ?? _isSubscriber;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -114,6 +117,13 @@ class FFAppState extends ChangeNotifier {
     value != null
         ? prefs.setString('ff_uploadedSongs', value.path)
         : prefs.remove('ff_uploadedSongs');
+  }
+
+  bool _isSubscriber = false;
+  bool get isSubscriber => _isSubscriber;
+  set isSubscriber(bool value) {
+    _isSubscriber = value;
+    prefs.setBool('ff_isSubscriber', value);
   }
 }
 

@@ -165,7 +165,7 @@ class _PilatesVideosCompWidgetState extends State<PilatesVideosCompWidget>
                     padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
                     child: Container(
                       width: double.infinity,
-                      height: 256.0,
+                      height: 272.0,
                       decoration: BoxDecoration(
                         color: Colors.transparent,
                       ),
@@ -327,7 +327,9 @@ class _PilatesVideosCompWidgetState extends State<PilatesVideosCompWidget>
                                                     )
                                                         .toString()
                                                         .maybeHandleOverflow(
-                                                            maxChars: 50),
+                                                          maxChars: 30,
+                                                          replacement: '…',
+                                                        ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium
@@ -632,7 +634,12 @@ class _PilatesVideosCompWidgetState extends State<PilatesVideosCompWidget>
                                                 getJsonField(
                                                   recentItemsItem,
                                                   r'''$.title''',
-                                                ).toString(),
+                                                )
+                                                    .toString()
+                                                    .maybeHandleOverflow(
+                                                      maxChars: 30,
+                                                      replacement: '…',
+                                                    ),
                                                 textAlign: TextAlign.center,
                                                 style:
                                                     FlutterFlowTheme.of(context)
@@ -889,7 +896,9 @@ class _PilatesVideosCompWidgetState extends State<PilatesVideosCompWidget>
                                                       )
                                                           .toString()
                                                           .maybeHandleOverflow(
-                                                              maxChars: 50),
+                                                            maxChars: 30,
+                                                            replacement: '…',
+                                                          ),
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)

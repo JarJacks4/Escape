@@ -392,8 +392,27 @@ least 100 Videos... */
                                                 fontFamily: 'Roboto',
                                                 fontSize: 30.0,
                                                 letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w600,
                                               ),
                                         ),
+                                      ),
+                                    ),
+                                    Align(
+                                      alignment:
+                                          AlignmentDirectional(0.01, 0.95),
+                                      child: Text(
+                                        revenue_cat.offerings!.current!.monthly!
+                                            .storeProduct.priceString,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Roboto',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryBackground,
+                                              fontSize: 22.0,
+                                              letterSpacing: 0.0,
+                                            ),
                                       ),
                                     ),
                                   ],
@@ -602,6 +621,42 @@ Offline Capabilit... */
                         ),
                       ),
                     ),
+                    Align(
+                      alignment: AlignmentDirectional(0.0, 1.0),
+                      child: Padding(
+                        padding: EdgeInsets.all(40.0),
+                        child: FFButtonWidget(
+                          onPressed: () async {
+                            logFirebaseEvent(
+                                'SUBSCRIBE_NOW_PROMO_BOTTOM_SHEET_DISMISS');
+                            logFirebaseEvent('Button_bottom_sheet');
+                            Navigator.pop(context);
+                          },
+                          text: FFLocalizations.of(context).getText(
+                            'eckd7ves' /* Dismiss */,
+                          ),
+                          options: FFButtonOptions(
+                            width: MediaQuery.sizeOf(context).width * 0.8,
+                            height: 58.0,
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                16.0, 0.0, 16.0, 0.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  fontFamily: 'Roboto',
+                                  color: Colors.white,
+                                  letterSpacing: 0.0,
+                                ),
+                            elevation: 8.0,
+                            borderRadius: BorderRadius.circular(20.0),
+                          ),
+                        ),
+                      ),
+                    ),
                     Padding(
                       padding: EdgeInsets.all(20.0),
                       child: RichText(
@@ -676,73 +731,6 @@ Offline Capabilit... */
                               ),
                         ),
                         textAlign: TextAlign.center,
-                      ),
-                    ),
-                    Align(
-                      alignment: AlignmentDirectional(0.0, 1.0),
-                      child: Padding(
-                        padding: EdgeInsets.all(40.0),
-                        child: FFButtonWidget(
-                          onPressed: () async {
-                            logFirebaseEvent(
-                                'SUBSCRIBE_NOW_PROMO_BOTTOM_SHEET_SUBSCRI');
-                            logFirebaseEvent('Button_revenue_cat');
-                            final isEntitled =
-                                await revenue_cat.isEntitled('Premium User') ??
-                                    false;
-                            if (!isEntitled) {
-                              await revenue_cat.loadOfferings();
-                            }
-
-                            if (isEntitled) {
-                              logFirebaseEvent('Button_show_snack_bar');
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                  content: Text(
-                                    'You are already a subscriber!',
-                                    style: TextStyle(
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryText,
-                                    ),
-                                  ),
-                                  duration: Duration(milliseconds: 4000),
-                                  backgroundColor:
-                                      FlutterFlowTheme.of(context).secondary,
-                                ),
-                              );
-                            } else {
-                              logFirebaseEvent('Button_revenue_cat');
-                              final isEntitled = await revenue_cat
-                                      .isEntitled('Premium User') ??
-                                  false;
-                              if (!isEntitled) {
-                                await revenue_cat.loadOfferings();
-                              }
-                            }
-                          },
-                          text: FFLocalizations.of(context).getText(
-                            'eckd7ves' /* Subscribe Now */,
-                          ),
-                          options: FFButtonOptions(
-                            width: MediaQuery.sizeOf(context).width * 0.8,
-                            height: 58.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                16.0, 0.0, 16.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                            textStyle: FlutterFlowTheme.of(context)
-                                .titleSmall
-                                .override(
-                                  fontFamily: 'Roboto',
-                                  color: Colors.white,
-                                  letterSpacing: 0.0,
-                                ),
-                            elevation: 8.0,
-                            borderRadius: BorderRadius.circular(20.0),
-                          ),
-                        ),
                       ),
                     ),
                   ],

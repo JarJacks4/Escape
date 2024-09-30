@@ -174,7 +174,7 @@ class _RegisterSignUpWidgetState extends State<RegisterSignUpWidget>
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Roboto',
-                            color: FlutterFlowTheme.of(context).secondaryText,
+                            color: Color(0xFF000220),
                             fontSize: 18.0,
                             letterSpacing: 0.0,
                           ),
@@ -254,7 +254,7 @@ class _RegisterSignUpWidgetState extends State<RegisterSignUpWidget>
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Roboto',
-                            color: FlutterFlowTheme.of(context).secondaryText,
+                            color: Color(0xF9000220),
                             fontSize: 18.0,
                             letterSpacing: 0.0,
                           ),
@@ -335,7 +335,7 @@ class _RegisterSignUpWidgetState extends State<RegisterSignUpWidget>
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Roboto',
-                            color: FlutterFlowTheme.of(context).secondaryText,
+                            color: Color(0xF8000220),
                             fontSize: 18.0,
                             letterSpacing: 0.0,
                           ),

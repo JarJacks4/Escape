@@ -242,7 +242,7 @@ Yoga Videos */
                   ),
                   Container(
                     width: double.infinity,
-                    height: 255.0,
+                    height: 281.0,
                     decoration: BoxDecoration(
                       color: Colors.transparent,
                     ),
@@ -399,7 +399,9 @@ Yoga Videos */
                                                   )
                                                       .toString()
                                                       .maybeHandleOverflow(
-                                                          maxChars: 50),
+                                                        maxChars: 30,
+                                                        replacement: '…',
+                                                      ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -1111,7 +1113,12 @@ Yoga */
                                                       getJsonField(
                                                         recentItemsItem,
                                                         r'''$.title''',
-                                                      ).toString(),
+                                                      )
+                                                          .toString()
+                                                          .maybeHandleOverflow(
+                                                            maxChars: 30,
+                                                            replacement: '…',
+                                                          ),
                                                       textAlign:
                                                           TextAlign.center,
                                                       style:
@@ -1368,7 +1375,10 @@ Yoga */
                                                           )
                                                               .toString()
                                                               .maybeHandleOverflow(
-                                                                  maxChars: 50),
+                                                                maxChars: 30,
+                                                                replacement:
+                                                                    '…',
+                                                              ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyMedium

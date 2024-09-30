@@ -296,8 +296,7 @@ class _SoundsDetailsSleepWidgetState extends State<SoundsDetailsSleepWidget>
                             child: PagedListView<ApiPagingParams, dynamic>(
                               pagingController: _model.setListViewController(
                                 (nextPageMarker) =>
-                                    YouTubeDataSleepMeditationsAPIFINALCopyCopyCopyCall
-                                        .call(),
+                                    YouTubeDataSleepAPICallCopyCall.call(),
                               ),
                               padding: EdgeInsets.zero,
                               primary: false,

@@ -8,8 +8,8 @@ import '/backend/schema/util/schema_util.dart';
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
-class VideosRecord extends FirestoreRecord {
-  VideosRecord._(
+class VideosCollectionRecord extends FirestoreRecord {
+  VideosCollectionRecord._(
     DocumentReference reference,
     Map<String, dynamic> data,
   ) : super(reference, data) {
@@ -46,8 +46,6 @@ class VideosRecord extends FirestoreRecord {
   String get videoUrlString => _videoUrlString ?? '';
   bool hasVideoUrlString() => _videoUrlString != null;
 
-  DocumentReference get parentReference => reference.parent.parent!;
-
   void _initializeFields() {
     _videoName = snapshotData['videoName'] as String?;
     _videoOwner = snapshotData['videoOwner'] as String?;
@@ -57,45 +55,42 @@ class VideosRecord extends FirestoreRecord {
     _videoUrlString = snapshotData['videoUrlString'] as String?;
   }
 
-  static Query<Map<String, dynamic>> collection([DocumentReference? parent]) =>
-      parent != null
-          ? parent.collection('Videos')
-          : FirebaseFirestore.instance.collectionGroup('Videos');
+  static CollectionReference get collection =>
+      FirebaseFirestore.instance.collection('videosCollection');
 
-  static DocumentReference createDoc(DocumentReference parent, {String? id}) =>
-      parent.collection('Videos').doc(id);
+  static Stream<VideosCollectionRecord> getDocument(DocumentReference ref) =>
+      ref.snapshots().map((s) => VideosCollectionRecord.fromSnapshot(s));
 
-  static Stream<VideosRecord> getDocument(DocumentReference ref) =>
-      ref.snapshots().map((s) => VideosRecord.fromSnapshot(s));
+  static Future<VideosCollectionRecord> getDocumentOnce(
+          DocumentReference ref) =>
+      ref.get().then((s) => VideosCollectionRecord.fromSnapshot(s));
 
-  static Future<VideosRecord> getDocumentOnce(DocumentReference ref) =>
-      ref.get().then((s) => VideosRecord.fromSnapshot(s));
-
-  static VideosRecord fromSnapshot(DocumentSnapshot snapshot) => VideosRecord._(
+  static VideosCollectionRecord fromSnapshot(DocumentSnapshot snapshot) =>
+      VideosCollectionRecord._(
         snapshot.reference,
         mapFromFirestore(snapshot.data() as Map<String, dynamic>),
       );
 
-  static VideosRecord getDocumentFromData(
+  static VideosCollectionRecord getDocumentFromData(
     Map<String, dynamic> data,
     DocumentReference reference,
   ) =>
-      VideosRecord._(reference, mapFromFirestore(data));
+      VideosCollectionRecord._(reference, mapFromFirestore(data));
 
   @override
   String toString() =>
-      'VideosRecord(reference: ${reference.path}, data: $snapshotData)';
+      'VideosCollectionRecord(reference: ${reference.path}, data: $snapshotData)';
 
   @override
   int get hashCode => reference.path.hashCode;
 
   @override
   bool operator ==(other) =>
-      other is VideosRecord &&
+      other is VideosCollectionRecord &&
       reference.path.hashCode == other.reference.path.hashCode;
 }
 
-Map<String, dynamic> createVideosRecordData({
+Map<String, dynamic> createVideosCollectionRecordData({
   String? videoName,
   String? videoOwner,
   String? videoDescription,
@@ -117,11 +112,12 @@ Map<String, dynamic> createVideosRecordData({
   return firestoreData;
 }
 
-class VideosRecordDocumentEquality implements Equality<VideosRecord> {
-  const VideosRecordDocumentEquality();
+class VideosCollectionRecordDocumentEquality
+    implements Equality<VideosCollectionRecord> {
+  const VideosCollectionRecordDocumentEquality();
 
   @override
-  bool equals(VideosRecord? e1, VideosRecord? e2) {
+  bool equals(VideosCollectionRecord? e1, VideosCollectionRecord? e2) {
     return e1?.videoName == e2?.videoName &&
         e1?.videoOwner == e2?.videoOwner &&
         e1?.videoDescription == e2?.videoDescription &&
@@ -131,7 +127,7 @@ class VideosRecordDocumentEquality implements Equality<VideosRecord> {
   }
 
   @override
-  int hash(VideosRecord? e) => const ListEquality().hash([
+  int hash(VideosCollectionRecord? e) => const ListEquality().hash([
         e?.videoName,
         e?.videoOwner,
         e?.videoDescription,
@@ -141,5 +137,5 @@ class VideosRecordDocumentEquality implements Equality<VideosRecord> {
       ]);
 
   @override
-  bool isValidKey(Object? o) => o is VideosRecord;
+  bool isValidKey(Object? o) => o is VideosCollectionRecord;
 }

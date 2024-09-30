@@ -36,7 +36,7 @@ void main() async {
 
   await revenue_cat.initialize(
     "appl_DmOdmFfHvXLKVCiHDehBvGvUeSa",
-    "",
+    "goog_XgwMZPSUnrCtyrnBvCAcadOIyjB",
     loadDataAfterLaunch: true,
   );
 
@@ -176,7 +176,7 @@ class _NavBarPageState extends State<NavBarPage> {
       'NewHome': NewHomeWidget(),
       'SoundsPageMain': SoundsPageMainWidget(),
       'UserCommunityPageViewFINALCopy': UserCommunityPageViewFINALCopyWidget(),
-      'YogaHome': YogaHomeWidget(),
+      'BodyHome': BodyHomeWidget(),
       'MeditationPageMain': MeditationPageMainWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);

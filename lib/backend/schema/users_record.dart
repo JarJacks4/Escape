@@ -86,15 +86,20 @@ class UsersRecord extends FirestoreRecord {
   String get uploadedMusicFiles => _uploadedMusicFiles ?? '';
   bool hasUploadedMusicFiles() => _uploadedMusicFiles != null;
 
-  // "uploadedVideoFiles" field.
-  DocumentReference? _uploadedVideoFiles;
-  DocumentReference? get uploadedVideoFiles => _uploadedVideoFiles;
-  bool hasUploadedVideoFiles() => _uploadedVideoFiles != null;
-
   // "password" field.
   String? _password;
   String get password => _password ?? '';
   bool hasPassword() => _password != null;
+
+  // "uploadedVideos" field.
+  DocumentReference? _uploadedVideos;
+  DocumentReference? get uploadedVideos => _uploadedVideos;
+  bool hasUploadedVideos() => _uploadedVideos != null;
+
+  // "uploadedMusic" field.
+  DocumentReference? _uploadedMusic;
+  DocumentReference? get uploadedMusic => _uploadedMusic;
+  bool hasUploadedMusic() => _uploadedMusic != null;
 
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
@@ -112,9 +117,9 @@ class UsersRecord extends FirestoreRecord {
     _favoriteTimeToMeditate =
         snapshotData['FavoriteTimeToMeditate'] as DateTime?;
     _uploadedMusicFiles = snapshotData['uploadedMusicFiles'] as String?;
-    _uploadedVideoFiles =
-        snapshotData['uploadedVideoFiles'] as DocumentReference?;
     _password = snapshotData['password'] as String?;
+    _uploadedVideos = snapshotData['uploadedVideos'] as DocumentReference?;
+    _uploadedMusic = snapshotData['uploadedMusic'] as DocumentReference?;
   }
 
   static CollectionReference get collection =>
@@ -165,8 +170,9 @@ Map<String, dynamic> createUsersRecordData({
   DateTime? dateOfBirth,
   DateTime? favoriteTimeToMeditate,
   String? uploadedMusicFiles,
-  DocumentReference? uploadedVideoFiles,
   String? password,
+  DocumentReference? uploadedVideos,
+  DocumentReference? uploadedMusic,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -184,8 +190,9 @@ Map<String, dynamic> createUsersRecordData({
       'dateOfBirth': dateOfBirth,
       'FavoriteTimeToMeditate': favoriteTimeToMeditate,
       'uploadedMusicFiles': uploadedMusicFiles,
-      'uploadedVideoFiles': uploadedVideoFiles,
       'password': password,
+      'uploadedVideos': uploadedVideos,
+      'uploadedMusic': uploadedMusic,
     }.withoutNulls,
   );
 
@@ -211,8 +218,9 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.dateOfBirth == e2?.dateOfBirth &&
         e1?.favoriteTimeToMeditate == e2?.favoriteTimeToMeditate &&
         e1?.uploadedMusicFiles == e2?.uploadedMusicFiles &&
-        e1?.uploadedVideoFiles == e2?.uploadedVideoFiles &&
-        e1?.password == e2?.password;
+        e1?.password == e2?.password &&
+        e1?.uploadedVideos == e2?.uploadedVideos &&
+        e1?.uploadedMusic == e2?.uploadedMusic;
   }
 
   @override
@@ -231,8 +239,9 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.dateOfBirth,
         e?.favoriteTimeToMeditate,
         e?.uploadedMusicFiles,
-        e?.uploadedVideoFiles,
-        e?.password
+        e?.password,
+        e?.uploadedVideos,
+        e?.uploadedMusic
       ]);
 
   @override

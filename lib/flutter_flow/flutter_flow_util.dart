@@ -10,6 +10,7 @@ import 'dart:math' show pow, pi, sin;
 import 'package:intl/intl.dart';
 import 'package:json_path/json_path.dart';
 import 'package:timeago/timeago.dart' as timeago;
+import 'package:tutorial_coach_mark/tutorial_coach_mark.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../main.dart';
@@ -70,6 +71,151 @@ String dateTimeFormat(String format, DateTime? dateTime, {String? locale}) {
     return timeago.format(dateTime, locale: locale, allowFromNow: true);
   }
   return DateFormat(format, locale).format(dateTime);
+}
+
+Theme wrapInMaterialDatePickerTheme(
+  BuildContext context,
+  Widget child, {
+  required Color headerBackgroundColor,
+  required Color headerForegroundColor,
+  required TextStyle headerTextStyle,
+  required Color pickerBackgroundColor,
+  required Color pickerForegroundColor,
+  required Color selectedDateTimeBackgroundColor,
+  required Color selectedDateTimeForegroundColor,
+  required Color actionButtonForegroundColor,
+  required double iconSize,
+}) {
+  final baseTheme = Theme.of(context);
+  final dateTimeMaterialStateForegroundColor =
+      MaterialStateProperty.resolveWith((states) {
+    if (states.contains(MaterialState.disabled)) {
+      return pickerForegroundColor.withOpacity(0.60);
+    }
+    if (states.contains(MaterialState.selected)) {
+      return selectedDateTimeForegroundColor;
+    }
+    if (states.isEmpty) {
+      return pickerForegroundColor;
+    }
+    return null;
+  });
+
+  final dateTimeMaterialStateBackgroundColor =
+      MaterialStateProperty.resolveWith((states) {
+    if (states.contains(MaterialState.selected)) {
+      return selectedDateTimeBackgroundColor;
+    }
+    return null;
+  });
+
+  return Theme(
+    data: baseTheme.copyWith(
+      colorScheme: baseTheme.colorScheme.copyWith(
+        onSurface: pickerForegroundColor,
+      ),
+      disabledColor: pickerForegroundColor.withOpacity(0.3),
+      textTheme: baseTheme.textTheme.copyWith(
+        headlineSmall: headerTextStyle,
+        headlineMedium: headerTextStyle,
+      ),
+      iconTheme: baseTheme.iconTheme.copyWith(
+        size: iconSize,
+      ),
+      textButtonTheme: TextButtonThemeData(
+        style: ButtonStyle(
+            foregroundColor: MaterialStatePropertyAll(
+              actionButtonForegroundColor,
+            ),
+            overlayColor: MaterialStateProperty.resolveWith((states) {
+              if (states.contains(MaterialState.hovered)) {
+                return actionButtonForegroundColor.withOpacity(0.04);
+              }
+              if (states.contains(MaterialState.focused) ||
+                  states.contains(MaterialState.pressed)) {
+                return actionButtonForegroundColor.withOpacity(0.12);
+              }
+              return null;
+            })),
+      ),
+      datePickerTheme: DatePickerThemeData(
+        backgroundColor: pickerBackgroundColor,
+        headerBackgroundColor: headerBackgroundColor,
+        headerForegroundColor: headerForegroundColor,
+        weekdayStyle: baseTheme.textTheme.labelMedium!.copyWith(
+          color: pickerForegroundColor,
+        ),
+        dayBackgroundColor: dateTimeMaterialStateBackgroundColor,
+        todayBackgroundColor: dateTimeMaterialStateBackgroundColor,
+        yearBackgroundColor: dateTimeMaterialStateBackgroundColor,
+        dayForegroundColor: dateTimeMaterialStateForegroundColor,
+        todayForegroundColor: dateTimeMaterialStateForegroundColor,
+        yearForegroundColor: dateTimeMaterialStateForegroundColor,
+      ),
+    ),
+    child: child,
+  );
+}
+
+Theme wrapInMaterialTimePickerTheme(
+  BuildContext context,
+  Widget child, {
+  required Color headerBackgroundColor,
+  required Color headerForegroundColor,
+  required TextStyle headerTextStyle,
+  required Color pickerBackgroundColor,
+  required Color pickerForegroundColor,
+  required Color selectedDateTimeBackgroundColor,
+  required Color selectedDateTimeForegroundColor,
+  required Color actionButtonForegroundColor,
+  required double iconSize,
+}) {
+  final baseTheme = Theme.of(context);
+  return Theme(
+    data: baseTheme.copyWith(
+      iconTheme: baseTheme.iconTheme.copyWith(
+        size: iconSize,
+      ),
+      textButtonTheme: TextButtonThemeData(
+        style: ButtonStyle(
+            foregroundColor: MaterialStatePropertyAll(
+              actionButtonForegroundColor,
+            ),
+            overlayColor: MaterialStateProperty.resolveWith((states) {
+              if (states.contains(MaterialState.hovered)) {
+                return actionButtonForegroundColor.withOpacity(0.04);
+              }
+              if (states.contains(MaterialState.focused) ||
+                  states.contains(MaterialState.pressed)) {
+                return actionButtonForegroundColor.withOpacity(0.12);
+              }
+              return null;
+            })),
+      ),
+      timePickerTheme: baseTheme.timePickerTheme.copyWith(
+        backgroundColor: pickerBackgroundColor,
+        hourMinuteTextColor: pickerForegroundColor,
+        dialHandColor: selectedDateTimeBackgroundColor,
+        dialTextColor: MaterialStateColor.resolveWith((states) =>
+            states.contains(MaterialState.selected)
+                ? selectedDateTimeForegroundColor
+                : pickerForegroundColor),
+        dayPeriodBorderSide: BorderSide(
+          color: pickerForegroundColor,
+        ),
+        dayPeriodTextColor: MaterialStateColor.resolveWith((states) =>
+            states.contains(MaterialState.selected)
+                ? selectedDateTimeForegroundColor
+                : pickerForegroundColor),
+        dayPeriodColor: MaterialStateColor.resolveWith((states) =>
+            states.contains(MaterialState.selected)
+                ? selectedDateTimeBackgroundColor
+                : Colors.transparent),
+        entryModeIconColor: pickerForegroundColor,
+      ),
+    ),
+    child: child,
+  );
 }
 
 Future launchURL(String url) async {
@@ -394,6 +540,24 @@ extension StatefulWidgetExtensions on State<StatefulWidget> {
       // ignore: invalid_use_of_protected_member
       setState(fn);
     }
+  }
+}
+
+extension WalkthroughWrapperExtension on Widget {
+  Widget addWalkthrough(
+    GlobalKey walkthroughKey,
+    TutorialCoachMark? controller, {
+    int? listIndex,
+  }) {
+    if (listIndex != null && listIndex != 0) {
+      return this;
+    }
+    return controller != null
+        ? KeyedSubtree(
+            key: walkthroughKey,
+            child: this,
+          )
+        : this;
   }
 }
 

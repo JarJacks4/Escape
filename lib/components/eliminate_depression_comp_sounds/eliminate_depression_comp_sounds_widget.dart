@@ -782,41 +782,66 @@ for Depression */
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 10.0, 0.0),
-                                  child: Container(
-                                    width: 150.0,
-                                    height: 25.0,
-                                    decoration: BoxDecoration(
-                                      gradient: LinearGradient(
-                                        colors: [
-                                          Color(0xFFD2CB39),
-                                          Color(0xFFEB0D70)
-                                        ],
-                                        stops: [0.0, 1.0],
-                                        begin: AlignmentDirectional(1.0, -0.77),
-                                        end: AlignmentDirectional(-1.0, 0.77),
-                                      ),
-                                      borderRadius: BorderRadius.circular(10.0),
-                                    ),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          FFLocalizations.of(context).getText(
-                                            'x7606nr1' /* Fire Sounds 
-for Depression */
-                                            ,
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      logFirebaseEvent(
+                                          'ELIMINATE_DEPRESSION_SOUNDS_Container_us');
+                                      logFirebaseEvent('Container_navigate_to');
+
+                                      context.pushNamed(
+                                        'SoundsDetailsFireSounds',
+                                        extra: <String, dynamic>{
+                                          kTransitionInfoKey: TransitionInfo(
+                                            hasTransition: true,
+                                            transitionType:
+                                                PageTransitionType.fade,
+                                            duration: Duration(milliseconds: 2),
                                           ),
-                                          textAlign: TextAlign.center,
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Roboto',
-                                                letterSpacing: 0.0,
-                                              ),
+                                        },
+                                      );
+                                    },
+                                    child: Container(
+                                      width: 150.0,
+                                      height: 25.0,
+                                      decoration: BoxDecoration(
+                                        gradient: LinearGradient(
+                                          colors: [
+                                            Color(0xFFD2CB39),
+                                            Color(0xFFEB0D70)
+                                          ],
+                                          stops: [0.0, 1.0],
+                                          begin:
+                                              AlignmentDirectional(1.0, -0.77),
+                                          end: AlignmentDirectional(-1.0, 0.77),
                                         ),
-                                      ],
+                                        borderRadius:
+                                            BorderRadius.circular(10.0),
+                                      ),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Text(
+                                            FFLocalizations.of(context).getText(
+                                              'x7606nr1' /* Fire Sounds 
+for Depression */
+                                              ,
+                                            ),
+                                            textAlign: TextAlign.center,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Roboto',
+                                                  letterSpacing: 0.0,
+                                                ),
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ).animateOnPageLoad(animationsMap[
                                       'containerOnPageLoadAnimation5']!),
@@ -824,44 +849,61 @@ for Depression */
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 10.0, 0.0),
-                                  child: Container(
-                                    width: 150.0,
-                                    height: 25.0,
-                                    decoration: BoxDecoration(
-                                      gradient: LinearGradient(
-                                        colors: [
-                                          FlutterFlowTheme.of(context)
-                                              .secondary,
-                                          FlutterFlowTheme.of(context).primary,
-                                          Color(0xFFEB0D70)
-                                        ],
-                                        stops: [0.0, 1.0, 1.0],
-                                        begin: AlignmentDirectional(1.0, -0.77),
-                                        end: AlignmentDirectional(-1.0, 0.77),
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      logFirebaseEvent(
+                                          'ELIMINATE_DEPRESSION_SOUNDS_Container_v1');
+                                      logFirebaseEvent('Container_navigate_to');
+
+                                      context.pushNamed(
+                                          'SoundsDetailsThunderstorms');
+                                    },
+                                    child: Container(
+                                      width: 150.0,
+                                      height: 25.0,
+                                      decoration: BoxDecoration(
+                                        gradient: LinearGradient(
+                                          colors: [
+                                            FlutterFlowTheme.of(context)
+                                                .secondary,
+                                            FlutterFlowTheme.of(context)
+                                                .primary,
+                                            Color(0xFFEB0D70)
+                                          ],
+                                          stops: [0.0, 1.0, 1.0],
+                                          begin:
+                                              AlignmentDirectional(1.0, -0.77),
+                                          end: AlignmentDirectional(-1.0, 0.77),
+                                        ),
+                                        borderRadius:
+                                            BorderRadius.circular(10.0),
                                       ),
-                                      borderRadius: BorderRadius.circular(10.0),
-                                    ),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          FFLocalizations.of(context).getText(
-                                            '3tid36ns' /* Thunderstorms 
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Text(
+                                            FFLocalizations.of(context).getText(
+                                              '3tid36ns' /* Thunderstorms 
 and Wind 
 for D... */
-                                            ,
+                                              ,
+                                            ),
+                                            textAlign: TextAlign.center,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Roboto',
+                                                  letterSpacing: 0.0,
+                                                ),
                                           ),
-                                          textAlign: TextAlign.center,
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Roboto',
-                                                letterSpacing: 0.0,
-                                              ),
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
                                   ).animateOnPageLoad(animationsMap[
                                       'containerOnPageLoadAnimation6']!),

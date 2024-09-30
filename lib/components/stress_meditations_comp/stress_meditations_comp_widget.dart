@@ -264,7 +264,7 @@ class _StressMeditationsCompWidgetState
                       children: [
                         Expanded(
                           child: FutureBuilder<ApiCallResponse>(
-                            future: YouTubeDataTaiChiAPIFINALCall.call(),
+                            future: YouTubeDataTaiChiAPICall.call(),
                             builder: (context, snapshot) {
                               // Customize what your widget looks like when it's loading.
                               if (!snapshot.hasData) {
@@ -280,13 +280,13 @@ class _StressMeditationsCompWidgetState
                                   ),
                                 );
                               }
-                              final listViewYouTubeDataTaiChiAPIFINALResponse =
+                              final listViewYouTubeDataTaiChiAPIResponse =
                                   snapshot.data!;
 
                               return Builder(
                                 builder: (context) {
                                   final soundsthumbnails = getJsonField(
-                                    listViewYouTubeDataTaiChiAPIFINALResponse
+                                    listViewYouTubeDataTaiChiAPIResponse
                                         .jsonBody,
                                     r'''$.thumbnails.default.url''',
                                   ).toList();

@@ -1,15 +1,3 @@
 {
-  "indexes": [],
-  "fieldOverrides": [
-    {
-      "collectionGroup": "Events",
-      "fieldPath": "eventDate",
-      "indexes": [
-        {
-          "order": "DESCENDING",
-          "queryScope": "COLLECTION_GROUP"
-        }
-      ]
-    }
-  ]
+  "indexes": []
 }

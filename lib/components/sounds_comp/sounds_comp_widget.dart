@@ -239,7 +239,7 @@ class _SoundsCompWidgetState extends State<SoundsCompWidget>
                       children: [
                         Text(
                           FFLocalizations.of(context).getText(
-                            'x5qzeq0k' /* New Sounds */,
+                            'x5qzeq0k' /* Soundscapes */,
                           ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
@@ -270,7 +270,7 @@ class _SoundsCompWidgetState extends State<SoundsCompWidget>
                                 dynamic>.separated(
                               pagingController: _model.setListViewController1(
                                 (nextPageMarker) =>
-                                    YouTubeDataPeacefulSoundsAPIFINALCopyCall
+                                    YouTubeDataAmbientSoundscapesAPICallCall
                                         .call(),
                               ),
                               padding: EdgeInsets.symmetric(horizontal: 5.0),
@@ -1126,7 +1126,7 @@ class _SoundsCompWidgetState extends State<SoundsCompWidget>
                 children: [
                   GradientText(
                     FFLocalizations.of(context).getText(
-                      'zzoscaqd' /* Dark Ambient */,
+                      'zzoscaqd' /* City Soundscapes */,
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Roboto',
@@ -1184,7 +1184,7 @@ class _SoundsCompWidgetState extends State<SoundsCompWidget>
                                   pagingController:
                                       _model.setListViewController4(
                                     (nextPageMarker) =>
-                                        YouTubeDataAPIDarkAndMellowAmbientCall
+                                        YouTubeDataCitySoundscapesAPICallCopyCall
                                             .call(),
                                   ),
                                   padding: EdgeInsets.symmetric(vertical: 5.0),

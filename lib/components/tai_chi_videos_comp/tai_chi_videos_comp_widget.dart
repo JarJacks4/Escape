@@ -221,7 +221,7 @@ class _TaiChiVideosCompWidgetState extends State<TaiChiVideosCompWidget>
                   ),
                   Container(
                     width: double.infinity,
-                    height: 263.0,
+                    height: 282.0,
                     decoration: BoxDecoration(
                       color: Colors.transparent,
                     ),
@@ -235,7 +235,8 @@ class _TaiChiVideosCompWidgetState extends State<TaiChiVideosCompWidget>
                             child: PagedListView<ApiPagingParams, dynamic>(
                               pagingController: _model.setListViewController1(
                                 (nextPageMarker) =>
-                                    YouTubeDataTaiChiAPIFINALCall.call(),
+                                    YouTubeDataTaiChiForBeginnersDataAPICallCall
+                                        .call(),
                               ),
                               padding: EdgeInsets.zero,
                               reverse: false,
@@ -375,7 +376,12 @@ class _TaiChiVideosCompWidgetState extends State<TaiChiVideosCompWidget>
                                                   getJsonField(
                                                     meditationsItem,
                                                     r'''$.title''',
-                                                  ).toString(),
+                                                  )
+                                                      .toString()
+                                                      .maybeHandleOverflow(
+                                                        maxChars: 30,
+                                                        replacement: '…',
+                                                      ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -805,7 +811,7 @@ Beginners */
                 children: [
                   GradientText(
                     FFLocalizations.of(context).getText(
-                      'ppl6sos2' /* Recent Played */,
+                      'ppl6sos2' /* Tai Chi Form 8 */,
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Roboto',
@@ -848,7 +854,8 @@ Beginners */
                             child: PagedListView<ApiPagingParams, dynamic>(
                               pagingController: _model.setListViewController3(
                                 (nextPageMarker) =>
-                                    YouTubeDataTaiChiAPIFINALCall.call(),
+                                    YouTubeDataTaiChiFormEightAPIFINALCopyCall
+                                        .call(),
                               ),
                               padding: EdgeInsets.zero,
                               reverse: false,
@@ -987,7 +994,12 @@ Beginners */
                                                 getJsonField(
                                                   recentItemsItem,
                                                   r'''$.title''',
-                                                ).toString(),
+                                                )
+                                                    .toString()
+                                                    .maybeHandleOverflow(
+                                                      maxChars: 30,
+                                                      replacement: '…',
+                                                    ),
                                                 textAlign: TextAlign.center,
                                                 style:
                                                     FlutterFlowTheme.of(context)
@@ -1029,7 +1041,7 @@ Beginners */
                 children: [
                   GradientText(
                     FFLocalizations.of(context).getText(
-                      'kptpgzu3' /* Channels */,
+                      'kptpgzu3' /* Community Tai Chi Videos */,
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Roboto',
@@ -1087,7 +1099,7 @@ Beginners */
                                   pagingController:
                                       _model.setListViewController4(
                                     (nextPageMarker) =>
-                                        YouTubeDataTaiChiAPIFINALCall.call(),
+                                        YouTubeDataTaiChiAPICall.call(),
                                   ),
                                   padding: EdgeInsets.zero,
                                   shrinkWrap: true,
@@ -1241,7 +1253,12 @@ Beginners */
                                                       getJsonField(
                                                         meditationsItem,
                                                         r'''$.title''',
-                                                      ).toString(),
+                                                      )
+                                                          .toString()
+                                                          .maybeHandleOverflow(
+                                                            maxChars: 30,
+                                                            replacement: '…',
+                                                          ),
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)

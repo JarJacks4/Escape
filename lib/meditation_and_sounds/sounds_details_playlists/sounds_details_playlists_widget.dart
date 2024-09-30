@@ -419,11 +419,11 @@ class _SoundsDetailsPlaylistsWidgetState
                                                     child: PagedListView<
                                                         DocumentSnapshot<
                                                             Object?>?,
-                                                        VideosRecord>(
+                                                        VideosCollectionRecord>(
                                                       pagingController: _model
                                                           .setListViewController1(
-                                                        VideosRecord
-                                                            .collection(),
+                                                        VideosCollectionRecord
+                                                            .collection,
                                                       ),
                                                       padding: EdgeInsets.zero,
                                                       reverse: false,
@@ -431,7 +431,7 @@ class _SoundsDetailsPlaylistsWidgetState
                                                           Axis.horizontal,
                                                       builderDelegate:
                                                           PagedChildBuilderDelegate<
-                                                              VideosRecord>(
+                                                              VideosCollectionRecord>(
                                                         // Customize what your widget looks like when it's loading the first page.
                                                         firstPageProgressIndicatorBuilder:
                                                             (_) => Center(
@@ -471,7 +471,7 @@ class _SoundsDetailsPlaylistsWidgetState
 
                                                         itemBuilder: (context,
                                                             _, listViewIndex) {
-                                                          final listViewVideosRecord =
+                                                          final listViewVideosCollectionRecord =
                                                               _model.listViewPagingController1!
                                                                       .itemList![
                                                                   listViewIndex];
@@ -507,7 +507,7 @@ class _SoundsDetailsPlaylistsWidgetState
                                                                             1.0,
                                                                             0.0),
                                                                     child: Hero(
-                                                                      tag: listViewVideosRecord
+                                                                      tag: listViewVideosCollectionRecord
                                                                           .videoThumbnailImage,
                                                                       transitionOnUserGestures:
                                                                           true,
@@ -517,7 +517,7 @@ class _SoundsDetailsPlaylistsWidgetState
                                                                             BorderRadius.circular(9.0),
                                                                         child: Image
                                                                             .network(
-                                                                          listViewVideosRecord
+                                                                          listViewVideosCollectionRecord
                                                                               .videoThumbnailImage,
                                                                           width:
                                                                               272.0,
@@ -541,7 +541,7 @@ class _SoundsDetailsPlaylistsWidgetState
                                                                               15.0),
                                                                       child:
                                                                           Text(
-                                                                        listViewVideosRecord
+                                                                        listViewVideosCollectionRecord
                                                                             .videoName,
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
@@ -597,19 +597,19 @@ class _SoundsDetailsPlaylistsWidgetState
                                                                             queryParameters:
                                                                                 {
                                                                               'videoid': serializeParam(
-                                                                                listViewVideosRecord.videoUrlString,
+                                                                                listViewVideosCollectionRecord.videoUrlString,
                                                                                 ParamType.String,
                                                                               ),
                                                                               'description': serializeParam(
-                                                                                listViewVideosRecord.videoDescription,
+                                                                                listViewVideosCollectionRecord.videoDescription,
                                                                                 ParamType.String,
                                                                               ),
                                                                               'channelTitle': serializeParam(
-                                                                                listViewVideosRecord.videoOwner,
+                                                                                listViewVideosCollectionRecord.videoOwner,
                                                                                 ParamType.String,
                                                                               ),
                                                                               'videoTitle': serializeParam(
-                                                                                listViewVideosRecord.videoName,
+                                                                                listViewVideosCollectionRecord.videoName,
                                                                                 ParamType.String,
                                                                               ),
                                                                             }.withoutNulls,
@@ -704,11 +704,11 @@ class _SoundsDetailsPlaylistsWidgetState
                                                     child: PagedListView<
                                                         DocumentSnapshot<
                                                             Object?>?,
-                                                        VideosRecord>(
+                                                        VideosCollectionRecord>(
                                                       pagingController: _model
                                                           .setListViewController2(
-                                                        VideosRecord
-                                                            .collection(),
+                                                        VideosCollectionRecord
+                                                            .collection,
                                                       ),
                                                       padding: EdgeInsets.zero,
                                                       reverse: false,
@@ -716,7 +716,7 @@ class _SoundsDetailsPlaylistsWidgetState
                                                           Axis.horizontal,
                                                       builderDelegate:
                                                           PagedChildBuilderDelegate<
-                                                              VideosRecord>(
+                                                              VideosCollectionRecord>(
                                                         // Customize what your widget looks like when it's loading the first page.
                                                         firstPageProgressIndicatorBuilder:
                                                             (_) => Center(
@@ -756,7 +756,7 @@ class _SoundsDetailsPlaylistsWidgetState
 
                                                         itemBuilder: (context,
                                                             _, listViewIndex) {
-                                                          final listViewVideosRecord =
+                                                          final listViewVideosCollectionRecord =
                                                               _model.listViewPagingController2!
                                                                       .itemList![
                                                                   listViewIndex];
@@ -804,28 +804,28 @@ class _SoundsDetailsPlaylistsWidgetState
                                                                         {
                                                                       'videoid':
                                                                           serializeParam(
-                                                                        listViewVideosRecord
+                                                                        listViewVideosCollectionRecord
                                                                             .videoUrlString,
                                                                         ParamType
                                                                             .String,
                                                                       ),
                                                                       'description':
                                                                           serializeParam(
-                                                                        listViewVideosRecord
+                                                                        listViewVideosCollectionRecord
                                                                             .videoDescription,
                                                                         ParamType
                                                                             .String,
                                                                       ),
                                                                       'channelTitle':
                                                                           serializeParam(
-                                                                        listViewVideosRecord
+                                                                        listViewVideosCollectionRecord
                                                                             .videoOwner,
                                                                         ParamType
                                                                             .String,
                                                                       ),
                                                                       'videoTitle':
                                                                           serializeParam(
-                                                                        listViewVideosRecord
+                                                                        listViewVideosCollectionRecord
                                                                             .videoName,
                                                                         ParamType
                                                                             .String,
@@ -864,7 +864,7 @@ class _SoundsDetailsPlaylistsWidgetState
                                                                             0.0),
                                                                         child:
                                                                             Hero(
-                                                                          tag: listViewVideosRecord
+                                                                          tag: listViewVideosCollectionRecord
                                                                               .videoThumbnailImage,
                                                                           transitionOnUserGestures:
                                                                               true,
@@ -874,7 +874,7 @@ class _SoundsDetailsPlaylistsWidgetState
                                                                                 BorderRadius.circular(9.0),
                                                                             child:
                                                                                 Image.network(
-                                                                              listViewVideosRecord.videoThumbnailImage,
+                                                                              listViewVideosCollectionRecord.videoThumbnailImage,
                                                                               width: 172.0,
                                                                               height: 100.0,
                                                                               fit: BoxFit.cover,
@@ -889,7 +889,7 @@ class _SoundsDetailsPlaylistsWidgetState
                                                                               11.0),
                                                                       child:
                                                                           Text(
-                                                                        listViewVideosRecord
+                                                                        listViewVideosCollectionRecord
                                                                             .videoName,
                                                                         textAlign:
                                                                             TextAlign.center,

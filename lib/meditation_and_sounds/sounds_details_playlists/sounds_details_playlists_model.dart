@@ -23,13 +23,15 @@ class SoundsDetailsPlaylistsModel
 
   // State field(s) for ListView widget.
 
-  PagingController<DocumentSnapshot?, VideosRecord>? listViewPagingController1;
+  PagingController<DocumentSnapshot?, VideosCollectionRecord>?
+      listViewPagingController1;
   Query? listViewPagingQuery1;
   List<StreamSubscription?> listViewStreamSubscriptions1 = [];
 
   // State field(s) for ListView widget.
 
-  PagingController<DocumentSnapshot?, VideosRecord>? listViewPagingController2;
+  PagingController<DocumentSnapshot?, VideosCollectionRecord>?
+      listViewPagingController2;
   Query? listViewPagingQuery2;
   List<StreamSubscription?> listViewStreamSubscriptions2 = [];
 
@@ -53,7 +55,8 @@ class SoundsDetailsPlaylistsModel
   }
 
   /// Additional helper methods.
-  PagingController<DocumentSnapshot?, VideosRecord> setListViewController1(
+  PagingController<DocumentSnapshot?, VideosCollectionRecord>
+      setListViewController1(
     Query query, {
     DocumentReference<Object?>? parent,
   }) {
@@ -65,15 +68,17 @@ class SoundsDetailsPlaylistsModel
     return listViewPagingController1!;
   }
 
-  PagingController<DocumentSnapshot?, VideosRecord> _createListViewController1(
+  PagingController<DocumentSnapshot?, VideosCollectionRecord>
+      _createListViewController1(
     Query query,
     DocumentReference<Object?>? parent,
   ) {
     final controller =
-        PagingController<DocumentSnapshot?, VideosRecord>(firstPageKey: null);
+        PagingController<DocumentSnapshot?, VideosCollectionRecord>(
+            firstPageKey: null);
     return controller
       ..addPageRequestListener(
-        (nextPageMarker) => queryVideosRecordPage(
+        (nextPageMarker) => queryVideosCollectionRecordPage(
           nextPageMarker: nextPageMarker,
           streamSubscriptions: listViewStreamSubscriptions1,
           controller: controller,
@@ -83,7 +88,8 @@ class SoundsDetailsPlaylistsModel
       );
   }
 
-  PagingController<DocumentSnapshot?, VideosRecord> setListViewController2(
+  PagingController<DocumentSnapshot?, VideosCollectionRecord>
+      setListViewController2(
     Query query, {
     DocumentReference<Object?>? parent,
   }) {
@@ -95,15 +101,17 @@ class SoundsDetailsPlaylistsModel
     return listViewPagingController2!;
   }
 
-  PagingController<DocumentSnapshot?, VideosRecord> _createListViewController2(
+  PagingController<DocumentSnapshot?, VideosCollectionRecord>
+      _createListViewController2(
     Query query,
     DocumentReference<Object?>? parent,
   ) {
     final controller =
-        PagingController<DocumentSnapshot?, VideosRecord>(firstPageKey: null);
+        PagingController<DocumentSnapshot?, VideosCollectionRecord>(
+            firstPageKey: null);
     return controller
       ..addPageRequestListener(
-        (nextPageMarker) => queryVideosRecordPage(
+        (nextPageMarker) => queryVideosCollectionRecordPage(
           nextPageMarker: nextPageMarker,
           streamSubscriptions: listViewStreamSubscriptions2,
           controller: controller,

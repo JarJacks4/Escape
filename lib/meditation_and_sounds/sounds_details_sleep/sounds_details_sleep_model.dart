@@ -51,17 +51,15 @@ class SoundsDetailsSleepModel
       ),
     );
     return controller
-      ..addPageRequestListener(
-          listViewYouTubeDataSleepMeditationsAPIFINALCopyCopyCopyPage);
+      ..addPageRequestListener(listViewYouTubeDataSleepAPICallCopyPage);
   }
 
-  void listViewYouTubeDataSleepMeditationsAPIFINALCopyCopyCopyPage(
+  void listViewYouTubeDataSleepAPICallCopyPage(
           ApiPagingParams nextPageMarker) =>
-      listViewApiCall!(nextPageMarker).then(
-          (listViewYouTubeDataSleepMeditationsAPIFINALCopyCopyCopyResponse) {
+      listViewApiCall!(nextPageMarker)
+          .then((listViewYouTubeDataSleepAPICallCopyResponse) {
         final pageItems = (getJsonField(
-                  listViewYouTubeDataSleepMeditationsAPIFINALCopyCopyCopyResponse
-                      .jsonBody,
+                  listViewYouTubeDataSleepAPICallCopyResponse.jsonBody,
                   r'''$.items[:].snippet''',
                 ) ??
                 [])
@@ -74,8 +72,7 @@ class SoundsDetailsSleepModel
               ? ApiPagingParams(
                   nextPageNumber: nextPageMarker.nextPageNumber + 1,
                   numItems: newNumItems,
-                  lastResponse:
-                      listViewYouTubeDataSleepMeditationsAPIFINALCopyCopyCopyResponse,
+                  lastResponse: listViewYouTubeDataSleepAPICallCopyResponse,
                 )
               : null,
         );

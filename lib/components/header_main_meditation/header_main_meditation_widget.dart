@@ -65,65 +65,48 @@ class _HeaderMainMeditationWidgetState
                             0.0, 44.0, 12.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.end,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Align(
-                              alignment: AlignmentDirectional(-1.0, -1.0),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 180.0, 0.0),
-                                child: FlutterFlowIconButton(
-                                  borderColor: Colors.transparent,
-                                  borderRadius: 30.0,
-                                  borderWidth: 1.0,
-                                  buttonSize: 50.0,
-                                  icon: Icon(
-                                    Icons.menu_rounded,
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
-                                    size: 36.0,
+                            Flexible(
+                              flex: 1,
+                              child: Align(
+                                alignment: AlignmentDirectional(-1.0, -1.0),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      8.0, 0.0, 180.0, 0.0),
+                                  child: FlutterFlowIconButton(
+                                    borderColor: Colors.transparent,
+                                    borderRadius: 30.0,
+                                    borderWidth: 1.0,
+                                    buttonSize: 50.0,
+                                    icon: Icon(
+                                      Icons.menu_rounded,
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
+                                      size: 36.0,
+                                    ),
+                                    onPressed: () async {
+                                      logFirebaseEvent(
+                                          'HEADER_MAIN_MEDITATION_menu_rounded_ICN_');
+                                      logFirebaseEvent(
+                                          'IconButton_bottom_sheet');
+                                      await showModalBottomSheet(
+                                        isScrollControlled: true,
+                                        backgroundColor: Colors.transparent,
+                                        context: context,
+                                        builder: (context) {
+                                          return WebViewAware(
+                                            child: Padding(
+                                              padding: MediaQuery.viewInsetsOf(
+                                                  context),
+                                              child: SideNavWidget(),
+                                            ),
+                                          );
+                                        },
+                                      ).then((value) => safeSetState(() {}));
+                                    },
                                   ),
-                                  onPressed: () async {
-                                    logFirebaseEvent(
-                                        'HEADER_MAIN_MEDITATION_menu_rounded_ICN_');
-                                    logFirebaseEvent('IconButton_bottom_sheet');
-                                    await showModalBottomSheet(
-                                      isScrollControlled: true,
-                                      backgroundColor: Colors.transparent,
-                                      context: context,
-                                      builder: (context) {
-                                        return WebViewAware(
-                                          child: Padding(
-                                            padding: MediaQuery.viewInsetsOf(
-                                                context),
-                                            child: SideNavWidget(),
-                                          ),
-                                        );
-                                      },
-                                    ).then((value) => safeSetState(() {}));
-                                  },
                                 ),
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 18.0, 0.0),
-                              child: FlutterFlowIconButton(
-                                borderColor: Colors.transparent,
-                                borderRadius: 30.0,
-                                borderWidth: 1.0,
-                                buttonSize: 52.0,
-                                fillColor:
-                                    FlutterFlowTheme.of(context).alternate,
-                                icon: Icon(
-                                  Icons.notifications,
-                                  color: FlutterFlowTheme.of(context)
-                                      .primaryBackground,
-                                  size: 36.0,
-                                ),
-                                onPressed: () {
-                                  print('IconButton pressed ...');
-                                },
                               ),
                             ),
                             Flexible(

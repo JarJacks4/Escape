@@ -586,10 +586,11 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                                         0.0, 8.0, 0.0, 8.0),
                                                 child: PagedListView<
                                                     DocumentSnapshot<Object?>?,
-                                                    ClassesRecord>(
+                                                    SelfCareClassesRecord>(
                                                   pagingController: _model
                                                       .setListViewController1(
-                                                    ClassesRecord.collection(),
+                                                    SelfCareClassesRecord
+                                                        .collection,
                                                   ),
                                                   padding: EdgeInsets.zero,
                                                   reverse: false,
@@ -597,7 +598,7 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                                       Axis.horizontal,
                                                   builderDelegate:
                                                       PagedChildBuilderDelegate<
-                                                          ClassesRecord>(
+                                                          SelfCareClassesRecord>(
                                                     // Customize what your widget looks like when it's loading the first page.
                                                     firstPageProgressIndicatorBuilder:
                                                         (_) => Center(
@@ -637,7 +638,7 @@ class _EventsAndClassesFirstPageFINALWidgetState
 
                                                     itemBuilder: (context, _,
                                                         listViewIndex) {
-                                                      final listViewClassesRecord =
+                                                      final listViewSelfCareClassesRecord =
                                                           _model.listViewPagingController1!
                                                                   .itemList![
                                                               listViewIndex];
@@ -675,8 +676,8 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                                                             1.0,
                                                                             0.0),
                                                                 child: Hero(
-                                                                  tag: listViewClassesRecord
-                                                                      .classPicture,
+                                                                  tag: listViewSelfCareClassesRecord
+                                                                      .classImage,
                                                                   transitionOnUserGestures:
                                                                       true,
                                                                   child:
@@ -686,8 +687,8 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                                                             9.0),
                                                                     child: Image
                                                                         .network(
-                                                                      listViewClassesRecord
-                                                                          .classPicture,
+                                                                      listViewSelfCareClassesRecord
+                                                                          .classImage,
                                                                       width:
                                                                           272.0,
                                                                       height:
@@ -709,7 +710,7 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                                                           .all(
                                                                               15.0),
                                                                   child: Text(
-                                                                    listViewClassesRecord
+                                                                    listViewSelfCareClassesRecord
                                                                         .title,
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
@@ -774,22 +775,22 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                                                             {
                                                                           'classesName':
                                                                               serializeParam(
-                                                                            listViewClassesRecord.title,
+                                                                            listViewSelfCareClassesRecord.title,
                                                                             ParamType.String,
                                                                           ),
                                                                           'classDate':
                                                                               serializeParam(
-                                                                            listViewClassesRecord.time?.toString(),
+                                                                            listViewSelfCareClassesRecord.time?.toString(),
                                                                             ParamType.String,
                                                                           ),
                                                                           'classDescription':
                                                                               serializeParam(
-                                                                            listViewClassesRecord.description,
+                                                                            listViewSelfCareClassesRecord.description,
                                                                             ParamType.String,
                                                                           ),
                                                                           'classPrice':
                                                                               serializeParam(
-                                                                            listViewClassesRecord.price,
+                                                                            listViewSelfCareClassesRecord.price,
                                                                             ParamType.double,
                                                                           ),
                                                                         }.withoutNulls,
@@ -886,10 +887,11 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                               Expanded(
                                                 child: PagedListView<
                                                     DocumentSnapshot<Object?>?,
-                                                    ClassesRecord>(
+                                                    SelfCareClassesRecord>(
                                                   pagingController: _model
                                                       .setListViewController2(
-                                                    ClassesRecord.collection(),
+                                                    SelfCareClassesRecord
+                                                        .collection,
                                                   ),
                                                   padding: EdgeInsets.zero,
                                                   reverse: false,
@@ -897,7 +899,7 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                                       Axis.horizontal,
                                                   builderDelegate:
                                                       PagedChildBuilderDelegate<
-                                                          ClassesRecord>(
+                                                          SelfCareClassesRecord>(
                                                     // Customize what your widget looks like when it's loading the first page.
                                                     firstPageProgressIndicatorBuilder:
                                                         (_) => Center(
@@ -937,7 +939,7 @@ class _EventsAndClassesFirstPageFINALWidgetState
 
                                                     itemBuilder: (context, _,
                                                         listViewIndex) {
-                                                      final listViewClassesRecord =
+                                                      final listViewSelfCareClassesRecord =
                                                           _model.listViewPagingController2!
                                                                   .itemList![
                                                               listViewIndex];
@@ -983,14 +985,14 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                                                     {
                                                                   'classesName':
                                                                       serializeParam(
-                                                                    listViewClassesRecord
+                                                                    listViewSelfCareClassesRecord
                                                                         .title,
                                                                     ParamType
                                                                         .String,
                                                                   ),
                                                                   'classDate':
                                                                       serializeParam(
-                                                                    listViewClassesRecord
+                                                                    listViewSelfCareClassesRecord
                                                                         .time
                                                                         ?.toString(),
                                                                     ParamType
@@ -998,14 +1000,14 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                                                   ),
                                                                   'classDescription':
                                                                       serializeParam(
-                                                                    listViewClassesRecord
+                                                                    listViewSelfCareClassesRecord
                                                                         .description,
                                                                     ParamType
                                                                         .String,
                                                                   ),
                                                                   'classPrice':
                                                                       serializeParam(
-                                                                    listViewClassesRecord
+                                                                    listViewSelfCareClassesRecord
                                                                         .price,
                                                                     ParamType
                                                                         .double,
@@ -1043,8 +1045,8 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                                                           1.0,
                                                                           0.0),
                                                                   child: Hero(
-                                                                    tag: listViewClassesRecord
-                                                                        .classPicture,
+                                                                    tag: listViewSelfCareClassesRecord
+                                                                        .classImage,
                                                                     transitionOnUserGestures:
                                                                         true,
                                                                     child:
@@ -1054,8 +1056,8 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                                                               9.0),
                                                                       child: Image
                                                                           .network(
-                                                                        listViewClassesRecord
-                                                                            .classPicture,
+                                                                        listViewSelfCareClassesRecord
+                                                                            .classImage,
                                                                         width:
                                                                             172.0,
                                                                         height:
@@ -1072,7 +1074,7 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                                                           .all(
                                                                               11.0),
                                                                   child: Text(
-                                                                    listViewClassesRecord
+                                                                    listViewSelfCareClassesRecord
                                                                         .title,
                                                                     textAlign:
                                                                         TextAlign
@@ -1150,6 +1152,7 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Expanded(
+                                        flex: 1,
                                         child: Container(
                                           width: double.infinity,
                                           height: 653.0,
@@ -1160,6 +1163,7 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Expanded(
+                                                flex: 1,
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
@@ -1169,13 +1173,12 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                                     child: PagedListView<
                                                         DocumentSnapshot<
                                                             Object?>?,
-                                                        EventsRecord>.separated(
+                                                        EventsCollectionRecord>.separated(
                                                       pagingController: _model
                                                           .setListViewController3(
-                                                        EventsRecord
-                                                                .collection()
-                                                            .orderBy(
-                                                                'eventDate',
+                                                        EventsCollectionRecord
+                                                            .collection
+                                                            .orderBy('price',
                                                                 descending:
                                                                     true),
                                                       ),
@@ -1191,7 +1194,7 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                                               height: 25.0),
                                                       builderDelegate:
                                                           PagedChildBuilderDelegate<
-                                                              EventsRecord>(
+                                                              EventsCollectionRecord>(
                                                         // Customize what your widget looks like when it's loading the first page.
                                                         firstPageProgressIndicatorBuilder:
                                                             (_) => Center(
@@ -1231,7 +1234,7 @@ class _EventsAndClassesFirstPageFINALWidgetState
 
                                                         itemBuilder: (context,
                                                             _, listViewIndex) {
-                                                          final listViewEventsRecord =
+                                                          final listViewEventsCollectionRecord =
                                                               _model.listViewPagingController3!
                                                                       .itemList![
                                                                   listViewIndex];
@@ -1260,7 +1263,7 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                                                 height: MediaQuery.sizeOf(
                                                                             context)
                                                                         .height *
-                                                                    0.2,
+                                                                    0.347,
                                                                 decoration:
                                                                     BoxDecoration(
                                                                   gradient:
@@ -1297,160 +1300,159 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                                                       CrossAxisAlignment
                                                                           .start,
                                                                   children: [
-                                                                    Container(
-                                                                      height:
-                                                                          160.0,
+                                                                    Flexible(
+                                                                      flex: 1,
                                                                       child:
-                                                                          Stack(
-                                                                        alignment: AlignmentDirectional(
-                                                                            0.0,
-                                                                            1.0),
-                                                                        children: [
-                                                                          Align(
-                                                                            alignment:
-                                                                                AlignmentDirectional(0.0, -1.0),
-                                                                            child:
-                                                                                ClipRRect(
-                                                                              borderRadius: BorderRadius.only(
-                                                                                bottomLeft: Radius.circular(0.0),
-                                                                                bottomRight: Radius.circular(0.0),
-                                                                                topLeft: Radius.circular(8.0),
-                                                                                topRight: Radius.circular(8.0),
-                                                                              ),
-                                                                              child: Image.network(
-                                                                                listViewEventsRecord.eventImage,
-                                                                                width: double.infinity,
-                                                                                height: 130.0,
-                                                                                fit: BoxFit.cover,
+                                                                          Container(
+                                                                        height:
+                                                                            160.0,
+                                                                        child:
+                                                                            Stack(
+                                                                          alignment: AlignmentDirectional(
+                                                                              0.0,
+                                                                              1.0),
+                                                                          children: [
+                                                                            Align(
+                                                                              alignment: AlignmentDirectional(0.0, -1.0),
+                                                                              child: ClipRRect(
+                                                                                borderRadius: BorderRadius.circular(20.0),
+                                                                                child: Image.network(
+                                                                                  listViewEventsCollectionRecord.classPicture,
+                                                                                  width: double.infinity,
+                                                                                  height: 130.0,
+                                                                                  fit: BoxFit.cover,
+                                                                                ),
                                                                               ),
                                                                             ),
-                                                                          ),
-                                                                          Align(
-                                                                            alignment:
-                                                                                AlignmentDirectional(0.0, 1.0),
-                                                                            child:
-                                                                                Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 24.0, 0.0),
-                                                                              child: Row(
-                                                                                mainAxisSize: MainAxisSize.max,
-                                                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                crossAxisAlignment: CrossAxisAlignment.end,
-                                                                                children: [
-                                                                                  Row(
-                                                                                    mainAxisSize: MainAxisSize.max,
-                                                                                    children: [
-                                                                                      Icon(
-                                                                                        Icons.grid_on_rounded,
-                                                                                        color: FlutterFlowTheme.of(context).secondary,
-                                                                                        size: 24.0,
-                                                                                      ),
-                                                                                      Padding(
-                                                                                        padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
-                                                                                        child: GradientText(
-                                                                                          FFLocalizations.of(context).getText(
-                                                                                            'aovk79wr' /* Events */,
+                                                                            Align(
+                                                                              alignment: AlignmentDirectional(0.0, 1.0),
+                                                                              child: Padding(
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 24.0, 0.0),
+                                                                                child: Row(
+                                                                                  mainAxisSize: MainAxisSize.max,
+                                                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                                                                  children: [
+                                                                                    Flexible(
+                                                                                      flex: 1,
+                                                                                      child: Row(
+                                                                                        mainAxisSize: MainAxisSize.max,
+                                                                                        children: [
+                                                                                          Icon(
+                                                                                            Icons.grid_on_rounded,
+                                                                                            color: FlutterFlowTheme.of(context).secondary,
+                                                                                            size: 24.0,
                                                                                           ),
-                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                fontFamily: 'Roboto',
-                                                                                                color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                                fontSize: 22.0,
-                                                                                                letterSpacing: 0.0,
-                                                                                                fontWeight: FontWeight.normal,
-                                                                                              ),
-                                                                                          colors: [
-                                                                                            FlutterFlowTheme.of(context).tertiary,
-                                                                                            FlutterFlowTheme.of(context).secondary
-                                                                                          ],
-                                                                                          gradientDirection: GradientDirection.ltr,
-                                                                                          gradientType: GradientType.linear,
-                                                                                        ),
+                                                                                          Padding(
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                                                                                            child: GradientText(
+                                                                                              listViewEventsCollectionRecord.title,
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                    fontFamily: 'Roboto',
+                                                                                                    color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                                    fontSize: 22.0,
+                                                                                                    letterSpacing: 0.0,
+                                                                                                    fontWeight: FontWeight.normal,
+                                                                                                  ),
+                                                                                              colors: [
+                                                                                                FlutterFlowTheme.of(context).tertiary,
+                                                                                                FlutterFlowTheme.of(context).secondary
+                                                                                              ],
+                                                                                              gradientDirection: GradientDirection.ltr,
+                                                                                              gradientType: GradientType.linear,
+                                                                                            ),
+                                                                                          ),
+                                                                                        ],
                                                                                       ),
-                                                                                    ],
-                                                                                  ),
-                                                                                  Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
-                                                                                    child: Container(
-                                                                                      width: 40.0,
-                                                                                      height: 40.0,
-                                                                                      decoration: BoxDecoration(
-                                                                                        gradient: LinearGradient(
-                                                                                          colors: [
-                                                                                            FlutterFlowTheme.of(context).primary,
-                                                                                            FlutterFlowTheme.of(context).secondary,
-                                                                                            FlutterFlowTheme.of(context).alternate
-                                                                                          ],
-                                                                                          stops: [
-                                                                                            0.0,
-                                                                                            0.3,
-                                                                                            1.0
-                                                                                          ],
-                                                                                          begin: AlignmentDirectional(1.0, 0.98),
-                                                                                          end: AlignmentDirectional(-1.0, -0.98),
-                                                                                        ),
-                                                                                        shape: BoxShape.circle,
-                                                                                      ),
+                                                                                    ),
+                                                                                    Flexible(
+                                                                                      flex: 1,
                                                                                       child: Padding(
-                                                                                        padding: EdgeInsets.all(2.0),
+                                                                                        padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
                                                                                         child: Container(
                                                                                           width: 40.0,
                                                                                           height: 40.0,
                                                                                           decoration: BoxDecoration(
-                                                                                            color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                            gradient: LinearGradient(
+                                                                                              colors: [
+                                                                                                FlutterFlowTheme.of(context).primary,
+                                                                                                FlutterFlowTheme.of(context).secondary,
+                                                                                                FlutterFlowTheme.of(context).alternate
+                                                                                              ],
+                                                                                              stops: [0.0, 0.3, 1.0],
+                                                                                              begin: AlignmentDirectional(1.0, 0.98),
+                                                                                              end: AlignmentDirectional(-1.0, -0.98),
+                                                                                            ),
                                                                                             shape: BoxShape.circle,
                                                                                           ),
-                                                                                          child: InkWell(
-                                                                                            splashColor: Colors.transparent,
-                                                                                            focusColor: Colors.transparent,
-                                                                                            hoverColor: Colors.transparent,
-                                                                                            highlightColor: Colors.transparent,
-                                                                                            onTap: () async {
-                                                                                              logFirebaseEvent('EVENTS_AND_CLASSES_FIRST_F_I_N_A_L_Icon_');
-                                                                                              logFirebaseEvent('Icon_navigate_to');
+                                                                                          child: Padding(
+                                                                                            padding: EdgeInsets.all(2.0),
+                                                                                            child: Container(
+                                                                                              width: 40.0,
+                                                                                              height: 40.0,
+                                                                                              decoration: BoxDecoration(
+                                                                                                color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                                shape: BoxShape.circle,
+                                                                                              ),
+                                                                                              child: InkWell(
+                                                                                                splashColor: Colors.transparent,
+                                                                                                focusColor: Colors.transparent,
+                                                                                                hoverColor: Colors.transparent,
+                                                                                                highlightColor: Colors.transparent,
+                                                                                                onTap: () async {
+                                                                                                  logFirebaseEvent('EVENTS_AND_CLASSES_FIRST_F_I_N_A_L_Icon_');
+                                                                                                  logFirebaseEvent('Icon_navigate_to');
 
-                                                                                              context.pushNamed(
-                                                                                                'EventsFINAL',
-                                                                                                queryParameters: {
-                                                                                                  'eventsName': serializeParam(
-                                                                                                    listViewEventsRecord.eventName,
-                                                                                                    ParamType.String,
-                                                                                                  ),
-                                                                                                  'eventDate': serializeParam(
-                                                                                                    listViewEventsRecord.eventDate?.toString(),
-                                                                                                    ParamType.String,
-                                                                                                  ),
-                                                                                                  'eventDescription': serializeParam(
-                                                                                                    listViewEventsRecord.eventDescription,
-                                                                                                    ParamType.String,
-                                                                                                  ),
-                                                                                                  'eventPrice': serializeParam(
-                                                                                                    listViewEventsRecord.eventPrice,
-                                                                                                    ParamType.double,
-                                                                                                  ),
-                                                                                                }.withoutNulls,
-                                                                                                extra: <String, dynamic>{
-                                                                                                  kTransitionInfoKey: TransitionInfo(
-                                                                                                    hasTransition: true,
-                                                                                                    transitionType: PageTransitionType.fade,
-                                                                                                    duration: Duration(milliseconds: 3),
-                                                                                                  ),
+                                                                                                  context.pushNamed(
+                                                                                                    'EventsFINAL',
+                                                                                                    queryParameters: {
+                                                                                                      'eventsName': serializeParam(
+                                                                                                        listViewEventsCollectionRecord.title,
+                                                                                                        ParamType.String,
+                                                                                                      ),
+                                                                                                      'eventDate': serializeParam(
+                                                                                                        dateTimeFormat(
+                                                                                                          "M/d h:mm a",
+                                                                                                          listViewEventsCollectionRecord.time,
+                                                                                                          locale: FFLocalizations.of(context).languageCode,
+                                                                                                        ),
+                                                                                                        ParamType.String,
+                                                                                                      ),
+                                                                                                      'eventDescription': serializeParam(
+                                                                                                        listViewEventsCollectionRecord.description,
+                                                                                                        ParamType.String,
+                                                                                                      ),
+                                                                                                      'eventPrice': serializeParam(
+                                                                                                        listViewEventsCollectionRecord.price,
+                                                                                                        ParamType.double,
+                                                                                                      ),
+                                                                                                    }.withoutNulls,
+                                                                                                    extra: <String, dynamic>{
+                                                                                                      kTransitionInfoKey: TransitionInfo(
+                                                                                                        hasTransition: true,
+                                                                                                        transitionType: PageTransitionType.fade,
+                                                                                                        duration: Duration(milliseconds: 3),
+                                                                                                      ),
+                                                                                                    },
+                                                                                                  );
                                                                                                 },
-                                                                                              );
-                                                                                            },
-                                                                                            child: Icon(
-                                                                                              Icons.chevron_right_rounded,
-                                                                                              color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                              size: 32.0,
+                                                                                                child: Icon(
+                                                                                                  Icons.chevron_right_rounded,
+                                                                                                  color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                                  size: 32.0,
+                                                                                                ),
+                                                                                              ),
                                                                                             ),
                                                                                           ),
                                                                                         ),
                                                                                       ),
                                                                                     ),
-                                                                                  ),
-                                                                                ],
+                                                                                  ],
+                                                                                ),
                                                                               ),
                                                                             ),
-                                                                          ),
-                                                                        ],
+                                                                          ],
+                                                                        ),
                                                                       ),
                                                                     ),
                                                                     Padding(
@@ -1461,8 +1463,8 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                                                           8.0),
                                                                       child:
                                                                           Text(
-                                                                        listViewEventsRecord
-                                                                            .eventName
+                                                                        listViewEventsCollectionRecord
+                                                                            .location
                                                                             .maybeHandleOverflow(maxChars: 20),
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .titleLarge
@@ -1483,11 +1485,11 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                                                           0.0),
                                                                       child:
                                                                           Text(
-                                                                        listViewEventsRecord
-                                                                            .eventDescription
+                                                                        listViewEventsCollectionRecord
+                                                                            .description
                                                                             .maybeHandleOverflow(
                                                                           maxChars:
-                                                                              10,
+                                                                              20,
                                                                           replacement:
                                                                               '…',
                                                                         ),
@@ -1520,7 +1522,7 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                                                             child:
                                                                                 Text(
                                                                               formatNumber(
-                                                                                listViewEventsRecord.eventPrice,
+                                                                                listViewEventsCollectionRecord.price,
                                                                                 formatType: FormatType.decimal,
                                                                                 decimalType: DecimalType.automatic,
                                                                                 currency: '\$',
@@ -1552,19 +1554,23 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                                                                     'EventsFINAL',
                                                                                     queryParameters: {
                                                                                       'eventsName': serializeParam(
-                                                                                        listViewEventsRecord.eventName,
+                                                                                        listViewEventsCollectionRecord.title,
                                                                                         ParamType.String,
                                                                                       ),
                                                                                       'eventDate': serializeParam(
-                                                                                        listViewEventsRecord.eventDate?.toString(),
+                                                                                        dateTimeFormat(
+                                                                                          "M/d h:mm a",
+                                                                                          listViewEventsCollectionRecord.time,
+                                                                                          locale: FFLocalizations.of(context).languageCode,
+                                                                                        ),
                                                                                         ParamType.String,
                                                                                       ),
                                                                                       'eventDescription': serializeParam(
-                                                                                        listViewEventsRecord.eventDescription,
+                                                                                        listViewEventsCollectionRecord.description,
                                                                                         ParamType.String,
                                                                                       ),
                                                                                       'eventPrice': serializeParam(
-                                                                                        listViewEventsRecord.eventPrice,
+                                                                                        listViewEventsCollectionRecord.price,
                                                                                         ParamType.double,
                                                                                       ),
                                                                                     }.withoutNulls,
@@ -1580,7 +1586,7 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                                                                 child: Text(
                                                                                   dateTimeFormat(
                                                                                     "M/d h:mm a",
-                                                                                    listViewEventsRecord.eventDate!,
+                                                                                    listViewEventsCollectionRecord.time!,
                                                                                     locale: FFLocalizations.of(context).languageCode,
                                                                                   ).maybeHandleOverflow(
                                                                                     maxChars: 20,

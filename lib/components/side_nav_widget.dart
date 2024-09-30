@@ -450,6 +450,83 @@ class _SideNavWidgetState extends State<SideNavWidget>
                       highlightColor: Colors.transparent,
                       onTap: () async {
                         logFirebaseEvent('SIDE_NAV_COMP_contentView_1_ON_TAP');
+                        logFirebaseEvent('contentView_1_navigate_to');
+
+                        context.pushNamed(
+                          'subscriptionProfilePage',
+                          extra: <String, dynamic>{
+                            kTransitionInfoKey: TransitionInfo(
+                              hasTransition: true,
+                              transitionType: PageTransitionType.fade,
+                              duration: Duration(milliseconds: 2),
+                            ),
+                          },
+                        );
+                      },
+                      child: Container(
+                        width: double.infinity,
+                        height: 50.0,
+                        decoration: BoxDecoration(
+                          color: Color(0xFF000001),
+                          borderRadius: BorderRadius.circular(12.0),
+                          shape: BoxShape.rectangle,
+                        ),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              12.0, 0.0, 12.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 12.0, 12.0, 12.0),
+                                child: Container(
+                                  width: 4.0,
+                                  height: 100.0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context).accent1,
+                                    borderRadius: BorderRadius.circular(12.0),
+                                  ),
+                                ),
+                              ),
+                              Icon(
+                                Icons.groups_sharp,
+                                color: FlutterFlowTheme.of(context).accent4,
+                                size: 28.0,
+                              ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    12.0, 0.0, 0.0, 0.0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    'ao7jg9t2' /* Subscription */,
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
+                                        fontFamily: 'Roboto',
+                                        color: FlutterFlowTheme.of(context)
+                                            .accent4,
+                                        letterSpacing: 0.0,
+                                      ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 12.0),
+                    child: InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        logFirebaseEvent('SIDE_NAV_COMP_contentView_1_ON_TAP');
                         logFirebaseEvent('contentView_1_auth');
                         GoRouter.of(context).prepareAuthEvent();
                         await authManager.signOut();
@@ -608,6 +685,7 @@ class _SideNavWidgetState extends State<SideNavWidget>
                                                 .titleSmall
                                                 .override(
                                                   fontFamily: 'Roboto',
+                                                  fontSize: 18.0,
                                                   letterSpacing: 0.0,
                                                 ),
                                           ),
@@ -630,6 +708,7 @@ class _SideNavWidgetState extends State<SideNavWidget>
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .secondary,
+                                                        fontSize: 16.0,
                                                         letterSpacing: 0.0,
                                                       ),
                                             ),
