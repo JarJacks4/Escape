@@ -101,6 +101,7 @@ class _TabbarHomeYogaWidgetState extends State<TabbarHomeYogaWidget>
                       ),
                       icon: FaIcon(
                         FontAwesomeIcons.alignLeft,
+                        size: 40.0,
                       ),
                     ),
                     Tab(
@@ -108,7 +109,8 @@ class _TabbarHomeYogaWidgetState extends State<TabbarHomeYogaWidget>
                         '2em0l24e' /* Yoga */,
                       ),
                       icon: Icon(
-                        Icons.electric_bolt_sharp,
+                        Icons.spa,
+                        size: 40.0,
                       ),
                     ),
                     Tab(
@@ -117,6 +119,7 @@ class _TabbarHomeYogaWidgetState extends State<TabbarHomeYogaWidget>
                       ),
                       icon: FaIcon(
                         FontAwesomeIcons.solidSmileBeam,
+                        size: 40.0,
                       ),
                     ),
                     Tab(
@@ -125,6 +128,7 @@ class _TabbarHomeYogaWidgetState extends State<TabbarHomeYogaWidget>
                       ),
                       icon: FaIcon(
                         FontAwesomeIcons.yinYang,
+                        size: 40.0,
                       ),
                     ),
                     Tab(
@@ -133,6 +137,7 @@ class _TabbarHomeYogaWidgetState extends State<TabbarHomeYogaWidget>
                       ),
                       icon: FaIcon(
                         FontAwesomeIcons.medrt,
+                        size: 40.0,
                       ),
                     ),
                   ],

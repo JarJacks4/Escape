@@ -4,7 +4,10 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/walkthroughs/meditation_walkthrough.dart';
 import 'dart:math';
+import 'package:tutorial_coach_mark/tutorial_coach_mark.dart'
+    show TutorialCoachMark;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -106,7 +109,7 @@ class _MeditationPageMainWidgetState extends State<MeditationPageMainWidget>
           ),
           child: Container(
             width: 100.0,
-            height: 100.0,
+            height: 154.0,
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
@@ -124,7 +127,7 @@ class _MeditationPageMainWidgetState extends State<MeditationPageMainWidget>
               children: [
                 Container(
                   width: double.infinity,
-                  height: 198.0,
+                  height: 274.0,
                   decoration: BoxDecoration(),
                   child: wrapWithModel(
                     model: _model.headerMainMeditationModel,
@@ -138,8 +141,13 @@ class _MeditationPageMainWidgetState extends State<MeditationPageMainWidget>
                     model: _model.tabbarHomeMeditationModel,
                     updateCallback: () => safeSetState(() {}),
                     child: TabbarHomeMeditationWidget(),
-                  ).animateOnPageLoad(animationsMap[
-                      'tabbarHomeMeditationOnPageLoadAnimation']!),
+                  )
+                      .addWalkthrough(
+                        containerWlqc10m7,
+                        _model.meditationWalkthroughController,
+                      )
+                      .animateOnPageLoad(animationsMap[
+                          'tabbarHomeMeditationOnPageLoadAnimation']!),
                 ),
               ],
             ),
@@ -148,4 +156,15 @@ class _MeditationPageMainWidgetState extends State<MeditationPageMainWidget>
       ),
     );
   }
+
+  TutorialCoachMark createPageWalkthrough(BuildContext context) =>
+      TutorialCoachMark(
+        targets: createWalkthroughTargets(context),
+        onFinish: () async {
+          safeSetState(() => _model.meditationWalkthroughController = null);
+        },
+        onSkip: () {
+          return true;
+        },
+      );
 }

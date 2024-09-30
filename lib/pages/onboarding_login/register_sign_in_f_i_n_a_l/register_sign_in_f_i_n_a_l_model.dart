@@ -1,5 +1,4 @@
 import '/auth/firebase_auth/auth_util.dart';
-import '/components/primary_button/primary_button_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -26,13 +25,10 @@ class RegisterSignInFINALModel
   TextEditingController? passwordTextController;
   late bool passwordVisibility;
   String? Function(BuildContext, String?)? passwordTextControllerValidator;
-  // Model for primaryButton component.
-  late PrimaryButtonModel primaryButtonModel;
 
   @override
   void initState(BuildContext context) {
     passwordVisibility = false;
-    primaryButtonModel = createModel(context, () => PrimaryButtonModel());
   }
 
   @override
@@ -42,7 +38,5 @@ class RegisterSignInFINALModel
 
     textFieldFocusNode2?.dispose();
     passwordTextController?.dispose();
-
-    primaryButtonModel.dispose();
   }
 }

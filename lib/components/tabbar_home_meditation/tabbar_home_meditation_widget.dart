@@ -599,7 +599,7 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
                       ),
                       icon: FaIcon(
                         FontAwesomeIcons.alignLeft,
-                        size: 30.0,
+                        size: 40.0,
                       ),
                     ),
                     Tab(
@@ -608,7 +608,7 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
                       ),
                       icon: FaIcon(
                         FontAwesomeIcons.solidSadTear,
-                        size: 30.0,
+                        size: 40.0,
                       ),
                     ),
                     Tab(
@@ -617,7 +617,7 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
                       ),
                       icon: FaIcon(
                         FontAwesomeIcons.spa,
-                        size: 30.0,
+                        size: 40.0,
                       ),
                     ),
                     Tab(
@@ -626,7 +626,7 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
                       ),
                       icon: Icon(
                         Icons.bed,
-                        size: 30.0,
+                        size: 40.0,
                       ),
                     ),
                     Tab(
@@ -635,7 +635,7 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
                       ),
                       icon: FaIcon(
                         FontAwesomeIcons.medrt,
-                        size: 30.0,
+                        size: 40.0,
                       ),
                     ),
                   ],

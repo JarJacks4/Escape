@@ -50,15 +50,14 @@ class SoundsDetailsTaiChiModel
         lastResponse: null,
       ),
     );
-    return controller
-      ..addPageRequestListener(listViewYouTubeDataTaiChiAPIFINALPage);
+    return controller..addPageRequestListener(listViewYouTubeDataTaiChiAPIPage);
   }
 
-  void listViewYouTubeDataTaiChiAPIFINALPage(ApiPagingParams nextPageMarker) =>
+  void listViewYouTubeDataTaiChiAPIPage(ApiPagingParams nextPageMarker) =>
       listViewApiCall!(nextPageMarker)
-          .then((listViewYouTubeDataTaiChiAPIFINALResponse) {
+          .then((listViewYouTubeDataTaiChiAPIResponse) {
         final pageItems = (getJsonField(
-                  listViewYouTubeDataTaiChiAPIFINALResponse.jsonBody,
+                  listViewYouTubeDataTaiChiAPIResponse.jsonBody,
                   r'''$.items[:].snippet''',
                 ) ??
                 [])
@@ -71,7 +70,7 @@ class SoundsDetailsTaiChiModel
               ? ApiPagingParams(
                   nextPageNumber: nextPageMarker.nextPageNumber + 1,
                   numItems: newNumItems,
-                  lastResponse: listViewYouTubeDataTaiChiAPIFINALResponse,
+                  lastResponse: listViewYouTubeDataTaiChiAPIResponse,
                 )
               : null,
         );

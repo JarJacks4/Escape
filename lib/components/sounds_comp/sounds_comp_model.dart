@@ -62,16 +62,15 @@ class SoundsCompModel extends FlutterFlowModel<SoundsCompWidget> {
     );
     return controller
       ..addPageRequestListener(
-          listViewYouTubeDataPeacefulSoundsAPIFINALCopyPage1);
+          listViewYouTubeDataAmbientSoundscapesAPICallPage1);
   }
 
-  void listViewYouTubeDataPeacefulSoundsAPIFINALCopyPage1(
+  void listViewYouTubeDataAmbientSoundscapesAPICallPage1(
           ApiPagingParams nextPageMarker) =>
       listViewApiCall1!(nextPageMarker)
-          .then((listViewYouTubeDataPeacefulSoundsAPIFINALCopyResponse) {
+          .then((listViewYouTubeDataAmbientSoundscapesAPICallResponse) {
         final pageItems = (getJsonField(
-                  listViewYouTubeDataPeacefulSoundsAPIFINALCopyResponse
-                      .jsonBody,
+                  listViewYouTubeDataAmbientSoundscapesAPICallResponse.jsonBody,
                   r'''$.items[:].snippet''',
                 ) ??
                 [])
@@ -84,7 +83,7 @@ class SoundsCompModel extends FlutterFlowModel<SoundsCompWidget> {
                   nextPageNumber: nextPageMarker.nextPageNumber + 1,
                   numItems: newNumItems,
                   lastResponse:
-                      listViewYouTubeDataPeacefulSoundsAPIFINALCopyResponse,
+                      listViewYouTubeDataAmbientSoundscapesAPICallResponse,
                 )
               : null,
         );
@@ -155,15 +154,17 @@ class SoundsCompModel extends FlutterFlowModel<SoundsCompWidget> {
       ),
     );
     return controller
-      ..addPageRequestListener(listViewYouTubeDataAPIDarkAndMellowAmbientPage4);
+      ..addPageRequestListener(
+          listViewYouTubeDataCitySoundscapesAPICallCopyPage4);
   }
 
-  void listViewYouTubeDataAPIDarkAndMellowAmbientPage4(
+  void listViewYouTubeDataCitySoundscapesAPICallCopyPage4(
           ApiPagingParams nextPageMarker) =>
       listViewApiCall4!(nextPageMarker)
-          .then((listViewYouTubeDataAPIDarkAndMellowAmbientResponse) {
+          .then((listViewYouTubeDataCitySoundscapesAPICallCopyResponse) {
         final pageItems = (getJsonField(
-                  listViewYouTubeDataAPIDarkAndMellowAmbientResponse.jsonBody,
+                  listViewYouTubeDataCitySoundscapesAPICallCopyResponse
+                      .jsonBody,
                   r'''$.items[:].snippet''',
                 ) ??
                 [])
@@ -176,7 +177,7 @@ class SoundsCompModel extends FlutterFlowModel<SoundsCompWidget> {
                   nextPageNumber: nextPageMarker.nextPageNumber + 1,
                   numItems: newNumItems,
                   lastResponse:
-                      listViewYouTubeDataAPIDarkAndMellowAmbientResponse,
+                      listViewYouTubeDataCitySoundscapesAPICallCopyResponse,
                 )
               : null,
         );

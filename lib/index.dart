@@ -12,7 +12,7 @@ export '/pages/onboarding_login/register_sign_up/register_sign_up_widget.dart'
 export '/pages/main_pages/sounds_page_main/sounds_page_main_widget.dart'
     show SoundsPageMainWidget;
 export '/pages/main_pages/new_home/new_home_widget.dart' show NewHomeWidget;
-export '/pages/main_pages/yoga_home/yoga_home_widget.dart' show YogaHomeWidget;
+export '/pages/main_pages/body_home/body_home_widget.dart' show BodyHomeWidget;
 export '/pages/main_pages/meditation_page_main/meditation_page_main_widget.dart'
     show MeditationPageMainWidget;
 export '/meditation_and_sounds/music_player/music_player_widget.dart'
@@ -49,8 +49,6 @@ export '/provider_community/user_community_onboarding/user_community_onboarding_
     show UserCommunityOnboardingWidget;
 export '/provider_community/classes_page/classes_page_widget.dart'
     show ClassesPageWidget;
-export '/provider_community/events_page/events_page_widget.dart'
-    show EventsPageWidget;
 export '/pages/onboarding_login/start_logo_screen/start_logo_screen_widget.dart'
     show StartLogoScreenWidget;
 export '/profile_page2/profile_page2_widget.dart' show ProfilePage2Widget;
@@ -72,8 +70,6 @@ export '/profile_page/profile_page_widget.dart' show ProfilePageWidget;
 export '/profile_page3/profile_page3_widget.dart' show ProfilePage3Widget;
 export '/notifications_screen/notifications_screen_widget.dart'
     show NotificationsScreenWidget;
-export '/pages/main_pages/events_first_page/events_first_page_widget.dart'
-    show EventsFirstPageWidget;
 export '/home15_store/home15_store_widget.dart' show Home15StoreWidget;
 export '/fetchapi_test/fetchapi/fetchapi_widget.dart' show FetchapiWidget;
 export '/meditation_and_sounds/sounds_details_body/sounds_details_body_widget.dart'
@@ -122,3 +118,7 @@ export '/meditation_and_sounds/sounds_details_grounding/sounds_details_grounding
     show SoundsDetailsGroundingWidget;
 export '/pages/onboarding_login/register_sign_in_f_i_n_a_l/register_sign_in_f_i_n_a_l_widget.dart'
     show RegisterSignInFINALWidget;
+export '/subscription_profile_page/subscription_profile_page_widget.dart'
+    show SubscriptionProfilePageWidget;
+export '/checkout_subscription_bottom_sheet/checkout_subscription_bottom_sheet_widget.dart'
+    show CheckoutSubscriptionBottomSheetWidget;

@@ -8,8 +8,8 @@ import '/backend/schema/util/schema_util.dart';
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
-class ClassesRecord extends FirestoreRecord {
-  ClassesRecord._(
+class EventsCollectionRecord extends FirestoreRecord {
+  EventsCollectionRecord._(
     DocumentReference reference,
     Map<String, dynamic> data,
   ) : super(reference, data) {
@@ -61,17 +61,15 @@ class ClassesRecord extends FirestoreRecord {
   String get classID => _classID ?? '';
   bool hasClassID() => _classID != null;
 
-  // "ProfilePicture" field.
-  String? _profilePicture;
-  String get profilePicture => _profilePicture ?? '';
-  bool hasProfilePicture() => _profilePicture != null;
-
   // "classPicture" field.
   String? _classPicture;
   String get classPicture => _classPicture ?? '';
   bool hasClassPicture() => _classPicture != null;
 
-  DocumentReference get parentReference => reference.parent.parent!;
+  // "Uid" field.
+  DocumentReference? _uid;
+  DocumentReference? get uid => _uid;
+  bool hasUid() => _uid != null;
 
   void _initializeFields() {
     _title = snapshotData['title'] as String?;
@@ -83,50 +81,46 @@ class ClassesRecord extends FirestoreRecord {
     _provider = snapshotData['provider'] as DocumentReference?;
     _reviews = getDataList(snapshotData['reviews']);
     _classID = snapshotData['classID'] as String?;
-    _profilePicture = snapshotData['ProfilePicture'] as String?;
     _classPicture = snapshotData['classPicture'] as String?;
+    _uid = snapshotData['Uid'] as DocumentReference?;
   }
 
-  static Query<Map<String, dynamic>> collection([DocumentReference? parent]) =>
-      parent != null
-          ? parent.collection('Classes')
-          : FirebaseFirestore.instance.collectionGroup('Classes');
+  static CollectionReference get collection =>
+      FirebaseFirestore.instance.collection('EventsCollection');
 
-  static DocumentReference createDoc(DocumentReference parent, {String? id}) =>
-      parent.collection('Classes').doc(id);
+  static Stream<EventsCollectionRecord> getDocument(DocumentReference ref) =>
+      ref.snapshots().map((s) => EventsCollectionRecord.fromSnapshot(s));
 
-  static Stream<ClassesRecord> getDocument(DocumentReference ref) =>
-      ref.snapshots().map((s) => ClassesRecord.fromSnapshot(s));
+  static Future<EventsCollectionRecord> getDocumentOnce(
+          DocumentReference ref) =>
+      ref.get().then((s) => EventsCollectionRecord.fromSnapshot(s));
 
-  static Future<ClassesRecord> getDocumentOnce(DocumentReference ref) =>
-      ref.get().then((s) => ClassesRecord.fromSnapshot(s));
-
-  static ClassesRecord fromSnapshot(DocumentSnapshot snapshot) =>
-      ClassesRecord._(
+  static EventsCollectionRecord fromSnapshot(DocumentSnapshot snapshot) =>
+      EventsCollectionRecord._(
         snapshot.reference,
         mapFromFirestore(snapshot.data() as Map<String, dynamic>),
       );
 
-  static ClassesRecord getDocumentFromData(
+  static EventsCollectionRecord getDocumentFromData(
     Map<String, dynamic> data,
     DocumentReference reference,
   ) =>
-      ClassesRecord._(reference, mapFromFirestore(data));
+      EventsCollectionRecord._(reference, mapFromFirestore(data));
 
   @override
   String toString() =>
-      'ClassesRecord(reference: ${reference.path}, data: $snapshotData)';
+      'EventsCollectionRecord(reference: ${reference.path}, data: $snapshotData)';
 
   @override
   int get hashCode => reference.path.hashCode;
 
   @override
   bool operator ==(other) =>
-      other is ClassesRecord &&
+      other is EventsCollectionRecord &&
       reference.path.hashCode == other.reference.path.hashCode;
 }
 
-Map<String, dynamic> createClassesRecordData({
+Map<String, dynamic> createEventsCollectionRecordData({
   String? title,
   String? description,
   int? length,
@@ -135,8 +129,8 @@ Map<String, dynamic> createClassesRecordData({
   String? location,
   DocumentReference? provider,
   String? classID,
-  String? profilePicture,
   String? classPicture,
+  DocumentReference? uid,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -148,19 +142,20 @@ Map<String, dynamic> createClassesRecordData({
       'location': location,
       'provider': provider,
       'classID': classID,
-      'ProfilePicture': profilePicture,
       'classPicture': classPicture,
+      'Uid': uid,
     }.withoutNulls,
   );
 
   return firestoreData;
 }
 
-class ClassesRecordDocumentEquality implements Equality<ClassesRecord> {
-  const ClassesRecordDocumentEquality();
+class EventsCollectionRecordDocumentEquality
+    implements Equality<EventsCollectionRecord> {
+  const EventsCollectionRecordDocumentEquality();
 
   @override
-  bool equals(ClassesRecord? e1, ClassesRecord? e2) {
+  bool equals(EventsCollectionRecord? e1, EventsCollectionRecord? e2) {
     const listEquality = ListEquality();
     return e1?.title == e2?.title &&
         e1?.description == e2?.description &&
@@ -171,12 +166,12 @@ class ClassesRecordDocumentEquality implements Equality<ClassesRecord> {
         e1?.provider == e2?.provider &&
         listEquality.equals(e1?.reviews, e2?.reviews) &&
         e1?.classID == e2?.classID &&
-        e1?.profilePicture == e2?.profilePicture &&
-        e1?.classPicture == e2?.classPicture;
+        e1?.classPicture == e2?.classPicture &&
+        e1?.uid == e2?.uid;
   }
 
   @override
-  int hash(ClassesRecord? e) => const ListEquality().hash([
+  int hash(EventsCollectionRecord? e) => const ListEquality().hash([
         e?.title,
         e?.description,
         e?.length,
@@ -186,10 +181,10 @@ class ClassesRecordDocumentEquality implements Equality<ClassesRecord> {
         e?.provider,
         e?.reviews,
         e?.classID,
-        e?.profilePicture,
-        e?.classPicture
+        e?.classPicture,
+        e?.uid
       ]);
 
   @override
-  bool isValidKey(Object? o) => o is ClassesRecord;
+  bool isValidKey(Object? o) => o is EventsCollectionRecord;
 }

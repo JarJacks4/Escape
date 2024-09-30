@@ -129,11 +129,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               : NewHomeWidget(),
         ),
         FFRoute(
-          name: 'YogaHome',
-          path: '/yogaHome',
+          name: 'BodyHome',
+          path: '/bodyHome',
           builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'YogaHome')
-              : YogaHomeWidget(),
+              ? NavBarPage(initialPage: 'BodyHome')
+              : BodyHomeWidget(),
         ),
         FFRoute(
           name: 'MeditationPageMain',
@@ -246,11 +246,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => ClassesPageWidget(),
         ),
         FFRoute(
-          name: 'EventsPage',
-          path: '/eventsPage',
-          builder: (context, params) => EventsPageWidget(),
-        ),
-        FFRoute(
           name: 'StartLogoScreen',
           path: '/startLogoScreen',
           builder: (context, params) => StartLogoScreenWidget(),
@@ -326,11 +321,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'notificationsScreen',
           path: '/notificationsScreen',
           builder: (context, params) => NotificationsScreenWidget(),
-        ),
-        FFRoute(
-          name: 'EventsFirstPage',
-          path: '/eventsFirstPage',
-          builder: (context, params) => EventsFirstPageWidget(),
         ),
         FFRoute(
           name: 'Home15Store',
@@ -492,6 +482,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'registerSignInFINAL',
           path: '/register2',
           builder: (context, params) => RegisterSignInFINALWidget(),
+        ),
+        FFRoute(
+          name: 'subscriptionProfilePage',
+          path: '/subscriptionProfilePage',
+          builder: (context, params) => SubscriptionProfilePageWidget(),
+        ),
+        FFRoute(
+          name: 'CheckoutSubscriptionBottomSheet',
+          path: '/checkoutSubscriptionBottomSheet',
+          builder: (context, params) => CheckoutSubscriptionBottomSheetWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

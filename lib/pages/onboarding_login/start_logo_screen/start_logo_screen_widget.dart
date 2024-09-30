@@ -710,20 +710,24 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                       logFirebaseEvent(
                                                           'START_LOGO_SCREEN_GET_STARTED_BTN_ON_TAP');
                                                       logFirebaseEvent(
-                                                          'Button_auth');
-                                                      GoRouter.of(context)
-                                                          .prepareAuthEvent();
-                                                      final user =
-                                                          await authManager
-                                                              .signInAnonymously(
-                                                                  context);
-                                                      if (user == null) {
-                                                        return;
-                                                      }
+                                                          'Button_navigate_to');
 
-                                                      context.goNamedAuth(
-                                                          'NewHome',
-                                                          context.mounted);
+                                                      context.pushNamed(
+                                                        'NewHome',
+                                                        extra: <String,
+                                                            dynamic>{
+                                                          kTransitionInfoKey:
+                                                              TransitionInfo(
+                                                            hasTransition: true,
+                                                            transitionType:
+                                                                PageTransitionType
+                                                                    .fade,
+                                                            duration: Duration(
+                                                                milliseconds:
+                                                                    2),
+                                                          ),
+                                                        },
+                                                      );
                                                     },
                                                     text: FFLocalizations.of(
                                                             context)

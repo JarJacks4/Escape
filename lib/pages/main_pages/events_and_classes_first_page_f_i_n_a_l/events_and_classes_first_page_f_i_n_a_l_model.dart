@@ -21,19 +21,22 @@ class EventsAndClassesFirstPageFINALModel
 
   // State field(s) for ListView widget.
 
-  PagingController<DocumentSnapshot?, ClassesRecord>? listViewPagingController1;
+  PagingController<DocumentSnapshot?, SelfCareClassesRecord>?
+      listViewPagingController1;
   Query? listViewPagingQuery1;
   List<StreamSubscription?> listViewStreamSubscriptions1 = [];
 
   // State field(s) for ListView widget.
 
-  PagingController<DocumentSnapshot?, ClassesRecord>? listViewPagingController2;
+  PagingController<DocumentSnapshot?, SelfCareClassesRecord>?
+      listViewPagingController2;
   Query? listViewPagingQuery2;
   List<StreamSubscription?> listViewStreamSubscriptions2 = [];
 
   // State field(s) for ListView widget.
 
-  PagingController<DocumentSnapshot?, EventsRecord>? listViewPagingController3;
+  PagingController<DocumentSnapshot?, EventsCollectionRecord>?
+      listViewPagingController3;
   Query? listViewPagingQuery3;
   List<StreamSubscription?> listViewStreamSubscriptions3 = [];
 
@@ -53,7 +56,8 @@ class EventsAndClassesFirstPageFINALModel
   }
 
   /// Additional helper methods.
-  PagingController<DocumentSnapshot?, ClassesRecord> setListViewController1(
+  PagingController<DocumentSnapshot?, SelfCareClassesRecord>
+      setListViewController1(
     Query query, {
     DocumentReference<Object?>? parent,
   }) {
@@ -65,15 +69,17 @@ class EventsAndClassesFirstPageFINALModel
     return listViewPagingController1!;
   }
 
-  PagingController<DocumentSnapshot?, ClassesRecord> _createListViewController1(
+  PagingController<DocumentSnapshot?, SelfCareClassesRecord>
+      _createListViewController1(
     Query query,
     DocumentReference<Object?>? parent,
   ) {
     final controller =
-        PagingController<DocumentSnapshot?, ClassesRecord>(firstPageKey: null);
+        PagingController<DocumentSnapshot?, SelfCareClassesRecord>(
+            firstPageKey: null);
     return controller
       ..addPageRequestListener(
-        (nextPageMarker) => queryClassesRecordPage(
+        (nextPageMarker) => querySelfCareClassesRecordPage(
           nextPageMarker: nextPageMarker,
           streamSubscriptions: listViewStreamSubscriptions1,
           controller: controller,
@@ -83,7 +89,8 @@ class EventsAndClassesFirstPageFINALModel
       );
   }
 
-  PagingController<DocumentSnapshot?, ClassesRecord> setListViewController2(
+  PagingController<DocumentSnapshot?, SelfCareClassesRecord>
+      setListViewController2(
     Query query, {
     DocumentReference<Object?>? parent,
   }) {
@@ -95,15 +102,17 @@ class EventsAndClassesFirstPageFINALModel
     return listViewPagingController2!;
   }
 
-  PagingController<DocumentSnapshot?, ClassesRecord> _createListViewController2(
+  PagingController<DocumentSnapshot?, SelfCareClassesRecord>
+      _createListViewController2(
     Query query,
     DocumentReference<Object?>? parent,
   ) {
     final controller =
-        PagingController<DocumentSnapshot?, ClassesRecord>(firstPageKey: null);
+        PagingController<DocumentSnapshot?, SelfCareClassesRecord>(
+            firstPageKey: null);
     return controller
       ..addPageRequestListener(
-        (nextPageMarker) => queryClassesRecordPage(
+        (nextPageMarker) => querySelfCareClassesRecordPage(
           nextPageMarker: nextPageMarker,
           streamSubscriptions: listViewStreamSubscriptions2,
           controller: controller,
@@ -113,7 +122,8 @@ class EventsAndClassesFirstPageFINALModel
       );
   }
 
-  PagingController<DocumentSnapshot?, EventsRecord> setListViewController3(
+  PagingController<DocumentSnapshot?, EventsCollectionRecord>
+      setListViewController3(
     Query query, {
     DocumentReference<Object?>? parent,
   }) {
@@ -125,15 +135,17 @@ class EventsAndClassesFirstPageFINALModel
     return listViewPagingController3!;
   }
 
-  PagingController<DocumentSnapshot?, EventsRecord> _createListViewController3(
+  PagingController<DocumentSnapshot?, EventsCollectionRecord>
+      _createListViewController3(
     Query query,
     DocumentReference<Object?>? parent,
   ) {
     final controller =
-        PagingController<DocumentSnapshot?, EventsRecord>(firstPageKey: null);
+        PagingController<DocumentSnapshot?, EventsCollectionRecord>(
+            firstPageKey: null);
     return controller
       ..addPageRequestListener(
-        (nextPageMarker) => queryEventsRecordPage(
+        (nextPageMarker) => queryEventsCollectionRecordPage(
           queryBuilder: (_) => listViewPagingQuery3 ??= query,
           nextPageMarker: nextPageMarker,
           streamSubscriptions: listViewStreamSubscriptions3,

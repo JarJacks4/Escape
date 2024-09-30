@@ -61,10 +61,15 @@ class SelfCareClassesRecord extends FirestoreRecord {
   String get classID => _classID ?? '';
   bool hasClassID() => _classID != null;
 
-  // "profilePicture" field.
-  DocumentReference? _profilePicture;
-  DocumentReference? get profilePicture => _profilePicture;
-  bool hasProfilePicture() => _profilePicture != null;
+  // "classImage" field.
+  String? _classImage;
+  String get classImage => _classImage ?? '';
+  bool hasClassImage() => _classImage != null;
+
+  // "classImages" field.
+  List<String>? _classImages;
+  List<String> get classImages => _classImages ?? const [];
+  bool hasClassImages() => _classImages != null;
 
   void _initializeFields() {
     _title = snapshotData['title'] as String?;
@@ -76,7 +81,8 @@ class SelfCareClassesRecord extends FirestoreRecord {
     _provider = snapshotData['provider'] as DocumentReference?;
     _reviews = getDataList(snapshotData['reviews']);
     _classID = snapshotData['classID'] as String?;
-    _profilePicture = snapshotData['profilePicture'] as DocumentReference?;
+    _classImage = snapshotData['classImage'] as String?;
+    _classImages = getDataList(snapshotData['classImages']);
   }
 
   static CollectionReference get collection =>
@@ -122,7 +128,7 @@ Map<String, dynamic> createSelfCareClassesRecordData({
   String? location,
   DocumentReference? provider,
   String? classID,
-  DocumentReference? profilePicture,
+  String? classImage,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -134,7 +140,7 @@ Map<String, dynamic> createSelfCareClassesRecordData({
       'location': location,
       'provider': provider,
       'classID': classID,
-      'profilePicture': profilePicture,
+      'classImage': classImage,
     }.withoutNulls,
   );
 
@@ -157,7 +163,8 @@ class SelfCareClassesRecordDocumentEquality
         e1?.provider == e2?.provider &&
         listEquality.equals(e1?.reviews, e2?.reviews) &&
         e1?.classID == e2?.classID &&
-        e1?.profilePicture == e2?.profilePicture;
+        e1?.classImage == e2?.classImage &&
+        listEquality.equals(e1?.classImages, e2?.classImages);
   }
 
   @override
@@ -171,7 +178,8 @@ class SelfCareClassesRecordDocumentEquality
         e?.provider,
         e?.reviews,
         e?.classID,
-        e?.profilePicture
+        e?.classImage,
+        e?.classImages
       ]);
 
   @override

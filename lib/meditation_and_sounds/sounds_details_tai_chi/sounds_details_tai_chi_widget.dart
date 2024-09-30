@@ -293,7 +293,7 @@ class _SoundsDetailsTaiChiWidgetState extends State<SoundsDetailsTaiChiWidget>
                             child: PagedListView<ApiPagingParams, dynamic>(
                               pagingController: _model.setListViewController(
                                 (nextPageMarker) =>
-                                    YouTubeDataTaiChiAPIFINALCall.call(),
+                                    YouTubeDataTaiChiAPICall.call(),
                               ),
                               padding: EdgeInsets.zero,
                               primary: false,

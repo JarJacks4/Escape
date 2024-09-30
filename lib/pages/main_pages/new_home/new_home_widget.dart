@@ -4,7 +4,10 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/meditation_and_sounds/header_home/header_home_widget.dart';
 import '/meditation_and_sounds/home_comp/home_comp_widget.dart';
+import '/walkthroughs/intro_walkthrough.dart';
 import 'dart:math';
+import 'package:tutorial_coach_mark/tutorial_coach_mark.dart'
+    show TutorialCoachMark;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -125,8 +128,13 @@ class _NewHomeWidgetState extends State<NewHomeWidget>
                       model: _model.headerHomeModel,
                       updateCallback: () => safeSetState(() {}),
                       child: HeaderHomeWidget(),
-                    ).animateOnPageLoad(
-                        animationsMap['headerHomeOnPageLoadAnimation']!),
+                    )
+                        .addWalkthrough(
+                          containerZevhydwe,
+                          _model.introWalkthroughController,
+                        )
+                        .animateOnPageLoad(
+                            animationsMap['headerHomeOnPageLoadAnimation']!),
                   ),
                   Flexible(
                     flex: 1,
@@ -134,8 +142,13 @@ class _NewHomeWidgetState extends State<NewHomeWidget>
                       model: _model.homeCompModel,
                       updateCallback: () => safeSetState(() {}),
                       child: HomeCompWidget(),
-                    ).animateOnPageLoad(
-                        animationsMap['homeCompOnPageLoadAnimation']!),
+                    )
+                        .addWalkthrough(
+                          containerT7xx1zl4,
+                          _model.introWalkthroughController,
+                        )
+                        .animateOnPageLoad(
+                            animationsMap['homeCompOnPageLoadAnimation']!),
                   ),
                 ],
               ),
@@ -145,4 +158,15 @@ class _NewHomeWidgetState extends State<NewHomeWidget>
       ),
     );
   }
+
+  TutorialCoachMark createPageWalkthrough(BuildContext context) =>
+      TutorialCoachMark(
+        targets: createWalkthroughTargets(context),
+        onFinish: () async {
+          safeSetState(() => _model.introWalkthroughController = null);
+        },
+        onSkip: () {
+          return true;
+        },
+      );
 }

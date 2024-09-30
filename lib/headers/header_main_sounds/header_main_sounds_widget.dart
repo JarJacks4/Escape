@@ -72,7 +72,8 @@ class _HeaderMainSoundsWidgetState extends State<HeaderMainSoundsWidget> {
                                       5.0, 44.0, 8.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
                                       Align(
                                         alignment:
@@ -88,7 +89,9 @@ class _HeaderMainSoundsWidgetState extends State<HeaderMainSoundsWidget> {
                                             buttonSize: 56.0,
                                             icon: Icon(
                                               Icons.menu_rounded,
-                                              color: Color(0xFFECD8E3),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryBackground,
                                               size: 36.0,
                                             ),
                                             onPressed: () async {
@@ -115,28 +118,6 @@ class _HeaderMainSoundsWidgetState extends State<HeaderMainSoundsWidget> {
                                                   safeSetState(() {}));
                                             },
                                           ),
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 15.0, 0.0),
-                                        child: FlutterFlowIconButton(
-                                          borderColor: Colors.transparent,
-                                          borderRadius: 30.0,
-                                          borderWidth: 1.0,
-                                          buttonSize: 52.0,
-                                          fillColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .alternate,
-                                          icon: Icon(
-                                            Icons.notifications,
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryBackground,
-                                            size: 36.0,
-                                          ),
-                                          onPressed: () {
-                                            print('IconButton pressed ...');
-                                          },
                                         ),
                                       ),
                                       Flexible(

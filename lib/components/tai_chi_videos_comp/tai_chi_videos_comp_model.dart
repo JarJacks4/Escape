@@ -61,14 +61,17 @@ class TaiChiVideosCompModel extends FlutterFlowModel<TaiChiVideosCompWidget> {
       ),
     );
     return controller
-      ..addPageRequestListener(listViewYouTubeDataTaiChiAPIFINALPage1);
+      ..addPageRequestListener(
+          listViewYouTubeDataTaiChiForBeginnersDataAPICallPage1);
   }
 
-  void listViewYouTubeDataTaiChiAPIFINALPage1(ApiPagingParams nextPageMarker) =>
+  void listViewYouTubeDataTaiChiForBeginnersDataAPICallPage1(
+          ApiPagingParams nextPageMarker) =>
       listViewApiCall1!(nextPageMarker)
-          .then((listViewYouTubeDataTaiChiAPIFINALResponse) {
+          .then((listViewYouTubeDataTaiChiForBeginnersDataAPICallResponse) {
         final pageItems = (getJsonField(
-                  listViewYouTubeDataTaiChiAPIFINALResponse.jsonBody,
+                  listViewYouTubeDataTaiChiForBeginnersDataAPICallResponse
+                      .jsonBody,
                   r'''$.items[:].snippet''',
                 ) ??
                 [])
@@ -80,7 +83,8 @@ class TaiChiVideosCompModel extends FlutterFlowModel<TaiChiVideosCompWidget> {
               ? ApiPagingParams(
                   nextPageNumber: nextPageMarker.nextPageNumber + 1,
                   numItems: newNumItems,
-                  lastResponse: listViewYouTubeDataTaiChiAPIFINALResponse,
+                  lastResponse:
+                      listViewYouTubeDataTaiChiForBeginnersDataAPICallResponse,
                 )
               : null,
         );
@@ -104,14 +108,17 @@ class TaiChiVideosCompModel extends FlutterFlowModel<TaiChiVideosCompWidget> {
       ),
     );
     return controller
-      ..addPageRequestListener(listViewYouTubeDataTaiChiAPIFINALPage3);
+      ..addPageRequestListener(
+          listViewYouTubeDataTaiChiFormEightAPIFINALCopyPage3);
   }
 
-  void listViewYouTubeDataTaiChiAPIFINALPage3(ApiPagingParams nextPageMarker) =>
+  void listViewYouTubeDataTaiChiFormEightAPIFINALCopyPage3(
+          ApiPagingParams nextPageMarker) =>
       listViewApiCall3!(nextPageMarker)
-          .then((listViewYouTubeDataTaiChiAPIFINALResponse) {
+          .then((listViewYouTubeDataTaiChiFormEightAPIFINALCopyResponse) {
         final pageItems = (getJsonField(
-                  listViewYouTubeDataTaiChiAPIFINALResponse.jsonBody,
+                  listViewYouTubeDataTaiChiFormEightAPIFINALCopyResponse
+                      .jsonBody,
                   r'''$.items[:].snippet''',
                 ) ??
                 [])
@@ -123,7 +130,8 @@ class TaiChiVideosCompModel extends FlutterFlowModel<TaiChiVideosCompWidget> {
               ? ApiPagingParams(
                   nextPageNumber: nextPageMarker.nextPageNumber + 1,
                   numItems: newNumItems,
-                  lastResponse: listViewYouTubeDataTaiChiAPIFINALResponse,
+                  lastResponse:
+                      listViewYouTubeDataTaiChiFormEightAPIFINALCopyResponse,
                 )
               : null,
         );
@@ -147,14 +155,14 @@ class TaiChiVideosCompModel extends FlutterFlowModel<TaiChiVideosCompWidget> {
       ),
     );
     return controller
-      ..addPageRequestListener(listViewYouTubeDataTaiChiAPIFINALPage4);
+      ..addPageRequestListener(listViewYouTubeDataTaiChiAPIPage4);
   }
 
-  void listViewYouTubeDataTaiChiAPIFINALPage4(ApiPagingParams nextPageMarker) =>
+  void listViewYouTubeDataTaiChiAPIPage4(ApiPagingParams nextPageMarker) =>
       listViewApiCall4!(nextPageMarker)
-          .then((listViewYouTubeDataTaiChiAPIFINALResponse) {
+          .then((listViewYouTubeDataTaiChiAPIResponse) {
         final pageItems = (getJsonField(
-                  listViewYouTubeDataTaiChiAPIFINALResponse.jsonBody,
+                  listViewYouTubeDataTaiChiAPIResponse.jsonBody,
                   r'''$.items[:].snippet''',
                 ) ??
                 [])
@@ -166,7 +174,7 @@ class TaiChiVideosCompModel extends FlutterFlowModel<TaiChiVideosCompWidget> {
               ? ApiPagingParams(
                   nextPageNumber: nextPageMarker.nextPageNumber + 1,
                   numItems: newNumItems,
-                  lastResponse: listViewYouTubeDataTaiChiAPIFINALResponse,
+                  lastResponse: listViewYouTubeDataTaiChiAPIResponse,
                 )
               : null,
         );

@@ -1,5 +1,4 @@
 import '/auth/firebase_auth/auth_util.dart';
-import '/components/primary_button/primary_button_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -172,7 +171,7 @@ class _RegisterSignInFINALWidgetState extends State<RegisterSignInFINALWidget>
                         hintStyle:
                             FlutterFlowTheme.of(context).bodySmall.override(
                                   fontFamily: 'Roboto',
-                                  color: Color(0xFFADA4A5),
+                                  color: Color(0xF8000220),
                                   fontSize: 20.0,
                                   letterSpacing: 0.0,
                                   lineHeight: 1.5,
@@ -216,7 +215,7 @@ class _RegisterSignInFINALWidgetState extends State<RegisterSignInFINALWidget>
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Roboto',
-                            color: FlutterFlowTheme.of(context).primaryText,
+                            color: Color(0xFF000220),
                             fontSize: 20.0,
                             letterSpacing: 0.0,
                           ),
@@ -297,7 +296,7 @@ class _RegisterSignInFINALWidgetState extends State<RegisterSignInFINALWidget>
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Roboto',
-                            color: FlutterFlowTheme.of(context).primaryText,
+                            color: FlutterFlowTheme.of(context).primary,
                             fontSize: 20.0,
                             letterSpacing: 0.0,
                           ),
@@ -365,48 +364,57 @@ class _RegisterSignInFINALWidgetState extends State<RegisterSignInFINALWidget>
                   ),
                 ],
               ),
+              Align(
+                alignment: AlignmentDirectional(0.0, 1.0),
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
+                  child: FFButtonWidget(
+                    onPressed: () async {
+                      logFirebaseEvent(
+                          'REGISTER_SIGN_IN_F_I_N_A_L_LOGIN_BTN_ON_');
+                      logFirebaseEvent('Button_auth');
+                      GoRouter.of(context).prepareAuthEvent();
+
+                      final user = await authManager.signInWithEmail(
+                        context,
+                        _model.emailTextController.text,
+                        _model.passwordTextController.text,
+                      );
+                      if (user == null) {
+                        return;
+                      }
+
+                      context.goNamedAuth('NewHome', context.mounted);
+                    },
+                    text: FFLocalizations.of(context).getText(
+                      'ncio5wbp' /* Login */,
+                    ),
+                    options: FFButtonOptions(
+                      width: MediaQuery.sizeOf(context).width * 0.65,
+                      height: MediaQuery.sizeOf(context).height * 0.07,
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                      iconPadding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      color: FlutterFlowTheme.of(context).primary,
+                      textStyle:
+                          FlutterFlowTheme.of(context).titleSmall.override(
+                                fontFamily: 'Roboto',
+                                color: Colors.white,
+                                fontSize: 18.0,
+                                letterSpacing: 0.0,
+                              ),
+                      elevation: 8.0,
+                      borderRadius: BorderRadius.circular(22.0),
+                    ),
+                  ),
+                ),
+              ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 58.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    InkWell(
-                      splashColor: Colors.transparent,
-                      focusColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () async {
-                        logFirebaseEvent(
-                            'REGISTER_SIGN_IN_F_I_N_A_L_Container_59j');
-                        logFirebaseEvent('primaryButton_auth');
-                        GoRouter.of(context).prepareAuthEvent();
-
-                        final user = await authManager.signInWithEmail(
-                          context,
-                          _model.emailTextController.text,
-                          _model.passwordTextController.text,
-                        );
-                        if (user == null) {
-                          return;
-                        }
-
-                        context.goNamedAuth('NewHome', context.mounted);
-                      },
-                      child: wrapWithModel(
-                        model: _model.primaryButtonModel,
-                        updateCallback: () => safeSetState(() {}),
-                        child: Hero(
-                          tag: 'Button',
-                          transitionOnUserGestures: true,
-                          child: Material(
-                            color: Colors.transparent,
-                            child: PrimaryButtonWidget(
-                              buttonText: 'Login',
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
                     Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
@@ -610,16 +618,6 @@ class _RegisterSignInFINALWidgetState extends State<RegisterSignInFINALWidget>
                       ),
                     ),
                   ],
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(22.0),
-                child: Container(
-                  width: 121.0,
-                  height: 126.0,
-                  decoration: BoxDecoration(
-                    color: Color(0x00000220),
-                  ),
                 ),
               ),
             ],

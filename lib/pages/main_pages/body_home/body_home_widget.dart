@@ -11,19 +11,19 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'yoga_home_model.dart';
-export 'yoga_home_model.dart';
+import 'body_home_model.dart';
+export 'body_home_model.dart';
 
-class YogaHomeWidget extends StatefulWidget {
-  const YogaHomeWidget({super.key});
+class BodyHomeWidget extends StatefulWidget {
+  const BodyHomeWidget({super.key});
 
   @override
-  State<YogaHomeWidget> createState() => _YogaHomeWidgetState();
+  State<BodyHomeWidget> createState() => _BodyHomeWidgetState();
 }
 
-class _YogaHomeWidgetState extends State<YogaHomeWidget>
+class _BodyHomeWidgetState extends State<BodyHomeWidget>
     with TickerProviderStateMixin {
-  late YogaHomeModel _model;
+  late BodyHomeModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -32,9 +32,9 @@ class _YogaHomeWidgetState extends State<YogaHomeWidget>
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => YogaHomeModel());
+    _model = createModel(context, () => BodyHomeModel());
 
-    logFirebaseEvent('screen_view', parameters: {'screen_name': 'YogaHome'});
+    logFirebaseEvent('screen_view', parameters: {'screen_name': 'BodyHome'});
     animationsMap.addAll({
       'rowOnPageLoadAnimation': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,

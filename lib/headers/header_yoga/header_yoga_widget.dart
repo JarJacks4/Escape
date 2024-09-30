@@ -58,13 +58,13 @@ class _HeaderYogaWidgetState extends State<HeaderYogaWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 44.0, 12.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Align(
                       alignment: AlignmentDirectional(-1.0, 0.0),
                       child: Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
-                            0.0, 0.0, 190.0, 0.0),
+                            8.0, 0.0, 180.0, 0.0),
                         child: FlutterFlowIconButton(
                           borderColor: Colors.transparent,
                           borderRadius: 30.0,
@@ -72,7 +72,7 @@ class _HeaderYogaWidgetState extends State<HeaderYogaWidget> {
                           buttonSize: 50.0,
                           icon: Icon(
                             Icons.menu_rounded,
-                            color: FlutterFlowTheme.of(context).primary,
+                            color: Color(0xFF000220),
                             size: 36.0,
                           ),
                           onPressed: () async {
@@ -98,25 +98,6 @@ class _HeaderYogaWidgetState extends State<HeaderYogaWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
-                      child: FlutterFlowIconButton(
-                        borderColor: Colors.transparent,
-                        borderRadius: 30.0,
-                        borderWidth: 1.0,
-                        buttonSize: 52.0,
-                        fillColor: FlutterFlowTheme.of(context).primary,
-                        icon: Icon(
-                          Icons.notifications,
-                          color: FlutterFlowTheme.of(context).primaryBackground,
-                          size: 36.0,
-                        ),
-                        onPressed: () {
-                          print('IconButton pressed ...');
-                        },
-                      ),
-                    ),
-                    Padding(
-                      padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 30.0, 0.0),
                       child: AuthUserStreamWidget(
                         builder: (context) => InkWell(
@@ -130,7 +111,7 @@ class _HeaderYogaWidgetState extends State<HeaderYogaWidget> {
                             logFirebaseEvent('userAvatar_navigate_to');
 
                             context.pushNamed(
-                              'ProfilePage',
+                              'ProfilePage3',
                               extra: <String, dynamic>{
                                 kTransitionInfoKey: TransitionInfo(
                                   hasTransition: true,

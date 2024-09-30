@@ -61,7 +61,7 @@ class _HeaderHomeWidgetState extends State<HeaderHomeWidget> {
                   alignment: AlignmentDirectional(-1.0, 0.0),
                   child: Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 170.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 220.0, 0.0),
                     child: FlutterFlowIconButton(
                       borderColor: Colors.transparent,
                       borderRadius: 30.0,
@@ -92,24 +92,6 @@ class _HeaderHomeWidgetState extends State<HeaderHomeWidget> {
                         ).then((value) => safeSetState(() {}));
                       },
                     ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 18.0, 0.0),
-                  child: FlutterFlowIconButton(
-                    borderColor: Colors.transparent,
-                    borderRadius: 30.0,
-                    borderWidth: 1.0,
-                    buttonSize: 52.0,
-                    fillColor: FlutterFlowTheme.of(context).primary,
-                    icon: Icon(
-                      Icons.notifications,
-                      color: FlutterFlowTheme.of(context).primaryBackground,
-                      size: 36.0,
-                    ),
-                    onPressed: () {
-                      print('IconButton pressed ...');
-                    },
                   ),
                 ),
                 Flexible(

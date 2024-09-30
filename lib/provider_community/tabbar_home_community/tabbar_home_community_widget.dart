@@ -1,4 +1,6 @@
 import '/backend/api_requests/api_calls.dart';
+import '/backend/backend.dart';
+import '/components/add_tab_bar_widget.dart';
 import '/components/pilates_videos_comp/pilates_videos_comp_widget.dart';
 import '/components/tai_chi_videos_comp/tai_chi_videos_comp_widget.dart';
 import '/components/yoga_videos_comp/yoga_videos_comp_widget.dart';
@@ -6,7 +8,7 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_youtube_player.dart';
+import '/flutter_flow/flutter_flow_video_player.dart';
 import 'dart:math';
 import 'dart:async';
 import 'package:aligned_tooltip/aligned_tooltip.dart';
@@ -18,6 +20,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'tabbar_home_community_model.dart';
 export 'tabbar_home_community_model.dart';
 
@@ -767,7 +770,7 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                                 padding: EdgeInsets.all(4.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
-                                    'iob1lpo6' /* Message... */,
+                                    'iob1lpo6' /* Tap Here to Create! */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyLarge
@@ -803,8 +806,25 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                                       color: FlutterFlowTheme.of(context).info,
                                       size: 40.0,
                                     ),
-                                    onPressed: () {
-                                      print('IconButton pressed ...');
+                                    onPressed: () async {
+                                      logFirebaseEvent(
+                                          'TABBAR_HOME_COMMUNITY_add_sharp_ICN_ON_T');
+                                      logFirebaseEvent(
+                                          'IconButton_bottom_sheet');
+                                      await showModalBottomSheet(
+                                        isScrollControlled: true,
+                                        backgroundColor: Colors.transparent,
+                                        context: context,
+                                        builder: (context) {
+                                          return WebViewAware(
+                                            child: Padding(
+                                              padding: MediaQuery.viewInsetsOf(
+                                                  context),
+                                              child: AddTabBarWidget(),
+                                            ),
+                                          );
+                                        },
+                                      ).then((value) => safeSetState(() {}));
                                     },
                                   ),
                                 ),
@@ -863,7 +883,7 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                                     ),
                                     Container(
                                       width: double.infinity,
-                                      height: 255.0,
+                                      height: 285.0,
                                       decoration: BoxDecoration(
                                         color: Colors.transparent,
                                       ),
@@ -1070,7 +1090,9 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                                                                             meditationsItem,
                                                                             r'''$.title''',
                                                                           ).toString().maybeHandleOverflow(
-                                                                              maxChars: 50),
+                                                                                maxChars: 20,
+                                                                                replacement: '…',
+                                                                              ),
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
@@ -1589,9 +1611,14 @@ for Mediation */
                                             Expanded(
                                               child: FutureBuilder<
                                                   ApiCallResponse>(
-                                                future:
-                                                    YouTubeDataSleepYogaAPIFINALCall
-                                                        .call(),
+                                                future: (_model
+                                                            .apiRequestCompleter ??=
+                                                        Completer<
+                                                            ApiCallResponse>()
+                                                          ..complete(
+                                                              YouTubeDataSleepYogaAPIFINALCall
+                                                                  .call()))
+                                                    .future,
                                                 builder: (context, snapshot) {
                                                   // Customize what your widget looks like when it's loading.
                                                   if (!snapshot.hasData) {
@@ -1781,7 +1808,12 @@ for Mediation */
                                                                         getJsonField(
                                                                           recentItemsItem,
                                                                           r'''$.title''',
-                                                                        ).toString(),
+                                                                        )
+                                                                            .toString()
+                                                                            .maybeHandleOverflow(
+                                                                              maxChars: 20,
+                                                                              replacement: '…',
+                                                                            ),
                                                                         textAlign:
                                                                             TextAlign.center,
                                                                         style: FlutterFlowTheme.of(context)
@@ -2154,19 +2186,21 @@ for Mediation */
                                 'TABBAR_HOME_COMMUNITY_ListView_jyh059o1_');
                             logFirebaseEvent(
                                 'ListView_refresh_database_request');
-                            safeSetState(() =>
-                                _model.listViewPagingController5?.refresh());
-                            await _model.waitForOnePageForListView5();
+                            safeSetState(
+                                () => _model.apiRequestCompleter = null);
+                            await _model.waitForApiRequestCompleted();
                           },
-                          child: PagedListView<ApiPagingParams, dynamic>(
+                          child: PagedListView<DocumentSnapshot<Object?>?,
+                              VideosCollectionRecord>(
                             pagingController: _model.setListViewController5(
-                              (nextPageMarker) => YouTubeDataAPIBaseCall.call(),
+                              VideosCollectionRecord.collection,
                             ),
                             padding: EdgeInsets.zero,
                             shrinkWrap: true,
                             reverse: false,
                             scrollDirection: Axis.vertical,
-                            builderDelegate: PagedChildBuilderDelegate<dynamic>(
+                            builderDelegate: PagedChildBuilderDelegate<
+                                VideosCollectionRecord>(
                               // Customize what your widget looks like when it's loading the first page.
                               firstPageProgressIndicatorBuilder: (_) => Center(
                                 child: SizedBox(
@@ -2192,28 +2226,37 @@ for Mediation */
                                 ),
                               ),
 
-                              itemBuilder: (context, _, feedVideosIndex) {
-                                final feedVideosItem = _model
+                              itemBuilder: (context, _, listViewIndex) {
+                                final listViewVideosCollectionRecord = _model
                                     .listViewPagingController5!
-                                    .itemList![feedVideosIndex];
-                                return Container(
-                                  width: 100.0,
-                                  height: 750.0,
-                                  decoration: BoxDecoration(
-                                    color: Color(0x04000220),
+                                    .itemList![listViewIndex];
+                                return Material(
+                                  color: Colors.transparent,
+                                  elevation: 3.0,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(20.0),
                                   ),
-                                  child: FlutterFlowYoutubePlayer(
-                                    url:
-                                        'https://www.youtube.com/watch?v=GpXjU-ieAKU',
-                                    width: double.infinity,
-                                    height:
-                                        MediaQuery.sizeOf(context).height * 1.0,
-                                    autoPlay: false,
-                                    looping: true,
-                                    mute: false,
-                                    showControls: true,
-                                    showFullScreen: true,
-                                    strictRelatedVideos: true,
+                                  child: Container(
+                                    width: 100.0,
+                                    height: 750.0,
+                                    decoration: BoxDecoration(
+                                      color: Color(0x04000220),
+                                      borderRadius: BorderRadius.circular(20.0),
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 8.0, 0.0, 0.0),
+                                      child: FlutterFlowVideoPlayer(
+                                        path: listViewVideosCollectionRecord
+                                            .videoUrl,
+                                        videoType: VideoType.network,
+                                        autoPlay: true,
+                                        looping: true,
+                                        showControls: false,
+                                        allowFullScreen: true,
+                                        allowPlaybackSpeedMenu: false,
+                                      ),
+                                    ),
                                   ),
                                 );
                               },
