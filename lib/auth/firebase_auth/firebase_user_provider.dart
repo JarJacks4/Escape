@@ -10,6 +10,7 @@ export '../base_auth_user_provider.dart';
 class EscapeFirebaseUser extends BaseAuthUser {
   EscapeFirebaseUser(this.user);
   User? user;
+  @override
   bool get loggedIn => user != null;
 
   @override

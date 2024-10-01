@@ -3,8 +3,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'header_main_meditation_model.dart';
 export 'header_main_meditation_model.dart';
@@ -46,10 +44,10 @@ class _HeaderMainMeditationWidgetState
       width: MediaQuery.sizeOf(context).width * 1.0,
       height: MediaQuery.sizeOf(context).height * 0.346,
       decoration: BoxDecoration(
-        color: Color(0x00FCFFF9),
+        color: const Color(0x00FCFFF9),
         borderRadius: BorderRadius.circular(15.0),
       ),
-      child: Container(
+      child: SizedBox(
         height: MediaQuery.sizeOf(context).height * 0.063,
         child: Stack(
           children: [
@@ -61,7 +59,7 @@ class _HeaderMainMeditationWidgetState
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             0.0, 44.0, 12.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -70,9 +68,9 @@ class _HeaderMainMeditationWidgetState
                             Flexible(
                               flex: 1,
                               child: Align(
-                                alignment: AlignmentDirectional(-1.0, -1.0),
+                                alignment: const AlignmentDirectional(-1.0, -1.0),
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       8.0, 0.0, 180.0, 0.0),
                                   child: FlutterFlowIconButton(
                                     borderColor: Colors.transparent,
@@ -99,7 +97,7 @@ class _HeaderMainMeditationWidgetState
                                             child: Padding(
                                               padding: MediaQuery.viewInsetsOf(
                                                   context),
-                                              child: SideNavWidget(),
+                                              child: const SideNavWidget(),
                                             ),
                                           );
                                         },
@@ -124,7 +122,7 @@ class _HeaderMainMeditationWidgetState
                                   context.pushNamed(
                                     'NewHome',
                                     extra: <String, dynamic>{
-                                      kTransitionInfoKey: TransitionInfo(
+                                      kTransitionInfoKey: const TransitionInfo(
                                         hasTransition: true,
                                         transitionType: PageTransitionType.fade,
                                         duration: Duration(milliseconds: 2),
@@ -151,7 +149,7 @@ class _HeaderMainMeditationWidgetState
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             16.0, 16.0, 16.0, 8.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -175,7 +173,7 @@ class _HeaderMainMeditationWidgetState
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             15.0, 0.0, 24.0, 0.0),
                         child: Text(
                           FFLocalizations.of(context).getText(

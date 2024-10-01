@@ -2,16 +2,11 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:math';
 import 'package:aligned_tooltip/aligned_tooltip.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'home15_store_model.dart';
 export 'home15_store_model.dart';
 
@@ -51,8 +46,8 @@ class _Home15StoreWidgetState extends State<Home15StoreWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(0.0, 70.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(0.0, 70.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -82,8 +77,8 @@ class _Home15StoreWidgetState extends State<Home15StoreWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(0.0, 60.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(0.0, 60.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -101,8 +96,8 @@ class _Home15StoreWidgetState extends State<Home15StoreWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(0.0, 50.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(0.0, 50.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -120,8 +115,8 @@ class _Home15StoreWidgetState extends State<Home15StoreWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(0.0, 50.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(0.0, 50.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -139,15 +134,15 @@ class _Home15StoreWidgetState extends State<Home15StoreWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(60.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(60.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
           ScaleEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(0.6, 1.0),
-            end: Offset(1.0, 1.0),
+            begin: const Offset(0.6, 1.0),
+            end: const Offset(1.0, 1.0),
           ),
         ],
       ),
@@ -165,15 +160,15 @@ class _Home15StoreWidgetState extends State<Home15StoreWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(80.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(80.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
           ScaleEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(0.6, 1.0),
-            end: Offset(1.0, 1.0),
+            begin: const Offset(0.6, 1.0),
+            end: const Offset(1.0, 1.0),
           ),
         ],
       ),
@@ -215,7 +210,7 @@ class _Home15StoreWidgetState extends State<Home15StoreWidget>
           ),
           actions: [
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 12.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 12.0, 0.0),
               child: FlutterFlowIconButton(
                 borderColor: Colors.transparent,
                 borderRadius: 30.0,
@@ -240,7 +235,7 @@ class _Home15StoreWidgetState extends State<Home15StoreWidget>
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 12.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 12.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -256,21 +251,21 @@ class _Home15StoreWidgetState extends State<Home15StoreWidget>
                   ],
                 ),
               ),
-              Container(
+              SizedBox(
                 width: double.infinity,
                 height: 530.0,
                 child: Stack(
                   children: [
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 30.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 30.0),
                       child: PageView(
                         controller: _model.pageViewController ??=
                             PageController(initialPage: 0),
                         scrollDirection: Axis.horizontal,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 12.0, 0.0, 12.0, 0.0),
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(12.0),
@@ -284,7 +279,7 @@ class _Home15StoreWidgetState extends State<Home15StoreWidget>
                                 animationsMap['imageOnPageLoadAnimation']!),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 12.0, 0.0, 12.0, 0.0),
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(12.0),
@@ -297,7 +292,7 @@ class _Home15StoreWidgetState extends State<Home15StoreWidget>
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 12.0, 0.0, 12.0, 0.0),
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(12.0),
@@ -313,10 +308,10 @@ class _Home15StoreWidgetState extends State<Home15StoreWidget>
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(-0.9, 1.0),
+                      alignment: const AlignmentDirectional(-0.9, 1.0),
                       child: Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
                         child: smooth_page_indicator.SmoothPageIndicator(
                           controller: _model.pageViewController ??=
                               PageController(initialPage: 0),
@@ -325,7 +320,7 @@ class _Home15StoreWidgetState extends State<Home15StoreWidget>
                           onDotClicked: (i) async {
                             await _model.pageViewController!.animateToPage(
                               i,
-                              duration: Duration(milliseconds: 500),
+                              duration: const Duration(milliseconds: 500),
                               curve: Curves.ease,
                             );
                             safeSetState(() {});
@@ -349,7 +344,7 @@ class _Home15StoreWidgetState extends State<Home15StoreWidget>
               ).animateOnPageLoad(
                   animationsMap['pageViewOnPageLoadAnimation']!),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -367,7 +362,7 @@ class _Home15StoreWidgetState extends State<Home15StoreWidget>
                 ).animateOnPageLoad(animationsMap['rowOnPageLoadAnimation1']!),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -384,7 +379,7 @@ class _Home15StoreWidgetState extends State<Home15StoreWidget>
                 ).animateOnPageLoad(animationsMap['rowOnPageLoadAnimation2']!),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                 child: Container(
                   width: double.infinity,
                   height: 240.0,
@@ -392,7 +387,7 @@ class _Home15StoreWidgetState extends State<Home15StoreWidget>
                     color: FlutterFlowTheme.of(context).primaryBackground,
                   ),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(1.0, 0.0, 0.0, 0.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(1.0, 0.0, 0.0, 0.0),
                     child: ListView(
                       padding: EdgeInsets.zero,
                       primary: false,
@@ -400,7 +395,7 @@ class _Home15StoreWidgetState extends State<Home15StoreWidget>
                       scrollDirection: Axis.horizontal,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               12.0, 12.0, 0.0, 12.0),
                           child: Container(
                             width: 180.0,
@@ -408,7 +403,7 @@ class _Home15StoreWidgetState extends State<Home15StoreWidget>
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
-                              boxShadow: [
+                              boxShadow: const [
                                 BoxShadow(
                                   blurRadius: 4.0,
                                   color: Color(0x3F15212B),
@@ -421,14 +416,14 @@ class _Home15StoreWidgetState extends State<Home15StoreWidget>
                               borderRadius: BorderRadius.circular(12.0),
                             ),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 12.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Expanded(
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           8.0, 8.0, 8.0, 0.0),
                                       child: Container(
                                         width: double.infinity,
@@ -441,7 +436,7 @@ class _Home15StoreWidgetState extends State<Home15StoreWidget>
                                         ),
                                         child: Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 8.0),
                                           child: ClipRRect(
                                             borderRadius:
@@ -458,7 +453,7 @@ class _Home15StoreWidgetState extends State<Home15StoreWidget>
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         16.0, 4.0, 16.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -478,7 +473,7 @@ class _Home15StoreWidgetState extends State<Home15StoreWidget>
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         16.0, 4.0, 16.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -504,14 +499,14 @@ class _Home15StoreWidgetState extends State<Home15StoreWidget>
                               animationsMap['containerOnPageLoadAnimation2']!),
                         ),
                         Padding(
-                          padding: EdgeInsets.all(12.0),
+                          padding: const EdgeInsets.all(12.0),
                           child: Container(
                             width: 180.0,
                             height: 160.0,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
-                              boxShadow: [
+                              boxShadow: const [
                                 BoxShadow(
                                   blurRadius: 4.0,
                                   color: Color(0x3F15212B),
@@ -524,14 +519,14 @@ class _Home15StoreWidgetState extends State<Home15StoreWidget>
                               borderRadius: BorderRadius.circular(12.0),
                             ),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 12.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Expanded(
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           8.0, 8.0, 8.0, 0.0),
                                       child: Container(
                                         width: double.infinity,
@@ -544,7 +539,7 @@ class _Home15StoreWidgetState extends State<Home15StoreWidget>
                                         ),
                                         child: Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 8.0),
                                           child: ClipRRect(
                                             borderRadius:
@@ -561,7 +556,7 @@ class _Home15StoreWidgetState extends State<Home15StoreWidget>
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         16.0, 4.0, 16.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -581,7 +576,7 @@ class _Home15StoreWidgetState extends State<Home15StoreWidget>
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         16.0, 4.0, 16.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -607,14 +602,14 @@ class _Home15StoreWidgetState extends State<Home15StoreWidget>
                               animationsMap['containerOnPageLoadAnimation3']!),
                         ),
                         Padding(
-                          padding: EdgeInsets.all(12.0),
+                          padding: const EdgeInsets.all(12.0),
                           child: Container(
                             width: 180.0,
                             height: 160.0,
                             decoration: BoxDecoration(
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
-                              boxShadow: [
+                              boxShadow: const [
                                 BoxShadow(
                                   blurRadius: 4.0,
                                   color: Color(0x3F15212B),
@@ -627,14 +622,14 @@ class _Home15StoreWidgetState extends State<Home15StoreWidget>
                               borderRadius: BorderRadius.circular(12.0),
                             ),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 12.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Expanded(
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           8.0, 8.0, 8.0, 0.0),
                                       child: Container(
                                         width: double.infinity,
@@ -647,7 +642,7 @@ class _Home15StoreWidgetState extends State<Home15StoreWidget>
                                         ),
                                         child: Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 8.0),
                                           child: ClipRRect(
                                             borderRadius:
@@ -664,7 +659,7 @@ class _Home15StoreWidgetState extends State<Home15StoreWidget>
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         16.0, 4.0, 16.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -684,7 +679,7 @@ class _Home15StoreWidgetState extends State<Home15StoreWidget>
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         16.0, 4.0, 16.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -717,10 +712,10 @@ class _Home15StoreWidgetState extends State<Home15StoreWidget>
               Stack(
                 children: [
                   Align(
-                    alignment: AlignmentDirectional(1.0, 1.0),
+                    alignment: const AlignmentDirectional(1.0, 1.0),
                     child: AlignedTooltip(
                       content: Padding(
-                        padding: EdgeInsets.all(4.0),
+                        padding: const EdgeInsets.all(4.0),
                         child: Text(
                           FFLocalizations.of(context).getText(
                             '5bal2xn4' /* Message... */,
@@ -740,17 +735,17 @@ class _Home15StoreWidgetState extends State<Home15StoreWidget>
                       elevation: 4.0,
                       tailBaseWidth: 24.0,
                       tailLength: 12.0,
-                      waitDuration: Duration(milliseconds: 100),
-                      showDuration: Duration(milliseconds: 1500),
+                      waitDuration: const Duration(milliseconds: 100),
+                      showDuration: const Duration(milliseconds: 1500),
                       triggerMode: TooltipTriggerMode.tap,
                       child: Padding(
-                        padding: EdgeInsets.all(22.0),
+                        padding: const EdgeInsets.all(22.0),
                         child: FlutterFlowIconButton(
                           borderColor: FlutterFlowTheme.of(context).primary,
                           borderRadius: 20.0,
                           borderWidth: 1.0,
                           buttonSize: 60.0,
-                          fillColor: Color(0xFC000220),
+                          fillColor: const Color(0xFC000220),
                           icon: Icon(
                             Icons.add,
                             color:

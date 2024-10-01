@@ -4,8 +4,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'header_home_model.dart';
 export 'header_home_model.dart';
@@ -44,7 +42,7 @@ class _HeaderHomeWidgetState extends State<HeaderHomeWidget> {
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Color(0x00FCFFF9),
+        color: const Color(0x00FCFFF9),
         borderRadius: BorderRadius.circular(15.0),
       ),
       child: Column(
@@ -52,22 +50,22 @@ class _HeaderHomeWidgetState extends State<HeaderHomeWidget> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0.0, 22.0, 12.0, 0.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 22.0, 12.0, 0.0),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Align(
-                  alignment: AlignmentDirectional(-1.0, 0.0),
+                  alignment: const AlignmentDirectional(-1.0, 0.0),
                   child: Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 220.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 220.0, 0.0),
                     child: FlutterFlowIconButton(
                       borderColor: Colors.transparent,
                       borderRadius: 30.0,
                       borderWidth: 1.0,
                       buttonSize: 50.0,
-                      fillColor: Color(0x04000220),
+                      fillColor: const Color(0x04000220),
                       icon: Icon(
                         Icons.menu_rounded,
                         color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -85,7 +83,7 @@ class _HeaderHomeWidgetState extends State<HeaderHomeWidget> {
                             return WebViewAware(
                               child: Padding(
                                 padding: MediaQuery.viewInsetsOf(context),
-                                child: SideNavWidget(),
+                                child: const SideNavWidget(),
                               ),
                             );
                           },
@@ -109,7 +107,7 @@ class _HeaderHomeWidgetState extends State<HeaderHomeWidget> {
                       context.pushNamed(
                         'NewHome',
                         extra: <String, dynamic>{
-                          kTransitionInfoKey: TransitionInfo(
+                          kTransitionInfoKey: const TransitionInfo(
                             hasTransition: true,
                             transitionType: PageTransitionType.fade,
                             duration: Duration(milliseconds: 2),
@@ -136,7 +134,7 @@ class _HeaderHomeWidgetState extends State<HeaderHomeWidget> {
             ),
           ),
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 8.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 8.0),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.start,
@@ -147,13 +145,13 @@ class _HeaderHomeWidgetState extends State<HeaderHomeWidget> {
                   ),
                   style: FlutterFlowTheme.of(context).displaySmall.override(
                         fontFamily: 'Roboto',
-                        color: Color(0xF96450A5),
+                        color: const Color(0xF96450A5),
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 0.0, 0.0),
                   child: AuthUserStreamWidget(
                     builder: (context) => Text(
                       currentUserDisplayName,
@@ -170,7 +168,7 @@ class _HeaderHomeWidgetState extends State<HeaderHomeWidget> {
             ),
           ),
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 24.0, 0.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 24.0, 0.0),
             child: Text(
               FFLocalizations.of(context).getText(
                 '3fak2gg9' /* Start or continue your journey... */,
@@ -184,13 +182,13 @@ class _HeaderHomeWidgetState extends State<HeaderHomeWidget> {
             ),
           ),
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(15.0, 12.0, 15.0, 12.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(15.0, 12.0, 15.0, 12.0),
             child: Container(
               width: double.infinity,
               height: 128.0,
               decoration: BoxDecoration(
-                color: Color(0xFF2082A2),
-                boxShadow: [
+                color: const Color(0xFF2082A2),
+                boxShadow: const [
                   BoxShadow(
                     blurRadius: 4.0,
                     color: Color(0x34090F13),
@@ -203,13 +201,13 @@ class _HeaderHomeWidgetState extends State<HeaderHomeWidget> {
                 borderRadius: BorderRadius.circular(12.0),
               ),
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(12.0, 8.0, 12.0, 8.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(12.0, 8.0, 12.0, 8.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: EdgeInsets.all(5.0),
+                      padding: const EdgeInsets.all(5.0),
                       child: Text(
                         FFLocalizations.of(context).getText(
                           '7gledzeo' /* Daily Affirmation */,
@@ -225,7 +223,7 @@ class _HeaderHomeWidgetState extends State<HeaderHomeWidget> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(8.0),
                       child: Text(
                         FFLocalizations.of(context).getText(
                           'mp9t0cse' /* "You are loved just for being ... */,
@@ -245,9 +243,9 @@ class _HeaderHomeWidgetState extends State<HeaderHomeWidget> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Align(
-                            alignment: AlignmentDirectional(1.0, 0.0),
+                            alignment: const AlignmentDirectional(1.0, 0.0),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   220.0, 4.0, 15.0, 0.0),
                               child: Text(
                                 FFLocalizations.of(context).getText(

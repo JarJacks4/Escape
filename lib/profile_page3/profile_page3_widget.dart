@@ -4,10 +4,7 @@ import '/components/subscribe_now_promo_bottom_sheet_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'profile_page3_model.dart';
 export 'profile_page3_model.dart';
@@ -52,20 +49,20 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 1.0, 0.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 1.0, 0.0, 0.0),
               child: Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).secondary,
                 ),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 8.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 8.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Align(
-                        alignment: AlignmentDirectional(1.0, 0.0),
+                        alignment: const AlignmentDirectional(1.0, 0.0),
                         child: FlutterFlowIconButton(
                           borderColor: FlutterFlowTheme.of(context).primary,
                           borderRadius: 20.0,
@@ -87,7 +84,7 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
                       ),
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -105,7 +102,7 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 4.0, 0.0, 0.0),
                               child: Text(
                                 currentUserEmail,
@@ -133,7 +130,7 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
                           ),
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               2.0, 2.0, 2.0, 2.0),
                           child: AuthUserStreamWidget(
                             builder: (context) => Hero(
@@ -158,7 +155,7 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 0.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 0.0, 0.0),
               child: Text(
                 FFLocalizations.of(context).getText(
                   'v849lmvr' /* Account */,
@@ -170,7 +167,7 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
               child: Container(
                 width: double.infinity,
                 height: 60.0,
@@ -178,9 +175,9 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
                   color: FlutterFlowTheme.of(context).secondary,
                   borderRadius: BorderRadius.circular(12.0),
                 ),
-                alignment: AlignmentDirectional(0.0, 0.0),
+                alignment: const AlignmentDirectional(0.0, 0.0),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -191,7 +188,7 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
                       ),
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
                         child: Text(
                           FFLocalizations.of(context).getText(
                             'clm3bqfe' /* Subscription Options */,
@@ -207,7 +204,7 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
                       ),
                       Expanded(
                         child: Align(
-                          alignment: AlignmentDirectional(0.9, 0.0),
+                          alignment: const AlignmentDirectional(0.9, 0.0),
                           child: InkWell(
                             splashColor: Colors.transparent,
                             focusColor: Colors.transparent,
@@ -230,7 +227,7 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
                                         padding:
                                             MediaQuery.viewInsetsOf(context),
                                         child:
-                                            SubscribeNowPromoBottomSheetWidget(),
+                                            const SubscribeNowPromoBottomSheetWidget(),
                                       ),
                                     ),
                                   );
@@ -252,7 +249,7 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
               child: InkWell(
                 splashColor: Colors.transparent,
                 focusColor: Colors.transparent,
@@ -265,7 +262,7 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
                   context.pushNamed(
                     'ProfilePage3',
                     extra: <String, dynamic>{
-                      kTransitionInfoKey: TransitionInfo(
+                      kTransitionInfoKey: const TransitionInfo(
                         hasTransition: true,
                         transitionType: PageTransitionType.fade,
                         duration: Duration(milliseconds: 3),
@@ -280,9 +277,9 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
                     color: FlutterFlowTheme.of(context).secondary,
                     borderRadius: BorderRadius.circular(12.0),
                   ),
-                  alignment: AlignmentDirectional(0.0, 0.0),
+                  alignment: const AlignmentDirectional(0.0, 0.0),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -293,7 +290,7 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
                           size: 24.0,
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               12.0, 0.0, 0.0, 0.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
@@ -311,7 +308,7 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
                         ),
                         Expanded(
                           child: Align(
-                            alignment: AlignmentDirectional(0.9, 0.0),
+                            alignment: const AlignmentDirectional(0.9, 0.0),
                             child: InkWell(
                               splashColor: Colors.transparent,
                               focusColor: Colors.transparent,
@@ -325,7 +322,7 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
                                 context.pushNamed(
                                   'ProfilePage',
                                   extra: <String, dynamic>{
-                                    kTransitionInfoKey: TransitionInfo(
+                                    kTransitionInfoKey: const TransitionInfo(
                                       hasTransition: true,
                                       transitionType: PageTransitionType.fade,
                                       duration: Duration(milliseconds: 3),
@@ -349,7 +346,7 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
               child: InkWell(
                 splashColor: Colors.transparent,
                 focusColor: Colors.transparent,
@@ -368,7 +365,7 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
                           onTap: () => FocusScope.of(context).unfocus(),
                           child: Padding(
                             padding: MediaQuery.viewInsetsOf(context),
-                            child: EditProfileWidget(),
+                            child: const EditProfileWidget(),
                           ),
                         ),
                       );
@@ -382,9 +379,9 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
                     color: FlutterFlowTheme.of(context).secondary,
                     borderRadius: BorderRadius.circular(12.0),
                   ),
-                  alignment: AlignmentDirectional(0.0, 0.0),
+                  alignment: const AlignmentDirectional(0.0, 0.0),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -395,7 +392,7 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
                           size: 24.0,
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               12.0, 0.0, 0.0, 0.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
@@ -413,7 +410,7 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
                         ),
                         Expanded(
                           child: Align(
-                            alignment: AlignmentDirectional(0.9, 0.0),
+                            alignment: const AlignmentDirectional(0.9, 0.0),
                             child: InkWell(
                               splashColor: Colors.transparent,
                               focusColor: Colors.transparent,
@@ -435,7 +432,7 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
                                         child: Padding(
                                           padding:
                                               MediaQuery.viewInsetsOf(context),
-                                          child: EditProfileWidget(),
+                                          child: const EditProfileWidget(),
                                         ),
                                       ),
                                     );
@@ -458,7 +455,7 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
               child: InkWell(
                 splashColor: Colors.transparent,
                 focusColor: Colors.transparent,
@@ -480,9 +477,9 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
                     color: FlutterFlowTheme.of(context).secondary,
                     borderRadius: BorderRadius.circular(12.0),
                   ),
-                  alignment: AlignmentDirectional(0.0, 0.0),
+                  alignment: const AlignmentDirectional(0.0, 0.0),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -493,7 +490,7 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
                           size: 24.0,
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               12.0, 0.0, 0.0, 0.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
@@ -511,7 +508,7 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
                         ),
                         Expanded(
                           child: Align(
-                            alignment: AlignmentDirectional(0.9, 0.0),
+                            alignment: const AlignmentDirectional(0.9, 0.0),
                             child: InkWell(
                               splashColor: Colors.transparent,
                               focusColor: Colors.transparent,
@@ -544,7 +541,7 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 0.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 0.0, 0.0),
               child: Text(
                 FFLocalizations.of(context).getText(
                   'jpf7p2oj' /* General */,
@@ -556,7 +553,7 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
               child: InkWell(
                 splashColor: Colors.transparent,
                 focusColor: Colors.transparent,
@@ -574,9 +571,9 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
                     color: FlutterFlowTheme.of(context).primary,
                     borderRadius: BorderRadius.circular(12.0),
                   ),
-                  alignment: AlignmentDirectional(0.0, 0.0),
+                  alignment: const AlignmentDirectional(0.0, 0.0),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -587,7 +584,7 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
                           size: 24.0,
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               12.0, 0.0, 0.0, 0.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
@@ -605,7 +602,7 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
                         ),
                         Expanded(
                           child: Align(
-                            alignment: AlignmentDirectional(0.9, 0.0),
+                            alignment: const AlignmentDirectional(0.9, 0.0),
                             child: InkWell(
                               splashColor: Colors.transparent,
                               focusColor: Colors.transparent,
@@ -633,7 +630,7 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
               child: InkWell(
                 splashColor: Colors.transparent,
                 focusColor: Colors.transparent,
@@ -651,9 +648,9 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
                     color: FlutterFlowTheme.of(context).primary,
                     borderRadius: BorderRadius.circular(12.0),
                   ),
-                  alignment: AlignmentDirectional(0.0, 0.0),
+                  alignment: const AlignmentDirectional(0.0, 0.0),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -664,7 +661,7 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
                           size: 24.0,
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               12.0, 0.0, 0.0, 0.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
@@ -682,7 +679,7 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
                         ),
                         Expanded(
                           child: Align(
-                            alignment: AlignmentDirectional(0.9, 0.0),
+                            alignment: const AlignmentDirectional(0.9, 0.0),
                             child: InkWell(
                               splashColor: Colors.transparent,
                               focusColor: Colors.transparent,
@@ -711,7 +708,7 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
               child: InkWell(
                 splashColor: Colors.transparent,
                 focusColor: Colors.transparent,
@@ -731,9 +728,9 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
                     color: FlutterFlowTheme.of(context).error,
                     borderRadius: BorderRadius.circular(12.0),
                   ),
-                  alignment: AlignmentDirectional(0.0, 0.0),
+                  alignment: const AlignmentDirectional(0.0, 0.0),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -744,7 +741,7 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
                           size: 24.0,
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               12.0, 0.0, 0.0, 0.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
@@ -762,7 +759,7 @@ class _ProfilePage3WidgetState extends State<ProfilePage3Widget> {
                         ),
                         Expanded(
                           child: Align(
-                            alignment: AlignmentDirectional(0.9, 0.0),
+                            alignment: const AlignmentDirectional(0.9, 0.0),
                             child: InkWell(
                               splashColor: Colors.transparent,
                               focusColor: Colors.transparent,

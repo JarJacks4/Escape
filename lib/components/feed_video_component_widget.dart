@@ -3,13 +3,9 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'feed_video_component_model.dart';
 export 'feed_video_component_model.dart';
 
@@ -53,8 +49,8 @@ class _FeedVideoComponentWidgetState extends State<FeedVideoComponentWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 300.0.ms,
-            begin: Offset(0.5, 0.0),
-            end: Offset(0.0, 1.0),
+            begin: const Offset(0.5, 0.0),
+            end: const Offset(0.0, 1.0),
           ),
         ],
       ),
@@ -72,8 +68,8 @@ class _FeedVideoComponentWidgetState extends State<FeedVideoComponentWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(0.0, 80.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(0.0, 80.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -91,8 +87,8 @@ class _FeedVideoComponentWidgetState extends State<FeedVideoComponentWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(0.0, 100.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(0.0, 100.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -116,12 +112,12 @@ class _FeedVideoComponentWidgetState extends State<FeedVideoComponentWidget>
   Widget build(BuildContext context) {
     return Container(
       height: 766.0,
-      decoration: BoxDecoration(),
-      child: Container(
+      decoration: const BoxDecoration(),
+      child: SizedBox(
         width: double.infinity,
         height: 839.0,
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 40.0),
+          padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 40.0),
           child: PageView(
             controller: _model.pageViewController ??=
                 PageController(initialPage: 0),
@@ -134,7 +130,7 @@ class _FeedVideoComponentWidgetState extends State<FeedVideoComponentWidget>
                 children: [
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 44.0, 16.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(16.0, 44.0, 16.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -144,7 +140,7 @@ class _FeedVideoComponentWidgetState extends State<FeedVideoComponentWidget>
                           borderRadius: 30.0,
                           borderWidth: 1.0,
                           buttonSize: 40.0,
-                          fillColor: Color(0x33090F13),
+                          fillColor: const Color(0x33090F13),
                           icon: FaIcon(
                             FontAwesomeIcons.bars,
                             color: FlutterFlowTheme.of(context).primaryText,
@@ -164,7 +160,7 @@ class _FeedVideoComponentWidgetState extends State<FeedVideoComponentWidget>
                   Container(
                     width: double.infinity,
                     height: 500.0,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       gradient: LinearGradient(
                         colors: [Color(0x00090F13), Color(0xAE8C4475)],
                         stops: [0.0, 0.8],
@@ -173,14 +169,14 @@ class _FeedVideoComponentWidgetState extends State<FeedVideoComponentWidget>
                       ),
                     ),
                     child: Padding(
-                      padding: EdgeInsets.all(16.0),
+                      padding: const EdgeInsets.all(16.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.end,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 12.0, 0.0, 12.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -207,19 +203,19 @@ class _FeedVideoComponentWidgetState extends State<FeedVideoComponentWidget>
                                               FlutterFlowTheme.of(context)
                                                   .secondary
                                             ],
-                                            stops: [0.0, 1.0],
+                                            stops: const [0.0, 1.0],
                                             begin:
-                                                AlignmentDirectional(0.0, -1.0),
-                                            end: AlignmentDirectional(0, 1.0),
+                                                const AlignmentDirectional(0.0, -1.0),
+                                            end: const AlignmentDirectional(0, 1.0),
                                           ),
                                           borderRadius:
                                               BorderRadius.circular(12.0),
                                         ),
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   8.0, 0.0, 8.0, 0.0),
                                           child: AuthUserStreamWidget(
                                             builder: (context) => Text(
@@ -247,7 +243,7 @@ class _FeedVideoComponentWidgetState extends State<FeedVideoComponentWidget>
                                 animationsMap['rowOnPageLoadAnimation']!),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 4.0),
                             child: AuthUserStreamWidget(
                               builder: (context) => Text(

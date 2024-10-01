@@ -3,13 +3,9 @@ import '/components/video_player_comp_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'grounding_meditations_comp_model.dart';
 export 'grounding_meditations_comp_model.dart';
@@ -56,8 +52,8 @@ class _GroundingMeditationsCompWidgetState
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -76,8 +72,8 @@ class _GroundingMeditationsCompWidgetState
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -96,8 +92,8 @@ class _GroundingMeditationsCompWidgetState
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -116,8 +112,8 @@ class _GroundingMeditationsCompWidgetState
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -136,8 +132,8 @@ class _GroundingMeditationsCompWidgetState
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -156,8 +152,8 @@ class _GroundingMeditationsCompWidgetState
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -176,8 +172,8 @@ class _GroundingMeditationsCompWidgetState
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -196,8 +192,8 @@ class _GroundingMeditationsCompWidgetState
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(0.0, -18.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(0.0, -18.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -222,19 +218,19 @@ class _GroundingMeditationsCompWidgetState
     return Container(
       width: double.infinity,
       height: double.infinity,
-      decoration: BoxDecoration(),
+      decoration: const BoxDecoration(),
       child: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -257,7 +253,7 @@ class _GroundingMeditationsCompWidgetState
                   Container(
                     width: double.infinity,
                     height: 100.0,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: Colors.transparent,
                     ),
                     child: Row(
@@ -302,19 +298,19 @@ class _GroundingMeditationsCompWidgetState
                                           soundsthumbnails[
                                               soundsthumbnailsIndex];
                                       return Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             10.0, 0.0, 0.0, 0.0),
                                         child: Container(
                                           width: 70.0,
                                           height: 50.0,
-                                          decoration: BoxDecoration(
+                                          decoration: const BoxDecoration(
                                             color: Colors.transparent,
                                           ),
                                           child: Container(
                                             width: 80.0,
                                             height: 80.0,
                                             clipBehavior: Clip.antiAlias,
-                                            decoration: BoxDecoration(
+                                            decoration: const BoxDecoration(
                                               shape: BoxShape.circle,
                                             ),
                                             child: Image.asset(
@@ -339,7 +335,7 @@ class _GroundingMeditationsCompWidgetState
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(10.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -365,7 +361,7 @@ class _GroundingMeditationsCompWidgetState
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(10.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -373,7 +369,7 @@ class _GroundingMeditationsCompWidgetState
                     child: Container(
                       width: 100.0,
                       height: 80.0,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Colors.transparent,
                       ),
                       child: Row(
@@ -385,7 +381,7 @@ class _GroundingMeditationsCompWidgetState
                               scrollDirection: Axis.horizontal,
                               children: [
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 10.0, 0.0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
@@ -400,7 +396,7 @@ class _GroundingMeditationsCompWidgetState
                                       context.pushNamed(
                                         'SoundsDetailsBinauralBeats',
                                         extra: <String, dynamic>{
-                                          kTransitionInfoKey: TransitionInfo(
+                                          kTransitionInfoKey: const TransitionInfo(
                                             hasTransition: true,
                                             transitionType:
                                                 PageTransitionType.fade,
@@ -413,7 +409,7 @@ class _GroundingMeditationsCompWidgetState
                                       width: 150.0,
                                       height: 25.0,
                                       decoration: BoxDecoration(
-                                        gradient: LinearGradient(
+                                        gradient: const LinearGradient(
                                           colors: [
                                             Color(0xFFEF39D4),
                                             Color(0xFFD2394E),
@@ -450,7 +446,7 @@ class _GroundingMeditationsCompWidgetState
                                       'containerOnPageLoadAnimation2']!),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 10.0, 0.0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
@@ -465,7 +461,7 @@ class _GroundingMeditationsCompWidgetState
                                       context.pushNamed(
                                         'SoundsDetailsAmbientMusic',
                                         extra: <String, dynamic>{
-                                          kTransitionInfoKey: TransitionInfo(
+                                          kTransitionInfoKey: const TransitionInfo(
                                             hasTransition: true,
                                             transitionType:
                                                 PageTransitionType.fade,
@@ -480,15 +476,15 @@ class _GroundingMeditationsCompWidgetState
                                       decoration: BoxDecoration(
                                         gradient: LinearGradient(
                                           colors: [
-                                            Color(0xFFEF39D4),
+                                            const Color(0xFFEF39D4),
                                             FlutterFlowTheme.of(context)
                                                 .primary,
-                                            Color(0xFF48C8FF)
+                                            const Color(0xFF48C8FF)
                                           ],
-                                          stops: [0.0, 1.0, 1.0],
+                                          stops: const [0.0, 1.0, 1.0],
                                           begin:
-                                              AlignmentDirectional(1.0, -0.77),
-                                          end: AlignmentDirectional(-1.0, 0.77),
+                                              const AlignmentDirectional(1.0, -0.77),
+                                          end: const AlignmentDirectional(-1.0, 0.77),
                                         ),
                                         borderRadius:
                                             BorderRadius.circular(10.0),
@@ -507,7 +503,7 @@ class _GroundingMeditationsCompWidgetState
                                             'SoundsDetailsAmbientMusic',
                                             extra: <String, dynamic>{
                                               kTransitionInfoKey:
-                                                  TransitionInfo(
+                                                  const TransitionInfo(
                                                 hasTransition: true,
                                                 transitionType:
                                                     PageTransitionType.fade,
@@ -543,7 +539,7 @@ class _GroundingMeditationsCompWidgetState
                                       'containerOnPageLoadAnimation3']!),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 10.0, 0.0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
@@ -558,7 +554,7 @@ class _GroundingMeditationsCompWidgetState
                                       context.pushNamed(
                                         'SoundsDetailsNatureSounds',
                                         extra: <String, dynamic>{
-                                          kTransitionInfoKey: TransitionInfo(
+                                          kTransitionInfoKey: const TransitionInfo(
                                             hasTransition: true,
                                             transitionType:
                                                 PageTransitionType.fade,
@@ -571,7 +567,7 @@ class _GroundingMeditationsCompWidgetState
                                       width: 150.0,
                                       height: 25.0,
                                       decoration: BoxDecoration(
-                                        gradient: LinearGradient(
+                                        gradient: const LinearGradient(
                                           colors: [
                                             Color(0xFFEF39D4),
                                             Color(0xFFD2CB39),
@@ -599,7 +595,7 @@ class _GroundingMeditationsCompWidgetState
                                             'SoundsDetailsNatureSounds',
                                             extra: <String, dynamic>{
                                               kTransitionInfoKey:
-                                                  TransitionInfo(
+                                                  const TransitionInfo(
                                                 hasTransition: true,
                                                 transitionType:
                                                     PageTransitionType.fade,
@@ -635,13 +631,13 @@ class _GroundingMeditationsCompWidgetState
                                       'containerOnPageLoadAnimation4']!),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 10.0, 0.0),
                                   child: Container(
                                     width: 150.0,
                                     height: 25.0,
                                     decoration: BoxDecoration(
-                                      gradient: LinearGradient(
+                                      gradient: const LinearGradient(
                                         colors: [
                                           Color(0xFFD2CB39),
                                           Color(0xFFEB0D70)
@@ -674,7 +670,7 @@ class _GroundingMeditationsCompWidgetState
                                       'containerOnPageLoadAnimation5']!),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 10.0, 0.0),
                                   child: Container(
                                     width: 150.0,
@@ -685,11 +681,11 @@ class _GroundingMeditationsCompWidgetState
                                           FlutterFlowTheme.of(context)
                                               .secondary,
                                           FlutterFlowTheme.of(context).primary,
-                                          Color(0xFFEB0D70)
+                                          const Color(0xFFEB0D70)
                                         ],
-                                        stops: [0.0, 1.0, 1.0],
-                                        begin: AlignmentDirectional(1.0, -0.77),
-                                        end: AlignmentDirectional(-1.0, 0.77),
+                                        stops: const [0.0, 1.0, 1.0],
+                                        begin: const AlignmentDirectional(1.0, -0.77),
+                                        end: const AlignmentDirectional(-1.0, 0.77),
                                       ),
                                       borderRadius: BorderRadius.circular(10.0),
                                     ),
@@ -725,7 +721,7 @@ class _GroundingMeditationsCompWidgetState
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(10.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -751,7 +747,7 @@ class _GroundingMeditationsCompWidgetState
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(10.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -759,7 +755,7 @@ class _GroundingMeditationsCompWidgetState
                     child: Container(
                       width: double.infinity,
                       height: 142.0,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Colors.transparent,
                       ),
                       child: Row(
@@ -804,13 +800,13 @@ class _GroundingMeditationsCompWidgetState
                                             recentItems[recentItemsIndex];
                                         return Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 10.0, 0.0),
                                           child: Container(
                                             width: 100.0,
                                             height: 137.0,
                                             decoration: BoxDecoration(
-                                              color: Color(0x50090F13),
+                                              color: const Color(0x50090F13),
                                               borderRadius:
                                                   BorderRadius.circular(9.0),
                                             ),
@@ -836,7 +832,7 @@ class _GroundingMeditationsCompWidgetState
                                                         padding: MediaQuery
                                                             .viewInsetsOf(
                                                                 context),
-                                                        child: Container(
+                                                        child: SizedBox(
                                                           height:
                                                               double.infinity,
                                                           child:
@@ -861,7 +857,7 @@ class _GroundingMeditationsCompWidgetState
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 1.0, 0.0),
                                                     child: Hero(
@@ -889,7 +885,7 @@ class _GroundingMeditationsCompWidgetState
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(3.0, 0.0,
                                                                 0.0, 0.0),
                                                     child: Text(
@@ -939,7 +935,7 @@ class _GroundingMeditationsCompWidgetState
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(15.0),
+              padding: const EdgeInsets.all(15.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -950,7 +946,7 @@ class _GroundingMeditationsCompWidgetState
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Roboto',
-                          color: Color(0xFF5B4090),
+                          color: const Color(0xFF5B4090),
                           fontSize: 26.0,
                           letterSpacing: 0.0,
                         ),
@@ -964,7 +960,7 @@ class _GroundingMeditationsCompWidgetState
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -972,7 +968,7 @@ class _GroundingMeditationsCompWidgetState
                     child: Container(
                       width: double.infinity,
                       height: 480.0,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Colors.transparent,
                       ),
                       child: Column(
@@ -1010,7 +1006,7 @@ class _GroundingMeditationsCompWidgetState
 
                                     return MasonryGridView.builder(
                                       gridDelegate:
-                                          SliverSimpleGridDelegateWithFixedCrossAxisCount(
+                                          const SliverSimpleGridDelegateWithFixedCrossAxisCount(
                                         crossAxisCount: 2,
                                       ),
                                       crossAxisSpacing: 10.0,

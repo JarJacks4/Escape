@@ -5,8 +5,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'tabbar_home_model.dart';
 export 'tabbar_home_model.dart';
 
@@ -54,11 +52,11 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
         desktop: false,
       ),
       child: Align(
-        alignment: AlignmentDirectional(-1.0, 0.0),
+        alignment: const AlignmentDirectional(-1.0, 0.0),
         child: Column(
           children: [
             Align(
-              alignment: Alignment(-1.0, 0),
+              alignment: const Alignment(-1.0, 0),
               child: FlutterFlowButtonTabBar(
                 useToggleButtonStyle: false,
                 isScrollable: true,
@@ -77,24 +75,24 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                         ),
                 labelColor: Colors.white,
                 unselectedLabelColor: FlutterFlowTheme.of(context).primary,
-                backgroundColor: Color(0xFF2082A2),
-                unselectedBackgroundColor: Color(0xFFA0A3B1),
-                borderColor: Color(0x00FFFFFF),
-                unselectedBorderColor: Color(0x00FFFFFF),
+                backgroundColor: const Color(0xFF2082A2),
+                unselectedBackgroundColor: const Color(0xFFA0A3B1),
+                borderColor: const Color(0x00FFFFFF),
+                unselectedBorderColor: const Color(0x00FFFFFF),
                 borderWidth: 0.0,
                 borderRadius: 10.0,
                 elevation: 5.0,
                 labelPadding:
-                    EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                    const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
                 buttonMargin:
-                    EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                    const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
                 tabs: [
                   Tab(
                     text: FFLocalizations.of(context).getText(
                       'iumvt9n4' /* All */,
                     ),
-                    icon: FaIcon(
+                    icon: const FaIcon(
                       FontAwesomeIcons.alignLeft,
                     ),
                   ),
@@ -102,7 +100,7 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                     text: FFLocalizations.of(context).getText(
                       '3ufmn5om' /* Anxiety */,
                     ),
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.electric_bolt_sharp,
                     ),
                   ),
@@ -110,7 +108,7 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                     text: FFLocalizations.of(context).getText(
                       'czlfvmzx' /* Kids */,
                     ),
-                    icon: FaIcon(
+                    icon: const FaIcon(
                       FontAwesomeIcons.babyCarriage,
                     ),
                   ),
@@ -118,7 +116,7 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                     text: FFLocalizations.of(context).getText(
                       'hdfy77sq' /* Sleep */,
                     ),
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.bed,
                     ),
                   ),
@@ -126,7 +124,7 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                     text: FFLocalizations.of(context).getText(
                       'pk32goul' /* Metaphysical */,
                     ),
-                    icon: FaIcon(
+                    icon: const FaIcon(
                       FontAwesomeIcons.atom,
                     ),
                   ),
@@ -134,7 +132,7 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                     text: FFLocalizations.of(context).getText(
                       'znokofks' /* Embrace Love */,
                     ),
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.favorite,
                     ),
                   ),
@@ -142,7 +140,7 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                     text: FFLocalizations.of(context).getText(
                       'b85t02ok' /* Vocalization */,
                     ),
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.record_voice_over_outlined,
                     ),
                   ),
@@ -150,7 +148,7 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                     text: FFLocalizations.of(context).getText(
                       'dmjho5zy' /* Grounding */,
                     ),
-                    icon: FaIcon(
+                    icon: const FaIcon(
                       FontAwesomeIcons.medrt,
                     ),
                   ),
@@ -158,7 +156,7 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                     text: FFLocalizations.of(context).getText(
                       's4jxxxu4' /* Faith */,
                     ),
-                    icon: FaIcon(
+                    icon: const FaIcon(
                       FontAwesomeIcons.prayingHands,
                     ),
                   ),
@@ -166,7 +164,7 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                     text: FFLocalizations.of(context).getText(
                       '2mzigygs' /* Perception */,
                     ),
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.remove_red_eye,
                     ),
                   ),
@@ -174,7 +172,7 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                     text: FFLocalizations.of(context).getText(
                       'bcl976bn' /* Growth */,
                     ),
-                    icon: FaIcon(
+                    icon: const FaIcon(
                       FontAwesomeIcons.arrowUp,
                     ),
                   ),
@@ -182,7 +180,7 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                     text: FFLocalizations.of(context).getText(
                       'rmwopa2y' /* Mindset */,
                     ),
-                    icon: FaIcon(
+                    icon: const FaIcon(
                       FontAwesomeIcons.brain,
                     ),
                   ),
@@ -190,7 +188,7 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                     text: FFLocalizations.of(context).getText(
                       's3qhfy7v' /* Spirituality */,
                     ),
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.rowing,
                     ),
                   ),
@@ -198,7 +196,7 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                     text: FFLocalizations.of(context).getText(
                       'iur5kuh7' /* Numerology */,
                     ),
-                    icon: FaIcon(
+                    icon: const FaIcon(
                       FontAwesomeIcons.sortNumericUp,
                     ),
                   ),
@@ -206,7 +204,7 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                     text: FFLocalizations.of(context).getText(
                       'q61nd4wd' /* Uplift */,
                     ),
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.hail,
                     ),
                   ),
@@ -239,10 +237,10 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                 children: [
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 22.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 22.0, 0.0, 0.0),
                     child: MasonryGridView.builder(
                       gridDelegate:
-                          SliverSimpleGridDelegateWithFixedCrossAxisCount(
+                          const SliverSimpleGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
                       ),
                       crossAxisSpacing: 9.0,
@@ -272,7 +270,7 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                                     borderRadius: BorderRadius.circular(15.0),
                                   ),
                                   child: Align(
-                                    alignment: AlignmentDirectional(0.0, 1.0),
+                                    alignment: const AlignmentDirectional(0.0, 1.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -280,15 +278,15 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                                           width: 194.0,
                                           height: 69.0,
                                           decoration: BoxDecoration(
-                                            color: Color(0xC9040404),
+                                            color: const Color(0xC9040404),
                                             borderRadius:
                                                 BorderRadius.circular(15.0),
                                           ),
                                           child: Align(
                                             alignment:
-                                                AlignmentDirectional(0.0, 0.0),
+                                                const AlignmentDirectional(0.0, 0.0),
                                             child: Padding(
-                                              padding: EdgeInsets.all(11.0),
+                                              padding: const EdgeInsets.all(11.0),
                                               child: Text(
                                                 FFLocalizations.of(context)
                                                     .getText(
@@ -336,7 +334,7 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                                     borderRadius: BorderRadius.circular(11.0),
                                   ),
                                   child: Align(
-                                    alignment: AlignmentDirectional(0.0, 1.0),
+                                    alignment: const AlignmentDirectional(0.0, 1.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -344,15 +342,15 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                                           width: 200.0,
                                           height: 69.0,
                                           decoration: BoxDecoration(
-                                            color: Color(0xC9040404),
+                                            color: const Color(0xC9040404),
                                             borderRadius:
                                                 BorderRadius.circular(15.0),
                                           ),
                                           child: Align(
                                             alignment:
-                                                AlignmentDirectional(0.0, 0.0),
+                                                const AlignmentDirectional(0.0, 0.0),
                                             child: Padding(
-                                              padding: EdgeInsets.all(11.0),
+                                              padding: const EdgeInsets.all(11.0),
                                               child: Text(
                                                 FFLocalizations.of(context)
                                                     .getText(
@@ -400,7 +398,7 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                                     borderRadius: BorderRadius.circular(15.0),
                                   ),
                                   child: Align(
-                                    alignment: AlignmentDirectional(0.0, 1.0),
+                                    alignment: const AlignmentDirectional(0.0, 1.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -408,15 +406,15 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                                           width: 196.0,
                                           height: 69.0,
                                           decoration: BoxDecoration(
-                                            color: Color(0xC9040404),
+                                            color: const Color(0xC9040404),
                                             borderRadius:
                                                 BorderRadius.circular(15.0),
                                           ),
                                           child: Align(
                                             alignment:
-                                                AlignmentDirectional(0.0, 0.0),
+                                                const AlignmentDirectional(0.0, 0.0),
                                             child: Padding(
-                                              padding: EdgeInsets.all(11.0),
+                                              padding: const EdgeInsets.all(11.0),
                                               child: Text(
                                                 FFLocalizations.of(context)
                                                     .getText(
@@ -464,7 +462,7 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                                     borderRadius: BorderRadius.circular(15.0),
                                   ),
                                   child: Align(
-                                    alignment: AlignmentDirectional(0.0, 1.0),
+                                    alignment: const AlignmentDirectional(0.0, 1.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -472,15 +470,15 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                                           width: 196.0,
                                           height: 69.0,
                                           decoration: BoxDecoration(
-                                            color: Color(0xC9040404),
+                                            color: const Color(0xC9040404),
                                             borderRadius:
                                                 BorderRadius.circular(15.0),
                                           ),
                                           child: Align(
                                             alignment:
-                                                AlignmentDirectional(0.0, 0.0),
+                                                const AlignmentDirectional(0.0, 0.0),
                                             child: Padding(
-                                              padding: EdgeInsets.all(11.0),
+                                              padding: const EdgeInsets.all(11.0),
                                               child: Text(
                                                 FFLocalizations.of(context)
                                                     .getText(
@@ -514,7 +512,7 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                   wrapWithModel(
                     model: _model.meditationSoundsListModel,
                     updateCallback: () => safeSetState(() {}),
-                    child: MeditationSoundsListWidget(),
+                    child: const MeditationSoundsListWidget(),
                   ),
                   Container(),
                   Container(),

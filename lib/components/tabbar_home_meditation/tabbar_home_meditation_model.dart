@@ -1,23 +1,10 @@
 import '/backend/api_requests/api_calls.dart';
 import '/components/anxiety_meditations_comp/anxiety_meditations_comp_widget.dart';
-import '/components/meditation_help_comp_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
-import '/flutter_flow/flutter_flow_button_tabbar.dart';
-import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'dart:math';
 import 'dart:async';
 import 'tabbar_home_meditation_widget.dart' show TabbarHomeMeditationWidget;
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
-import 'package:provider/provider.dart';
-import 'package:webviewx_plus/webviewx_plus.dart';
 
 class TabbarHomeMeditationModel
     extends FlutterFlowModel<TabbarHomeMeditationWidget> {
@@ -133,7 +120,7 @@ class TabbarHomeMeditationModel
         final newNumItems = nextPageMarker.numItems + pageItems.length;
         listViewPagingController1?.appendPage(
           pageItems,
-          (pageItems.length > 0)
+          (pageItems.isNotEmpty)
               ? ApiPagingParams(
                   nextPageNumber: nextPageMarker.nextPageNumber + 1,
                   numItems: newNumItems,
@@ -180,7 +167,7 @@ class TabbarHomeMeditationModel
         final newNumItems = nextPageMarker.numItems + pageItems.length;
         listViewPagingController3?.appendPage(
           pageItems,
-          (pageItems.length > 0)
+          (pageItems.isNotEmpty)
               ? ApiPagingParams(
                   nextPageNumber: nextPageMarker.nextPageNumber + 1,
                   numItems: newNumItems,
@@ -227,7 +214,7 @@ class TabbarHomeMeditationModel
         final newNumItems = nextPageMarker.numItems + pageItems.length;
         listViewPagingController4?.appendPage(
           pageItems,
-          (pageItems.length > 0)
+          (pageItems.isNotEmpty)
               ? ApiPagingParams(
                   nextPageNumber: nextPageMarker.nextPageNumber + 1,
                   numItems: newNumItems,
@@ -244,7 +231,7 @@ class TabbarHomeMeditationModel
   }) async {
     final stopwatch = Stopwatch()..start();
     while (true) {
-      await Future.delayed(Duration(milliseconds: 50));
+      await Future.delayed(const Duration(milliseconds: 50));
       final timeElapsed = stopwatch.elapsedMilliseconds;
       final requestComplete =
           (listViewPagingController4?.nextPageKey?.nextPageNumber ?? 0) > 0;
@@ -290,7 +277,7 @@ class TabbarHomeMeditationModel
         final newNumItems = nextPageMarker.numItems + pageItems.length;
         listViewPagingController5?.appendPage(
           pageItems,
-          (pageItems.length > 0)
+          (pageItems.isNotEmpty)
               ? ApiPagingParams(
                   nextPageNumber: nextPageMarker.nextPageNumber + 1,
                   numItems: newNumItems,
@@ -337,7 +324,7 @@ class TabbarHomeMeditationModel
         final newNumItems = nextPageMarker.numItems + pageItems.length;
         listViewPagingController7?.appendPage(
           pageItems,
-          (pageItems.length > 0)
+          (pageItems.isNotEmpty)
               ? ApiPagingParams(
                   nextPageNumber: nextPageMarker.nextPageNumber + 1,
                   numItems: newNumItems,
@@ -382,7 +369,7 @@ class TabbarHomeMeditationModel
         final newNumItems = nextPageMarker.numItems + pageItems.length;
         listViewPagingController8?.appendPage(
           pageItems,
-          (pageItems.length > 0)
+          (pageItems.isNotEmpty)
               ? ApiPagingParams(
                   nextPageNumber: nextPageMarker.nextPageNumber + 1,
                   numItems: newNumItems,
@@ -398,7 +385,7 @@ class TabbarHomeMeditationModel
   }) async {
     final stopwatch = Stopwatch()..start();
     while (true) {
-      await Future.delayed(Duration(milliseconds: 50));
+      await Future.delayed(const Duration(milliseconds: 50));
       final timeElapsed = stopwatch.elapsedMilliseconds;
       final requestComplete =
           (listViewPagingController8?.nextPageKey?.nextPageNumber ?? 0) > 0;
@@ -442,7 +429,7 @@ class TabbarHomeMeditationModel
         final newNumItems = nextPageMarker.numItems + pageItems.length;
         listViewPagingController9?.appendPage(
           pageItems,
-          (pageItems.length > 0)
+          (pageItems.isNotEmpty)
               ? ApiPagingParams(
                   nextPageNumber: nextPageMarker.nextPageNumber + 1,
                   numItems: newNumItems,
@@ -486,7 +473,7 @@ class TabbarHomeMeditationModel
         final newNumItems = nextPageMarker.numItems + pageItems.length;
         listViewPagingController11?.appendPage(
           pageItems,
-          (pageItems.length > 0)
+          (pageItems.isNotEmpty)
               ? ApiPagingParams(
                   nextPageNumber: nextPageMarker.nextPageNumber + 1,
                   numItems: newNumItems,
@@ -530,7 +517,7 @@ class TabbarHomeMeditationModel
         final newNumItems = nextPageMarker.numItems + pageItems.length;
         listViewPagingController12?.appendPage(
           pageItems,
-          (pageItems.length > 0)
+          (pageItems.isNotEmpty)
               ? ApiPagingParams(
                   nextPageNumber: nextPageMarker.nextPageNumber + 1,
                   numItems: newNumItems,
@@ -546,7 +533,7 @@ class TabbarHomeMeditationModel
   }) async {
     final stopwatch = Stopwatch()..start();
     while (true) {
-      await Future.delayed(Duration(milliseconds: 50));
+      await Future.delayed(const Duration(milliseconds: 50));
       final timeElapsed = stopwatch.elapsedMilliseconds;
       final requestComplete =
           (listViewPagingController12?.nextPageKey?.nextPageNumber ?? 0) > 0;

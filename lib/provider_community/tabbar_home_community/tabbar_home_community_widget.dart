@@ -9,16 +9,12 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_video_player.dart';
-import 'dart:math';
 import 'dart:async';
 import 'package:aligned_tooltip/aligned_tooltip.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
-import 'package:provider/provider.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'tabbar_home_community_model.dart';
@@ -70,8 +66,8 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -90,8 +86,8 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -110,8 +106,8 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -130,8 +126,8 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -150,8 +146,8 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -170,8 +166,8 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -190,8 +186,8 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -219,17 +215,17 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
         desktop: false,
       ),
       child: Align(
-        alignment: AlignmentDirectional(0.0, 0.0),
+        alignment: const AlignmentDirectional(0.0, 0.0),
         child: Column(
           children: [
             Align(
-              alignment: Alignment(0.0, 0),
+              alignment: const Alignment(0.0, 0),
               child: TabBar(
                 isScrollable: true,
                 labelColor: FlutterFlowTheme.of(context).secondaryBackground,
-                unselectedLabelColor: Color(0xA3A1A0A3),
+                unselectedLabelColor: const Color(0xA3A1A0A3),
                 labelPadding:
-                    EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                    const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
                 labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
                       fontFamily: 'Roboto',
                       fontSize: 18.0,
@@ -244,7 +240,7 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                           fontWeight: FontWeight.w500,
                         ),
                 indicatorColor: FlutterFlowTheme.of(context).secondary,
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
                 tabs: [
                   Tab(
                     text: FFLocalizations.of(context).getText(
@@ -299,12 +295,12 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsets.all(15.0),
+                          padding: const EdgeInsets.all(15.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 8.0, 0.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
@@ -326,11 +322,11 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               15.0, 20.0, 15.0, 0.0),
                           child: MasonryGridView.builder(
                             gridDelegate:
-                                SliverSimpleGridDelegateWithFixedCrossAxisCount(
+                                const SliverSimpleGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: 2,
                             ),
                             crossAxisSpacing: 15.0,
@@ -358,7 +354,7 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                                               'https://images.unsplash.com/photo-1525770041010-2a1233dd8152?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwxMnx8c29jaWFsJTIwbWVkaWF8ZW58MHx8fHwxNzE0OTc1OTI4fDA&ixlib=rb-4.0.3&q=80&w=1080',
                                             ).image,
                                           ),
-                                          boxShadow: [
+                                          boxShadow: const [
                                             BoxShadow(
                                               blurRadius: 4.0,
                                               color: Color(0x33000000),
@@ -387,7 +383,7 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                                                   .animateTo(
                                                 2,
                                                 duration:
-                                                    Duration(milliseconds: 300),
+                                                    const Duration(milliseconds: 300),
                                                 curve: Curves.ease,
                                               );
                                             });
@@ -398,24 +394,24 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                                             decoration: BoxDecoration(
                                               gradient: LinearGradient(
                                                 colors: [
-                                                  Color(0x0E5A5C60),
+                                                  const Color(0x0E5A5C60),
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground
                                                 ],
-                                                stops: [0.0, 1.0],
-                                                begin: AlignmentDirectional(
+                                                stops: const [0.0, 1.0],
+                                                begin: const AlignmentDirectional(
                                                     0.0, -1.0),
-                                                end: AlignmentDirectional(
+                                                end: const AlignmentDirectional(
                                                     0, 1.0),
                                               ),
                                               borderRadius:
                                                   BorderRadius.circular(11.0),
                                             ),
                                             child: Align(
-                                              alignment: AlignmentDirectional(
+                                              alignment: const AlignmentDirectional(
                                                   -1.0, 1.0),
                                               child: Padding(
-                                                padding: EdgeInsets.all(11.0),
+                                                padding: const EdgeInsets.all(11.0),
                                                 child: Text(
                                                   FFLocalizations.of(context)
                                                       .getText(
@@ -454,7 +450,7 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                                         context.pushNamed(
                                           'EventsAndClassesFirstPageFINAL',
                                           extra: <String, dynamic>{
-                                            kTransitionInfoKey: TransitionInfo(
+                                            kTransitionInfoKey: const TransitionInfo(
                                               hasTransition: true,
                                               transitionType:
                                                   PageTransitionType.fade,
@@ -483,7 +479,7 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                                                 'https://images.unsplash.com/photo-1545205597-3d9d02c29597?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHw1fHxzZWxmJTIwY2FyZSUyMGNsYXNzZXN8ZW58MHx8fHwxNzE0OTc1OTk1fDA&ixlib=rb-4.0.3&q=80&w=1080',
                                               ).image,
                                             ),
-                                            boxShadow: [
+                                            boxShadow: const [
                                               BoxShadow(
                                                 blurRadius: 4.0,
                                                 color: Color(0x33000000),
@@ -503,24 +499,24 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                                             decoration: BoxDecoration(
                                               gradient: LinearGradient(
                                                 colors: [
-                                                  Color(0x0E5A5C60),
+                                                  const Color(0x0E5A5C60),
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground
                                                 ],
-                                                stops: [0.0, 1.0],
-                                                begin: AlignmentDirectional(
+                                                stops: const [0.0, 1.0],
+                                                begin: const AlignmentDirectional(
                                                     0.0, -1.0),
-                                                end: AlignmentDirectional(
+                                                end: const AlignmentDirectional(
                                                     0, 1.0),
                                               ),
                                               borderRadius:
                                                   BorderRadius.circular(11.0),
                                             ),
                                             child: Align(
-                                              alignment: AlignmentDirectional(
+                                              alignment: const AlignmentDirectional(
                                                   -1.0, 1.0),
                                               child: Padding(
-                                                padding: EdgeInsets.all(11.0),
+                                                padding: const EdgeInsets.all(11.0),
                                                 child: Text(
                                                   FFLocalizations.of(context)
                                                       .getText(
@@ -564,7 +560,7 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                                               'https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwyfHxwcm9maWxlfGVufDB8fHx8MTcyNTQ5MzQzNnww&ixlib=rb-4.0.3&q=80&w=1080',
                                             ).image,
                                           ),
-                                          boxShadow: [
+                                          boxShadow: const [
                                             BoxShadow(
                                               blurRadius: 4.0,
                                               color: Color(0x33000000),
@@ -593,7 +589,7 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                                               'ProfilePage3',
                                               extra: <String, dynamic>{
                                                 kTransitionInfoKey:
-                                                    TransitionInfo(
+                                                    const TransitionInfo(
                                                   hasTransition: true,
                                                   transitionType:
                                                       PageTransitionType.fade,
@@ -609,24 +605,24 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                                             decoration: BoxDecoration(
                                               gradient: LinearGradient(
                                                 colors: [
-                                                  Color(0x0E5A5C60),
+                                                  const Color(0x0E5A5C60),
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground
                                                 ],
-                                                stops: [0.0, 1.0],
-                                                begin: AlignmentDirectional(
+                                                stops: const [0.0, 1.0],
+                                                begin: const AlignmentDirectional(
                                                     0.0, -1.0),
-                                                end: AlignmentDirectional(
+                                                end: const AlignmentDirectional(
                                                     0, 1.0),
                                               ),
                                               borderRadius:
                                                   BorderRadius.circular(11.0),
                                             ),
                                             child: Align(
-                                              alignment: AlignmentDirectional(
+                                              alignment: const AlignmentDirectional(
                                                   -1.0, 1.0),
                                               child: Padding(
-                                                padding: EdgeInsets.all(11.0),
+                                                padding: const EdgeInsets.all(11.0),
                                                 child: Text(
                                                   FFLocalizations.of(context)
                                                       .getText(
@@ -670,7 +666,7 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                                               'https://images.unsplash.com/photo-1688387969153-39f12756809b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHw1fHxwbGF5bGlzdHxlbnwwfHx8fDE3MjU1NjM3NDZ8MA&ixlib=rb-4.0.3&q=80&w=1080',
                                             ).image,
                                           ),
-                                          boxShadow: [
+                                          boxShadow: const [
                                             BoxShadow(
                                               blurRadius: 4.0,
                                               color: Color(0x33000000),
@@ -699,7 +695,7 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                                               'SoundsDetailsPlaylists',
                                               extra: <String, dynamic>{
                                                 kTransitionInfoKey:
-                                                    TransitionInfo(
+                                                    const TransitionInfo(
                                                   hasTransition: true,
                                                   transitionType:
                                                       PageTransitionType.fade,
@@ -715,24 +711,24 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                                             decoration: BoxDecoration(
                                               gradient: LinearGradient(
                                                 colors: [
-                                                  Color(0x0E5A5C60),
+                                                  const Color(0x0E5A5C60),
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground
                                                 ],
-                                                stops: [0.0, 1.0],
-                                                begin: AlignmentDirectional(
+                                                stops: const [0.0, 1.0],
+                                                begin: const AlignmentDirectional(
                                                     0.0, -1.0),
-                                                end: AlignmentDirectional(
+                                                end: const AlignmentDirectional(
                                                     0, 1.0),
                                               ),
                                               borderRadius:
                                                   BorderRadius.circular(11.0),
                                             ),
                                             child: Align(
-                                              alignment: AlignmentDirectional(
+                                              alignment: const AlignmentDirectional(
                                                   -1.0, 1.0),
                                               child: Padding(
-                                                padding: EdgeInsets.all(11.0),
+                                                padding: const EdgeInsets.all(11.0),
                                                 child: Text(
                                                   FFLocalizations.of(context)
                                                       .getText(
@@ -762,12 +758,12 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                           ),
                         ),
                         Align(
-                          alignment: AlignmentDirectional(1.0, 1.0),
+                          alignment: const AlignmentDirectional(1.0, 1.0),
                           child: Padding(
-                            padding: EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.all(8.0),
                             child: AlignedTooltip(
                               content: Padding(
-                                padding: EdgeInsets.all(4.0),
+                                padding: const EdgeInsets.all(4.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
                                     'iob1lpo6' /* Tap Here to Create! */,
@@ -788,13 +784,13 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                               elevation: 4.0,
                               tailBaseWidth: 24.0,
                               tailLength: 12.0,
-                              waitDuration: Duration(milliseconds: 100),
-                              showDuration: Duration(milliseconds: 1500),
+                              waitDuration: const Duration(milliseconds: 100),
+                              showDuration: const Duration(milliseconds: 1500),
                               triggerMode: TooltipTriggerMode.tap,
                               child: Align(
-                                alignment: AlignmentDirectional(1.0, 1.0),
+                                alignment: const AlignmentDirectional(1.0, 1.0),
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 40.0, 11.0, 15.0),
                                   child: FlutterFlowIconButton(
                                     borderRadius: 50.0,
@@ -820,7 +816,7 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                                             child: Padding(
                                               padding: MediaQuery.viewInsetsOf(
                                                   context),
-                                              child: AddTabBarWidget(),
+                                              child: const AddTabBarWidget(),
                                             ),
                                           );
                                         },
@@ -840,26 +836,26 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                     children: [
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                         child: SingleChildScrollView(
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 10.0, 0.0, 0.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           10.0, 0.0, 10.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 8.0, 0.0, 0.0),
                                             child: Text(
                                               FFLocalizations.of(context)
@@ -884,7 +880,7 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                                     Container(
                                       width: double.infinity,
                                       height: 285.0,
-                                      decoration: BoxDecoration(
+                                      decoration: const BoxDecoration(
                                         color: Colors.transparent,
                                       ),
                                       child: Row(
@@ -892,7 +888,7 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                                         children: [
                                           Expanded(
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 8.0, 0.0, 8.0),
                                               child: FutureBuilder<
                                                   ApiCallResponse>(
@@ -945,7 +941,7 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                                                                   meditationsIndex];
                                                           return Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         10.0,
                                                                         0.0,
@@ -955,7 +951,7 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                                                               width: 187.0,
                                                               height: 228.0,
                                                               decoration:
-                                                                  BoxDecoration(
+                                                                  const BoxDecoration(
                                                                 color: Colors
                                                                     .transparent,
                                                               ),
@@ -1021,7 +1017,7 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                                                                     extra: <String,
                                                                         dynamic>{
                                                                       kTransitionInfoKey:
-                                                                          TransitionInfo(
+                                                                          const TransitionInfo(
                                                                         hasTransition:
                                                                             true,
                                                                         transitionType:
@@ -1041,7 +1037,7 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                                                                           .center,
                                                                   children: [
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           1.0,
@@ -1077,13 +1073,13 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                                                                     ),
                                                                     Align(
                                                                       alignment:
-                                                                          AlignmentDirectional(
+                                                                          const AlignmentDirectional(
                                                                               -1.0,
                                                                               0.0),
                                                                       child:
                                                                           Padding(
                                                                         padding:
-                                                                            EdgeInsets.all(15.0),
+                                                                            const EdgeInsets.all(15.0),
                                                                         child:
                                                                             Text(
                                                                           getJsonField(
@@ -1107,13 +1103,13 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                                                                     ),
                                                                     Align(
                                                                       alignment:
-                                                                          AlignmentDirectional(
+                                                                          const AlignmentDirectional(
                                                                               1.0,
                                                                               -1.0),
                                                                       child:
                                                                           Padding(
                                                                         padding:
-                                                                            EdgeInsets.all(11.0),
+                                                                            const EdgeInsets.all(11.0),
                                                                         child:
                                                                             FlutterFlowIconButton(
                                                                           borderColor:
@@ -1123,7 +1119,7 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                                                                           buttonSize:
                                                                               40.0,
                                                                           fillColor:
-                                                                              Color(0xFA000220),
+                                                                              const Color(0xFA000220),
                                                                           icon:
                                                                               Icon(
                                                                             Icons.play_circle,
@@ -1170,7 +1166,7 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                                                                                 ),
                                                                               }.withoutNulls,
                                                                               extra: <String, dynamic>{
-                                                                                kTransitionInfoKey: TransitionInfo(
+                                                                                kTransitionInfoKey: const TransitionInfo(
                                                                                   hasTransition: true,
                                                                                   transitionType: PageTransitionType.fade,
                                                                                   duration: Duration(milliseconds: 2),
@@ -1203,7 +1199,7 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsets.all(10.0),
+                                padding: const EdgeInsets.all(10.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment:
@@ -1240,7 +1236,7 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsets.all(10.0),
+                                padding: const EdgeInsets.all(10.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
@@ -1248,7 +1244,7 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                                       child: Container(
                                         width: 100.0,
                                         height: 80.0,
-                                        decoration: BoxDecoration(
+                                        decoration: const BoxDecoration(
                                           color: Colors.transparent,
                                         ),
                                         child: Row(
@@ -1262,7 +1258,7 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 10.0, 0.0),
                                                     child: InkWell(
@@ -1285,7 +1281,7 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                                                           extra: <String,
                                                               dynamic>{
                                                             kTransitionInfoKey:
-                                                                TransitionInfo(
+                                                                const TransitionInfo(
                                                               hasTransition:
                                                                   true,
                                                               transitionType:
@@ -1304,7 +1300,7 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                                                         decoration:
                                                             BoxDecoration(
                                                           gradient:
-                                                              LinearGradient(
+                                                              const LinearGradient(
                                                             colors: [
                                                               Color(0xFFEF39D4),
                                                               Color(0xFFD2394E),
@@ -1359,7 +1355,7 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 10.0, 0.0),
                                                     child: Container(
@@ -1369,22 +1365,22 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                                                         gradient:
                                                             LinearGradient(
                                                           colors: [
-                                                            Color(0xFFEF39D4),
+                                                            const Color(0xFFEF39D4),
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .primary,
-                                                            Color(0xFF48C8FF)
+                                                            const Color(0xFF48C8FF)
                                                           ],
-                                                          stops: [
+                                                          stops: const [
                                                             0.0,
                                                             1.0,
                                                             1.0
                                                           ],
                                                           begin:
-                                                              AlignmentDirectional(
+                                                              const AlignmentDirectional(
                                                                   1.0, -0.77),
                                                           end:
-                                                              AlignmentDirectional(
+                                                              const AlignmentDirectional(
                                                                   -1.0, 0.77),
                                                         ),
                                                         borderRadius:
@@ -1422,7 +1418,7 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 10.0, 0.0),
                                                     child: Container(
@@ -1430,7 +1426,7 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                                                       height: 25.0,
                                                       decoration: BoxDecoration(
                                                         gradient:
-                                                            LinearGradient(
+                                                            const LinearGradient(
                                                           colors: [
                                                             Color(0xFFEF39D4),
                                                             Color(0xFFD2CB39),
@@ -1487,7 +1483,7 @@ for Mediation */
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 10.0, 0.0),
                                                     child: Container(
@@ -1495,7 +1491,7 @@ for Mediation */
                                                       height: 25.0,
                                                       decoration: BoxDecoration(
                                                         gradient:
-                                                            LinearGradient(
+                                                            const LinearGradient(
                                                           colors: [
                                                             Color(0xFF39EFED),
                                                             Color(0xFFD2CB39),
@@ -1557,7 +1553,7 @@ for Mediation */
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsets.all(10.0),
+                                padding: const EdgeInsets.all(10.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment:
@@ -1594,7 +1590,7 @@ for Mediation */
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsets.all(10.0),
+                                padding: const EdgeInsets.all(10.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
@@ -1602,7 +1598,7 @@ for Mediation */
                                       child: Container(
                                         width: double.infinity,
                                         height: 209.0,
-                                        decoration: BoxDecoration(
+                                        decoration: const BoxDecoration(
                                           color: Colors.transparent,
                                         ),
                                         child: Row(
@@ -1665,7 +1661,7 @@ for Mediation */
                                                                   recentItemsIndex];
                                                           return Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
@@ -1676,7 +1672,7 @@ for Mediation */
                                                               height: 137.0,
                                                               decoration:
                                                                   BoxDecoration(
-                                                                color: Color(
+                                                                color: const Color(
                                                                     0x50090F13),
                                                                 borderRadius:
                                                                     BorderRadius
@@ -1745,7 +1741,7 @@ for Mediation */
                                                                     extra: <String,
                                                                         dynamic>{
                                                                       kTransitionInfoKey:
-                                                                          TransitionInfo(
+                                                                          const TransitionInfo(
                                                                         hasTransition:
                                                                             true,
                                                                         transitionType:
@@ -1765,7 +1761,7 @@ for Mediation */
                                                                           .center,
                                                                   children: [
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           1.0,
@@ -1801,7 +1797,7 @@ for Mediation */
                                                                     ),
                                                                     Padding(
                                                                       padding:
-                                                                          EdgeInsets.all(
+                                                                          const EdgeInsets.all(
                                                                               15.0),
                                                                       child:
                                                                           Text(
@@ -1849,7 +1845,7 @@ for Mediation */
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsets.all(15.0),
+                                padding: const EdgeInsets.all(15.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment:
@@ -1885,7 +1881,7 @@ for Mediation */
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     10.0, 0.0, 10.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -1894,7 +1890,7 @@ for Mediation */
                                       child: Container(
                                         width: double.infinity,
                                         height: 480.0,
-                                        decoration: BoxDecoration(
+                                        decoration: const BoxDecoration(
                                           color: Colors.transparent,
                                         ),
                                         child: Column(
@@ -1902,7 +1898,7 @@ for Mediation */
                                           children: [
                                             Expanded(
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 8.0, 0.0, 8.0),
                                                 child: FutureBuilder<
@@ -1944,7 +1940,7 @@ for Mediation */
 
                                                         return ListView
                                                             .separated(
-                                                          padding: EdgeInsets
+                                                          padding: const EdgeInsets
                                                               .symmetric(
                                                                   vertical:
                                                                       5.0),
@@ -1955,7 +1951,7 @@ for Mediation */
                                                               .length,
                                                           separatorBuilder: (_,
                                                                   __) =>
-                                                              SizedBox(
+                                                              const SizedBox(
                                                                   height: 5.0),
                                                           itemBuilder: (context,
                                                               meditationsIndex) {
@@ -1964,7 +1960,7 @@ for Mediation */
                                                                     meditationsIndex];
                                                             return Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           10.0,
                                                                           0.0,
@@ -1974,7 +1970,7 @@ for Mediation */
                                                                 width: 187.0,
                                                                 height: 215.0,
                                                                 decoration:
-                                                                    BoxDecoration(
+                                                                    const BoxDecoration(
                                                                   color: Colors
                                                                       .transparent,
                                                                 ),
@@ -2041,7 +2037,7 @@ for Mediation */
                                                                       extra: <String,
                                                                           dynamic>{
                                                                         kTransitionInfoKey:
-                                                                            TransitionInfo(
+                                                                            const TransitionInfo(
                                                                           hasTransition:
                                                                               true,
                                                                           transitionType:
@@ -2061,7 +2057,7 @@ for Mediation */
                                                                             .center,
                                                                     children: [
                                                                       Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
                                                                             0.0,
                                                                             1.0,
@@ -2093,13 +2089,13 @@ for Mediation */
                                                                         ),
                                                                       ),
                                                                       Align(
-                                                                        alignment: AlignmentDirectional(
+                                                                        alignment: const AlignmentDirectional(
                                                                             -1.0,
                                                                             0.0),
                                                                         child:
                                                                             Padding(
                                                                           padding:
-                                                                              EdgeInsets.all(15.0),
+                                                                              const EdgeInsets.all(15.0),
                                                                           child:
                                                                               Text(
                                                                             getJsonField(
@@ -2117,13 +2113,13 @@ for Mediation */
                                                                         ),
                                                                       ),
                                                                       Align(
-                                                                        alignment: AlignmentDirectional(
+                                                                        alignment: const AlignmentDirectional(
                                                                             1.0,
                                                                             -1.0),
                                                                         child:
                                                                             Padding(
                                                                           padding:
-                                                                              EdgeInsets.all(11.0),
+                                                                              const EdgeInsets.all(11.0),
                                                                           child:
                                                                               FlutterFlowIconButton(
                                                                             borderColor:
@@ -2133,7 +2129,7 @@ for Mediation */
                                                                             buttonSize:
                                                                                 40.0,
                                                                             fillColor:
-                                                                                Color(0xFA000220),
+                                                                                const Color(0xFA000220),
                                                                             icon:
                                                                                 Icon(
                                                                               Icons.play_circle,
@@ -2240,11 +2236,11 @@ for Mediation */
                                     width: 100.0,
                                     height: 750.0,
                                     decoration: BoxDecoration(
-                                      color: Color(0x04000220),
+                                      color: const Color(0x04000220),
                                       borderRadius: BorderRadius.circular(20.0),
                                     ),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 8.0, 0.0, 0.0),
                                       child: FlutterFlowVideoPlayer(
                                         path: listViewVideosCollectionRecord
@@ -2269,17 +2265,17 @@ for Mediation */
                   wrapWithModel(
                     model: _model.yogaVideosCompModel,
                     updateCallback: () => safeSetState(() {}),
-                    child: YogaVideosCompWidget(),
+                    child: const YogaVideosCompWidget(),
                   ),
                   wrapWithModel(
                     model: _model.pilatesVideosCompModel,
                     updateCallback: () => safeSetState(() {}),
-                    child: PilatesVideosCompWidget(),
+                    child: const PilatesVideosCompWidget(),
                   ),
                   wrapWithModel(
                     model: _model.taiChiVideosCompModel,
                     updateCallback: () => safeSetState(() {}),
-                    child: TaiChiVideosCompWidget(),
+                    child: const TaiChiVideosCompWidget(),
                   ),
                 ],
               ),

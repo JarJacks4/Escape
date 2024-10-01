@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/meditation_and_sounds/music_player_comp/music_player_comp_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'binauralbeats_details_model.dart';
@@ -52,7 +51,7 @@ class _BinauralbeatsDetailsWidgetState
     return Container(
       width: double.infinity,
       height: 692.0,
-      decoration: BoxDecoration(),
+      decoration: const BoxDecoration(),
       child: ListView(
         padding: EdgeInsets.zero,
         primary: false,
@@ -60,12 +59,12 @@ class _BinauralbeatsDetailsWidgetState
         scrollDirection: Axis.vertical,
         children: [
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(10.0, 12.0, 10.0, 0.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(10.0, 12.0, 10.0, 0.0),
             child: Container(
               width: MediaQuery.sizeOf(context).width * 1.048,
               decoration: BoxDecoration(
                 color: Colors.white,
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
                     blurRadius: 3.0,
                     color: Color(0x25000000),
@@ -82,7 +81,7 @@ class _BinauralbeatsDetailsWidgetState
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   ClipRRect(
-                    borderRadius: BorderRadius.only(
+                    borderRadius: const BorderRadius.only(
                       bottomLeft: Radius.circular(5.0),
                       bottomRight: Radius.circular(0.0),
                       topLeft: Radius.circular(5.0),
@@ -96,19 +95,19 @@ class _BinauralbeatsDetailsWidgetState
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 4.0, 8.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 4.0, 8.0),
                     child: Container(
                       width: 4.0,
                       height: 90.0,
                       decoration: BoxDecoration(
-                        color: Color(0xFF4B39EF),
+                        color: const Color(0xFF4B39EF),
                         borderRadius: BorderRadius.circular(4.0),
                       ),
                     ),
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 16.0, 12.0),
+                        const EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 16.0, 12.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -121,14 +120,14 @@ class _BinauralbeatsDetailsWidgetState
                               .headlineMedium
                               .override(
                                 fontFamily: 'Outfit',
-                                color: Color(0xFF101213),
+                                color: const Color(0xFF101213),
                                 fontSize: 16.0,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.w500,
                               ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 4.0, 0.0, 0.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
@@ -137,7 +136,7 @@ class _BinauralbeatsDetailsWidgetState
                             style:
                                 FlutterFlowTheme.of(context).bodySmall.override(
                                       fontFamily: 'Outfit',
-                                      color: Color(0xFF57636C),
+                                      color: const Color(0xFF57636C),
                                       fontSize: 14.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
@@ -145,7 +144,7 @@ class _BinauralbeatsDetailsWidgetState
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 4.0, 0.0, 0.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
@@ -155,7 +154,7 @@ class _BinauralbeatsDetailsWidgetState
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Outfit',
-                                  color: Color(0xFF4B39EF),
+                                  color: const Color(0xFF4B39EF),
                                   fontSize: 14.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w500,
@@ -175,7 +174,7 @@ class _BinauralbeatsDetailsWidgetState
                           borderRadius: 30.0,
                           borderWidth: 1.0,
                           buttonSize: 60.0,
-                          icon: Icon(
+                          icon: const Icon(
                             Icons.play_circle_outline_rounded,
                             color: Color(0xF3E00B67),
                             size: 30.0,
@@ -187,13 +186,13 @@ class _BinauralbeatsDetailsWidgetState
                             await showModalBottomSheet(
                               isScrollControlled: true,
                               backgroundColor: Colors.transparent,
-                              barrierColor: Color(0x00000000),
+                              barrierColor: const Color(0x00000000),
                               context: context,
                               builder: (context) {
                                 return WebViewAware(
                                   child: Padding(
                                     padding: MediaQuery.viewInsetsOf(context),
-                                    child: Container(
+                                    child: SizedBox(
                                       height: double.infinity,
                                       child: MusicPlayerCompWidget(
                                         ambientMusic:
@@ -214,12 +213,12 @@ class _BinauralbeatsDetailsWidgetState
             ),
           ),
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
             child: Container(
               width: MediaQuery.sizeOf(context).width * 1.0,
               decoration: BoxDecoration(
                 color: Colors.white,
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
                     blurRadius: 3.0,
                     color: Color(0x25000000),

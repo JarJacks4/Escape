@@ -2,8 +2,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'meditation_carousel_model.dart';
 export 'meditation_carousel_model.dart';
@@ -46,8 +44,8 @@ class _MeditationCarouselWidgetState extends State<MeditationCarouselWidget> {
         Container(
           width: double.infinity,
           height: 240.0,
-          decoration: BoxDecoration(),
-          child: Container(
+          decoration: const BoxDecoration(),
+          child: SizedBox(
             width: double.infinity,
             height: 0.0,
             child: CarouselSlider(
@@ -81,13 +79,13 @@ class _MeditationCarouselWidgetState extends State<MeditationCarouselWidget> {
                           width: 189.0,
                           height: 81.0,
                           decoration: BoxDecoration(
-                            color: Color(0xE9000811),
+                            color: const Color(0xE9000811),
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           child: Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
+                            alignment: const AlignmentDirectional(0.0, 0.0),
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: GradientText(
                                 FFLocalizations.of(context).getText(
                                   'umgyu3m8' /* Sitting Down */,
@@ -145,13 +143,13 @@ class _MeditationCarouselWidgetState extends State<MeditationCarouselWidget> {
                           width: 191.0,
                           height: 80.0,
                           decoration: BoxDecoration(
-                            color: Color(0xE9000811),
+                            color: const Color(0xE9000811),
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           child: Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
+                            alignment: const AlignmentDirectional(0.0, 0.0),
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: GradientText(
                                 FFLocalizations.of(context).getText(
                                   '0f98hi4e' /* Laying Down */,
@@ -209,13 +207,13 @@ class _MeditationCarouselWidgetState extends State<MeditationCarouselWidget> {
                           width: 196.0,
                           height: 80.0,
                           decoration: BoxDecoration(
-                            color: Color(0xE9000811),
+                            color: const Color(0xE9000811),
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           child: Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
+                            alignment: const AlignmentDirectional(0.0, 0.0),
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: GradientText(
                                 FFLocalizations.of(context).getText(
                                   'sh785obo' /* Standing */,
@@ -273,13 +271,13 @@ class _MeditationCarouselWidgetState extends State<MeditationCarouselWidget> {
                           width: 196.0,
                           height: 80.0,
                           decoration: BoxDecoration(
-                            color: Color(0xE9000811),
+                            color: const Color(0xE9000811),
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           child: Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
+                            alignment: const AlignmentDirectional(0.0, 0.0),
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: GradientText(
                                 FFLocalizations.of(context).getText(
                                   'xpvlqcgi' /* Walking */,
@@ -337,13 +335,13 @@ class _MeditationCarouselWidgetState extends State<MeditationCarouselWidget> {
                           width: 196.0,
                           height: 80.0,
                           decoration: BoxDecoration(
-                            color: Color(0xD5000811),
+                            color: const Color(0xD5000811),
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           child: Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
+                            alignment: const AlignmentDirectional(0.0, 0.0),
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: GradientText(
                                 FFLocalizations.of(context).getText(
                                   'dg7t7v6b' /* Bathing */,

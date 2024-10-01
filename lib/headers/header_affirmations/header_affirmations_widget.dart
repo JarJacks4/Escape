@@ -3,8 +3,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'header_affirmations_model.dart';
 export 'header_affirmations_model.dart';
@@ -45,7 +43,7 @@ class _HeaderAffirmationsWidgetState extends State<HeaderAffirmationsWidget> {
       width: double.infinity,
       height: MediaQuery.sizeOf(context).height * 0.251,
       decoration: BoxDecoration(
-        color: Color(0x00FCFFF9),
+        color: const Color(0x00FCFFF9),
         borderRadius: BorderRadius.circular(15.0),
       ),
       child: SingleChildScrollView(
@@ -54,16 +52,16 @@ class _HeaderAffirmationsWidgetState extends State<HeaderAffirmationsWidget> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 44.0, 12.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 44.0, 12.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Align(
-                    alignment: AlignmentDirectional(-1.0, -1.0),
+                    alignment: const AlignmentDirectional(-1.0, -1.0),
                     child: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 200.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 200.0, 0.0),
                       child: FlutterFlowIconButton(
                         borderColor: Colors.transparent,
                         borderRadius: 30.0,
@@ -80,7 +78,7 @@ class _HeaderAffirmationsWidgetState extends State<HeaderAffirmationsWidget> {
                           logFirebaseEvent('IconButton_bottom_sheet');
                           await showModalBottomSheet(
                             isScrollControlled: true,
-                            backgroundColor: Color(0x63000000),
+                            backgroundColor: const Color(0x63000000),
                             barrierColor:
                                 FlutterFlowTheme.of(context).primaryText,
                             context: context,
@@ -88,7 +86,7 @@ class _HeaderAffirmationsWidgetState extends State<HeaderAffirmationsWidget> {
                               return WebViewAware(
                                 child: Padding(
                                   padding: MediaQuery.viewInsetsOf(context),
-                                  child: SideNavWidget(),
+                                  child: const SideNavWidget(),
                                 ),
                               );
                             },
@@ -99,7 +97,7 @@ class _HeaderAffirmationsWidgetState extends State<HeaderAffirmationsWidget> {
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 18.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 18.0, 0.0),
                     child: FlutterFlowIconButton(
                       borderColor: Colors.transparent,
                       borderRadius: 30.0,
@@ -118,7 +116,7 @@ class _HeaderAffirmationsWidgetState extends State<HeaderAffirmationsWidget> {
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 30.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 30.0, 0.0),
                     child: InkWell(
                       splashColor: Colors.transparent,
                       focusColor: Colors.transparent,
@@ -134,7 +132,7 @@ class _HeaderAffirmationsWidgetState extends State<HeaderAffirmationsWidget> {
                         width: 60.0,
                         height: 60.0,
                         clipBehavior: Clip.antiAlias,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           shape: BoxShape.circle,
                         ),
                         child: Image.network(
@@ -148,7 +146,7 @@ class _HeaderAffirmationsWidgetState extends State<HeaderAffirmationsWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 8.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 8.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -168,7 +166,7 @@ class _HeaderAffirmationsWidgetState extends State<HeaderAffirmationsWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 24.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 24.0, 0.0),
               child: Text(
                 FFLocalizations.of(context).getText(
                   'upgt1oky' /* Start or continue your journey... */,

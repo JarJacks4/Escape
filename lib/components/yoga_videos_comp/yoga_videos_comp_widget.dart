@@ -3,13 +3,9 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
-import 'package:provider/provider.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'yoga_videos_comp_model.dart';
 export 'yoga_videos_comp_model.dart';
@@ -54,8 +50,8 @@ class _YogaVideosCompWidgetState extends State<YogaVideosCompWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -74,8 +70,8 @@ class _YogaVideosCompWidgetState extends State<YogaVideosCompWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -94,8 +90,8 @@ class _YogaVideosCompWidgetState extends State<YogaVideosCompWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -114,8 +110,8 @@ class _YogaVideosCompWidgetState extends State<YogaVideosCompWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -134,8 +130,8 @@ class _YogaVideosCompWidgetState extends State<YogaVideosCompWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -154,8 +150,8 @@ class _YogaVideosCompWidgetState extends State<YogaVideosCompWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -174,8 +170,8 @@ class _YogaVideosCompWidgetState extends State<YogaVideosCompWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -200,19 +196,19 @@ class _YogaVideosCompWidgetState extends State<YogaVideosCompWidget>
     return Container(
       width: double.infinity,
       height: double.infinity,
-      decoration: BoxDecoration(),
+      decoration: const BoxDecoration(),
       child: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -232,7 +228,7 @@ Yoga Videos */
                                   ),
                           colors: [
                             FlutterFlowTheme.of(context).alternate,
-                            Color(0xFD000220)
+                            const Color(0xFD000220)
                           ],
                           gradientDirection: GradientDirection.ltr,
                           gradientType: GradientType.linear,
@@ -243,7 +239,7 @@ Yoga Videos */
                   Container(
                     width: double.infinity,
                     height: 281.0,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: Colors.transparent,
                     ),
                     child: Row(
@@ -251,7 +247,7 @@ Yoga Videos */
                       children: [
                         Expanded(
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 8.0, 0.0, 8.0),
                             child: PagedListView<ApiPagingParams, dynamic>(
                               pagingController: _model.setListViewController1(
@@ -294,12 +290,12 @@ Yoga Videos */
                                       .listViewPagingController1!
                                       .itemList![meditationsIndex];
                                   return Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         10.0, 0.0, 0.0, 0.0),
                                     child: Container(
                                       width: 187.0,
                                       height: 215.0,
-                                      decoration: BoxDecoration(
+                                      decoration: const BoxDecoration(
                                         color: Colors.transparent,
                                       ),
                                       child: InkWell(
@@ -347,7 +343,7 @@ Yoga Videos */
                                             }.withoutNulls,
                                             extra: <String, dynamic>{
                                               kTransitionInfoKey:
-                                                  TransitionInfo(
+                                                  const TransitionInfo(
                                                 hasTransition: true,
                                                 transitionType:
                                                     PageTransitionType.fade,
@@ -363,7 +359,7 @@ Yoga Videos */
                                               CrossAxisAlignment.center,
                                           children: [
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 0.0, 1.0, 0.0),
                                               child: Hero(
                                                 tag: getJsonField(
@@ -388,10 +384,10 @@ Yoga Videos */
                                               ),
                                             ),
                                             Align(
-                                              alignment: AlignmentDirectional(
+                                              alignment: const AlignmentDirectional(
                                                   -1.0, 0.0),
                                               child: Padding(
-                                                padding: EdgeInsets.all(15.0),
+                                                padding: const EdgeInsets.all(15.0),
                                                 child: Text(
                                                   getJsonField(
                                                     meditationsItem,
@@ -419,16 +415,16 @@ Yoga Videos */
                                               ),
                                             ),
                                             Align(
-                                              alignment: AlignmentDirectional(
+                                              alignment: const AlignmentDirectional(
                                                   1.0, -1.0),
                                               child: Padding(
-                                                padding: EdgeInsets.all(11.0),
+                                                padding: const EdgeInsets.all(11.0),
                                                 child: FlutterFlowIconButton(
                                                   borderColor:
                                                       Colors.transparent,
                                                   borderRadius: 8.0,
                                                   buttonSize: 40.0,
-                                                  fillColor: Color(0xFA000220),
+                                                  fillColor: const Color(0xFA000220),
                                                   icon: Icon(
                                                     Icons.play_circle,
                                                     color: FlutterFlowTheme.of(
@@ -480,7 +476,7 @@ Yoga Videos */
                                                       }.withoutNulls,
                                                       extra: <String, dynamic>{
                                                         kTransitionInfoKey:
-                                                            TransitionInfo(
+                                                            const TransitionInfo(
                                                           hasTransition: true,
                                                           transitionType:
                                                               PageTransitionType
@@ -505,14 +501,14 @@ Yoga Videos */
                             ),
                           ),
                         ),
-                      ].divide(SizedBox(width: 5.0)),
+                      ].divide(const SizedBox(width: 5.0)),
                     ),
                   ),
                 ],
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(10.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -544,7 +540,7 @@ Yoga Videos */
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(10.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -552,7 +548,7 @@ Yoga Videos */
                     child: Container(
                       width: 100.0,
                       height: 80.0,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Colors.transparent,
                       ),
                       child: Row(
@@ -564,7 +560,7 @@ Yoga Videos */
                               scrollDirection: Axis.horizontal,
                               children: [
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 10.0, 0.0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
@@ -579,7 +575,7 @@ Yoga Videos */
                                       context.pushNamed(
                                         'SoundsDetailsBinauralBeats',
                                         extra: <String, dynamic>{
-                                          kTransitionInfoKey: TransitionInfo(
+                                          kTransitionInfoKey: const TransitionInfo(
                                             hasTransition: true,
                                             transitionType:
                                                 PageTransitionType.fade,
@@ -592,7 +588,7 @@ Yoga Videos */
                                       width: 150.0,
                                       height: 25.0,
                                       decoration: BoxDecoration(
-                                        gradient: LinearGradient(
+                                        gradient: const LinearGradient(
                                           colors: [
                                             Color(0xFFEF39D4),
                                             Color(0xFFD2394E),
@@ -620,7 +616,7 @@ Yoga Videos */
                                             'BeginnersYoga',
                                             extra: <String, dynamic>{
                                               kTransitionInfoKey:
-                                                  TransitionInfo(
+                                                  const TransitionInfo(
                                                 hasTransition: true,
                                                 transitionType:
                                                     PageTransitionType.fade,
@@ -656,7 +652,7 @@ Yoga Videos */
                                       'containerOnPageLoadAnimation2']!),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 10.0, 0.0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
@@ -671,7 +667,7 @@ Yoga Videos */
                                       context.pushNamed(
                                         'SoundsDetailsAmbientMusic',
                                         extra: <String, dynamic>{
-                                          kTransitionInfoKey: TransitionInfo(
+                                          kTransitionInfoKey: const TransitionInfo(
                                             hasTransition: true,
                                             transitionType:
                                                 PageTransitionType.fade,
@@ -686,15 +682,15 @@ Yoga Videos */
                                       decoration: BoxDecoration(
                                         gradient: LinearGradient(
                                           colors: [
-                                            Color(0xFFEF39D4),
+                                            const Color(0xFFEF39D4),
                                             FlutterFlowTheme.of(context)
                                                 .primary,
-                                            Color(0xFF48C8FF)
+                                            const Color(0xFF48C8FF)
                                           ],
-                                          stops: [0.0, 1.0, 1.0],
+                                          stops: const [0.0, 1.0, 1.0],
                                           begin:
-                                              AlignmentDirectional(1.0, -0.77),
-                                          end: AlignmentDirectional(-1.0, 0.77),
+                                              const AlignmentDirectional(1.0, -0.77),
+                                          end: const AlignmentDirectional(-1.0, 0.77),
                                         ),
                                         borderRadius:
                                             BorderRadius.circular(10.0),
@@ -713,7 +709,7 @@ Yoga Videos */
                                             'SoundsDetailsAmbientMusic',
                                             extra: <String, dynamic>{
                                               kTransitionInfoKey:
-                                                  TransitionInfo(
+                                                  const TransitionInfo(
                                                 hasTransition: true,
                                                 transitionType:
                                                     PageTransitionType.fade,
@@ -749,7 +745,7 @@ Yoga Videos */
                                       'containerOnPageLoadAnimation3']!),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 10.0, 0.0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
@@ -764,7 +760,7 @@ Yoga Videos */
                                       context.pushNamed(
                                         'SoundsDetailsNatureSounds',
                                         extra: <String, dynamic>{
-                                          kTransitionInfoKey: TransitionInfo(
+                                          kTransitionInfoKey: const TransitionInfo(
                                             hasTransition: true,
                                             transitionType:
                                                 PageTransitionType.fade,
@@ -777,7 +773,7 @@ Yoga Videos */
                                       width: 150.0,
                                       height: 25.0,
                                       decoration: BoxDecoration(
-                                        gradient: LinearGradient(
+                                        gradient: const LinearGradient(
                                           colors: [
                                             Color(0xFFEF39D4),
                                             Color(0xFFD2CB39),
@@ -805,7 +801,7 @@ Yoga Videos */
                                             'KemeticYoga',
                                             extra: <String, dynamic>{
                                               kTransitionInfoKey:
-                                                  TransitionInfo(
+                                                  const TransitionInfo(
                                                 hasTransition: true,
                                                 transitionType:
                                                     PageTransitionType.fade,
@@ -844,7 +840,7 @@ Yoga */
                                       'containerOnPageLoadAnimation4']!),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 10.0, 0.0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
@@ -859,7 +855,7 @@ Yoga */
                                       context.pushNamed(
                                         'YogaPoseVideos',
                                         extra: <String, dynamic>{
-                                          kTransitionInfoKey: TransitionInfo(
+                                          kTransitionInfoKey: const TransitionInfo(
                                             hasTransition: true,
                                             transitionType:
                                                 PageTransitionType.fade,
@@ -872,7 +868,7 @@ Yoga */
                                       width: 150.0,
                                       height: 25.0,
                                       decoration: BoxDecoration(
-                                        gradient: LinearGradient(
+                                        gradient: const LinearGradient(
                                           colors: [
                                             Color(0xFFD2CB39),
                                             Color(0xFFEB0D70)
@@ -918,7 +914,7 @@ Yoga */
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(10.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -936,7 +932,7 @@ Yoga */
                         ),
                     colors: [
                       FlutterFlowTheme.of(context).alternate,
-                      Color(0xFC000220)
+                      const Color(0xFC000220)
                     ],
                     gradientDirection: GradientDirection.ltr,
                     gradientType: GradientType.linear,
@@ -950,7 +946,7 @@ Yoga */
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(10.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -958,7 +954,7 @@ Yoga */
                     child: Container(
                       width: double.infinity,
                       height: 199.0,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Colors.transparent,
                       ),
                       child: Row(
@@ -1003,13 +999,13 @@ Yoga */
                                             recentItems[recentItemsIndex];
                                         return Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 10.0, 0.0),
                                           child: Container(
                                             width: 179.0,
                                             height: 137.0,
                                             decoration: BoxDecoration(
-                                              color: Color(0x50090F13),
+                                              color: const Color(0x50090F13),
                                               borderRadius:
                                                   BorderRadius.circular(9.0),
                                             ),
@@ -1062,7 +1058,7 @@ Yoga */
                                                   }.withoutNulls,
                                                   extra: <String, dynamic>{
                                                     kTransitionInfoKey:
-                                                        TransitionInfo(
+                                                        const TransitionInfo(
                                                       hasTransition: true,
                                                       transitionType:
                                                           PageTransitionType
@@ -1080,7 +1076,7 @@ Yoga */
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 1.0, 0.0),
                                                     child: Hero(
@@ -1108,7 +1104,7 @@ Yoga */
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsets.all(15.0),
+                                                        const EdgeInsets.all(15.0),
                                                     child: Text(
                                                       getJsonField(
                                                         recentItemsItem,
@@ -1161,7 +1157,7 @@ Yoga */
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(15.0),
+              padding: const EdgeInsets.all(15.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -1172,13 +1168,13 @@ Yoga */
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Roboto',
-                          color: Color(0xFF5B4090),
+                          color: const Color(0xFF5B4090),
                           fontSize: 26.0,
                           letterSpacing: 0.0,
                         ),
                     colors: [
                       FlutterFlowTheme.of(context).alternate,
-                      Color(0xFD000220)
+                      const Color(0xFD000220)
                     ],
                     gradientDirection: GradientDirection.ltr,
                     gradientType: GradientType.linear,
@@ -1192,7 +1188,7 @@ Yoga */
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -1200,7 +1196,7 @@ Yoga */
                     child: Container(
                       width: double.infinity,
                       height: 480.0,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Colors.transparent,
                       ),
                       child: Column(
@@ -1208,7 +1204,7 @@ Yoga */
                         children: [
                           Expanded(
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 8.0, 0.0, 8.0),
                               child: FutureBuilder<ApiCallResponse>(
                                 future: YouTubeDataMeditationAPIFINALCopyCall
@@ -1243,24 +1239,24 @@ Yoga */
 
                                       return ListView.separated(
                                         padding:
-                                            EdgeInsets.symmetric(vertical: 5.0),
+                                            const EdgeInsets.symmetric(vertical: 5.0),
                                         shrinkWrap: true,
                                         scrollDirection: Axis.vertical,
                                         itemCount: meditations.length,
                                         separatorBuilder: (_, __) =>
-                                            SizedBox(height: 5.0),
+                                            const SizedBox(height: 5.0),
                                         itemBuilder:
                                             (context, meditationsIndex) {
                                           final meditationsItem =
                                               meditations[meditationsIndex];
                                           return Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     10.0, 0.0, 0.0, 0.0),
                                             child: Container(
                                               width: 187.0,
                                               height: 215.0,
-                                              decoration: BoxDecoration(
+                                              decoration: const BoxDecoration(
                                                 color: Colors.transparent,
                                               ),
                                               child: InkWell(
@@ -1312,7 +1308,7 @@ Yoga */
                                                     }.withoutNulls,
                                                     extra: <String, dynamic>{
                                                       kTransitionInfoKey:
-                                                          TransitionInfo(
+                                                          const TransitionInfo(
                                                         hasTransition: true,
                                                         transitionType:
                                                             PageTransitionType
@@ -1331,7 +1327,7 @@ Yoga */
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -1363,10 +1359,10 @@ Yoga */
                                                     ),
                                                     Align(
                                                       alignment:
-                                                          AlignmentDirectional(
+                                                          const AlignmentDirectional(
                                                               -1.0, 0.0),
                                                       child: Padding(
-                                                        padding: EdgeInsets.all(
+                                                        padding: const EdgeInsets.all(
                                                             15.0),
                                                         child: Text(
                                                           getJsonField(
@@ -1400,10 +1396,10 @@ Yoga */
                                                     ),
                                                     Align(
                                                       alignment:
-                                                          AlignmentDirectional(
+                                                          const AlignmentDirectional(
                                                               1.0, -1.0),
                                                       child: Padding(
-                                                        padding: EdgeInsets.all(
+                                                        padding: const EdgeInsets.all(
                                                             11.0),
                                                         child:
                                                             FlutterFlowIconButton(
@@ -1412,7 +1408,7 @@ Yoga */
                                                           borderRadius: 8.0,
                                                           buttonSize: 40.0,
                                                           fillColor:
-                                                              Color(0xFA000220),
+                                                              const Color(0xFA000220),
                                                           icon: Icon(
                                                             Icons.play_circle,
                                                             color: FlutterFlowTheme
@@ -1469,7 +1465,7 @@ Yoga */
                                                               extra: <String,
                                                                   dynamic>{
                                                                 kTransitionInfoKey:
-                                                                    TransitionInfo(
+                                                                    const TransitionInfo(
                                                                   hasTransition:
                                                                       true,
                                                                   transitionType:

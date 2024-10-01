@@ -2,13 +2,8 @@ import '/components/lucille_promo_bottom_sheet_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'self_care_a_i_promo_model.dart';
 export 'self_care_a_i_promo_model.dart';
 
@@ -49,8 +44,8 @@ class _SelfCareAIPromoWidgetState extends State<SelfCareAIPromoWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -74,7 +69,7 @@ class _SelfCareAIPromoWidgetState extends State<SelfCareAIPromoWidget>
         body: wrapWithModel(
           model: _model.lucillePromoBottomSheetModel,
           updateCallback: () => safeSetState(() {}),
-          child: LucillePromoBottomSheetWidget(),
+          child: const LucillePromoBottomSheetWidget(),
         ).animateOnPageLoad(
             animationsMap['lucillePromoBottomSheetOnPageLoadAnimation']!),
       ),

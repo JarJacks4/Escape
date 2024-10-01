@@ -6,8 +6,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/revenue_cat_util.dart' as revenue_cat;
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'subscription_profile_page_model.dart';
 export 'subscription_profile_page_model.dart';
@@ -68,7 +66,7 @@ class _SubscriptionProfilePageWidgetState
               context.safePop();
             },
           ),
-          actions: [],
+          actions: const [],
           centerTitle: true,
           elevation: 0.0,
         ),
@@ -79,7 +77,7 @@ class _SubscriptionProfilePageWidgetState
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 0.0, 0.0),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     'h9pjda3f' /* Subscription / Payment */,
@@ -92,14 +90,14 @@ class _SubscriptionProfilePageWidgetState
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16.0, 22.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(16.0, 22.0, 0.0, 0.0),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     'xk1c06fz' /* Your Subscription */,
                   ),
                   style: FlutterFlowTheme.of(context).labelMedium.override(
                         fontFamily: 'Roboto',
-                        color: Color(0xFF000220),
+                        color: const Color(0xFF000220),
                         fontSize: 22.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.w600,
@@ -107,7 +105,7 @@ class _SubscriptionProfilePageWidgetState
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -127,7 +125,7 @@ class _SubscriptionProfilePageWidgetState
                             onTap: () => FocusScope.of(context).unfocus(),
                             child: Padding(
                               padding: MediaQuery.viewInsetsOf(context),
-                              child: CheckoutEscapePremiumMonthlyWidget(),
+                              child: const CheckoutEscapePremiumMonthlyWidget(),
                             ),
                           ),
                         );
@@ -148,8 +146,8 @@ class _SubscriptionProfilePageWidgetState
                               fontSize: 18.0,
                             ),
                           ),
-                          duration: Duration(milliseconds: 4000),
-                          backgroundColor: Color(0xE3000220),
+                          duration: const Duration(milliseconds: 4000),
+                          backgroundColor: const Color(0xE3000220),
                         ),
                       );
                     } else {
@@ -163,8 +161,8 @@ class _SubscriptionProfilePageWidgetState
                               fontSize: 18.0,
                             ),
                           ),
-                          duration: Duration(milliseconds: 4000),
-                          backgroundColor: Color(0xE3000220),
+                          duration: const Duration(milliseconds: 4000),
+                          backgroundColor: const Color(0xE3000220),
                         ),
                       );
                     }
@@ -177,7 +175,7 @@ class _SubscriptionProfilePageWidgetState
                     context.pushNamed(
                       'NewHome',
                       extra: <String, dynamic>{
-                        kTransitionInfoKey: TransitionInfo(
+                        kTransitionInfoKey: const TransitionInfo(
                           hasTransition: true,
                           transitionType: PageTransitionType.fade,
                           duration: Duration(milliseconds: 0),
@@ -190,8 +188,8 @@ class _SubscriptionProfilePageWidgetState
                   child: Container(
                     width: double.infinity,
                     decoration: BoxDecoration(
-                      color: Color(0x5B548ED0),
-                      boxShadow: [
+                      color: const Color(0x5B548ED0),
+                      boxShadow: const [
                         BoxShadow(
                           blurRadius: 5.0,
                           color: Color(0x34111417),
@@ -205,7 +203,7 @@ class _SubscriptionProfilePageWidgetState
                     ),
                     child: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -218,7 +216,7 @@ class _SubscriptionProfilePageWidgetState
                                   borderRadius: BorderRadius.circular(25),
                                 ),
                               ),
-                              unselectedWidgetColor: Color(0xFF95A1AC),
+                              unselectedWidgetColor: const Color(0xFF95A1AC),
                             ),
                             child: CheckboxListTile(
                               value: _model.checkboxListTileValue1 ??= true,
@@ -234,7 +232,7 @@ class _SubscriptionProfilePageWidgetState
                                     .labelSmall
                                     .override(
                                       fontFamily: 'Roboto',
-                                      color: Color(0xFD000220),
+                                      color: const Color(0xFD000220),
                                       fontSize: 22.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
@@ -260,12 +258,12 @@ class _SubscriptionProfilePageWidgetState
                               checkColor: Colors.white,
                               dense: false,
                               controlAffinity: ListTileControlAffinity.trailing,
-                              contentPadding: EdgeInsetsDirectional.fromSTEB(
+                              contentPadding: const EdgeInsetsDirectional.fromSTEB(
                                   12.0, 0.0, 12.0, 0.0),
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 12.0, 0.0, 24.0, 0.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
@@ -289,7 +287,7 @@ class _SubscriptionProfilePageWidgetState
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16.0, 22.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(16.0, 22.0, 0.0, 0.0),
                 child: Text(
                   FFLocalizations.of(context).getText(
                     'j2tkpe32' /* Other Offers */,
@@ -304,7 +302,7 @@ class _SubscriptionProfilePageWidgetState
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -324,7 +322,7 @@ class _SubscriptionProfilePageWidgetState
                             onTap: () => FocusScope.of(context).unfocus(),
                             child: Padding(
                               padding: MediaQuery.viewInsetsOf(context),
-                              child: CheckoutEscapePremiumAnnualWidget(),
+                              child: const CheckoutEscapePremiumAnnualWidget(),
                             ),
                           ),
                         );
@@ -345,8 +343,8 @@ class _SubscriptionProfilePageWidgetState
                               fontSize: 18.0,
                             ),
                           ),
-                          duration: Duration(milliseconds: 4000),
-                          backgroundColor: Color(0xE3000220),
+                          duration: const Duration(milliseconds: 4000),
+                          backgroundColor: const Color(0xE3000220),
                         ),
                       );
                     } else {
@@ -360,8 +358,8 @@ class _SubscriptionProfilePageWidgetState
                               fontSize: 18.0,
                             ),
                           ),
-                          duration: Duration(milliseconds: 4000),
-                          backgroundColor: Color(0xE3000220),
+                          duration: const Duration(milliseconds: 4000),
+                          backgroundColor: const Color(0xE3000220),
                         ),
                       );
                     }
@@ -374,7 +372,7 @@ class _SubscriptionProfilePageWidgetState
                     context.pushNamed(
                       'NewHome',
                       extra: <String, dynamic>{
-                        kTransitionInfoKey: TransitionInfo(
+                        kTransitionInfoKey: const TransitionInfo(
                           hasTransition: true,
                           transitionType: PageTransitionType.fade,
                           duration: Duration(milliseconds: 0),
@@ -387,8 +385,8 @@ class _SubscriptionProfilePageWidgetState
                   child: Container(
                     width: double.infinity,
                     decoration: BoxDecoration(
-                      color: Color(0x5B548ED0),
-                      boxShadow: [
+                      color: const Color(0x5B548ED0),
+                      boxShadow: const [
                         BoxShadow(
                           blurRadius: 5.0,
                           color: Color(0x34111417),
@@ -402,7 +400,7 @@ class _SubscriptionProfilePageWidgetState
                     ),
                     child: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -432,7 +430,7 @@ class _SubscriptionProfilePageWidgetState
                                     .labelSmall
                                     .override(
                                       fontFamily: 'Roboto',
-                                      color: Color(0xFF000220),
+                                      color: const Color(0xFF000220),
                                       fontSize: 22.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
@@ -458,12 +456,12 @@ class _SubscriptionProfilePageWidgetState
                               checkColor: Colors.white,
                               dense: false,
                               controlAffinity: ListTileControlAffinity.trailing,
-                              contentPadding: EdgeInsetsDirectional.fromSTEB(
+                              contentPadding: const EdgeInsetsDirectional.fromSTEB(
                                   12.0, 0.0, 12.0, 0.0),
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 12.0, 0.0, 24.0, 0.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
@@ -487,7 +485,7 @@ class _SubscriptionProfilePageWidgetState
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
                 child: InkWell(
                   splashColor: Colors.transparent,
                   focusColor: Colors.transparent,
@@ -503,8 +501,8 @@ class _SubscriptionProfilePageWidgetState
                   child: Container(
                     width: double.infinity,
                     decoration: BoxDecoration(
-                      color: Color(0x5B548ED0),
-                      boxShadow: [
+                      color: const Color(0x5B548ED0),
+                      boxShadow: const [
                         BoxShadow(
                           blurRadius: 5.0,
                           color: Color(0x34111417),
@@ -518,7 +516,7 @@ class _SubscriptionProfilePageWidgetState
                     ),
                     child: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
                       child: Theme(
                         data: ThemeData(
                           checkboxTheme: CheckboxThemeData(
@@ -567,7 +565,7 @@ class _SubscriptionProfilePageWidgetState
                           checkColor: Colors.white,
                           dense: false,
                           controlAffinity: ListTileControlAffinity.trailing,
-                          contentPadding: EdgeInsetsDirectional.fromSTEB(
+                          contentPadding: const EdgeInsetsDirectional.fromSTEB(
                               12.0, 0.0, 12.0, 0.0),
                         ),
                       ),
@@ -577,10 +575,10 @@ class _SubscriptionProfilePageWidgetState
               ),
               Expanded(
                 child: Align(
-                  alignment: AlignmentDirectional(0.0, 0.0),
+                  alignment: const AlignmentDirectional(0.0, 0.0),
                   child: Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 24.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 24.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.end,
@@ -594,7 +592,7 @@ class _SubscriptionProfilePageWidgetState
                             context.pushNamed(
                               'NewHome',
                               extra: <String, dynamic>{
-                                kTransitionInfoKey: TransitionInfo(
+                                kTransitionInfoKey: const TransitionInfo(
                                   hasTransition: true,
                                   transitionType: PageTransitionType.fade,
                                   duration: Duration(milliseconds: 0),
@@ -608,9 +606,9 @@ class _SubscriptionProfilePageWidgetState
                           options: FFButtonOptions(
                             width: 270.0,
                             height: 50.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
                             color: FlutterFlowTheme.of(context).primaryText,
                             textStyle: FlutterFlowTheme.of(context)
@@ -622,7 +620,7 @@ class _SubscriptionProfilePageWidgetState
                                   letterSpacing: 0.0,
                                 ),
                             elevation: 2.0,
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Colors.transparent,
                               width: 1.0,
                             ),

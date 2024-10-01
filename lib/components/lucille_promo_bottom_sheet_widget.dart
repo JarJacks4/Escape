@@ -5,8 +5,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/revenue_cat_util.dart' as revenue_cat;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'lucille_promo_bottom_sheet_model.dart';
 export 'lucille_promo_bottom_sheet_model.dart';
 
@@ -56,7 +54,7 @@ class _LucillePromoBottomSheetWidgetState
             child: Container(
               width: 100.0,
               height: MediaQuery.sizeOf(context).height * 0.7,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 gradient: LinearGradient(
                   colors: [Color(0xA18C4475), Color(0xD48C4475)],
                   stops: [0.5, 0.7],
@@ -68,7 +66,7 @@ class _LucillePromoBottomSheetWidgetState
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    Container(
+                    SizedBox(
                       width: double.infinity,
                       child: Stack(
                         children: [
@@ -84,12 +82,12 @@ class _LucillePromoBottomSheetWidgetState
                           ),
                           Container(
                             height: 200.0,
-                            decoration: BoxDecoration(),
+                            decoration: const BoxDecoration(),
                           ),
                           Container(
                             width: 393.0,
                             height: 811.0,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               gradient: LinearGradient(
                                 colors: [Color(0xC8FFFFFF), Color(0xD68C4475)],
                                 stops: [0.2, 1.0],
@@ -100,9 +98,9 @@ class _LucillePromoBottomSheetWidgetState
                             child: Stack(
                               children: [
                                 Align(
-                                  alignment: AlignmentDirectional(-1.0, -1.0),
+                                  alignment: const AlignmentDirectional(-1.0, -1.0),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         20.0, 150.0, 20.0, 20.0),
                                     child: SelectionArea(
                                         child: Text(
@@ -124,16 +122,16 @@ class _LucillePromoBottomSheetWidgetState
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(0.22, 0.4),
+                                  alignment: const AlignmentDirectional(0.22, 0.4),
                                   child: Container(
                                     width: 341.0,
                                     height: 354.0,
                                     decoration: BoxDecoration(
-                                      color: Color(0x37000220),
+                                      color: const Color(0x37000220),
                                       borderRadius: BorderRadius.circular(20.0),
                                     ),
                                     child: Align(
-                                      alignment: AlignmentDirectional(0.0, 1.0),
+                                      alignment: const AlignmentDirectional(0.0, 1.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
@@ -141,7 +139,7 @@ class _LucillePromoBottomSheetWidgetState
                                         children: [
                                           Flexible(
                                             child: Padding(
-                                              padding: EdgeInsets.all(30.0),
+                                              padding: const EdgeInsets.all(30.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 mainAxisAlignment:
@@ -193,7 +191,7 @@ Self-Care plans
                                           ),
                                           Flexible(
                                             child: Padding(
-                                              padding: EdgeInsets.all(30.0),
+                                              padding: const EdgeInsets.all(30.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 mainAxisAlignment:
@@ -246,7 +244,7 @@ meditation exer... */
                                           ),
                                           Flexible(
                                             child: Padding(
-                                              padding: EdgeInsets.all(30.0),
+                                              padding: const EdgeInsets.all(30.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 mainAxisAlignment:
@@ -302,9 +300,9 @@ meditation exer... */
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(0.0, 1.0),
+                                  alignment: const AlignmentDirectional(0.0, 1.0),
                                   child: Padding(
-                                    padding: EdgeInsets.all(40.0),
+                                    padding: const EdgeInsets.all(40.0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
                                         logFirebaseEvent(
@@ -332,7 +330,7 @@ meditation exer... */
                                                 ),
                                               ),
                                               duration:
-                                                  Duration(milliseconds: 4000),
+                                                  const Duration(milliseconds: 4000),
                                               backgroundColor:
                                                   FlutterFlowTheme.of(context)
                                                       .secondary,
@@ -357,10 +355,10 @@ meditation exer... */
                                             MediaQuery.sizeOf(context).width *
                                                 0.8,
                                         height: 58.0,
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             16.0, 0.0, 16.0, 0.0),
                                         iconPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
+                                            const EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
@@ -382,7 +380,7 @@ meditation exer... */
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 15.0, 40.0, 15.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -414,7 +412,7 @@ meditation exer... */
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.all(15.0),
+                      padding: const EdgeInsets.all(15.0),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(8.0),
                         child: Image.asset(

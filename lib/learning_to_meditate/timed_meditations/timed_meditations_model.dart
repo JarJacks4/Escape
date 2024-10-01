@@ -1,16 +1,9 @@
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/learning_to_meditate/meditation_carousel/meditation_carousel_widget.dart';
 import '/meditation_and_sounds/environment_choice_carousel/environment_choice_carousel_widget.dart';
 import '/meditation_and_sounds/time_carousel_copy/time_carousel_copy_widget.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart'
-    as smooth_page_indicator;
 import 'timed_meditations_widget.dart' show TimedMeditationsWidget;
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:lottie/lottie.dart';
-import 'package:provider/provider.dart';
 
 class TimedMeditationsModel extends FlutterFlowModel<TimedMeditationsWidget> {
   ///  State fields for stateful widgets in this page.

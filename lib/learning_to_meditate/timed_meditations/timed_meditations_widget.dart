@@ -1,15 +1,12 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/learning_to_meditate/meditation_carousel/meditation_carousel_widget.dart';
 import '/meditation_and_sounds/environment_choice_carousel/environment_choice_carousel_widget.dart';
 import '/meditation_and_sounds/time_carousel_copy/time_carousel_copy_widget.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
-import 'package:provider/provider.dart';
 import 'timed_meditations_model.dart';
 export 'timed_meditations_model.dart';
 
@@ -52,7 +49,7 @@ class _TimedMeditationsWidgetState extends State<TimedMeditationsWidget> {
           mainAxisSize: MainAxisSize.max,
           children: [
             Expanded(
-              child: Container(
+              child: SizedBox(
                 width: double.infinity,
                 height: MediaQuery.sizeOf(context).height * 1.0,
                 child: Stack(
@@ -67,7 +64,7 @@ class _TimedMeditationsWidgetState extends State<TimedMeditationsWidget> {
                           width: MediaQuery.sizeOf(context).width * 1.0,
                           height: MediaQuery.sizeOf(context).height * 1.0,
                           decoration: BoxDecoration(
-                            color: Color(0xFF14181B),
+                            color: const Color(0xFF14181B),
                             image: DecorationImage(
                               fit: BoxFit.cover,
                               image: Image.network(
@@ -82,11 +79,11 @@ class _TimedMeditationsWidgetState extends State<TimedMeditationsWidget> {
                               gradient: LinearGradient(
                                 colors: [
                                   FlutterFlowTheme.of(context).primary,
-                                  Color(0x82FFFFFF)
+                                  const Color(0x82FFFFFF)
                                 ],
-                                stops: [0.0, 1.0],
-                                begin: AlignmentDirectional(0.0, -1.0),
-                                end: AlignmentDirectional(0, 1.0),
+                                stops: const [0.0, 1.0],
+                                begin: const AlignmentDirectional(0.0, -1.0),
+                                end: const AlignmentDirectional(0, 1.0),
                               ),
                             ),
                             child: Column(
@@ -96,16 +93,16 @@ class _TimedMeditationsWidgetState extends State<TimedMeditationsWidget> {
                                 Container(
                                   width: double.infinity,
                                   height: 840.0,
-                                  decoration: BoxDecoration(),
+                                  decoration: const BoxDecoration(),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, -1.0),
+                                            const AlignmentDirectional(0.0, -1.0),
                                         child: Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 55.0, 0.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -113,10 +110,10 @@ class _TimedMeditationsWidgetState extends State<TimedMeditationsWidget> {
                                                 MainAxisAlignment.center,
                                             children: [
                                               Align(
-                                                alignment: AlignmentDirectional(
+                                                alignment: const AlignmentDirectional(
                                                     0.0, -1.0),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 5.0, 0.0, 0.0),
                                                   child: Text(
@@ -146,17 +143,17 @@ class _TimedMeditationsWidgetState extends State<TimedMeditationsWidget> {
                                       ),
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 70.0, 0.0, 0.0),
                                           child: Container(
                                             width: 203.0,
                                             height: 129.0,
-                                            decoration: BoxDecoration(),
+                                            decoration: const BoxDecoration(),
                                             child: Padding(
-                                              padding: EdgeInsets.all(8.0),
+                                              padding: const EdgeInsets.all(8.0),
                                               child: Lottie.asset(
                                                 'assets/lottie_animations/Animation_-_1709679604412.json',
                                                 width: 85.0,
@@ -170,10 +167,10 @@ class _TimedMeditationsWidgetState extends State<TimedMeditationsWidget> {
                                       ),
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   22.0, 22.0, 22.0, 40.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
@@ -208,7 +205,7 @@ class _TimedMeditationsWidgetState extends State<TimedMeditationsWidget> {
                                             await _model.pageViewController
                                                 ?.nextPage(
                                               duration:
-                                                  Duration(milliseconds: 300),
+                                                  const Duration(milliseconds: 300),
                                               curve: Curves.ease,
                                             );
                                           },
@@ -218,16 +215,16 @@ class _TimedMeditationsWidgetState extends State<TimedMeditationsWidget> {
                                             updateCallback: () =>
                                                 safeSetState(() {}),
                                             child:
-                                                EnvironmentChoiceCarouselWidget(),
+                                                const EnvironmentChoiceCarouselWidget(),
                                           ),
                                         ),
                                       ),
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, -1.0),
+                                            const AlignmentDirectional(0.0, -1.0),
                                         child: Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 55.0, 0.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -235,10 +232,10 @@ class _TimedMeditationsWidgetState extends State<TimedMeditationsWidget> {
                                                 MainAxisAlignment.center,
                                             children: [
                                               Align(
-                                                alignment: AlignmentDirectional(
+                                                alignment: const AlignmentDirectional(
                                                     0.0, -1.0),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           5.0, 0.0, 22.0, 80.0),
                                                   child: Text(
@@ -280,7 +277,7 @@ Woul... */
                           width: MediaQuery.sizeOf(context).width * 1.0,
                           height: MediaQuery.sizeOf(context).height * 1.0,
                           decoration: BoxDecoration(
-                            color: Color(0xFF14181B),
+                            color: const Color(0xFF14181B),
                             image: DecorationImage(
                               fit: BoxFit.cover,
                               image: Image.network(
@@ -295,11 +292,11 @@ Woul... */
                               gradient: LinearGradient(
                                 colors: [
                                   FlutterFlowTheme.of(context).primary,
-                                  Color(0xE8FFFFFF)
+                                  const Color(0xE8FFFFFF)
                                 ],
-                                stops: [0.0, 1.0],
-                                begin: AlignmentDirectional(0.0, -1.0),
-                                end: AlignmentDirectional(0, 1.0),
+                                stops: const [0.0, 1.0],
+                                begin: const AlignmentDirectional(0.0, -1.0),
+                                end: const AlignmentDirectional(0, 1.0),
                               ),
                             ),
                             child: Column(
@@ -309,16 +306,16 @@ Woul... */
                                 Container(
                                   width: double.infinity,
                                   height: 840.0,
-                                  decoration: BoxDecoration(),
+                                  decoration: const BoxDecoration(),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, -1.0),
+                                            const AlignmentDirectional(0.0, -1.0),
                                         child: Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 55.0, 0.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -326,7 +323,7 @@ Woul... */
                                                 MainAxisAlignment.center,
                                             children: [
                                               Align(
-                                                alignment: AlignmentDirectional(
+                                                alignment: const AlignmentDirectional(
                                                     0.0, -1.0),
                                                 child: Text(
                                                   FFLocalizations.of(context)
@@ -354,17 +351,17 @@ Woul... */
                                       ),
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 50.0, 0.0, 0.0),
                                           child: Container(
                                             width: 203.0,
                                             height: 158.0,
-                                            decoration: BoxDecoration(),
+                                            decoration: const BoxDecoration(),
                                             child: Padding(
-                                              padding: EdgeInsets.all(8.0),
+                                              padding: const EdgeInsets.all(8.0),
                                               child: Lottie.asset(
                                                 'assets/lottie_animations/Animation_-_1709679415412.json',
                                                 width: 46.0,
@@ -378,10 +375,10 @@ Woul... */
                                       ),
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   22.0, 22.0, 22.0, 50.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
@@ -416,7 +413,7 @@ Woul... */
                                             await _model.pageViewController
                                                 ?.nextPage(
                                               duration:
-                                                  Duration(milliseconds: 300),
+                                                  const Duration(milliseconds: 300),
                                               curve: Curves.ease,
                                             );
                                           },
@@ -424,16 +421,16 @@ Woul... */
                                             model: _model.timeCarouselCopyModel,
                                             updateCallback: () =>
                                                 safeSetState(() {}),
-                                            child: TimeCarouselCopyWidget(),
+                                            child: const TimeCarouselCopyWidget(),
                                           ),
                                         ),
                                       ),
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, -1.0),
+                                            const AlignmentDirectional(0.0, -1.0),
                                         child: Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 55.0, 0.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -441,10 +438,10 @@ Woul... */
                                                 MainAxisAlignment.center,
                                             children: [
                                               Align(
-                                                alignment: AlignmentDirectional(
+                                                alignment: const AlignmentDirectional(
                                                     0.0, -1.0),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(11.0, 0.0, 22.0,
                                                           90.0),
                                                   child: Text(
@@ -486,7 +483,7 @@ You Have to Med... */
                           width: MediaQuery.sizeOf(context).width * 1.0,
                           height: MediaQuery.sizeOf(context).height * 1.0,
                           decoration: BoxDecoration(
-                            color: Color(0xFF14181B),
+                            color: const Color(0xFF14181B),
                             image: DecorationImage(
                               fit: BoxFit.cover,
                               image: Image.network(
@@ -501,11 +498,11 @@ You Have to Med... */
                               gradient: LinearGradient(
                                 colors: [
                                   FlutterFlowTheme.of(context).primary,
-                                  Color(0xE9FFFFFF)
+                                  const Color(0xE9FFFFFF)
                                 ],
-                                stops: [0.0, 1.0],
-                                begin: AlignmentDirectional(0.0, -1.0),
-                                end: AlignmentDirectional(0, 1.0),
+                                stops: const [0.0, 1.0],
+                                begin: const AlignmentDirectional(0.0, -1.0),
+                                end: const AlignmentDirectional(0, 1.0),
                               ),
                             ),
                             child: Column(
@@ -515,16 +512,16 @@ You Have to Med... */
                                 Container(
                                   width: double.infinity,
                                   height: 840.0,
-                                  decoration: BoxDecoration(),
+                                  decoration: const BoxDecoration(),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, -1.0),
+                                            const AlignmentDirectional(0.0, -1.0),
                                         child: Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 55.0, 0.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -532,7 +529,7 @@ You Have to Med... */
                                                 MainAxisAlignment.center,
                                             children: [
                                               Align(
-                                                alignment: AlignmentDirectional(
+                                                alignment: const AlignmentDirectional(
                                                     0.0, -1.0),
                                                 child: Text(
                                                   FFLocalizations.of(context)
@@ -560,17 +557,17 @@ You Have to Med... */
                                       ),
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 20.0, 0.0, 0.0),
                                           child: Container(
                                             width: 203.0,
                                             height: 140.0,
-                                            decoration: BoxDecoration(),
+                                            decoration: const BoxDecoration(),
                                             child: Padding(
-                                              padding: EdgeInsets.all(8.0),
+                                              padding: const EdgeInsets.all(8.0),
                                               child: Lottie.asset(
                                                 'assets/lottie_animations/Animation_-_1709680091534.json',
                                                 width: 46.0,
@@ -584,10 +581,10 @@ You Have to Med... */
                                       ),
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   22.0, 22.0, 22.0, 60.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
@@ -643,7 +640,7 @@ You Have to Med... */
                                               }.withoutNulls,
                                               extra: <String, dynamic>{
                                                 kTransitionInfoKey:
-                                                    TransitionInfo(
+                                                    const TransitionInfo(
                                                   hasTransition: true,
                                                   transitionType:
                                                       PageTransitionType.fade,
@@ -658,7 +655,7 @@ You Have to Med... */
                                                 _model.meditationCarouselModel,
                                             updateCallback: () =>
                                                 safeSetState(() {}),
-                                            child: Hero(
+                                            child: const Hero(
                                               tag: 'TimeCarousel',
                                               transitionOnUserGestures: true,
                                               child: Material(
@@ -672,10 +669,10 @@ You Have to Med... */
                                       ),
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, -1.0),
+                                            const AlignmentDirectional(0.0, -1.0),
                                         child: Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 55.0, 0.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -683,10 +680,10 @@ You Have to Med... */
                                                 MainAxisAlignment.center,
                                             children: [
                                               Align(
-                                                alignment: AlignmentDirectional(
+                                                alignment: const AlignmentDirectional(
                                                     0.0, -1.0),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(22.0, 0.0, 22.0,
                                                           90.0),
                                                   child: Text(
@@ -727,10 +724,10 @@ How... */
                       ],
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0.0, 1.0),
+                      alignment: const AlignmentDirectional(0.0, 1.0),
                       child: Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
                         child: smooth_page_indicator.SmoothPageIndicator(
                           controller: _model.pageViewController ??=
                               PageController(initialPage: 0),
@@ -739,7 +736,7 @@ How... */
                           onDotClicked: (i) async {
                             await _model.pageViewController!.animateToPage(
                               i,
-                              duration: Duration(milliseconds: 500),
+                              duration: const Duration(milliseconds: 500),
                               curve: Curves.ease,
                             );
                             safeSetState(() {});

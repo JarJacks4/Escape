@@ -1,8 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'header_provider_community_model.dart';
 export 'header_provider_community_model.dart';
 
@@ -42,7 +40,7 @@ class _HeaderProviderCommunityWidgetState
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Color(0x00FCFFF9),
+        color: const Color(0x00FCFFF9),
         borderRadius: BorderRadius.circular(15.0),
       ),
       child: SingleChildScrollView(
@@ -51,7 +49,7 @@ class _HeaderProviderCommunityWidgetState
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(11.0, 16.0, 16.0, 8.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(11.0, 16.0, 16.0, 8.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.start,

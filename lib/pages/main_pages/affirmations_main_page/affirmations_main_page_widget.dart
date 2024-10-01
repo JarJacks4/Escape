@@ -1,11 +1,8 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/headers/header_affirmations/header_affirmations_widget.dart';
 import '/meditation_and_sounds/tabbar_home_affirmations/tabbar_home_affirmations_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'affirmations_main_page_model.dart';
 export 'affirmations_main_page_model.dart';
 
@@ -63,12 +60,12 @@ class _AffirmationsMainPageWidgetState
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  Color(0xA9006874),
+                  const Color(0xA9006874),
                   FlutterFlowTheme.of(context).primaryBackground
                 ],
-                stops: [0.0, 1.0],
-                begin: AlignmentDirectional(0.0, -1.0),
-                end: AlignmentDirectional(0, 1.0),
+                stops: const [0.0, 1.0],
+                begin: const AlignmentDirectional(0.0, -1.0),
+                end: const AlignmentDirectional(0, 1.0),
               ),
             ),
             child: Column(
@@ -78,21 +75,21 @@ class _AffirmationsMainPageWidgetState
                 Container(
                   width: double.infinity,
                   height: 198.0,
-                  decoration: BoxDecoration(),
+                  decoration: const BoxDecoration(),
                   child: wrapWithModel(
                     model: _model.headerAffirmationsModel,
                     updateCallback: () => safeSetState(() {}),
-                    child: HeaderAffirmationsWidget(),
+                    child: const HeaderAffirmationsWidget(),
                   ),
                 ),
                 Expanded(
                   child: Padding(
-                    padding: EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(8.0),
                     child: wrapWithModel(
                       model: _model.tabbarHomeAffirmationsModel,
                       updateCallback: () => safeSetState(() {}),
                       updateOnChange: true,
-                      child: Hero(
+                      child: const Hero(
                         tag: 'TabBar',
                         transitionOnUserGestures: true,
                         child: Material(

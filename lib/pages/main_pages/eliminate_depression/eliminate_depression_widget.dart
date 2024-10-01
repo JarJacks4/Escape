@@ -3,13 +3,8 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'eliminate_depression_model.dart';
 export 'eliminate_depression_model.dart';
 
@@ -51,8 +46,8 @@ class _EliminateDepressionWidgetState extends State<EliminateDepressionWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -70,8 +65,8 @@ class _EliminateDepressionWidgetState extends State<EliminateDepressionWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -89,8 +84,8 @@ class _EliminateDepressionWidgetState extends State<EliminateDepressionWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -108,8 +103,8 @@ class _EliminateDepressionWidgetState extends State<EliminateDepressionWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -149,7 +144,7 @@ class _EliminateDepressionWidgetState extends State<EliminateDepressionWidget>
                 child: Container(
                   width: 100.0,
                   height: MediaQuery.sizeOf(context).height * 0.7,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     gradient: LinearGradient(
                       colors: [Color(0xFCFFFFFF), Colors.white],
                       stops: [0.5, 0.7],
@@ -161,7 +156,7 @@ class _EliminateDepressionWidgetState extends State<EliminateDepressionWidget>
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        Container(
+                        SizedBox(
                           width: double.infinity,
                           child: Stack(
                             children: [
@@ -173,7 +168,7 @@ class _EliminateDepressionWidgetState extends State<EliminateDepressionWidget>
                               ),
                               Container(
                                 height: 200.0,
-                                decoration: BoxDecoration(),
+                                decoration: const BoxDecoration(),
                               ),
                               Container(
                                 width: 393.0,
@@ -181,18 +176,18 @@ class _EliminateDepressionWidgetState extends State<EliminateDepressionWidget>
                                 decoration: BoxDecoration(
                                   gradient: LinearGradient(
                                     colors: [
-                                      Color(0x83FFFFFF),
+                                      const Color(0x83FFFFFF),
                                       FlutterFlowTheme.of(context)
                                           .primaryBackground
                                     ],
-                                    stops: [0.2, 1.0],
-                                    begin: AlignmentDirectional(0.0, -1.0),
-                                    end: AlignmentDirectional(0, 1.0),
+                                    stops: const [0.2, 1.0],
+                                    begin: const AlignmentDirectional(0.0, -1.0),
+                                    end: const AlignmentDirectional(0, 1.0),
                                   ),
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     15.0, 40.0, 15.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -204,7 +199,7 @@ class _EliminateDepressionWidgetState extends State<EliminateDepressionWidget>
                                       borderRadius: 30.0,
                                       borderWidth: 1.0,
                                       buttonSize: 50.0,
-                                      fillColor: Color(0xB5E7C8E7),
+                                      fillColor: const Color(0xB5E7C8E7),
                                       icon: Icon(
                                         Icons.chevron_left,
                                         color: FlutterFlowTheme.of(context)
@@ -232,7 +227,7 @@ class _EliminateDepressionWidgetState extends State<EliminateDepressionWidget>
                                         context.pushNamed(
                                           'NewHome',
                                           extra: <String, dynamic>{
-                                            kTransitionInfoKey: TransitionInfo(
+                                            kTransitionInfoKey: const TransitionInfo(
                                               hasTransition: true,
                                               transitionType:
                                                   PageTransitionType.fade,
@@ -263,7 +258,7 @@ class _EliminateDepressionWidgetState extends State<EliminateDepressionWidget>
                         Flexible(
                           flex: 1,
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 5.0, 0.0, 5.0, 0.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
@@ -273,11 +268,11 @@ class _EliminateDepressionWidgetState extends State<EliminateDepressionWidget>
                                 Container(
                                   width: double.infinity,
                                   height: 226.0,
-                                  decoration: BoxDecoration(
+                                  decoration: const BoxDecoration(
                                     color: Color(0x00FFFFFF),
                                   ),
                                   child: Padding(
-                                    padding: EdgeInsets.all(8.0),
+                                    padding: const EdgeInsets.all(8.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
@@ -293,7 +288,7 @@ class _EliminateDepressionWidgetState extends State<EliminateDepressionWidget>
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         5.0, 0.0, 0.0, 2.0),
                                                 child: SelectionArea(
@@ -318,7 +313,7 @@ class _EliminateDepressionWidgetState extends State<EliminateDepressionWidget>
                                                 )),
                                               ),
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         8.0, 30.0, 0.0, 0.0),
                                                 child: Text(
@@ -364,7 +359,7 @@ class _EliminateDepressionWidgetState extends State<EliminateDepressionWidget>
                 model: _model.eliminateDepressionCompSoundsModel,
                 updateCallback: () => safeSetState(() {}),
                 updateOnChange: true,
-                child: Hero(
+                child: const Hero(
                   tag: 'SoundsScreen',
                   transitionOnUserGestures: true,
                   child: Material(

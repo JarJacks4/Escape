@@ -1,18 +1,13 @@
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/meditation_and_sounds/header_home/header_home_widget.dart';
 import '/meditation_and_sounds/home_comp/home_comp_widget.dart';
 import '/walkthroughs/intro_walkthrough.dart';
-import 'dart:math';
 import 'package:tutorial_coach_mark/tutorial_coach_mark.dart'
     show TutorialCoachMark;
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'new_home_model.dart';
 export 'new_home_model.dart';
 
@@ -52,8 +47,8 @@ class _NewHomeWidgetState extends State<NewHomeWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -71,8 +66,8 @@ class _NewHomeWidgetState extends State<NewHomeWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -95,12 +90,12 @@ class _NewHomeWidgetState extends State<NewHomeWidget>
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: Container(
           width: double.infinity,
-          height: double.infinity,
+          height: MediaQuery.sizeOf(context).height * 1.0,
           decoration: BoxDecoration(
             color: FlutterFlowTheme.of(context).secondaryBackground,
             image: DecorationImage(
               fit: BoxFit.fill,
-              alignment: AlignmentDirectional(1.0, 0.0),
+              alignment: const AlignmentDirectional(1.0, 0.0),
               image: Image.network(
                 'https://images.unsplash.com/photo-1533093818119-ac1fa47a6d59?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwyfHxzZWxmJTIwY2FyZXxlbnwwfHx8fDE3MjQzOTM1ODZ8MA&ixlib=rb-4.0.3&q=80&w=1080',
               ).image,
@@ -109,7 +104,7 @@ class _NewHomeWidgetState extends State<NewHomeWidget>
           child: Container(
             width: 100.0,
             height: 100.0,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               gradient: LinearGradient(
                 colors: [Color(0x9BE7C8E7), Color(0xE1FFFFFF)],
                 stops: [0.0, 0.8],
@@ -127,7 +122,7 @@ class _NewHomeWidgetState extends State<NewHomeWidget>
                     child: wrapWithModel(
                       model: _model.headerHomeModel,
                       updateCallback: () => safeSetState(() {}),
-                      child: HeaderHomeWidget(),
+                      child: const HeaderHomeWidget(),
                     )
                         .addWalkthrough(
                           containerZevhydwe,
@@ -141,7 +136,7 @@ class _NewHomeWidgetState extends State<NewHomeWidget>
                     child: wrapWithModel(
                       model: _model.homeCompModel,
                       updateCallback: () => safeSetState(() {}),
-                      child: HomeCompWidget(),
+                      child: const HomeCompWidget(),
                     )
                         .addWalkthrough(
                           containerT7xx1zl4,

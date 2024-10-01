@@ -2,8 +2,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'environment_choice_carousel_model.dart';
 export 'environment_choice_carousel_model.dart';
 
@@ -46,8 +44,8 @@ class _EnvironmentChoiceCarouselWidgetState
         Container(
           width: double.infinity,
           height: 240.0,
-          decoration: BoxDecoration(),
-          child: Container(
+          decoration: const BoxDecoration(),
+          child: SizedBox(
             width: double.infinity,
             height: 0.0,
             child: CarouselSlider(
@@ -80,13 +78,13 @@ class _EnvironmentChoiceCarouselWidgetState
                           width: 196.0,
                           height: 80.0,
                           decoration: BoxDecoration(
-                            color: Color(0xE9000811),
+                            color: const Color(0xE9000811),
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           child: Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
+                            alignment: const AlignmentDirectional(0.0, 0.0),
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Text(
                                 FFLocalizations.of(context).getText(
                                   'gffxnnt2' /* Waterfalls */,
@@ -138,13 +136,13 @@ class _EnvironmentChoiceCarouselWidgetState
                           width: 196.0,
                           height: 80.0,
                           decoration: BoxDecoration(
-                            color: Color(0xE9000811),
+                            color: const Color(0xE9000811),
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           child: Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
+                            alignment: const AlignmentDirectional(0.0, 0.0),
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Text(
                                 FFLocalizations.of(context).getText(
                                   'e4t4j2fw' /* Rain */,
@@ -196,13 +194,13 @@ class _EnvironmentChoiceCarouselWidgetState
                           width: 196.0,
                           height: 80.0,
                           decoration: BoxDecoration(
-                            color: Color(0xE9000811),
+                            color: const Color(0xE9000811),
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           child: Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
+                            alignment: const AlignmentDirectional(0.0, 0.0),
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Text(
                                 FFLocalizations.of(context).getText(
                                   'hfkwwizc' /* Solfeggio */,
@@ -254,13 +252,13 @@ class _EnvironmentChoiceCarouselWidgetState
                           width: 196.0,
                           height: 80.0,
                           decoration: BoxDecoration(
-                            color: Color(0xE9000811),
+                            color: const Color(0xE9000811),
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           child: Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
+                            alignment: const AlignmentDirectional(0.0, 0.0),
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Text(
                                 FFLocalizations.of(context).getText(
                                   '5upummyk' /* Binaural */,
@@ -312,13 +310,13 @@ class _EnvironmentChoiceCarouselWidgetState
                           width: 196.0,
                           height: 80.0,
                           decoration: BoxDecoration(
-                            color: Color(0xE9000811),
+                            color: const Color(0xE9000811),
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           child: Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
+                            alignment: const AlignmentDirectional(0.0, 0.0),
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Text(
                                 FFLocalizations.of(context).getText(
                                   'qfzc67i9' /* Forest */,

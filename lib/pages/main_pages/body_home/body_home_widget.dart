@@ -1,16 +1,10 @@
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/headers/header_yoga/header_yoga_widget.dart';
 import '/meditation_and_sounds/tabbar_home_yoga/tabbar_home_yoga_widget.dart';
-import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'body_home_model.dart';
 export 'body_home_model.dart';
 
@@ -43,8 +37,8 @@ class _BodyHomeWidgetState extends State<BodyHomeWidget>
             curve: Curves.easeOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(0.0, -40.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(0.0, -40.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -62,8 +56,8 @@ class _BodyHomeWidgetState extends State<BodyHomeWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -81,8 +75,8 @@ class _BodyHomeWidgetState extends State<BodyHomeWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -121,12 +115,12 @@ class _BodyHomeWidgetState extends State<BodyHomeWidget>
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  Color(0xB4E7C8E7),
+                  const Color(0xB4E7C8E7),
                   FlutterFlowTheme.of(context).primaryBackground
                 ],
-                stops: [0.5, 1.0],
-                begin: AlignmentDirectional(0.0, -1.0),
-                end: AlignmentDirectional(0, 1.0),
+                stops: const [0.5, 1.0],
+                begin: const AlignmentDirectional(0.0, -1.0),
+                end: const AlignmentDirectional(0, 1.0),
               ),
             ),
             child: Column(
@@ -141,7 +135,7 @@ class _BodyHomeWidgetState extends State<BodyHomeWidget>
                       child: wrapWithModel(
                         model: _model.headerYogaModel,
                         updateCallback: () => safeSetState(() {}),
-                        child: HeaderYogaWidget(),
+                        child: const HeaderYogaWidget(),
                       ).animateOnPageLoad(
                           animationsMap['headerYogaOnPageLoadAnimation']!),
                     ),
@@ -151,7 +145,7 @@ class _BodyHomeWidgetState extends State<BodyHomeWidget>
                   child: wrapWithModel(
                     model: _model.tabbarHomeYogaModel,
                     updateCallback: () => safeSetState(() {}),
-                    child: TabbarHomeYogaWidget(),
+                    child: const TabbarHomeYogaWidget(),
                   ).animateOnPageLoad(
                       animationsMap['tabbarHomeYogaOnPageLoadAnimation']!),
                 ),

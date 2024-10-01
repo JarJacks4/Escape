@@ -2,8 +2,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'staggered_view_home_model.dart';
 export 'staggered_view_home_model.dart';
 
@@ -45,9 +43,9 @@ class _StaggeredViewHomeWidgetState extends State<StaggeredViewHomeWidget> {
         Container(
           width: 387.0,
           height: 580.0,
-          decoration: BoxDecoration(),
+          decoration: const BoxDecoration(),
           child: MasonryGridView.builder(
-            gridDelegate: SliverSimpleGridDelegateWithFixedCrossAxisCount(
+            gridDelegate: const SliverSimpleGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
             ),
             crossAxisSpacing: 5.0,
@@ -77,7 +75,7 @@ class _StaggeredViewHomeWidgetState extends State<StaggeredViewHomeWidget> {
                           borderRadius: BorderRadius.circular(15.0),
                         ),
                         child: Align(
-                          alignment: AlignmentDirectional(0.0, 1.0),
+                          alignment: const AlignmentDirectional(0.0, 1.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -85,13 +83,13 @@ class _StaggeredViewHomeWidgetState extends State<StaggeredViewHomeWidget> {
                                 width: 190.0,
                                 height: 69.0,
                                 decoration: BoxDecoration(
-                                  color: Color(0xC9040404),
+                                  color: const Color(0xC9040404),
                                   borderRadius: BorderRadius.circular(11.0),
                                 ),
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Padding(
-                                    padding: EdgeInsets.all(11.0),
+                                    padding: const EdgeInsets.all(11.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
                                         '2mi6h36z' /* 5 Minute 
@@ -138,7 +136,7 @@ Meditations */
                           borderRadius: BorderRadius.circular(15.0),
                         ),
                         child: Align(
-                          alignment: AlignmentDirectional(0.0, 1.0),
+                          alignment: const AlignmentDirectional(0.0, 1.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -146,13 +144,13 @@ Meditations */
                                 width: 190.0,
                                 height: 69.0,
                                 decoration: BoxDecoration(
-                                  color: Color(0xC9040404),
+                                  color: const Color(0xC9040404),
                                   borderRadius: BorderRadius.circular(11.0),
                                 ),
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Padding(
-                                    padding: EdgeInsets.all(11.0),
+                                    padding: const EdgeInsets.all(11.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
                                         'kbgtaayw' /* Increase Focus */,
@@ -197,7 +195,7 @@ Meditations */
                           borderRadius: BorderRadius.circular(15.0),
                         ),
                         child: Align(
-                          alignment: AlignmentDirectional(0.0, 1.0),
+                          alignment: const AlignmentDirectional(0.0, 1.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -205,13 +203,13 @@ Meditations */
                                 width: 190.0,
                                 height: 69.0,
                                 decoration: BoxDecoration(
-                                  color: Color(0xC9040404),
+                                  color: const Color(0xC9040404),
                                   borderRadius: BorderRadius.circular(11.0),
                                 ),
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Padding(
-                                    padding: EdgeInsets.all(11.0),
+                                    padding: const EdgeInsets.all(11.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
                                         'zxc7v7uu' /* Therapy Directory */,
@@ -256,7 +254,7 @@ Meditations */
                           borderRadius: BorderRadius.circular(15.0),
                         ),
                         child: Align(
-                          alignment: AlignmentDirectional(0.0, 1.0),
+                          alignment: const AlignmentDirectional(0.0, 1.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -264,13 +262,13 @@ Meditations */
                                 width: 190.0,
                                 height: 69.0,
                                 decoration: BoxDecoration(
-                                  color: Color(0xC9040404),
+                                  color: const Color(0xC9040404),
                                   borderRadius: BorderRadius.circular(11.0),
                                 ),
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Padding(
-                                    padding: EdgeInsets.all(11.0),
+                                    padding: const EdgeInsets.all(11.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
                                         'rqes37s4' /* Affirmations */,

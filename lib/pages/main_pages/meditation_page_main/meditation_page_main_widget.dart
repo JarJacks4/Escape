@@ -3,16 +3,11 @@ import '/components/tabbar_home_meditation/tabbar_home_meditation_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/walkthroughs/meditation_walkthrough.dart';
-import 'dart:math';
 import 'package:tutorial_coach_mark/tutorial_coach_mark.dart'
     show TutorialCoachMark;
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'meditation_page_main_model.dart';
 export 'meditation_page_main_model.dart';
 
@@ -54,8 +49,8 @@ class _MeditationPageMainWidgetState extends State<MeditationPageMainWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -73,8 +68,8 @@ class _MeditationPageMainWidgetState extends State<MeditationPageMainWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -113,12 +108,12 @@ class _MeditationPageMainWidgetState extends State<MeditationPageMainWidget>
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  Color(0xA5903E9F),
+                  const Color(0xA5903E9F),
                   FlutterFlowTheme.of(context).primaryBackground
                 ],
-                stops: [0.0, 1.0],
-                begin: AlignmentDirectional(0.0, -1.0),
-                end: AlignmentDirectional(0, 1.0),
+                stops: const [0.0, 1.0],
+                begin: const AlignmentDirectional(0.0, -1.0),
+                end: const AlignmentDirectional(0, 1.0),
               ),
             ),
             child: Column(
@@ -128,11 +123,11 @@ class _MeditationPageMainWidgetState extends State<MeditationPageMainWidget>
                 Container(
                   width: double.infinity,
                   height: 274.0,
-                  decoration: BoxDecoration(),
+                  decoration: const BoxDecoration(),
                   child: wrapWithModel(
                     model: _model.headerMainMeditationModel,
                     updateCallback: () => safeSetState(() {}),
-                    child: HeaderMainMeditationWidget(),
+                    child: const HeaderMainMeditationWidget(),
                   ).animateOnPageLoad(animationsMap[
                       'headerMainMeditationOnPageLoadAnimation']!),
                 ),
@@ -140,7 +135,7 @@ class _MeditationPageMainWidgetState extends State<MeditationPageMainWidget>
                   child: wrapWithModel(
                     model: _model.tabbarHomeMeditationModel,
                     updateCallback: () => safeSetState(() {}),
-                    child: TabbarHomeMeditationWidget(),
+                    child: const TabbarHomeMeditationWidget(),
                   )
                       .addWalkthrough(
                         containerWlqc10m7,

@@ -4,13 +4,8 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'register_sign_up_model.dart';
 export 'register_sign_up_model.dart';
 
@@ -60,8 +55,8 @@ class _RegisterSignUpWidgetState extends State<RegisterSignUpWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -83,13 +78,13 @@ class _RegisterSignUpWidgetState extends State<RegisterSignUpWidget>
         key: scaffoldKey,
         backgroundColor: Colors.white,
         body: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(30.0, 0.0, 30.0, 0.0),
+          padding: const EdgeInsetsDirectional.fromSTEB(30.0, 0.0, 30.0, 0.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 30.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 30.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -117,7 +112,7 @@ class _RegisterSignUpWidgetState extends State<RegisterSignUpWidget>
                 children: [
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                     child: TextFormField(
                       controller: _model.textController1,
                       focusNode: _model.textFieldFocusNode1,
@@ -130,7 +125,7 @@ class _RegisterSignUpWidgetState extends State<RegisterSignUpWidget>
                         hintStyle:
                             FlutterFlowTheme.of(context).bodySmall.override(
                                   fontFamily: 'Roboto',
-                                  color: Color(0xFFADA4A5),
+                                  color: const Color(0xFFADA4A5),
                                   fontSize: 18.0,
                                   letterSpacing: 0.0,
                                   lineHeight: 1.5,
@@ -151,14 +146,14 @@ class _RegisterSignUpWidgetState extends State<RegisterSignUpWidget>
                           borderRadius: BorderRadius.circular(14.0),
                         ),
                         errorBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Color(0x00000000),
                             width: 1.0,
                           ),
                           borderRadius: BorderRadius.circular(14.0),
                         ),
                         focusedErrorBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Color(0x00000000),
                             width: 1.0,
                           ),
@@ -174,7 +169,7 @@ class _RegisterSignUpWidgetState extends State<RegisterSignUpWidget>
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Roboto',
-                            color: Color(0xFF000220),
+                            color: const Color(0xFF000220),
                             fontSize: 18.0,
                             letterSpacing: 0.0,
                           ),
@@ -184,7 +179,7 @@ class _RegisterSignUpWidgetState extends State<RegisterSignUpWidget>
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                     child: TextFormField(
                       controller: _model.textController2,
                       focusNode: _model.textFieldFocusNode2,
@@ -197,7 +192,7 @@ class _RegisterSignUpWidgetState extends State<RegisterSignUpWidget>
                         hintStyle:
                             FlutterFlowTheme.of(context).bodySmall.override(
                                   fontFamily: 'Roboto',
-                                  color: Color(0xFFADA4A5),
+                                  color: const Color(0xFFADA4A5),
                                   fontSize: 18.0,
                                   letterSpacing: 0.0,
                                   lineHeight: 1.5,
@@ -218,14 +213,14 @@ class _RegisterSignUpWidgetState extends State<RegisterSignUpWidget>
                           borderRadius: BorderRadius.circular(14.0),
                         ),
                         errorBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Color(0x00000000),
                             width: 1.0,
                           ),
                           borderRadius: BorderRadius.circular(14.0),
                         ),
                         focusedErrorBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Color(0x00000000),
                             width: 1.0,
                           ),
@@ -254,7 +249,7 @@ class _RegisterSignUpWidgetState extends State<RegisterSignUpWidget>
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Roboto',
-                            color: Color(0xF9000220),
+                            color: const Color(0xF9000220),
                             fontSize: 18.0,
                             letterSpacing: 0.0,
                           ),
@@ -264,7 +259,7 @@ class _RegisterSignUpWidgetState extends State<RegisterSignUpWidget>
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                     child: TextFormField(
                       controller: _model.textController3,
                       focusNode: _model.textFieldFocusNode3,
@@ -277,7 +272,7 @@ class _RegisterSignUpWidgetState extends State<RegisterSignUpWidget>
                         hintStyle:
                             FlutterFlowTheme.of(context).bodySmall.override(
                                   fontFamily: 'Roboto',
-                                  color: Color(0xFFADA4A5),
+                                  color: const Color(0xFFADA4A5),
                                   fontSize: 18.0,
                                   letterSpacing: 0.0,
                                   lineHeight: 1.5,
@@ -298,14 +293,14 @@ class _RegisterSignUpWidgetState extends State<RegisterSignUpWidget>
                           borderRadius: BorderRadius.circular(14.0),
                         ),
                         errorBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Color(0x00000000),
                             width: 1.0,
                           ),
                           borderRadius: BorderRadius.circular(14.0),
                         ),
                         focusedErrorBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Color(0x00000000),
                             width: 1.0,
                           ),
@@ -335,7 +330,7 @@ class _RegisterSignUpWidgetState extends State<RegisterSignUpWidget>
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Roboto',
-                            color: Color(0xF8000220),
+                            color: const Color(0xF8000220),
                             fontSize: 18.0,
                             letterSpacing: 0.0,
                           ),
@@ -371,7 +366,7 @@ class _RegisterSignUpWidgetState extends State<RegisterSignUpWidget>
                       ),
                       Expanded(
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 32.0, 0.0),
                           child: Wrap(
                             spacing: 0.0,
@@ -384,7 +379,7 @@ class _RegisterSignUpWidgetState extends State<RegisterSignUpWidget>
                             clipBehavior: Clip.none,
                             children: [
                               Padding(
-                                padding: EdgeInsets.all(8.0),
+                                padding: const EdgeInsets.all(8.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
                                     'd9klmkyq' /* By continuing you accept our P... */,
@@ -410,7 +405,7 @@ class _RegisterSignUpWidgetState extends State<RegisterSignUpWidget>
                 ],
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 58.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 58.0, 0.0, 0.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -427,7 +422,7 @@ class _RegisterSignUpWidgetState extends State<RegisterSignUpWidget>
                         context.goNamed(
                           'completeProfileFINAL',
                           extra: <String, dynamic>{
-                            kTransitionInfoKey: TransitionInfo(
+                            kTransitionInfoKey: const TransitionInfo(
                               hasTransition: true,
                               transitionType: PageTransitionType.rightToLeft,
                               duration: Duration(milliseconds: 400),
@@ -438,7 +433,7 @@ class _RegisterSignUpWidgetState extends State<RegisterSignUpWidget>
                       child: wrapWithModel(
                         model: _model.primaryButtonModel,
                         updateCallback: () => safeSetState(() {}),
-                        child: PrimaryButtonWidget(
+                        child: const PrimaryButtonWidget(
                           buttonText: 'Register',
                         ),
                       ),
@@ -447,14 +442,14 @@ class _RegisterSignUpWidgetState extends State<RegisterSignUpWidget>
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
@@ -482,11 +477,11 @@ class _RegisterSignUpWidgetState extends State<RegisterSignUpWidget>
                               width: 0.8,
                             ),
                           ),
-                          alignment: AlignmentDirectional(0.0, 0.0),
+                          alignment: const AlignmentDirectional(0.0, 0.0),
                           child: Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
+                            alignment: const AlignmentDirectional(0.0, 0.0),
                             child: Padding(
-                              padding: EdgeInsets.all(26.0),
+                              padding: const EdgeInsets.all(26.0),
                               child: Image.asset(
                                 'assets/images/googleIcon.png',
                                 width: 24.0,
@@ -499,7 +494,7 @@ class _RegisterSignUpWidgetState extends State<RegisterSignUpWidget>
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                       child: Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(26.0),
@@ -507,15 +502,15 @@ class _RegisterSignUpWidgetState extends State<RegisterSignUpWidget>
                             color: FlutterFlowTheme.of(context).primaryText,
                           ),
                         ),
-                        alignment: AlignmentDirectional(0.0, 0.0),
+                        alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Align(
-                          alignment: AlignmentDirectional(0.0, 0.0),
+                          alignment: const AlignmentDirectional(0.0, 0.0),
                           child: FlutterFlowIconButton(
-                            borderColor: Color(0xAA12151C),
+                            borderColor: const Color(0xAA12151C),
                             borderRadius: 20.0,
                             borderWidth: 1.0,
                             buttonSize: 75.0,
-                            fillColor: Color(0x00B893DC),
+                            fillColor: const Color(0x00B893DC),
                             icon: Icon(
                               Icons.apple,
                               color: FlutterFlowTheme.of(context)
@@ -543,7 +538,7 @@ class _RegisterSignUpWidgetState extends State<RegisterSignUpWidget>
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -561,7 +556,7 @@ class _RegisterSignUpWidgetState extends State<RegisterSignUpWidget>
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
@@ -575,7 +570,7 @@ class _RegisterSignUpWidgetState extends State<RegisterSignUpWidget>
                           context.pushNamed(
                             'registerSignInFINAL',
                             extra: <String, dynamic>{
-                              kTransitionInfoKey: TransitionInfo(
+                              kTransitionInfoKey: const TransitionInfo(
                                 hasTransition: true,
                                 transitionType: PageTransitionType.fade,
                                 duration: Duration(milliseconds: 2),

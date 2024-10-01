@@ -3,12 +3,8 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'eliminate_depression_comp_sounds_model.dart';
 export 'eliminate_depression_comp_sounds_model.dart';
 
@@ -54,8 +50,8 @@ class _EliminateDepressionCompSoundsWidgetState
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -74,8 +70,8 @@ class _EliminateDepressionCompSoundsWidgetState
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -94,8 +90,8 @@ class _EliminateDepressionCompSoundsWidgetState
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -114,8 +110,8 @@ class _EliminateDepressionCompSoundsWidgetState
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -134,8 +130,8 @@ class _EliminateDepressionCompSoundsWidgetState
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -154,8 +150,8 @@ class _EliminateDepressionCompSoundsWidgetState
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -174,8 +170,8 @@ class _EliminateDepressionCompSoundsWidgetState
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -194,8 +190,8 @@ class _EliminateDepressionCompSoundsWidgetState
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -220,19 +216,19 @@ class _EliminateDepressionCompSoundsWidgetState
     return Container(
       width: double.infinity,
       height: double.infinity,
-      decoration: BoxDecoration(),
+      decoration: const BoxDecoration(),
       child: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -255,7 +251,7 @@ class _EliminateDepressionCompSoundsWidgetState
                   Container(
                     width: double.infinity,
                     height: 266.0,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: Colors.transparent,
                     ),
                     child: Row(
@@ -263,7 +259,7 @@ class _EliminateDepressionCompSoundsWidgetState
                       children: [
                         Expanded(
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 8.0, 0.0, 8.0),
                             child: FutureBuilder<ApiCallResponse>(
                               future:
@@ -304,12 +300,12 @@ class _EliminateDepressionCompSoundsWidgetState
                                             meditations[meditationsIndex];
                                         return Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   10.0, 0.0, 0.0, 0.0),
                                           child: Container(
                                             width: 187.0,
                                             height: 215.0,
-                                            decoration: BoxDecoration(
+                                            decoration: const BoxDecoration(
                                               color: Colors.transparent,
                                             ),
                                             child: Column(
@@ -318,7 +314,7 @@ class _EliminateDepressionCompSoundsWidgetState
                                                   CrossAxisAlignment.center,
                                               children: [
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 1.0, 0.0),
                                                   child: Hero(
@@ -346,11 +342,11 @@ class _EliminateDepressionCompSoundsWidgetState
                                                 ),
                                                 Align(
                                                   alignment:
-                                                      AlignmentDirectional(
+                                                      const AlignmentDirectional(
                                                           -1.0, 0.0),
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsets.all(15.0),
+                                                        const EdgeInsets.all(15.0),
                                                     child: Text(
                                                       getJsonField(
                                                         meditationsItem,
@@ -378,11 +374,11 @@ class _EliminateDepressionCompSoundsWidgetState
                                                 ),
                                                 Align(
                                                   alignment:
-                                                      AlignmentDirectional(
+                                                      const AlignmentDirectional(
                                                           1.0, -1.0),
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsets.all(11.0),
+                                                        const EdgeInsets.all(11.0),
                                                     child:
                                                         FlutterFlowIconButton(
                                                       borderColor:
@@ -390,7 +386,7 @@ class _EliminateDepressionCompSoundsWidgetState
                                                       borderRadius: 8.0,
                                                       buttonSize: 40.0,
                                                       fillColor:
-                                                          Color(0xFA000220),
+                                                          const Color(0xFA000220),
                                                       icon: Icon(
                                                         Icons.play_circle,
                                                         color:
@@ -444,7 +440,7 @@ class _EliminateDepressionCompSoundsWidgetState
                                                           extra: <String,
                                                               dynamic>{
                                                             kTransitionInfoKey:
-                                                                TransitionInfo(
+                                                                const TransitionInfo(
                                                               hasTransition:
                                                                   true,
                                                               transitionType:
@@ -480,7 +476,7 @@ class _EliminateDepressionCompSoundsWidgetState
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(10.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -507,7 +503,7 @@ class _EliminateDepressionCompSoundsWidgetState
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(10.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -515,7 +511,7 @@ class _EliminateDepressionCompSoundsWidgetState
                     child: Container(
                       width: 100.0,
                       height: 80.0,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Colors.transparent,
                       ),
                       child: Row(
@@ -527,7 +523,7 @@ class _EliminateDepressionCompSoundsWidgetState
                               scrollDirection: Axis.horizontal,
                               children: [
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 10.0, 0.0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
@@ -542,7 +538,7 @@ class _EliminateDepressionCompSoundsWidgetState
                                       context.pushNamed(
                                         'SoundsDetailsBinauralBeats',
                                         extra: <String, dynamic>{
-                                          kTransitionInfoKey: TransitionInfo(
+                                          kTransitionInfoKey: const TransitionInfo(
                                             hasTransition: true,
                                             transitionType:
                                                 PageTransitionType.fade,
@@ -555,7 +551,7 @@ class _EliminateDepressionCompSoundsWidgetState
                                       width: 150.0,
                                       height: 25.0,
                                       decoration: BoxDecoration(
-                                        gradient: LinearGradient(
+                                        gradient: const LinearGradient(
                                           colors: [
                                             Color(0xFFEF39D4),
                                             Color(0xFFD2394E),
@@ -592,7 +588,7 @@ class _EliminateDepressionCompSoundsWidgetState
                                       'containerOnPageLoadAnimation2']!),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 10.0, 0.0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
@@ -607,7 +603,7 @@ class _EliminateDepressionCompSoundsWidgetState
                                       context.pushNamed(
                                         'SoundsDetailsAmbientMusic',
                                         extra: <String, dynamic>{
-                                          kTransitionInfoKey: TransitionInfo(
+                                          kTransitionInfoKey: const TransitionInfo(
                                             hasTransition: true,
                                             transitionType:
                                                 PageTransitionType.fade,
@@ -622,15 +618,15 @@ class _EliminateDepressionCompSoundsWidgetState
                                       decoration: BoxDecoration(
                                         gradient: LinearGradient(
                                           colors: [
-                                            Color(0xFFEF39D4),
+                                            const Color(0xFFEF39D4),
                                             FlutterFlowTheme.of(context)
                                                 .primary,
-                                            Color(0xFF48C8FF)
+                                            const Color(0xFF48C8FF)
                                           ],
-                                          stops: [0.0, 1.0, 1.0],
+                                          stops: const [0.0, 1.0, 1.0],
                                           begin:
-                                              AlignmentDirectional(1.0, -0.77),
-                                          end: AlignmentDirectional(-1.0, 0.77),
+                                              const AlignmentDirectional(1.0, -0.77),
+                                          end: const AlignmentDirectional(-1.0, 0.77),
                                         ),
                                         borderRadius:
                                             BorderRadius.circular(10.0),
@@ -649,7 +645,7 @@ class _EliminateDepressionCompSoundsWidgetState
                                             'SoundsDetailsAmbientMusic',
                                             extra: <String, dynamic>{
                                               kTransitionInfoKey:
-                                                  TransitionInfo(
+                                                  const TransitionInfo(
                                                 hasTransition: true,
                                                 transitionType:
                                                     PageTransitionType.fade,
@@ -685,7 +681,7 @@ class _EliminateDepressionCompSoundsWidgetState
                                       'containerOnPageLoadAnimation3']!),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 10.0, 0.0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
@@ -700,7 +696,7 @@ class _EliminateDepressionCompSoundsWidgetState
                                       context.pushNamed(
                                         'SoundsDetailsNatureSounds',
                                         extra: <String, dynamic>{
-                                          kTransitionInfoKey: TransitionInfo(
+                                          kTransitionInfoKey: const TransitionInfo(
                                             hasTransition: true,
                                             transitionType:
                                                 PageTransitionType.fade,
@@ -713,7 +709,7 @@ class _EliminateDepressionCompSoundsWidgetState
                                       width: 150.0,
                                       height: 25.0,
                                       decoration: BoxDecoration(
-                                        gradient: LinearGradient(
+                                        gradient: const LinearGradient(
                                           colors: [
                                             Color(0xFFEF39D4),
                                             Color(0xFFD2CB39),
@@ -741,7 +737,7 @@ class _EliminateDepressionCompSoundsWidgetState
                                             'SoundsDetailsNatureSounds',
                                             extra: <String, dynamic>{
                                               kTransitionInfoKey:
-                                                  TransitionInfo(
+                                                  const TransitionInfo(
                                                 hasTransition: true,
                                                 transitionType:
                                                     PageTransitionType.fade,
@@ -780,7 +776,7 @@ for Depression */
                                       'containerOnPageLoadAnimation4']!),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 10.0, 0.0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
@@ -795,7 +791,7 @@ for Depression */
                                       context.pushNamed(
                                         'SoundsDetailsFireSounds',
                                         extra: <String, dynamic>{
-                                          kTransitionInfoKey: TransitionInfo(
+                                          kTransitionInfoKey: const TransitionInfo(
                                             hasTransition: true,
                                             transitionType:
                                                 PageTransitionType.fade,
@@ -808,7 +804,7 @@ for Depression */
                                       width: 150.0,
                                       height: 25.0,
                                       decoration: BoxDecoration(
-                                        gradient: LinearGradient(
+                                        gradient: const LinearGradient(
                                           colors: [
                                             Color(0xFFD2CB39),
                                             Color(0xFFEB0D70)
@@ -847,7 +843,7 @@ for Depression */
                                       'containerOnPageLoadAnimation5']!),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 10.0, 0.0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
@@ -872,12 +868,12 @@ for Depression */
                                                 .secondary,
                                             FlutterFlowTheme.of(context)
                                                 .primary,
-                                            Color(0xFFEB0D70)
+                                            const Color(0xFFEB0D70)
                                           ],
-                                          stops: [0.0, 1.0, 1.0],
+                                          stops: const [0.0, 1.0, 1.0],
                                           begin:
-                                              AlignmentDirectional(1.0, -0.77),
-                                          end: AlignmentDirectional(-1.0, 0.77),
+                                              const AlignmentDirectional(1.0, -0.77),
+                                          end: const AlignmentDirectional(-1.0, 0.77),
                                         ),
                                         borderRadius:
                                             BorderRadius.circular(10.0),
@@ -919,7 +915,7 @@ for D... */
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(10.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -946,7 +942,7 @@ for D... */
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(10.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -954,7 +950,7 @@ for D... */
                     child: Container(
                       width: double.infinity,
                       height: 201.0,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Colors.transparent,
                       ),
                       child: Row(
@@ -1000,13 +996,13 @@ for D... */
                                             recentItems[recentItemsIndex];
                                         return Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 10.0, 0.0),
                                           child: Container(
                                             width: 186.0,
                                             height: 137.0,
                                             decoration: BoxDecoration(
-                                              color: Color(0x50090F13),
+                                              color: const Color(0x50090F13),
                                               borderRadius:
                                                   BorderRadius.circular(9.0),
                                             ),
@@ -1016,7 +1012,7 @@ for D... */
                                                   CrossAxisAlignment.center,
                                               children: [
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 1.0, 0.0),
                                                   child: Hero(
@@ -1043,7 +1039,7 @@ for D... */
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsets.all(11.0),
+                                                  padding: const EdgeInsets.all(11.0),
                                                   child: Text(
                                                     getJsonField(
                                                       recentItemsItem,
@@ -1085,7 +1081,7 @@ for D... */
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(15.0),
+              padding: const EdgeInsets.all(15.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -1096,7 +1092,7 @@ for D... */
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Roboto',
-                          color: Color(0xFF5B4090),
+                          color: const Color(0xFF5B4090),
                           fontSize: 26.0,
                           letterSpacing: 0.0,
                         ),
@@ -1110,7 +1106,7 @@ for D... */
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -1118,7 +1114,7 @@ for D... */
                     child: Container(
                       width: double.infinity,
                       height: 480.0,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Colors.transparent,
                       ),
                       child: Column(
@@ -1126,7 +1122,7 @@ for D... */
                         children: [
                           Expanded(
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 8.0, 0.0, 8.0),
                               child: FutureBuilder<ApiCallResponse>(
                                 future: YouTubeDataMeditationAPIFINALCopyCall
@@ -1161,24 +1157,24 @@ for D... */
 
                                       return ListView.separated(
                                         padding:
-                                            EdgeInsets.symmetric(vertical: 5.0),
+                                            const EdgeInsets.symmetric(vertical: 5.0),
                                         shrinkWrap: true,
                                         scrollDirection: Axis.vertical,
                                         itemCount: meditations.length,
                                         separatorBuilder: (_, __) =>
-                                            SizedBox(height: 5.0),
+                                            const SizedBox(height: 5.0),
                                         itemBuilder:
                                             (context, meditationsIndex) {
                                           final meditationsItem =
                                               meditations[meditationsIndex];
                                           return Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     10.0, 0.0, 0.0, 0.0),
                                             child: Container(
                                               width: 187.0,
                                               height: 215.0,
-                                              decoration: BoxDecoration(
+                                              decoration: const BoxDecoration(
                                                 color: Colors.transparent,
                                               ),
                                               child: Column(
@@ -1188,7 +1184,7 @@ for D... */
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 1.0, 0.0),
                                                     child: Hero(
@@ -1216,11 +1212,11 @@ for D... */
                                                   ),
                                                   Align(
                                                     alignment:
-                                                        AlignmentDirectional(
+                                                        const AlignmentDirectional(
                                                             -1.0, 0.0),
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsets.all(15.0),
+                                                          const EdgeInsets.all(15.0),
                                                       child: Text(
                                                         getJsonField(
                                                           meditationsItem,
@@ -1249,11 +1245,11 @@ for D... */
                                                   ),
                                                   Align(
                                                     alignment:
-                                                        AlignmentDirectional(
+                                                        const AlignmentDirectional(
                                                             1.0, -1.0),
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsets.all(11.0),
+                                                          const EdgeInsets.all(11.0),
                                                       child:
                                                           FlutterFlowIconButton(
                                                         borderColor:
@@ -1261,7 +1257,7 @@ for D... */
                                                         borderRadius: 8.0,
                                                         buttonSize: 40.0,
                                                         fillColor:
-                                                            Color(0xFA000220),
+                                                            const Color(0xFA000220),
                                                         icon: Icon(
                                                           Icons.play_circle,
                                                           color: FlutterFlowTheme
@@ -1318,7 +1314,7 @@ for D... */
                                                             extra: <String,
                                                                 dynamic>{
                                                               kTransitionInfoKey:
-                                                                  TransitionInfo(
+                                                                  const TransitionInfo(
                                                                 hasTransition:
                                                                     true,
                                                                 transitionType:

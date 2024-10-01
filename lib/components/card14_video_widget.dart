@@ -1,12 +1,8 @@
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'card14_video_model.dart';
 export 'card14_video_model.dart';
 
@@ -49,8 +45,8 @@ class _Card14VideoWidgetState extends State<Card14VideoWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 800.0.ms,
-            begin: Offset(50.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(50.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -73,13 +69,13 @@ class _Card14VideoWidgetState extends State<Card14VideoWidget>
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 12.0),
+      padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 12.0),
       child: Container(
         width: double.infinity,
         height: 100.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).secondaryBackground,
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
               blurRadius: 4.0,
               color: Color(0x230E151B),
@@ -94,7 +90,7 @@ class _Card14VideoWidgetState extends State<Card14VideoWidget>
         child: Stack(
           children: [
             ClipRRect(
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                 bottomLeft: Radius.circular(12.0),
                 bottomRight: Radius.circular(0.0),
                 topLeft: Radius.circular(12.0),
@@ -108,13 +104,13 @@ class _Card14VideoWidgetState extends State<Card14VideoWidget>
               ),
             ),
             Align(
-              alignment: AlignmentDirectional(-0.9, 0.85),
+              alignment: const AlignmentDirectional(-0.9, 0.85),
               child: Container(
                 width: 32.0,
                 height: 32.0,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).secondaryBackground,
-                  boxShadow: [
+                  boxShadow: const [
                     BoxShadow(
                       blurRadius: 4.0,
                       color: Color(0x230E151B),
@@ -134,7 +130,7 @@ class _Card14VideoWidgetState extends State<Card14VideoWidget>
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(130.0, 0.0, 12.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(130.0, 0.0, 12.0, 0.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -150,7 +146,7 @@ class _Card14VideoWidgetState extends State<Card14VideoWidget>
                         ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
                     child: Text(
                       FFLocalizations.of(context).getText(
                         'lrm9cuzw' /* 4 Min */,
@@ -175,7 +171,7 @@ class _Card14VideoWidgetState extends State<Card14VideoWidget>
                       ),
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                         child: Text(
                           FFLocalizations.of(context).getText(
                             'vwi55wnw' /* George Switzer */,

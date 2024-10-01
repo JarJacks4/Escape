@@ -2,12 +2,8 @@ import '/components/primary_button/primary_button_widget.dart';
 import '/flutter_flow/flutter_flow_swipeable_stack.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_card_swiper/flutter_card_swiper.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
-import 'package:provider/provider.dart';
 import 'user_goals_swipe_stack_model.dart';
 export 'user_goals_swipe_stack_model.dart';
 
@@ -50,13 +46,13 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
         body: SafeArea(
           top: true,
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(30.0, 0.0, 30.0, 0.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(30.0, 0.0, 30.0, 0.0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -75,7 +71,7 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
                             ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             24.0, 15.0, 24.0, 0.0),
                         child: Text(
                           FFLocalizations.of(context).getText(
@@ -85,7 +81,7 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
                           style:
                               FlutterFlowTheme.of(context).bodyLarge.override(
                                     fontFamily: 'Roboto',
-                                    color: Color(0xFF898F98),
+                                    color: const Color(0xFF898F98),
                                     fontSize: 18.0,
                                     letterSpacing: 0.0,
                                     lineHeight: 1.5,
@@ -98,11 +94,11 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
                 Expanded(
                   child: Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 30.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 30.0),
                     child: Container(
-                      decoration: BoxDecoration(),
+                      decoration: const BoxDecoration(),
                       child: Align(
-                        alignment: AlignmentDirectional(0.0, 0.0),
+                        alignment: const AlignmentDirectional(0.0, 0.0),
                         child: FlutterFlowSwipeableStack(
                           onSwipeFn: (index) {},
                           onLeftSwipe: (index) {},
@@ -114,7 +110,7 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
                             context.goNamed(
                               'registrationSuccess',
                               extra: <String, dynamic>{
-                                kTransitionInfoKey: TransitionInfo(
+                                kTransitionInfoKey: const TransitionInfo(
                                   hasTransition: true,
                                   transitionType: PageTransitionType.fade,
                                   duration: Duration(milliseconds: 400),
@@ -127,9 +123,9 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
                           itemBuilder: (context, index) {
                             return [
                               () => Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    alignment: const AlignmentDirectional(0.0, 0.0),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 16.0),
                                       child: Card(
                                         clipBehavior:
@@ -147,17 +143,17 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
                                               colors: [
                                                 FlutterFlowTheme.of(context)
                                                     .primaryBackground,
-                                                Color(0xFFFFFF00)
+                                                const Color(0xFFFFFF00)
                                               ],
-                                              stops: [0.2, 1.0],
-                                              begin: AlignmentDirectional(
+                                              stops: const [0.2, 1.0],
+                                              begin: const AlignmentDirectional(
                                                   -1.0, 0.85),
-                                              end: AlignmentDirectional(
+                                              end: const AlignmentDirectional(
                                                   1.0, -0.85),
                                             ),
                                           ),
                                           child: Padding(
-                                            padding: EdgeInsets.all(24.0),
+                                            padding: const EdgeInsets.all(24.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -167,11 +163,11 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
                                               children: [
                                                 Align(
                                                   alignment:
-                                                      AlignmentDirectional(
+                                                      const AlignmentDirectional(
                                                           0.0, 0.0),
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 8.0,
                                                                 0.0, 0.0),
                                                     child: Lottie.asset(
@@ -223,7 +219,7 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   24.0,
                                                                   0.0,
@@ -255,7 +251,7 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
                                                                   Clip.none,
                                                               children: [
                                                                 Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           8.0,
@@ -301,7 +297,7 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
                                     ),
                                   ),
                               () => Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    alignment: const AlignmentDirectional(0.0, 0.0),
                                     child: Card(
                                       clipBehavior: Clip.antiAliasWithSaveLayer,
                                       elevation: 4.0,
@@ -315,19 +311,19 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
                                         decoration: BoxDecoration(
                                           gradient: LinearGradient(
                                             colors: [
-                                              Color(0xFFDF4ADF),
+                                              const Color(0xFFDF4ADF),
                                               FlutterFlowTheme.of(context)
                                                   .secondary
                                             ],
-                                            stops: [0.0, 1.0],
-                                            begin: AlignmentDirectional(
+                                            stops: const [0.0, 1.0],
+                                            begin: const AlignmentDirectional(
                                                 -1.0, 0.85),
-                                            end: AlignmentDirectional(
+                                            end: const AlignmentDirectional(
                                                 1.0, -0.85),
                                           ),
                                         ),
                                         child: Padding(
-                                          padding: EdgeInsets.all(24.0),
+                                          padding: const EdgeInsets.all(24.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -349,7 +345,7 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(24.0, 0.0,
                                                                 24.0, 0.0),
                                                     child: Row(
@@ -382,7 +378,7 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
                                                             children: [
                                                               Align(
                                                                 alignment:
-                                                                    AlignmentDirectional(
+                                                                    const AlignmentDirectional(
                                                                         0.0,
                                                                         -1.0),
                                                                 child: Lottie
@@ -404,7 +400,7 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
                                                 ],
                                               ),
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 8.0),
                                                 child: Text(
@@ -448,7 +444,7 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
                                     ),
                                   ),
                               () => Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    alignment: const AlignmentDirectional(0.0, 0.0),
                                     child: Card(
                                       clipBehavior: Clip.antiAliasWithSaveLayer,
                                       elevation: 4.0,
@@ -459,7 +455,7 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
                                       child: Container(
                                         width: 350.0,
                                         height: 500.0,
-                                        decoration: BoxDecoration(
+                                        decoration: const BoxDecoration(
                                           gradient: LinearGradient(
                                             colors: [
                                               Colors.red,
@@ -473,14 +469,14 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
                                           ),
                                         ),
                                         child: Padding(
-                                          padding: EdgeInsets.all(24.0),
+                                          padding: const EdgeInsets.all(24.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
                                                 MainAxisAlignment.center,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 8.0, 0.0, 0.0),
                                                 child: Lottie.asset(
@@ -496,7 +492,7 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 8.0),
                                                     child: Text(
@@ -532,7 +528,7 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(24.0, 0.0,
                                                                 24.0, 0.0),
                                                     child: Row(
@@ -562,7 +558,7 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             8.0,
@@ -607,7 +603,7 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
                                     ),
                                   ),
                               () => Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    alignment: const AlignmentDirectional(0.0, 0.0),
                                     child: Card(
                                       clipBehavior: Clip.antiAliasWithSaveLayer,
                                       elevation: 4.0,
@@ -626,22 +622,22 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
                                               FlutterFlowTheme.of(context)
                                                   .secondary
                                             ],
-                                            stops: [0.0, 1.0],
-                                            begin: AlignmentDirectional(
+                                            stops: const [0.0, 1.0],
+                                            begin: const AlignmentDirectional(
                                                 -1.0, 0.85),
-                                            end: AlignmentDirectional(
+                                            end: const AlignmentDirectional(
                                                 1.0, -0.85),
                                           ),
                                         ),
                                         child: Padding(
-                                          padding: EdgeInsets.all(24.0),
+                                          padding: const EdgeInsets.all(24.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
                                                 MainAxisAlignment.center,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 8.0, 0.0, 0.0),
                                                 child: Lottie.asset(
@@ -685,7 +681,7 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(24.0, 0.0,
                                                                 24.0, 0.0),
                                                     child: Row(
@@ -715,7 +711,7 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             3.0,
@@ -760,7 +756,7 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
                                     ),
                                   ),
                               () => Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    alignment: const AlignmentDirectional(0.0, 0.0),
                                     child: Card(
                                       clipBehavior: Clip.antiAliasWithSaveLayer,
                                       elevation: 4.0,
@@ -774,27 +770,27 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
                                         decoration: BoxDecoration(
                                           gradient: LinearGradient(
                                             colors: [
-                                              Color(0xFF444F8C),
+                                              const Color(0xFF444F8C),
                                               FlutterFlowTheme.of(context)
                                                   .primaryBackground,
-                                              Color(0xFF405990)
+                                              const Color(0xFF405990)
                                             ],
-                                            stops: [0.0, 0.4, 1.0],
-                                            begin: AlignmentDirectional(
+                                            stops: const [0.0, 0.4, 1.0],
+                                            begin: const AlignmentDirectional(
                                                 -1.0, 0.85),
-                                            end: AlignmentDirectional(
+                                            end: const AlignmentDirectional(
                                                 1.0, -0.85),
                                           ),
                                         ),
                                         child: Padding(
-                                          padding: EdgeInsets.all(24.0),
+                                          padding: const EdgeInsets.all(24.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
                                                 MainAxisAlignment.center,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 8.0, 0.0, 0.0),
                                                 child: Lottie.asset(
@@ -810,7 +806,7 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 1.0),
                                                     child: Text(
@@ -848,7 +844,7 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(24.0, 0.0,
                                                                 24.0, 0.0),
                                                     child: Row(
@@ -878,7 +874,7 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             8.0,
@@ -935,13 +931,13 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 30.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 30.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
@@ -955,7 +951,7 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
                             context.goNamed(
                               'registrationSuccess',
                               extra: <String, dynamic>{
-                                kTransitionInfoKey: TransitionInfo(
+                                kTransitionInfoKey: const TransitionInfo(
                                   hasTransition: true,
                                   transitionType: PageTransitionType.fade,
                                   duration: Duration(milliseconds: 400),
@@ -966,7 +962,7 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
                           child: wrapWithModel(
                             model: _model.primaryButtonModel,
                             updateCallback: () => safeSetState(() {}),
-                            child: PrimaryButtonWidget(
+                            child: const PrimaryButtonWidget(
                               buttonText: 'Confirm',
                             ),
                           ),

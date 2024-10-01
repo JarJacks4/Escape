@@ -2,18 +2,12 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_button_tabbar.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:math';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:percent_indicator/percent_indicator.dart';
-import 'package:provider/provider.dart';
 import 'meditation_teaching_pages_model.dart';
 export 'meditation_teaching_pages_model.dart';
 
@@ -55,8 +49,8 @@ class _MeditationTeachingPagesWidgetState
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 800.0.ms,
-            begin: Offset(0, 0),
-            end: Offset(0, 0.349),
+            begin: const Offset(0, 0),
+            end: const Offset(0, 0.349),
           ),
         ],
       ),
@@ -68,8 +62,8 @@ class _MeditationTeachingPagesWidgetState
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 1190.0.ms,
-            begin: Offset(0, -0.349),
-            end: Offset(0, 0.349),
+            begin: const Offset(0, -0.349),
+            end: const Offset(0, 0.349),
           ),
         ],
       ),
@@ -82,7 +76,7 @@ class _MeditationTeachingPagesWidgetState
             delay: 0.0.ms,
             duration: 1000.0.ms,
             hz: 1,
-            offset: Offset(0.0, 0.0),
+            offset: const Offset(0.0, 0.0),
             rotation: 0.087,
           ),
         ],
@@ -96,7 +90,7 @@ class _MeditationTeachingPagesWidgetState
             delay: 0.0.ms,
             duration: 1000.0.ms,
             hz: 1,
-            offset: Offset(0.0, 0.0),
+            offset: const Offset(0.0, 0.0),
             rotation: 0.087,
           ),
         ],
@@ -110,7 +104,7 @@ class _MeditationTeachingPagesWidgetState
             delay: 0.0.ms,
             duration: 1000.0.ms,
             hz: 1,
-            offset: Offset(0.0, 0.0),
+            offset: const Offset(0.0, 0.0),
             rotation: 0.087,
           ),
         ],
@@ -142,7 +136,7 @@ class _MeditationTeachingPagesWidgetState
           mainAxisSize: MainAxisSize.max,
           children: [
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(16.0, 44.0, 16.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 44.0, 16.0, 0.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -161,7 +155,7 @@ class _MeditationTeachingPagesWidgetState
                           logFirebaseEvent('Icon_navigate_back');
                           context.safePop();
                         },
-                        child: Icon(
+                        child: const Icon(
                           Icons.arrow_back,
                           color: Colors.black,
                           size: 24.0,
@@ -174,12 +168,12 @@ class _MeditationTeachingPagesWidgetState
             ),
             Expanded(
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                 child: Container(
                   width: MediaQuery.sizeOf(context).width * 1.0,
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).primaryBackground,
-                    boxShadow: [
+                    boxShadow: const [
                       BoxShadow(
                         blurRadius: 24.0,
                         color: Color(0x1A959DA5),
@@ -189,7 +183,7 @@ class _MeditationTeachingPagesWidgetState
                         ),
                       )
                     ],
-                    borderRadius: BorderRadius.only(
+                    borderRadius: const BorderRadius.only(
                       bottomLeft: Radius.circular(0.0),
                       bottomRight: Radius.circular(0.0),
                       topLeft: Radius.circular(40.0),
@@ -201,7 +195,7 @@ class _MeditationTeachingPagesWidgetState
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             16.0, 30.0, 16.0, 0.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
@@ -216,7 +210,7 @@ class _MeditationTeachingPagesWidgetState
                             ).animateOnPageLoad(
                                 animationsMap['imageOnPageLoadAnimation']!),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 16.0, 0.0, 0.0),
                               child: Text(
                                 FFLocalizations.of(context).getText(
@@ -233,7 +227,7 @@ class _MeditationTeachingPagesWidgetState
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 6.0, 0.0, 0.0),
                               child: RichText(
                                 textScaler: MediaQuery.of(context).textScaler,
@@ -243,13 +237,13 @@ class _MeditationTeachingPagesWidgetState
                                       text: FFLocalizations.of(context).getText(
                                         '4ccrn3qo' /* 07:00 am • */,
                                       ),
-                                      style: TextStyle(),
+                                      style: const TextStyle(),
                                     ),
                                     TextSpan(
                                       text: FFLocalizations.of(context).getText(
                                         '5zfvop6k' /*  20 min */,
                                       ),
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         fontWeight: FontWeight.bold,
                                       ),
                                     )
@@ -264,7 +258,7 @@ class _MeditationTeachingPagesWidgetState
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 16.0, 0.0, 0.0),
                               child: Container(
                                 width: 160.0,
@@ -279,7 +273,7 @@ class _MeditationTeachingPagesWidgetState
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 10.0, 0.0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
@@ -301,9 +295,9 @@ class _MeditationTeachingPagesWidgetState
                                       lineHeight: 10.0,
                                       animation: true,
                                       animateFromLastPercent: true,
-                                      progressColor: Color(0xFFD5D7FF),
-                                      backgroundColor: Color(0xFFEFEFF4),
-                                      barRadius: Radius.circular(50.0),
+                                      progressColor: const Color(0xFFD5D7FF),
+                                      backgroundColor: const Color(0xFFEFEFF4),
+                                      barRadius: const Radius.circular(50.0),
                                       padding: EdgeInsets.zero,
                                     ),
                                   ],
@@ -311,7 +305,7 @@ class _MeditationTeachingPagesWidgetState
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 30.0, 0.0, 30.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
@@ -327,7 +321,7 @@ class _MeditationTeachingPagesWidgetState
                                               .getText(
                                             'smrta1go' /* Regular meditation practice ca... */,
                                           ),
-                                          style: TextStyle(),
+                                          style: const TextStyle(),
                                         ),
                                         TextSpan(
                                           text: FFLocalizations.of(context)
@@ -367,11 +361,11 @@ class _MeditationTeachingPagesWidgetState
                             Container(
                               width: MediaQuery.sizeOf(context).width * 1.0,
                               height: MediaQuery.sizeOf(context).height * 0.35,
-                              decoration: BoxDecoration(),
+                              decoration: const BoxDecoration(),
                               child: Column(
                                 children: [
                                   Align(
-                                    alignment: Alignment(0.0, 0),
+                                    alignment: const Alignment(0.0, 0),
                                     child: FlutterFlowButtonTabBar(
                                       useToggleButtonStyle: false,
                                       labelStyle: FlutterFlowTheme.of(context)
@@ -380,20 +374,20 @@ class _MeditationTeachingPagesWidgetState
                                             fontFamily: 'Roboto',
                                             letterSpacing: 0.0,
                                           ),
-                                      unselectedLabelStyle: TextStyle(),
+                                      unselectedLabelStyle: const TextStyle(),
                                       labelColor: Colors.white,
-                                      unselectedLabelColor: Color(0xFF807C8A),
+                                      unselectedLabelColor: const Color(0xFF807C8A),
                                       backgroundColor:
                                           FlutterFlowTheme.of(context).primary,
                                       unselectedBackgroundColor:
-                                          Color(0xFFF8F8F8),
+                                          const Color(0xFFF8F8F8),
                                       borderWidth: 0.0,
                                       borderRadius: 50.0,
                                       elevation: 0.0,
                                       buttonMargin:
-                                          EdgeInsetsDirectional.fromSTEB(
+                                          const EdgeInsetsDirectional.fromSTEB(
                                               4.0, 0.0, 4.0, 0.0),
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           40.0, 0.0, 40.0, 0.0),
                                       tabs: [
                                         Tab(
@@ -423,7 +417,7 @@ class _MeditationTeachingPagesWidgetState
                                       children: [
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 25.0, 0.0, 50.0),
                                           child: SingleChildScrollView(
                                             scrollDirection: Axis.horizontal,
@@ -435,21 +429,21 @@ class _MeditationTeachingPagesWidgetState
                                                   CrossAxisAlignment.center,
                                               children: [
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           75.0, 0.0, 16.0, 0.0),
                                                   child: Container(
                                                     width: 171.0,
                                                     height: 214.0,
                                                     decoration: BoxDecoration(
-                                                      color: Color(0xFFD5D7FF),
+                                                      color: const Color(0xFFD5D7FF),
                                                       image: DecorationImage(
                                                         fit: BoxFit.cover,
                                                         image: Image.asset(
                                                           'assets/images/Mask_group.png',
                                                         ).image,
                                                       ),
-                                                      boxShadow: [
+                                                      boxShadow: const [
                                                         BoxShadow(
                                                           blurRadius: 24.0,
                                                           color:
@@ -467,7 +461,7 @@ class _MeditationTeachingPagesWidgetState
                                                     ),
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   16.0,
@@ -486,7 +480,7 @@ class _MeditationTeachingPagesWidgetState
                                                                     .max,
                                                             children: [
                                                               Padding(
-                                                                padding: EdgeInsetsDirectional
+                                                                padding: const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         16.0,
                                                                         0.0,
@@ -520,7 +514,7 @@ meditation */
                                                           Expanded(
                                                             child: Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -577,14 +571,14 @@ meditation */
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 16.0, 0.0),
                                                   child: Container(
                                                     width: 171.0,
                                                     height: 214.0,
                                                     decoration: BoxDecoration(
-                                                      color: Color(0xFFE0ECE6),
+                                                      color: const Color(0xFFE0ECE6),
                                                       image: DecorationImage(
                                                         fit: BoxFit.cover,
                                                         image: Image.asset(
@@ -597,7 +591,7 @@ meditation */
                                                     ),
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   16.0,
@@ -612,7 +606,7 @@ meditation */
                                                         children: [
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         16.0,
                                                                         0.0,
@@ -696,14 +690,14 @@ yourself */
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 95.0, 0.0),
                                                   child: Container(
                                                     width: 171.0,
                                                     height: 214.0,
                                                     decoration: BoxDecoration(
-                                                      color: Color(0xFFFFCCB4),
+                                                      color: const Color(0xFFFFCCB4),
                                                       image: DecorationImage(
                                                         fit: BoxFit.cover,
                                                         image: Image.asset(
@@ -716,7 +710,7 @@ yourself */
                                                     ),
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   16.0,
@@ -731,7 +725,7 @@ yourself */
                                                         children: [
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         16.0,
                                                                         0.0,
@@ -770,7 +764,7 @@ Stress */
                                                           Expanded(
                                                             child: Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -829,15 +823,15 @@ Stress */
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   10.0, 0.0, 10.0, 0.0),
-                                          child: Container(
+                                          child: SizedBox(
                                             width: double.infinity,
                                             height: 500.0,
                                             child: Stack(
                                               children: [
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 0.0, 50.0),
                                                   child: PageView(
@@ -850,7 +844,7 @@ Stress */
                                                     children: [
                                                       Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     25.0,
@@ -861,7 +855,7 @@ Stress */
                                                           height: 214.0,
                                                           decoration:
                                                               BoxDecoration(
-                                                            color: Color(
+                                                            color: const Color(
                                                                 0xFFFFEAD5),
                                                             image:
                                                                 DecorationImage(
@@ -871,7 +865,7 @@ Stress */
                                                                 'assets/images/Mask_group.png',
                                                               ).image,
                                                             ),
-                                                            boxShadow: [
+                                                            boxShadow: const [
                                                               BoxShadow(
                                                                 blurRadius:
                                                                     24.0,
@@ -892,7 +886,7 @@ Stress */
                                                           ),
                                                           child: Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         16.0,
@@ -915,7 +909,7 @@ Stress */
                                                                           .spaceEvenly,
                                                                   children: [
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                                                           16.0,
                                                                           0.0,
                                                                           16.0,
@@ -959,7 +953,7 @@ Meditation */
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     10.0,
                                                                     25.0,
@@ -970,7 +964,7 @@ Meditation */
                                                           height: 214.0,
                                                           decoration:
                                                               BoxDecoration(
-                                                            color: Color(
+                                                            color: const Color(
                                                                 0xFFD5E5FF),
                                                             image:
                                                                 DecorationImage(
@@ -980,7 +974,7 @@ Meditation */
                                                                 'assets/images/Mask_group.png',
                                                               ).image,
                                                             ),
-                                                            boxShadow: [
+                                                            boxShadow: const [
                                                               BoxShadow(
                                                                 blurRadius:
                                                                     24.0,
@@ -1001,7 +995,7 @@ Meditation */
                                                           ),
                                                           child: Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         16.0,
@@ -1024,7 +1018,7 @@ Meditation */
                                                                           .spaceEvenly,
                                                                   children: [
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                                                           16.0,
                                                                           0.0,
                                                                           16.0,
@@ -1068,7 +1062,7 @@ Meditation */
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     10.0,
                                                                     25.0,
@@ -1079,7 +1073,7 @@ Meditation */
                                                           height: 214.0,
                                                           decoration:
                                                               BoxDecoration(
-                                                            color: Color(
+                                                            color: const Color(
                                                                 0xFFD5E3FF),
                                                             image:
                                                                 DecorationImage(
@@ -1089,7 +1083,7 @@ Meditation */
                                                                 'assets/images/Mask_group.png',
                                                               ).image,
                                                             ),
-                                                            boxShadow: [
+                                                            boxShadow: const [
                                                               BoxShadow(
                                                                 blurRadius:
                                                                     24.0,
@@ -1110,7 +1104,7 @@ Meditation */
                                                           ),
                                                           child: Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         16.0,
@@ -1133,7 +1127,7 @@ Meditation */
                                                                           .spaceEvenly,
                                                                   children: [
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                                                           16.0,
                                                                           0.0,
                                                                           16.0,
@@ -1180,11 +1174,11 @@ Time */
                                                 ),
                                                 Align(
                                                   alignment:
-                                                      AlignmentDirectional(
+                                                      const AlignmentDirectional(
                                                           0.0, 1.0),
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 10.0),
                                                     child: smooth_page_indicator
@@ -1201,7 +1195,7 @@ Time */
                                                             .pageViewController!
                                                             .animateToPage(
                                                           i,
-                                                          duration: Duration(
+                                                          duration: const Duration(
                                                               milliseconds:
                                                                   500),
                                                           curve: Curves.ease,

@@ -1,22 +1,8 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/components/edit_profile_widget.dart';
-import '/components/subscribe_now_promo_bottom_sheet_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
-import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:math';
 import 'profile_page_widget.dart' show ProfilePageWidget;
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
-import 'package:provider/provider.dart';
-import 'package:simple_gradient_text/simple_gradient_text.dart';
-import 'package:webviewx_plus/webviewx_plus.dart';
 
 class ProfilePageModel extends FlutterFlowModel<ProfilePageWidget> {
   ///  State fields for stateful widgets in this page.
@@ -47,13 +33,19 @@ class ProfilePageModel extends FlutterFlowModel<ProfilePageWidget> {
 
   @override
   void dispose() {
-    listViewStreamSubscriptions1.forEach((s) => s?.cancel());
+    for (var s in listViewStreamSubscriptions1) {
+      s?.cancel();
+    }
     listViewPagingController1?.dispose();
 
-    listViewStreamSubscriptions2.forEach((s) => s?.cancel());
+    for (var s in listViewStreamSubscriptions2) {
+      s?.cancel();
+    }
     listViewPagingController2?.dispose();
 
-    listViewStreamSubscriptions3.forEach((s) => s?.cancel());
+    for (var s in listViewStreamSubscriptions3) {
+      s?.cancel();
+    }
     listViewPagingController3?.dispose();
   }
 

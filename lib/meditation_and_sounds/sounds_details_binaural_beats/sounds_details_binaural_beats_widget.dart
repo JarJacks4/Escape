@@ -3,14 +3,9 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:math';
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'sounds_details_binaural_beats_model.dart';
 export 'sounds_details_binaural_beats_model.dart';
 
@@ -53,8 +48,8 @@ class _SoundsDetailsBinauralBeatsWidgetState
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -72,8 +67,8 @@ class _SoundsDetailsBinauralBeatsWidgetState
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -126,19 +121,19 @@ class _SoundsDetailsBinauralBeatsWidgetState
               ],
             ),
             Align(
-              alignment: AlignmentDirectional(0.0, 0.0),
+              alignment: const AlignmentDirectional(0.0, 0.0),
               child: Container(
                 width: double.infinity,
                 height: double.infinity,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [
-                      Color(0xC8FCFFF9),
+                      const Color(0xC8FCFFF9),
                       FlutterFlowTheme.of(context).primaryBackground
                     ],
-                    stops: [0.95, 1.0],
-                    begin: AlignmentDirectional(0.0, -1.0),
-                    end: AlignmentDirectional(0, 1.0),
+                    stops: const [0.95, 1.0],
+                    begin: const AlignmentDirectional(0.0, -1.0),
+                    end: const AlignmentDirectional(0, 1.0),
                   ),
                 ),
                 child: ClipRRect(
@@ -156,7 +151,7 @@ class _SoundsDetailsBinauralBeatsWidgetState
                           child: Material(
                             color: Colors.transparent,
                             elevation: 8.0,
-                            shape: RoundedRectangleBorder(
+                            shape: const RoundedRectangleBorder(
                               borderRadius: BorderRadius.only(
                                 bottomLeft: Radius.circular(30.0),
                                 bottomRight: Radius.circular(30.0),
@@ -170,15 +165,15 @@ class _SoundsDetailsBinauralBeatsWidgetState
                               decoration: BoxDecoration(
                                 gradient: LinearGradient(
                                   colors: [
-                                    Color(0xFFD2394E),
+                                    const Color(0xFFD2394E),
                                     FlutterFlowTheme.of(context).primary,
-                                    Color(0xFFEF39D4)
+                                    const Color(0xFFEF39D4)
                                   ],
-                                  stops: [0.0, 0.0, 0.5],
-                                  begin: AlignmentDirectional(1.0, -0.77),
-                                  end: AlignmentDirectional(-1.0, 0.77),
+                                  stops: const [0.0, 0.0, 0.5],
+                                  begin: const AlignmentDirectional(1.0, -0.77),
+                                  end: const AlignmentDirectional(-1.0, 0.77),
                                 ),
-                                borderRadius: BorderRadius.only(
+                                borderRadius: const BorderRadius.only(
                                   bottomLeft: Radius.circular(30.0),
                                   bottomRight: Radius.circular(30.0),
                                   topLeft: Radius.circular(0.0),
@@ -188,7 +183,7 @@ class _SoundsDetailsBinauralBeatsWidgetState
                               child: Stack(
                                 children: [
                                   Align(
-                                    alignment: AlignmentDirectional(0.92, 0.73),
+                                    alignment: const AlignmentDirectional(0.92, 0.73),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
                                         '5jurbgam' /* Binaural beats */,
@@ -207,9 +202,9 @@ class _SoundsDetailsBinauralBeatsWidgetState
                                     ),
                                   ),
                                   Align(
-                                    alignment: AlignmentDirectional(0.0, -1.53),
+                                    alignment: const AlignmentDirectional(0.0, -1.53),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           10.0, 55.0, 10.0, 10.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -251,7 +246,7 @@ class _SoundsDetailsBinauralBeatsWidgetState
                                                 'NewHome',
                                                 extra: <String, dynamic>{
                                                   kTransitionInfoKey:
-                                                      TransitionInfo(
+                                                      const TransitionInfo(
                                                     hasTransition: true,
                                                     transitionType:
                                                         PageTransitionType.fade,
@@ -324,7 +319,7 @@ class _SoundsDetailsBinauralBeatsWidgetState
                                     final binauralBeatsItem =
                                         binauralBeats[binauralBeatsIndex];
                                     return Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           5.0, 12.0, 5.0, 0.0),
                                       child: Container(
                                         width:
@@ -332,7 +327,7 @@ class _SoundsDetailsBinauralBeatsWidgetState
                                                 1.099,
                                         decoration: BoxDecoration(
                                           color: Colors.white,
-                                          boxShadow: [
+                                          boxShadow: const [
                                             BoxShadow(
                                               blurRadius: 3.0,
                                               color: Color(0x25000000),
@@ -357,7 +352,7 @@ class _SoundsDetailsBinauralBeatsWidgetState
                                               ).toString(),
                                               transitionOnUserGestures: true,
                                               child: ClipRRect(
-                                                borderRadius: BorderRadius.only(
+                                                borderRadius: const BorderRadius.only(
                                                   bottomLeft:
                                                       Radius.circular(5.0),
                                                   bottomRight:
@@ -378,13 +373,13 @@ class _SoundsDetailsBinauralBeatsWidgetState
                                               ),
                                             ),
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(8.0, 8.0, 4.0, 8.0),
                                               child: Container(
                                                 width: 4.0,
                                                 height: 90.0,
                                                 decoration: BoxDecoration(
-                                                  color: Color(0xFF4B39EF),
+                                                  color: const Color(0xFF4B39EF),
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           4.0),
@@ -392,7 +387,7 @@ class _SoundsDetailsBinauralBeatsWidgetState
                                               ),
                                             ),
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       12.0, 12.0, 16.0, 12.0),
                                               child: Column(
@@ -414,7 +409,7 @@ class _SoundsDetailsBinauralBeatsWidgetState
                                                         .override(
                                                           fontFamily: 'Outfit',
                                                           color:
-                                                              Color(0xFF101213),
+                                                              const Color(0xFF101213),
                                                           fontSize: 16.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -423,7 +418,7 @@ class _SoundsDetailsBinauralBeatsWidgetState
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 4.0,
                                                                 0.0, 0.0),
                                                     child: Text(
@@ -440,7 +435,7 @@ class _SoundsDetailsBinauralBeatsWidgetState
                                                           .override(
                                                             fontFamily:
                                                                 'Outfit',
-                                                            color: Color(
+                                                            color: const Color(
                                                                 0xFF57636C),
                                                             fontSize: 14.0,
                                                             letterSpacing: 0.0,
@@ -452,7 +447,7 @@ class _SoundsDetailsBinauralBeatsWidgetState
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 4.0,
                                                                 0.0, 0.0),
                                                     child: InkWell(
@@ -509,7 +504,7 @@ class _SoundsDetailsBinauralBeatsWidgetState
                                                           extra: <String,
                                                               dynamic>{
                                                             kTransitionInfoKey:
-                                                                TransitionInfo(
+                                                                const TransitionInfo(
                                                               hasTransition:
                                                                   true,
                                                               transitionType:
@@ -534,7 +529,7 @@ class _SoundsDetailsBinauralBeatsWidgetState
                                                             .override(
                                                               fontFamily:
                                                                   'Outfit',
-                                                              color: Color(
+                                                              color: const Color(
                                                                   0xFF4B39EF),
                                                               fontSize: 14.0,
                                                               letterSpacing:

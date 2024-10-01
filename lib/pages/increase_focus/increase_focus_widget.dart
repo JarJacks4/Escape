@@ -3,13 +3,8 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'increase_focus_model.dart';
 export 'increase_focus_model.dart';
 
@@ -50,8 +45,8 @@ class _IncreaseFocusWidgetState extends State<IncreaseFocusWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -69,8 +64,8 @@ class _IncreaseFocusWidgetState extends State<IncreaseFocusWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -88,8 +83,8 @@ class _IncreaseFocusWidgetState extends State<IncreaseFocusWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -130,7 +125,7 @@ class _IncreaseFocusWidgetState extends State<IncreaseFocusWidget>
                 child: Container(
                   width: 100.0,
                   height: 12.0,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     gradient: LinearGradient(
                       colors: [Color(0xFCFFFFFF), Colors.white],
                       stops: [0.5, 0.7],
@@ -145,7 +140,7 @@ class _IncreaseFocusWidgetState extends State<IncreaseFocusWidget>
                       children: [
                         Flexible(
                           flex: 1,
-                          child: Container(
+                          child: SizedBox(
                             width: double.infinity,
                             child: Stack(
                               children: [
@@ -157,12 +152,12 @@ class _IncreaseFocusWidgetState extends State<IncreaseFocusWidget>
                                     width: double.infinity,
                                     height: 250.0,
                                     fit: BoxFit.cover,
-                                    alignment: Alignment(0.0, 0.0),
+                                    alignment: const Alignment(0.0, 0.0),
                                   ),
                                 ),
                                 Container(
                                   height: 200.0,
-                                  decoration: BoxDecoration(),
+                                  decoration: const BoxDecoration(),
                                 ),
                                 Container(
                                   width: 430.0,
@@ -170,18 +165,18 @@ class _IncreaseFocusWidgetState extends State<IncreaseFocusWidget>
                                   decoration: BoxDecoration(
                                     gradient: LinearGradient(
                                       colors: [
-                                        Color(0x83FFFFFF),
+                                        const Color(0x83FFFFFF),
                                         FlutterFlowTheme.of(context)
                                             .primaryBackground
                                       ],
-                                      stops: [0.2, 1.0],
-                                      begin: AlignmentDirectional(0.0, -1.0),
-                                      end: AlignmentDirectional(0, 1.0),
+                                      stops: const [0.2, 1.0],
+                                      begin: const AlignmentDirectional(0.0, -1.0),
+                                      end: const AlignmentDirectional(0, 1.0),
                                     ),
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       15.0, 40.0, 15.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -193,7 +188,7 @@ class _IncreaseFocusWidgetState extends State<IncreaseFocusWidget>
                                         borderRadius: 30.0,
                                         borderWidth: 1.0,
                                         buttonSize: 50.0,
-                                        fillColor: Color(0xB5E7C8E7),
+                                        fillColor: const Color(0xB5E7C8E7),
                                         icon: Icon(
                                           Icons.chevron_left,
                                           color: FlutterFlowTheme.of(context)
@@ -222,7 +217,7 @@ class _IncreaseFocusWidgetState extends State<IncreaseFocusWidget>
                                             'NewHome',
                                             extra: <String, dynamic>{
                                               kTransitionInfoKey:
-                                                  TransitionInfo(
+                                                  const TransitionInfo(
                                                 hasTransition: true,
                                                 transitionType:
                                                     PageTransitionType.fade,
@@ -252,9 +247,9 @@ class _IncreaseFocusWidgetState extends State<IncreaseFocusWidget>
                               animationsMap['stackOnPageLoadAnimation']!),
                         ),
                         Align(
-                          alignment: AlignmentDirectional(0.0, 0.0),
+                          alignment: const AlignmentDirectional(0.0, 0.0),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 5.0, 0.0, 5.0, 0.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
@@ -262,21 +257,21 @@ class _IncreaseFocusWidgetState extends State<IncreaseFocusWidget>
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 8.0),
                                     child: Container(
                                       width: double.infinity,
                                       height: 179.0,
-                                      decoration: BoxDecoration(
+                                      decoration: const BoxDecoration(
                                         color: Color(0x00FFFFFF),
                                       ),
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
-                                          padding: EdgeInsets.all(8.0),
+                                          padding: const EdgeInsets.all(8.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -294,7 +289,7 @@ class _IncreaseFocusWidgetState extends State<IncreaseFocusWidget>
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   40.0,
@@ -354,7 +349,7 @@ class _IncreaseFocusWidgetState extends State<IncreaseFocusWidget>
               child: wrapWithModel(
                 model: _model.usingVibrationsoundsCompModel,
                 updateCallback: () => safeSetState(() {}),
-                child: Hero(
+                child: const Hero(
                   tag: 'comp',
                   transitionOnUserGestures: true,
                   child: Material(

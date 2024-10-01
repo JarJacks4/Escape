@@ -4,13 +4,9 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_video_player.dart';
-import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'video_player_comp_model.dart';
 export 'video_player_comp_model.dart';
@@ -60,8 +56,8 @@ class _VideoPlayerCompWidgetState extends State<VideoPlayerCompWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -105,29 +101,29 @@ class _VideoPlayerCompWidgetState extends State<VideoPlayerCompWidget>
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   colors: [
-                    Color(0xD4FFFFFF),
+                    const Color(0xD4FFFFFF),
                     FlutterFlowTheme.of(context).primaryBackground
                   ],
-                  stops: [0.5, 0.7],
-                  begin: AlignmentDirectional(0.0, -1.0),
-                  end: AlignmentDirectional(0, 1.0),
+                  stops: const [0.5, 0.7],
+                  begin: const AlignmentDirectional(0.0, -1.0),
+                  end: const AlignmentDirectional(0, 1.0),
                 ),
               ),
               child: SingleChildScrollView(
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    Container(
+                    SizedBox(
                       width: double.infinity,
                       child: Stack(
                         children: [
                           Container(
                             width: double.infinity,
                             height: 200.0,
-                            decoration: BoxDecoration(),
+                            decoration: const BoxDecoration(),
                             child: FlutterFlowVideoPlayer(
                               path:
-                                  'https://www.youtube.com/watch?v=${widget!.parameter1}',
+                                  'https://www.youtube.com/watch?v=${widget.parameter1}',
                               videoType: VideoType.network,
                               autoPlay: true,
                               looping: true,
@@ -140,9 +136,9 @@ class _VideoPlayerCompWidgetState extends State<VideoPlayerCompWidget>
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(-1.0, 1.0),
+                      alignment: const AlignmentDirectional(-1.0, 1.0),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             12.0, 22.0, 8.0, 0.0),
                         child: FlutterFlowIconButton(
                           borderRadius: 8.0,
@@ -164,7 +160,7 @@ class _VideoPlayerCompWidgetState extends State<VideoPlayerCompWidget>
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 5.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 5.0, 0.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -173,11 +169,11 @@ class _VideoPlayerCompWidgetState extends State<VideoPlayerCompWidget>
                           Container(
                             width: double.infinity,
                             height: 91.0,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               color: Color(0x00FFFFFF),
                             ),
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.start,
@@ -189,7 +185,7 @@ class _VideoPlayerCompWidgetState extends State<VideoPlayerCompWidget>
                                         CrossAxisAlignment.start,
                                     children: [
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             5.0, 0.0, 0.0, 2.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
@@ -209,7 +205,7 @@ class _VideoPlayerCompWidgetState extends State<VideoPlayerCompWidget>
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             8.0, 0.0, 0.0, 0.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
@@ -234,15 +230,15 @@ class _VideoPlayerCompWidgetState extends State<VideoPlayerCompWidget>
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                       child: Container(
                         width: double.infinity,
                         height: 245.0,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           color: Color(0x00FFFFFF),
                         ),
                         child: Padding(
-                          padding: EdgeInsets.all(8.0),
+                          padding: const EdgeInsets.all(8.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.start,
@@ -253,7 +249,7 @@ class _VideoPlayerCompWidgetState extends State<VideoPlayerCompWidget>
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         11.0, 0.0, 0.0, 2.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
@@ -283,7 +279,7 @@ class _VideoPlayerCompWidgetState extends State<VideoPlayerCompWidget>
                       color: FlutterFlowTheme.of(context).alternate,
                     ),
                     Padding(
-                      padding: EdgeInsets.all(10.0),
+                      padding: const EdgeInsets.all(10.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -312,7 +308,7 @@ class _VideoPlayerCompWidgetState extends State<VideoPlayerCompWidget>
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.all(10.0),
+                      padding: const EdgeInsets.all(10.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -320,7 +316,7 @@ class _VideoPlayerCompWidgetState extends State<VideoPlayerCompWidget>
                             child: Container(
                               width: double.infinity,
                               height: 142.0,
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                 color: Colors.transparent,
                               ),
                               child: Row(
@@ -368,14 +364,14 @@ class _VideoPlayerCompWidgetState extends State<VideoPlayerCompWidget>
                                                     recentItems[
                                                         recentItemsIndex];
                                                 return Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 10.0, 0.0),
                                                   child: Container(
                                                     width: 100.0,
                                                     height: 137.0,
                                                     decoration: BoxDecoration(
-                                                      color: Color(0x50090F13),
+                                                      color: const Color(0x50090F13),
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                               9.0),
@@ -408,7 +404,7 @@ class _VideoPlayerCompWidgetState extends State<VideoPlayerCompWidget>
                                                                     .viewInsetsOf(
                                                                         context),
                                                                 child:
-                                                                    Container(
+                                                                    SizedBox(
                                                                   height: double
                                                                       .infinity,
                                                                   child:
@@ -436,7 +432,7 @@ class _VideoPlayerCompWidgetState extends State<VideoPlayerCompWidget>
                                                         children: [
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
@@ -470,7 +466,7 @@ class _VideoPlayerCompWidgetState extends State<VideoPlayerCompWidget>
                                                           ),
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         3.0,
                                                                         0.0,

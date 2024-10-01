@@ -2,17 +2,12 @@ import '/components/onboarding_button/onboarding_button_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:math';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:percent_indicator/percent_indicator.dart';
-import 'package:provider/provider.dart';
 import 'onboarding_model.dart';
 export 'onboarding_model.dart';
 
@@ -65,8 +60,8 @@ class _OnboardingWidgetState extends State<OnboardingWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -78,8 +73,8 @@ class _OnboardingWidgetState extends State<OnboardingWidget>
             curve: Curves.easeOut,
             delay: 0.0.ms,
             duration: 400.0.ms,
-            begin: Offset(40.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(40.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -91,8 +86,8 @@ class _OnboardingWidgetState extends State<OnboardingWidget>
             curve: Curves.easeOut,
             delay: 200.0.ms,
             duration: 600.0.ms,
-            begin: Offset(60.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(60.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -110,8 +105,8 @@ class _OnboardingWidgetState extends State<OnboardingWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -142,8 +137,8 @@ class _OnboardingWidgetState extends State<OnboardingWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -154,8 +149,8 @@ class _OnboardingWidgetState extends State<OnboardingWidget>
             curve: Curves.easeOut,
             delay: 0.0.ms,
             duration: 400.0.ms,
-            begin: Offset(40.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(40.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -173,8 +168,8 @@ class _OnboardingWidgetState extends State<OnboardingWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -186,8 +181,8 @@ class _OnboardingWidgetState extends State<OnboardingWidget>
             curve: Curves.easeOut,
             delay: 200.0.ms,
             duration: 600.0.ms,
-            begin: Offset(60.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(60.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -205,8 +200,8 @@ class _OnboardingWidgetState extends State<OnboardingWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -237,8 +232,8 @@ class _OnboardingWidgetState extends State<OnboardingWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -249,8 +244,8 @@ class _OnboardingWidgetState extends State<OnboardingWidget>
             curve: Curves.easeOut,
             delay: 0.0.ms,
             duration: 400.0.ms,
-            begin: Offset(40.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(40.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -262,8 +257,8 @@ class _OnboardingWidgetState extends State<OnboardingWidget>
             curve: Curves.easeOut,
             delay: 200.0.ms,
             duration: 600.0.ms,
-            begin: Offset(60.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(60.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -281,8 +276,8 @@ class _OnboardingWidgetState extends State<OnboardingWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -313,8 +308,8 @@ class _OnboardingWidgetState extends State<OnboardingWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -326,8 +321,8 @@ class _OnboardingWidgetState extends State<OnboardingWidget>
             curve: Curves.easeOut,
             delay: 0.0.ms,
             duration: 400.0.ms,
-            begin: Offset(40.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(40.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -345,8 +340,8 @@ class _OnboardingWidgetState extends State<OnboardingWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -358,8 +353,8 @@ class _OnboardingWidgetState extends State<OnboardingWidget>
             curve: Curves.easeOut,
             delay: 200.0.ms,
             duration: 600.0.ms,
-            begin: Offset(60.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(60.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -377,8 +372,8 @@ class _OnboardingWidgetState extends State<OnboardingWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -396,8 +391,8 @@ class _OnboardingWidgetState extends State<OnboardingWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -422,7 +417,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget>
           mainAxisSize: MainAxisSize.max,
           children: [
             Expanded(
-              child: Container(
+              child: SizedBox(
                 width: double.infinity,
                 height: 500.0,
                 child: Stack(
@@ -439,7 +434,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget>
                               flex: 1,
                               child: Container(
                                 width: MediaQuery.sizeOf(context).width * 1.0,
-                                decoration: BoxDecoration(),
+                                decoration: const BoxDecoration(),
                                 child: Lottie.asset(
                                   'assets/lottie_animations/Animation_-_1708889929967.json',
                                   width: 103.0,
@@ -454,7 +449,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget>
                             Expanded(
                               flex: 1,
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     30.0, 20.0, 30.0, 30.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
@@ -474,7 +469,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget>
                                                   MainAxisAlignment.center,
                                               children: [
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 0.0, 8.0),
                                                   child: Text(
@@ -508,7 +503,7 @@ Progress */
                                           Flexible(
                                             flex: 1,
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 4.0, 0.0, 0.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
@@ -533,7 +528,7 @@ Progress */
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              EdgeInsets.all(
+                                                              const EdgeInsets.all(
                                                                   8.0),
                                                           child: Text(
                                                             FFLocalizations.of(
@@ -590,7 +585,7 @@ Progress */
                               flex: 1,
                               child: Container(
                                 width: MediaQuery.sizeOf(context).width * 1.0,
-                                decoration: BoxDecoration(),
+                                decoration: const BoxDecoration(),
                                 child: Lottie.asset(
                                   'assets/lottie_animations/Animation_-_1708891000222.json',
                                   width: 150.0,
@@ -605,7 +600,7 @@ Progress */
                             Expanded(
                               flex: 1,
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     30.0, 32.0, 30.0, 30.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
@@ -653,7 +648,7 @@ Progress */
                                           Flexible(
                                             flex: 1,
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 4.0, 0.0, 0.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
@@ -678,7 +673,7 @@ Progress */
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              EdgeInsets.all(
+                                                              const EdgeInsets.all(
                                                                   8.0),
                                                           child: Text(
                                                             FFLocalizations.of(
@@ -732,7 +727,7 @@ Progress */
                               flex: 1,
                               child: Container(
                                 width: MediaQuery.sizeOf(context).width * 1.0,
-                                decoration: BoxDecoration(),
+                                decoration: const BoxDecoration(),
                                 child: Lottie.asset(
                                   'assets/lottie_animations/Animation_-_1708891973631.json',
                                   width: 150.0,
@@ -747,7 +742,7 @@ Progress */
                             Expanded(
                               flex: 1,
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     30.0, 32.0, 30.0, 30.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
@@ -797,7 +792,7 @@ Community */
                                           Flexible(
                                             flex: 1,
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 4.0, 0.0, 0.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
@@ -822,7 +817,7 @@ Community */
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              EdgeInsets.all(
+                                                              const EdgeInsets.all(
                                                                   8.0),
                                                           child: Text(
                                                             FFLocalizations.of(
@@ -876,7 +871,7 @@ Community */
                               flex: 1,
                               child: Container(
                                 width: MediaQuery.sizeOf(context).width * 1.0,
-                                decoration: BoxDecoration(),
+                                decoration: const BoxDecoration(),
                                 child: Lottie.asset(
                                   'assets/lottie_animations/Animation_-_1708892458656.json',
                                   width: 150.0,
@@ -890,7 +885,7 @@ Community */
                             ),
                             Expanded(
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     30.0, 32.0, 30.0, 30.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
@@ -940,7 +935,7 @@ With Meditati... */
                                           Flexible(
                                             flex: 1,
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 4.0, 0.0, 0.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
@@ -965,7 +960,7 @@ With Meditati... */
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              EdgeInsetsDirectional
+                                                              const EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       8.0,
@@ -1019,10 +1014,10 @@ With Meditati... */
                       ],
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0.0, 1.0),
+                      alignment: const AlignmentDirectional(0.0, 1.0),
                       child: Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
                         child: smooth_page_indicator.SmoothPageIndicator(
                           controller: _model.pageViewController ??=
                               PageController(initialPage: 0),
@@ -1031,7 +1026,7 @@ With Meditati... */
                           onDotClicked: (i) async {
                             await _model.pageViewController!.animateToPage(
                               i,
-                              duration: Duration(milliseconds: 500),
+                              duration: const Duration(milliseconds: 500),
                               curve: Curves.ease,
                             );
                             safeSetState(() {});
@@ -1055,7 +1050,7 @@ With Meditati... */
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(30.0, 0.0, 30.0, 30.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(30.0, 0.0, 30.0, 30.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -1072,25 +1067,25 @@ With Meditati... */
                       safeSetState(() {});
                       logFirebaseEvent('Container_page_view');
                       await _model.pageViewController?.nextPage(
-                        duration: Duration(milliseconds: 300),
+                        duration: const Duration(milliseconds: 300),
                         curve: Curves.ease,
                       );
                     },
                     child: Container(
                       width: 60.0,
                       height: 60.0,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         shape: BoxShape.circle,
                       ),
                       child: Visibility(
                         visible: _model.page! < 1.0,
                         child: Stack(
-                          alignment: AlignmentDirectional(0.0, 0.0),
+                          alignment: const AlignmentDirectional(0.0, 0.0),
                           children: [
                             wrapWithModel(
                               model: _model.onboardingButtonModel1,
                               updateCallback: () => safeSetState(() {}),
-                              child: Hero(
+                              child: const Hero(
                                 tag: 'Button',
                                 transitionOnUserGestures: true,
                                 child: Material(
@@ -1112,7 +1107,7 @@ With Meditati... */
                                 context.pushNamed(
                                   'UserGoalsSwipeStack',
                                   extra: <String, dynamic>{
-                                    kTransitionInfoKey: TransitionInfo(
+                                    kTransitionInfoKey: const TransitionInfo(
                                       hasTransition: true,
                                       transitionType: PageTransitionType.fade,
                                       duration: Duration(milliseconds: 2),
@@ -1142,7 +1137,7 @@ With Meditati... */
                       child: Container(
                         width: 60.0,
                         height: 60.0,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           shape: BoxShape.circle,
                         ),
                         child: InkWell(
@@ -1158,7 +1153,7 @@ With Meditati... */
                             context.pushNamed(
                               'registrationSuccess',
                               extra: <String, dynamic>{
-                                kTransitionInfoKey: TransitionInfo(
+                                kTransitionInfoKey: const TransitionInfo(
                                   hasTransition: true,
                                   transitionType:
                                       PageTransitionType.rightToLeft,
@@ -1168,12 +1163,12 @@ With Meditati... */
                             );
                           },
                           child: Stack(
-                            alignment: AlignmentDirectional(0.0, 0.0),
+                            alignment: const AlignmentDirectional(0.0, 0.0),
                             children: [
                               wrapWithModel(
                                 model: _model.onboardingButtonModel2,
                                 updateCallback: () => safeSetState(() {}),
-                                child: OnboardingButtonWidget(),
+                                child: const OnboardingButtonWidget(),
                               ),
                               CircularPercentIndicator(
                                 percent: 1.0,
