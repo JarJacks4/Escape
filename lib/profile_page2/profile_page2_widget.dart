@@ -1,13 +1,10 @@
 import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'profile_page2_model.dart';
 export 'profile_page2_model.dart';
 
@@ -45,7 +42,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: Color(0x02FDFDFD),
+        backgroundColor: const Color(0x02FDFDFD),
         body: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
@@ -69,7 +66,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                         sigmaY: 2.0,
                       ),
                       child: Align(
-                        alignment: AlignmentDirectional(0.0, 0.0),
+                        alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Image.network(
                           'https://images.unsplash.com/photo-1556484687-30636164638b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwxMnx8Y29tbXVuaXR5JTIwc2VsZiUyMGNhcmV8ZW58MHx8fHwxNzE4OTYxNzA3fDA&ixlib=rb-4.0.3&q=80&w=1080',
                           width: double.infinity,
@@ -83,7 +80,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
               ],
             ),
             Align(
-              alignment: AlignmentDirectional(0.0, -1.0),
+              alignment: const AlignmentDirectional(0.0, -1.0),
               child: Material(
                 color: Colors.transparent,
                 elevation: 3.0,
@@ -94,8 +91,8 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                   width: 391.0,
                   height: 652.0,
                   decoration: BoxDecoration(
-                    color: Color(0x0012151C),
-                    boxShadow: [
+                    color: const Color(0x0012151C),
+                    boxShadow: const [
                       BoxShadow(
                         blurRadius: 7.0,
                         color: Color(0xF4FDFDFD),
@@ -117,14 +114,14 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                     child: Container(
                       width: double.infinity,
                       decoration: BoxDecoration(
-                        color: Color(0xFFEBE1EB),
+                        color: const Color(0xFFEBE1EB),
                         borderRadius: BorderRadius.circular(39.0),
                       ),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 20.0, 20.0, 20.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -136,14 +133,14 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                       width: 50.0,
                                       height: 50.0,
                                       clipBehavior: Clip.antiAlias,
-                                      decoration: BoxDecoration(
+                                      decoration: const BoxDecoration(
                                         shape: BoxShape.circle,
                                       ),
                                       child: Image.asset(
                                         'assets/images/fguzhtnvdm6r42bl8dte0c5i8x6a.jfif',
                                       ),
                                     ),
-                                    Padding(
+                                    const Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           35.0, 40.0, 0.0, 0.0),
                                       child: FaIcon(
@@ -165,7 +162,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                         children: [
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     5.0, 0.0, 0.0, 0.0),
                                             child: Container(
                                               width: 70.0,
@@ -206,7 +203,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                         .override(
                                                           fontFamily: 'Roboto',
                                                           color:
-                                                              Color(0xFFB3B3B3),
+                                                              const Color(0xFFB3B3B3),
                                                           fontSize: 8.0,
                                                           letterSpacing: 0.0,
                                                         ),
@@ -217,7 +214,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     5.0, 0.0, 0.0, 0.0),
                                             child: Container(
                                               width: 70.0,
@@ -258,7 +255,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                         .override(
                                                           fontFamily: 'Roboto',
                                                           color:
-                                                              Color(0xFFB3B3B3),
+                                                              const Color(0xFFB3B3B3),
                                                           fontSize: 8.0,
                                                           letterSpacing: 0.0,
                                                         ),
@@ -269,7 +266,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     5.0, 0.0, 0.0, 0.0),
                                             child: Container(
                                               width: 70.0,
@@ -310,7 +307,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                         .override(
                                                           fontFamily: 'Roboto',
                                                           color:
-                                                              Color(0xFFB3B3B3),
+                                                              const Color(0xFFB3B3B3),
                                                           fontSize: 8.0,
                                                           letterSpacing: 0.0,
                                                         ),
@@ -321,7 +318,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     5.0, 0.0, 0.0, 0.0),
                                             child: Container(
                                               width: 30.0,
@@ -331,7 +328,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                 borderRadius:
                                                     BorderRadius.circular(10.0),
                                               ),
-                                              child: Icon(
+                                              child: const Icon(
                                                 Icons.arrow_drop_down_rounded,
                                                 color: Color(0xFF333333),
                                                 size: 20.0,
@@ -347,7 +344,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 20.0, 20.0, 20.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -364,7 +361,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                       ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       5.0, 0.0, 0.0, 0.0),
                                   child: Icon(
                                     Icons.verified_rounded,
@@ -376,7 +373,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 20.0, 0.0, 20.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -389,7 +386,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Roboto',
-                                        color: Color(0xFF787878),
+                                        color: const Color(0xFF787878),
                                         fontSize: 12.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
@@ -399,14 +396,14 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 20.0, 20.0, 20.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Expanded(
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 8.0, 0.0, 8.0),
                                     child: FlutterFlowChoiceChips(
                                       options: [
@@ -447,11 +444,11 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                             .bodySmall
                                             .override(
                                               fontFamily: 'Roboto',
-                                              color: Color(0xFF787878),
+                                              color: const Color(0xFF787878),
                                               fontSize: 12.0,
                                               letterSpacing: 0.0,
                                             ),
-                                        iconColor: Color(0xFFB3B3B3),
+                                        iconColor: const Color(0xFFB3B3B3),
                                         iconSize: 18.0,
                                         elevation: 0.0,
                                       ),
@@ -474,7 +471,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                     ),
                                   ),
                                 ),
-                                Row(
+                                const Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Icon(
@@ -488,7 +485,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 10.0, 10.0, 10.0, 15.0),
                             child: ListView(
                               padding: EdgeInsets.zero,
@@ -497,7 +494,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                               scrollDirection: Axis.vertical,
                               children: [
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 10.0),
                                   child: Container(
                                     width: double.infinity,
@@ -506,13 +503,13 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                       borderRadius: BorderRadius.circular(20.0),
                                     ),
                                     child: Padding(
-                                      padding: EdgeInsets.all(10.0),
+                                      padding: const EdgeInsets.all(10.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     10.0, 0.0, 10.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -529,7 +526,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                       height: 40.0,
                                                       clipBehavior:
                                                           Clip.antiAlias,
-                                                      decoration: BoxDecoration(
+                                                      decoration: const BoxDecoration(
                                                         shape: BoxShape.circle,
                                                       ),
                                                       child: Image.asset(
@@ -538,7 +535,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   5.0,
                                                                   0.0,
@@ -579,7 +576,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                               ),
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             2.0,
                                                                             0.0,
@@ -613,7 +610,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                                     .override(
                                                                       fontFamily:
                                                                           'Roboto',
-                                                                      color: Color(
+                                                                      color: const Color(
                                                                           0xFF787878),
                                                                       fontSize:
                                                                           10.0,
@@ -636,7 +633,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                                     .override(
                                                                       fontFamily:
                                                                           'Roboto',
-                                                                      color: Color(
+                                                                      color: const Color(
                                                                           0xFF787878),
                                                                       fontSize:
                                                                           10.0,
@@ -659,7 +656,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                                     .override(
                                                                       fontFamily:
                                                                           'Roboto',
-                                                                      color: Color(
+                                                                      color: const Color(
                                                                           0xFF787878),
                                                                       fontSize:
                                                                           10.0,
@@ -677,7 +674,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                     ),
                                                   ],
                                                 ),
-                                                FaIcon(
+                                                const FaIcon(
                                                   FontAwesomeIcons.ellipsisV,
                                                   color: Color(0xFF787878),
                                                   size: 16.0,
@@ -687,11 +684,11 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 5.0, 0.0, 0.0),
                                             child: Container(
                                               width: double.infinity,
-                                              decoration: BoxDecoration(),
+                                              decoration: const BoxDecoration(),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 crossAxisAlignment:
@@ -699,7 +696,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 5.0),
                                                     child: Text(
@@ -736,7 +733,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 5.0, 0.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -748,7 +745,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                   mainAxisSize:
                                                       MainAxisSize.max,
                                                   children: [
-                                                    Container(
+                                                    SizedBox(
                                                       width: 40.0,
                                                       child: Stack(
                                                         children: [
@@ -774,7 +771,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                               clipBehavior: Clip
                                                                   .antiAlias,
                                                               decoration:
-                                                                  BoxDecoration(
+                                                                  const BoxDecoration(
                                                                 shape: BoxShape
                                                                     .circle,
                                                               ),
@@ -786,7 +783,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                           ),
                                                           Align(
                                                             alignment:
-                                                                AlignmentDirectional(
+                                                                const AlignmentDirectional(
                                                                     0.1, 0.0),
                                                             child: Container(
                                                               width: 20.0,
@@ -811,7 +808,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                                 clipBehavior: Clip
                                                                     .antiAlias,
                                                                 decoration:
-                                                                    BoxDecoration(
+                                                                    const BoxDecoration(
                                                                   shape: BoxShape
                                                                       .circle,
                                                                 ),
@@ -829,7 +826,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -844,7 +841,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                         children: [
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
@@ -858,7 +855,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                                   CrossAxisAlignment
                                                                       .end,
                                                               children: [
-                                                                FaIcon(
+                                                                const FaIcon(
                                                                   FontAwesomeIcons
                                                                       .commentAlt,
                                                                   color: Color(
@@ -866,7 +863,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                                   size: 12.0,
                                                                 ),
                                                                 Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           3.0,
                                                                           0.0,
@@ -905,7 +902,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                           ),
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         3.0,
                                                                         0.0,
@@ -938,7 +935,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                     ),
                                                   ],
                                                 ),
-                                                Icon(
+                                                const Icon(
                                                   Icons
                                                       .bookmark_border_outlined,
                                                   color: Color(0xFF333333),
@@ -953,7 +950,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 10.0),
                                   child: Container(
                                     width: double.infinity,
@@ -962,13 +959,13 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                       borderRadius: BorderRadius.circular(20.0),
                                     ),
                                     child: Padding(
-                                      padding: EdgeInsets.all(10.0),
+                                      padding: const EdgeInsets.all(10.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     10.0, 0.0, 10.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -985,7 +982,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                       height: 40.0,
                                                       clipBehavior:
                                                           Clip.antiAlias,
-                                                      decoration: BoxDecoration(
+                                                      decoration: const BoxDecoration(
                                                         shape: BoxShape.circle,
                                                       ),
                                                       child: Image.asset(
@@ -994,7 +991,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   5.0,
                                                                   0.0,
@@ -1035,7 +1032,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                               ),
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             2.0,
                                                                             0.0,
@@ -1064,7 +1061,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Roboto',
-                                                                  color: Color(
+                                                                  color: const Color(
                                                                       0xFF787878),
                                                                   fontSize:
                                                                       10.0,
@@ -1080,7 +1077,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                     ),
                                                   ],
                                                 ),
-                                                FaIcon(
+                                                const FaIcon(
                                                   FontAwesomeIcons.ellipsisV,
                                                   color: Color(0xFF787878),
                                                   size: 16.0,
@@ -1090,11 +1087,11 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 5.0, 0.0, 0.0),
                                             child: Container(
                                               width: double.infinity,
-                                              decoration: BoxDecoration(),
+                                              decoration: const BoxDecoration(),
                                               child: Text(
                                                 FFLocalizations.of(context)
                                                     .getText(
@@ -1115,7 +1112,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 5.0, 0.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -1127,7 +1124,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                   mainAxisSize:
                                                       MainAxisSize.max,
                                                   children: [
-                                                    Container(
+                                                    SizedBox(
                                                       width: 40.0,
                                                       child: Stack(
                                                         children: [
@@ -1153,7 +1150,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                               clipBehavior: Clip
                                                                   .antiAlias,
                                                               decoration:
-                                                                  BoxDecoration(
+                                                                  const BoxDecoration(
                                                                 shape: BoxShape
                                                                     .circle,
                                                               ),
@@ -1165,7 +1162,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                           ),
                                                           Align(
                                                             alignment:
-                                                                AlignmentDirectional(
+                                                                const AlignmentDirectional(
                                                                     0.1, 0.0),
                                                             child: Container(
                                                               width: 20.0,
@@ -1190,7 +1187,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                                 clipBehavior: Clip
                                                                     .antiAlias,
                                                                 decoration:
-                                                                    BoxDecoration(
+                                                                    const BoxDecoration(
                                                                   shape: BoxShape
                                                                       .circle,
                                                                 ),
@@ -1208,7 +1205,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -1223,7 +1220,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                         children: [
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
@@ -1237,7 +1234,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                                   CrossAxisAlignment
                                                                       .end,
                                                               children: [
-                                                                FaIcon(
+                                                                const FaIcon(
                                                                   FontAwesomeIcons
                                                                       .commentAlt,
                                                                   color: Color(
@@ -1245,7 +1242,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                                   size: 12.0,
                                                                 ),
                                                                 Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           3.0,
                                                                           0.0,
@@ -1284,7 +1281,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                           ),
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         3.0,
                                                                         0.0,
@@ -1317,7 +1314,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                     ),
                                                   ],
                                                 ),
-                                                Icon(
+                                                const Icon(
                                                   Icons
                                                       .bookmark_border_outlined,
                                                   color: Color(0xFF333333),
@@ -1332,7 +1329,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 10.0),
                                   child: Container(
                                     width: double.infinity,
@@ -1341,13 +1338,13 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                       borderRadius: BorderRadius.circular(20.0),
                                     ),
                                     child: Padding(
-                                      padding: EdgeInsets.all(10.0),
+                                      padding: const EdgeInsets.all(10.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     10.0, 0.0, 10.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -1364,7 +1361,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                       height: 40.0,
                                                       clipBehavior:
                                                           Clip.antiAlias,
-                                                      decoration: BoxDecoration(
+                                                      decoration: const BoxDecoration(
                                                         shape: BoxShape.circle,
                                                       ),
                                                       child: Image.asset(
@@ -1373,7 +1370,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   5.0,
                                                                   0.0,
@@ -1414,7 +1411,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                               ),
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             2.0,
                                                                             0.0,
@@ -1443,7 +1440,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Roboto',
-                                                                  color: Color(
+                                                                  color: const Color(
                                                                       0xFF787878),
                                                                   fontSize:
                                                                       10.0,
@@ -1459,7 +1456,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                     ),
                                                   ],
                                                 ),
-                                                FaIcon(
+                                                const FaIcon(
                                                   FontAwesomeIcons.ellipsisV,
                                                   color: Color(0xFF787878),
                                                   size: 16.0,
@@ -1469,11 +1466,11 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 5.0, 0.0, 0.0),
                                             child: Container(
                                               width: double.infinity,
-                                              decoration: BoxDecoration(),
+                                              decoration: const BoxDecoration(),
                                               child: Text(
                                                 FFLocalizations.of(context)
                                                     .getText(
@@ -1494,7 +1491,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 5.0, 0.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -1506,7 +1503,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                   mainAxisSize:
                                                       MainAxisSize.max,
                                                   children: [
-                                                    Container(
+                                                    SizedBox(
                                                       width: 40.0,
                                                       child: Stack(
                                                         children: [
@@ -1532,7 +1529,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                               clipBehavior: Clip
                                                                   .antiAlias,
                                                               decoration:
-                                                                  BoxDecoration(
+                                                                  const BoxDecoration(
                                                                 shape: BoxShape
                                                                     .circle,
                                                               ),
@@ -1544,7 +1541,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                           ),
                                                           Align(
                                                             alignment:
-                                                                AlignmentDirectional(
+                                                                const AlignmentDirectional(
                                                                     0.1, 0.0),
                                                             child: Container(
                                                               width: 20.0,
@@ -1569,7 +1566,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                                 clipBehavior: Clip
                                                                     .antiAlias,
                                                                 decoration:
-                                                                    BoxDecoration(
+                                                                    const BoxDecoration(
                                                                   shape: BoxShape
                                                                       .circle,
                                                                 ),
@@ -1587,7 +1584,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -1602,7 +1599,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                         children: [
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
@@ -1616,7 +1613,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                                   CrossAxisAlignment
                                                                       .end,
                                                               children: [
-                                                                FaIcon(
+                                                                const FaIcon(
                                                                   FontAwesomeIcons
                                                                       .commentAlt,
                                                                   color: Color(
@@ -1624,7 +1621,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                                   size: 12.0,
                                                                 ),
                                                                 Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           3.0,
                                                                           0.0,
@@ -1663,7 +1660,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                           ),
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         3.0,
                                                                         0.0,
@@ -1696,7 +1693,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                     ),
                                                   ],
                                                 ),
-                                                Icon(
+                                                const Icon(
                                                   Icons
                                                       .bookmark_border_outlined,
                                                   color: Color(0xFF333333),
@@ -1711,7 +1708,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 10.0),
                                   child: Container(
                                     width: double.infinity,
@@ -1720,13 +1717,13 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                       borderRadius: BorderRadius.circular(20.0),
                                     ),
                                     child: Padding(
-                                      padding: EdgeInsets.all(10.0),
+                                      padding: const EdgeInsets.all(10.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     10.0, 0.0, 10.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -1743,7 +1740,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                       height: 40.0,
                                                       clipBehavior:
                                                           Clip.antiAlias,
-                                                      decoration: BoxDecoration(
+                                                      decoration: const BoxDecoration(
                                                         shape: BoxShape.circle,
                                                       ),
                                                       child: Image.asset(
@@ -1752,7 +1749,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   5.0,
                                                                   0.0,
@@ -1793,7 +1790,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                               ),
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             2.0,
                                                                             0.0,
@@ -1822,7 +1819,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                                 .override(
                                                                   fontFamily:
                                                                       'Roboto',
-                                                                  color: Color(
+                                                                  color: const Color(
                                                                       0xFF787878),
                                                                   fontSize:
                                                                       10.0,
@@ -1838,7 +1835,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                     ),
                                                   ],
                                                 ),
-                                                FaIcon(
+                                                const FaIcon(
                                                   FontAwesomeIcons.ellipsisV,
                                                   color: Color(0xFF787878),
                                                   size: 16.0,
@@ -1848,11 +1845,11 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 5.0, 0.0, 0.0),
                                             child: Container(
                                               width: double.infinity,
-                                              decoration: BoxDecoration(),
+                                              decoration: const BoxDecoration(),
                                               child: Text(
                                                 FFLocalizations.of(context)
                                                     .getText(
@@ -1873,7 +1870,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 5.0, 0.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -1885,7 +1882,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                   mainAxisSize:
                                                       MainAxisSize.max,
                                                   children: [
-                                                    Container(
+                                                    SizedBox(
                                                       width: 40.0,
                                                       child: Stack(
                                                         children: [
@@ -1911,7 +1908,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                               clipBehavior: Clip
                                                                   .antiAlias,
                                                               decoration:
-                                                                  BoxDecoration(
+                                                                  const BoxDecoration(
                                                                 shape: BoxShape
                                                                     .circle,
                                                               ),
@@ -1923,7 +1920,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                           ),
                                                           Align(
                                                             alignment:
-                                                                AlignmentDirectional(
+                                                                const AlignmentDirectional(
                                                                     0.1, 0.0),
                                                             child: Container(
                                                               width: 20.0,
@@ -1948,7 +1945,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                                 clipBehavior: Clip
                                                                     .antiAlias,
                                                                 decoration:
-                                                                    BoxDecoration(
+                                                                    const BoxDecoration(
                                                                   shape: BoxShape
                                                                       .circle,
                                                                 ),
@@ -1966,7 +1963,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -1981,7 +1978,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                         children: [
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
@@ -1995,7 +1992,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                                   CrossAxisAlignment
                                                                       .end,
                                                               children: [
-                                                                FaIcon(
+                                                                const FaIcon(
                                                                   FontAwesomeIcons
                                                                       .commentAlt,
                                                                   color: Color(
@@ -2003,7 +2000,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                                   size: 12.0,
                                                                 ),
                                                                 Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           3.0,
                                                                           0.0,
@@ -2042,7 +2039,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                           ),
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         3.0,
                                                                         0.0,
@@ -2075,7 +2072,7 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
                                                     ),
                                                   ],
                                                 ),
-                                                Icon(
+                                                const Icon(
                                                   Icons
                                                       .bookmark_border_outlined,
                                                   color: Color(0xFF333333),
@@ -2100,10 +2097,10 @@ class _ProfilePage2WidgetState extends State<ProfilePage2Widget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 150.0, 0.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 150.0, 0.0, 0.0),
               child: Container(
                 width: double.infinity,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Color(0xFFF9F9F9),
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(0.0),

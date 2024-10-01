@@ -4,12 +4,8 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'register_sign_in_f_i_n_a_l_model.dart';
 export 'register_sign_in_f_i_n_a_l_model.dart';
 
@@ -57,8 +53,8 @@ class _RegisterSignInFINALWidgetState extends State<RegisterSignInFINALWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -76,8 +72,8 @@ class _RegisterSignInFINALWidgetState extends State<RegisterSignInFINALWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -99,7 +95,7 @@ class _RegisterSignInFINALWidgetState extends State<RegisterSignInFINALWidget>
         key: scaffoldKey,
         backgroundColor: Colors.white,
         body: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(30.0, 0.0, 30.0, 0.0),
+          padding: const EdgeInsetsDirectional.fromSTEB(30.0, 0.0, 30.0, 0.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -114,13 +110,13 @@ class _RegisterSignInFINALWidgetState extends State<RegisterSignInFINALWidget>
                 ),
               ).animateOnPageLoad(animationsMap['imageOnPageLoadAnimation']!),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 30.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 30.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                       child: Text(
                         FFLocalizations.of(context).getText(
                           'k0w8olcu' /* Hey there, */,
@@ -158,7 +154,7 @@ class _RegisterSignInFINALWidgetState extends State<RegisterSignInFINALWidget>
                 children: [
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                     child: TextFormField(
                       controller: _model.emailTextController,
                       focusNode: _model.textFieldFocusNode1,
@@ -171,7 +167,7 @@ class _RegisterSignInFINALWidgetState extends State<RegisterSignInFINALWidget>
                         hintStyle:
                             FlutterFlowTheme.of(context).bodySmall.override(
                                   fontFamily: 'Roboto',
-                                  color: Color(0xF8000220),
+                                  color: const Color(0xF8000220),
                                   fontSize: 20.0,
                                   letterSpacing: 0.0,
                                   lineHeight: 1.5,
@@ -191,14 +187,14 @@ class _RegisterSignInFINALWidgetState extends State<RegisterSignInFINALWidget>
                           borderRadius: BorderRadius.circular(14.0),
                         ),
                         errorBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Color(0x00000000),
                             width: 1.0,
                           ),
                           borderRadius: BorderRadius.circular(14.0),
                         ),
                         focusedErrorBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Color(0x00000000),
                             width: 1.0,
                           ),
@@ -215,7 +211,7 @@ class _RegisterSignInFINALWidgetState extends State<RegisterSignInFINALWidget>
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Roboto',
-                            color: Color(0xFF000220),
+                            color: const Color(0xFF000220),
                             fontSize: 20.0,
                             letterSpacing: 0.0,
                           ),
@@ -225,7 +221,7 @@ class _RegisterSignInFINALWidgetState extends State<RegisterSignInFINALWidget>
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                     child: TextFormField(
                       controller: _model.passwordTextController,
                       focusNode: _model.textFieldFocusNode2,
@@ -238,7 +234,7 @@ class _RegisterSignInFINALWidgetState extends State<RegisterSignInFINALWidget>
                         hintStyle:
                             FlutterFlowTheme.of(context).bodySmall.override(
                                   fontFamily: 'Roboto',
-                                  color: Color(0xFFADA4A5),
+                                  color: const Color(0xFFADA4A5),
                                   fontSize: 20.0,
                                   letterSpacing: 0.0,
                                   lineHeight: 1.5,
@@ -258,14 +254,14 @@ class _RegisterSignInFINALWidgetState extends State<RegisterSignInFINALWidget>
                           borderRadius: BorderRadius.circular(14.0),
                         ),
                         errorBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Color(0x00000000),
                             width: 1.0,
                           ),
                           borderRadius: BorderRadius.circular(14.0),
                         ),
                         focusedErrorBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Color(0x00000000),
                             width: 1.0,
                           ),
@@ -329,7 +325,7 @@ class _RegisterSignInFINALWidgetState extends State<RegisterSignInFINALWidget>
                                 logFirebaseEvent('Text_auth');
                                 if (_model.emailTextController.text.isEmpty) {
                                   ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
+                                    const SnackBar(
                                       content: Text(
                                         'Email required!',
                                       ),
@@ -350,7 +346,7 @@ class _RegisterSignInFINALWidgetState extends State<RegisterSignInFINALWidget>
                                     .labelSmall
                                     .override(
                                       fontFamily: 'Roboto',
-                                      color: Color(0xE16450A5),
+                                      color: const Color(0xE16450A5),
                                       fontSize: 14.0,
                                       letterSpacing: 0.0,
                                       lineHeight: 1.5,
@@ -365,9 +361,9 @@ class _RegisterSignInFINALWidgetState extends State<RegisterSignInFINALWidget>
                 ],
               ),
               Align(
-                alignment: AlignmentDirectional(0.0, 1.0),
+                alignment: const AlignmentDirectional(0.0, 1.0),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
                   child: FFButtonWidget(
                     onPressed: () async {
                       logFirebaseEvent(
@@ -393,9 +389,9 @@ class _RegisterSignInFINALWidgetState extends State<RegisterSignInFINALWidget>
                       width: MediaQuery.sizeOf(context).width * 0.65,
                       height: MediaQuery.sizeOf(context).height * 0.07,
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                       iconPadding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       color: FlutterFlowTheme.of(context).primary,
                       textStyle:
                           FlutterFlowTheme.of(context).titleSmall.override(
@@ -411,13 +407,13 @@ class _RegisterSignInFINALWidgetState extends State<RegisterSignInFINALWidget>
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -430,7 +426,7 @@ class _RegisterSignInFINALWidgetState extends State<RegisterSignInFINALWidget>
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 8.0, 0.0, 8.0, 0.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
@@ -459,13 +455,13 @@ class _RegisterSignInFINALWidgetState extends State<RegisterSignInFINALWidget>
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 8.0, 0.0, 8.0, 0.0),
                             child: InkWell(
                               splashColor: Colors.transparent,
@@ -494,11 +490,11 @@ class _RegisterSignInFINALWidgetState extends State<RegisterSignInFINALWidget>
                                     width: 0.8,
                                   ),
                                 ),
-                                alignment: AlignmentDirectional(0.0, 0.0),
+                                alignment: const AlignmentDirectional(0.0, 0.0),
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Padding(
-                                    padding: EdgeInsets.all(26.0),
+                                    padding: const EdgeInsets.all(26.0),
                                     child: Image.asset(
                                       'assets/images/googleIcon.png',
                                       width: 24.0,
@@ -510,7 +506,7 @@ class _RegisterSignInFINALWidgetState extends State<RegisterSignInFINALWidget>
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 8.0, 0.0, 8.0, 0.0),
                             child: Container(
                               decoration: BoxDecoration(
@@ -520,15 +516,15 @@ class _RegisterSignInFINALWidgetState extends State<RegisterSignInFINALWidget>
                                       FlutterFlowTheme.of(context).primaryText,
                                 ),
                               ),
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
+                                alignment: const AlignmentDirectional(0.0, 0.0),
                                 child: FlutterFlowIconButton(
-                                  borderColor: Color(0xAA12151C),
+                                  borderColor: const Color(0xAA12151C),
                                   borderRadius: 20.0,
                                   borderWidth: 1.0,
                                   buttonSize: 75.0,
-                                  fillColor: Color(0x00B893DC),
+                                  fillColor: const Color(0x00B893DC),
                                   icon: Icon(
                                     Icons.apple,
                                     color: FlutterFlowTheme.of(context)
@@ -560,7 +556,7 @@ class _RegisterSignInFINALWidgetState extends State<RegisterSignInFINALWidget>
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -580,7 +576,7 @@ class _RegisterSignInFINALWidgetState extends State<RegisterSignInFINALWidget>
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
@@ -594,7 +590,7 @@ class _RegisterSignInFINALWidgetState extends State<RegisterSignInFINALWidget>
                           context.pushNamed(
                             'registerSignUp',
                             extra: <String, dynamic>{
-                              kTransitionInfoKey: TransitionInfo(
+                              kTransitionInfoKey: const TransitionInfo(
                                 hasTransition: true,
                                 transitionType: PageTransitionType.fade,
                                 duration: Duration(milliseconds: 2),

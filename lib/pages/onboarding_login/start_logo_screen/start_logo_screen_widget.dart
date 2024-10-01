@@ -3,16 +3,12 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:math';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:just_audio/just_audio.dart';
-import 'package:provider/provider.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'start_logo_screen_model.dart';
 export 'start_logo_screen_model.dart';
@@ -70,8 +66,8 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
             curve: Curves.bounceOut,
             delay: 300.0.ms,
             duration: 300.0.ms,
-            begin: Offset(0.6, 0.6),
-            end: Offset(1.0, 1.0),
+            begin: const Offset(0.6, 0.6),
+            end: const Offset(1.0, 1.0),
           ),
         ],
       ),
@@ -89,8 +85,8 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -109,8 +105,8 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
             curve: Curves.easeInOut,
             delay: 350.0.ms,
             duration: 400.0.ms,
-            begin: Offset(0.0, 30.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(0.0, 30.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -128,8 +124,8 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -148,8 +144,8 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
             curve: Curves.bounceOut,
             delay: 300.0.ms,
             duration: 600.0.ms,
-            begin: Offset(0.6, 0.6),
-            end: Offset(1.0, 1.0),
+            begin: const Offset(0.6, 0.6),
+            end: const Offset(1.0, 1.0),
           ),
         ],
       ),
@@ -168,8 +164,8 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
             curve: Curves.bounceOut,
             delay: 300.0.ms,
             duration: 300.0.ms,
-            begin: Offset(0.6, 0.6),
-            end: Offset(1.0, 1.0),
+            begin: const Offset(0.6, 0.6),
+            end: const Offset(1.0, 1.0),
           ),
         ],
       ),
@@ -188,8 +184,8 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
             curve: Curves.easeInOut,
             delay: 350.0.ms,
             duration: 400.0.ms,
-            begin: Offset(0.0, 30.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(0.0, 30.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -207,8 +203,8 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -227,8 +223,8 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
             curve: Curves.bounceOut,
             delay: 300.0.ms,
             duration: 600.0.ms,
-            begin: Offset(0.6, 0.6),
-            end: Offset(1.0, 1.0),
+            begin: const Offset(0.6, 0.6),
+            end: const Offset(1.0, 1.0),
           ),
         ],
       ),
@@ -247,8 +243,8 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
             curve: Curves.bounceOut,
             delay: 300.0.ms,
             duration: 300.0.ms,
-            begin: Offset(0.6, 0.6),
-            end: Offset(1.0, 1.0),
+            begin: const Offset(0.6, 0.6),
+            end: const Offset(1.0, 1.0),
           ),
         ],
       ),
@@ -267,8 +263,8 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
             curve: Curves.easeInOut,
             delay: 350.0.ms,
             duration: 400.0.ms,
-            begin: Offset(0.0, 30.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(0.0, 30.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -286,8 +282,8 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -306,8 +302,8 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
             curve: Curves.bounceOut,
             delay: 300.0.ms,
             duration: 600.0.ms,
-            begin: Offset(0.6, 0.6),
-            end: Offset(1.0, 1.0),
+            begin: const Offset(0.6, 0.6),
+            end: const Offset(1.0, 1.0),
           ),
         ],
       ),
@@ -326,8 +322,8 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
             curve: Curves.bounceOut,
             delay: 300.0.ms,
             duration: 300.0.ms,
-            begin: Offset(0.6, 0.6),
-            end: Offset(1.0, 1.0),
+            begin: const Offset(0.6, 0.6),
+            end: const Offset(1.0, 1.0),
           ),
         ],
       ),
@@ -346,8 +342,8 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
             curve: Curves.easeInOut,
             delay: 350.0.ms,
             duration: 400.0.ms,
-            begin: Offset(0.0, 30.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(0.0, 30.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -365,8 +361,8 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -385,8 +381,8 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
             curve: Curves.bounceOut,
             delay: 300.0.ms,
             duration: 600.0.ms,
-            begin: Offset(0.6, 0.6),
-            end: Offset(1.0, 1.0),
+            begin: const Offset(0.6, 0.6),
+            end: const Offset(1.0, 1.0),
           ),
         ],
       ),
@@ -405,8 +401,8 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
             curve: Curves.bounceOut,
             delay: 300.0.ms,
             duration: 300.0.ms,
-            begin: Offset(0.6, 0.6),
-            end: Offset(1.0, 1.0),
+            begin: const Offset(0.6, 0.6),
+            end: const Offset(1.0, 1.0),
           ),
         ],
       ),
@@ -425,8 +421,8 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
             curve: Curves.easeInOut,
             delay: 350.0.ms,
             duration: 400.0.ms,
-            begin: Offset(0.0, 30.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(0.0, 30.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -444,8 +440,8 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -464,8 +460,8 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
             curve: Curves.bounceOut,
             delay: 300.0.ms,
             duration: 600.0.ms,
-            begin: Offset(0.6, 0.6),
-            end: Offset(1.0, 1.0),
+            begin: const Offset(0.6, 0.6),
+            end: const Offset(1.0, 1.0),
           ),
         ],
       ),
@@ -485,12 +481,12 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: Color(0x00FFFFFF),
+        backgroundColor: const Color(0x00FFFFFF),
         body: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
             Expanded(
-              child: Container(
+              child: SizedBox(
                 width: double.infinity,
                 height: 500.0,
                 child: Stack(
@@ -504,7 +500,7 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                           width: 100.0,
                           height: 164.0,
                           decoration: BoxDecoration(
-                            color: Color(0x00FFFFFF),
+                            color: const Color(0x00FFFFFF),
                             image: DecorationImage(
                               fit: BoxFit.cover,
                               image: Image.network(
@@ -513,14 +509,14 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                             ),
                           ),
                           child: Stack(
-                            alignment: AlignmentDirectional(0.0, 1.0),
+                            alignment: const AlignmentDirectional(0.0, 1.0),
                             children: [
                               Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
+                                alignment: const AlignmentDirectional(0.0, 0.0),
                                 child: Container(
                                   width: 452.0,
                                   height: 863.0,
-                                  decoration: BoxDecoration(
+                                  decoration: const BoxDecoration(
                                     gradient: LinearGradient(
                                       colors: [
                                         Color(0x8CFFFFFF),
@@ -537,16 +533,16 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                     children: [
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Container(
                                           width: 197.0,
                                           height: 197.0,
-                                          decoration: BoxDecoration(
+                                          decoration: const BoxDecoration(
                                             color: Color(0x01FCFFF9),
                                             shape: BoxShape.circle,
                                           ),
                                           child: Padding(
-                                            padding: EdgeInsets.all(8.0),
+                                            padding: const EdgeInsets.all(8.0),
                                             child: Image.asset(
                                               'assets/images/ESCAPE_Logo_Clear.png',
                                               width: 131.0,
@@ -559,7 +555,7 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                             'containerOnPageLoadAnimation1']!),
                                       ),
                                       Padding(
-                                        padding: EdgeInsets.all(20.0),
+                                        padding: const EdgeInsets.all(20.0),
                                         child: GradientText(
                                           FFLocalizations.of(context).getText(
                                             '82w947ib' /* Meditation */,
@@ -588,7 +584,7 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                             'textOnPageLoadAnimation1']!),
                                       ),
                                       Padding(
-                                        padding: EdgeInsets.all(20.0),
+                                        padding: const EdgeInsets.all(20.0),
                                         child: RichText(
                                           textScaler:
                                               MediaQuery.of(context).textScaler,
@@ -690,7 +686,7 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                             'richTextOnPageLoadAnimation1']!),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             16.0, 24.0, 16.0, 44.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -699,10 +695,10 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                           children: [
                                             Expanded(
                                               child: Align(
-                                                alignment: AlignmentDirectional(
+                                                alignment: const AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 8.0, 16.0),
                                                   child: FFButtonWidget(
@@ -717,7 +713,7 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                         extra: <String,
                                                             dynamic>{
                                                           kTransitionInfoKey:
-                                                              TransitionInfo(
+                                                              const TransitionInfo(
                                                             hasTransition: true,
                                                             transitionType:
                                                                 PageTransitionType
@@ -738,14 +734,14 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                       width: 230.0,
                                                       height: 52.0,
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
                                                                   0.0,
                                                                   0.0),
                                                       iconPadding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -786,10 +782,10 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                             ),
                                             Expanded(
                                               child: Align(
-                                                alignment: AlignmentDirectional(
+                                                alignment: const AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           8.0, 0.0, 0.0, 16.0),
                                                   child: FFButtonWidget(
@@ -804,7 +800,7 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                         extra: <String,
                                                             dynamic>{
                                                           kTransitionInfoKey:
-                                                              TransitionInfo(
+                                                              const TransitionInfo(
                                                             hasTransition: true,
                                                             transitionType:
                                                                 PageTransitionType
@@ -825,14 +821,14 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                       width: 230.0,
                                                       height: 52.0,
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
                                                                   0.0,
                                                                   0.0),
                                                       iconPadding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -852,7 +848,7 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                                     0.0,
                                                               ),
                                                       elevation: 8.0,
-                                                      borderSide: BorderSide(
+                                                      borderSide: const BorderSide(
                                                         color:
                                                             Colors.transparent,
                                                         width: 1.0,
@@ -880,7 +876,7 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                           width: 100.0,
                           height: 164.0,
                           decoration: BoxDecoration(
-                            color: Color(0x00FFFFFF),
+                            color: const Color(0x00FFFFFF),
                             image: DecorationImage(
                               fit: BoxFit.cover,
                               image: Image.network(
@@ -889,22 +885,22 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                             ),
                           ),
                           child: Stack(
-                            alignment: AlignmentDirectional(0.0, 1.0),
+                            alignment: const AlignmentDirectional(0.0, 1.0),
                             children: [
                               Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
+                                alignment: const AlignmentDirectional(0.0, 0.0),
                                 child: Container(
                                   width: 452.0,
                                   height: 863.0,
                                   decoration: BoxDecoration(
                                     gradient: LinearGradient(
                                       colors: [
-                                        Color(0x8CFFFFFF),
+                                        const Color(0x8CFFFFFF),
                                         FlutterFlowTheme.of(context).tertiary
                                       ],
-                                      stops: [0.0, 1.0],
-                                      begin: AlignmentDirectional(0.0, -1.0),
-                                      end: AlignmentDirectional(0, 1.0),
+                                      stops: const [0.0, 1.0],
+                                      begin: const AlignmentDirectional(0.0, -1.0),
+                                      end: const AlignmentDirectional(0, 1.0),
                                     ),
                                   ),
                                   child: Column(
@@ -913,16 +909,16 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                     children: [
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Container(
                                           width: 197.0,
                                           height: 197.0,
-                                          decoration: BoxDecoration(
+                                          decoration: const BoxDecoration(
                                             color: Color(0x01FCFFF9),
                                             shape: BoxShape.circle,
                                           ),
                                           child: Padding(
-                                            padding: EdgeInsets.all(8.0),
+                                            padding: const EdgeInsets.all(8.0),
                                             child: Image.asset(
                                               'assets/images/ESCAPE_Logo_Clear.png',
                                               width: 131.0,
@@ -934,7 +930,7 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                             'containerOnPageLoadAnimation2']!),
                                       ),
                                       Padding(
-                                        padding: EdgeInsets.all(20.0),
+                                        padding: const EdgeInsets.all(20.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
                                             'qarcu4nr' /* Nature Sounds and Binaural Bea... */,
@@ -954,7 +950,7 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                             'textOnPageLoadAnimation2']!),
                                       ),
                                       Padding(
-                                        padding: EdgeInsets.all(20.0),
+                                        padding: const EdgeInsets.all(20.0),
                                         child: RichText(
                                           textScaler:
                                               MediaQuery.of(context).textScaler,
@@ -1053,7 +1049,7 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                             'richTextOnPageLoadAnimation2']!),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             16.0, 24.0, 16.0, 44.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -1062,10 +1058,10 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                           children: [
                                             Expanded(
                                               child: Align(
-                                                alignment: AlignmentDirectional(
+                                                alignment: const AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 8.0, 16.0),
                                                   child: FFButtonWidget(
@@ -1092,7 +1088,7 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                         extra: <String,
                                                             dynamic>{
                                                           kTransitionInfoKey:
-                                                              TransitionInfo(
+                                                              const TransitionInfo(
                                                             hasTransition: true,
                                                             transitionType:
                                                                 PageTransitionType
@@ -1113,14 +1109,14 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                       width: 230.0,
                                                       height: 52.0,
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
                                                                   0.0,
                                                                   0.0),
                                                       iconPadding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -1161,10 +1157,10 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                             ),
                                             Expanded(
                                               child: Align(
-                                                alignment: AlignmentDirectional(
+                                                alignment: const AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           8.0, 0.0, 0.0, 16.0),
                                                   child: FFButtonWidget(
@@ -1179,7 +1175,7 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                         extra: <String,
                                                             dynamic>{
                                                           kTransitionInfoKey:
-                                                              TransitionInfo(
+                                                              const TransitionInfo(
                                                             hasTransition: true,
                                                             transitionType:
                                                                 PageTransitionType
@@ -1200,20 +1196,20 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                       width: 230.0,
                                                       height: 52.0,
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
                                                                   0.0,
                                                                   0.0),
                                                       iconPadding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
                                                                   0.0,
                                                                   0.0),
-                                                      color: Color(0xFC000220),
+                                                      color: const Color(0xFC000220),
                                                       textStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -1227,7 +1223,7 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                                     0.0,
                                                               ),
                                                       elevation: 8.0,
-                                                      borderSide: BorderSide(
+                                                      borderSide: const BorderSide(
                                                         color:
                                                             Colors.transparent,
                                                         width: 1.0,
@@ -1255,7 +1251,7 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                           width: 100.0,
                           height: 164.0,
                           decoration: BoxDecoration(
-                            color: Color(0x00FFFFFF),
+                            color: const Color(0x00FFFFFF),
                             image: DecorationImage(
                               fit: BoxFit.cover,
                               image: Image.network(
@@ -1264,22 +1260,22 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                             ),
                           ),
                           child: Stack(
-                            alignment: AlignmentDirectional(0.0, 1.0),
+                            alignment: const AlignmentDirectional(0.0, 1.0),
                             children: [
                               Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
+                                alignment: const AlignmentDirectional(0.0, 0.0),
                                 child: Container(
                                   width: 452.0,
                                   height: 863.0,
                                   decoration: BoxDecoration(
                                     gradient: LinearGradient(
                                       colors: [
-                                        Color(0x8CFFFFFF),
+                                        const Color(0x8CFFFFFF),
                                         FlutterFlowTheme.of(context).secondary
                                       ],
-                                      stops: [0.0, 1.0],
-                                      begin: AlignmentDirectional(0.0, -1.0),
-                                      end: AlignmentDirectional(0, 1.0),
+                                      stops: const [0.0, 1.0],
+                                      begin: const AlignmentDirectional(0.0, -1.0),
+                                      end: const AlignmentDirectional(0, 1.0),
                                     ),
                                   ),
                                   child: Column(
@@ -1288,16 +1284,16 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                     children: [
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Container(
                                           width: 197.0,
                                           height: 197.0,
-                                          decoration: BoxDecoration(
+                                          decoration: const BoxDecoration(
                                             color: Color(0x01FCFFF9),
                                             shape: BoxShape.circle,
                                           ),
                                           child: Padding(
-                                            padding: EdgeInsets.all(8.0),
+                                            padding: const EdgeInsets.all(8.0),
                                             child: Image.asset(
                                               'assets/images/ESCAPE_Logo_Clear.png',
                                               width: 131.0,
@@ -1309,7 +1305,7 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                             'containerOnPageLoadAnimation3']!),
                                       ),
                                       Padding(
-                                        padding: EdgeInsets.all(20.0),
+                                        padding: const EdgeInsets.all(20.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
                                             'c4vhzqaw' /* Self-Care Provider Community */,
@@ -1329,7 +1325,7 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                             'textOnPageLoadAnimation3']!),
                                       ),
                                       Padding(
-                                        padding: EdgeInsets.all(20.0),
+                                        padding: const EdgeInsets.all(20.0),
                                         child: RichText(
                                           textScaler:
                                               MediaQuery.of(context).textScaler,
@@ -1428,7 +1424,7 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                             'richTextOnPageLoadAnimation3']!),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             16.0, 24.0, 16.0, 44.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -1437,10 +1433,10 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                           children: [
                                             Expanded(
                                               child: Align(
-                                                alignment: AlignmentDirectional(
+                                                alignment: const AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 8.0, 16.0),
                                                   child: FFButtonWidget(
@@ -1467,7 +1463,7 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                         extra: <String,
                                                             dynamic>{
                                                           kTransitionInfoKey:
-                                                              TransitionInfo(
+                                                              const TransitionInfo(
                                                             hasTransition: true,
                                                             transitionType:
                                                                 PageTransitionType
@@ -1488,14 +1484,14 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                       width: 230.0,
                                                       height: 52.0,
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
                                                                   0.0,
                                                                   0.0),
                                                       iconPadding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -1536,10 +1532,10 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                             ),
                                             Expanded(
                                               child: Align(
-                                                alignment: AlignmentDirectional(
+                                                alignment: const AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           8.0, 0.0, 0.0, 16.0),
                                                   child: FFButtonWidget(
@@ -1554,7 +1550,7 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                         extra: <String,
                                                             dynamic>{
                                                           kTransitionInfoKey:
-                                                              TransitionInfo(
+                                                              const TransitionInfo(
                                                             hasTransition: true,
                                                             transitionType:
                                                                 PageTransitionType
@@ -1575,20 +1571,20 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                       width: 230.0,
                                                       height: 52.0,
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
                                                                   0.0,
                                                                   0.0),
                                                       iconPadding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
                                                                   0.0,
                                                                   0.0),
-                                                      color: Color(0xFD000220),
+                                                      color: const Color(0xFD000220),
                                                       textStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -1602,7 +1598,7 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                                     0.0,
                                                               ),
                                                       elevation: 8.0,
-                                                      borderSide: BorderSide(
+                                                      borderSide: const BorderSide(
                                                         color:
                                                             Colors.transparent,
                                                         width: 1.0,
@@ -1630,7 +1626,7 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                           width: 100.0,
                           height: 164.0,
                           decoration: BoxDecoration(
-                            color: Color(0x00FFFFFF),
+                            color: const Color(0x00FFFFFF),
                             image: DecorationImage(
                               fit: BoxFit.cover,
                               image: Image.network(
@@ -1639,23 +1635,23 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                             ),
                           ),
                           child: Stack(
-                            alignment: AlignmentDirectional(0.0, 1.0),
+                            alignment: const AlignmentDirectional(0.0, 1.0),
                             children: [
                               Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
+                                alignment: const AlignmentDirectional(0.0, 0.0),
                                 child: Container(
                                   width: 452.0,
                                   height: 863.0,
                                   decoration: BoxDecoration(
                                     gradient: LinearGradient(
                                       colors: [
-                                        Color(0xACB893DC),
+                                        const Color(0xACB893DC),
                                         FlutterFlowTheme.of(context)
                                             .primaryBackground
                                       ],
-                                      stops: [0.0, 1.0],
-                                      begin: AlignmentDirectional(0.0, -1.0),
-                                      end: AlignmentDirectional(0, 1.0),
+                                      stops: const [0.0, 1.0],
+                                      begin: const AlignmentDirectional(0.0, -1.0),
+                                      end: const AlignmentDirectional(0, 1.0),
                                     ),
                                   ),
                                   child: Column(
@@ -1664,16 +1660,16 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                     children: [
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Container(
                                           width: 197.0,
                                           height: 197.0,
-                                          decoration: BoxDecoration(
+                                          decoration: const BoxDecoration(
                                             color: Color(0x01FCFFF9),
                                             shape: BoxShape.circle,
                                           ),
                                           child: Padding(
-                                            padding: EdgeInsets.all(8.0),
+                                            padding: const EdgeInsets.all(8.0),
                                             child: Image.asset(
                                               'assets/images/ESCAPE_Logo_Clear.png',
                                               width: 131.0,
@@ -1685,7 +1681,7 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                             'containerOnPageLoadAnimation4']!),
                                       ),
                                       Padding(
-                                        padding: EdgeInsets.all(20.0),
+                                        padding: const EdgeInsets.all(20.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
                                             'z0j7u6u4' /* Yoga, Pilates,
@@ -1707,7 +1703,7 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                             'textOnPageLoadAnimation4']!),
                                       ),
                                       Padding(
-                                        padding: EdgeInsets.all(20.0),
+                                        padding: const EdgeInsets.all(20.0),
                                         child: RichText(
                                           textScaler:
                                               MediaQuery.of(context).textScaler,
@@ -1809,7 +1805,7 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                             'richTextOnPageLoadAnimation4']!),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             16.0, 24.0, 16.0, 44.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -1818,10 +1814,10 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                           children: [
                                             Expanded(
                                               child: Align(
-                                                alignment: AlignmentDirectional(
+                                                alignment: const AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 8.0, 16.0),
                                                   child: FFButtonWidget(
@@ -1848,7 +1844,7 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                         extra: <String,
                                                             dynamic>{
                                                           kTransitionInfoKey:
-                                                              TransitionInfo(
+                                                              const TransitionInfo(
                                                             hasTransition: true,
                                                             transitionType:
                                                                 PageTransitionType
@@ -1869,14 +1865,14 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                       width: 230.0,
                                                       height: 52.0,
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
                                                                   0.0,
                                                                   0.0),
                                                       iconPadding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -1917,10 +1913,10 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                             ),
                                             Expanded(
                                               child: Align(
-                                                alignment: AlignmentDirectional(
+                                                alignment: const AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           8.0, 0.0, 0.0, 16.0),
                                                   child: FFButtonWidget(
@@ -1935,7 +1931,7 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                         extra: <String,
                                                             dynamic>{
                                                           kTransitionInfoKey:
-                                                              TransitionInfo(
+                                                              const TransitionInfo(
                                                             hasTransition: true,
                                                             transitionType:
                                                                 PageTransitionType
@@ -1956,20 +1952,20 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                       width: 230.0,
                                                       height: 52.0,
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
                                                                   0.0,
                                                                   0.0),
                                                       iconPadding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
                                                                   0.0,
                                                                   0.0),
-                                                      color: Color(0xF7000220),
+                                                      color: const Color(0xF7000220),
                                                       textStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -1983,7 +1979,7 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                                     0.0,
                                                               ),
                                                       elevation: 8.0,
-                                                      borderSide: BorderSide(
+                                                      borderSide: const BorderSide(
                                                         color:
                                                             Colors.transparent,
                                                         width: 1.0,
@@ -2021,14 +2017,14 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                             ),
                           ),
                           child: Stack(
-                            alignment: AlignmentDirectional(0.0, 1.0),
+                            alignment: const AlignmentDirectional(0.0, 1.0),
                             children: [
                               Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
+                                alignment: const AlignmentDirectional(0.0, 0.0),
                                 child: Container(
                                   width: 452.0,
                                   height: 863.0,
-                                  decoration: BoxDecoration(
+                                  decoration: const BoxDecoration(
                                     gradient: LinearGradient(
                                       colors: [
                                         Color(0x3E12151C),
@@ -2046,16 +2042,16 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                     children: [
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Container(
                                           width: 197.0,
                                           height: 197.0,
-                                          decoration: BoxDecoration(
+                                          decoration: const BoxDecoration(
                                             color: Color(0x01FCFFF9),
                                             shape: BoxShape.circle,
                                           ),
                                           child: Padding(
-                                            padding: EdgeInsets.all(8.0),
+                                            padding: const EdgeInsets.all(8.0),
                                             child: Image.asset(
                                               'assets/images/ESCAPE_Logo_Clear.png',
                                               width: 131.0,
@@ -2067,7 +2063,7 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                             'containerOnPageLoadAnimation5']!),
                                       ),
                                       Padding(
-                                        padding: EdgeInsets.all(20.0),
+                                        padding: const EdgeInsets.all(20.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
                                             '4qriu66s' /* A.I. Enhanced Self-Care */,
@@ -2087,7 +2083,7 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                             'textOnPageLoadAnimation5']!),
                                       ),
                                       Padding(
-                                        padding: EdgeInsets.all(20.0),
+                                        padding: const EdgeInsets.all(20.0),
                                         child: RichText(
                                           textScaler:
                                               MediaQuery.of(context).textScaler,
@@ -2189,7 +2185,7 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                             'richTextOnPageLoadAnimation5']!),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             16.0, 24.0, 16.0, 44.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -2198,10 +2194,10 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                           children: [
                                             Expanded(
                                               child: Align(
-                                                alignment: AlignmentDirectional(
+                                                alignment: const AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 8.0, 16.0),
                                                   child: FFButtonWidget(
@@ -2233,14 +2229,14 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                       width: 230.0,
                                                       height: 52.0,
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
                                                                   0.0,
                                                                   0.0),
                                                       iconPadding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -2281,10 +2277,10 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                             ),
                                             Expanded(
                                               child: Align(
-                                                alignment: AlignmentDirectional(
+                                                alignment: const AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           8.0, 0.0, 0.0, 16.0),
                                                   child: FFButtonWidget(
@@ -2299,7 +2295,7 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                         extra: <String,
                                                             dynamic>{
                                                           kTransitionInfoKey:
-                                                              TransitionInfo(
+                                                              const TransitionInfo(
                                                             hasTransition: true,
                                                             transitionType:
                                                                 PageTransitionType
@@ -2320,20 +2316,20 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                       width: 230.0,
                                                       height: 52.0,
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
                                                                   0.0,
                                                                   0.0),
                                                       iconPadding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
                                                                   0.0,
                                                                   0.0),
-                                                      color: Color(0xFD000220),
+                                                      color: const Color(0xFD000220),
                                                       textStyle:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -2347,7 +2343,7 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                                     0.0,
                                                               ),
                                                       elevation: 8.0,
-                                                      borderSide: BorderSide(
+                                                      borderSide: const BorderSide(
                                                         color:
                                                             Colors.transparent,
                                                         width: 1.0,
@@ -2374,9 +2370,9 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                       ],
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0.0, 1.0),
+                      alignment: const AlignmentDirectional(0.0, 1.0),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             16.0, 0.0, 0.0, 16.0),
                         child: smooth_page_indicator.SmoothPageIndicator(
                           controller: _model.pageViewController ??=
@@ -2386,7 +2382,7 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                           onDotClicked: (i) async {
                             await _model.pageViewController!.animateToPage(
                               i,
-                              duration: Duration(milliseconds: 500),
+                              duration: const Duration(milliseconds: 500),
                               curve: Curves.ease,
                             );
                             safeSetState(() {});

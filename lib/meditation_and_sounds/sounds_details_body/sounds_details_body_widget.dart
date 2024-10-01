@@ -3,14 +3,9 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:math';
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'sounds_details_body_model.dart';
 export 'sounds_details_body_model.dart';
 
@@ -52,8 +47,8 @@ class _SoundsDetailsBodyWidgetState extends State<SoundsDetailsBodyWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -71,8 +66,8 @@ class _SoundsDetailsBodyWidgetState extends State<SoundsDetailsBodyWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -122,19 +117,19 @@ class _SoundsDetailsBodyWidgetState extends State<SoundsDetailsBodyWidget>
               ],
             ),
             Align(
-              alignment: AlignmentDirectional(0.0, 0.0),
+              alignment: const AlignmentDirectional(0.0, 0.0),
               child: Container(
                 width: double.infinity,
                 height: double.infinity,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [
-                      Color(0xC8FCFFF9),
+                      const Color(0xC8FCFFF9),
                       FlutterFlowTheme.of(context).primaryBackground
                     ],
-                    stops: [0.95, 1.0],
-                    begin: AlignmentDirectional(0.0, -1.0),
-                    end: AlignmentDirectional(0, 1.0),
+                    stops: const [0.95, 1.0],
+                    begin: const AlignmentDirectional(0.0, -1.0),
+                    end: const AlignmentDirectional(0, 1.0),
                   ),
                 ),
                 child: ClipRRect(
@@ -150,7 +145,7 @@ class _SoundsDetailsBodyWidgetState extends State<SoundsDetailsBodyWidget>
                         Material(
                           color: Colors.transparent,
                           elevation: 8.0,
-                          shape: RoundedRectangleBorder(
+                          shape: const RoundedRectangleBorder(
                             borderRadius: BorderRadius.only(
                               bottomLeft: Radius.circular(30.0),
                               bottomRight: Radius.circular(30.0),
@@ -164,14 +159,14 @@ class _SoundsDetailsBodyWidgetState extends State<SoundsDetailsBodyWidget>
                             decoration: BoxDecoration(
                               gradient: LinearGradient(
                                 colors: [
-                                  Color(0xFF39B3EF),
+                                  const Color(0xFF39B3EF),
                                   FlutterFlowTheme.of(context).primaryBackground
                                 ],
-                                stops: [0.0, 1.0],
-                                begin: AlignmentDirectional(1.0, -0.77),
-                                end: AlignmentDirectional(-1.0, 0.77),
+                                stops: const [0.0, 1.0],
+                                begin: const AlignmentDirectional(1.0, -0.77),
+                                end: const AlignmentDirectional(-1.0, 0.77),
                               ),
-                              borderRadius: BorderRadius.only(
+                              borderRadius: const BorderRadius.only(
                                 bottomLeft: Radius.circular(30.0),
                                 bottomRight: Radius.circular(30.0),
                                 topLeft: Radius.circular(0.0),
@@ -181,7 +176,7 @@ class _SoundsDetailsBodyWidgetState extends State<SoundsDetailsBodyWidget>
                             child: Stack(
                               children: [
                                 Align(
-                                  alignment: AlignmentDirectional(0.92, 0.73),
+                                  alignment: const AlignmentDirectional(0.92, 0.73),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
                                       '5kxnvthp' /* Body */,
@@ -200,9 +195,9 @@ class _SoundsDetailsBodyWidgetState extends State<SoundsDetailsBodyWidget>
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(0.0, -1.53),
+                                  alignment: const AlignmentDirectional(0.0, -1.53),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         10.0, 55.0, 10.0, 10.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -243,7 +238,7 @@ class _SoundsDetailsBodyWidgetState extends State<SoundsDetailsBodyWidget>
                                               'NewHome',
                                               extra: <String, dynamic>{
                                                 kTransitionInfoKey:
-                                                    TransitionInfo(
+                                                    const TransitionInfo(
                                                   hasTransition: true,
                                                   transitionType:
                                                       PageTransitionType.fade,
@@ -280,7 +275,7 @@ class _SoundsDetailsBodyWidgetState extends State<SoundsDetailsBodyWidget>
                         Container(
                           width: double.infinity,
                           height: 692.0,
-                          decoration: BoxDecoration(),
+                          decoration: const BoxDecoration(),
                           child: FutureBuilder<ApiCallResponse>(
                             future: YouTubeDataYogaAPICall.call(),
                             builder: (context, snapshot) {
@@ -320,7 +315,7 @@ class _SoundsDetailsBodyWidgetState extends State<SoundsDetailsBodyWidget>
                                           binauralBeatsItems[
                                               binauralBeatsItemsIndex];
                                       return Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             16.0, 12.0, 16.0, 0.0),
                                         child: Container(
                                           width:
@@ -328,7 +323,7 @@ class _SoundsDetailsBodyWidgetState extends State<SoundsDetailsBodyWidget>
                                                   1.0,
                                           decoration: BoxDecoration(
                                             color: Colors.white,
-                                            boxShadow: [
+                                            boxShadow: const [
                                               BoxShadow(
                                                 blurRadius: 3.0,
                                                 color: Color(0x25000000),
@@ -354,7 +349,7 @@ class _SoundsDetailsBodyWidgetState extends State<SoundsDetailsBodyWidget>
                                                 transitionOnUserGestures: true,
                                                 child: ClipRRect(
                                                   borderRadius:
-                                                      BorderRadius.only(
+                                                      const BorderRadius.only(
                                                     bottomLeft:
                                                         Radius.circular(5.0),
                                                     bottomRight:
@@ -376,14 +371,14 @@ class _SoundsDetailsBodyWidgetState extends State<SoundsDetailsBodyWidget>
                                                 ),
                                               ),
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         8.0, 8.0, 4.0, 8.0),
                                                 child: Container(
                                                   width: 4.0,
                                                   height: 90.0,
                                                   decoration: BoxDecoration(
-                                                    color: Color(0xFF4B39EF),
+                                                    color: const Color(0xFF4B39EF),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             4.0),
@@ -391,7 +386,7 @@ class _SoundsDetailsBodyWidgetState extends State<SoundsDetailsBodyWidget>
                                                 ),
                                               ),
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         12.0, 12.0, 16.0, 12.0),
                                                 child: Column(
@@ -411,7 +406,7 @@ class _SoundsDetailsBodyWidgetState extends State<SoundsDetailsBodyWidget>
                                                           .override(
                                                             fontFamily:
                                                                 'Outfit',
-                                                            color: Color(
+                                                            color: const Color(
                                                                 0xFF101213),
                                                             fontSize: 16.0,
                                                             letterSpacing: 0.0,
@@ -421,7 +416,7 @@ class _SoundsDetailsBodyWidgetState extends State<SoundsDetailsBodyWidget>
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   4.0,
@@ -438,7 +433,7 @@ class _SoundsDetailsBodyWidgetState extends State<SoundsDetailsBodyWidget>
                                                             .override(
                                                               fontFamily:
                                                                   'Outfit',
-                                                              color: Color(
+                                                              color: const Color(
                                                                   0xFF57636C),
                                                               fontSize: 14.0,
                                                               letterSpacing:
@@ -451,7 +446,7 @@ class _SoundsDetailsBodyWidgetState extends State<SoundsDetailsBodyWidget>
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   4.0,
@@ -515,7 +510,7 @@ class _SoundsDetailsBodyWidgetState extends State<SoundsDetailsBodyWidget>
                                                             extra: <String,
                                                                 dynamic>{
                                                               kTransitionInfoKey:
-                                                                  TransitionInfo(
+                                                                  const TransitionInfo(
                                                                 hasTransition:
                                                                     true,
                                                                 transitionType:
@@ -540,7 +535,7 @@ class _SoundsDetailsBodyWidgetState extends State<SoundsDetailsBodyWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Outfit',
-                                                                color: Color(
+                                                                color: const Color(
                                                                     0xFF4B39EF),
                                                                 fontSize: 14.0,
                                                                 letterSpacing:

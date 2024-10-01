@@ -1,10 +1,7 @@
 import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'fetchapi_model.dart';
 export 'fetchapi_model.dart';
 
@@ -80,7 +77,7 @@ class _FetchapiWidgetState extends State<FetchapiWidget> {
                         itemBuilder: (context, eachProductIndex) {
                           final eachProductItem = eachProduct[eachProductIndex];
                           return Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 10.0, 10.0, 10.0, 10.0),
                             child: Container(
                               width: 100.0,

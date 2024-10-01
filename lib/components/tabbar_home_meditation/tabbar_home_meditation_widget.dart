@@ -6,16 +6,11 @@ import '/flutter_flow/flutter_flow_button_tabbar.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'dart:math';
-import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
-import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'tabbar_home_meditation_model.dart';
 export 'tabbar_home_meditation_model.dart';
@@ -66,8 +61,8 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -86,8 +81,8 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -106,8 +101,8 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -126,8 +121,8 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -146,8 +141,8 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -166,8 +161,8 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -186,8 +181,8 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -206,8 +201,8 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -226,8 +221,8 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -246,8 +241,8 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -266,8 +261,8 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -286,8 +281,8 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -306,8 +301,8 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -326,8 +321,8 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -346,8 +341,8 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -366,8 +361,8 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -386,8 +381,8 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -406,8 +401,8 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -426,8 +421,8 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -446,8 +441,8 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -466,8 +461,8 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -486,8 +481,8 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -506,8 +501,8 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -526,8 +521,8 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -555,13 +550,13 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
         desktop: false,
       ),
       child: Align(
-        alignment: AlignmentDirectional(-1.0, 0.0),
+        alignment: const AlignmentDirectional(-1.0, 0.0),
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
+          padding: const EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
           child: Column(
             children: [
               Align(
-                alignment: Alignment(-1.0, 0),
+                alignment: const Alignment(-1.0, 0),
                 child: FlutterFlowButtonTabBar(
                   useToggleButtonStyle: false,
                   isScrollable: true,
@@ -580,24 +575,24 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
                           ),
                   labelColor: Colors.white,
                   unselectedLabelColor: FlutterFlowTheme.of(context).primary,
-                  backgroundColor: Color(0xFF2082A2),
-                  unselectedBackgroundColor: Color(0xFFA0A3B1),
-                  borderColor: Color(0x00FFFFFF),
-                  unselectedBorderColor: Color(0x00FFFFFF),
+                  backgroundColor: const Color(0xFF2082A2),
+                  unselectedBackgroundColor: const Color(0xFFA0A3B1),
+                  borderColor: const Color(0x00FFFFFF),
+                  unselectedBorderColor: const Color(0x00FFFFFF),
                   borderWidth: 0.0,
                   borderRadius: 10.0,
                   elevation: 5.0,
                   labelPadding:
-                      EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                      const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
                   buttonMargin:
-                      EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                      const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
                   tabs: [
                     Tab(
                       text: FFLocalizations.of(context).getText(
                         '3t7dry4g' /* All */,
                       ),
-                      icon: FaIcon(
+                      icon: const FaIcon(
                         FontAwesomeIcons.alignLeft,
                         size: 40.0,
                       ),
@@ -606,7 +601,7 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
                       text: FFLocalizations.of(context).getText(
                         '2xdmasja' /* Anxiety */,
                       ),
-                      icon: FaIcon(
+                      icon: const FaIcon(
                         FontAwesomeIcons.solidSadTear,
                         size: 40.0,
                       ),
@@ -615,7 +610,7 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
                       text: FFLocalizations.of(context).getText(
                         's5opx851' /* Stress */,
                       ),
-                      icon: FaIcon(
+                      icon: const FaIcon(
                         FontAwesomeIcons.spa,
                         size: 40.0,
                       ),
@@ -624,7 +619,7 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
                       text: FFLocalizations.of(context).getText(
                         'qy5kcmb3' /* Sleep */,
                       ),
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.bed,
                         size: 40.0,
                       ),
@@ -633,7 +628,7 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
                       text: FFLocalizations.of(context).getText(
                         'y5ydvzup' /* Grounding */,
                       ),
-                      icon: FaIcon(
+                      icon: const FaIcon(
                         FontAwesomeIcons.medrt,
                         size: 40.0,
                       ),
@@ -657,10 +652,10 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
                   children: [
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(5.0, 22.0, 5.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(5.0, 22.0, 5.0, 0.0),
                       child: MasonryGridView.builder(
                         gridDelegate:
-                            SliverSimpleGridDelegateWithFixedCrossAxisCount(
+                            const SliverSimpleGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 2,
                         ),
                         crossAxisSpacing: 8.0,
@@ -690,7 +685,7 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
                                       borderRadius: BorderRadius.circular(15.0),
                                     ),
                                     child: Align(
-                                      alignment: AlignmentDirectional(0.0, 1.0),
+                                      alignment: const AlignmentDirectional(0.0, 1.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
@@ -718,7 +713,7 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
                                                         padding: MediaQuery
                                                             .viewInsetsOf(
                                                                 context),
-                                                        child: Container(
+                                                        child: const SizedBox(
                                                           height:
                                                               double.infinity,
                                                           child:
@@ -734,18 +729,18 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
                                                 width: 179.0,
                                                 height: 69.0,
                                                 decoration: BoxDecoration(
-                                                  color: Color(0xAE6450A5),
+                                                  color: const Color(0xAE6450A5),
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           15.0),
                                                 ),
                                                 child: Align(
                                                   alignment:
-                                                      AlignmentDirectional(
+                                                      const AlignmentDirectional(
                                                           0.0, 0.0),
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsets.all(11.0),
+                                                        const EdgeInsets.all(11.0),
                                                     child: Text(
                                                       FFLocalizations.of(
                                                               context)
@@ -800,7 +795,7 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
                                       borderRadius: BorderRadius.circular(15.0),
                                     ),
                                     child: Align(
-                                      alignment: AlignmentDirectional(0.0, 1.0),
+                                      alignment: const AlignmentDirectional(0.0, 1.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
@@ -822,7 +817,7 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
                                                   'UpliftandAwareness',
                                                   extra: <String, dynamic>{
                                                     kTransitionInfoKey:
-                                                        TransitionInfo(
+                                                        const TransitionInfo(
                                                       hasTransition: true,
                                                       transitionType:
                                                           PageTransitionType
@@ -837,18 +832,18 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
                                                 width: 192.0,
                                                 height: 69.0,
                                                 decoration: BoxDecoration(
-                                                  color: Color(0xAE6450A5),
+                                                  color: const Color(0xAE6450A5),
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           15.0),
                                                 ),
                                                 child: Align(
                                                   alignment:
-                                                      AlignmentDirectional(
+                                                      const AlignmentDirectional(
                                                           0.0, 0.0),
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsets.all(11.0),
+                                                        const EdgeInsets.all(11.0),
                                                     child: Text(
                                                       FFLocalizations.of(
                                                               context)
@@ -903,7 +898,7 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
                                       borderRadius: BorderRadius.circular(15.0),
                                     ),
                                     child: Align(
-                                      alignment: AlignmentDirectional(0.0, 1.0),
+                                      alignment: const AlignmentDirectional(0.0, 1.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
@@ -925,7 +920,7 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
                                                   'UsingVibration',
                                                   extra: <String, dynamic>{
                                                     kTransitionInfoKey:
-                                                        TransitionInfo(
+                                                        const TransitionInfo(
                                                       hasTransition: true,
                                                       transitionType:
                                                           PageTransitionType
@@ -940,18 +935,18 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
                                                 width: 192.0,
                                                 height: 69.0,
                                                 decoration: BoxDecoration(
-                                                  color: Color(0xAE6450A5),
+                                                  color: const Color(0xAE6450A5),
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           15.0),
                                                 ),
                                                 child: Align(
                                                   alignment:
-                                                      AlignmentDirectional(
+                                                      const AlignmentDirectional(
                                                           0.0, 0.0),
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsets.all(11.0),
+                                                        const EdgeInsets.all(11.0),
                                                     child: Text(
                                                       FFLocalizations.of(
                                                               context)
@@ -1006,7 +1001,7 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
                                       borderRadius: BorderRadius.circular(15.0),
                                     ),
                                     child: Align(
-                                      alignment: AlignmentDirectional(0.0, 1.0),
+                                      alignment: const AlignmentDirectional(0.0, 1.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
@@ -1028,7 +1023,7 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
                                                   'EliminateDepression',
                                                   extra: <String, dynamic>{
                                                     kTransitionInfoKey:
-                                                        TransitionInfo(
+                                                        const TransitionInfo(
                                                       hasTransition: true,
                                                       transitionType:
                                                           PageTransitionType
@@ -1043,18 +1038,18 @@ class _TabbarHomeMeditationWidgetState extends State<TabbarHomeMeditationWidget>
                                                 width: 179.0,
                                                 height: 69.0,
                                                 decoration: BoxDecoration(
-                                                  color: Color(0xAE6450A5),
+                                                  color: const Color(0xAE6450A5),
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           15.0),
                                                 ),
                                                 child: Align(
                                                   alignment:
-                                                      AlignmentDirectional(
+                                                      const AlignmentDirectional(
                                                           0.0, 0.0),
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsets.all(11.0),
+                                                        const EdgeInsets.all(11.0),
                                                     child: Text(
                                                       FFLocalizations.of(
                                                               context)
@@ -1097,7 +1092,7 @@ Depression */
                     Container(
                       width: double.infinity,
                       height: double.infinity,
-                      decoration: BoxDecoration(),
+                      decoration: const BoxDecoration(),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -1105,7 +1100,7 @@ Depression */
                             child: wrapWithModel(
                               model: _model.anxietyMeditationsCompModel,
                               updateCallback: () => safeSetState(() {}),
-                              child: AnxietyMeditationsCompWidget(),
+                              child: const AnxietyMeditationsCompWidget(),
                             ),
                           ),
                         ],
@@ -1114,19 +1109,19 @@ Depression */
                     Container(
                       width: double.infinity,
                       height: double.infinity,
-                      decoration: BoxDecoration(),
+                      decoration: const BoxDecoration(),
                       child: SingleChildScrollView(
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 10.0, 0.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         10.0, 0.0, 10.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -1152,7 +1147,7 @@ Depression */
                                   Container(
                                     width: double.infinity,
                                     height: 242.0,
-                                    decoration: BoxDecoration(
+                                    decoration: const BoxDecoration(
                                       color: Colors.transparent,
                                     ),
                                     child: Row(
@@ -1161,7 +1156,7 @@ Depression */
                                         Expanded(
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 8.0, 0.0, 8.0),
                                             child: PagedListView<
                                                 ApiPagingParams, dynamic>(
@@ -1221,13 +1216,13 @@ Depression */
                                                       .itemList![meditationsIndex];
                                                   return Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(10.0, 0.0,
                                                                 0.0, 0.0),
                                                     child: Container(
                                                       width: 187.0,
                                                       height: 215.0,
-                                                      decoration: BoxDecoration(
+                                                      decoration: const BoxDecoration(
                                                         color:
                                                             Colors.transparent,
                                                       ),
@@ -1289,7 +1284,7 @@ Depression */
                                                             extra: <String,
                                                                 dynamic>{
                                                               kTransitionInfoKey:
-                                                                  TransitionInfo(
+                                                                  const TransitionInfo(
                                                                 hasTransition:
                                                                     true,
                                                                 transitionType:
@@ -1311,7 +1306,7 @@ Depression */
                                                           children: [
                                                             Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -1349,12 +1344,12 @@ Depression */
                                                             ),
                                                             Align(
                                                               alignment:
-                                                                  AlignmentDirectional(
+                                                                  const AlignmentDirectional(
                                                                       -1.0,
                                                                       0.0),
                                                               child: Padding(
                                                                 padding:
-                                                                    EdgeInsets
+                                                                    const EdgeInsets
                                                                         .all(
                                                                             15.0),
                                                                 child: Text(
@@ -1382,12 +1377,12 @@ Depression */
                                                             ),
                                                             Align(
                                                               alignment:
-                                                                  AlignmentDirectional(
+                                                                  const AlignmentDirectional(
                                                                       1.0,
                                                                       -1.0),
                                                               child: Padding(
                                                                 padding:
-                                                                    EdgeInsets
+                                                                    const EdgeInsets
                                                                         .all(
                                                                             11.0),
                                                                 child:
@@ -1399,7 +1394,7 @@ Depression */
                                                                       8.0,
                                                                   buttonSize:
                                                                       40.0,
-                                                                  fillColor: Color(
+                                                                  fillColor: const Color(
                                                                       0xFA000220),
                                                                   icon: Icon(
                                                                     Icons
@@ -1436,7 +1431,7 @@ Depression */
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsets.all(10.0),
+                              padding: const EdgeInsets.all(10.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment:
@@ -1467,7 +1462,7 @@ Depression */
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsets.all(10.0),
+                              padding: const EdgeInsets.all(10.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
@@ -1475,7 +1470,7 @@ Depression */
                                     child: Container(
                                       width: 100.0,
                                       height: 80.0,
-                                      decoration: BoxDecoration(
+                                      decoration: const BoxDecoration(
                                         color: Colors.transparent,
                                       ),
                                       child: Row(
@@ -1487,7 +1482,7 @@ Depression */
                                               scrollDirection: Axis.horizontal,
                                               children: [
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 10.0, 0.0),
                                                   child: InkWell(
@@ -1510,7 +1505,7 @@ Depression */
                                                         extra: <String,
                                                             dynamic>{
                                                           kTransitionInfoKey:
-                                                              TransitionInfo(
+                                                              const TransitionInfo(
                                                             hasTransition: true,
                                                             transitionType:
                                                                 PageTransitionType
@@ -1527,7 +1522,7 @@ Depression */
                                                       height: 25.0,
                                                       decoration: BoxDecoration(
                                                         gradient:
-                                                            LinearGradient(
+                                                            const LinearGradient(
                                                           colors: [
                                                             Color(0xFFEF39D4),
                                                             Color(0xFFD2394E),
@@ -1582,7 +1577,7 @@ Depression */
                                                       'containerOnPageLoadAnimation2']!),
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 10.0, 0.0),
                                                   child: InkWell(
@@ -1605,7 +1600,7 @@ Depression */
                                                         extra: <String,
                                                             dynamic>{
                                                           kTransitionInfoKey:
-                                                              TransitionInfo(
+                                                              const TransitionInfo(
                                                             hasTransition: true,
                                                             transitionType:
                                                                 PageTransitionType
@@ -1624,22 +1619,22 @@ Depression */
                                                         gradient:
                                                             LinearGradient(
                                                           colors: [
-                                                            Color(0xFFEF39D4),
+                                                            const Color(0xFFEF39D4),
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .primary,
-                                                            Color(0xFF48C8FF)
+                                                            const Color(0xFF48C8FF)
                                                           ],
-                                                          stops: [
+                                                          stops: const [
                                                             0.0,
                                                             1.0,
                                                             1.0
                                                           ],
                                                           begin:
-                                                              AlignmentDirectional(
+                                                              const AlignmentDirectional(
                                                                   1.0, -0.77),
                                                           end:
-                                                              AlignmentDirectional(
+                                                              const AlignmentDirectional(
                                                                   -1.0, 0.77),
                                                         ),
                                                         borderRadius:
@@ -1679,7 +1674,7 @@ Depression */
                                                       'containerOnPageLoadAnimation3']!),
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 10.0, 0.0),
                                                   child: InkWell(
@@ -1702,7 +1697,7 @@ Depression */
                                                         extra: <String,
                                                             dynamic>{
                                                           kTransitionInfoKey:
-                                                              TransitionInfo(
+                                                              const TransitionInfo(
                                                             hasTransition: true,
                                                             transitionType:
                                                                 PageTransitionType
@@ -1719,7 +1714,7 @@ Depression */
                                                       height: 25.0,
                                                       decoration: BoxDecoration(
                                                         gradient:
-                                                            LinearGradient(
+                                                            const LinearGradient(
                                                           colors: [
                                                             Color(0xFFEF39D4),
                                                             Color(0xFFD2CB39),
@@ -1771,7 +1766,7 @@ Depression */
                                                       'containerOnPageLoadAnimation4']!),
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 10.0, 0.0),
                                                   child: InkWell(
@@ -1794,7 +1789,7 @@ Depression */
                                                         extra: <String,
                                                             dynamic>{
                                                           kTransitionInfoKey:
-                                                              TransitionInfo(
+                                                              const TransitionInfo(
                                                             hasTransition: true,
                                                             transitionType:
                                                                 PageTransitionType
@@ -1816,14 +1811,14 @@ Depression */
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .tertiary,
-                                                            Color(0xF2000220)
+                                                            const Color(0xF2000220)
                                                           ],
-                                                          stops: [0.0, 1.0],
+                                                          stops: const [0.0, 1.0],
                                                           begin:
-                                                              AlignmentDirectional(
+                                                              const AlignmentDirectional(
                                                                   1.0, -0.77),
                                                           end:
-                                                              AlignmentDirectional(
+                                                              const AlignmentDirectional(
                                                                   -1.0, 0.77),
                                                         ),
                                                         borderRadius:
@@ -1863,7 +1858,7 @@ Depression */
                                                       'containerOnPageLoadAnimation5']!),
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 10.0, 0.0),
                                                   child: Container(
@@ -1872,17 +1867,17 @@ Depression */
                                                     decoration: BoxDecoration(
                                                       gradient: LinearGradient(
                                                         colors: [
-                                                          Color(0xFF39EFED),
+                                                          const Color(0xFF39EFED),
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .primaryBackground
                                                         ],
-                                                        stops: [0.0, 1.0],
+                                                        stops: const [0.0, 1.0],
                                                         begin:
-                                                            AlignmentDirectional(
+                                                            const AlignmentDirectional(
                                                                 1.0, -0.77),
                                                         end:
-                                                            AlignmentDirectional(
+                                                            const AlignmentDirectional(
                                                                 -1.0, 0.77),
                                                       ),
                                                       borderRadius:
@@ -1928,7 +1923,7 @@ Depression */
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsets.all(10.0),
+                              padding: const EdgeInsets.all(10.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment:
@@ -1959,7 +1954,7 @@ Depression */
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsets.all(10.0),
+                              padding: const EdgeInsets.all(10.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
@@ -1967,7 +1962,7 @@ Depression */
                                     child: Container(
                                       width: double.infinity,
                                       height: 197.0,
-                                      decoration: BoxDecoration(
+                                      decoration: const BoxDecoration(
                                         color: Colors.transparent,
                                       ),
                                       child: Row(
@@ -2032,7 +2027,7 @@ Depression */
                                                       .itemList![recentItemsIndex];
                                                   return Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 10.0, 0.0),
                                                     child: Container(
@@ -2040,7 +2035,7 @@ Depression */
                                                       height: 198.0,
                                                       decoration: BoxDecoration(
                                                         color:
-                                                            Color(0x50090F13),
+                                                            const Color(0x50090F13),
                                                         borderRadius:
                                                             BorderRadius
                                                                 .circular(9.0),
@@ -2103,7 +2098,7 @@ Depression */
                                                             extra: <String,
                                                                 dynamic>{
                                                               kTransitionInfoKey:
-                                                                  TransitionInfo(
+                                                                  const TransitionInfo(
                                                                 hasTransition:
                                                                     true,
                                                                 transitionType:
@@ -2125,7 +2120,7 @@ Depression */
                                                           children: [
                                                             Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -2163,7 +2158,7 @@ Depression */
                                                             ),
                                                             Padding(
                                                               padding:
-                                                                  EdgeInsets
+                                                                  const EdgeInsets
                                                                       .all(
                                                                           11.0),
                                                               child: Text(
@@ -2212,7 +2207,7 @@ Depression */
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsets.all(15.0),
+                              padding: const EdgeInsets.all(15.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment:
@@ -2242,7 +2237,7 @@ Depression */
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   10.0, 0.0, 10.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -2251,7 +2246,7 @@ Depression */
                                     child: Container(
                                       width: double.infinity,
                                       height: 480.0,
-                                      decoration: BoxDecoration(
+                                      decoration: const BoxDecoration(
                                         color: Colors.transparent,
                                       ),
                                       child: Column(
@@ -2259,7 +2254,7 @@ Depression */
                                         children: [
                                           Expanded(
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 8.0, 0.0, 8.0),
                                               child: RefreshIndicator(
                                                 onRefresh: () async {
@@ -2334,7 +2329,7 @@ Depression */
                                                               meditationsIndex];
                                                       return Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     10.0,
                                                                     0.0,
@@ -2344,7 +2339,7 @@ Depression */
                                                           width: 187.0,
                                                           height: 215.0,
                                                           decoration:
-                                                              BoxDecoration(
+                                                              const BoxDecoration(
                                                             color: Colors
                                                                 .transparent,
                                                           ),
@@ -2408,7 +2403,7 @@ Depression */
                                                                 extra: <String,
                                                                     dynamic>{
                                                                   kTransitionInfoKey:
-                                                                      TransitionInfo(
+                                                                      const TransitionInfo(
                                                                     hasTransition:
                                                                         true,
                                                                     transitionType:
@@ -2430,7 +2425,7 @@ Depression */
                                                                       .center,
                                                               children: [
                                                                 Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -2467,13 +2462,13 @@ Depression */
                                                                 ),
                                                                 Align(
                                                                   alignment:
-                                                                      AlignmentDirectional(
+                                                                      const AlignmentDirectional(
                                                                           -1.0,
                                                                           0.0),
                                                                   child:
                                                                       Padding(
                                                                     padding:
-                                                                        EdgeInsets.all(
+                                                                        const EdgeInsets.all(
                                                                             15.0),
                                                                     child: Text(
                                                                       getJsonField(
@@ -2500,13 +2495,13 @@ Depression */
                                                                 ),
                                                                 Align(
                                                                   alignment:
-                                                                      AlignmentDirectional(
+                                                                      const AlignmentDirectional(
                                                                           1.0,
                                                                           -1.0),
                                                                   child:
                                                                       Padding(
                                                                     padding:
-                                                                        EdgeInsets.all(
+                                                                        const EdgeInsets.all(
                                                                             11.0),
                                                                     child:
                                                                         FlutterFlowIconButton(
@@ -2518,7 +2513,7 @@ Depression */
                                                                       buttonSize:
                                                                           40.0,
                                                                       fillColor:
-                                                                          Color(
+                                                                          const Color(
                                                                               0xFA000220),
                                                                       icon:
                                                                           Icon(
@@ -2564,19 +2559,19 @@ Depression */
                     Container(
                       width: double.infinity,
                       height: double.infinity,
-                      decoration: BoxDecoration(),
+                      decoration: const BoxDecoration(),
                       child: SingleChildScrollView(
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 10.0, 0.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         10.0, 0.0, 10.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -2589,7 +2584,7 @@ Depression */
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Roboto',
-                                                color: Color(0xFD000220),
+                                                color: const Color(0xFD000220),
                                                 fontSize: 20.0,
                                                 letterSpacing: 0.0,
                                               ),
@@ -2600,7 +2595,7 @@ Depression */
                                   Container(
                                     width: double.infinity,
                                     height: 255.0,
-                                    decoration: BoxDecoration(
+                                    decoration: const BoxDecoration(
                                       color: Colors.transparent,
                                     ),
                                     child: Row(
@@ -2609,7 +2604,7 @@ Depression */
                                         Expanded(
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 8.0, 0.0, 8.0),
                                             child: PagedListView<
                                                 ApiPagingParams, dynamic>(
@@ -2669,13 +2664,13 @@ Depression */
                                                       .itemList![meditationsIndex];
                                                   return Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(10.0, 0.0,
                                                                 0.0, 0.0),
                                                     child: Container(
                                                       width: 187.0,
                                                       height: 215.0,
-                                                      decoration: BoxDecoration(
+                                                      decoration: const BoxDecoration(
                                                         color:
                                                             Colors.transparent,
                                                       ),
@@ -2737,7 +2732,7 @@ Depression */
                                                             extra: <String,
                                                                 dynamic>{
                                                               kTransitionInfoKey:
-                                                                  TransitionInfo(
+                                                                  const TransitionInfo(
                                                                 hasTransition:
                                                                     true,
                                                                 transitionType:
@@ -2759,7 +2754,7 @@ Depression */
                                                           children: [
                                                             Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -2797,12 +2792,12 @@ Depression */
                                                             ),
                                                             Align(
                                                               alignment:
-                                                                  AlignmentDirectional(
+                                                                  const AlignmentDirectional(
                                                                       -1.0,
                                                                       0.0),
                                                               child: Padding(
                                                                 padding:
-                                                                    EdgeInsets
+                                                                    const EdgeInsets
                                                                         .all(
                                                                             15.0),
                                                                 child: Text(
@@ -2830,12 +2825,12 @@ Depression */
                                                             ),
                                                             Align(
                                                               alignment:
-                                                                  AlignmentDirectional(
+                                                                  const AlignmentDirectional(
                                                                       1.0,
                                                                       -1.0),
                                                               child: Padding(
                                                                 padding:
-                                                                    EdgeInsets
+                                                                    const EdgeInsets
                                                                         .all(
                                                                             11.0),
                                                                 child:
@@ -2847,7 +2842,7 @@ Depression */
                                                                       8.0,
                                                                   buttonSize:
                                                                       40.0,
-                                                                  fillColor: Color(
+                                                                  fillColor: const Color(
                                                                       0xFA000220),
                                                                   icon: Icon(
                                                                     Icons
@@ -2884,7 +2879,7 @@ Depression */
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsets.all(10.0),
+                              padding: const EdgeInsets.all(10.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment:
@@ -2898,7 +2893,7 @@ Depression */
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Roboto',
-                                          color: Color(0xFD000220),
+                                          color: const Color(0xFD000220),
                                           fontSize: 20.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w300,
@@ -2914,7 +2909,7 @@ Depression */
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsets.all(10.0),
+                              padding: const EdgeInsets.all(10.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
@@ -2922,7 +2917,7 @@ Depression */
                                     child: Container(
                                       width: 100.0,
                                       height: 80.0,
-                                      decoration: BoxDecoration(
+                                      decoration: const BoxDecoration(
                                         color: Colors.transparent,
                                       ),
                                       child: Row(
@@ -2934,7 +2929,7 @@ Depression */
                                               scrollDirection: Axis.horizontal,
                                               children: [
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 10.0, 0.0),
                                                   child: InkWell(
@@ -2957,7 +2952,7 @@ Depression */
                                                         extra: <String,
                                                             dynamic>{
                                                           kTransitionInfoKey:
-                                                              TransitionInfo(
+                                                              const TransitionInfo(
                                                             hasTransition: true,
                                                             transitionType:
                                                                 PageTransitionType
@@ -2974,7 +2969,7 @@ Depression */
                                                       height: 25.0,
                                                       decoration: BoxDecoration(
                                                         gradient:
-                                                            LinearGradient(
+                                                            const LinearGradient(
                                                           colors: [
                                                             Color(0xFFEF39D4),
                                                             Color(0xFFD2394E),
@@ -3026,7 +3021,7 @@ Depression */
                                                       'containerOnPageLoadAnimation10']!),
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 10.0, 0.0),
                                                   child: InkWell(
@@ -3049,7 +3044,7 @@ Depression */
                                                         extra: <String,
                                                             dynamic>{
                                                           kTransitionInfoKey:
-                                                              TransitionInfo(
+                                                              const TransitionInfo(
                                                             hasTransition: true,
                                                             transitionType:
                                                                 PageTransitionType
@@ -3068,22 +3063,22 @@ Depression */
                                                         gradient:
                                                             LinearGradient(
                                                           colors: [
-                                                            Color(0xFFEF39D4),
+                                                            const Color(0xFFEF39D4),
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .primary,
-                                                            Color(0xFF48C8FF)
+                                                            const Color(0xFF48C8FF)
                                                           ],
-                                                          stops: [
+                                                          stops: const [
                                                             0.0,
                                                             1.0,
                                                             1.0
                                                           ],
                                                           begin:
-                                                              AlignmentDirectional(
+                                                              const AlignmentDirectional(
                                                                   1.0, -0.77),
                                                           end:
-                                                              AlignmentDirectional(
+                                                              const AlignmentDirectional(
                                                                   -1.0, 0.77),
                                                         ),
                                                         borderRadius:
@@ -3120,7 +3115,7 @@ Depression */
                                                       'containerOnPageLoadAnimation11']!),
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 10.0, 0.0),
                                                   child: InkWell(
@@ -3143,7 +3138,7 @@ Depression */
                                                         extra: <String,
                                                             dynamic>{
                                                           kTransitionInfoKey:
-                                                              TransitionInfo(
+                                                              const TransitionInfo(
                                                             hasTransition: true,
                                                             transitionType:
                                                                 PageTransitionType
@@ -3160,7 +3155,7 @@ Depression */
                                                       height: 25.0,
                                                       decoration: BoxDecoration(
                                                         gradient:
-                                                            LinearGradient(
+                                                            const LinearGradient(
                                                           colors: [
                                                             Color(0xFFEF39D4),
                                                             Color(0xFFD2CB39),
@@ -3212,7 +3207,7 @@ Depression */
                                                       'containerOnPageLoadAnimation12']!),
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 10.0, 0.0),
                                                   child: InkWell(
@@ -3235,7 +3230,7 @@ Depression */
                                                         extra: <String,
                                                             dynamic>{
                                                           kTransitionInfoKey:
-                                                              TransitionInfo(
+                                                              const TransitionInfo(
                                                             hasTransition: true,
                                                             transitionType:
                                                                 PageTransitionType
@@ -3254,17 +3249,17 @@ Depression */
                                                         gradient:
                                                             LinearGradient(
                                                           colors: [
-                                                            Color(0xFF39EFED),
+                                                            const Color(0xFF39EFED),
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .accent2
                                                           ],
-                                                          stops: [0.0, 1.0],
+                                                          stops: const [0.0, 1.0],
                                                           begin:
-                                                              AlignmentDirectional(
+                                                              const AlignmentDirectional(
                                                                   1.0, -0.77),
                                                           end:
-                                                              AlignmentDirectional(
+                                                              const AlignmentDirectional(
                                                                   -1.0, 0.77),
                                                         ),
                                                         borderRadius:
@@ -3301,7 +3296,7 @@ Depression */
                                                       'containerOnPageLoadAnimation13']!),
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 10.0, 0.0),
                                                   child: InkWell(
@@ -3324,7 +3319,7 @@ Depression */
                                                         extra: <String,
                                                             dynamic>{
                                                           kTransitionInfoKey:
-                                                              TransitionInfo(
+                                                              const TransitionInfo(
                                                             hasTransition: true,
                                                             transitionType:
                                                                 PageTransitionType
@@ -3343,17 +3338,17 @@ Depression */
                                                         gradient:
                                                             LinearGradient(
                                                           colors: [
-                                                            Color(0xFF39EFED),
+                                                            const Color(0xFF39EFED),
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .primaryBackground
                                                           ],
-                                                          stops: [0.0, 1.0],
+                                                          stops: const [0.0, 1.0],
                                                           begin:
-                                                              AlignmentDirectional(
+                                                              const AlignmentDirectional(
                                                                   1.0, -0.77),
                                                           end:
-                                                              AlignmentDirectional(
+                                                              const AlignmentDirectional(
                                                                   -1.0, 0.77),
                                                         ),
                                                         borderRadius:
@@ -3400,7 +3395,7 @@ Depression */
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsets.all(10.0),
+                              padding: const EdgeInsets.all(10.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment:
@@ -3414,7 +3409,7 @@ Depression */
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Roboto',
-                                          color: Color(0xFD000220),
+                                          color: const Color(0xFD000220),
                                           fontSize: 20.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w300,
@@ -3430,7 +3425,7 @@ Depression */
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsets.all(10.0),
+                              padding: const EdgeInsets.all(10.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
@@ -3438,7 +3433,7 @@ Depression */
                                     child: Container(
                                       width: double.infinity,
                                       height: 206.0,
-                                      decoration: BoxDecoration(
+                                      decoration: const BoxDecoration(
                                         color: Colors.transparent,
                                       ),
                                       child: Row(
@@ -3503,7 +3498,7 @@ Depression */
                                                       .itemList![recentItemsIndex];
                                                   return Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 10.0, 0.0),
                                                     child: Container(
@@ -3511,7 +3506,7 @@ Depression */
                                                       height: 198.0,
                                                       decoration: BoxDecoration(
                                                         color:
-                                                            Color(0x50090F13),
+                                                            const Color(0x50090F13),
                                                         borderRadius:
                                                             BorderRadius
                                                                 .circular(9.0),
@@ -3574,7 +3569,7 @@ Depression */
                                                             extra: <String,
                                                                 dynamic>{
                                                               kTransitionInfoKey:
-                                                                  TransitionInfo(
+                                                                  const TransitionInfo(
                                                                 hasTransition:
                                                                     true,
                                                                 transitionType:
@@ -3596,7 +3591,7 @@ Depression */
                                                           children: [
                                                             Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -3634,7 +3629,7 @@ Depression */
                                                             ),
                                                             Padding(
                                                               padding:
-                                                                  EdgeInsets
+                                                                  const EdgeInsets
                                                                       .all(
                                                                           11.0),
                                                               child: Text(
@@ -3683,7 +3678,7 @@ Depression */
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsets.all(15.0),
+                              padding: const EdgeInsets.all(15.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment:
@@ -3697,7 +3692,7 @@ Depression */
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Roboto',
-                                          color: Color(0xFD000220),
+                                          color: const Color(0xFD000220),
                                           fontSize: 26.0,
                                           letterSpacing: 0.0,
                                         ),
@@ -3712,7 +3707,7 @@ Depression */
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   10.0, 0.0, 10.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -3721,7 +3716,7 @@ Depression */
                                     child: Container(
                                       width: double.infinity,
                                       height: 480.0,
-                                      decoration: BoxDecoration(
+                                      decoration: const BoxDecoration(
                                         color: Colors.transparent,
                                       ),
                                       child: Column(
@@ -3729,7 +3724,7 @@ Depression */
                                         children: [
                                           Expanded(
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 8.0, 0.0, 8.0),
                                               child: RefreshIndicator(
                                                 onRefresh: () async {
@@ -3752,14 +3747,14 @@ Depression */
                                                         YouTubeDataAPIGuidedMeditationsCall
                                                             .call(),
                                                   ),
-                                                  padding: EdgeInsets.symmetric(
+                                                  padding: const EdgeInsets.symmetric(
                                                       vertical: 5.0),
                                                   shrinkWrap: true,
                                                   reverse: false,
                                                   scrollDirection:
                                                       Axis.vertical,
                                                   separatorBuilder: (_, __) =>
-                                                      SizedBox(height: 5.0),
+                                                      const SizedBox(height: 5.0),
                                                   builderDelegate:
                                                       PagedChildBuilderDelegate<
                                                           dynamic>(
@@ -3808,7 +3803,7 @@ Depression */
                                                               meditationsIndex];
                                                       return Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     10.0,
                                                                     0.0,
@@ -3818,7 +3813,7 @@ Depression */
                                                           width: 187.0,
                                                           height: 215.0,
                                                           decoration:
-                                                              BoxDecoration(
+                                                              const BoxDecoration(
                                                             color: Colors
                                                                 .transparent,
                                                           ),
@@ -3882,7 +3877,7 @@ Depression */
                                                                 extra: <String,
                                                                     dynamic>{
                                                                   kTransitionInfoKey:
-                                                                      TransitionInfo(
+                                                                      const TransitionInfo(
                                                                     hasTransition:
                                                                         true,
                                                                     transitionType:
@@ -3904,7 +3899,7 @@ Depression */
                                                                       .center,
                                                               children: [
                                                                 Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -3941,13 +3936,13 @@ Depression */
                                                                 ),
                                                                 Align(
                                                                   alignment:
-                                                                      AlignmentDirectional(
+                                                                      const AlignmentDirectional(
                                                                           -1.0,
                                                                           0.0),
                                                                   child:
                                                                       Padding(
                                                                     padding:
-                                                                        EdgeInsets.all(
+                                                                        const EdgeInsets.all(
                                                                             15.0),
                                                                     child: Text(
                                                                       getJsonField(
@@ -3974,13 +3969,13 @@ Depression */
                                                                 ),
                                                                 Align(
                                                                   alignment:
-                                                                      AlignmentDirectional(
+                                                                      const AlignmentDirectional(
                                                                           1.0,
                                                                           -1.0),
                                                                   child:
                                                                       Padding(
                                                                     padding:
-                                                                        EdgeInsets.all(
+                                                                        const EdgeInsets.all(
                                                                             11.0),
                                                                     child:
                                                                         FlutterFlowIconButton(
@@ -3992,7 +3987,7 @@ Depression */
                                                                       buttonSize:
                                                                           40.0,
                                                                       fillColor:
-                                                                          Color(
+                                                                          const Color(
                                                                               0xFA000220),
                                                                       icon:
                                                                           Icon(
@@ -4038,19 +4033,19 @@ Depression */
                     Container(
                       width: double.infinity,
                       height: double.infinity,
-                      decoration: BoxDecoration(),
+                      decoration: const BoxDecoration(),
                       child: SingleChildScrollView(
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 10.0, 0.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         10.0, 0.0, 10.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -4063,7 +4058,7 @@ Depression */
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Roboto',
-                                                color: Color(0xFB000220),
+                                                color: const Color(0xFB000220),
                                                 fontSize: 20.0,
                                                 letterSpacing: 0.0,
                                               ),
@@ -4074,7 +4069,7 @@ Depression */
                                   Container(
                                     width: double.infinity,
                                     height: 253.0,
-                                    decoration: BoxDecoration(
+                                    decoration: const BoxDecoration(
                                       color: Colors.transparent,
                                     ),
                                     child: Row(
@@ -4083,7 +4078,7 @@ Depression */
                                         Expanded(
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 8.0, 0.0, 8.0),
                                             child: PagedListView<
                                                 ApiPagingParams, dynamic>(
@@ -4143,13 +4138,13 @@ Depression */
                                                       .itemList![meditationsIndex];
                                                   return Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(10.0, 0.0,
                                                                 0.0, 0.0),
                                                     child: Container(
                                                       width: 187.0,
                                                       height: 215.0,
-                                                      decoration: BoxDecoration(
+                                                      decoration: const BoxDecoration(
                                                         color:
                                                             Colors.transparent,
                                                       ),
@@ -4211,7 +4206,7 @@ Depression */
                                                             extra: <String,
                                                                 dynamic>{
                                                               kTransitionInfoKey:
-                                                                  TransitionInfo(
+                                                                  const TransitionInfo(
                                                                 hasTransition:
                                                                     true,
                                                                 transitionType:
@@ -4233,7 +4228,7 @@ Depression */
                                                           children: [
                                                             Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -4271,12 +4266,12 @@ Depression */
                                                             ),
                                                             Align(
                                                               alignment:
-                                                                  AlignmentDirectional(
+                                                                  const AlignmentDirectional(
                                                                       -1.0,
                                                                       0.0),
                                                               child: Padding(
                                                                 padding:
-                                                                    EdgeInsets
+                                                                    const EdgeInsets
                                                                         .all(
                                                                             15.0),
                                                                 child: Text(
@@ -4304,12 +4299,12 @@ Depression */
                                                             ),
                                                             Align(
                                                               alignment:
-                                                                  AlignmentDirectional(
+                                                                  const AlignmentDirectional(
                                                                       1.0,
                                                                       -1.0),
                                                               child: Padding(
                                                                 padding:
-                                                                    EdgeInsets
+                                                                    const EdgeInsets
                                                                         .all(
                                                                             11.0),
                                                                 child:
@@ -4321,7 +4316,7 @@ Depression */
                                                                       8.0,
                                                                   buttonSize:
                                                                       40.0,
-                                                                  fillColor: Color(
+                                                                  fillColor: const Color(
                                                                       0xFA000220),
                                                                   icon: Icon(
                                                                     Icons
@@ -4358,7 +4353,7 @@ Depression */
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsets.all(10.0),
+                              padding: const EdgeInsets.all(10.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment:
@@ -4372,7 +4367,7 @@ Depression */
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Roboto',
-                                          color: Color(0xFB000220),
+                                          color: const Color(0xFB000220),
                                           fontSize: 20.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w300,
@@ -4388,7 +4383,7 @@ Depression */
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsets.all(10.0),
+                              padding: const EdgeInsets.all(10.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
@@ -4396,7 +4391,7 @@ Depression */
                                     child: Container(
                                       width: 100.0,
                                       height: 80.0,
-                                      decoration: BoxDecoration(
+                                      decoration: const BoxDecoration(
                                         color: Colors.transparent,
                                       ),
                                       child: Row(
@@ -4408,7 +4403,7 @@ Depression */
                                               scrollDirection: Axis.horizontal,
                                               children: [
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 10.0, 0.0),
                                                   child: InkWell(
@@ -4431,7 +4426,7 @@ Depression */
                                                         extra: <String,
                                                             dynamic>{
                                                           kTransitionInfoKey:
-                                                              TransitionInfo(
+                                                              const TransitionInfo(
                                                             hasTransition: true,
                                                             transitionType:
                                                                 PageTransitionType
@@ -4448,7 +4443,7 @@ Depression */
                                                       height: 25.0,
                                                       decoration: BoxDecoration(
                                                         gradient:
-                                                            LinearGradient(
+                                                            const LinearGradient(
                                                           colors: [
                                                             Color(0xFFEF39D4),
                                                             Color(0xFFD2394E),
@@ -4500,7 +4495,7 @@ Depression */
                                                       'containerOnPageLoadAnimation18']!),
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 10.0, 0.0),
                                                   child: InkWell(
@@ -4523,7 +4518,7 @@ Depression */
                                                         extra: <String,
                                                             dynamic>{
                                                           kTransitionInfoKey:
-                                                              TransitionInfo(
+                                                              const TransitionInfo(
                                                             hasTransition: true,
                                                             transitionType:
                                                                 PageTransitionType
@@ -4542,22 +4537,22 @@ Depression */
                                                         gradient:
                                                             LinearGradient(
                                                           colors: [
-                                                            Color(0xFFEF39D4),
+                                                            const Color(0xFFEF39D4),
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .primary,
-                                                            Color(0xFF48C8FF)
+                                                            const Color(0xFF48C8FF)
                                                           ],
-                                                          stops: [
+                                                          stops: const [
                                                             0.0,
                                                             1.0,
                                                             1.0
                                                           ],
                                                           begin:
-                                                              AlignmentDirectional(
+                                                              const AlignmentDirectional(
                                                                   1.0, -0.77),
                                                           end:
-                                                              AlignmentDirectional(
+                                                              const AlignmentDirectional(
                                                                   -1.0, 0.77),
                                                         ),
                                                         borderRadius:
@@ -4601,7 +4596,7 @@ Grounding Music */
                                                       'containerOnPageLoadAnimation19']!),
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 10.0, 0.0),
                                                   child: InkWell(
@@ -4624,7 +4619,7 @@ Grounding Music */
                                                         extra: <String,
                                                             dynamic>{
                                                           kTransitionInfoKey:
-                                                              TransitionInfo(
+                                                              const TransitionInfo(
                                                             hasTransition: true,
                                                             transitionType:
                                                                 PageTransitionType
@@ -4641,7 +4636,7 @@ Grounding Music */
                                                       height: 25.0,
                                                       decoration: BoxDecoration(
                                                         gradient:
-                                                            LinearGradient(
+                                                            const LinearGradient(
                                                           colors: [
                                                             Color(0xFFEF39D4),
                                                             Color(0xFFD2CB39),
@@ -4693,7 +4688,7 @@ Grounding Music */
                                                       'containerOnPageLoadAnimation20']!),
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 10.0, 0.0),
                                                   child: InkWell(
@@ -4716,7 +4711,7 @@ Grounding Music */
                                                         extra: <String,
                                                             dynamic>{
                                                           kTransitionInfoKey:
-                                                              TransitionInfo(
+                                                              const TransitionInfo(
                                                             hasTransition: true,
                                                             transitionType:
                                                                 PageTransitionType
@@ -4735,17 +4730,17 @@ Grounding Music */
                                                         gradient:
                                                             LinearGradient(
                                                           colors: [
-                                                            Color(0xFF39EFED),
+                                                            const Color(0xFF39EFED),
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .primaryBackground
                                                           ],
-                                                          stops: [0.0, 1.0],
+                                                          stops: const [0.0, 1.0],
                                                           begin:
-                                                              AlignmentDirectional(
+                                                              const AlignmentDirectional(
                                                                   1.0, -0.77),
                                                           end:
-                                                              AlignmentDirectional(
+                                                              const AlignmentDirectional(
                                                                   -1.0, 0.77),
                                                         ),
                                                         borderRadius:
@@ -4782,7 +4777,7 @@ Grounding Music */
                                                       'containerOnPageLoadAnimation21']!),
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 10.0, 0.0),
                                                   child: InkWell(
@@ -4805,7 +4800,7 @@ Grounding Music */
                                                         extra: <String,
                                                             dynamic>{
                                                           kTransitionInfoKey:
-                                                              TransitionInfo(
+                                                              const TransitionInfo(
                                                             hasTransition: true,
                                                             transitionType:
                                                                 PageTransitionType
@@ -4827,14 +4822,14 @@ Grounding Music */
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .error,
-                                                            Color(0xFF000220)
+                                                            const Color(0xFF000220)
                                                           ],
-                                                          stops: [0.0, 1.0],
+                                                          stops: const [0.0, 1.0],
                                                           begin:
-                                                              AlignmentDirectional(
+                                                              const AlignmentDirectional(
                                                                   1.0, -0.77),
                                                           end:
-                                                              AlignmentDirectional(
+                                                              const AlignmentDirectional(
                                                                   -1.0, 0.77),
                                                         ),
                                                         borderRadius:
@@ -4884,7 +4879,7 @@ Grounding Music */
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsets.all(10.0),
+                              padding: const EdgeInsets.all(10.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment:
@@ -4898,7 +4893,7 @@ Grounding Music */
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Roboto',
-                                          color: Color(0xFB000220),
+                                          color: const Color(0xFB000220),
                                           fontSize: 20.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w300,
@@ -4914,7 +4909,7 @@ Grounding Music */
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsets.all(10.0),
+                              padding: const EdgeInsets.all(10.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
@@ -4922,7 +4917,7 @@ Grounding Music */
                                     child: Container(
                                       width: double.infinity,
                                       height: 185.0,
-                                      decoration: BoxDecoration(
+                                      decoration: const BoxDecoration(
                                         color: Colors.transparent,
                                       ),
                                       child: Row(
@@ -4987,7 +4982,7 @@ Grounding Music */
                                                       .itemList![recentItemsIndex];
                                                   return Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 10.0, 0.0),
                                                     child: Container(
@@ -4995,7 +4990,7 @@ Grounding Music */
                                                       height: 198.0,
                                                       decoration: BoxDecoration(
                                                         color:
-                                                            Color(0x50090F13),
+                                                            const Color(0x50090F13),
                                                         borderRadius:
                                                             BorderRadius
                                                                 .circular(9.0),
@@ -5058,7 +5053,7 @@ Grounding Music */
                                                             extra: <String,
                                                                 dynamic>{
                                                               kTransitionInfoKey:
-                                                                  TransitionInfo(
+                                                                  const TransitionInfo(
                                                                 hasTransition:
                                                                     true,
                                                                 transitionType:
@@ -5080,7 +5075,7 @@ Grounding Music */
                                                           children: [
                                                             Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
+                                                                  const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -5118,7 +5113,7 @@ Grounding Music */
                                                             ),
                                                             Padding(
                                                               padding:
-                                                                  EdgeInsets
+                                                                  const EdgeInsets
                                                                       .all(
                                                                           11.0),
                                                               child: Text(
@@ -5167,7 +5162,7 @@ Grounding Music */
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsets.all(15.0),
+                              padding: const EdgeInsets.all(15.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment:
@@ -5181,7 +5176,7 @@ Grounding Music */
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Roboto',
-                                          color: Color(0xFB000220),
+                                          color: const Color(0xFB000220),
                                           fontSize: 26.0,
                                           letterSpacing: 0.0,
                                         ),
@@ -5196,7 +5191,7 @@ Grounding Music */
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   10.0, 0.0, 10.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -5205,7 +5200,7 @@ Grounding Music */
                                     child: Container(
                                       width: double.infinity,
                                       height: 480.0,
-                                      decoration: BoxDecoration(
+                                      decoration: const BoxDecoration(
                                         color: Colors.transparent,
                                       ),
                                       child: Column(
@@ -5213,7 +5208,7 @@ Grounding Music */
                                         children: [
                                           Expanded(
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 8.0, 0.0, 8.0),
                                               child: RefreshIndicator(
                                                 onRefresh: () async {
@@ -5236,14 +5231,14 @@ Grounding Music */
                                                         YouTubeDataAPIGuidedMeditationsCall
                                                             .call(),
                                                   ),
-                                                  padding: EdgeInsets.symmetric(
+                                                  padding: const EdgeInsets.symmetric(
                                                       vertical: 5.0),
                                                   shrinkWrap: true,
                                                   reverse: false,
                                                   scrollDirection:
                                                       Axis.vertical,
                                                   separatorBuilder: (_, __) =>
-                                                      SizedBox(height: 5.0),
+                                                      const SizedBox(height: 5.0),
                                                   builderDelegate:
                                                       PagedChildBuilderDelegate<
                                                           dynamic>(
@@ -5292,7 +5287,7 @@ Grounding Music */
                                                               meditationsIndex];
                                                       return Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     10.0,
                                                                     0.0,
@@ -5302,7 +5297,7 @@ Grounding Music */
                                                           width: 187.0,
                                                           height: 215.0,
                                                           decoration:
-                                                              BoxDecoration(
+                                                              const BoxDecoration(
                                                             color: Colors
                                                                 .transparent,
                                                           ),
@@ -5366,7 +5361,7 @@ Grounding Music */
                                                                 extra: <String,
                                                                     dynamic>{
                                                                   kTransitionInfoKey:
-                                                                      TransitionInfo(
+                                                                      const TransitionInfo(
                                                                     hasTransition:
                                                                         true,
                                                                     transitionType:
@@ -5388,7 +5383,7 @@ Grounding Music */
                                                                       .center,
                                                               children: [
                                                                 Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -5425,13 +5420,13 @@ Grounding Music */
                                                                 ),
                                                                 Align(
                                                                   alignment:
-                                                                      AlignmentDirectional(
+                                                                      const AlignmentDirectional(
                                                                           -1.0,
                                                                           0.0),
                                                                   child:
                                                                       Padding(
                                                                     padding:
-                                                                        EdgeInsets.all(
+                                                                        const EdgeInsets.all(
                                                                             15.0),
                                                                     child: Text(
                                                                       getJsonField(
@@ -5458,13 +5453,13 @@ Grounding Music */
                                                                 ),
                                                                 Align(
                                                                   alignment:
-                                                                      AlignmentDirectional(
+                                                                      const AlignmentDirectional(
                                                                           1.0,
                                                                           -1.0),
                                                                   child:
                                                                       Padding(
                                                                     padding:
-                                                                        EdgeInsets.all(
+                                                                        const EdgeInsets.all(
                                                                             11.0),
                                                                     child:
                                                                         FlutterFlowIconButton(
@@ -5476,7 +5471,7 @@ Grounding Music */
                                                                       buttonSize:
                                                                           40.0,
                                                                       fillColor:
-                                                                          Color(
+                                                                          const Color(
                                                                               0xFA000220),
                                                                       icon:
                                                                           Icon(

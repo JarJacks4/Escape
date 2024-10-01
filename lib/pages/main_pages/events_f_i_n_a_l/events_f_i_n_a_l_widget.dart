@@ -3,13 +3,8 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'events_f_i_n_a_l_model.dart';
 export 'events_f_i_n_a_l_model.dart';
 
@@ -60,8 +55,8 @@ class _EventsFINALWidgetState extends State<EventsFINALWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -79,8 +74,8 @@ class _EventsFINALWidgetState extends State<EventsFINALWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -111,7 +106,7 @@ class _EventsFINALWidgetState extends State<EventsFINALWidget>
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      Container(
+                      SizedBox(
                         width: double.infinity,
                         child: Stack(
                           children: [
@@ -122,7 +117,7 @@ class _EventsFINALWidgetState extends State<EventsFINALWidget>
                               fit: BoxFit.cover,
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   15.0, 40.0, 15.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -136,7 +131,7 @@ class _EventsFINALWidgetState extends State<EventsFINALWidget>
                                     buttonSize: 50.0,
                                     fillColor: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
-                                    icon: Icon(
+                                    icon: const Icon(
                                       Icons.chevron_left,
                                       color: Colors.white,
                                       size: 30.0,
@@ -170,7 +165,7 @@ class _EventsFINALWidgetState extends State<EventsFINALWidget>
                       ),
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(5.0, 30.0, 5.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(5.0, 30.0, 5.0, 0.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -178,11 +173,11 @@ class _EventsFINALWidgetState extends State<EventsFINALWidget>
                             Container(
                               width: double.infinity,
                               height: 68.0,
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                 color: Color(0x00FFFFFF),
                               ),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     20.0, 0.0, 20.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -196,19 +191,19 @@ class _EventsFINALWidgetState extends State<EventsFINALWidget>
                                       children: [
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 5.0),
                                           child: SelectionArea(
                                               child: Text(
                                             valueOrDefault<String>(
-                                              widget!.eventsName,
+                                              widget.eventsName,
                                               'Name',
                                             ),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Roboto',
-                                                  color: Color(0xFD000220),
+                                                  color: const Color(0xFD000220),
                                                   fontSize: 28.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
@@ -225,7 +220,7 @@ class _EventsFINALWidgetState extends State<EventsFINALWidget>
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Roboto',
-                                                color: Color(0xFD000220),
+                                                color: const Color(0xFD000220),
                                                 fontSize: 18.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
@@ -238,20 +233,20 @@ class _EventsFINALWidgetState extends State<EventsFINALWidget>
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   20.0, 5.0, 20.0, 20.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 10.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 5.0, 0.0),
                                           child: Icon(
                                             Icons.location_on_outlined,
@@ -263,14 +258,14 @@ class _EventsFINALWidgetState extends State<EventsFINALWidget>
                                         SelectionArea(
                                             child: Text(
                                           valueOrDefault<String>(
-                                            widget!.eventPrice?.toString(),
+                                            widget.eventPrice?.toString(),
                                             'Location',
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Roboto',
-                                                color: Color(0xFD000220),
+                                                color: const Color(0xFD000220),
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w300,
@@ -283,7 +278,7 @@ class _EventsFINALWidgetState extends State<EventsFINALWidget>
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 5.0, 0.0),
                                         child: Icon(
                                           Icons.access_time,
@@ -295,14 +290,14 @@ class _EventsFINALWidgetState extends State<EventsFINALWidget>
                                       SelectionArea(
                                           child: Text(
                                         valueOrDefault<String>(
-                                          widget!.eventDate,
+                                          widget.eventDate,
                                           'Date',
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Roboto',
-                                              color: Color(0xFD000220),
+                                              color: const Color(0xFD000220),
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w300,
                                             ),
@@ -316,7 +311,7 @@ class _EventsFINALWidgetState extends State<EventsFINALWidget>
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.all(20.0),
+                        padding: const EdgeInsets.all(20.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -325,7 +320,7 @@ class _EventsFINALWidgetState extends State<EventsFINALWidget>
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 10.0),
                                   child: SelectionArea(
                                       child: Text(
@@ -348,7 +343,7 @@ class _EventsFINALWidgetState extends State<EventsFINALWidget>
                             SelectionArea(
                                 child: Text(
                               valueOrDefault<String>(
-                                widget!.eventDescription,
+                                widget.eventDescription,
                                 'Description',
                               ),
                               style: FlutterFlowTheme.of(context)
@@ -365,7 +360,7 @@ class _EventsFINALWidgetState extends State<EventsFINALWidget>
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             20.0, 0.0, 20.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -373,7 +368,7 @@ class _EventsFINALWidgetState extends State<EventsFINALWidget>
                           children: [
                             Expanded(
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     16.0, 8.0, 16.0, 12.0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
@@ -388,7 +383,7 @@ class _EventsFINALWidgetState extends State<EventsFINALWidget>
                                     context.pushNamed(
                                       'NewHome',
                                       extra: <String, dynamic>{
-                                        kTransitionInfoKey: TransitionInfo(
+                                        kTransitionInfoKey: const TransitionInfo(
                                           hasTransition: true,
                                           transitionType:
                                               PageTransitionType.fade,
@@ -407,7 +402,7 @@ class _EventsFINALWidgetState extends State<EventsFINALWidget>
                                       width: double.infinity,
                                       height: 50.0,
                                       decoration: BoxDecoration(
-                                        boxShadow: [
+                                        boxShadow: const [
                                           BoxShadow(
                                             blurRadius: 4.0,
                                             color: Color(0x33000000),
@@ -423,15 +418,15 @@ class _EventsFINALWidgetState extends State<EventsFINALWidget>
                                                 .primary,
                                             FlutterFlowTheme.of(context).accent1
                                           ],
-                                          stops: [0.0, 1.0],
+                                          stops: const [0.0, 1.0],
                                           begin:
-                                              AlignmentDirectional(-1.0, 0.0),
-                                          end: AlignmentDirectional(1.0, 0),
+                                              const AlignmentDirectional(-1.0, 0.0),
+                                          end: const AlignmentDirectional(1.0, 0),
                                         ),
                                         borderRadius:
                                             BorderRadius.circular(12.0),
                                       ),
-                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      alignment: const AlignmentDirectional(0.0, 0.0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
                                           'kuvqt2dn' /* Book Now */,
@@ -457,9 +452,9 @@ class _EventsFINALWidgetState extends State<EventsFINALWidget>
                     animationsMap['columnOnPageLoadAnimation2']!),
               ),
               Align(
-                alignment: AlignmentDirectional(0.0, 1.0),
+                alignment: const AlignmentDirectional(0.0, 1.0),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8.0),
                     child: Image.asset(

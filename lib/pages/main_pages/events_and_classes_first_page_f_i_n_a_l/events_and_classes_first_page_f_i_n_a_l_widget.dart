@@ -3,14 +3,9 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
-import 'package:provider/provider.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'events_and_classes_first_page_f_i_n_a_l_model.dart';
 export 'events_and_classes_first_page_f_i_n_a_l_model.dart';
@@ -54,8 +49,8 @@ class _EventsAndClassesFirstPageFINALWidgetState
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -73,8 +68,8 @@ class _EventsAndClassesFirstPageFINALWidgetState
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -92,8 +87,8 @@ class _EventsAndClassesFirstPageFINALWidgetState
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -111,8 +106,8 @@ class _EventsAndClassesFirstPageFINALWidgetState
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -130,8 +125,8 @@ class _EventsAndClassesFirstPageFINALWidgetState
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -149,8 +144,8 @@ class _EventsAndClassesFirstPageFINALWidgetState
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -168,8 +163,8 @@ class _EventsAndClassesFirstPageFINALWidgetState
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -187,8 +182,8 @@ class _EventsAndClassesFirstPageFINALWidgetState
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -207,8 +202,8 @@ class _EventsAndClassesFirstPageFINALWidgetState
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -226,8 +221,8 @@ class _EventsAndClassesFirstPageFINALWidgetState
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -245,8 +240,8 @@ class _EventsAndClassesFirstPageFINALWidgetState
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -265,8 +260,8 @@ class _EventsAndClassesFirstPageFINALWidgetState
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -284,8 +279,8 @@ class _EventsAndClassesFirstPageFINALWidgetState
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -303,8 +298,8 @@ class _EventsAndClassesFirstPageFINALWidgetState
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -344,7 +339,7 @@ class _EventsAndClassesFirstPageFINALWidgetState
                 child: Container(
                   width: 100.0,
                   height: 100.0,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     gradient: LinearGradient(
                       colors: [Color(0xFCFFFFFF), Colors.white],
                       stops: [0.5, 0.7],
@@ -357,7 +352,7 @@ class _EventsAndClassesFirstPageFINALWidgetState
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(
+                        SizedBox(
                           width: double.infinity,
                           child: Stack(
                             children: [
@@ -370,13 +365,13 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                   animationsMap['imageOnPageLoadAnimation']!),
                               Container(
                                 height: 200.0,
-                                decoration: BoxDecoration(),
+                                decoration: const BoxDecoration(),
                               ).animateOnPageLoad(animationsMap[
                                   'containerOnPageLoadAnimation1']!),
                               Container(
                                 width: 393.0,
                                 height: 252.0,
-                                decoration: BoxDecoration(
+                                decoration: const BoxDecoration(
                                   gradient: LinearGradient(
                                     colors: [Color(0xA3FFFFFF), Colors.white],
                                     stops: [0.2, 1.0],
@@ -387,7 +382,7 @@ class _EventsAndClassesFirstPageFINALWidgetState
                               ).animateOnPageLoad(animationsMap[
                                   'containerOnPageLoadAnimation2']!),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     15.0, 40.0, 15.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -399,7 +394,7 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                       borderRadius: 30.0,
                                       borderWidth: 1.0,
                                       buttonSize: 50.0,
-                                      fillColor: Color(0xB5E7C8E7),
+                                      fillColor: const Color(0xB5E7C8E7),
                                       icon: Icon(
                                         Icons.chevron_left,
                                         color: FlutterFlowTheme.of(context)
@@ -427,7 +422,7 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                         context.pushNamed(
                                           'NewHome',
                                           extra: <String, dynamic>{
-                                            kTransitionInfoKey: TransitionInfo(
+                                            kTransitionInfoKey: const TransitionInfo(
                                               hasTransition: true,
                                               transitionType:
                                                   PageTransitionType.fade,
@@ -460,7 +455,7 @@ class _EventsAndClassesFirstPageFINALWidgetState
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               5.0, 0.0, 5.0, 0.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
@@ -470,11 +465,11 @@ class _EventsAndClassesFirstPageFINALWidgetState
                               Container(
                                 width: double.infinity,
                                 height: 59.0,
-                                decoration: BoxDecoration(
+                                decoration: const BoxDecoration(
                                   color: Color(0x00FFFFFF),
                                 ),
                                 child: Padding(
-                                  padding: EdgeInsets.all(8.0),
+                                  padding: const EdgeInsets.all(8.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.start,
@@ -488,7 +483,7 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                         children: [
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 2.0),
                                             child: SelectionArea(
                                                 child: Text(
@@ -522,20 +517,20 @@ class _EventsAndClassesFirstPageFINALWidgetState
                               animationsMap['columnOnPageLoadAnimation2']!),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 15.0, 0.0, 0.0),
                           child: SingleChildScrollView(
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 10.0, 0.0, 0.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             10.0, 0.0, 10.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -573,7 +568,7 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                       Container(
                                         width: double.infinity,
                                         height: 231.0,
-                                        decoration: BoxDecoration(
+                                        decoration: const BoxDecoration(
                                           color: Colors.transparent,
                                         ),
                                         child: Row(
@@ -581,7 +576,7 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                           children: [
                                             Expanded(
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 8.0, 0.0, 8.0),
                                                 child: PagedListView<
@@ -644,7 +639,7 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                                               listViewIndex];
                                                       return Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     10.0,
                                                                     0.0,
@@ -669,7 +664,7 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -701,12 +696,12 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                                               ),
                                                               Align(
                                                                 alignment:
-                                                                    AlignmentDirectional(
+                                                                    const AlignmentDirectional(
                                                                         -1.0,
                                                                         0.0),
                                                                 child: Padding(
                                                                   padding:
-                                                                      EdgeInsets
+                                                                      const EdgeInsets
                                                                           .all(
                                                                               15.0),
                                                                   child: Text(
@@ -732,12 +727,12 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                                               ),
                                                               Align(
                                                                 alignment:
-                                                                    AlignmentDirectional(
+                                                                    const AlignmentDirectional(
                                                                         1.0,
                                                                         -1.0),
                                                                 child: Padding(
                                                                   padding:
-                                                                      EdgeInsets
+                                                                      const EdgeInsets
                                                                           .all(
                                                                               11.0),
                                                                   child:
@@ -750,7 +745,7 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                                                     buttonSize:
                                                                         40.0,
                                                                     fillColor:
-                                                                        Color(
+                                                                        const Color(
                                                                             0xFA000220),
                                                                     icon: Icon(
                                                                       Icons
@@ -797,7 +792,7 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                                                         extra: <String,
                                                                             dynamic>{
                                                                           kTransitionInfoKey:
-                                                                              TransitionInfo(
+                                                                              const TransitionInfo(
                                                                             hasTransition:
                                                                                 true,
                                                                             transitionType:
@@ -830,7 +825,7 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.all(10.0),
+                                  padding: const EdgeInsets.all(10.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment:
@@ -870,7 +865,7 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                       'rowOnPageLoadAnimation3']!),
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.all(10.0),
+                                  padding: const EdgeInsets.all(10.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
@@ -878,7 +873,7 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                         child: Container(
                                           width: double.infinity,
                                           height: 195.0,
-                                          decoration: BoxDecoration(
+                                          decoration: const BoxDecoration(
                                             color: Colors.transparent,
                                           ),
                                           child: Row(
@@ -887,10 +882,10 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                               Expanded(
                                                 child: PagedListView<
                                                     DocumentSnapshot<Object?>?,
-                                                    SelfCareClassesRecord>(
+                                                    EventsCollectionRecord>(
                                                   pagingController: _model
                                                       .setListViewController2(
-                                                    SelfCareClassesRecord
+                                                    EventsCollectionRecord
                                                         .collection,
                                                   ),
                                                   padding: EdgeInsets.zero,
@@ -899,7 +894,7 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                                       Axis.horizontal,
                                                   builderDelegate:
                                                       PagedChildBuilderDelegate<
-                                                          SelfCareClassesRecord>(
+                                                          EventsCollectionRecord>(
                                                     // Customize what your widget looks like when it's loading the first page.
                                                     firstPageProgressIndicatorBuilder:
                                                         (_) => Center(
@@ -939,13 +934,13 @@ class _EventsAndClassesFirstPageFINALWidgetState
 
                                                     itemBuilder: (context, _,
                                                         listViewIndex) {
-                                                      final listViewSelfCareClassesRecord =
+                                                      final listViewEventsCollectionRecord =
                                                           _model.listViewPagingController2!
                                                                   .itemList![
                                                               listViewIndex];
                                                       return Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -956,7 +951,7 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                                           height: 137.0,
                                                           decoration:
                                                               BoxDecoration(
-                                                            color: Color(
+                                                            color: const Color(
                                                                 0x50090F13),
                                                             borderRadius:
                                                                 BorderRadius
@@ -985,14 +980,14 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                                                     {
                                                                   'classesName':
                                                                       serializeParam(
-                                                                    listViewSelfCareClassesRecord
+                                                                    listViewEventsCollectionRecord
                                                                         .title,
                                                                     ParamType
                                                                         .String,
                                                                   ),
                                                                   'classDate':
                                                                       serializeParam(
-                                                                    listViewSelfCareClassesRecord
+                                                                    listViewEventsCollectionRecord
                                                                         .time
                                                                         ?.toString(),
                                                                     ParamType
@@ -1000,14 +995,14 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                                                   ),
                                                                   'classDescription':
                                                                       serializeParam(
-                                                                    listViewSelfCareClassesRecord
+                                                                    listViewEventsCollectionRecord
                                                                         .description,
                                                                     ParamType
                                                                         .String,
                                                                   ),
                                                                   'classPrice':
                                                                       serializeParam(
-                                                                    listViewSelfCareClassesRecord
+                                                                    listViewEventsCollectionRecord
                                                                         .price,
                                                                     ParamType
                                                                         .double,
@@ -1016,7 +1011,7 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                                                 extra: <String,
                                                                     dynamic>{
                                                                   kTransitionInfoKey:
-                                                                      TransitionInfo(
+                                                                      const TransitionInfo(
                                                                     hasTransition:
                                                                         true,
                                                                     transitionType:
@@ -1038,15 +1033,15 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                                                       .center,
                                                               children: [
                                                                 Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  padding: const EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
                                                                           1.0,
                                                                           0.0),
                                                                   child: Hero(
-                                                                    tag: listViewSelfCareClassesRecord
-                                                                        .classImage,
+                                                                    tag: listViewEventsCollectionRecord
+                                                                        .classPicture,
                                                                     transitionOnUserGestures:
                                                                         true,
                                                                     child:
@@ -1056,8 +1051,8 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                                                               9.0),
                                                                       child: Image
                                                                           .network(
-                                                                        listViewSelfCareClassesRecord
-                                                                            .classImage,
+                                                                        listViewEventsCollectionRecord
+                                                                            .classPicture,
                                                                         width:
                                                                             172.0,
                                                                         height:
@@ -1070,11 +1065,11 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                                                 ),
                                                                 Padding(
                                                                   padding:
-                                                                      EdgeInsets
+                                                                      const EdgeInsets
                                                                           .all(
                                                                               11.0),
                                                                   child: Text(
-                                                                    listViewSelfCareClassesRecord
+                                                                    listViewEventsCollectionRecord
                                                                         .title,
                                                                     textAlign:
                                                                         TextAlign
@@ -1088,7 +1083,7 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                                                           color:
                                                                               FlutterFlowTheme.of(context).primaryBackground,
                                                                           fontSize:
-                                                                              12.0,
+                                                                              18.0,
                                                                           letterSpacing:
                                                                               0.0,
                                                                           fontWeight:
@@ -1116,7 +1111,7 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.all(15.0),
+                                  padding: const EdgeInsets.all(15.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment:
@@ -1130,7 +1125,7 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Roboto',
-                                              color: Color(0xFF5B4090),
+                                              color: const Color(0xFF5B4090),
                                               fontSize: 26.0,
                                               letterSpacing: 0.0,
                                             ),
@@ -1146,7 +1141,7 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                       'rowOnPageLoadAnimation4']!),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       10.0, 0.0, 10.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -1156,7 +1151,7 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                         child: Container(
                                           width: double.infinity,
                                           height: 653.0,
-                                          decoration: BoxDecoration(
+                                          decoration: const BoxDecoration(
                                             color: Colors.transparent,
                                           ),
                                           child: Column(
@@ -1165,7 +1160,7 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                               Expanded(
                                                 flex: 1,
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 8.0, 0.0, 8.0),
                                                   child: RefreshIndicator(
@@ -1183,14 +1178,14 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                                                     true),
                                                       ),
                                                       padding:
-                                                          EdgeInsets.symmetric(
+                                                          const EdgeInsets.symmetric(
                                                               vertical: 25.0),
                                                       shrinkWrap: true,
                                                       reverse: false,
                                                       scrollDirection:
                                                           Axis.vertical,
                                                       separatorBuilder:
-                                                          (_, __) => SizedBox(
+                                                          (_, __) => const SizedBox(
                                                               height: 25.0),
                                                       builderDelegate:
                                                           PagedChildBuilderDelegate<
@@ -1240,7 +1235,7 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                                                   listViewIndex];
                                                           return Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         16.0,
                                                                         0.0,
@@ -1276,15 +1271,15 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                                                               context)
                                                                           .tertiary
                                                                     ],
-                                                                    stops: [
+                                                                    stops: const [
                                                                       0.8,
                                                                       1.0
                                                                     ],
                                                                     begin:
-                                                                        AlignmentDirectional(
+                                                                        const AlignmentDirectional(
                                                                             0.0,
                                                                             -1.0),
-                                                                    end: AlignmentDirectional(
+                                                                    end: const AlignmentDirectional(
                                                                         0, 1.0),
                                                                   ),
                                                                   borderRadius:
@@ -1303,17 +1298,17 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                                                     Flexible(
                                                                       flex: 1,
                                                                       child:
-                                                                          Container(
+                                                                          SizedBox(
                                                                         height:
                                                                             160.0,
                                                                         child:
                                                                             Stack(
-                                                                          alignment: AlignmentDirectional(
+                                                                          alignment: const AlignmentDirectional(
                                                                               0.0,
                                                                               1.0),
                                                                           children: [
                                                                             Align(
-                                                                              alignment: AlignmentDirectional(0.0, -1.0),
+                                                                              alignment: const AlignmentDirectional(0.0, -1.0),
                                                                               child: ClipRRect(
                                                                                 borderRadius: BorderRadius.circular(20.0),
                                                                                 child: Image.network(
@@ -1325,9 +1320,9 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                                                               ),
                                                                             ),
                                                                             Align(
-                                                                              alignment: AlignmentDirectional(0.0, 1.0),
+                                                                              alignment: const AlignmentDirectional(0.0, 1.0),
                                                                               child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 24.0, 0.0),
+                                                                                padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 24.0, 0.0),
                                                                                 child: Row(
                                                                                   mainAxisSize: MainAxisSize.max,
                                                                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -1344,7 +1339,7 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                                                                             size: 24.0,
                                                                                           ),
                                                                                           Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                                                                                            padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                                                                                             child: GradientText(
                                                                                               listViewEventsCollectionRecord.title,
                                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -1368,7 +1363,7 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                                                                     Flexible(
                                                                                       flex: 1,
                                                                                       child: Padding(
-                                                                                        padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
+                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
                                                                                         child: Container(
                                                                                           width: 40.0,
                                                                                           height: 40.0,
@@ -1379,14 +1374,14 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                                                                                 FlutterFlowTheme.of(context).secondary,
                                                                                                 FlutterFlowTheme.of(context).alternate
                                                                                               ],
-                                                                                              stops: [0.0, 0.3, 1.0],
-                                                                                              begin: AlignmentDirectional(1.0, 0.98),
-                                                                                              end: AlignmentDirectional(-1.0, -0.98),
+                                                                                              stops: const [0.0, 0.3, 1.0],
+                                                                                              begin: const AlignmentDirectional(1.0, 0.98),
+                                                                                              end: const AlignmentDirectional(-1.0, -0.98),
                                                                                             ),
                                                                                             shape: BoxShape.circle,
                                                                                           ),
                                                                                           child: Padding(
-                                                                                            padding: EdgeInsets.all(2.0),
+                                                                                            padding: const EdgeInsets.all(2.0),
                                                                                             child: Container(
                                                                                               width: 40.0,
                                                                                               height: 40.0,
@@ -1428,7 +1423,7 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                                                                                       ),
                                                                                                     }.withoutNulls,
                                                                                                     extra: <String, dynamic>{
-                                                                                                      kTransitionInfoKey: TransitionInfo(
+                                                                                                      kTransitionInfoKey: const TransitionInfo(
                                                                                                         hasTransition: true,
                                                                                                         transitionType: PageTransitionType.fade,
                                                                                                         duration: Duration(milliseconds: 3),
@@ -1456,7 +1451,7 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                                                       ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                                                           16.0,
                                                                           8.0,
                                                                           0.0,
@@ -1478,7 +1473,7 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                                                       ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                                                           16.0,
                                                                           4.0,
                                                                           16.0,
@@ -1503,7 +1498,7 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                                                       ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                                                           16.0,
                                                                           4.0,
                                                                           16.0,
@@ -1514,7 +1509,7 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                                                             MainAxisSize.max,
                                                                         children: [
                                                                           Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
                                                                                 22.0,
                                                                                 0.0,
@@ -1540,7 +1535,7 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                                                           Expanded(
                                                                             child:
                                                                                 Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 22.0, 0.0, 0.0),
+                                                                              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 22.0, 0.0, 0.0),
                                                                               child: InkWell(
                                                                                 splashColor: Colors.transparent,
                                                                                 focusColor: Colors.transparent,
@@ -1575,7 +1570,7 @@ class _EventsAndClassesFirstPageFINALWidgetState
                                                                                       ),
                                                                                     }.withoutNulls,
                                                                                     extra: <String, dynamic>{
-                                                                                      kTransitionInfoKey: TransitionInfo(
+                                                                                      kTransitionInfoKey: const TransitionInfo(
                                                                                         hasTransition: true,
                                                                                         transitionType: PageTransitionType.fade,
                                                                                         duration: Duration(milliseconds: 3),

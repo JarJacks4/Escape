@@ -1,10 +1,8 @@
 import 'package:provider/provider.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'auth/firebase_auth/firebase_user_provider.dart';
 import 'auth/firebase_auth/auth_util.dart';
 
@@ -16,8 +14,6 @@ import 'package:flutter/foundation.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'flutter_flow/firebase_app_check_util.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'flutter_flow/nav/nav.dart';
 import 'index.dart';
 import 'flutter_flow/revenue_cat_util.dart' as revenue_cat;
 
@@ -48,11 +44,13 @@ void main() async {
 
   runApp(ChangeNotifierProvider(
     create: (context) => appState,
-    child: MyApp(),
+    child: const MyApp(),
   ));
 }
 
 class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
   // This widget is the root of your application.
   @override
   State<MyApp> createState() => _MyAppState();
@@ -87,7 +85,7 @@ class _MyAppState extends State<MyApp> {
       });
     jwtTokenStream.listen((_) {});
     Future.delayed(
-      Duration(milliseconds: 5),
+      const Duration(milliseconds: 5),
       () => _appStateNotifier.stopShowingSplashImage(),
     );
   }
@@ -113,7 +111,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       title: 'Escape',
-      localizationsDelegates: [
+      localizationsDelegates: const [
         FFLocalizationsDelegate(),
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
@@ -149,7 +147,7 @@ class _MyAppState extends State<MyApp> {
 }
 
 class NavBarPage extends StatefulWidget {
-  NavBarPage({Key? key, this.initialPage, this.page}) : super(key: key);
+  const NavBarPage({super.key, this.initialPage, this.page});
 
   final String? initialPage;
   final Widget? page;
@@ -173,11 +171,11 @@ class _NavBarPageState extends State<NavBarPage> {
   @override
   Widget build(BuildContext context) {
     final tabs = {
-      'NewHome': NewHomeWidget(),
-      'SoundsPageMain': SoundsPageMainWidget(),
-      'UserCommunityPageViewFINALCopy': UserCommunityPageViewFINALCopyWidget(),
-      'BodyHome': BodyHomeWidget(),
-      'MeditationPageMain': MeditationPageMainWidget(),
+      'NewHome': const NewHomeWidget(),
+      'SoundsPageMain': const SoundsPageMainWidget(),
+      'UserCommunityPageViewFINALCopy': const UserCommunityPageViewFINALCopyWidget(),
+      'BodyHome': const BodyHomeWidget(),
+      'MeditationPageMain': const MeditationPageMainWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -194,7 +192,7 @@ class _NavBarPageState extends State<NavBarPage> {
             _currentPage = null;
             _currentPageName = tabs.keys.toList()[i];
           }),
-          backgroundColor: Color(0xFD000220),
+          backgroundColor: const Color(0xFD000220),
           selectedItemColor: FlutterFlowTheme.of(context).secondary,
           unselectedItemColor: FlutterFlowTheme.of(context).secondaryText,
           showSelectedLabels: true,
@@ -202,11 +200,11 @@ class _NavBarPageState extends State<NavBarPage> {
           type: BottomNavigationBarType.fixed,
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: Icon(
+              icon: const Icon(
                 Icons.home_outlined,
                 size: 28.0,
               ),
-              activeIcon: Icon(
+              activeIcon: const Icon(
                 Icons.home,
                 size: 36.0,
               ),
@@ -216,7 +214,7 @@ class _NavBarPageState extends State<NavBarPage> {
               tooltip: '',
             ),
             BottomNavigationBarItem(
-              icon: Icon(
+              icon: const Icon(
                 Icons.surround_sound,
                 size: 28.0,
               ),
@@ -226,7 +224,7 @@ class _NavBarPageState extends State<NavBarPage> {
               tooltip: '',
             ),
             BottomNavigationBarItem(
-              icon: Icon(
+              icon: const Icon(
                 Icons.handshake_sharp,
                 size: 24.0,
               ),
@@ -236,7 +234,7 @@ class _NavBarPageState extends State<NavBarPage> {
               tooltip: '',
             ),
             BottomNavigationBarItem(
-              icon: FaIcon(
+              icon: const FaIcon(
                 FontAwesomeIcons.yinYang,
                 size: 28.0,
               ),
@@ -246,11 +244,11 @@ class _NavBarPageState extends State<NavBarPage> {
               tooltip: '',
             ),
             BottomNavigationBarItem(
-              icon: Icon(
+              icon: const Icon(
                 Icons.air,
                 size: 28.0,
               ),
-              activeIcon: Icon(
+              activeIcon: const Icon(
                 Icons.air_rounded,
                 size: 36.0,
               ),

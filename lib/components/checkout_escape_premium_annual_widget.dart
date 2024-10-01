@@ -4,8 +4,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/revenue_cat_util.dart' as revenue_cat;
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'checkout_escape_premium_annual_model.dart';
 export 'checkout_escape_premium_annual_model.dart';
 
@@ -43,15 +41,15 @@ class _CheckoutEscapePremiumAnnualWidgetState
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: AlignmentDirectional(0.0, 1.0),
+      alignment: const AlignmentDirectional(0.0, 1.0),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(0.0, 44.0, 0.0, 0.0),
+        padding: const EdgeInsetsDirectional.fromSTEB(0.0, 44.0, 0.0, 0.0),
         child: Container(
           width: double.infinity,
           height: MediaQuery.sizeOf(context).height * 0.5,
           decoration: BoxDecoration(
             color: FlutterFlowTheme.of(context).primaryBackground,
-            boxShadow: [
+            boxShadow: const [
               BoxShadow(
                 blurRadius: 4.0,
                 color: Color(0x25090F13),
@@ -61,7 +59,7 @@ class _CheckoutEscapePremiumAnnualWidgetState
                 ),
               )
             ],
-            borderRadius: BorderRadius.only(
+            borderRadius: const BorderRadius.only(
               bottomLeft: Radius.circular(0.0),
               bottomRight: Radius.circular(0.0),
               topLeft: Radius.circular(12.0),
@@ -69,7 +67,7 @@ class _CheckoutEscapePremiumAnnualWidgetState
             ),
           ),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 16.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 16.0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -89,7 +87,7 @@ class _CheckoutEscapePremiumAnnualWidgetState
                   ],
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                   child: Text(
                     FFLocalizations.of(context).getText(
                       'b0uckaye' /* Order Summary */,
@@ -101,7 +99,7 @@ class _CheckoutEscapePremiumAnnualWidgetState
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 8.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 8.0),
                   child: Text(
                     FFLocalizations.of(context).getText(
                       '0mz21zhi' /* Review your order below before... */,
@@ -125,12 +123,12 @@ class _CheckoutEscapePremiumAnnualWidgetState
                   children: [
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
                       child: Container(
                         width: double.infinity,
                         height: 60.0,
                         decoration: BoxDecoration(
-                          color: Color(0x7AC8DEE7),
+                          color: const Color(0x7AC8DEE7),
                           borderRadius: BorderRadius.circular(8.0),
                           border: Border.all(
                             color: Colors.transparent,
@@ -138,7 +136,7 @@ class _CheckoutEscapePremiumAnnualWidgetState
                           ),
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               12.0, 8.0, 12.0, 8.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -154,7 +152,7 @@ class _CheckoutEscapePremiumAnnualWidgetState
                               ),
                               Expanded(
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       12.0, 0.0, 0.0, 0.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -175,7 +173,7 @@ class _CheckoutEscapePremiumAnnualWidgetState
                                       Expanded(
                                         child: Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 4.0, 0.0, 0.0),
                                           child: Text(
                                             revenue_cat
@@ -220,7 +218,7 @@ class _CheckoutEscapePremiumAnnualWidgetState
                   children: [
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 4.0),
+                          const EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 4.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -240,7 +238,7 @@ class _CheckoutEscapePremiumAnnualWidgetState
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(24.0, 4.0, 24.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(24.0, 4.0, 24.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -270,7 +268,7 @@ class _CheckoutEscapePremiumAnnualWidgetState
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(24.0, 4.0, 24.0, 24.0),
+                          const EdgeInsetsDirectional.fromSTEB(24.0, 4.0, 24.0, 24.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -323,7 +321,7 @@ class _CheckoutEscapePremiumAnnualWidgetState
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 24.0),
+                          const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 24.0),
                       child: FFButtonWidget(
                         onPressed: () async {
                           logFirebaseEvent(
@@ -344,8 +342,8 @@ class _CheckoutEscapePremiumAnnualWidgetState
                                     fontSize: 18.0,
                                   ),
                                 ),
-                                duration: Duration(milliseconds: 4000),
-                                backgroundColor: Color(0xE3000220),
+                                duration: const Duration(milliseconds: 4000),
+                                backgroundColor: const Color(0xE3000220),
                               ),
                             );
                           } else {
@@ -360,8 +358,8 @@ class _CheckoutEscapePremiumAnnualWidgetState
                                     fontSize: 18.0,
                                   ),
                                 ),
-                                duration: Duration(milliseconds: 4000),
-                                backgroundColor: Color(0xE3000220),
+                                duration: const Duration(milliseconds: 4000),
+                                backgroundColor: const Color(0xE3000220),
                               ),
                             );
                           }
@@ -377,9 +375,9 @@ class _CheckoutEscapePremiumAnnualWidgetState
                         options: FFButtonOptions(
                           width: double.infinity,
                           height: 50.0,
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: FlutterFlowTheme.of(context).secondary,
                           textStyle:
@@ -389,7 +387,7 @@ class _CheckoutEscapePremiumAnnualWidgetState
                                     letterSpacing: 0.0,
                                   ),
                           elevation: 2.0,
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Colors.transparent,
                             width: 1.0,
                           ),

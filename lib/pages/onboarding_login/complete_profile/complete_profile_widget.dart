@@ -2,12 +2,8 @@ import '/components/primary_button/primary_button_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'complete_profile_model.dart';
 export 'complete_profile_model.dart';
 
@@ -55,7 +51,7 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
         key: scaffoldKey,
         backgroundColor: Colors.white,
         body: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(30.0, 0.0, 30.0, 0.0),
+          padding: const EdgeInsetsDirectional.fromSTEB(30.0, 0.0, 30.0, 0.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.end,
@@ -65,7 +61,7 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
                 fit: BoxFit.cover,
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 30.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 30.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -113,7 +109,7 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   10.0, 0.0, 0.0, 0.0),
                               child: Icon(
                                 Icons.settings_outlined,
@@ -147,7 +143,7 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
                                     .labelMedium
                                     .override(
                                       fontFamily: 'Roboto',
-                                      color: Color(0xFFADA4A5),
+                                      color: const Color(0xFFADA4A5),
                                       letterSpacing: 0.0,
                                     ),
                                 hintText: FFLocalizations.of(context).getText(
@@ -158,7 +154,7 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
                                 borderColor: Colors.transparent,
                                 borderWidth: 0.0,
                                 borderRadius: 0.0,
-                                margin: EdgeInsetsDirectional.fromSTEB(
+                                margin: const EdgeInsetsDirectional.fromSTEB(
                                     12.0, 4.0, 12.0, 4.0),
                                 hidesUnderline: true,
                                 isSearchable: false,
@@ -176,19 +172,19 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
                         logFirebaseEvent(
                             'COMPLETE_PROFILE_TextField_1qiqzeyk_ON_T');
                         logFirebaseEvent('TextField_date_time_picker');
-                        final _datePickedDate = await showDatePicker(
+                        final datePickedDate = await showDatePicker(
                           context: context,
                           initialDate: getCurrentTimestamp,
                           firstDate: DateTime(1900),
                           lastDate: getCurrentTimestamp,
                         );
 
-                        if (_datePickedDate != null) {
+                        if (datePickedDate != null) {
                           safeSetState(() {
                             _model.datePicked = DateTime(
-                              _datePickedDate.year,
-                              _datePickedDate.month,
-                              _datePickedDate.day,
+                              datePickedDate.year,
+                              datePickedDate.month,
+                              datePickedDate.day,
                             );
                           });
                         }
@@ -202,7 +198,7 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
                         hintStyle:
                             FlutterFlowTheme.of(context).bodySmall.override(
                                   fontFamily: 'Roboto',
-                                  color: Color(0xFFADA4A5),
+                                  color: const Color(0xFFADA4A5),
                                   letterSpacing: 0.0,
                                   lineHeight: 1.5,
                                 ),
@@ -222,14 +218,14 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
                           borderRadius: BorderRadius.circular(14.0),
                         ),
                         errorBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Color(0x00000000),
                             width: 1.0,
                           ),
                           borderRadius: BorderRadius.circular(14.0),
                         ),
                         focusedErrorBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Color(0x00000000),
                             width: 1.0,
                           ),
@@ -268,7 +264,7 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
                                   .bodySmall
                                   .override(
                                     fontFamily: 'Roboto',
-                                    color: Color(0xFFADA4A5),
+                                    color: const Color(0xFFADA4A5),
                                     letterSpacing: 0.0,
                                     lineHeight: 1.5,
                                   ),
@@ -288,14 +284,14 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
                                 borderRadius: BorderRadius.circular(14.0),
                               ),
                               errorBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                   color: Color(0x00000000),
                                   width: 1.0,
                                 ),
                                 borderRadius: BorderRadius.circular(14.0),
                               ),
                               focusedErrorBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                   color: Color(0x00000000),
                                   width: 1.0,
                                 ),
@@ -340,7 +336,7 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
                                   .bodySmall
                                   .override(
                                     fontFamily: 'Roboto',
-                                    color: Color(0xFFADA4A5),
+                                    color: const Color(0xFFADA4A5),
                                     letterSpacing: 0.0,
                                     lineHeight: 1.5,
                                   ),
@@ -360,14 +356,14 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
                                 borderRadius: BorderRadius.circular(14.0),
                               ),
                               errorBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                   color: Color(0x00000000),
                                   width: 1.0,
                                 ),
                                 borderRadius: BorderRadius.circular(14.0),
                               ),
                               focusedErrorBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                   color: Color(0x00000000),
                                   width: 1.0,
                                 ),
@@ -397,7 +393,7 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
@@ -411,7 +407,7 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
                           context.pushNamed(
                             'UserGoalsSwipeStack',
                             extra: <String, dynamic>{
-                              kTransitionInfoKey: TransitionInfo(
+                              kTransitionInfoKey: const TransitionInfo(
                                 hasTransition: true,
                                 transitionType: PageTransitionType.fade,
                                 duration: Duration(milliseconds: 400),
@@ -422,7 +418,7 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
                         child: wrapWithModel(
                           model: _model.primaryButtonModel,
                           updateCallback: () => safeSetState(() {}),
-                          child: PrimaryButtonWidget(
+                          child: const PrimaryButtonWidget(
                             buttonText: 'Next',
                           ),
                         ),

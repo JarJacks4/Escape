@@ -3,15 +3,10 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:math';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'youtubetest_f_i_n_a_l_model.dart';
 export 'youtubetest_f_i_n_a_l_model.dart';
 
@@ -63,8 +58,8 @@ class _YoutubetestFINALWidgetState extends State<YoutubetestFINALWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -82,8 +77,8 @@ class _YoutubetestFINALWidgetState extends State<YoutubetestFINALWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -101,8 +96,8 @@ class _YoutubetestFINALWidgetState extends State<YoutubetestFINALWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -120,8 +115,8 @@ class _YoutubetestFINALWidgetState extends State<YoutubetestFINALWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -140,8 +135,8 @@ class _YoutubetestFINALWidgetState extends State<YoutubetestFINALWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -184,27 +179,27 @@ class _YoutubetestFINALWidgetState extends State<YoutubetestFINALWidget>
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
                       colors: [
-                        Color(0xD4FFFFFF),
+                        const Color(0xD4FFFFFF),
                         FlutterFlowTheme.of(context).primaryBackground
                       ],
-                      stops: [0.5, 0.7],
-                      begin: AlignmentDirectional(0.0, -1.0),
-                      end: AlignmentDirectional(0, 1.0),
+                      stops: const [0.5, 0.7],
+                      begin: const AlignmentDirectional(0.0, -1.0),
+                      end: const AlignmentDirectional(0, 1.0),
                     ),
                   ),
                   child: SingleChildScrollView(
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        Container(
+                        SizedBox(
                           width: double.infinity,
                           child: Stack(
                             children: [
                               Container(
                                 width: double.infinity,
                                 height: 313.0,
-                                decoration: BoxDecoration(),
-                                child: Container(
+                                decoration: const BoxDecoration(),
+                                child: SizedBox(
                                   width: double.infinity,
                                   height:
                                       MediaQuery.sizeOf(context).height * 0.4,
@@ -213,7 +208,7 @@ class _YoutubetestFINALWidgetState extends State<YoutubetestFINALWidget>
                                     height:
                                         MediaQuery.sizeOf(context).height * 0.4,
                                     videoPath:
-                                        'https://www.youtube.com/watch?v=${widget!.videoid}',
+                                        'https://www.youtube.com/watch?v=${widget.videoid}',
                                     playPauseVideoAction: true,
                                     looping: true,
                                     showControls: true,
@@ -229,7 +224,7 @@ class _YoutubetestFINALWidgetState extends State<YoutubetestFINALWidget>
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 5.0, 0.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
@@ -239,11 +234,11 @@ class _YoutubetestFINALWidgetState extends State<YoutubetestFINALWidget>
                               Container(
                                 width: MediaQuery.sizeOf(context).width * 1.0,
                                 height: 91.0,
-                                decoration: BoxDecoration(
+                                decoration: const BoxDecoration(
                                   color: Color(0x00FFFFFF),
                                 ),
                                 child: Padding(
-                                  padding: EdgeInsets.all(8.0),
+                                  padding: const EdgeInsets.all(8.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.start,
@@ -257,11 +252,11 @@ class _YoutubetestFINALWidgetState extends State<YoutubetestFINALWidget>
                                         children: [
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     5.0, 0.0, 0.0, 2.0),
                                             child: Text(
                                               valueOrDefault<String>(
-                                                widget!.videoTitle,
+                                                widget.videoTitle,
                                                 'Title',
                                               ).maybeHandleOverflow(
                                                 maxChars: 20,
@@ -286,10 +281,10 @@ class _YoutubetestFINALWidgetState extends State<YoutubetestFINALWidget>
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 22.0, 0.0, 0.0),
                                             child: Text(
-                                              'Channel Title:${widget!.channelTitle}'
+                                              'Channel Title:${widget.channelTitle}'
                                                   .maybeHandleOverflow(
                                                 maxChars: 50,
                                                 replacement: '…',
@@ -318,16 +313,16 @@ class _YoutubetestFINALWidgetState extends State<YoutubetestFINALWidget>
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 8.0, 0.0, 0.0),
                           child: Container(
                             width: MediaQuery.sizeOf(context).width * 1.0,
                             height: 179.0,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               color: Color(0x00FFFFFF),
                             ),
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.start,
@@ -339,10 +334,10 @@ class _YoutubetestFINALWidgetState extends State<YoutubetestFINALWidget>
                                         CrossAxisAlignment.start,
                                     children: [
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             11.0, 0.0, 0.0, 2.0),
                                         child: Text(
-                                          'Description:${widget!.description}'
+                                          'Description:${widget.description}'
                                               .maybeHandleOverflow(
                                             maxChars: 100,
                                             replacement: '…',
@@ -371,9 +366,9 @@ class _YoutubetestFINALWidgetState extends State<YoutubetestFINALWidget>
                           ),
                         ),
                         Align(
-                          alignment: AlignmentDirectional(-1.0, 1.0),
+                          alignment: const AlignmentDirectional(-1.0, 1.0),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 12.0, 22.0, 8.0, 0.0),
                             child: FlutterFlowIconButton(
                               borderColor: Colors.transparent,
@@ -399,7 +394,7 @@ class _YoutubetestFINALWidgetState extends State<YoutubetestFINALWidget>
                           color: FlutterFlowTheme.of(context).alternate,
                         ),
                         Padding(
-                          padding: EdgeInsets.all(10.0),
+                          padding: const EdgeInsets.all(10.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -429,7 +424,7 @@ class _YoutubetestFINALWidgetState extends State<YoutubetestFINALWidget>
                               animationsMap['rowOnPageLoadAnimation3']!),
                         ),
                         Padding(
-                          padding: EdgeInsets.all(10.0),
+                          padding: const EdgeInsets.all(10.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -437,7 +432,7 @@ class _YoutubetestFINALWidgetState extends State<YoutubetestFINALWidget>
                                 child: Container(
                                   width: double.infinity,
                                   height: 142.0,
-                                  decoration: BoxDecoration(
+                                  decoration: const BoxDecoration(
                                     color: Colors.transparent,
                                   ),
                                   child: Row(
@@ -490,7 +485,7 @@ class _YoutubetestFINALWidgetState extends State<YoutubetestFINALWidget>
                                                             recentItemsIndex];
                                                     return Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -502,7 +497,7 @@ class _YoutubetestFINALWidgetState extends State<YoutubetestFINALWidget>
                                                         decoration:
                                                             BoxDecoration(
                                                           color:
-                                                              Color(0x50090F13),
+                                                              const Color(0x50090F13),
                                                           borderRadius:
                                                               BorderRadius
                                                                   .circular(
@@ -566,7 +561,7 @@ class _YoutubetestFINALWidgetState extends State<YoutubetestFINALWidget>
                                                               extra: <String,
                                                                   dynamic>{
                                                                 kTransitionInfoKey:
-                                                                    TransitionInfo(
+                                                                    const TransitionInfo(
                                                                   hasTransition:
                                                                       true,
                                                                   transitionType:
@@ -589,7 +584,7 @@ class _YoutubetestFINALWidgetState extends State<YoutubetestFINALWidget>
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -626,7 +621,7 @@ class _YoutubetestFINALWidgetState extends State<YoutubetestFINALWidget>
                                                               ),
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             3.0,
                                                                             0.0,

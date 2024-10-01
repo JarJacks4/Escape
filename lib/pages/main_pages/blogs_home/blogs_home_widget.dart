@@ -6,16 +6,12 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/headers/header_blogs/header_blogs_widget.dart';
-import 'dart:math';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'blogs_home_model.dart';
 export 'blogs_home_model.dart';
 
@@ -51,8 +47,8 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
             curve: Curves.elasticOut,
             delay: 0.0.ms,
             duration: 720.0.ms,
-            begin: Offset(0.0, -27.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(0.0, -27.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -75,8 +71,8 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
             curve: Curves.elasticOut,
             delay: 0.0.ms,
             duration: 1080.0.ms,
-            begin: Offset(41.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(41.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -87,8 +83,8 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
             curve: Curves.elasticOut,
             delay: 0.0.ms,
             duration: 1230.0.ms,
-            begin: Offset(-44.99999999999999, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(-44.99999999999999, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -127,25 +123,25 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  Color(0xB301CBAE),
+                  const Color(0xB301CBAE),
                   FlutterFlowTheme.of(context).primaryBackground
                 ],
-                stops: [0.3, 0.8],
-                begin: AlignmentDirectional(0.0, -1.0),
-                end: AlignmentDirectional(0, 1.0),
+                stops: const [0.3, 0.8],
+                begin: const AlignmentDirectional(0.0, -1.0),
+                end: const AlignmentDirectional(0, 1.0),
               ),
             ),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 15.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 15.0),
                   child: SingleChildScrollView(
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 10.0, 0.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
@@ -157,13 +153,13 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                     child: wrapWithModel(
                                       model: _model.headerBlogsModel,
                                       updateCallback: () => safeSetState(() {}),
-                                      child: HeaderBlogsWidget(),
+                                      child: const HeaderBlogsWidget(),
                                     ),
                                   ),
                                 ],
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     10.0, 15.0, 10.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -181,7 +177,7 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                                   .bodyMedium
                                                   .override(
                                                     fontFamily: 'Roboto',
-                                                    color: Color(0xFF070707),
+                                                    color: const Color(0xFF070707),
                                                     letterSpacing: 0.0,
                                                   ),
                                           hintText: FFLocalizations.of(context)
@@ -189,7 +185,7 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                             'u0npfgtv' /* Search Blogs... */,
                                           ),
                                           enabledBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Color(0xFFCBCBD4),
                                               width: 1.0,
                                             ),
@@ -197,7 +193,7 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                                 BorderRadius.circular(100.0),
                                           ),
                                           focusedBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Color(0x00000000),
                                               width: 1.0,
                                             ),
@@ -205,7 +201,7 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                                 BorderRadius.circular(100.0),
                                           ),
                                           errorBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Color(0x00000000),
                                               width: 1.0,
                                             ),
@@ -214,7 +210,7 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                           ),
                                           focusedErrorBorder:
                                               OutlineInputBorder(
-                                            borderSide: BorderSide(
+                                            borderSide: const BorderSide(
                                               color: Color(0x00000000),
                                               width: 1.0,
                                             ),
@@ -222,8 +218,8 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                                 BorderRadius.circular(100.0),
                                           ),
                                           filled: true,
-                                          fillColor: Color(0xFFF8F7FA),
-                                          prefixIcon: Icon(
+                                          fillColor: const Color(0xFFF8F7FA),
+                                          prefixIcon: const Icon(
                                             Icons.search_sharp,
                                             color: Color(0xFFCBCBD4),
                                           ),
@@ -232,7 +228,7 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Roboto',
-                                              color: Color(0xC4000811),
+                                              color: const Color(0xC4000811),
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
                                             ),
@@ -250,9 +246,9 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                 children: [
                                   Expanded(
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           12.0, 12.0, 12.0, 0.0),
-                                      child: Container(
+                                      child: SizedBox(
                                         width:
                                             MediaQuery.sizeOf(context).width *
                                                 0.5,
@@ -292,10 +288,10 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                               ],
                                             ),
                                             Align(
-                                              alignment: AlignmentDirectional(
+                                              alignment: const AlignmentDirectional(
                                                   0.0, 1.0),
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 8.0),
                                                 child: smooth_page_indicator
@@ -312,13 +308,13 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                                         .pageViewController!
                                                         .animateToPage(
                                                       i,
-                                                      duration: Duration(
+                                                      duration: const Duration(
                                                           milliseconds: 500),
                                                       curve: Curves.ease,
                                                     );
                                                     safeSetState(() {});
                                                   },
-                                                  effect: smooth_page_indicator
+                                                  effect: const smooth_page_indicator
                                                       .SlideEffect(
                                                     spacing: 8.0,
                                                     radius: 16.0,
@@ -341,7 +337,7 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                 ],
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 30.0, 0.0, 0.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.min,
@@ -364,7 +360,7 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                       ],
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 5.0, 0.0, 0.0),
                                       child: SingleChildScrollView(
                                         scrollDirection: Axis.horizontal,
@@ -374,7 +370,7 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                               MainAxisAlignment.center,
                                           children: [
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 13.0, 0.0, 13.0),
                                               child: FlutterFlowChoiceChips(
@@ -495,7 +491,7 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 20.0, 0.0, 20.0),
                           child: SingleChildScrollView(
                             scrollDirection: Axis.horizontal,
@@ -510,12 +506,12 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                       child: Container(
                                         width: 160.0,
                                         height: 185.0,
-                                        decoration: BoxDecoration(),
+                                        decoration: const BoxDecoration(),
                                       ),
                                     ),
                                     Align(
                                       alignment:
-                                          AlignmentDirectional(-0.86, 0.0),
+                                          const AlignmentDirectional(-0.86, 0.0),
                                       child: Material(
                                         color: Colors.transparent,
                                         elevation: 8.0,
@@ -527,8 +523,8 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                           width: 153.0,
                                           height: 185.0,
                                           decoration: BoxDecoration(
-                                            color: Color(0xB2006874),
-                                            boxShadow: [
+                                            color: const Color(0xB2006874),
+                                            boxShadow: const [
                                               BoxShadow(
                                                 blurRadius: 5.0,
                                                 color: Color(0x33000000),
@@ -550,11 +546,11 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(7.0, 7.0,
                                                                 7.0, 0.0),
                                                     child: AnimatedContainer(
-                                                      duration: Duration(
+                                                      duration: const Duration(
                                                           milliseconds: 100),
                                                       curve: Curves.easeOut,
                                                       width: MediaQuery.sizeOf(
@@ -566,7 +562,7 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                                         color: FlutterFlowTheme
                                                                 .of(context)
                                                             .secondaryBackground,
-                                                        image: DecorationImage(
+                                                        image: const DecorationImage(
                                                           fit: BoxFit.cover,
                                                           image:
                                                               CachedNetworkImageProvider(
@@ -581,7 +577,7 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(7.0, 3.0,
                                                                 0.0, 3.0),
                                                     child: Text(
@@ -608,7 +604,7 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(7.0, 3.0,
                                                                 0.0, 3.0),
                                                     child: Text(
@@ -635,7 +631,7 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(7.0, 3.0,
                                                                 0.0, 3.0),
                                                     child: Text(
@@ -662,10 +658,10 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                                 ],
                                               ),
                                               Align(
-                                                alignment: AlignmentDirectional(
+                                                alignment: const AlignmentDirectional(
                                                     1.0, 1.0),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 7.0, 7.0),
                                                   child: FlutterFlowIconButton(
@@ -678,7 +674,7 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                                         FlutterFlowTheme.of(
                                                                 context)
                                                             .secondary,
-                                                    icon: Icon(
+                                                    icon: const Icon(
                                                       Icons.remove_red_eye,
                                                       color: Colors.white,
                                                       size: 24.0,
@@ -703,7 +699,7 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                               animationsMap['rowOnPageLoadAnimation2']!),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 30.0, 10.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -728,7 +724,7 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 15.0, 10.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -762,8 +758,8 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                       width: 300.0,
                                       height: 130.0,
                                       decoration: BoxDecoration(
-                                        color: Color(0x9E01CBAE),
-                                        boxShadow: [
+                                        color: const Color(0x9E01CBAE),
+                                        boxShadow: const [
                                           BoxShadow(
                                             blurRadius: 5.0,
                                             color: Color(0x33000000),
@@ -782,7 +778,7 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         10.0, 10.0, 10.0, 0.0),
                                                 child: Container(
@@ -792,7 +788,7 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .secondaryBackground,
-                                                    image: DecorationImage(
+                                                    image: const DecorationImage(
                                                       fit: BoxFit.cover,
                                                       image:
                                                           CachedNetworkImageProvider(
@@ -807,7 +803,7 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                               ),
                                               Expanded(
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 20.0, 0.0, 10.0),
                                                   child: Column(
@@ -822,7 +818,7 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                                     children: [
                                                       Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -850,7 +846,7 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
+                                                            const EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -898,7 +894,7 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            EdgeInsets.all(8.0),
+                                                            const EdgeInsets.all(8.0),
                                                         child: FFButtonWidget(
                                                           onPressed: () {
                                                             print(
@@ -914,14 +910,14 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                                             width: 80.0,
                                                             height: 20.0,
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
                                                                         0.0,
                                                                         0.0),
                                                             iconPadding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
@@ -949,7 +945,7 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                                                     ),
                                                             elevation: 2.0,
                                                             borderSide:
-                                                                BorderSide(
+                                                                const BorderSide(
                                                               color: Colors
                                                                   .transparent,
                                                               width: 1.0,

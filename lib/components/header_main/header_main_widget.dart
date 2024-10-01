@@ -2,8 +2,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'header_main_model.dart';
 export 'header_main_model.dart';
 
@@ -41,7 +39,7 @@ class _HeaderMainWidgetState extends State<HeaderMainWidget> {
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Color(0x00FCFFF9),
+        color: const Color(0x00FCFFF9),
         borderRadius: BorderRadius.circular(15.0),
       ),
       child: SingleChildScrollView(
@@ -50,16 +48,16 @@ class _HeaderMainWidgetState extends State<HeaderMainWidget> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(12.0, 44.0, 12.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(12.0, 44.0, 12.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Align(
-                    alignment: AlignmentDirectional(-1.0, -1.0),
+                    alignment: const AlignmentDirectional(-1.0, -1.0),
                     child: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 180.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 180.0, 0.0),
                       child: FlutterFlowIconButton(
                         borderColor: Colors.transparent,
                         borderRadius: 30.0,
@@ -78,7 +76,7 @@ class _HeaderMainWidgetState extends State<HeaderMainWidget> {
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 22.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 22.0, 0.0),
                     child: FlutterFlowIconButton(
                       borderColor: Colors.transparent,
                       borderRadius: 30.0,
@@ -109,7 +107,7 @@ class _HeaderMainWidgetState extends State<HeaderMainWidget> {
                       width: 60.0,
                       height: 60.0,
                       clipBehavior: Clip.antiAlias,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         shape: BoxShape.circle,
                       ),
                       child: Image.network(
@@ -122,7 +120,7 @@ class _HeaderMainWidgetState extends State<HeaderMainWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 16.0, 8.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 16.0, 8.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -138,7 +136,7 @@ class _HeaderMainWidgetState extends State<HeaderMainWidget> {
                         ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 0.0, 0.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 0.0, 0.0),
                     child: Text(
                       FFLocalizations.of(context).getText(
                         'aig2uvoz' /* Stephanie! */,
@@ -154,7 +152,7 @@ class _HeaderMainWidgetState extends State<HeaderMainWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 24.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 24.0, 0.0),
               child: Text(
                 FFLocalizations.of(context).getText(
                   '0feil5x0' /* Start or continue your journey... */,

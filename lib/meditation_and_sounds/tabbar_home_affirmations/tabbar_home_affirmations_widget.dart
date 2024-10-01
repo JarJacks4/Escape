@@ -6,8 +6,6 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'tabbar_home_affirmations_model.dart';
 export 'tabbar_home_affirmations_model.dart';
 
@@ -56,11 +54,11 @@ class _TabbarHomeAffirmationsWidgetState
         desktop: false,
       ),
       child: Align(
-        alignment: AlignmentDirectional(-1.0, 0.0),
+        alignment: const AlignmentDirectional(-1.0, 0.0),
         child: Column(
           children: [
             Align(
-              alignment: Alignment(-1.0, 0),
+              alignment: const Alignment(-1.0, 0),
               child: FlutterFlowButtonTabBar(
                 useToggleButtonStyle: false,
                 isScrollable: true,
@@ -79,24 +77,24 @@ class _TabbarHomeAffirmationsWidgetState
                         ),
                 labelColor: Colors.white,
                 unselectedLabelColor: FlutterFlowTheme.of(context).primary,
-                backgroundColor: Color(0xFF2082A2),
-                unselectedBackgroundColor: Color(0xFFA0A3B1),
-                borderColor: Color(0x00FFFFFF),
-                unselectedBorderColor: Color(0x00FFFFFF),
+                backgroundColor: const Color(0xFF2082A2),
+                unselectedBackgroundColor: const Color(0xFFA0A3B1),
+                borderColor: const Color(0x00FFFFFF),
+                unselectedBorderColor: const Color(0x00FFFFFF),
                 borderWidth: 0.0,
                 borderRadius: 10.0,
                 elevation: 5.0,
                 labelPadding:
-                    EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                    const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
                 buttonMargin:
-                    EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                    const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
                 tabs: [
                   Tab(
                     text: FFLocalizations.of(context).getText(
                       'z65mpf7i' /* All */,
                     ),
-                    icon: FaIcon(
+                    icon: const FaIcon(
                       FontAwesomeIcons.alignLeft,
                     ),
                   ),
@@ -104,7 +102,7 @@ class _TabbarHomeAffirmationsWidgetState
                     text: FFLocalizations.of(context).getText(
                       '8q9bwptp' /* Anxiety */,
                     ),
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.electric_bolt_sharp,
                     ),
                   ),
@@ -112,7 +110,7 @@ class _TabbarHomeAffirmationsWidgetState
                     text: FFLocalizations.of(context).getText(
                       '5b3s2s7r' /* Kids */,
                     ),
-                    icon: FaIcon(
+                    icon: const FaIcon(
                       FontAwesomeIcons.babyCarriage,
                     ),
                   ),
@@ -120,7 +118,7 @@ class _TabbarHomeAffirmationsWidgetState
                     text: FFLocalizations.of(context).getText(
                       'xc6td5ep' /* Sleep */,
                     ),
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.bed,
                     ),
                   ),
@@ -128,7 +126,7 @@ class _TabbarHomeAffirmationsWidgetState
                     text: FFLocalizations.of(context).getText(
                       'g29ync2r' /* Embrace Love */,
                     ),
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.favorite,
                     ),
                   ),
@@ -136,7 +134,7 @@ class _TabbarHomeAffirmationsWidgetState
                     text: FFLocalizations.of(context).getText(
                       'ocx5xyv6' /* Grounding */,
                     ),
-                    icon: FaIcon(
+                    icon: const FaIcon(
                       FontAwesomeIcons.medrt,
                     ),
                   ),
@@ -144,7 +142,7 @@ class _TabbarHomeAffirmationsWidgetState
                     text: FFLocalizations.of(context).getText(
                       'lzayyzx4' /* Faith */,
                     ),
-                    icon: FaIcon(
+                    icon: const FaIcon(
                       FontAwesomeIcons.prayingHands,
                     ),
                   ),
@@ -152,7 +150,7 @@ class _TabbarHomeAffirmationsWidgetState
                     text: FFLocalizations.of(context).getText(
                       'cwqevyt9' /* Perception */,
                     ),
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.remove_red_eye,
                     ),
                   ),
@@ -160,7 +158,7 @@ class _TabbarHomeAffirmationsWidgetState
                     text: FFLocalizations.of(context).getText(
                       'y4i0x5du' /* Growth */,
                     ),
-                    icon: FaIcon(
+                    icon: const FaIcon(
                       FontAwesomeIcons.arrowUp,
                     ),
                   ),
@@ -168,7 +166,7 @@ class _TabbarHomeAffirmationsWidgetState
                     text: FFLocalizations.of(context).getText(
                       'd9k06uwa' /* Mindset */,
                     ),
-                    icon: FaIcon(
+                    icon: const FaIcon(
                       FontAwesomeIcons.brain,
                     ),
                   ),
@@ -176,7 +174,7 @@ class _TabbarHomeAffirmationsWidgetState
                     text: FFLocalizations.of(context).getText(
                       '53r2wlkj' /* Spirituality */,
                     ),
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.rowing,
                     ),
                   ),
@@ -184,7 +182,7 @@ class _TabbarHomeAffirmationsWidgetState
                     text: FFLocalizations.of(context).getText(
                       '3bfinern' /* Uplift */,
                     ),
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.hail,
                     ),
                   ),
@@ -221,9 +219,9 @@ class _TabbarHomeAffirmationsWidgetState
                         children: [
                           Expanded(
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   12.0, 12.0, 12.0, 0.0),
-                              child: Container(
+                              child: SizedBox(
                                 width: MediaQuery.sizeOf(context).width * 0.5,
                                 height: 157.0,
                                 child: Stack(
@@ -258,9 +256,9 @@ class _TabbarHomeAffirmationsWidgetState
                                       ],
                                     ),
                                     Align(
-                                      alignment: AlignmentDirectional(0.0, 1.0),
+                                      alignment: const AlignmentDirectional(0.0, 1.0),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 8.0),
                                         child: smooth_page_indicator
                                             .SmoothPageIndicator(
@@ -274,13 +272,13 @@ class _TabbarHomeAffirmationsWidgetState
                                                 .animateToPage(
                                               i,
                                               duration:
-                                                  Duration(milliseconds: 500),
+                                                  const Duration(milliseconds: 500),
                                               curve: Curves.ease,
                                             );
                                             safeSetState(() {});
                                           },
                                           effect:
-                                              smooth_page_indicator.SlideEffect(
+                                              const smooth_page_indicator.SlideEffect(
                                             spacing: 8.0,
                                             radius: 16.0,
                                             dotWidth: 8.0,
@@ -301,12 +299,12 @@ class _TabbarHomeAffirmationsWidgetState
                       ),
                       Expanded(
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 22.0, 0.0, 0.0),
                           child: wrapWithModel(
                             model: _model.staggeredViewAffirmationsModel,
                             updateCallback: () => safeSetState(() {}),
-                            child: StaggeredViewAffirmationsWidget(),
+                            child: const StaggeredViewAffirmationsWidget(),
                           ),
                         ),
                       ),

@@ -3,8 +3,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'header_main_sounds_model.dart';
@@ -45,14 +43,14 @@ class _HeaderMainSoundsWidgetState extends State<HeaderMainSoundsWidget> {
       width: double.infinity,
       height: MediaQuery.sizeOf(context).height * 0.355,
       decoration: BoxDecoration(
-        color: Color(0x00FCFFF9),
+        color: const Color(0x00FCFFF9),
         borderRadius: BorderRadius.circular(15.0),
       ),
-      child: Container(
+      child: SizedBox(
         width: double.infinity,
         height: MediaQuery.sizeOf(context).height * 0.0,
         child: Stack(
-          alignment: AlignmentDirectional(0.0, -1.0),
+          alignment: const AlignmentDirectional(0.0, -1.0),
           children: [
             Stack(
               children: [
@@ -68,7 +66,7 @@ class _HeaderMainSoundsWidgetState extends State<HeaderMainSoundsWidget> {
                               Flexible(
                                 flex: 1,
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       5.0, 44.0, 8.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -77,10 +75,10 @@ class _HeaderMainSoundsWidgetState extends State<HeaderMainSoundsWidget> {
                                     children: [
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(-1.0, -1.0),
+                                            const AlignmentDirectional(-1.0, -1.0),
                                         child: Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 175.0, 0.0),
                                           child: FlutterFlowIconButton(
                                             borderColor: Colors.transparent,
@@ -110,7 +108,7 @@ class _HeaderMainSoundsWidgetState extends State<HeaderMainSoundsWidget> {
                                                       padding: MediaQuery
                                                           .viewInsetsOf(
                                                               context),
-                                                      child: SideNavWidget(),
+                                                      child: const SideNavWidget(),
                                                     ),
                                                   );
                                                 },
@@ -137,7 +135,7 @@ class _HeaderMainSoundsWidgetState extends State<HeaderMainSoundsWidget> {
                                               'NewHome',
                                               extra: <String, dynamic>{
                                                 kTransitionInfoKey:
-                                                    TransitionInfo(
+                                                    const TransitionInfo(
                                                   hasTransition: true,
                                                   transitionType:
                                                       PageTransitionType.fade,
@@ -168,14 +166,14 @@ class _HeaderMainSoundsWidgetState extends State<HeaderMainSoundsWidget> {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     16.0, 16.0, 16.0, 8.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           10.0, 0.0, 0.0, 0.0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
@@ -197,7 +195,7 @@ class _HeaderMainSoundsWidgetState extends State<HeaderMainSoundsWidget> {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     24.0, 0.0, 24.0, 8.0),
                                 child: GradientText(
                                   FFLocalizations.of(context).getText(
@@ -207,7 +205,7 @@ class _HeaderMainSoundsWidgetState extends State<HeaderMainSoundsWidget> {
                                       .labelMedium
                                       .override(
                                         fontFamily: 'Roboto',
-                                        color: Color(0xFF444F8C),
+                                        color: const Color(0xFF444F8C),
                                         fontSize: 20.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w200,
@@ -236,11 +234,11 @@ class _HeaderMainSoundsWidgetState extends State<HeaderMainSoundsWidget> {
               ],
             ),
             Align(
-              alignment: AlignmentDirectional(0.0, 0.34),
+              alignment: const AlignmentDirectional(0.0, 0.34),
               child: Container(
                 width: 437.0,
                 height: 817.0,
-                decoration: BoxDecoration(),
+                decoration: const BoxDecoration(),
               ),
             ),
           ],

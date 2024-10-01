@@ -3,8 +3,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'home_comp_model.dart';
@@ -44,7 +42,7 @@ class _HomeCompWidgetState extends State<HomeCompWidget> {
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Color(0x00FCFFF9),
+        color: const Color(0x00FCFFF9),
         borderRadius: BorderRadius.circular(15.0),
       ),
       child: Column(
@@ -52,7 +50,7 @@ class _HomeCompWidgetState extends State<HomeCompWidget> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 0.0, 0.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 0.0, 0.0),
             child: Text(
               FFLocalizations.of(context).getText(
                 '8r0sqynj' /* Home */,
@@ -66,7 +64,7 @@ class _HomeCompWidgetState extends State<HomeCompWidget> {
             ),
           ),
           Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 24.0, 0.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 24.0, 0.0),
             child: GradientText(
               FFLocalizations.of(context).getText(
                 '6boepa6p' /* Start or continue your journey... */,
@@ -86,11 +84,11 @@ class _HomeCompWidgetState extends State<HomeCompWidget> {
             ),
           ),
           Align(
-            alignment: AlignmentDirectional(0.0, 0.0),
+            alignment: const AlignmentDirectional(0.0, 0.0),
             child: Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(15.0, 36.0, 15.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(15.0, 36.0, 15.0, 0.0),
               child: MasonryGridView.builder(
-                gridDelegate: SliverSimpleGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: const SliverSimpleGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                 ),
                 crossAxisSpacing: 9.0,
@@ -120,7 +118,7 @@ class _HomeCompWidgetState extends State<HomeCompWidget> {
                               borderRadius: BorderRadius.circular(15.0),
                             ),
                             child: Align(
-                              alignment: AlignmentDirectional(0.0, 1.0),
+                              alignment: const AlignmentDirectional(0.0, 1.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
@@ -140,7 +138,7 @@ class _HomeCompWidgetState extends State<HomeCompWidget> {
                                         context.pushNamed(
                                           'LearningToMeditatePage1',
                                           extra: <String, dynamic>{
-                                            kTransitionInfoKey: TransitionInfo(
+                                            kTransitionInfoKey: const TransitionInfo(
                                               hasTransition: true,
                                               transitionType:
                                                   PageTransitionType.fade,
@@ -154,15 +152,15 @@ class _HomeCompWidgetState extends State<HomeCompWidget> {
                                         width: 172.0,
                                         height: 69.0,
                                         decoration: BoxDecoration(
-                                          color: Color(0xC9040404),
+                                          color: const Color(0xC9040404),
                                           borderRadius:
                                               BorderRadius.circular(15.0),
                                         ),
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(0.0, 0.0),
+                                              const AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
-                                            padding: EdgeInsets.all(11.0),
+                                            padding: const EdgeInsets.all(11.0),
                                             child: Text(
                                               FFLocalizations.of(context)
                                                   .getText(
@@ -214,7 +212,7 @@ Help */
                               borderRadius: BorderRadius.circular(15.0),
                             ),
                             child: Align(
-                              alignment: AlignmentDirectional(0.0, 1.0),
+                              alignment: const AlignmentDirectional(0.0, 1.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
@@ -234,7 +232,7 @@ Help */
                                         context.pushNamed(
                                           'IncreaseFocus',
                                           extra: <String, dynamic>{
-                                            kTransitionInfoKey: TransitionInfo(
+                                            kTransitionInfoKey: const TransitionInfo(
                                               hasTransition: true,
                                               transitionType:
                                                   PageTransitionType.fade,
@@ -248,15 +246,15 @@ Help */
                                         width: 174.0,
                                         height: 69.0,
                                         decoration: BoxDecoration(
-                                          color: Color(0xC9040404),
+                                          color: const Color(0xC9040404),
                                           borderRadius:
                                               BorderRadius.circular(15.0),
                                         ),
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(0.0, 0.0),
+                                              const AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
-                                            padding: EdgeInsets.all(11.0),
+                                            padding: const EdgeInsets.all(11.0),
                                             child: Text(
                                               FFLocalizations.of(context)
                                                   .getText(
@@ -302,7 +300,7 @@ Help */
                                 return WebViewAware(
                                   child: Padding(
                                     padding: MediaQuery.viewInsetsOf(context),
-                                    child: Container(
+                                    child: const SizedBox(
                                       height: double.infinity,
                                       child: LucillePromoBottomSheetWidget(),
                                     ),
@@ -332,7 +330,7 @@ Help */
                                 borderRadius: BorderRadius.circular(15.0),
                               ),
                               child: Align(
-                                alignment: AlignmentDirectional(0.0, 1.0),
+                                alignment: const AlignmentDirectional(0.0, 1.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
@@ -359,7 +357,7 @@ Help */
                                                       MediaQuery.viewInsetsOf(
                                                           context),
                                                   child:
-                                                      LucillePromoBottomSheetWidget(),
+                                                      const LucillePromoBottomSheetWidget(),
                                                 ),
                                               );
                                             },
@@ -370,15 +368,15 @@ Help */
                                           width: 172.0,
                                           height: 69.0,
                                           decoration: BoxDecoration(
-                                            color: Color(0xC9040404),
+                                            color: const Color(0xC9040404),
                                             borderRadius:
                                                 BorderRadius.circular(15.0),
                                           ),
                                           child: Align(
                                             alignment:
-                                                AlignmentDirectional(0.0, 0.0),
+                                                const AlignmentDirectional(0.0, 0.0),
                                             child: Padding(
-                                              padding: EdgeInsets.all(11.0),
+                                              padding: const EdgeInsets.all(11.0),
                                               child: Text(
                                                 FFLocalizations.of(context)
                                                     .getText(
@@ -429,7 +427,7 @@ Help */
                               borderRadius: BorderRadius.circular(15.0),
                             ),
                             child: Align(
-                              alignment: AlignmentDirectional(0.0, 1.0),
+                              alignment: const AlignmentDirectional(0.0, 1.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
@@ -449,7 +447,7 @@ Help */
                                         context.pushNamed(
                                           'ProfilePage',
                                           extra: <String, dynamic>{
-                                            kTransitionInfoKey: TransitionInfo(
+                                            kTransitionInfoKey: const TransitionInfo(
                                               hasTransition: true,
                                               transitionType:
                                                   PageTransitionType.fade,
@@ -463,15 +461,15 @@ Help */
                                         width: 172.0,
                                         height: 69.0,
                                         decoration: BoxDecoration(
-                                          color: Color(0xC9040404),
+                                          color: const Color(0xC9040404),
                                           borderRadius:
                                               BorderRadius.circular(15.0),
                                         ),
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(0.0, 0.0),
+                                              const AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
-                                            padding: EdgeInsets.all(11.0),
+                                            padding: const EdgeInsets.all(11.0),
                                             child: Text(
                                               FFLocalizations.of(context)
                                                   .getText(

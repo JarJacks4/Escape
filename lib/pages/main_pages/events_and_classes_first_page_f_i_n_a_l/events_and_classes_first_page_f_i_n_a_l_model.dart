@@ -1,19 +1,9 @@
 import '/backend/backend.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
-import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:math';
 import 'events_and_classes_first_page_f_i_n_a_l_widget.dart'
     show EventsAndClassesFirstPageFINALWidget;
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
-import 'package:provider/provider.dart';
-import 'package:simple_gradient_text/simple_gradient_text.dart';
 
 class EventsAndClassesFirstPageFINALModel
     extends FlutterFlowModel<EventsAndClassesFirstPageFINALWidget> {
@@ -28,7 +18,7 @@ class EventsAndClassesFirstPageFINALModel
 
   // State field(s) for ListView widget.
 
-  PagingController<DocumentSnapshot?, SelfCareClassesRecord>?
+  PagingController<DocumentSnapshot?, EventsCollectionRecord>?
       listViewPagingController2;
   Query? listViewPagingQuery2;
   List<StreamSubscription?> listViewStreamSubscriptions2 = [];
@@ -45,13 +35,19 @@ class EventsAndClassesFirstPageFINALModel
 
   @override
   void dispose() {
-    listViewStreamSubscriptions1.forEach((s) => s?.cancel());
+    for (var s in listViewStreamSubscriptions1) {
+      s?.cancel();
+    }
     listViewPagingController1?.dispose();
 
-    listViewStreamSubscriptions2.forEach((s) => s?.cancel());
+    for (var s in listViewStreamSubscriptions2) {
+      s?.cancel();
+    }
     listViewPagingController2?.dispose();
 
-    listViewStreamSubscriptions3.forEach((s) => s?.cancel());
+    for (var s in listViewStreamSubscriptions3) {
+      s?.cancel();
+    }
     listViewPagingController3?.dispose();
   }
 
@@ -89,7 +85,7 @@ class EventsAndClassesFirstPageFINALModel
       );
   }
 
-  PagingController<DocumentSnapshot?, SelfCareClassesRecord>
+  PagingController<DocumentSnapshot?, EventsCollectionRecord>
       setListViewController2(
     Query query, {
     DocumentReference<Object?>? parent,
@@ -102,17 +98,17 @@ class EventsAndClassesFirstPageFINALModel
     return listViewPagingController2!;
   }
 
-  PagingController<DocumentSnapshot?, SelfCareClassesRecord>
+  PagingController<DocumentSnapshot?, EventsCollectionRecord>
       _createListViewController2(
     Query query,
     DocumentReference<Object?>? parent,
   ) {
     final controller =
-        PagingController<DocumentSnapshot?, SelfCareClassesRecord>(
+        PagingController<DocumentSnapshot?, EventsCollectionRecord>(
             firstPageKey: null);
     return controller
       ..addPageRequestListener(
-        (nextPageMarker) => querySelfCareClassesRecordPage(
+        (nextPageMarker) => queryEventsCollectionRecordPage(
           nextPageMarker: nextPageMarker,
           streamSubscriptions: listViewStreamSubscriptions2,
           controller: controller,

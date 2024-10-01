@@ -4,16 +4,10 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:math';
 import 'dart:ui';
-import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
-import 'package:provider/provider.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'sounds_details_playlists_model.dart';
 export 'sounds_details_playlists_model.dart';
@@ -56,8 +50,8 @@ class _SoundsDetailsPlaylistsWidgetState
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -75,8 +69,8 @@ class _SoundsDetailsPlaylistsWidgetState
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -95,8 +89,8 @@ class _SoundsDetailsPlaylistsWidgetState
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -115,8 +109,8 @@ class _SoundsDetailsPlaylistsWidgetState
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -135,8 +129,8 @@ class _SoundsDetailsPlaylistsWidgetState
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -186,19 +180,19 @@ class _SoundsDetailsPlaylistsWidgetState
               ],
             ),
             Align(
-              alignment: AlignmentDirectional(0.0, 0.0),
+              alignment: const AlignmentDirectional(0.0, 0.0),
               child: Container(
                 width: double.infinity,
                 height: double.infinity,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [
-                      Color(0xC8FCFFF9),
+                      const Color(0xC8FCFFF9),
                       FlutterFlowTheme.of(context).primaryBackground
                     ],
-                    stops: [0.95, 1.0],
-                    begin: AlignmentDirectional(0.0, -1.0),
-                    end: AlignmentDirectional(0, 1.0),
+                    stops: const [0.95, 1.0],
+                    begin: const AlignmentDirectional(0.0, -1.0),
+                    end: const AlignmentDirectional(0, 1.0),
                   ),
                 ),
                 child: ClipRRect(
@@ -215,7 +209,7 @@ class _SoundsDetailsPlaylistsWidgetState
                           Material(
                             color: Colors.transparent,
                             elevation: 8.0,
-                            shape: RoundedRectangleBorder(
+                            shape: const RoundedRectangleBorder(
                               borderRadius: BorderRadius.only(
                                 bottomLeft: Radius.circular(30.0),
                                 bottomRight: Radius.circular(30.0),
@@ -230,13 +224,13 @@ class _SoundsDetailsPlaylistsWidgetState
                                 gradient: LinearGradient(
                                   colors: [
                                     FlutterFlowTheme.of(context).primary,
-                                    Color(0xFF8B1E6A)
+                                    const Color(0xFF8B1E6A)
                                   ],
-                                  stops: [0.0, 0.9],
-                                  begin: AlignmentDirectional(0.0, -1.0),
-                                  end: AlignmentDirectional(0, 1.0),
+                                  stops: const [0.0, 0.9],
+                                  begin: const AlignmentDirectional(0.0, -1.0),
+                                  end: const AlignmentDirectional(0, 1.0),
                                 ),
-                                borderRadius: BorderRadius.only(
+                                borderRadius: const BorderRadius.only(
                                   bottomLeft: Radius.circular(30.0),
                                   bottomRight: Radius.circular(30.0),
                                   topLeft: Radius.circular(0.0),
@@ -246,7 +240,7 @@ class _SoundsDetailsPlaylistsWidgetState
                               child: Stack(
                                 children: [
                                   Align(
-                                    alignment: AlignmentDirectional(0.92, 0.73),
+                                    alignment: const AlignmentDirectional(0.92, 0.73),
                                     child: GradientText(
                                       FFLocalizations.of(context).getText(
                                         '388pc6y1' /* Playlists */,
@@ -273,9 +267,9 @@ class _SoundsDetailsPlaylistsWidgetState
                                     ),
                                   ),
                                   Align(
-                                    alignment: AlignmentDirectional(0.0, -1.53),
+                                    alignment: const AlignmentDirectional(0.0, -1.53),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           10.0, 55.0, 10.0, 10.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -317,7 +311,7 @@ class _SoundsDetailsPlaylistsWidgetState
                                                 'NewHome',
                                                 extra: <String, dynamic>{
                                                   kTransitionInfoKey:
-                                                      TransitionInfo(
+                                                      const TransitionInfo(
                                                     hasTransition: true,
                                                     transitionType:
                                                         PageTransitionType.fade,
@@ -348,25 +342,25 @@ class _SoundsDetailsPlaylistsWidgetState
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 22.0, 0.0, 0.0),
                             child: Container(
                               width: double.infinity,
                               height: 692.0,
-                              decoration: BoxDecoration(),
+                              decoration: const BoxDecoration(),
                               child: SingleChildScrollView(
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 10.0, 0.0, 0.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     10.0, 0.0, 10.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -404,7 +398,7 @@ class _SoundsDetailsPlaylistsWidgetState
                                           Container(
                                             width: double.infinity,
                                             height: 231.0,
-                                            decoration: BoxDecoration(
+                                            decoration: const BoxDecoration(
                                               color: Colors.transparent,
                                             ),
                                             child: Row(
@@ -413,7 +407,7 @@ class _SoundsDetailsPlaylistsWidgetState
                                                 Expanded(
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 8.0,
                                                                 0.0, 8.0),
                                                     child: PagedListView<
@@ -477,7 +471,7 @@ class _SoundsDetailsPlaylistsWidgetState
                                                                   listViewIndex];
                                                           return Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         10.0,
                                                                         0.0,
@@ -487,7 +481,7 @@ class _SoundsDetailsPlaylistsWidgetState
                                                               width: 187.0,
                                                               height: 215.0,
                                                               decoration:
-                                                                  BoxDecoration(
+                                                                  const BoxDecoration(
                                                                 color: Colors
                                                                     .transparent,
                                                               ),
@@ -500,7 +494,7 @@ class _SoundsDetailsPlaylistsWidgetState
                                                                         .center,
                                                                 children: [
                                                                   Padding(
-                                                                    padding: EdgeInsetsDirectional
+                                                                    padding: const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -531,13 +525,13 @@ class _SoundsDetailsPlaylistsWidgetState
                                                                   ),
                                                                   Align(
                                                                     alignment:
-                                                                        AlignmentDirectional(
+                                                                        const AlignmentDirectional(
                                                                             -1.0,
                                                                             0.0),
                                                                     child:
                                                                         Padding(
                                                                       padding:
-                                                                          EdgeInsets.all(
+                                                                          const EdgeInsets.all(
                                                                               15.0),
                                                                       child:
                                                                           Text(
@@ -557,13 +551,13 @@ class _SoundsDetailsPlaylistsWidgetState
                                                                   ),
                                                                   Align(
                                                                     alignment:
-                                                                        AlignmentDirectional(
+                                                                        const AlignmentDirectional(
                                                                             1.0,
                                                                             -1.0),
                                                                     child:
                                                                         Padding(
                                                                       padding:
-                                                                          EdgeInsets.all(
+                                                                          const EdgeInsets.all(
                                                                               11.0),
                                                                       child:
                                                                           FlutterFlowIconButton(
@@ -574,7 +568,7 @@ class _SoundsDetailsPlaylistsWidgetState
                                                                         buttonSize:
                                                                             40.0,
                                                                         fillColor:
-                                                                            Color(0xFA000220),
+                                                                            const Color(0xFA000220),
                                                                         icon:
                                                                             Icon(
                                                                           Icons
@@ -615,7 +609,7 @@ class _SoundsDetailsPlaylistsWidgetState
                                                                             }.withoutNulls,
                                                                             extra: <String,
                                                                                 dynamic>{
-                                                                              kTransitionInfoKey: TransitionInfo(
+                                                                              kTransitionInfoKey: const TransitionInfo(
                                                                                 hasTransition: true,
                                                                                 transitionType: PageTransitionType.fade,
                                                                                 duration: Duration(milliseconds: 2),
@@ -644,7 +638,7 @@ class _SoundsDetailsPlaylistsWidgetState
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsets.all(10.0),
+                                      padding: const EdgeInsets.all(10.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
@@ -685,7 +679,7 @@ class _SoundsDetailsPlaylistsWidgetState
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsets.all(10.0),
+                                      padding: const EdgeInsets.all(10.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
@@ -693,7 +687,7 @@ class _SoundsDetailsPlaylistsWidgetState
                                             child: Container(
                                               width: double.infinity,
                                               height: 195.0,
-                                              decoration: BoxDecoration(
+                                              decoration: const BoxDecoration(
                                                 color: Colors.transparent,
                                               ),
                                               child: Row(
@@ -762,7 +756,7 @@ class _SoundsDetailsPlaylistsWidgetState
                                                                   listViewIndex];
                                                           return Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
+                                                                const EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
@@ -773,7 +767,7 @@ class _SoundsDetailsPlaylistsWidgetState
                                                               height: 137.0,
                                                               decoration:
                                                                   BoxDecoration(
-                                                                color: Color(
+                                                                color: const Color(
                                                                     0x50090F13),
                                                                 borderRadius:
                                                                     BorderRadius
@@ -834,7 +828,7 @@ class _SoundsDetailsPlaylistsWidgetState
                                                                     extra: <String,
                                                                         dynamic>{
                                                                       kTransitionInfoKey:
-                                                                          TransitionInfo(
+                                                                          const TransitionInfo(
                                                                         hasTransition:
                                                                             true,
                                                                         transitionType:
@@ -857,7 +851,7 @@ class _SoundsDetailsPlaylistsWidgetState
                                                                       flex: 1,
                                                                       child:
                                                                           Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
                                                                             0.0,
                                                                             1.0,
@@ -885,7 +879,7 @@ class _SoundsDetailsPlaylistsWidgetState
                                                                     ),
                                                                     Padding(
                                                                       padding:
-                                                                          EdgeInsets.all(
+                                                                          const EdgeInsets.all(
                                                                               11.0),
                                                                       child:
                                                                           Text(
@@ -923,7 +917,7 @@ class _SoundsDetailsPlaylistsWidgetState
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsets.all(15.0),
+                                      padding: const EdgeInsets.all(15.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
@@ -937,7 +931,7 @@ class _SoundsDetailsPlaylistsWidgetState
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Roboto',
-                                                  color: Color(0xFF5B4090),
+                                                  color: const Color(0xFF5B4090),
                                                   fontSize: 26.0,
                                                   letterSpacing: 0.0,
                                                 ),
@@ -952,7 +946,7 @@ class _SoundsDetailsPlaylistsWidgetState
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           10.0, 0.0, 10.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -961,7 +955,7 @@ class _SoundsDetailsPlaylistsWidgetState
                                             child: Container(
                                               width: double.infinity,
                                               height: 480.0,
-                                              decoration: BoxDecoration(
+                                              decoration: const BoxDecoration(
                                                 color: Colors.transparent,
                                               ),
                                               child: Column(
@@ -970,7 +964,7 @@ class _SoundsDetailsPlaylistsWidgetState
                                                   Expanded(
                                                     child: Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   8.0,
@@ -997,7 +991,7 @@ class _SoundsDetailsPlaylistsWidgetState
                                                                 YouTubeDataAPIBaseCall
                                                                     .call(),
                                                           ),
-                                                          padding: EdgeInsets
+                                                          padding: const EdgeInsets
                                                               .symmetric(
                                                                   vertical:
                                                                       5.0),
@@ -1007,7 +1001,7 @@ class _SoundsDetailsPlaylistsWidgetState
                                                               Axis.vertical,
                                                           separatorBuilder: (_,
                                                                   __) =>
-                                                              SizedBox(
+                                                              const SizedBox(
                                                                   height: 5.0),
                                                           builderDelegate:
                                                               PagedChildBuilderDelegate<
@@ -1058,7 +1052,7 @@ class _SoundsDetailsPlaylistsWidgetState
                                                                   meditationsIndex];
                                                               return Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
+                                                                    const EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             10.0,
                                                                             0.0,
@@ -1069,7 +1063,7 @@ class _SoundsDetailsPlaylistsWidgetState
                                                                   width: 187.0,
                                                                   height: 215.0,
                                                                   decoration:
-                                                                      BoxDecoration(
+                                                                      const BoxDecoration(
                                                                     color: Colors
                                                                         .transparent,
                                                                   ),
@@ -1135,7 +1129,7 @@ class _SoundsDetailsPlaylistsWidgetState
                                                                         extra: <String,
                                                                             dynamic>{
                                                                           kTransitionInfoKey:
-                                                                              TransitionInfo(
+                                                                              const TransitionInfo(
                                                                             hasTransition:
                                                                                 true,
                                                                             transitionType:
@@ -1156,7 +1150,7 @@ class _SoundsDetailsPlaylistsWidgetState
                                                                               .center,
                                                                       children: [
                                                                         Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          padding: const EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
                                                                               0.0,
                                                                               1.0,
@@ -1186,13 +1180,13 @@ class _SoundsDetailsPlaylistsWidgetState
                                                                           ),
                                                                         ),
                                                                         Align(
-                                                                          alignment: AlignmentDirectional(
+                                                                          alignment: const AlignmentDirectional(
                                                                               -1.0,
                                                                               0.0),
                                                                           child:
                                                                               Padding(
                                                                             padding:
-                                                                                EdgeInsets.all(15.0),
+                                                                                const EdgeInsets.all(15.0),
                                                                             child:
                                                                                 Text(
                                                                               getJsonField(
@@ -1210,19 +1204,19 @@ class _SoundsDetailsPlaylistsWidgetState
                                                                           ),
                                                                         ),
                                                                         Align(
-                                                                          alignment: AlignmentDirectional(
+                                                                          alignment: const AlignmentDirectional(
                                                                               1.0,
                                                                               -1.0),
                                                                           child:
                                                                               Padding(
                                                                             padding:
-                                                                                EdgeInsets.all(11.0),
+                                                                                const EdgeInsets.all(11.0),
                                                                             child:
                                                                                 FlutterFlowIconButton(
                                                                               borderColor: Colors.transparent,
                                                                               borderRadius: 8.0,
                                                                               buttonSize: 40.0,
-                                                                              fillColor: Color(0xFA000220),
+                                                                              fillColor: const Color(0xFA000220),
                                                                               icon: Icon(
                                                                                 Icons.play_circle,
                                                                                 color: FlutterFlowTheme.of(context).info,
@@ -1265,7 +1259,7 @@ class _SoundsDetailsPlaylistsWidgetState
                                                                                     ),
                                                                                   }.withoutNulls,
                                                                                   extra: <String, dynamic>{
-                                                                                    kTransitionInfoKey: TransitionInfo(
+                                                                                    kTransitionInfoKey: const TransitionInfo(
                                                                                       hasTransition: true,
                                                                                       transitionType: PageTransitionType.fade,
                                                                                       duration: Duration(milliseconds: 2),

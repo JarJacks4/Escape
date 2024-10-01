@@ -5,8 +5,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'checkout_subscription_bottom_sheet_model.dart';
 export 'checkout_subscription_bottom_sheet_model.dart';
 
@@ -75,7 +73,7 @@ class _CheckoutSubscriptionBottomSheetWidgetState
                   letterSpacing: 0.0,
                 ),
           ),
-          actions: [],
+          actions: const [],
           centerTitle: true,
           elevation: 0.0,
         ),
@@ -85,12 +83,12 @@ class _CheckoutSubscriptionBottomSheetWidgetState
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
                 child: Container(
                   width: double.infinity,
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).primaryBackground,
-                    boxShadow: [
+                    boxShadow: const [
                       BoxShadow(
                         blurRadius: 5.0,
                         color: Color(0x44111417),
@@ -103,18 +101,18 @@ class _CheckoutSubscriptionBottomSheetWidgetState
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   child: Padding(
-                    padding: EdgeInsets.all(4.0),
+                    padding: const EdgeInsets.all(4.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               8.0, 4.0, 8.0, 4.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 2.0, 0.0, 0.0),
                                 child: Icon(
                                   Icons.credit_card_rounded,
@@ -125,7 +123,7 @@ class _CheckoutSubscriptionBottomSheetWidgetState
                               ),
                               Expanded(
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       12.0, 0.0, 0.0, 0.0),
                                   child: Theme(
                                     data: ThemeData(
@@ -135,7 +133,7 @@ class _CheckoutSubscriptionBottomSheetWidgetState
                                               BorderRadius.circular(25),
                                         ),
                                       ),
-                                      unselectedWidgetColor: Color(0xFF95A1AC),
+                                      unselectedWidgetColor: const Color(0xFF95A1AC),
                                     ),
                                     child: CheckboxListTile(
                                       value: _model.checkboxListTileValue1 ??=
@@ -156,7 +154,7 @@ class _CheckoutSubscriptionBottomSheetWidgetState
                                               letterSpacing: 0.0,
                                             ),
                                       ),
-                                      tileColor: Color(0xFFF5F5F5),
+                                      tileColor: const Color(0xFFF5F5F5),
                                       activeColor:
                                           FlutterFlowTheme.of(context).primary,
                                       dense: true,
@@ -171,7 +169,7 @@ class _CheckoutSubscriptionBottomSheetWidgetState
                         ),
                         if (_model.checkboxListTileValue1 ?? true)
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 12.0, 8.0, 12.0, 0.0),
                             child: TextFormField(
                               controller: _model.textController,
@@ -226,7 +224,7 @@ class _CheckoutSubscriptionBottomSheetWidgetState
                           ),
                         if (_model.checkboxListTileValue1 ?? true)
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 12.0, 0.0, 12.0, 0.0),
                             child: FlutterFlowCreditCardForm(
                               formKey: _model.creditCardFormKey,
@@ -266,12 +264,12 @@ class _CheckoutSubscriptionBottomSheetWidgetState
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
                 child: Container(
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: Color(0xC70334CD),
-                    boxShadow: [
+                    color: const Color(0xC70334CD),
+                    boxShadow: const [
                       BoxShadow(
                         blurRadius: 5.0,
                         color: Color(0x44111417),
@@ -284,18 +282,18 @@ class _CheckoutSubscriptionBottomSheetWidgetState
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   child: Padding(
-                    padding: EdgeInsets.all(4.0),
+                    padding: const EdgeInsets.all(4.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               8.0, 4.0, 8.0, 4.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 2.0, 0.0, 0.0),
                                 child: FaIcon(
                                   FontAwesomeIcons.ccPaypal,
@@ -305,7 +303,7 @@ class _CheckoutSubscriptionBottomSheetWidgetState
                               ),
                               Expanded(
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       12.0, 0.0, 0.0, 0.0),
                                   child: Theme(
                                     data: ThemeData(
@@ -315,7 +313,7 @@ class _CheckoutSubscriptionBottomSheetWidgetState
                                               BorderRadius.circular(25),
                                         ),
                                       ),
-                                      unselectedWidgetColor: Color(0xFF95A1AC),
+                                      unselectedWidgetColor: const Color(0xFF95A1AC),
                                     ),
                                     child: CheckboxListTile(
                                       value: _model.checkboxListTileValue2 ??=
@@ -341,7 +339,7 @@ class _CheckoutSubscriptionBottomSheetWidgetState
                                               fontWeight: FontWeight.w600,
                                             ),
                                       ),
-                                      tileColor: Color(0xFFF5F5F5),
+                                      tileColor: const Color(0xFFF5F5F5),
                                       activeColor:
                                           FlutterFlowTheme.of(context).primary,
                                       dense: true,
@@ -360,12 +358,12 @@ class _CheckoutSubscriptionBottomSheetWidgetState
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
                 child: Container(
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    color: Color(0xFF000220),
-                    boxShadow: [
+                    color: const Color(0xFF000220),
+                    boxShadow: const [
                       BoxShadow(
                         blurRadius: 5.0,
                         color: Color(0x44111417),
@@ -378,18 +376,18 @@ class _CheckoutSubscriptionBottomSheetWidgetState
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   child: Padding(
-                    padding: EdgeInsets.all(4.0),
+                    padding: const EdgeInsets.all(4.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               8.0, 4.0, 8.0, 4.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 2.0, 0.0, 0.0),
                                 child: FaIcon(
                                   FontAwesomeIcons.ccApplePay,
@@ -400,7 +398,7 @@ class _CheckoutSubscriptionBottomSheetWidgetState
                               ),
                               Expanded(
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       12.0, 0.0, 0.0, 0.0),
                                   child: Theme(
                                     data: ThemeData(
@@ -410,7 +408,7 @@ class _CheckoutSubscriptionBottomSheetWidgetState
                                               BorderRadius.circular(25),
                                         ),
                                       ),
-                                      unselectedWidgetColor: Color(0xFF95A1AC),
+                                      unselectedWidgetColor: const Color(0xFF95A1AC),
                                     ),
                                     child: CheckboxListTile(
                                       value: _model.checkboxListTileValue3 ??=
@@ -434,7 +432,7 @@ class _CheckoutSubscriptionBottomSheetWidgetState
                                               letterSpacing: 0.0,
                                             ),
                                       ),
-                                      tileColor: Color(0xFFF5F5F5),
+                                      tileColor: const Color(0xFFF5F5F5),
                                       activeColor:
                                           FlutterFlowTheme.of(context).primary,
                                       dense: true,
@@ -454,7 +452,7 @@ class _CheckoutSubscriptionBottomSheetWidgetState
               ),
               Expanded(
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 24.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 24.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.end,
@@ -467,16 +465,16 @@ class _CheckoutSubscriptionBottomSheetWidgetState
                           text: FFLocalizations.of(context).getText(
                             'icdc91p3' /* Apple Pay */,
                           ),
-                          icon: FaIcon(
+                          icon: const FaIcon(
                             FontAwesomeIcons.apple,
                             size: 15.0,
                           ),
                           options: FFButtonOptions(
                             width: 270.0,
                             height: 50.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
                             color: FlutterFlowTheme.of(context).primaryText,
                             textStyle: FlutterFlowTheme.of(context)
@@ -488,7 +486,7 @@ class _CheckoutSubscriptionBottomSheetWidgetState
                                   letterSpacing: 0.0,
                                 ),
                             elevation: 2.0,
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Colors.transparent,
                               width: 1.0,
                             ),
@@ -506,9 +504,9 @@ class _CheckoutSubscriptionBottomSheetWidgetState
                           options: FFButtonOptions(
                             width: 270.0,
                             height: 50.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
                             color: FlutterFlowTheme.of(context).primaryText,
                             textStyle: FlutterFlowTheme.of(context)
@@ -520,7 +518,7 @@ class _CheckoutSubscriptionBottomSheetWidgetState
                                   letterSpacing: 0.0,
                                 ),
                             elevation: 2.0,
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Colors.transparent,
                               width: 1.0,
                             ),
@@ -535,16 +533,16 @@ class _CheckoutSubscriptionBottomSheetWidgetState
                           text: FFLocalizations.of(context).getText(
                             'h3ml41jz' /* Pay w/Paypal */,
                           ),
-                          icon: FaIcon(
+                          icon: const FaIcon(
                             FontAwesomeIcons.paypal,
                             size: 15.0,
                           ),
                           options: FFButtonOptions(
                             width: 270.0,
                             height: 50.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
                             color: FlutterFlowTheme.of(context).primaryText,
                             textStyle: FlutterFlowTheme.of(context)
@@ -556,7 +554,7 @@ class _CheckoutSubscriptionBottomSheetWidgetState
                                   letterSpacing: 0.0,
                                 ),
                             elevation: 2.0,
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Colors.transparent,
                               width: 1.0,
                             ),

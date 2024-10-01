@@ -1,27 +1,13 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
-import '/components/add_tab_bar_widget.dart';
 import '/components/pilates_videos_comp/pilates_videos_comp_widget.dart';
 import '/components/tai_chi_videos_comp/tai_chi_videos_comp_widget.dart';
 import '/components/yoga_videos_comp/yoga_videos_comp_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
-import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_video_player.dart';
-import 'dart:math';
 import 'dart:async';
-import 'package:aligned_tooltip/aligned_tooltip.dart';
 import 'tabbar_home_community_widget.dart' show TabbarHomeCommunityWidget;
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
-import 'package:provider/provider.dart';
-import 'package:simple_gradient_text/simple_gradient_text.dart';
-import 'package:webviewx_plus/webviewx_plus.dart';
 
 class TabbarHomeCommunityModel
     extends FlutterFlowModel<TabbarHomeCommunityWidget> {
@@ -58,7 +44,9 @@ class TabbarHomeCommunityModel
   @override
   void dispose() {
     tabBarController?.dispose();
-    listViewStreamSubscriptions5.forEach((s) => s?.cancel());
+    for (var s in listViewStreamSubscriptions5) {
+      s?.cancel();
+    }
     listViewPagingController5?.dispose();
 
     yogaVideosCompModel.dispose();
@@ -106,7 +94,7 @@ class TabbarHomeCommunityModel
   }) async {
     final stopwatch = Stopwatch()..start();
     while (true) {
-      await Future.delayed(Duration(milliseconds: 50));
+      await Future.delayed(const Duration(milliseconds: 50));
       final timeElapsed = stopwatch.elapsedMilliseconds;
       final requestComplete = apiRequestCompleter?.isCompleted ?? false;
       if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {

@@ -3,9 +3,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
-import 'package:provider/provider.dart';
 import 'learning_to_meditate_page2_model.dart';
 export 'learning_to_meditate_page2_model.dart';
 
@@ -63,15 +61,15 @@ class _LearningToMeditatePage2WidgetState
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  Color(0x80ECEEEE),
-                  Color(0x9F01CBAE),
-                  Color(0xB8673AB7),
-                  Color(0xEB84468E),
+                  const Color(0x80ECEEEE),
+                  const Color(0x9F01CBAE),
+                  const Color(0xB8673AB7),
+                  const Color(0xEB84468E),
                   FlutterFlowTheme.of(context).primaryBackground
                 ],
-                stops: [0.0, 0.0, 0.3, 0.5, 1.0],
-                begin: AlignmentDirectional(1.0, -1.0),
-                end: AlignmentDirectional(-1.0, 1.0),
+                stops: const [0.0, 0.0, 0.3, 0.5, 1.0],
+                begin: const AlignmentDirectional(1.0, -1.0),
+                end: const AlignmentDirectional(-1.0, 1.0),
               ),
             ),
             child: Column(
@@ -79,12 +77,12 @@ class _LearningToMeditatePage2WidgetState
               children: [
                 Padding(
                   padding:
-                      EdgeInsetsDirectional.fromSTEB(16.0, 44.0, 16.0, 0.0),
+                      const EdgeInsetsDirectional.fromSTEB(16.0, 44.0, 16.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Align(
-                        alignment: AlignmentDirectional(-1.0, -1.0),
+                        alignment: const AlignmentDirectional(-1.0, -1.0),
                         child: FlutterFlowIconButton(
                           borderColor: FlutterFlowTheme.of(context).primary,
                           borderRadius: 20.0,
@@ -108,13 +106,13 @@ class _LearningToMeditatePage2WidgetState
                 Container(
                   width: double.infinity,
                   height: 100.0,
-                  decoration: BoxDecoration(),
+                  decoration: const BoxDecoration(),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Padding(
-                        padding: EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.all(8.0),
                         child: Text(
                           FFLocalizations.of(context).getText(
                             'gjvjlcp0' /* Before We Begin: */,
@@ -137,16 +135,16 @@ class _LearningToMeditatePage2WidgetState
                 Container(
                   width: double.infinity,
                   height: 317.0,
-                  decoration: BoxDecoration(),
+                  decoration: const BoxDecoration(),
                   child: Padding(
-                    padding: EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(8.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: EdgeInsets.all(15.0),
+                          padding: const EdgeInsets.all(15.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
                               '1wzeavpe' /* -Find a comfortable place to s... */,
@@ -166,20 +164,20 @@ class _LearningToMeditatePage2WidgetState
                           ),
                         ),
                       ]
-                          .divide(SizedBox(width: 10.0))
-                          .addToStart(SizedBox(width: 10.0)),
+                          .divide(const SizedBox(width: 10.0))
+                          .addToStart(const SizedBox(width: 10.0)),
                     ),
                   ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(0.0, 0.0),
+                  alignment: const AlignmentDirectional(0.0, 0.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 15.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 15.0),
                         child: FFButtonWidget(
                           onPressed: () async {
                             logFirebaseEvent(
@@ -189,7 +187,7 @@ class _LearningToMeditatePage2WidgetState
                             context.pushNamed(
                               'TimedMeditations',
                               extra: <String, dynamic>{
-                                kTransitionInfoKey: TransitionInfo(
+                                kTransitionInfoKey: const TransitionInfo(
                                   hasTransition: true,
                                   transitionType: PageTransitionType.fade,
                                   duration: Duration(milliseconds: 3),
@@ -200,16 +198,16 @@ class _LearningToMeditatePage2WidgetState
                           text: FFLocalizations.of(context).getText(
                             'x2ogfj44' /* Try It Out! */,
                           ),
-                          icon: Icon(
+                          icon: const Icon(
                             Icons.air,
                             size: 40.0,
                           ),
                           options: FFButtonOptions(
                             width: MediaQuery.sizeOf(context).width * 0.5,
                             height: 40.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 24.0, 0.0, 24.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
                             color: FlutterFlowTheme.of(context).tertiary,
                             textStyle: FlutterFlowTheme.of(context)
@@ -220,7 +218,7 @@ class _LearningToMeditatePage2WidgetState
                                   letterSpacing: 0.0,
                                 ),
                             elevation: 8.0,
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Colors.transparent,
                               width: 1.0,
                             ),
@@ -238,7 +236,7 @@ class _LearningToMeditatePage2WidgetState
                   color: FlutterFlowTheme.of(context).primary,
                 ),
                 Padding(
-                  padding: EdgeInsets.all(22.0),
+                  padding: const EdgeInsets.all(22.0),
                   child: Lottie.asset(
                     'assets/lottie_animations/Animation_-_1709680091534.json',
                     width: 193.0,

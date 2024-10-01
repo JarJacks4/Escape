@@ -3,11 +3,8 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/revenue_cat_util.dart' as revenue_cat;
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'subscribe_now_promo_bottom_sheet_model.dart';
 export 'subscribe_now_promo_bottom_sheet_model.dart';
 
@@ -67,7 +64,7 @@ class _SubscribeNowPromoBottomSheetWidgetState
                   children: [
                     Flexible(
                       flex: 1,
-                      child: Container(
+                      child: SizedBox(
                         width: double.infinity,
                         child: Stack(
                           children: [
@@ -83,7 +80,7 @@ class _SubscribeNowPromoBottomSheetWidgetState
                             ),
                             Container(
                               height: 200.0,
-                              decoration: BoxDecoration(),
+                              decoration: const BoxDecoration(),
                             ),
                             Container(
                               width: double.infinity,
@@ -91,23 +88,23 @@ class _SubscribeNowPromoBottomSheetWidgetState
                               decoration: BoxDecoration(
                                 gradient: LinearGradient(
                                   colors: [
-                                    Color(0xC8FFFFFF),
+                                    const Color(0xC8FFFFFF),
                                     FlutterFlowTheme.of(context).accent1
                                   ],
-                                  stops: [0.2, 1.0],
-                                  begin: AlignmentDirectional(0.0, -1.0),
-                                  end: AlignmentDirectional(0, 1.0),
+                                  stops: const [0.2, 1.0],
+                                  begin: const AlignmentDirectional(0.0, -1.0),
+                                  end: const AlignmentDirectional(0, 1.0),
                                 ),
                               ),
-                              child: Container(
+                              child: SizedBox(
                                 width: double.infinity,
                                 child: Stack(
                                   children: [
                                     Align(
                                       alignment:
-                                          AlignmentDirectional(-1.0, -1.0),
+                                          const AlignmentDirectional(-1.0, -1.0),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             20.0, 150.0, 20.0, 20.0),
                                         child: SelectionArea(
                                             child: Text(
@@ -131,20 +128,20 @@ class _SubscribeNowPromoBottomSheetWidgetState
                                     ),
                                     Align(
                                       alignment:
-                                          AlignmentDirectional(0.22, 0.4),
+                                          const AlignmentDirectional(0.22, 0.4),
                                       child: Padding(
-                                        padding: EdgeInsets.all(8.0),
+                                        padding: const EdgeInsets.all(8.0),
                                         child: Container(
                                           width: 341.0,
                                           height: 354.0,
                                           decoration: BoxDecoration(
-                                            color: Color(0x37000220),
+                                            color: const Color(0x37000220),
                                             borderRadius:
                                                 BorderRadius.circular(20.0),
                                           ),
                                           child: Align(
                                             alignment:
-                                                AlignmentDirectional(0.0, 1.0),
+                                                const AlignmentDirectional(0.0, 1.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -153,7 +150,7 @@ class _SubscribeNowPromoBottomSheetWidgetState
                                                 Flexible(
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsets.all(30.0),
+                                                        const EdgeInsets.all(30.0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -211,7 +208,7 @@ Timed Out A... */
                                                 Flexible(
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsets.all(30.0),
+                                                        const EdgeInsets.all(30.0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -269,7 +266,7 @@ Timed Out A... */
                                                 Flexible(
                                                   child: Padding(
                                                     padding:
-                                                        EdgeInsets.all(30.0),
+                                                        const EdgeInsets.all(30.0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -334,9 +331,9 @@ least 100 Videos... */
                                     ),
                                     Align(
                                       alignment:
-                                          AlignmentDirectional(-1.0, -1.0),
+                                          const AlignmentDirectional(-1.0, -1.0),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             20.0, 150.0, 20.0, 20.0),
                                         child: SelectionArea(
                                             child: Text(
@@ -360,9 +357,9 @@ least 100 Videos... */
                                     ),
                                     Align(
                                       alignment:
-                                          AlignmentDirectional(0.03, -0.27),
+                                          const AlignmentDirectional(0.03, -0.27),
                                       child: Padding(
-                                        padding: EdgeInsets.all(8.0),
+                                        padding: const EdgeInsets.all(8.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
                                             'nr1mnxv9' /* Free Version */,
@@ -379,9 +376,9 @@ least 100 Videos... */
                                     ),
                                     Align(
                                       alignment:
-                                          AlignmentDirectional(0.08, 0.88),
+                                          const AlignmentDirectional(0.08, 0.88),
                                       child: Padding(
-                                        padding: EdgeInsets.all(8.0),
+                                        padding: const EdgeInsets.all(8.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
                                             'av40lvot' /* Premium Version */,
@@ -399,7 +396,7 @@ least 100 Videos... */
                                     ),
                                     Align(
                                       alignment:
-                                          AlignmentDirectional(0.01, 0.95),
+                                          const AlignmentDirectional(0.01, 0.95),
                                       child: Text(
                                         revenue_cat.offerings!.current!.monthly!
                                             .storeProduct.priceString,
@@ -420,7 +417,7 @@ least 100 Videos... */
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   15.0, 40.0, 15.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -447,7 +444,7 @@ least 100 Videos... */
                                     },
                                   ),
                                   Padding(
-                                    padding: EdgeInsets.all(15.0),
+                                    padding: const EdgeInsets.all(15.0),
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(8.0),
                                       child: Image.asset(
@@ -466,25 +463,25 @@ least 100 Videos... */
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0.0, 0.0),
+                      alignment: const AlignmentDirectional(0.0, 0.0),
                       child: Padding(
-                        padding: EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.all(8.0),
                         child: Container(
                           width: 341.0,
                           height: 354.0,
                           decoration: BoxDecoration(
-                            color: Color(0x37000220),
+                            color: const Color(0x37000220),
                             borderRadius: BorderRadius.circular(20.0),
                           ),
                           child: Align(
-                            alignment: AlignmentDirectional(0.0, 1.0),
+                            alignment: const AlignmentDirectional(0.0, 1.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Flexible(
                                   child: Padding(
-                                    padding: EdgeInsets.all(30.0),
+                                    padding: const EdgeInsets.all(30.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
@@ -529,7 +526,7 @@ Provider Community */
                                 ),
                                 Flexible(
                                   child: Padding(
-                                    padding: EdgeInsets.all(30.0),
+                                    padding: const EdgeInsets.all(30.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
@@ -574,7 +571,7 @@ Offline Capabilit... */
                                 ),
                                 Flexible(
                                   child: Padding(
-                                    padding: EdgeInsets.all(30.0),
+                                    padding: const EdgeInsets.all(30.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
@@ -622,9 +619,9 @@ Offline Capabilit... */
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0.0, 1.0),
+                      alignment: const AlignmentDirectional(0.0, 1.0),
                       child: Padding(
-                        padding: EdgeInsets.all(40.0),
+                        padding: const EdgeInsets.all(40.0),
                         child: FFButtonWidget(
                           onPressed: () async {
                             logFirebaseEvent(
@@ -638,9 +635,9 @@ Offline Capabilit... */
                           options: FFButtonOptions(
                             width: MediaQuery.sizeOf(context).width * 0.8,
                             height: 58.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 16.0, 0.0, 16.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
@@ -658,7 +655,7 @@ Offline Capabilit... */
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.all(20.0),
+                      padding: const EdgeInsets.all(20.0),
                       child: RichText(
                         textScaler: MediaQuery.of(context).textScaler,
                         text: TextSpan(

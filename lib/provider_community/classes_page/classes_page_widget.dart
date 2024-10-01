@@ -2,12 +2,8 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'classes_page_model.dart';
 export 'classes_page_model.dart';
 
@@ -48,8 +44,8 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
             curve: Curves.easeInOut,
             delay: 100.0.ms,
             duration: 600.0.ms,
-            begin: Offset(0.0, 170.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(0.0, 170.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -68,8 +64,8 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
             curve: Curves.easeInOut,
             delay: 150.0.ms,
             duration: 600.0.ms,
-            begin: Offset(0.0, 170.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(0.0, 170.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -102,7 +98,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                   children: [
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(24.0, 22.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(24.0, 22.0, 0.0, 0.0),
                       child: Text(
                         FFLocalizations.of(context).getText(
                           't32f9clt' /* Feb 8th */,
@@ -116,7 +112,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(24.0, 4.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(24.0, 4.0, 0.0, 0.0),
                       child: Text(
                         FFLocalizations.of(context).getText(
                           'g82fqpyf' /* Wednesday */,
@@ -136,7 +132,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(24.0, 4.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(24.0, 4.0, 0.0, 0.0),
                       child: Text(
                         FFLocalizations.of(context).getText(
                           '7gk481xs' /* FlutterFlow Design Basics */,
@@ -152,7 +148,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(24.0, 12.0, 0.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(24.0, 12.0, 0.0, 0.0),
                       child: Text(
                         FFLocalizations.of(context).getText(
                           '3qpf1gzq' /* Class Details */,
@@ -166,7 +162,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(24.0, 4.0, 24.0, 12.0),
+                          const EdgeInsetsDirectional.fromSTEB(24.0, 4.0, 24.0, 12.0),
                       child: Text(
                         FFLocalizations.of(context).getText(
                           'f0viz556' /* Experience the power of Supaba... */,
@@ -182,7 +178,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(24.0, 4.0, 0.0, 12.0),
+                          const EdgeInsetsDirectional.fromSTEB(24.0, 4.0, 0.0, 12.0),
                       child: Text(
                         FFLocalizations.of(context).getText(
                           'lglod63k' /* Class Content */,
@@ -196,7 +192,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 24.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 24.0),
                       child: ListView(
                         padding: EdgeInsets.zero,
                         primary: false,
@@ -204,11 +200,11 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                         scrollDirection: Axis.vertical,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 24.0, 0.0, 24.0, 12.0),
                             child: Container(
                               width: double.infinity,
-                              constraints: BoxConstraints(
+                              constraints: const BoxConstraints(
                                 maxWidth: 570.0,
                               ),
                               decoration: BoxDecoration(
@@ -221,7 +217,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                 ),
                               ),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     16.0, 12.0, 16.0, 12.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -230,7 +226,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                   children: [
                                     Expanded(
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 12.0, 0.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
@@ -253,7 +249,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                                       ),
                                             ),
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 4.0, 0.0, 0.0),
                                               child: Text(
                                                 FFLocalizations.of(context)
@@ -291,11 +287,11 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 24.0, 0.0, 24.0, 12.0),
                             child: Container(
                               width: double.infinity,
-                              constraints: BoxConstraints(
+                              constraints: const BoxConstraints(
                                 maxWidth: 570.0,
                               ),
                               decoration: BoxDecoration(
@@ -308,7 +304,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                 ),
                               ),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     16.0, 12.0, 16.0, 12.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -317,7 +313,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                   children: [
                                     Expanded(
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 12.0, 0.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
@@ -340,7 +336,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                                       ),
                                             ),
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 4.0, 0.0, 0.0),
                                               child: Text(
                                                 FFLocalizations.of(context)
@@ -378,11 +374,11 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 24.0, 0.0, 24.0, 12.0),
                             child: Container(
                               width: double.infinity,
-                              constraints: BoxConstraints(
+                              constraints: const BoxConstraints(
                                 maxWidth: 570.0,
                               ),
                               decoration: BoxDecoration(
@@ -395,7 +391,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                 ),
                               ),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     16.0, 12.0, 16.0, 12.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -404,7 +400,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                   children: [
                                     Expanded(
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 12.0, 0.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
@@ -427,7 +423,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                                       ),
                                             ),
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 4.0, 0.0, 0.0),
                                               child: Text(
                                                 FFLocalizations.of(context)
@@ -465,11 +461,11 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 24.0, 0.0, 24.0, 12.0),
                             child: Container(
                               width: double.infinity,
-                              constraints: BoxConstraints(
+                              constraints: const BoxConstraints(
                                 maxWidth: 570.0,
                               ),
                               decoration: BoxDecoration(
@@ -482,7 +478,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                 ),
                               ),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     16.0, 12.0, 16.0, 12.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -491,7 +487,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                   children: [
                                     Expanded(
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 12.0, 0.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
@@ -514,7 +510,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                                       ),
                                             ),
                                             Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 4.0, 0.0, 0.0),
                                               child: Text(
                                                 FFLocalizations.of(context)
@@ -560,7 +556,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 12.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 12.0),
               child: FFButtonWidget(
                 onPressed: () {
                   print('Button pressed ...');
@@ -571,9 +567,9 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                 options: FFButtonOptions(
                   width: double.infinity,
                   height: 52.0,
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                   iconPadding:
-                      EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                   color: FlutterFlowTheme.of(context).primary,
                   textStyle: FlutterFlowTheme.of(context).titleMedium.override(
                         fontFamily: 'Roboto',
@@ -588,7 +584,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 12.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 12.0),
               child: FFButtonWidget(
                 onPressed: () {
                   print('Button pressed ...');
@@ -596,16 +592,16 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                 text: FFLocalizations.of(context).getText(
                   'du1l7nl0' /* Favorite Class */,
                 ),
-                icon: Icon(
+                icon: const Icon(
                   Icons.favorite_border,
                   size: 15.0,
                 ),
                 options: FFButtonOptions(
                   width: double.infinity,
                   height: 52.0,
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                   iconPadding:
-                      EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                   color: FlutterFlowTheme.of(context).accent1,
                   textStyle: FlutterFlowTheme.of(context).titleLarge.override(
                         fontFamily: 'Roboto',

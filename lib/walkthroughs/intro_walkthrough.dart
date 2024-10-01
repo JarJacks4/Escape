@@ -3,7 +3,6 @@ import 'package:tutorial_coach_mark/tutorial_coach_mark.dart';
 
 import '/components/walkthrough_comp_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/flutter_flow_util.dart';
 
 // Focus widget keys for this walkthrough
 final containerZevhydwe = GlobalKey();
@@ -23,7 +22,7 @@ List<TargetFocus> createWalkthroughTargets(BuildContext context) => [
         contents: [
           TargetContent(
             align: ContentAlign.top,
-            builder: (context, __) => WalkthroughCompWidget(),
+            builder: (context, __) => const WalkthroughCompWidget(),
           ),
         ],
       ),
@@ -38,7 +37,7 @@ List<TargetFocus> createWalkthroughTargets(BuildContext context) => [
         contents: [
           TargetContent(
             align: ContentAlign.left,
-            builder: (context, __) => WalkthroughCompWidget(),
+            builder: (context, __) => const WalkthroughCompWidget(),
           ),
         ],
       ),

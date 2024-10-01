@@ -3,8 +3,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'header_blogs_model.dart';
 export 'header_blogs_model.dart';
@@ -43,7 +41,7 @@ class _HeaderBlogsWidgetState extends State<HeaderBlogsWidget> {
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Color(0x00FCFFF9),
+        color: const Color(0x00FCFFF9),
         borderRadius: BorderRadius.circular(15.0),
       ),
       child: SingleChildScrollView(
@@ -52,16 +50,16 @@ class _HeaderBlogsWidgetState extends State<HeaderBlogsWidget> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 44.0, 0.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 44.0, 0.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Align(
-                    alignment: AlignmentDirectional(-1.0, -1.0),
+                    alignment: const AlignmentDirectional(-1.0, -1.0),
                     child: Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 170.0, 0.0),
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 170.0, 0.0),
                       child: FlutterFlowIconButton(
                         borderColor: Colors.transparent,
                         borderRadius: 30.0,
@@ -78,7 +76,7 @@ class _HeaderBlogsWidgetState extends State<HeaderBlogsWidget> {
                           logFirebaseEvent('IconButton_bottom_sheet');
                           await showModalBottomSheet(
                             isScrollControlled: true,
-                            backgroundColor: Color(0x63000000),
+                            backgroundColor: const Color(0x63000000),
                             barrierColor:
                                 FlutterFlowTheme.of(context).primaryText,
                             context: context,
@@ -86,7 +84,7 @@ class _HeaderBlogsWidgetState extends State<HeaderBlogsWidget> {
                               return WebViewAware(
                                 child: Padding(
                                   padding: MediaQuery.viewInsetsOf(context),
-                                  child: SideNavWidget(),
+                                  child: const SideNavWidget(),
                                 ),
                               );
                             },
@@ -97,7 +95,7 @@ class _HeaderBlogsWidgetState extends State<HeaderBlogsWidget> {
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
                     child: FlutterFlowIconButton(
                       borderColor: Colors.transparent,
                       borderRadius: 30.0,
@@ -116,7 +114,7 @@ class _HeaderBlogsWidgetState extends State<HeaderBlogsWidget> {
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 35.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 35.0, 0.0),
                     child: InkWell(
                       splashColor: Colors.transparent,
                       focusColor: Colors.transparent,
@@ -131,7 +129,7 @@ class _HeaderBlogsWidgetState extends State<HeaderBlogsWidget> {
                         width: 60.0,
                         height: 60.0,
                         clipBehavior: Clip.antiAlias,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           shape: BoxShape.circle,
                         ),
                         child: Image.network(
@@ -145,7 +143,7 @@ class _HeaderBlogsWidgetState extends State<HeaderBlogsWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(11.0, 16.0, 16.0, 8.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(11.0, 16.0, 16.0, 8.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -166,7 +164,7 @@ class _HeaderBlogsWidgetState extends State<HeaderBlogsWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(11.0, 0.0, 24.0, 0.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(11.0, 0.0, 24.0, 0.0),
               child: Text(
                 FFLocalizations.of(context).getText(
                   'm4rt090k' /* Find out more about 

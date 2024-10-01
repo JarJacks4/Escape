@@ -2,8 +2,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'time_carousel_copy_model.dart';
 export 'time_carousel_copy_model.dart';
 
@@ -44,8 +42,8 @@ class _TimeCarouselCopyWidgetState extends State<TimeCarouselCopyWidget> {
         Container(
           width: double.infinity,
           height: 220.0,
-          decoration: BoxDecoration(),
-          child: Container(
+          decoration: const BoxDecoration(),
+          child: SizedBox(
             width: double.infinity,
             height: 0.0,
             child: CarouselSlider(
@@ -64,14 +62,14 @@ class _TimeCarouselCopyWidgetState extends State<TimeCarouselCopyWidget> {
                           FlutterFlowTheme.of(context).alternate,
                           FlutterFlowTheme.of(context).secondary
                         ],
-                        stops: [0.0, 0.5, 1.0],
-                        begin: AlignmentDirectional(0.0, -1.0),
-                        end: AlignmentDirectional(0, 1.0),
+                        stops: const [0.0, 0.5, 1.0],
+                        begin: const AlignmentDirectional(0.0, -1.0),
+                        end: const AlignmentDirectional(0, 1.0),
                       ),
                       shape: BoxShape.circle,
                     ),
                     child: Align(
-                      alignment: AlignmentDirectional(0.0, 0.0),
+                      alignment: const AlignmentDirectional(0.0, 0.0),
                       child: Text(
                         FFLocalizations.of(context).getText(
                           'ernaosyh' /* 30
@@ -104,14 +102,14 @@ Seconds */
                           FlutterFlowTheme.of(context).alternate,
                           FlutterFlowTheme.of(context).secondary
                         ],
-                        stops: [0.0, 0.5, 1.0],
-                        begin: AlignmentDirectional(0.0, -1.0),
-                        end: AlignmentDirectional(0, 1.0),
+                        stops: const [0.0, 0.5, 1.0],
+                        begin: const AlignmentDirectional(0.0, -1.0),
+                        end: const AlignmentDirectional(0, 1.0),
                       ),
                       shape: BoxShape.circle,
                     ),
                     child: Align(
-                      alignment: AlignmentDirectional(0.0, 0.0),
+                      alignment: const AlignmentDirectional(0.0, 0.0),
                       child: Text(
                         FFLocalizations.of(context).getText(
                           'g7vf13le' /* 45
@@ -144,14 +142,14 @@ Seconds */
                           FlutterFlowTheme.of(context).alternate,
                           FlutterFlowTheme.of(context).secondary
                         ],
-                        stops: [0.0, 0.5, 1.0],
-                        begin: AlignmentDirectional(0.0, -1.0),
-                        end: AlignmentDirectional(0, 1.0),
+                        stops: const [0.0, 0.5, 1.0],
+                        begin: const AlignmentDirectional(0.0, -1.0),
+                        end: const AlignmentDirectional(0, 1.0),
                       ),
                       shape: BoxShape.circle,
                     ),
                     child: Align(
-                      alignment: AlignmentDirectional(0.0, 0.0),
+                      alignment: const AlignmentDirectional(0.0, 0.0),
                       child: Text(
                         FFLocalizations.of(context).getText(
                           '0jhsgfrl' /* 60
@@ -184,14 +182,14 @@ Seconds */
                           FlutterFlowTheme.of(context).alternate,
                           FlutterFlowTheme.of(context).secondary
                         ],
-                        stops: [0.0, 0.5, 1.0],
-                        begin: AlignmentDirectional(0.0, -1.0),
-                        end: AlignmentDirectional(0, 1.0),
+                        stops: const [0.0, 0.5, 1.0],
+                        begin: const AlignmentDirectional(0.0, -1.0),
+                        end: const AlignmentDirectional(0, 1.0),
                       ),
                       shape: BoxShape.circle,
                     ),
                     child: Align(
-                      alignment: AlignmentDirectional(0.0, 0.0),
+                      alignment: const AlignmentDirectional(0.0, 0.0),
                       child: Text(
                         FFLocalizations.of(context).getText(
                           'avygtlig' /* 1 Minute
@@ -224,14 +222,14 @@ Seconds */
                           FlutterFlowTheme.of(context).alternate,
                           FlutterFlowTheme.of(context).secondary
                         ],
-                        stops: [0.0, 0.5, 1.0],
-                        begin: AlignmentDirectional(0.0, -1.0),
-                        end: AlignmentDirectional(0, 1.0),
+                        stops: const [0.0, 0.5, 1.0],
+                        begin: const AlignmentDirectional(0.0, -1.0),
+                        end: const AlignmentDirectional(0, 1.0),
                       ),
                       shape: BoxShape.circle,
                     ),
                     child: Align(
-                      alignment: AlignmentDirectional(0.0, 0.0),
+                      alignment: const AlignmentDirectional(0.0, 0.0),
                       child: Text(
                         FFLocalizations.of(context).getText(
                           'bj5vfoss' /* 2 
@@ -264,14 +262,14 @@ Minutes */
                           FlutterFlowTheme.of(context).alternate,
                           FlutterFlowTheme.of(context).secondary
                         ],
-                        stops: [0.0, 0.5, 1.0],
-                        begin: AlignmentDirectional(0.0, -1.0),
-                        end: AlignmentDirectional(0, 1.0),
+                        stops: const [0.0, 0.5, 1.0],
+                        begin: const AlignmentDirectional(0.0, -1.0),
+                        end: const AlignmentDirectional(0, 1.0),
                       ),
                       shape: BoxShape.circle,
                     ),
                     child: Align(
-                      alignment: AlignmentDirectional(0.0, 0.0),
+                      alignment: const AlignmentDirectional(0.0, 0.0),
                       child: Text(
                         FFLocalizations.of(context).getText(
                           '5gu1m3vz' /* 5 
@@ -304,14 +302,14 @@ Minutes */
                           FlutterFlowTheme.of(context).alternate,
                           FlutterFlowTheme.of(context).secondary
                         ],
-                        stops: [0.0, 0.5, 1.0],
-                        begin: AlignmentDirectional(0.0, -1.0),
-                        end: AlignmentDirectional(0, 1.0),
+                        stops: const [0.0, 0.5, 1.0],
+                        begin: const AlignmentDirectional(0.0, -1.0),
+                        end: const AlignmentDirectional(0, 1.0),
                       ),
                       shape: BoxShape.circle,
                     ),
                     child: Align(
-                      alignment: AlignmentDirectional(0.0, 0.0),
+                      alignment: const AlignmentDirectional(0.0, 0.0),
                       child: Text(
                         FFLocalizations.of(context).getText(
                           'is2ra4en' /* 10 

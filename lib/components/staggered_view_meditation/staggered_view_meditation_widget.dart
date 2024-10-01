@@ -2,8 +2,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'staggered_view_meditation_model.dart';
 export 'staggered_view_meditation_model.dart';
 
@@ -46,9 +44,9 @@ class _StaggeredViewMeditationWidgetState
         Container(
           width: 387.0,
           height: 530.0,
-          decoration: BoxDecoration(),
+          decoration: const BoxDecoration(),
           child: MasonryGridView.builder(
-            gridDelegate: SliverSimpleGridDelegateWithFixedCrossAxisCount(
+            gridDelegate: const SliverSimpleGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
             ),
             crossAxisSpacing: 8.0,
@@ -78,7 +76,7 @@ class _StaggeredViewMeditationWidgetState
                           borderRadius: BorderRadius.circular(15.0),
                         ),
                         child: Align(
-                          alignment: AlignmentDirectional(0.0, 1.0),
+                          alignment: const AlignmentDirectional(0.0, 1.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -86,13 +84,13 @@ class _StaggeredViewMeditationWidgetState
                                 width: 190.0,
                                 height: 69.0,
                                 decoration: BoxDecoration(
-                                  color: Color(0xC9040404),
+                                  color: const Color(0xC9040404),
                                   borderRadius: BorderRadius.circular(15.0),
                                 ),
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Padding(
-                                    padding: EdgeInsets.all(11.0),
+                                    padding: const EdgeInsets.all(11.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
                                         '80jbdi42' /* How to Meditate */,
@@ -137,7 +135,7 @@ class _StaggeredViewMeditationWidgetState
                           borderRadius: BorderRadius.circular(15.0),
                         ),
                         child: Align(
-                          alignment: AlignmentDirectional(0.0, 1.0),
+                          alignment: const AlignmentDirectional(0.0, 1.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -145,13 +143,13 @@ class _StaggeredViewMeditationWidgetState
                                 width: 190.0,
                                 height: 69.0,
                                 decoration: BoxDecoration(
-                                  color: Color(0xC9040404),
+                                  color: const Color(0xC9040404),
                                   borderRadius: BorderRadius.circular(15.0),
                                 ),
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Padding(
-                                    padding: EdgeInsets.all(11.0),
+                                    padding: const EdgeInsets.all(11.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
                                         'yil3azqt' /* 7 Days of Calm */,
@@ -196,7 +194,7 @@ class _StaggeredViewMeditationWidgetState
                           borderRadius: BorderRadius.circular(15.0),
                         ),
                         child: Align(
-                          alignment: AlignmentDirectional(0.0, 1.0),
+                          alignment: const AlignmentDirectional(0.0, 1.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -204,13 +202,13 @@ class _StaggeredViewMeditationWidgetState
                                 width: 190.0,
                                 height: 69.0,
                                 decoration: BoxDecoration(
-                                  color: Color(0xC9040404),
+                                  color: const Color(0xC9040404),
                                   borderRadius: BorderRadius.circular(15.0),
                                 ),
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Padding(
-                                    padding: EdgeInsets.all(11.0),
+                                    padding: const EdgeInsets.all(11.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
                                         'ddto8et5' /* How to Use Vibration */,
@@ -255,7 +253,7 @@ class _StaggeredViewMeditationWidgetState
                           borderRadius: BorderRadius.circular(15.0),
                         ),
                         child: Align(
-                          alignment: AlignmentDirectional(0.0, 1.0),
+                          alignment: const AlignmentDirectional(0.0, 1.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -263,13 +261,13 @@ class _StaggeredViewMeditationWidgetState
                                 width: 200.0,
                                 height: 69.0,
                                 decoration: BoxDecoration(
-                                  color: Color(0xC9040404),
+                                  color: const Color(0xC9040404),
                                   borderRadius: BorderRadius.circular(15.0),
                                 ),
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Padding(
-                                    padding: EdgeInsets.all(11.0),
+                                    padding: const EdgeInsets.all(11.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
                                         '82ano6os' /* Reduce Anxiety */,

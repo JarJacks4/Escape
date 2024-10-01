@@ -1,18 +1,9 @@
 import '/backend/api_requests/api_calls.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
-import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'dart:math';
 import 'dart:async';
 import 'pilates_videos_comp_widget.dart' show PilatesVideosCompWidget;
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
-import 'package:provider/provider.dart';
-import 'package:simple_gradient_text/simple_gradient_text.dart';
 
 class PilatesVideosCompModel extends FlutterFlowModel<PilatesVideosCompWidget> {
   ///  State fields for stateful widgets in this component.
@@ -77,7 +68,7 @@ class PilatesVideosCompModel extends FlutterFlowModel<PilatesVideosCompWidget> {
         final newNumItems = nextPageMarker.numItems + pageItems.length;
         listViewPagingController1?.appendPage(
           pageItems,
-          (pageItems.length > 0)
+          (pageItems.isNotEmpty)
               ? ApiPagingParams(
                   nextPageNumber: nextPageMarker.nextPageNumber + 1,
                   numItems: newNumItems,
@@ -121,7 +112,7 @@ class PilatesVideosCompModel extends FlutterFlowModel<PilatesVideosCompWidget> {
         final newNumItems = nextPageMarker.numItems + pageItems.length;
         listViewPagingController2?.appendPage(
           pageItems,
-          (pageItems.length > 0)
+          (pageItems.isNotEmpty)
               ? ApiPagingParams(
                   nextPageNumber: nextPageMarker.nextPageNumber + 1,
                   numItems: newNumItems,
@@ -165,7 +156,7 @@ class PilatesVideosCompModel extends FlutterFlowModel<PilatesVideosCompWidget> {
         final newNumItems = nextPageMarker.numItems + pageItems.length;
         listViewPagingController3?.appendPage(
           pageItems,
-          (pageItems.length > 0)
+          (pageItems.isNotEmpty)
               ? ApiPagingParams(
                   nextPageNumber: nextPageMarker.nextPageNumber + 1,
                   numItems: newNumItems,
@@ -181,7 +172,7 @@ class PilatesVideosCompModel extends FlutterFlowModel<PilatesVideosCompWidget> {
   }) async {
     final stopwatch = Stopwatch()..start();
     while (true) {
-      await Future.delayed(Duration(milliseconds: 50));
+      await Future.delayed(const Duration(milliseconds: 50));
       final timeElapsed = stopwatch.elapsedMilliseconds;
       final requestComplete =
           (listViewPagingController3?.nextPageKey?.nextPageNumber ?? 0) > 0;

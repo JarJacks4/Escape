@@ -2,15 +2,10 @@ import '/components/sounds_comp/sounds_comp_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/headers/header_main_sounds/header_main_sounds_widget.dart';
-import 'dart:math';
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'sounds_page_main_model.dart';
 export 'sounds_page_main_model.dart';
 
@@ -51,8 +46,8 @@ class _SoundsPageMainWidgetState extends State<SoundsPageMainWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -70,8 +65,8 @@ class _SoundsPageMainWidgetState extends State<SoundsPageMainWidget>
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: Offset(100.0, 0.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(100.0, 0.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -121,19 +116,19 @@ class _SoundsPageMainWidgetState extends State<SoundsPageMainWidget>
               ],
             ),
             Align(
-              alignment: AlignmentDirectional(0.0, 0.0),
+              alignment: const AlignmentDirectional(0.0, 0.0),
               child: Container(
                 width: double.infinity,
                 height: double.infinity,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [
-                      Color(0xA4140B35),
+                      const Color(0xA4140B35),
                       FlutterFlowTheme.of(context).secondaryBackground
                     ],
-                    stops: [0.95, 1.0],
-                    begin: AlignmentDirectional(0.0, -1.0),
-                    end: AlignmentDirectional(0, 1.0),
+                    stops: const [0.95, 1.0],
+                    begin: const AlignmentDirectional(0.0, -1.0),
+                    end: const AlignmentDirectional(0, 1.0),
                   ),
                 ),
                 child: ClipRRect(
@@ -146,22 +141,22 @@ class _SoundsPageMainWidgetState extends State<SoundsPageMainWidget>
                     child: Container(
                       width: 100.0,
                       height: 0.0,
-                      decoration: BoxDecoration(),
+                      decoration: const BoxDecoration(),
                       child: Align(
-                        alignment: AlignmentDirectional(0.0, -1.0),
+                        alignment: const AlignmentDirectional(0.0, -1.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Container(
                               width: double.infinity,
                               height: 276.0,
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                 color: Color(0x00000220),
                               ),
                               child: wrapWithModel(
                                 model: _model.headerMainSoundsModel,
                                 updateCallback: () => safeSetState(() {}),
-                                child: Hero(
+                                child: const Hero(
                                   tag: 'SoundsPage',
                                   transitionOnUserGestures: true,
                                   child: Material(
@@ -175,13 +170,13 @@ class _SoundsPageMainWidgetState extends State<SoundsPageMainWidget>
                             Container(
                               width: double.infinity,
                               height: 606.0,
-                              decoration: BoxDecoration(
+                              decoration: const BoxDecoration(
                                 color: Color(0x00000220),
                               ),
                               child: wrapWithModel(
                                 model: _model.soundsCompModel,
                                 updateCallback: () => safeSetState(() {}),
-                                child: Hero(
+                                child: const Hero(
                                   tag: 'SoundsPage',
                                   transitionOnUserGestures: true,
                                   child: Material(

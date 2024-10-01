@@ -2,8 +2,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'breadcrumbs3_model.dart';
 export 'breadcrumbs3_model.dart';
 
@@ -39,18 +37,18 @@ class _Breadcrumbs3WidgetState extends State<Breadcrumbs3Widget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
+      padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
       child: Container(
         width: double.infinity,
         height: 50.0,
-        decoration: BoxDecoration(),
+        decoration: const BoxDecoration(),
         child: SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(15.0, 2.0, 0.0, 2.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(15.0, 2.0, 0.0, 2.0),
                 child: FlutterFlowIconButton(
                   borderColor: Colors.transparent,
                   borderRadius: 30.0,
@@ -67,7 +65,7 @@ class _Breadcrumbs3WidgetState extends State<Breadcrumbs3Widget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
                 child: Icon(
                   Icons.chevron_right_rounded,
                   color: FlutterFlowTheme.of(context).secondaryText,
@@ -75,13 +73,13 @@ class _Breadcrumbs3WidgetState extends State<Breadcrumbs3Widget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
                 child: Container(
-                  decoration: BoxDecoration(),
-                  alignment: AlignmentDirectional(0.0, 0.0),
+                  decoration: const BoxDecoration(),
+                  alignment: const AlignmentDirectional(0.0, 0.0),
                   child: Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                     child: Text(
                       FFLocalizations.of(context).getText(
                         '8fzrewdd' /* Page Title */,
@@ -96,7 +94,7 @@ class _Breadcrumbs3WidgetState extends State<Breadcrumbs3Widget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
                 child: Icon(
                   Icons.chevron_right_rounded,
                   color: FlutterFlowTheme.of(context).secondaryText,
@@ -104,16 +102,16 @@ class _Breadcrumbs3WidgetState extends State<Breadcrumbs3Widget> {
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 16.0, 8.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 16.0, 8.0),
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Color(0xFF988E9A),
+                    color: const Color(0xFF988E9A),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
-                  alignment: AlignmentDirectional(0.0, 0.0),
+                  alignment: const AlignmentDirectional(0.0, 0.0),
                   child: Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                     child: Text(
                       FFLocalizations.of(context).getText(
                         '4lj1hjvj' /* Page Details */,

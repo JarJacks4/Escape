@@ -1,4 +1,3 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
@@ -6,15 +5,9 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
-import 'dart:math';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'add_tab_bar_model.dart';
 export 'add_tab_bar_model.dart';
 
@@ -92,8 +85,8 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
             curve: Curves.bounceOut,
             delay: 300.0.ms,
             duration: 400.0.ms,
-            begin: Offset(0.0, 100.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(0.0, 100.0),
+            end: const Offset(0.0, 0.0),
           ),
           FadeEffect(
             curve: Curves.easeInOut,
@@ -112,8 +105,8 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
             curve: Curves.bounceOut,
             delay: 300.0.ms,
             duration: 400.0.ms,
-            begin: Offset(0.0, 100.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(0.0, 100.0),
+            end: const Offset(0.0, 0.0),
           ),
           FadeEffect(
             curve: Curves.easeInOut,
@@ -143,7 +136,7 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: AlignmentDirectional(0.0, 0.0),
+      alignment: const AlignmentDirectional(0.0, 0.0),
       child: Material(
         color: Colors.transparent,
         elevation: 8.0,
@@ -154,15 +147,15 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
           width: 321.0,
           height: MediaQuery.sizeOf(context).height * 0.799,
           decoration: BoxDecoration(
-            color: Color(0xFF000220),
+            color: const Color(0xFF000220),
             borderRadius: BorderRadius.circular(20.0),
           ),
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
             child: Column(
               children: [
                 Align(
-                  alignment: Alignment(0.0, 0),
+                  alignment: const Alignment(0.0, 0),
                   child: TabBar(
                     labelColor: FlutterFlowTheme.of(context).alternate,
                     unselectedLabelColor:
@@ -184,7 +177,7 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                         text: FFLocalizations.of(context).getText(
                           'u3jutc2y' /* Music */,
                         ),
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.music_note,
                         ),
                       ),
@@ -192,7 +185,7 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                         text: FFLocalizations.of(context).getText(
                           'fw8ozx8q' /* Video */,
                         ),
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.videocam_rounded,
                         ),
                       ),
@@ -200,7 +193,7 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                         text: FFLocalizations.of(context).getText(
                           'df1hudmp' /* Content */,
                         ),
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.video_collection_sharp,
                         ),
                       ),
@@ -208,7 +201,7 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                         text: FFLocalizations.of(context).getText(
                           '55y3qy2t' /* Classes */,
                         ),
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.flight_class,
                         ),
                       ),
@@ -216,10 +209,10 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                         text: FFLocalizations.of(context).getText(
                           'y8ilq7i2' /* Events */,
                         ),
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.event,
                         ),
-                        iconMargin: EdgeInsets.all(8.0),
+                        iconMargin: const EdgeInsets.all(8.0),
                       ),
                     ],
                     controller: _model.tabBarController,
@@ -242,17 +235,17 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
+                            alignment: const AlignmentDirectional(0.0, 0.0),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 70.0, 0.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Align(
-                                    alignment: AlignmentDirectional(-1.0, 0.0),
+                                    alignment: const AlignmentDirectional(-1.0, 0.0),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           23.0, 40.0, 0.0, 0.0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
@@ -271,9 +264,9 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                     ),
                                   ),
                                   Align(
-                                    alignment: AlignmentDirectional(-1.0, 0.0),
+                                    alignment: const AlignmentDirectional(-1.0, 0.0),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           23.0, 16.0, 8.0, 30.0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
@@ -293,9 +286,9 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                     ),
                                   ),
                                   Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    alignment: const AlignmentDirectional(0.0, 0.0),
                                     child: Padding(
-                                      padding: EdgeInsets.all(22.0),
+                                      padding: const EdgeInsets.all(22.0),
                                       child: FaIcon(
                                         FontAwesomeIcons.music,
                                         color: FlutterFlowTheme.of(context)
@@ -305,9 +298,9 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                     ),
                                   ),
                                   Align(
-                                    alignment: AlignmentDirectional(0.0, 1.0),
+                                    alignment: const AlignmentDirectional(0.0, 1.0),
                                     child: Padding(
-                                      padding: EdgeInsets.all(15.0),
+                                      padding: const EdgeInsets.all(15.0),
                                       child: FFButtonWidget(
                                         onPressed: () async {
                                           logFirebaseEvent(
@@ -322,7 +315,7 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                             allowPhoto: true,
                                             allowVideo: true,
                                             includeBlurHash: true,
-                                            backgroundColor: Color(0xFF000220),
+                                            backgroundColor: const Color(0xFF000220),
                                             textColor:
                                                 FlutterFlowTheme.of(context)
                                                     .alternate,
@@ -397,10 +390,10 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                                   0.5,
                                           height: 40.0,
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   16.0, 0.0, 16.0, 0.0),
                                           iconPadding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 0.0),
                                           color: FlutterFlowTheme.of(context)
                                               .primary,
@@ -432,9 +425,9 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Align(
-                                alignment: AlignmentDirectional(-1.0, 0.0),
+                                alignment: const AlignmentDirectional(-1.0, 0.0),
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       23.0, 40.0, 0.0, 0.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
@@ -452,9 +445,9 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                 ),
                               ),
                               Align(
-                                alignment: AlignmentDirectional(-1.0, 0.0),
+                                alignment: const AlignmentDirectional(-1.0, 0.0),
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       23.0, 16.0, 8.0, 30.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
@@ -473,8 +466,8 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsets.all(15.0),
-                                child: Container(
+                                padding: const EdgeInsets.all(15.0),
+                                child: SizedBox(
                                   width: MediaQuery.sizeOf(context).width * 0.7,
                                   child: TextFormField(
                                     controller: _model.textController1,
@@ -517,7 +510,7 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                             BorderRadius.circular(8.0),
                                       ),
                                       focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
+                                        borderSide: const BorderSide(
                                           color: Color(0x00000000),
                                           width: 1.0,
                                         ),
@@ -560,9 +553,9 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                 ),
                               ),
                               Align(
-                                alignment: AlignmentDirectional(0.0, 1.0),
+                                alignment: const AlignmentDirectional(0.0, 1.0),
                                 child: Padding(
-                                  padding: EdgeInsets.all(15.0),
+                                  padding: const EdgeInsets.all(15.0),
                                   child: FFButtonWidget(
                                     onPressed: () async {
                                       logFirebaseEvent(
@@ -594,10 +587,10 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                       width: MediaQuery.sizeOf(context).width *
                                           0.5,
                                       height: 40.0,
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           16.0, 0.0, 16.0, 0.0),
                                       iconPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
+                                          const EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
                                       color:
                                           FlutterFlowTheme.of(context).primary,
@@ -622,9 +615,9 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Align(
-                            alignment: AlignmentDirectional(-1.0, 0.0),
+                            alignment: const AlignmentDirectional(-1.0, 0.0),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   23.0, 40.0, 0.0, 0.0),
                               child: Text(
                                 FFLocalizations.of(context).getText(
@@ -642,9 +635,9 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                             ),
                           ),
                           Align(
-                            alignment: AlignmentDirectional(-1.0, 0.0),
+                            alignment: const AlignmentDirectional(-1.0, 0.0),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   23.0, 16.0, 8.0, 30.0),
                               child: Text(
                                 FFLocalizations.of(context).getText(
@@ -663,8 +656,8 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.all(15.0),
-                            child: Container(
+                            padding: const EdgeInsets.all(15.0),
+                            child: SizedBox(
                               width: MediaQuery.sizeOf(context).width * 0.7,
                               child: TextFormField(
                                 controller: _model.textController2,
@@ -705,7 +698,7 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                     borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                       color: Color(0x00000000),
                                       width: 1.0,
                                     ),
@@ -743,9 +736,9 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                             ),
                           ),
                           Align(
-                            alignment: AlignmentDirectional(0.0, 1.0),
+                            alignment: const AlignmentDirectional(0.0, 1.0),
                             child: Padding(
-                              padding: EdgeInsets.all(15.0),
+                              padding: const EdgeInsets.all(15.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
                                   logFirebaseEvent(
@@ -775,9 +768,9 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                 options: FFButtonOptions(
                                   width: MediaQuery.sizeOf(context).width * 0.5,
                                   height: 40.0,
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       16.0, 0.0, 16.0, 0.0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
                                   color: FlutterFlowTheme.of(context).primary,
                                   textStyle: FlutterFlowTheme.of(context)
@@ -799,17 +792,17 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 16.0, 2.0, 16.0, 16.0),
                             child: Container(
                               width: double.infinity,
-                              constraints: BoxConstraints(
+                              constraints: const BoxConstraints(
                                 maxWidth: 670.0,
                               ),
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
-                                boxShadow: [
+                                boxShadow: const [
                                   BoxShadow(
                                     blurRadius: 12.0,
                                     color: Color(0x1E000000),
@@ -826,7 +819,7 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         24.0, 40.0, 0.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
@@ -843,7 +836,7 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         24.0, 4.0, 8.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
@@ -861,7 +854,7 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 16.0, 0.0, 32.0),
                                     child: SingleChildScrollView(
                                       child: Column(
@@ -889,7 +882,7 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                                             uploadedImagesIndex];
                                                     return Align(
                                                       alignment:
-                                                          AlignmentDirectional(
+                                                          const AlignmentDirectional(
                                                               -1.0, 0.0),
                                                       child: InkWell(
                                                         splashColor:
@@ -1004,8 +997,6 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                                           }
 
                                                           while (uploadedImagesItem !=
-                                                                  null &&
-                                                              uploadedImagesItem !=
                                                                   '') {
                                                             // incrementPhotoByOne
                                                             logFirebaseEvent(
@@ -1037,7 +1028,7 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                                           ),
                                                           child: Padding(
                                                             padding:
-                                                                EdgeInsets.all(
+                                                                const EdgeInsets.all(
                                                                     2.0),
                                                             child: ClipRRect(
                                                               borderRadius:
@@ -1059,10 +1050,10 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                                     );
                                                   })
                                                       .divide(
-                                                          SizedBox(width: 12.0))
+                                                          const SizedBox(width: 12.0))
                                                       .addToStart(
-                                                          SizedBox(width: 24.0))
-                                                      .addToEnd(SizedBox(
+                                                          const SizedBox(width: 24.0))
+                                                      .addToEnd(const SizedBox(
                                                           width: 24.0)),
                                                 ),
                                               );
@@ -1070,7 +1061,7 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     24.0, 16.0, 24.0, 0.0),
                                             child: TextFormField(
                                               controller: _model
@@ -1157,7 +1148,7 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryBackground,
                                                 contentPadding:
-                                                    EdgeInsetsDirectional
+                                                    const EdgeInsetsDirectional
                                                         .fromSTEB(20.0, 24.0,
                                                             20.0, 24.0),
                                               ),
@@ -1181,7 +1172,7 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     24.0, 16.0, 24.0, 16.0),
                                             child: TextFormField(
                                               controller:
@@ -1272,7 +1263,7 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryBackground,
                                                 contentPadding:
-                                                    EdgeInsetsDirectional
+                                                    const EdgeInsetsDirectional
                                                         .fromSTEB(20.0, 24.0,
                                                             20.0, 24.0),
                                               ),
@@ -1293,7 +1284,7 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     24.0, 0.0, 24.0, 16.0),
                                             child: TextFormField(
                                               controller:
@@ -1304,7 +1295,7 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                                     'ADD_TAB_BAR_myBio_ON_TEXTFIELD_SUBMIT');
                                                 logFirebaseEvent(
                                                     'myBio_date_time_picker');
-                                                final _datePicked1Date =
+                                                final datePicked1Date =
                                                     await showDatePicker(
                                                   context: context,
                                                   initialDate:
@@ -1366,9 +1357,9 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                                   },
                                                 );
 
-                                                TimeOfDay? _datePicked1Time;
-                                                if (_datePicked1Date != null) {
-                                                  _datePicked1Time =
+                                                TimeOfDay? datePicked1Time;
+                                                if (datePicked1Date != null) {
+                                                  datePicked1Time =
                                                       await showTimePicker(
                                                     context: context,
                                                     initialTime:
@@ -1427,16 +1418,16 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                                   );
                                                 }
 
-                                                if (_datePicked1Date != null &&
-                                                    _datePicked1Time != null) {
+                                                if (datePicked1Date != null &&
+                                                    datePicked1Time != null) {
                                                   safeSetState(() {
                                                     _model.datePicked1 =
                                                         DateTime(
-                                                      _datePicked1Date.year,
-                                                      _datePicked1Date.month,
-                                                      _datePicked1Date.day,
-                                                      _datePicked1Time!.hour,
-                                                      _datePicked1Time.minute,
+                                                      datePicked1Date.year,
+                                                      datePicked1Date.month,
+                                                      datePicked1Date.day,
+                                                      datePicked1Time!.hour,
+                                                      datePicked1Time.minute,
                                                     );
                                                   });
                                                 }
@@ -1526,7 +1517,7 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryBackground,
                                                 contentPadding:
-                                                    EdgeInsetsDirectional
+                                                    const EdgeInsetsDirectional
                                                         .fromSTEB(20.0, 24.0,
                                                             20.0, 24.0),
                                               ),
@@ -1547,7 +1538,7 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     24.0, 0.0, 24.0, 16.0),
                                             child: TextFormField(
                                               controller:
@@ -1638,7 +1629,7 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryBackground,
                                                 contentPadding:
-                                                    EdgeInsetsDirectional
+                                                    const EdgeInsetsDirectional
                                                         .fromSTEB(20.0, 24.0,
                                                             20.0, 24.0),
                                               ),
@@ -1659,7 +1650,7 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     24.0, 0.0, 24.0, 16.0),
                                             child: TextFormField(
                                               controller:
@@ -1750,7 +1741,7 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryBackground,
                                                 contentPadding:
-                                                    EdgeInsetsDirectional
+                                                    const EdgeInsetsDirectional
                                                         .fromSTEB(20.0, 24.0,
                                                             20.0, 24.0),
                                               ),
@@ -1771,7 +1762,7 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     24.0, 0.0, 24.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -1781,7 +1772,7 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                               children: [
                                                 Align(
                                                   alignment:
-                                                      AlignmentDirectional(
+                                                      const AlignmentDirectional(
                                                           0.0, 0.05),
                                                   child: FFButtonWidget(
                                                     onPressed: () async {
@@ -1799,14 +1790,14 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                                     options: FFButtonOptions(
                                                       height: 44.0,
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   24.0,
                                                                   0.0,
                                                                   24.0,
                                                                   0.0),
                                                       iconPadding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -1822,7 +1813,7 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Roboto',
-                                                                color: Color(
+                                                                color: const Color(
                                                                     0xFF000220),
                                                                 letterSpacing:
                                                                     0.0,
@@ -1860,7 +1851,7 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                                 ),
                                                 Align(
                                                   alignment:
-                                                      AlignmentDirectional(
+                                                      const AlignmentDirectional(
                                                           0.0, 0.05),
                                                   child: FFButtonWidget(
                                                     onPressed: () async {
@@ -1941,14 +1932,14 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                                           0.331,
                                                       height: 44.0,
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   24.0,
                                                                   0.0,
                                                                   24.0,
                                                                   0.0),
                                                       iconPadding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -1969,7 +1960,7 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                                                     0.0,
                                                               ),
                                                       elevation: 3.0,
-                                                      borderSide: BorderSide(
+                                                      borderSide: const BorderSide(
                                                         color:
                                                             Colors.transparent,
                                                         width: 1.0,
@@ -1997,7 +1988,7 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                                     ),
                                                   ),
                                                 ),
-                                              ].divide(SizedBox(width: 22.0)),
+                                              ].divide(const SizedBox(width: 22.0)),
                                             ),
                                           ),
                                         ],
@@ -2015,17 +2006,17 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 16.0, 2.0, 16.0, 16.0),
                             child: Container(
                               width: double.infinity,
-                              constraints: BoxConstraints(
+                              constraints: const BoxConstraints(
                                 maxWidth: 670.0,
                               ),
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
-                                boxShadow: [
+                                boxShadow: const [
                                   BoxShadow(
                                     blurRadius: 12.0,
                                     color: Color(0x1E000000),
@@ -2042,7 +2033,7 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         24.0, 40.0, 0.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
@@ -2059,7 +2050,7 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         24.0, 4.0, 8.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
@@ -2078,7 +2069,7 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 16.0, 0.0, 32.0),
                                     child: SingleChildScrollView(
                                       child: Column(
@@ -2106,7 +2097,7 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                                             uploadedImagesIndex];
                                                     return Align(
                                                       alignment:
-                                                          AlignmentDirectional(
+                                                          const AlignmentDirectional(
                                                               -1.0, 0.0),
                                                       child: InkWell(
                                                         splashColor:
@@ -2221,8 +2212,6 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                                           }
 
                                                           while (uploadedImagesItem !=
-                                                                  null &&
-                                                              uploadedImagesItem !=
                                                                   '') {
                                                             // incrementPhotoByOne
                                                             logFirebaseEvent(
@@ -2254,7 +2243,7 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                                           ),
                                                           child: Padding(
                                                             padding:
-                                                                EdgeInsets.all(
+                                                                const EdgeInsets.all(
                                                                     2.0),
                                                             child: ClipRRect(
                                                               borderRadius:
@@ -2276,10 +2265,10 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                                     );
                                                   })
                                                       .divide(
-                                                          SizedBox(width: 12.0))
+                                                          const SizedBox(width: 12.0))
                                                       .addToStart(
-                                                          SizedBox(width: 24.0))
-                                                      .addToEnd(SizedBox(
+                                                          const SizedBox(width: 24.0))
+                                                      .addToEnd(const SizedBox(
                                                           width: 24.0)),
                                                 ),
                                               );
@@ -2287,7 +2276,7 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     24.0, 16.0, 24.0, 0.0),
                                             child: TextFormField(
                                               controller: _model
@@ -2374,7 +2363,7 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryBackground,
                                                 contentPadding:
-                                                    EdgeInsetsDirectional
+                                                    const EdgeInsetsDirectional
                                                         .fromSTEB(20.0, 24.0,
                                                             20.0, 24.0),
                                               ),
@@ -2398,7 +2387,7 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     24.0, 16.0, 24.0, 16.0),
                                             child: TextFormField(
                                               controller:
@@ -2489,7 +2478,7 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryBackground,
                                                 contentPadding:
-                                                    EdgeInsetsDirectional
+                                                    const EdgeInsetsDirectional
                                                         .fromSTEB(20.0, 24.0,
                                                             20.0, 24.0),
                                               ),
@@ -2510,7 +2499,7 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     24.0, 0.0, 24.0, 16.0),
                                             child: TextFormField(
                                               controller:
@@ -2521,7 +2510,7 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                                     'ADD_TAB_BAR_myBio_ON_TEXTFIELD_SUBMIT');
                                                 logFirebaseEvent(
                                                     'myBio_date_time_picker');
-                                                final _datePicked2Date =
+                                                final datePicked2Date =
                                                     await showDatePicker(
                                                   context: context,
                                                   initialDate:
@@ -2583,9 +2572,9 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                                   },
                                                 );
 
-                                                TimeOfDay? _datePicked2Time;
-                                                if (_datePicked2Date != null) {
-                                                  _datePicked2Time =
+                                                TimeOfDay? datePicked2Time;
+                                                if (datePicked2Date != null) {
+                                                  datePicked2Time =
                                                       await showTimePicker(
                                                     context: context,
                                                     initialTime:
@@ -2644,16 +2633,16 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                                   );
                                                 }
 
-                                                if (_datePicked2Date != null &&
-                                                    _datePicked2Time != null) {
+                                                if (datePicked2Date != null &&
+                                                    datePicked2Time != null) {
                                                   safeSetState(() {
                                                     _model.datePicked2 =
                                                         DateTime(
-                                                      _datePicked2Date.year,
-                                                      _datePicked2Date.month,
-                                                      _datePicked2Date.day,
-                                                      _datePicked2Time!.hour,
-                                                      _datePicked2Time.minute,
+                                                      datePicked2Date.year,
+                                                      datePicked2Date.month,
+                                                      datePicked2Date.day,
+                                                      datePicked2Time!.hour,
+                                                      datePicked2Time.minute,
                                                     );
                                                   });
                                                 }
@@ -2743,7 +2732,7 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryBackground,
                                                 contentPadding:
-                                                    EdgeInsetsDirectional
+                                                    const EdgeInsetsDirectional
                                                         .fromSTEB(20.0, 24.0,
                                                             20.0, 24.0),
                                               ),
@@ -2764,7 +2753,7 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     24.0, 0.0, 24.0, 16.0),
                                             child: TextFormField(
                                               controller:
@@ -2855,7 +2844,7 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryBackground,
                                                 contentPadding:
-                                                    EdgeInsetsDirectional
+                                                    const EdgeInsetsDirectional
                                                         .fromSTEB(20.0, 24.0,
                                                             20.0, 24.0),
                                               ),
@@ -2876,7 +2865,7 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     24.0, 0.0, 24.0, 16.0),
                                             child: TextFormField(
                                               controller:
@@ -2967,7 +2956,7 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryBackground,
                                                 contentPadding:
-                                                    EdgeInsetsDirectional
+                                                    const EdgeInsetsDirectional
                                                         .fromSTEB(20.0, 24.0,
                                                             20.0, 24.0),
                                               ),
@@ -2988,7 +2977,7 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                           ),
                                           Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     24.0, 0.0, 24.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -2998,7 +2987,7 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                               children: [
                                                 Align(
                                                   alignment:
-                                                      AlignmentDirectional(
+                                                      const AlignmentDirectional(
                                                           0.0, 0.05),
                                                   child: FFButtonWidget(
                                                     onPressed: () async {
@@ -3016,14 +3005,14 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                                     options: FFButtonOptions(
                                                       height: 44.0,
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   24.0,
                                                                   0.0,
                                                                   24.0,
                                                                   0.0),
                                                       iconPadding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -3039,7 +3028,7 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Roboto',
-                                                                color: Color(
+                                                                color: const Color(
                                                                     0xFF000220),
                                                                 letterSpacing:
                                                                     0.0,
@@ -3077,7 +3066,7 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                                 ),
                                                 Align(
                                                   alignment:
-                                                      AlignmentDirectional(
+                                                      const AlignmentDirectional(
                                                           0.0, 0.05),
                                                   child: FFButtonWidget(
                                                     onPressed: () async {
@@ -3156,14 +3145,14 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                                           0.331,
                                                       height: 44.0,
                                                       padding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   24.0,
                                                                   0.0,
                                                                   24.0,
                                                                   0.0),
                                                       iconPadding:
-                                                          EdgeInsetsDirectional
+                                                          const EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -3184,7 +3173,7 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                                                     0.0,
                                                               ),
                                                       elevation: 3.0,
-                                                      borderSide: BorderSide(
+                                                      borderSide: const BorderSide(
                                                         color:
                                                             Colors.transparent,
                                                         width: 1.0,
@@ -3212,7 +3201,7 @@ class _AddTabBarWidgetState extends State<AddTabBarWidget>
                                                     ),
                                                   ),
                                                 ),
-                                              ].divide(SizedBox(width: 22.0)),
+                                              ].divide(const SizedBox(width: 22.0)),
                                             ),
                                           ),
                                         ],

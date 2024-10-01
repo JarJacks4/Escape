@@ -1,11 +1,8 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'music_player_model.dart';
 export 'music_player_model.dart';
 
@@ -63,7 +60,7 @@ class _MusicPlayerWidgetState extends State<MusicPlayerWidget> {
                 child: Container(
                   width: 100.0,
                   height: 100.0,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Color(0x30000811),
                   ),
                   child: Column(
@@ -71,21 +68,21 @@ class _MusicPlayerWidgetState extends State<MusicPlayerWidget> {
                     children: [
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 22.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 22.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   10.0, 35.0, 0.0, 0.0),
                               child: FlutterFlowIconButton(
                                 borderColor: Colors.transparent,
                                 borderRadius: 30.0,
                                 borderWidth: 0.0,
                                 buttonSize: 60.0,
-                                fillColor: Color(0x16FFFFFF),
+                                fillColor: const Color(0x16FFFFFF),
                                 icon: Icon(
                                   Icons.chevron_left_sharp,
                                   color: FlutterFlowTheme.of(context)
@@ -101,7 +98,7 @@ class _MusicPlayerWidgetState extends State<MusicPlayerWidget> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   8.0, 50.0, 0.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -109,7 +106,7 @@ class _MusicPlayerWidgetState extends State<MusicPlayerWidget> {
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         50.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
@@ -127,7 +124,7 @@ class _MusicPlayerWidgetState extends State<MusicPlayerWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         10.0, 0.0, 0.0, 0.0),
                                     child: Icon(
                                       Icons.volume_up_sharp,
@@ -137,7 +134,7 @@ class _MusicPlayerWidgetState extends State<MusicPlayerWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
                                         50.0, 0.0, 0.0, 0.0),
                                     child: Icon(
                                       Icons.queue_music_sharp,
@@ -156,8 +153,8 @@ class _MusicPlayerWidgetState extends State<MusicPlayerWidget> {
                         width: 280.0,
                         height: 350.0,
                         decoration: BoxDecoration(
-                          color: Color(0x27000000),
-                          boxShadow: [
+                          color: const Color(0x27000000),
+                          boxShadow: const [
                             BoxShadow(
                               blurRadius: 9.0,
                               color: Color(0x33000000),
@@ -181,7 +178,7 @@ class _MusicPlayerWidgetState extends State<MusicPlayerWidget> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             20.0, 25.0, 0.0, 8.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -194,9 +191,9 @@ class _MusicPlayerWidgetState extends State<MusicPlayerWidget> {
                               size: 36.0,
                             ),
                             Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     60.0, 0.0, 60.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
@@ -215,7 +212,7 @@ class _MusicPlayerWidgetState extends State<MusicPlayerWidget> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 20.0, 0.0),
                               child: Icon(
                                 Icons.favorite_border_outlined,
@@ -227,7 +224,7 @@ class _MusicPlayerWidgetState extends State<MusicPlayerWidget> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             53.0, 0.0, 50.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -252,20 +249,20 @@ class _MusicPlayerWidgetState extends State<MusicPlayerWidget> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.all(15.0),
+                        padding: const EdgeInsets.all(15.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   30.0, 0.0, 0.0, 0.0),
-                              child: Container(
+                              child: SizedBox(
                                 width: 325.0,
                                 child: Slider(
                                   activeColor:
                                       FlutterFlowTheme.of(context).alternate,
-                                  inactiveColor: Color(0xB5000811),
+                                  inactiveColor: const Color(0xB5000811),
                                   min: 50.0,
                                   max: 9.0,
                                   value: _model.sliderValue ??= 9.0,
@@ -280,7 +277,7 @@ class _MusicPlayerWidgetState extends State<MusicPlayerWidget> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             45.0, 0.0, 45.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -320,7 +317,7 @@ class _MusicPlayerWidgetState extends State<MusicPlayerWidget> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             25.0, 15.0, 25.0, 15.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -331,7 +328,7 @@ class _MusicPlayerWidgetState extends State<MusicPlayerWidget> {
                               borderRadius: 30.0,
                               borderWidth: 0.0,
                               buttonSize: 60.0,
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.repeat,
                                 color: Color(0xFF8F559A),
                                 size: 30.0,
@@ -362,11 +359,11 @@ class _MusicPlayerWidgetState extends State<MusicPlayerWidget> {
                                 gradient: LinearGradient(
                                   colors: [
                                     FlutterFlowTheme.of(context).alternate,
-                                    Color(0xFFF501C4)
+                                    const Color(0xFFF501C4)
                                   ],
-                                  stops: [0.0, 1.0],
-                                  begin: AlignmentDirectional(0.87, 1.0),
-                                  end: AlignmentDirectional(-0.87, -1.0),
+                                  stops: const [0.0, 1.0],
+                                  begin: const AlignmentDirectional(0.87, 1.0),
+                                  end: const AlignmentDirectional(-0.87, -1.0),
                                 ),
                                 borderRadius: BorderRadius.circular(50.0),
                               ),
@@ -402,14 +399,14 @@ class _MusicPlayerWidgetState extends State<MusicPlayerWidget> {
                               },
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 10.0, 0.0),
                               child: FlutterFlowIconButton(
                                 borderColor: Colors.transparent,
                                 borderRadius: 30.0,
                                 borderWidth: 0.0,
                                 buttonSize: 60.0,
-                                icon: Icon(
+                                icon: const Icon(
                                   Icons.replay_outlined,
                                   color: Color(0xFF8F559A),
                                   size: 36.0,
