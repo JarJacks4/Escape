@@ -4,11 +4,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_youtube_player.dart';
-import '/walkthroughs/music_walkthrough.dart';
-import 'package:tutorial_coach_mark/tutorial_coach_mark.dart'
-    show TutorialCoachMark;
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -48,15 +44,6 @@ class _YoutubetestFINALWidgetState extends State<YoutubetestFINALWidget>
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'youtubetestFINAL'});
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      logFirebaseEvent('YOUTUBETEST_F_I_N_A_L_youtubetestFINAL_O');
-      logFirebaseEvent('youtubetestFINAL_start_walkthrough');
-      safeSetState(() =>
-          _model.musicWalkthroughController = createPageWalkthrough(context));
-      _model.musicWalkthroughController?.show(context: context);
-    });
-
     animationsMap.addAll({
       'rowOnPageLoadAnimation1': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
@@ -342,9 +329,6 @@ class _YoutubetestFINALWidgetState extends State<YoutubetestFINALWidget>
                                   logFirebaseEvent('IconButton_navigate_back');
                                   context.safePop();
                                 },
-                              ).addWalkthrough(
-                                iconButtonFq6fwln9,
-                                _model.musicWalkthroughController,
                               ),
                             ),
                           ),
@@ -630,15 +614,8 @@ class _YoutubetestFINALWidgetState extends State<YoutubetestFINALWidget>
                                                                 'containerOnPageLoadAnimation']!),
                                                       );
                                                     },
-                                                  )
-                                                      .addWalkthrough(
-                                                        listViewN9pdskrq,
-                                                        _model
-                                                            .musicWalkthroughController,
-                                                      )
-                                                      .animateOnPageLoad(
-                                                          animationsMap[
-                                                              'listViewOnPageLoadAnimation']!);
+                                                  ).animateOnPageLoad(animationsMap[
+                                                      'listViewOnPageLoadAnimation']!);
                                                 },
                                               );
                                             },
@@ -663,15 +640,4 @@ class _YoutubetestFINALWidgetState extends State<YoutubetestFINALWidget>
       ),
     );
   }
-
-  TutorialCoachMark createPageWalkthrough(BuildContext context) =>
-      TutorialCoachMark(
-        targets: createWalkthroughTargets(context),
-        onFinish: () async {
-          safeSetState(() => _model.musicWalkthroughController = null);
-        },
-        onSkip: () {
-          return true;
-        },
-      );
 }
