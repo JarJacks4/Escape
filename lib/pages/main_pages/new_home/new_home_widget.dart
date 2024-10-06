@@ -3,9 +3,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/meditation_and_sounds/header_home/header_home_widget.dart';
 import '/meditation_and_sounds/home_comp/home_comp_widget.dart';
-import '/walkthroughs/intro_walkthrough.dart';
-import 'package:tutorial_coach_mark/tutorial_coach_mark.dart'
-    show TutorialCoachMark;
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'new_home_model.dart';
@@ -122,14 +119,17 @@ class _NewHomeWidgetState extends State<NewHomeWidget>
                     child: wrapWithModel(
                       model: _model.headerHomeModel,
                       updateCallback: () => safeSetState(() {}),
-                      child: const HeaderHomeWidget(),
-                    )
-                        .addWalkthrough(
-                          containerZevhydwe,
-                          _model.introWalkthroughController,
-                        )
-                        .animateOnPageLoad(
-                            animationsMap['headerHomeOnPageLoadAnimation']!),
+                      updateOnChange: true,
+                      child: const Hero(
+                        tag: 'comp',
+                        transitionOnUserGestures: true,
+                        child: Material(
+                          color: Colors.transparent,
+                          child: HeaderHomeWidget(),
+                        ),
+                      ),
+                    ).animateOnPageLoad(
+                        animationsMap['headerHomeOnPageLoadAnimation']!),
                   ),
                   Flexible(
                     flex: 1,
@@ -137,13 +137,8 @@ class _NewHomeWidgetState extends State<NewHomeWidget>
                       model: _model.homeCompModel,
                       updateCallback: () => safeSetState(() {}),
                       child: const HomeCompWidget(),
-                    )
-                        .addWalkthrough(
-                          containerT7xx1zl4,
-                          _model.introWalkthroughController,
-                        )
-                        .animateOnPageLoad(
-                            animationsMap['homeCompOnPageLoadAnimation']!),
+                    ).animateOnPageLoad(
+                        animationsMap['homeCompOnPageLoadAnimation']!),
                   ),
                 ],
               ),
@@ -153,15 +148,4 @@ class _NewHomeWidgetState extends State<NewHomeWidget>
       ),
     );
   }
-
-  TutorialCoachMark createPageWalkthrough(BuildContext context) =>
-      TutorialCoachMark(
-        targets: createWalkthroughTargets(context),
-        onFinish: () async {
-          safeSetState(() => _model.introWalkthroughController = null);
-        },
-        onSkip: () {
-          return true;
-        },
-      );
 }

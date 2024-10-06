@@ -135,7 +135,14 @@ class _BodyHomeWidgetState extends State<BodyHomeWidget>
                       child: wrapWithModel(
                         model: _model.headerYogaModel,
                         updateCallback: () => safeSetState(() {}),
-                        child: const HeaderYogaWidget(),
+                        child: const Hero(
+                          tag: 'BackgroundPicture',
+                          transitionOnUserGestures: true,
+                          child: Material(
+                            color: Colors.transparent,
+                            child: HeaderYogaWidget(),
+                          ),
+                        ),
                       ).animateOnPageLoad(
                           animationsMap['headerYogaOnPageLoadAnimation']!),
                     ),
@@ -145,7 +152,14 @@ class _BodyHomeWidgetState extends State<BodyHomeWidget>
                   child: wrapWithModel(
                     model: _model.tabbarHomeYogaModel,
                     updateCallback: () => safeSetState(() {}),
-                    child: const TabbarHomeYogaWidget(),
+                    child: const Hero(
+                      tag: 'BackgroundPicture',
+                      transitionOnUserGestures: true,
+                      child: Material(
+                        color: Colors.transparent,
+                        child: TabbarHomeYogaWidget(),
+                      ),
+                    ),
                   ).animateOnPageLoad(
                       animationsMap['tabbarHomeYogaOnPageLoadAnimation']!),
                 ),

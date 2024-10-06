@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'header_affirmations_model.dart';
 export 'header_affirmations_model.dart';
@@ -160,6 +161,8 @@ class _HeaderAffirmationsWidgetState extends State<HeaderAffirmationsWidget> {
                           color: FlutterFlowTheme.of(context).primaryBackground,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.normal,
+                          useGoogleFonts:
+                              GoogleFonts.asMap().containsKey('Roboto'),
                         ),
                   ),
                 ],
@@ -177,6 +180,7 @@ class _HeaderAffirmationsWidgetState extends State<HeaderAffirmationsWidget> {
                       fontSize: 20.0,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.w300,
+                      useGoogleFonts: GoogleFonts.asMap().containsKey('Roboto'),
                     ),
               ),
             ),

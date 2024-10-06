@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'meditation_player_timer_model.dart';
 export 'meditation_player_timer_model.dart';
@@ -135,12 +136,20 @@ class _MeditationPlayerTimerWidgetState
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Roboto',
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMediumFamily,
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
                                               fontSize: 22.0,
                                               letterSpacing: 0.0,
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily),
                                             ),
                                       ),
                                     ),
@@ -214,6 +223,9 @@ class _MeditationPlayerTimerWidgetState
                                                 fontSize: 20.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w300,
+                                                useGoogleFonts:
+                                                    GoogleFonts.asMap()
+                                                        .containsKey('Roboto'),
                                               ),
                                         ),
                                         FlutterFlowIconButton(
@@ -279,6 +291,9 @@ class _MeditationPlayerTimerWidgetState
                                                 fontSize: 64.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w200,
+                                                useGoogleFonts:
+                                                    GoogleFonts.asMap()
+                                                        .containsKey('Roboto'),
                                               ),
                                         ),
                                       ),
@@ -418,6 +433,10 @@ class _MeditationPlayerTimerWidgetState
                                                                       .secondaryBackground,
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          'Roboto'),
                                                                 ),
                                                       ),
                                                     ),
@@ -438,6 +457,10 @@ class _MeditationPlayerTimerWidgetState
                                                                     .primary,
                                                                 letterSpacing:
                                                                     0.0,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        'Roboto'),
                                                               ),
                                                     ),
                                                   ],
@@ -471,6 +494,10 @@ class _MeditationPlayerTimerWidgetState
                                                                       .secondaryBackground,
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          'Roboto'),
                                                                 ),
                                                       ),
                                                       Text(
@@ -494,6 +521,10 @@ class _MeditationPlayerTimerWidgetState
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w300,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          'Roboto'),
                                                                 ),
                                                       ),
                                                     ],
@@ -554,11 +585,20 @@ class _MeditationPlayerTimerWidgetState
                                                     FlutterFlowTheme.of(context)
                                                         .titleSmall
                                                         .override(
-                                                          fontFamily: 'Roboto',
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleSmallFamily,
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryText,
                                                           letterSpacing: 0.0,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleSmallFamily),
                                                         ),
                                                 elevation: 5.0,
                                                 borderSide: const BorderSide(

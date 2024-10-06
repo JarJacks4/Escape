@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'blogs_model.dart';
 export 'blogs_model.dart';
 
@@ -118,6 +119,8 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                             fontSize: 12.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w300,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey('Lexend Deca'),
                                           ),
                                     ),
                                   ),
@@ -135,6 +138,8 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                             fontSize: 13.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey('Lexend Deca'),
                                           ),
                                     ),
                                   ),
@@ -165,6 +170,10 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                                   fontSize: 12.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
+                                                  useGoogleFonts:
+                                                      GoogleFonts.asMap()
+                                                          .containsKey(
+                                                              'Lexend Deca'),
                                                 ),
                                           ),
                                         ),
@@ -194,6 +203,10 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                                   fontSize: 12.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
+                                                  useGoogleFonts:
+                                                      GoogleFonts.asMap()
+                                                          .containsKey(
+                                                              'Lexend Deca'),
                                                 ),
                                           ),
                                         ),
@@ -259,6 +272,8 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                             fontSize: 12.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w300,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey('Lexend Deca'),
                                           ),
                                     ),
                                   ),
@@ -276,6 +291,8 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                             fontSize: 13.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey('Lexend Deca'),
                                           ),
                                     ),
                                   ),
@@ -306,6 +323,10 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                                   fontSize: 12.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
+                                                  useGoogleFonts:
+                                                      GoogleFonts.asMap()
+                                                          .containsKey(
+                                                              'Lexend Deca'),
                                                 ),
                                           ),
                                         ),
@@ -335,6 +356,10 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                                   fontSize: 12.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
+                                                  useGoogleFonts:
+                                                      GoogleFonts.asMap()
+                                                          .containsKey(
+                                                              'Lexend Deca'),
                                                 ),
                                           ),
                                         ),
@@ -400,6 +425,8 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                             fontSize: 12.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w300,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey('Lexend Deca'),
                                           ),
                                     ),
                                   ),
@@ -417,6 +444,8 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                             fontSize: 13.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey('Lexend Deca'),
                                           ),
                                     ),
                                   ),
@@ -447,6 +476,10 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                                   fontSize: 12.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
+                                                  useGoogleFonts:
+                                                      GoogleFonts.asMap()
+                                                          .containsKey(
+                                                              'Lexend Deca'),
                                                 ),
                                           ),
                                         ),
@@ -476,6 +509,10 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                                   fontSize: 12.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
+                                                  useGoogleFonts:
+                                                      GoogleFonts.asMap()
+                                                          .containsKey(
+                                                              'Lexend Deca'),
                                                 ),
                                           ),
                                         ),
@@ -541,6 +578,8 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                             fontSize: 12.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w300,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey('Lexend Deca'),
                                           ),
                                     ),
                                   ),
@@ -558,6 +597,8 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                             fontSize: 13.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey('Lexend Deca'),
                                           ),
                                     ),
                                   ),
@@ -588,6 +629,10 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                                   fontSize: 12.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
+                                                  useGoogleFonts:
+                                                      GoogleFonts.asMap()
+                                                          .containsKey(
+                                                              'Lexend Deca'),
                                                 ),
                                           ),
                                         ),
@@ -617,6 +662,10 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                                   fontSize: 12.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
+                                                  useGoogleFonts:
+                                                      GoogleFonts.asMap()
+                                                          .containsKey(
+                                                              'Lexend Deca'),
                                                 ),
                                           ),
                                         ),
@@ -692,6 +741,8 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                             fontSize: 12.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w300,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey('Lexend Deca'),
                                           ),
                                     ),
                                   ),
@@ -709,6 +760,8 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                             fontSize: 13.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey('Lexend Deca'),
                                           ),
                                     ),
                                   ),
@@ -739,6 +792,10 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                                   fontSize: 12.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
+                                                  useGoogleFonts:
+                                                      GoogleFonts.asMap()
+                                                          .containsKey(
+                                                              'Lexend Deca'),
                                                 ),
                                           ),
                                         ),
@@ -768,6 +825,10 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                                   fontSize: 12.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
+                                                  useGoogleFonts:
+                                                      GoogleFonts.asMap()
+                                                          .containsKey(
+                                                              'Lexend Deca'),
                                                 ),
                                           ),
                                         ),

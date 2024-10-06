@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'registration_success_model.dart';
 export 'registration_success_model.dart';
@@ -164,12 +165,17 @@ class _RegistrationSuccessWidgetState extends State<RegistrationSuccessWidget>
                                   style: FlutterFlowTheme.of(context)
                                       .titleLarge
                                       .override(
-                                        fontFamily: 'Roboto',
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .titleLargeFamily,
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
                                         fontSize: 32.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.bold,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey(
+                                                FlutterFlowTheme.of(context)
+                                                    .titleLargeFamily),
                                         lineHeight: 1.5,
                                       ),
                                 ).animateOnPageLoad(
@@ -194,6 +200,8 @@ class _RegistrationSuccessWidgetState extends State<RegistrationSuccessWidget>
                                           fontSize: 20.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w300,
+                                          useGoogleFonts: GoogleFonts.asMap()
+                                              .containsKey('Roboto'),
                                           lineHeight: 1.5,
                                         ),
                                   ).animateOnPageLoad(animationsMap[

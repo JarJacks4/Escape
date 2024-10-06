@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -326,7 +327,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                         ),
                         child: Container(
                           width: double.infinity,
-                          height: 310.0,
+                          height: MediaQuery.sizeOf(context).height * 0.35,
                           decoration: const BoxDecoration(
                             boxShadow: [
                               BoxShadow(
@@ -340,9 +341,9 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                             ],
                             gradient: LinearGradient(
                               colors: [
-                                Color(0xC9562A83),
-                                Color(0xCEB893DC),
-                                Color(0xDF673AB7)
+                                Color(0x97562A83),
+                                Color(0xA5B893DC),
+                                Color(0x99673AB7)
                               ],
                               stops: [0.0, 0.0, 1.0],
                               begin: AlignmentDirectional(0.0, -1.0),
@@ -372,15 +373,12 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                           borderColor: Colors.transparent,
                                           borderRadius: 30.0,
                                           borderWidth: 1.0,
-                                          buttonSize: 40.0,
-                                          fillColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .secondaryBackground,
+                                          buttonSize: 50.0,
                                           icon: Icon(
                                             Icons.arrow_back_ios_rounded,
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryBackground,
-                                            size: 20.0,
+                                            size: 30.0,
                                           ),
                                           onPressed: () async {
                                             logFirebaseEvent(
@@ -454,18 +452,21 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                             child: Padding(
                                               padding: const EdgeInsetsDirectional
                                                   .fromSTEB(4.0, 4.0, 4.0, 4.0),
-                                              child: Hero(
-                                                tag: 'profilePicture',
-                                                transitionOnUserGestures: true,
-                                                child: ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          50.0),
-                                                  child: Image.network(
-                                                    'https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dXNlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=900&q=60',
-                                                    width: 200.0,
-                                                    height: 200.0,
-                                                    fit: BoxFit.cover,
+                                              child: AuthUserStreamWidget(
+                                                builder: (context) => Hero(
+                                                  tag: currentUserPhoto,
+                                                  transitionOnUserGestures:
+                                                      true,
+                                                  child: ClipRRect(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            50.0),
+                                                    child: Image.network(
+                                                      currentUserPhoto,
+                                                      width: 200.0,
+                                                      height: 200.0,
+                                                      fit: BoxFit.cover,
+                                                    ),
                                                   ),
                                                 ),
                                               ),
@@ -532,9 +533,13 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Roboto',
-                                                  fontSize: 22.0,
+                                                  fontSize: 36.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w500,
+                                                  useGoogleFonts:
+                                                      GoogleFonts.asMap()
+                                                          .containsKey(
+                                                              'Roboto'),
                                                 ),
                                           ),
                                         ),
@@ -555,6 +560,10 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                   fontFamily: 'Roboto',
                                                   fontSize: 18.0,
                                                   letterSpacing: 0.0,
+                                                  useGoogleFonts:
+                                                      GoogleFonts.asMap()
+                                                          .containsKey(
+                                                              'Roboto'),
                                                 ),
                                           ),
                                         ),
@@ -617,88 +626,77 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                     .center,
                                                             children: [
                                                               Expanded(
-                                                                child: InkWell(
-                                                                  splashColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  focusColor: Colors
-                                                                      .transparent,
-                                                                  hoverColor: Colors
-                                                                      .transparent,
-                                                                  highlightColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  onTap:
-                                                                      () async {
-                                                                    logFirebaseEvent(
-                                                                        'PROFILE_PAGE_PAGE_Column_pwkvnfwk_ON_TAP');
-                                                                    logFirebaseEvent(
-                                                                        'Column_navigate_to');
+                                                                child: Column(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .center,
+                                                                  children: [
+                                                                    FlutterFlowIconButton(
+                                                                      borderColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      borderRadius:
+                                                                          8.0,
+                                                                      buttonSize:
+                                                                          40.0,
+                                                                      fillColor:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .primary,
+                                                                      icon:
+                                                                          Icon(
+                                                                        Icons
+                                                                            .home,
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .info,
+                                                                        size:
+                                                                            24.0,
+                                                                      ),
+                                                                      onPressed:
+                                                                          () async {
+                                                                        logFirebaseEvent(
+                                                                            'PROFILE_PAGE_PAGE_home_ICN_ON_TAP');
+                                                                        logFirebaseEvent(
+                                                                            'IconButton_navigate_to');
 
-                                                                    context
-                                                                        .pushNamed(
-                                                                      'NewHome',
-                                                                      extra: <String,
-                                                                          dynamic>{
-                                                                        kTransitionInfoKey:
-                                                                            const TransitionInfo(
-                                                                          hasTransition:
-                                                                              true,
-                                                                          transitionType:
-                                                                              PageTransitionType.fade,
-                                                                          duration:
-                                                                              Duration(milliseconds: 2),
-                                                                        ),
-                                                                      },
-                                                                    );
-                                                                  },
-                                                                  child: Column(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .center,
-                                                                    children: [
-                                                                      FlutterFlowIconButton(
-                                                                        borderColor:
-                                                                            Colors.transparent,
-                                                                        borderRadius:
-                                                                            8.0,
-                                                                        buttonSize:
-                                                                            40.0,
-                                                                        fillColor:
-                                                                            FlutterFlowTheme.of(context).primary,
-                                                                        icon:
-                                                                            Icon(
-                                                                          Icons
-                                                                              .home,
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).info,
-                                                                          size:
-                                                                              24.0,
-                                                                        ),
-                                                                        onPressed:
-                                                                            () {
-                                                                          print(
-                                                                              'IconButton pressed ...');
-                                                                        },
-                                                                      ),
-                                                                      Text(
-                                                                        FFLocalizations.of(context)
-                                                                            .getText(
-                                                                          'pslnj0rp' /* Home */,
-                                                                        ),
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .labelMedium
-                                                                            .override(
-                                                                              fontFamily: 'Roboto',
-                                                                              color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                              letterSpacing: 0.0,
+                                                                        context
+                                                                            .pushNamed(
+                                                                          'NewHome',
+                                                                          extra: <String,
+                                                                              dynamic>{
+                                                                            kTransitionInfoKey:
+                                                                                const TransitionInfo(
+                                                                              hasTransition: true,
+                                                                              transitionType: PageTransitionType.fade,
+                                                                              duration: Duration(milliseconds: 2),
                                                                             ),
+                                                                          },
+                                                                        );
+                                                                      },
+                                                                    ),
+                                                                    Text(
+                                                                      FFLocalizations.of(
+                                                                              context)
+                                                                          .getText(
+                                                                        'pslnj0rp' /* Home */,
                                                                       ),
-                                                                    ],
-                                                                  ),
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .labelMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                FlutterFlowTheme.of(context).labelMediumFamily,
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).primaryBackground,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                            useGoogleFonts:
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelMediumFamily),
+                                                                          ),
+                                                                    ),
+                                                                  ],
                                                                 ),
                                                               ),
                                                               Expanded(
@@ -776,9 +774,35 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                               24.0,
                                                                         ),
                                                                         onPressed:
-                                                                            () {
-                                                                          print(
-                                                                              'IconButton pressed ...');
+                                                                            () async {
+                                                                          logFirebaseEvent(
+                                                                              'PROFILE_subscriptions_ICN_ON_TAP');
+                                                                          logFirebaseEvent(
+                                                                              'IconButton_bottom_sheet');
+                                                                          await showModalBottomSheet(
+                                                                            isScrollControlled:
+                                                                                true,
+                                                                            backgroundColor:
+                                                                                Colors.transparent,
+                                                                            context:
+                                                                                context,
+                                                                            builder:
+                                                                                (context) {
+                                                                              return WebViewAware(
+                                                                                child: GestureDetector(
+                                                                                  onTap: () => FocusScope.of(context).unfocus(),
+                                                                                  child: Padding(
+                                                                                    padding: MediaQuery.viewInsetsOf(context),
+                                                                                    child: const SizedBox(
+                                                                                      height: double.infinity,
+                                                                                      child: SubscribeNowPromoBottomSheetWidget(),
+                                                                                    ),
+                                                                                  ),
+                                                                                ),
+                                                                              );
+                                                                            },
+                                                                          ).then((value) =>
+                                                                              safeSetState(() {}));
                                                                         },
                                                                       ),
                                                                       Text(
@@ -789,9 +813,10 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .labelMedium
                                                                             .override(
-                                                                              fontFamily: 'Roboto',
+                                                                              fontFamily: FlutterFlowTheme.of(context).labelMediumFamily,
                                                                               color: FlutterFlowTheme.of(context).primaryBackground,
                                                                               letterSpacing: 0.0,
+                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelMediumFamily),
                                                                             ),
                                                                       ),
                                                                     ],
@@ -834,7 +859,10 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                             child:
                                                                                 Padding(
                                                                               padding: MediaQuery.viewInsetsOf(context),
-                                                                              child: const EditProfileWidget(),
+                                                                              child: const SizedBox(
+                                                                                height: double.infinity,
+                                                                                child: EditProfileWidget(),
+                                                                              ),
                                                                             ),
                                                                           ),
                                                                         );
@@ -883,9 +911,10 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .labelMedium
                                                                             .override(
-                                                                              fontFamily: 'Roboto',
+                                                                              fontFamily: FlutterFlowTheme.of(context).labelMediumFamily,
                                                                               color: FlutterFlowTheme.of(context).primaryBackground,
                                                                               letterSpacing: 0.0,
+                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelMediumFamily),
                                                                             ),
                                                                       ),
                                                                     ],
@@ -949,19 +978,23 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                   '83gbsatp' /* My Content */,
                                                 ),
                                                 textAlign: TextAlign.start,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .headlineMedium
-                                                        .override(
-                                                          fontFamily: 'Roboto',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                          fontSize: 36.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                        ),
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .headlineMedium
+                                                    .override(
+                                                      fontFamily: 'Roboto',
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .secondaryBackground,
+                                                      fontSize: 36.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      useGoogleFonts:
+                                                          GoogleFonts.asMap()
+                                                              .containsKey(
+                                                                  'Roboto'),
+                                                    ),
                                               )),
                                             ),
                                           ],
@@ -1003,12 +1036,21 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Roboto',
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMediumFamily,
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryBackground,
                                                           fontSize: 22.0,
                                                           letterSpacing: 0.0,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily),
                                                         ),
                                                 colors: [
                                                   FlutterFlowTheme.of(context)
@@ -1035,6 +1077,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Expanded(
+                                                flex: 1,
                                                 child: Padding(
                                                   padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
@@ -1175,7 +1218,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                           .bodyMedium
                                                                           .override(
                                                                             fontFamily:
-                                                                                'Roboto',
+                                                                                FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).primaryBackground,
                                                                             fontSize:
@@ -1184,6 +1227,8 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                                 0.0,
                                                                             fontWeight:
                                                                                 FontWeight.normal,
+                                                                            useGoogleFonts:
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                           ),
                                                                     ),
                                                                   ),
@@ -1298,13 +1343,21 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Roboto',
+                                                fontFamily:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMediumFamily,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryBackground,
                                                 fontSize: 22.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w300,
+                                                useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                    .containsKey(
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumFamily),
                                               ),
                                           colors: [
                                             FlutterFlowTheme.of(context)
@@ -1549,7 +1602,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                           .bodyMedium
                                                                           .override(
                                                                             fontFamily:
-                                                                                'Roboto',
+                                                                                FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).primaryBackground,
                                                                             fontSize:
@@ -1558,6 +1611,8 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                                 0.0,
                                                                             fontWeight:
                                                                                 FontWeight.normal,
+                                                                            useGoogleFonts:
+                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                           ),
                                                                     ),
                                                                   ),
@@ -1598,6 +1653,9 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                 color: const Color(0xFF5B4090),
                                                 fontSize: 26.0,
                                                 letterSpacing: 0.0,
+                                                useGoogleFonts:
+                                                    GoogleFonts.asMap()
+                                                        .containsKey('Roboto'),
                                               ),
                                         ),
                                         Icon(
@@ -1812,11 +1870,12 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                                               child: GradientText(
                                                                                                 listViewEventsCollectionRecord.title,
                                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                      fontFamily: 'Roboto',
+                                                                                                      fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                                       color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                                       fontSize: 22.0,
                                                                                                       letterSpacing: 0.0,
                                                                                                       fontWeight: FontWeight.normal,
+                                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                     ),
                                                                                                 colors: [
                                                                                                   FlutterFlowTheme.of(context).tertiary,
@@ -1933,11 +1992,12 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .titleLarge
                                                                               .override(
-                                                                                fontFamily: 'Roboto',
+                                                                                fontFamily: FlutterFlowTheme.of(context).titleLargeFamily,
                                                                                 color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                 fontSize: 18.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.w300,
+                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).titleLargeFamily),
                                                                               ),
                                                                         ),
                                                                       ),
@@ -1960,9 +2020,10 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .labelMedium
                                                                               .override(
-                                                                                fontFamily: 'Roboto',
+                                                                                fontFamily: FlutterFlowTheme.of(context).labelMediumFamily,
                                                                                 color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                 letterSpacing: 0.0,
+                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelMediumFamily),
                                                                               ),
                                                                         ),
                                                                       ),
@@ -1990,9 +2051,10 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                                   replacement: '…',
                                                                                 ),
                                                                                 style: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                      fontFamily: 'Roboto',
+                                                                                      fontFamily: FlutterFlowTheme.of(context).labelMediumFamily,
                                                                                       color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                       letterSpacing: 0.0,
+                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelMediumFamily),
                                                                                     ),
                                                                               ),
                                                                             ),
@@ -2052,12 +2114,13 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                                                     ),
                                                                                     textAlign: TextAlign.end,
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          fontFamily: 'Roboto',
+                                                                                          fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                           color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                           fontSize: 16.0,
                                                                                           letterSpacing: 0.0,
                                                                                           fontWeight: FontWeight.normal,
                                                                                           decoration: TextDecoration.underline,
+                                                                                          useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                         ),
                                                                                   ),
                                                                                 ),

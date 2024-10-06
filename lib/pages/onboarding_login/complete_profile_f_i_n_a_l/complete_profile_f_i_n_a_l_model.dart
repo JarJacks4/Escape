@@ -38,6 +38,7 @@ class CompleteProfileFINALModel
   bool isDataUploading = false;
   FFUploadedFile uploadedLocalFile =
       FFUploadedFile(bytes: Uint8List.fromList([]));
+  String uploadedFileUrl = '';
 
   // State field(s) for RoleDrowdown widget.
   String? roleDrowdownValue;
