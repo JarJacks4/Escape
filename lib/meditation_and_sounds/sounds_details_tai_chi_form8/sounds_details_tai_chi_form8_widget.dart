@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'sounds_details_tai_chi_form8_model.dart';
 export 'sounds_details_tai_chi_form8_model.dart';
@@ -169,11 +170,17 @@ class _SoundsDetailsTaiChiForm8WidgetState
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Roboto',
+                                          fontFamily:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMediumFamily,
                                           color: FlutterFlowTheme.of(context)
                                               .primaryBackground,
                                           fontSize: 90.0,
                                           letterSpacing: 0.0,
+                                          useGoogleFonts: GoogleFonts.asMap()
+                                              .containsKey(
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMediumFamily),
                                           lineHeight: 0.6,
                                         ),
                                   ),
@@ -373,7 +380,9 @@ class _SoundsDetailsTaiChiForm8WidgetState
                                               width: 4.0,
                                               height: 90.0,
                                               decoration: BoxDecoration(
-                                                color: const Color(0xFF4B39EF),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
                                                 borderRadius:
                                                     BorderRadius.circular(4.0),
                                               ),
@@ -392,7 +401,12 @@ class _SoundsDetailsTaiChiForm8WidgetState
                                                   getJsonField(
                                                     binauralBeatsItemsItem,
                                                     r'''$.title''',
-                                                  ).toString(),
+                                                  )
+                                                      .toString()
+                                                      .maybeHandleOverflow(
+                                                        maxChars: 20,
+                                                        replacement: '…',
+                                                      ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .headlineMedium
@@ -404,6 +418,10 @@ class _SoundsDetailsTaiChiForm8WidgetState
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w500,
+                                                        useGoogleFonts:
+                                                            GoogleFonts.asMap()
+                                                                .containsKey(
+                                                                    'Outfit'),
                                                       ),
                                                 ),
                                                 Padding(
@@ -414,7 +432,12 @@ class _SoundsDetailsTaiChiForm8WidgetState
                                                     getJsonField(
                                                       binauralBeatsItemsItem,
                                                       r'''$.channelTitle''',
-                                                    ).toString(),
+                                                    )
+                                                        .toString()
+                                                        .maybeHandleOverflow(
+                                                          maxChars: 20,
+                                                          replacement: '…',
+                                                        ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodySmall
@@ -426,6 +449,11 @@ class _SoundsDetailsTaiChiForm8WidgetState
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
+                                                          useGoogleFonts:
+                                                              GoogleFonts
+                                                                      .asMap()
+                                                                  .containsKey(
+                                                                      'Outfit'),
                                                         ),
                                                   ),
                                                 ),
@@ -514,6 +542,11 @@ class _SoundsDetailsTaiChiForm8WidgetState
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w500,
+                                                            useGoogleFonts:
+                                                                GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        'Outfit'),
                                                           ),
                                                     ),
                                                   ),

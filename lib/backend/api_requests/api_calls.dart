@@ -1336,7 +1336,7 @@ class YouTubeDataAmbientSoundscapesAPICallCall {
     return ApiManager.instance.makeApiCall(
       callName: 'YouTube Data Ambient Soundscapes API Call',
       apiUrl:
-          'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLhOwWgsOZ3tkF7enQItbr_Gi5HsnO1VgQ&key=AIzaSyCm8Xdnu-h9T7hS_-XZLtnNSrImqjnoCGY',
+          'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLyC3pcUWmqsSo3eWgzk-eAkyhaxTf-_Dm&key=AIzaSyCm8Xdnu-h9T7hS_-XZLtnNSrImqjnoCGY',
       callType: ApiCallType.GET,
       headers: {
         'Content-Type': 'application/json',
@@ -2932,7 +2932,7 @@ class YouTubeDataFireSoundsAPIFINALCall {
     return ApiManager.instance.makeApiCall(
       callName: 'YouTube Data Fire Sounds API FINAL  ',
       apiUrl:
-          'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLyC3pcUWmqsS9kb5LkS1Thhut2hHwqYN5&key=AIzaSyCm8Xdnu-h9T7hS_-XZLtnNSrImqjnoCGY',
+          'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLyC3pcUWmqsR8EDc5ibmlm_51fj2M4y6o&key=AIzaSyCm8Xdnu-h9T7hS_-XZLtnNSrImqjnoCGY',
       callType: ApiCallType.GET,
       headers: {
         'Content-Type': 'application/json',

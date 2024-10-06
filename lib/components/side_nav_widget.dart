@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'side_nav_model.dart';
 export 'side_nav_model.dart';
 
@@ -77,7 +78,7 @@ class _SideNavWidgetState extends State<SideNavWidget>
           width: 270.0,
           height: double.infinity,
           decoration: BoxDecoration(
-            color: FlutterFlowTheme.of(context).secondaryBackground,
+            color: const Color(0xFF000220),
             boxShadow: const [
               BoxShadow(
                 blurRadius: 4.0,
@@ -110,7 +111,7 @@ class _SideNavWidgetState extends State<SideNavWidget>
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
                             child: Image.asset(
-                              'assets/images/ESCAPE_Logo_Clear.png',
+                              'assets/images/image002.png',
                               width: 233.0,
                               height: 237.0,
                               fit: BoxFit.cover,
@@ -188,10 +189,15 @@ class _SideNavWidgetState extends State<SideNavWidget>
                                   style: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
-                                        fontFamily: 'Roboto',
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .titleSmallFamily,
                                         color:
                                             FlutterFlowTheme.of(context).info,
                                         letterSpacing: 0.0,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey(
+                                                FlutterFlowTheme.of(context)
+                                                    .titleSmallFamily),
                                       ),
                                 ),
                               ),
@@ -265,12 +271,17 @@ class _SideNavWidgetState extends State<SideNavWidget>
                                   style: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        fontFamily: 'Roboto',
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .labelMediumFamily,
                                         color: FlutterFlowTheme.of(context)
                                             .accent4,
                                         fontSize: 16.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey(
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMediumFamily),
                                       ),
                                 ),
                               ),
@@ -344,12 +355,17 @@ class _SideNavWidgetState extends State<SideNavWidget>
                                   style: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        fontFamily: 'Roboto',
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .labelMediumFamily,
                                         color: FlutterFlowTheme.of(context)
                                             .accent4,
                                         fontSize: 16.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey(
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMediumFamily),
                                       ),
                                 ),
                               ),
@@ -423,10 +439,15 @@ class _SideNavWidgetState extends State<SideNavWidget>
                                   style: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
-                                        fontFamily: 'Roboto',
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .titleSmallFamily,
                                         color: FlutterFlowTheme.of(context)
                                             .accent4,
                                         letterSpacing: 0.0,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey(
+                                                FlutterFlowTheme.of(context)
+                                                    .titleSmallFamily),
                                       ),
                                 ),
                               ),
@@ -466,6 +487,10 @@ class _SideNavWidgetState extends State<SideNavWidget>
                           color: const Color(0xFF000001),
                           borderRadius: BorderRadius.circular(12.0),
                           shape: BoxShape.rectangle,
+                          border: Border.all(
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                          ),
                         ),
                         child: Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
@@ -487,7 +512,8 @@ class _SideNavWidgetState extends State<SideNavWidget>
                               ),
                               Icon(
                                 Icons.groups_sharp,
-                                color: FlutterFlowTheme.of(context).accent4,
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
                                 size: 28.0,
                               ),
                               Padding(
@@ -500,10 +526,15 @@ class _SideNavWidgetState extends State<SideNavWidget>
                                   style: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
-                                        fontFamily: 'Roboto',
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .titleSmallFamily,
                                         color: FlutterFlowTheme.of(context)
-                                            .accent4,
+                                            .secondary,
                                         letterSpacing: 0.0,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey(
+                                                FlutterFlowTheme.of(context)
+                                                    .titleSmallFamily),
                                       ),
                                 ),
                               ),
@@ -572,10 +603,15 @@ class _SideNavWidgetState extends State<SideNavWidget>
                                   style: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
-                                        fontFamily: 'Roboto',
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .titleSmallFamily,
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
                                         letterSpacing: 0.0,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey(
+                                                FlutterFlowTheme.of(context)
+                                                    .titleSmallFamily),
                                       ),
                                 ),
                               ),
@@ -648,7 +684,7 @@ class _SideNavWidgetState extends State<SideNavWidget>
                                           transitionOnUserGestures: true,
                                           child: ClipRRect(
                                             borderRadius:
-                                                BorderRadius.circular(8.0),
+                                                BorderRadius.circular(10.0),
                                             child: CachedNetworkImage(
                                               fadeInDuration:
                                                   const Duration(milliseconds: 500),
@@ -680,9 +716,21 @@ class _SideNavWidgetState extends State<SideNavWidget>
                                             style: FlutterFlowTheme.of(context)
                                                 .titleSmall
                                                 .override(
-                                                  fontFamily: 'Roboto',
+                                                  fontFamily:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .titleSmallFamily,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText,
                                                   fontSize: 18.0,
                                                   letterSpacing: 0.0,
+                                                  useGoogleFonts: GoogleFonts
+                                                          .asMap()
+                                                      .containsKey(
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleSmallFamily),
                                                 ),
                                           ),
                                         ),
@@ -699,13 +747,22 @@ class _SideNavWidgetState extends State<SideNavWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .labelMedium
                                                       .override(
-                                                        fontFamily: 'Roboto',
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMediumFamily,
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .secondary,
                                                         fontSize: 16.0,
                                                         letterSpacing: 0.0,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMediumFamily),
                                                       ),
                                             ),
                                           ),

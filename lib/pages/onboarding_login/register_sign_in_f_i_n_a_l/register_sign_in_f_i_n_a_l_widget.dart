@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'register_sign_in_f_i_n_a_l_model.dart';
 export 'register_sign_in_f_i_n_a_l_model.dart';
 
@@ -122,11 +123,14 @@ class _RegisterSignInFINALWidgetState extends State<RegisterSignInFINALWidget>
                           'k0w8olcu' /* Hey there, */,
                         ),
                         style: FlutterFlowTheme.of(context).bodyLarge.override(
-                              fontFamily: 'Roboto',
+                              fontFamily:
+                                  FlutterFlowTheme.of(context).bodyLargeFamily,
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
                               fontSize: 18.0,
                               letterSpacing: 0.0,
+                              useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                  FlutterFlowTheme.of(context).bodyLargeFamily),
                               lineHeight: 1.5,
                             ),
                       ),
@@ -135,11 +139,15 @@ class _RegisterSignInFINALWidgetState extends State<RegisterSignInFINALWidget>
                       builder: (context) => Text(
                         currentUserDisplayName,
                         style: FlutterFlowTheme.of(context).titleLarge.override(
-                              fontFamily: 'Roboto',
+                              fontFamily:
+                                  FlutterFlowTheme.of(context).titleLargeFamily,
                               color: FlutterFlowTheme.of(context).tertiary,
                               fontSize: 20.0,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.bold,
+                              useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                  FlutterFlowTheme.of(context)
+                                      .titleLargeFamily),
                               lineHeight: 1.5,
                             ),
                       ),
@@ -164,14 +172,18 @@ class _RegisterSignInFINALWidgetState extends State<RegisterSignInFINALWidget>
                         hintText: FFLocalizations.of(context).getText(
                           'wf0tqvq0' /* Email */,
                         ),
-                        hintStyle:
-                            FlutterFlowTheme.of(context).bodySmall.override(
-                                  fontFamily: 'Roboto',
-                                  color: const Color(0xF8000220),
-                                  fontSize: 20.0,
-                                  letterSpacing: 0.0,
-                                  lineHeight: 1.5,
-                                ),
+                        hintStyle: FlutterFlowTheme.of(context)
+                            .bodySmall
+                            .override(
+                              fontFamily:
+                                  FlutterFlowTheme.of(context).bodySmallFamily,
+                              color: const Color(0xF8000220),
+                              fontSize: 20.0,
+                              letterSpacing: 0.0,
+                              useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                  FlutterFlowTheme.of(context).bodySmallFamily),
+                              lineHeight: 1.5,
+                            ),
                         enabledBorder: UnderlineInputBorder(
                           borderSide: BorderSide(
                             color: FlutterFlowTheme.of(context).primary,
@@ -210,10 +222,13 @@ class _RegisterSignInFINALWidgetState extends State<RegisterSignInFINALWidget>
                         ),
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Roboto',
+                            fontFamily:
+                                FlutterFlowTheme.of(context).bodyMediumFamily,
                             color: const Color(0xFF000220),
                             fontSize: 20.0,
                             letterSpacing: 0.0,
+                            useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                FlutterFlowTheme.of(context).bodyMediumFamily),
                           ),
                       validator: _model.emailTextControllerValidator
                           .asValidator(context),
@@ -231,14 +246,18 @@ class _RegisterSignInFINALWidgetState extends State<RegisterSignInFINALWidget>
                         hintText: FFLocalizations.of(context).getText(
                           'mi6s5g7z' /* Password */,
                         ),
-                        hintStyle:
-                            FlutterFlowTheme.of(context).bodySmall.override(
-                                  fontFamily: 'Roboto',
-                                  color: const Color(0xFFADA4A5),
-                                  fontSize: 20.0,
-                                  letterSpacing: 0.0,
-                                  lineHeight: 1.5,
-                                ),
+                        hintStyle: FlutterFlowTheme.of(context)
+                            .bodySmall
+                            .override(
+                              fontFamily:
+                                  FlutterFlowTheme.of(context).bodySmallFamily,
+                              color: const Color(0xFFADA4A5),
+                              fontSize: 20.0,
+                              letterSpacing: 0.0,
+                              useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                  FlutterFlowTheme.of(context).bodySmallFamily),
+                              lineHeight: 1.5,
+                            ),
                         enabledBorder: UnderlineInputBorder(
                           borderSide: BorderSide(
                             color: FlutterFlowTheme.of(context).primary,
@@ -291,10 +310,13 @@ class _RegisterSignInFINALWidgetState extends State<RegisterSignInFINALWidget>
                         ),
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Roboto',
+                            fontFamily:
+                                FlutterFlowTheme.of(context).bodyMediumFamily,
                             color: FlutterFlowTheme.of(context).primary,
                             fontSize: 20.0,
                             letterSpacing: 0.0,
+                            useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                FlutterFlowTheme.of(context).bodyMediumFamily),
                           ),
                       validator: _model.passwordTextControllerValidator
                           .asValidator(context),
@@ -345,10 +367,15 @@ class _RegisterSignInFINALWidgetState extends State<RegisterSignInFINALWidget>
                                 style: FlutterFlowTheme.of(context)
                                     .labelSmall
                                     .override(
-                                      fontFamily: 'Roboto',
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .labelSmallFamily,
                                       color: const Color(0xE16450A5),
                                       fontSize: 14.0,
                                       letterSpacing: 0.0,
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey(
+                                              FlutterFlowTheme.of(context)
+                                                  .labelSmallFamily),
                                       lineHeight: 1.5,
                                     ),
                               ),
@@ -393,13 +420,17 @@ class _RegisterSignInFINALWidgetState extends State<RegisterSignInFINALWidget>
                       iconPadding:
                           const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       color: FlutterFlowTheme.of(context).primary,
-                      textStyle:
-                          FlutterFlowTheme.of(context).titleSmall.override(
-                                fontFamily: 'Roboto',
-                                color: Colors.white,
-                                fontSize: 18.0,
-                                letterSpacing: 0.0,
-                              ),
+                      textStyle: FlutterFlowTheme.of(context)
+                          .titleSmall
+                          .override(
+                            fontFamily:
+                                FlutterFlowTheme.of(context).titleSmallFamily,
+                            color: Colors.white,
+                            fontSize: 18.0,
+                            letterSpacing: 0.0,
+                            useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                FlutterFlowTheme.of(context).titleSmallFamily),
+                          ),
                       elevation: 8.0,
                       borderRadius: BorderRadius.circular(22.0),
                     ),
@@ -435,11 +466,16 @@ class _RegisterSignInFINALWidgetState extends State<RegisterSignInFINALWidget>
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Roboto',
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .bodyMediumFamily,
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
                                     fontSize: 20.0,
                                     letterSpacing: 0.0,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey(
+                                            FlutterFlowTheme.of(context)
+                                                .bodyMediumFamily),
                                   ),
                             ),
                           ),
@@ -566,11 +602,14 @@ class _RegisterSignInFINALWidgetState extends State<RegisterSignInFINALWidget>
                         '8cwe16g5' /* Don't have an account yet? */,
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Roboto',
+                            fontFamily:
+                                FlutterFlowTheme.of(context).bodyMediumFamily,
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
                             fontSize: 14.0,
                             letterSpacing: 0.0,
+                            useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                FlutterFlowTheme.of(context).bodyMediumFamily),
                             lineHeight: 1.5,
                           ),
                     ),
@@ -605,9 +644,13 @@ class _RegisterSignInFINALWidgetState extends State<RegisterSignInFINALWidget>
                           style: FlutterFlowTheme.of(context)
                               .bodyMedium
                               .override(
-                                fontFamily: 'Roboto',
+                                fontFamily: FlutterFlowTheme.of(context)
+                                    .bodyMediumFamily,
                                 color: FlutterFlowTheme.of(context).secondary,
                                 letterSpacing: 0.0,
+                                useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                    FlutterFlowTheme.of(context)
+                                        .bodyMediumFamily),
                                 lineHeight: 1.5,
                               ),
                         ),

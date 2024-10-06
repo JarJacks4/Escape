@@ -14,6 +14,7 @@ import 'package:aligned_tooltip/aligned_tooltip.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -222,22 +223,28 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
               alignment: const Alignment(0.0, 0),
               child: TabBar(
                 isScrollable: true,
-                labelColor: FlutterFlowTheme.of(context).secondaryBackground,
+                labelColor: FlutterFlowTheme.of(context).primaryText,
                 unselectedLabelColor: const Color(0xA3A1A0A3),
                 labelPadding:
                     const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
                 labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
-                      fontFamily: 'Roboto',
+                      fontFamily:
+                          FlutterFlowTheme.of(context).labelMediumFamily,
                       fontSize: 18.0,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.w500,
+                      useGoogleFonts: GoogleFonts.asMap().containsKey(
+                          FlutterFlowTheme.of(context).labelMediumFamily),
                     ),
                 unselectedLabelStyle:
                     FlutterFlowTheme.of(context).labelMedium.override(
-                          fontFamily: 'Roboto',
+                          fontFamily:
+                              FlutterFlowTheme.of(context).labelMediumFamily,
                           fontSize: 14.0,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w500,
+                          useGoogleFonts: GoogleFonts.asMap().containsKey(
+                              FlutterFlowTheme.of(context).labelMediumFamily),
                         ),
                 indicatorColor: FlutterFlowTheme.of(context).secondary,
                 padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
@@ -302,7 +309,7 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                               Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 8.0, 0.0, 0.0),
-                                child: Text(
+                                child: GradientText(
                                   FFLocalizations.of(context).getText(
                                     '6dvu6e36' /* Community Home */,
                                   ),
@@ -315,7 +322,15 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                                         fontSize: 36.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w300,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey('Roboto'),
                                       ),
+                                  colors: [
+                                    FlutterFlowTheme.of(context).primary,
+                                    FlutterFlowTheme.of(context).secondary
+                                  ],
+                                  gradientDirection: GradientDirection.ltr,
+                                  gradientType: GradientType.linear,
                                 ),
                               ),
                             ],
@@ -422,12 +437,20 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Roboto',
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .primaryBackground,
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMediumFamily,
+                                                        color:
+                                                            const Color(0xFF000220),
                                                         fontSize: 20.0,
                                                         letterSpacing: 0.0,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily),
                                                       ),
                                                 ),
                                               ),
@@ -527,12 +550,20 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Roboto',
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .primaryBackground,
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMediumFamily,
+                                                        color:
+                                                            const Color(0xFF000220),
                                                         fontSize: 20.0,
                                                         letterSpacing: 0.0,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily),
                                                       ),
                                                 ),
                                               ),
@@ -633,12 +664,20 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Roboto',
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .primaryBackground,
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMediumFamily,
+                                                        color:
+                                                            const Color(0xFF000220),
                                                         fontSize: 20.0,
                                                         letterSpacing: 0.0,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily),
                                                       ),
                                                 ),
                                               ),
@@ -739,12 +778,20 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Roboto',
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .primaryBackground,
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMediumFamily,
+                                                        color:
+                                                            const Color(0xFF000220),
                                                         fontSize: 20.0,
                                                         letterSpacing: 0.0,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily),
                                                       ),
                                                 ),
                                               ),
@@ -771,8 +818,13 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyLarge
                                       .override(
-                                        fontFamily: 'Roboto',
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .bodyLargeFamily,
                                         letterSpacing: 0.0,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey(
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyLargeFamily),
                                       ),
                                 ),
                               ),
@@ -795,11 +847,9 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                                   child: FlutterFlowIconButton(
                                     borderRadius: 50.0,
                                     buttonSize: 65.0,
-                                    fillColor: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    icon: Icon(
+                                    icon: const Icon(
                                       Icons.add_sharp,
-                                      color: FlutterFlowTheme.of(context).info,
+                                      color: Color(0xFF000220),
                                       size: 40.0,
                                     ),
                                     onPressed: () async {
@@ -871,6 +921,10 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w300,
+                                                        useGoogleFonts:
+                                                            GoogleFonts.asMap()
+                                                                .containsKey(
+                                                                    'Roboto'),
                                                       ),
                                             ),
                                           ),
@@ -1092,11 +1146,12 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                                                                           style: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .override(
-                                                                                fontFamily: 'Roboto',
+                                                                                fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                 color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                 fontSize: 14.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.normal,
+                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                               ),
                                                                         ),
                                                                       ),
@@ -1212,12 +1267,18 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Roboto',
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMediumFamily,
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryBackground,
                                             fontSize: 20.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w300,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMediumFamily),
                                           ),
                                       colors: [
                                         FlutterFlowTheme.of(context).primary,
@@ -1341,9 +1402,14 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                                                                   .bodyMedium
                                                                   .override(
                                                                     fontFamily:
-                                                                        'Roboto',
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyMediumFamily,
                                                                     letterSpacing:
                                                                         0.0,
+                                                                    useGoogleFonts: GoogleFonts
+                                                                            .asMap()
+                                                                        .containsKey(
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                   ),
                                                             ),
                                                           ],
@@ -1404,10 +1470,16 @@ class _TabbarHomeCommunityWidgetState extends State<TabbarHomeCommunityWidget>
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily,
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily),
                                                                 ),
                                                           ),
                                                         ],
@@ -1469,10 +1541,16 @@ for Mediation */
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily,
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily),
                                                                 ),
                                                           ),
                                                         ],
@@ -1530,10 +1608,16 @@ for Mediation */
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily,
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily),
                                                                 ),
                                                           ),
                                                         ],
@@ -1566,12 +1650,18 @@ for Mediation */
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Roboto',
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMediumFamily,
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryBackground,
                                             fontSize: 20.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w300,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMediumFamily),
                                           ),
                                       colors: [
                                         FlutterFlowTheme.of(context).primary,
@@ -1815,11 +1905,12 @@ for Mediation */
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
                                                                             .override(
-                                                                              fontFamily: 'Roboto',
+                                                                              fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                               color: FlutterFlowTheme.of(context).primaryBackground,
                                                                               fontSize: 12.0,
                                                                               letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.normal,
+                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                             ),
                                                                       ),
                                                                     ),
@@ -1863,6 +1954,8 @@ for Mediation */
                                                 .primaryBackground,
                                             fontSize: 26.0,
                                             letterSpacing: 0.0,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey('Roboto'),
                                           ),
                                       colors: [
                                         FlutterFlowTheme.of(context).primary,
@@ -2103,11 +2196,12 @@ for Mediation */
                                                                               r'''$.title''',
                                                                             ).toString().maybeHandleOverflow(maxChars: 50),
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Roboto',
+                                                                                  fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                   color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                   fontSize: 14.0,
                                                                                   letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.normal,
+                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                 ),
                                                                           ),
                                                                         ),

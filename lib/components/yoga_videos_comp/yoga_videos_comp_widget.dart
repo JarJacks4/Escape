@@ -5,8 +5,8 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
-import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'yoga_videos_comp_model.dart';
 export 'yoga_videos_comp_model.dart';
 
@@ -212,26 +212,25 @@ class _YogaVideosCompWidgetState extends State<YogaVideosCompWidget>
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        GradientText(
+                        Text(
                           FFLocalizations.of(context).getText(
                             'd0epyguj' /* New Community 
 Yoga Videos */
                             ,
                           ),
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Roboto',
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
-                                    fontSize: 32.0,
-                                    letterSpacing: 0.0,
-                                  ),
-                          colors: [
-                            FlutterFlowTheme.of(context).alternate,
-                            const Color(0xFD000220)
-                          ],
-                          gradientDirection: GradientDirection.ltr,
-                          gradientType: GradientType.linear,
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: FlutterFlowTheme.of(context)
+                                    .bodyMediumFamily,
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                                fontSize: 32.0,
+                                letterSpacing: 0.0,
+                                useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                    FlutterFlowTheme.of(context)
+                                        .bodyMediumFamily),
+                              ),
                         ),
                       ],
                     ),
@@ -402,7 +401,10 @@ Yoga Videos */
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Roboto',
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMediumFamily,
                                                         color: FlutterFlowTheme
                                                                 .of(context)
                                                             .secondaryBackground,
@@ -410,6 +412,12 @@ Yoga Videos */
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily),
                                                       ),
                                                 ),
                                               ),
@@ -513,23 +521,21 @@ Yoga Videos */
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  GradientText(
+                  Text(
                     FFLocalizations.of(context).getText(
                       'zb4ioptw' /* Trending */,
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Roboto',
-                          color: FlutterFlowTheme.of(context).primaryBackground,
+                          fontFamily:
+                              FlutterFlowTheme.of(context).bodyMediumFamily,
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
                           fontSize: 20.0,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w300,
+                          useGoogleFonts: GoogleFonts.asMap().containsKey(
+                              FlutterFlowTheme.of(context).bodyMediumFamily),
                         ),
-                    colors: [
-                      FlutterFlowTheme.of(context).alternate,
-                      FlutterFlowTheme.of(context).secondaryBackground
-                    ],
-                    gradientDirection: GradientDirection.ltr,
-                    gradientType: GradientType.linear,
                   ),
                   Icon(
                     Icons.keyboard_control_outlined,
@@ -640,8 +646,17 @@ Yoga Videos */
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Roboto',
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMediumFamily,
                                                         letterSpacing: 0.0,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily),
                                                       ),
                                             ),
                                           ],
@@ -733,8 +748,17 @@ Yoga Videos */
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Roboto',
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMediumFamily,
                                                         letterSpacing: 0.0,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily),
                                                       ),
                                             ),
                                           ],
@@ -828,8 +852,17 @@ Yoga */
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Roboto',
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMediumFamily,
                                                         letterSpacing: 0.0,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily),
                                                       ),
                                             ),
                                           ],
@@ -893,8 +926,17 @@ Yoga */
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Roboto',
+                                                  fontFamily:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily,
                                                   letterSpacing: 0.0,
+                                                  useGoogleFonts: GoogleFonts
+                                                          .asMap()
+                                                      .containsKey(
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMediumFamily),
                                                 ),
                                           ),
                                         ],
@@ -919,23 +961,21 @@ Yoga */
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  GradientText(
+                  Text(
                     FFLocalizations.of(context).getText(
                       't4t32bjy' /* Recent Played */,
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Roboto',
-                          color: FlutterFlowTheme.of(context).primaryBackground,
+                          fontFamily:
+                              FlutterFlowTheme.of(context).bodyMediumFamily,
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
                           fontSize: 20.0,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w300,
+                          useGoogleFonts: GoogleFonts.asMap().containsKey(
+                              FlutterFlowTheme.of(context).bodyMediumFamily),
                         ),
-                    colors: [
-                      FlutterFlowTheme.of(context).alternate,
-                      const Color(0xFC000220)
-                    ],
-                    gradientDirection: GradientDirection.ltr,
-                    gradientType: GradientType.linear,
                   ),
                   Icon(
                     Icons.keyboard_control_outlined,
@@ -1122,8 +1162,9 @@ Yoga */
                                                                   context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Roboto',
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily,
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primaryBackground,
@@ -1133,6 +1174,11 @@ Yoga */
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyMediumFamily),
                                                               ),
                                                     ),
                                                   ),
@@ -1162,22 +1208,19 @@ Yoga */
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  GradientText(
+                  Text(
                     FFLocalizations.of(context).getText(
                       'pw8a47l1' /* Channels */,
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Roboto',
-                          color: const Color(0xFF5B4090),
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
                           fontSize: 26.0,
                           letterSpacing: 0.0,
+                          useGoogleFonts:
+                              GoogleFonts.asMap().containsKey('Roboto'),
                         ),
-                    colors: [
-                      FlutterFlowTheme.of(context).alternate,
-                      const Color(0xFD000220)
-                    ],
-                    gradientDirection: GradientDirection.ltr,
-                    gradientType: GradientType.linear,
                   ),
                   Icon(
                     Icons.keyboard_control_outlined,
@@ -1379,8 +1422,9 @@ Yoga */
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Roboto',
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily,
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .secondaryBackground,
@@ -1390,6 +1434,11 @@ Yoga */
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyMediumFamily),
                                                               ),
                                                         ),
                                                       ),

@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'header_blogs_model.dart';
 export 'header_blogs_model.dart';
@@ -153,11 +154,14 @@ class _HeaderBlogsWidgetState extends State<HeaderBlogsWidget> {
                       'nxngqig5' /* Blogs */,
                     ),
                     style: FlutterFlowTheme.of(context).displaySmall.override(
-                          fontFamily: 'Roboto',
+                          fontFamily:
+                              FlutterFlowTheme.of(context).displaySmallFamily,
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.normal,
+                          useGoogleFonts: GoogleFonts.asMap().containsKey(
+                              FlutterFlowTheme.of(context).displaySmallFamily),
                         ),
                   ),
                 ],
@@ -172,11 +176,14 @@ our colle... */
                   ,
                 ),
                 style: FlutterFlowTheme.of(context).labelMedium.override(
-                      fontFamily: 'Roboto',
+                      fontFamily:
+                          FlutterFlowTheme.of(context).labelMediumFamily,
                       color: FlutterFlowTheme.of(context).primaryBackground,
                       fontSize: 20.0,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.w300,
+                      useGoogleFonts: GoogleFonts.asMap().containsKey(
+                          FlutterFlowTheme.of(context).labelMediumFamily),
                     ),
               ),
             ),

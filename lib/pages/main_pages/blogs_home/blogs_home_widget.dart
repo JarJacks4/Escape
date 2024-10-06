@@ -12,6 +12,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'blogs_home_model.dart';
 export 'blogs_home_model.dart';
 
@@ -172,14 +173,22 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           isDense: false,
-                                          labelStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    fontFamily: 'Roboto',
-                                                    color: const Color(0xFF070707),
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                          labelStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMediumFamily,
+                                                color: const Color(0xFF070707),
+                                                letterSpacing: 0.0,
+                                                useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                    .containsKey(
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumFamily),
+                                              ),
                                           hintText: FFLocalizations.of(context)
                                               .getText(
                                             'u0npfgtv' /* Search Blogs... */,
@@ -227,10 +236,18 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Roboto',
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMediumFamily,
                                               color: const Color(0xC4000811),
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily),
                                             ),
                                         validator: _model
                                             .searchTextControllerValidator
@@ -352,9 +369,17 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Roboto',
+                                                fontFamily:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMediumFamily,
                                                 fontSize: 23.0,
                                                 letterSpacing: 0.0,
+                                                useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                    .containsKey(
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumFamily),
                                               ),
                                         ),
                                       ],
@@ -428,32 +453,52 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                                       FlutterFlowTheme.of(
                                                               context)
                                                           .secondaryBackground,
-                                                  textStyle: FlutterFlowTheme
-                                                          .of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Roboto',
-                                                        color: Colors.white,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                      ),
+                                                  textStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily,
+                                                            color: Colors.white,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                            useGoogleFonts: GoogleFonts
+                                                                    .asMap()
+                                                                .containsKey(
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMediumFamily),
+                                                          ),
                                                   iconColor: Colors.white,
                                                   iconSize: 15.0,
                                                   elevation: 2.0,
                                                 ),
                                                 unselectedChipStyle: ChipStyle(
                                                   backgroundColor: Colors.white,
-                                                  textStyle: FlutterFlowTheme
-                                                          .of(context)
-                                                      .bodySmall
-                                                      .override(
-                                                        fontFamily: 'Roboto',
-                                                        color: Colors.black,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                      ),
+                                                  textStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodySmall
+                                                          .override(
+                                                            fontFamily:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodySmallFamily,
+                                                            color: Colors.black,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                            useGoogleFonts: GoogleFonts
+                                                                    .asMap()
+                                                                .containsKey(
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodySmallFamily),
+                                                          ),
                                                   iconColor: Colors.black,
                                                   iconSize: 18.0,
                                                   elevation: 0.0,
@@ -599,6 +644,10 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                                                 fontSize: 18.0,
                                                                 letterSpacing:
                                                                     0.0,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        'Roboto'),
                                                               ),
                                                     ),
                                                   ),
@@ -626,6 +675,11 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w300,
+                                                            useGoogleFonts:
+                                                                GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        'Roboto'),
                                                           ),
                                                     ),
                                                   ),
@@ -652,6 +706,10 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                                                     .primaryBackground,
                                                                 letterSpacing:
                                                                     0.0,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        'Roboto'),
                                                               ),
                                                     ),
                                                   ),
@@ -712,10 +770,15 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Roboto',
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .bodyMediumFamily,
                                         fontSize: 23.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey(
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMediumFamily),
                                       ),
                                 ).animateOnPageLoad(
                                     animationsMap['textOnPageLoadAnimation']!),
@@ -836,11 +899,17 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Roboto',
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily,
                                                                 fontSize: 20.0,
                                                                 letterSpacing:
                                                                     0.0,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyMediumFamily),
                                                               ),
                                                         ),
                                                       ),
@@ -864,11 +933,17 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Roboto',
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily,
                                                                 fontSize: 16.0,
                                                                 letterSpacing:
                                                                     0.0,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyMediumFamily),
                                                               ),
                                                         ),
                                                       ),
@@ -880,17 +955,24 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                                         ),
                                                         textAlign:
                                                             TextAlign.end,
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Roboto',
-                                                              color:
-                                                                  Colors.black,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                            ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily,
+                                                                  color: Colors
+                                                                      .black,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily),
+                                                                ),
                                                       ),
                                                       Padding(
                                                         padding:
@@ -932,7 +1014,8 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                                                     .titleSmall
                                                                     .override(
                                                                       fontFamily:
-                                                                          'Roboto',
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .titleSmallFamily,
                                                                       color: Colors
                                                                           .white,
                                                                       fontSize:
@@ -942,6 +1025,10 @@ class _BlogsHomeWidgetState extends State<BlogsHomeWidget>
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .normal,
+                                                                      useGoogleFonts: GoogleFonts
+                                                                              .asMap()
+                                                                          .containsKey(
+                                                                              FlutterFlowTheme.of(context).titleSmallFamily),
                                                                     ),
                                                             elevation: 2.0,
                                                             borderSide:

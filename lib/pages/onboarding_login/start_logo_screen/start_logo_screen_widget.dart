@@ -8,6 +8,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart'
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'start_logo_screen_model.dart';
@@ -520,7 +521,7 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                     gradient: LinearGradient(
                                       colors: [
                                         Color(0x8CFFFFFF),
-                                        Color(0xFE000220)
+                                        Color(0xFFFDE5E5)
                                       ],
                                       stops: [0.0, 1.0],
                                       begin: AlignmentDirectional(0.0, -1.0),
@@ -570,10 +571,13 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                         .primaryText,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w300,
+                                                useGoogleFonts:
+                                                    GoogleFonts.asMap()
+                                                        .containsKey('Roboto'),
                                               ),
                                           colors: [
                                             FlutterFlowTheme.of(context)
-                                                .primaryBackground,
+                                                .secondaryBackground,
                                             FlutterFlowTheme.of(context)
                                                 .secondary
                                           ],
@@ -600,16 +604,25 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .bodyLarge
                                                         .override(
-                                                          fontFamily: 'Roboto',
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyLargeFamily,
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .primaryBackground,
+                                                              .primary,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.bold,
                                                           decoration:
                                                               TextDecoration
                                                                   .underline,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyLargeFamily),
                                                         ),
                                               ),
                                               TextSpan(
@@ -622,11 +635,20 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .bodyLarge
                                                         .override(
-                                                          fontFamily: 'Roboto',
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyLargeFamily,
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .primaryBackground,
+                                                              .secondaryBackground,
                                                           letterSpacing: 0.0,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyLargeFamily),
                                                         ),
                                               ),
                                               TextSpan(
@@ -635,21 +657,25 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                         .getText(
                                                   '759ao25l' /* terms.  */,
                                                 ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyLarge
-                                                        .override(
-                                                          fontFamily: 'Roboto',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyLarge
+                                                    .override(
+                                                      fontFamily: 'Roboto',
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
                                                               .tertiary,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                          decoration:
-                                                              TextDecoration
-                                                                  .underline,
-                                                        ),
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.normal,
+                                                      decoration: TextDecoration
+                                                          .underline,
+                                                      useGoogleFonts:
+                                                          GoogleFonts.asMap()
+                                                              .containsKey(
+                                                                  'Roboto'),
+                                                    ),
                                               ),
                                               TextSpan(
                                                 text:
@@ -661,11 +687,20 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .bodyLarge
                                                         .override(
-                                                          fontFamily: 'Roboto',
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyLargeFamily,
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .primaryBackground,
+                                                              .secondaryBackground,
                                                           letterSpacing: 0.0,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyLargeFamily),
                                                         ),
                                               )
                                             ],
@@ -678,6 +713,10 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                       .secondary,
                                                   fontSize: 16.0,
                                                   letterSpacing: 0.0,
+                                                  useGoogleFonts:
+                                                      GoogleFonts.asMap()
+                                                          .containsKey(
+                                                              'Roboto'),
                                                   lineHeight: 1.2,
                                                 ),
                                           ),
@@ -756,13 +795,19 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                                   context)
                                                               .bodyLarge
                                                               .override(
-                                                                fontFamily:
-                                                                    'Roboto',
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyLargeFamily,
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primaryBackground,
                                                                 letterSpacing:
                                                                     0.0,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyLargeFamily),
                                                               ),
                                                       elevation: 8.0,
                                                       borderSide: BorderSide(
@@ -846,6 +891,10 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                                     .white,
                                                                 letterSpacing:
                                                                     0.0,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        'Roboto'),
                                                               ),
                                                       elevation: 8.0,
                                                       borderSide: const BorderSide(
@@ -945,6 +994,9 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                         .primaryText,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w300,
+                                                useGoogleFonts:
+                                                    GoogleFonts.asMap()
+                                                        .containsKey('Roboto'),
                                               ),
                                         ).animateOnPageLoad(animationsMap[
                                             'textOnPageLoadAnimation2']!),
@@ -966,7 +1018,10 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .bodyLarge
                                                         .override(
-                                                          fontFamily: 'Roboto',
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyLargeFamily,
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .secondaryBackground,
@@ -976,6 +1031,12 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                           decoration:
                                                               TextDecoration
                                                                   .underline,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyLargeFamily),
                                                         ),
                                               ),
                                               TextSpan(
@@ -988,8 +1049,17 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .bodyLarge
                                                         .override(
-                                                          fontFamily: 'Roboto',
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyLargeFamily,
                                                           letterSpacing: 0.0,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyLargeFamily),
                                                         ),
                                               ),
                                               TextSpan(
@@ -998,21 +1068,25 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                         .getText(
                                                   '9d5fn6j2' /* terms.  */,
                                                 ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyLarge
-                                                        .override(
-                                                          fontFamily: 'Roboto',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyLarge
+                                                    .override(
+                                                      fontFamily: 'Roboto',
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
                                                               .alternate,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                          decoration:
-                                                              TextDecoration
-                                                                  .underline,
-                                                        ),
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.normal,
+                                                      decoration: TextDecoration
+                                                          .underline,
+                                                      useGoogleFonts:
+                                                          GoogleFonts.asMap()
+                                                              .containsKey(
+                                                                  'Roboto'),
+                                                    ),
                                               ),
                                               TextSpan(
                                                 text:
@@ -1024,11 +1098,20 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .bodyLarge
                                                         .override(
-                                                          fontFamily: 'Roboto',
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyLargeFamily,
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryBackground,
                                                           letterSpacing: 0.0,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyLargeFamily),
                                                         ),
                                               )
                                             ],
@@ -1041,6 +1124,10 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                       .secondary,
                                                   fontSize: 16.0,
                                                   letterSpacing: 0.0,
+                                                  useGoogleFonts:
+                                                      GoogleFonts.asMap()
+                                                          .containsKey(
+                                                              'Roboto'),
                                                   lineHeight: 1.2,
                                                 ),
                                           ),
@@ -1131,13 +1218,19 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                                   context)
                                                               .bodyLarge
                                                               .override(
-                                                                fontFamily:
-                                                                    'Roboto',
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyLargeFamily,
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primaryBackground,
                                                                 letterSpacing:
                                                                     0.0,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyLargeFamily),
                                                               ),
                                                       elevation: 8.0,
                                                       borderSide: BorderSide(
@@ -1215,12 +1308,18 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                                   context)
                                                               .titleSmall
                                                               .override(
-                                                                fontFamily:
-                                                                    'Roboto',
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmallFamily,
                                                                 color: Colors
                                                                     .white,
                                                                 letterSpacing:
                                                                     0.0,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .titleSmallFamily),
                                                               ),
                                                       elevation: 8.0,
                                                       borderSide: const BorderSide(
@@ -1320,6 +1419,9 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                         .primaryText,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w300,
+                                                useGoogleFonts:
+                                                    GoogleFonts.asMap()
+                                                        .containsKey('Roboto'),
                                               ),
                                         ).animateOnPageLoad(animationsMap[
                                             'textOnPageLoadAnimation3']!),
@@ -1341,7 +1443,10 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .bodyLarge
                                                         .override(
-                                                          fontFamily: 'Roboto',
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyLargeFamily,
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryText,
@@ -1351,6 +1456,12 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                           decoration:
                                                               TextDecoration
                                                                   .underline,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyLargeFamily),
                                                         ),
                                               ),
                                               TextSpan(
@@ -1363,8 +1474,17 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .bodyLarge
                                                         .override(
-                                                          fontFamily: 'Roboto',
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyLargeFamily,
                                                           letterSpacing: 0.0,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyLargeFamily),
                                                         ),
                                               ),
                                               TextSpan(
@@ -1373,21 +1493,25 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                         .getText(
                                                   'w9p61m6h' /* terms.  */,
                                                 ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyLarge
-                                                        .override(
-                                                          fontFamily: 'Roboto',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyLarge
+                                                    .override(
+                                                      fontFamily: 'Roboto',
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
                                                               .alternate,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                          decoration:
-                                                              TextDecoration
-                                                                  .underline,
-                                                        ),
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.normal,
+                                                      decoration: TextDecoration
+                                                          .underline,
+                                                      useGoogleFonts:
+                                                          GoogleFonts.asMap()
+                                                              .containsKey(
+                                                                  'Roboto'),
+                                                    ),
                                               ),
                                               TextSpan(
                                                 text:
@@ -1399,11 +1523,20 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .bodyLarge
                                                         .override(
-                                                          fontFamily: 'Roboto',
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyLargeFamily,
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryBackground,
                                                           letterSpacing: 0.0,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyLargeFamily),
                                                         ),
                                               )
                                             ],
@@ -1416,6 +1549,10 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                       .secondary,
                                                   fontSize: 16.0,
                                                   letterSpacing: 0.0,
+                                                  useGoogleFonts:
+                                                      GoogleFonts.asMap()
+                                                          .containsKey(
+                                                              'Roboto'),
                                                   lineHeight: 1.2,
                                                 ),
                                           ),
@@ -1506,13 +1643,19 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                                   context)
                                                               .bodyLarge
                                                               .override(
-                                                                fontFamily:
-                                                                    'Roboto',
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyLargeFamily,
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primaryBackground,
                                                                 letterSpacing:
                                                                     0.0,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyLargeFamily),
                                                               ),
                                                       elevation: 8.0,
                                                       borderSide: BorderSide(
@@ -1590,12 +1733,18 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                                   context)
                                                               .titleSmall
                                                               .override(
-                                                                fontFamily:
-                                                                    'Roboto',
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmallFamily,
                                                                 color: Colors
                                                                     .white,
                                                                 letterSpacing:
                                                                     0.0,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .titleSmallFamily),
                                                               ),
                                                       elevation: 8.0,
                                                       borderSide: const BorderSide(
@@ -1698,6 +1847,9 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                         .secondaryBackground,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w300,
+                                                useGoogleFonts:
+                                                    GoogleFonts.asMap()
+                                                        .containsKey('Roboto'),
                                               ),
                                         ).animateOnPageLoad(animationsMap[
                                             'textOnPageLoadAnimation4']!),
@@ -1719,7 +1871,10 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .bodyLarge
                                                         .override(
-                                                          fontFamily: 'Roboto',
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyLargeFamily,
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .tertiary,
@@ -1729,6 +1884,12 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                           decoration:
                                                               TextDecoration
                                                                   .underline,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyLargeFamily),
                                                         ),
                                               ),
                                               TextSpan(
@@ -1741,11 +1902,20 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .bodyLarge
                                                         .override(
-                                                          fontFamily: 'Roboto',
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyLargeFamily,
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .secondaryBackground,
                                                           letterSpacing: 0.0,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyLargeFamily),
                                                         ),
                                               ),
                                               TextSpan(
@@ -1754,21 +1924,25 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                         .getText(
                                                   '2kvgknhf' /* terms.  */,
                                                 ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyLarge
-                                                        .override(
-                                                          fontFamily: 'Roboto',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyLarge
+                                                    .override(
+                                                      fontFamily: 'Roboto',
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
                                                               .accent1,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                          decoration:
-                                                              TextDecoration
-                                                                  .underline,
-                                                        ),
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.normal,
+                                                      decoration: TextDecoration
+                                                          .underline,
+                                                      useGoogleFonts:
+                                                          GoogleFonts.asMap()
+                                                              .containsKey(
+                                                                  'Roboto'),
+                                                    ),
                                               ),
                                               TextSpan(
                                                 text:
@@ -1780,11 +1954,20 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .bodyLarge
                                                         .override(
-                                                          fontFamily: 'Roboto',
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyLargeFamily,
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .secondaryBackground,
                                                           letterSpacing: 0.0,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyLargeFamily),
                                                         ),
                                               )
                                             ],
@@ -1797,6 +1980,10 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                       .secondary,
                                                   fontSize: 16.0,
                                                   letterSpacing: 0.0,
+                                                  useGoogleFonts:
+                                                      GoogleFonts.asMap()
+                                                          .containsKey(
+                                                              'Roboto'),
                                                   lineHeight: 1.2,
                                                 ),
                                           ),
@@ -1887,13 +2074,19 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                                   context)
                                                               .bodyLarge
                                                               .override(
-                                                                fontFamily:
-                                                                    'Roboto',
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyLargeFamily,
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primaryBackground,
                                                                 letterSpacing:
                                                                     0.0,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyLargeFamily),
                                                               ),
                                                       elevation: 8.0,
                                                       borderSide: BorderSide(
@@ -1971,12 +2164,18 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                                   context)
                                                               .titleSmall
                                                               .override(
-                                                                fontFamily:
-                                                                    'Roboto',
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmallFamily,
                                                                 color: Colors
                                                                     .white,
                                                                 letterSpacing:
                                                                     0.0,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .titleSmallFamily),
                                                               ),
                                                       elevation: 8.0,
                                                       borderSide: const BorderSide(
@@ -2078,6 +2277,9 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                         .primaryBackground,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w300,
+                                                useGoogleFonts:
+                                                    GoogleFonts.asMap()
+                                                        .containsKey('Roboto'),
                                               ),
                                         ).animateOnPageLoad(animationsMap[
                                             'textOnPageLoadAnimation5']!),
@@ -2099,7 +2301,10 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .bodyLarge
                                                         .override(
-                                                          fontFamily: 'Roboto',
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyLargeFamily,
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .alternate,
@@ -2109,6 +2314,12 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                           decoration:
                                                               TextDecoration
                                                                   .underline,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyLargeFamily),
                                                         ),
                                               ),
                                               TextSpan(
@@ -2121,11 +2332,20 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .bodyLarge
                                                         .override(
-                                                          fontFamily: 'Roboto',
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyLargeFamily,
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryBackground,
                                                           letterSpacing: 0.0,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyLargeFamily),
                                                         ),
                                               ),
                                               TextSpan(
@@ -2134,21 +2354,25 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                         .getText(
                                                   'z2sw9u92' /* terms.  */,
                                                 ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyLarge
-                                                        .override(
-                                                          fontFamily: 'Roboto',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyLarge
+                                                    .override(
+                                                      fontFamily: 'Roboto',
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
                                                               .alternate,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                          decoration:
-                                                              TextDecoration
-                                                                  .underline,
-                                                        ),
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.normal,
+                                                      decoration: TextDecoration
+                                                          .underline,
+                                                      useGoogleFonts:
+                                                          GoogleFonts.asMap()
+                                                              .containsKey(
+                                                                  'Roboto'),
+                                                    ),
                                               ),
                                               TextSpan(
                                                 text:
@@ -2160,11 +2384,20 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .bodyLarge
                                                         .override(
-                                                          fontFamily: 'Roboto',
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyLargeFamily,
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryBackground,
                                                           letterSpacing: 0.0,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyLargeFamily),
                                                         ),
                                               )
                                             ],
@@ -2177,6 +2410,10 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                       .secondary,
                                                   fontSize: 16.0,
                                                   letterSpacing: 0.0,
+                                                  useGoogleFonts:
+                                                      GoogleFonts.asMap()
+                                                          .containsKey(
+                                                              'Roboto'),
                                                   lineHeight: 1.2,
                                                 ),
                                           ),
@@ -2251,13 +2488,19 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                                   context)
                                                               .bodyLarge
                                                               .override(
-                                                                fontFamily:
-                                                                    'Roboto',
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyLargeFamily,
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primaryBackground,
                                                                 letterSpacing:
                                                                     0.0,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyLargeFamily),
                                                               ),
                                                       elevation: 8.0,
                                                       borderSide: BorderSide(
@@ -2335,12 +2578,18 @@ class _StartLogoScreenWidgetState extends State<StartLogoScreenWidget>
                                                                   context)
                                                               .titleSmall
                                                               .override(
-                                                                fontFamily:
-                                                                    'Roboto',
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmallFamily,
                                                                 color: Colors
                                                                     .white,
                                                                 letterSpacing:
                                                                     0.0,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .titleSmallFamily),
                                                               ),
                                                       elevation: 8.0,
                                                       borderSide: const BorderSide(

@@ -3,7 +3,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:simple_gradient_text/simple_gradient_text.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'header_main_sounds_model.dart';
 export 'header_main_sounds_model.dart';
@@ -73,51 +73,57 @@ class _HeaderMainSoundsWidgetState extends State<HeaderMainSoundsWidget> {
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Align(
-                                        alignment:
-                                            const AlignmentDirectional(-1.0, -1.0),
-                                        child: Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 175.0, 0.0),
-                                          child: FlutterFlowIconButton(
-                                            borderColor: Colors.transparent,
-                                            borderRadius: 30.0,
-                                            borderWidth: 1.0,
-                                            buttonSize: 56.0,
-                                            icon: Icon(
-                                              Icons.menu_rounded,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryBackground,
-                                              size: 36.0,
+                                      if (responsiveVisibility(
+                                        context: context,
+                                        tablet: false,
+                                        tabletLandscape: false,
+                                        desktop: false,
+                                      ))
+                                        Align(
+                                          alignment:
+                                              const AlignmentDirectional(-1.0, -1.0),
+                                          child: Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 175.0, 0.0),
+                                            child: FlutterFlowIconButton(
+                                              borderColor: Colors.transparent,
+                                              borderRadius: 30.0,
+                                              borderWidth: 1.0,
+                                              buttonSize: 56.0,
+                                              icon: Icon(
+                                                Icons.menu_rounded,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .alternate,
+                                                size: 36.0,
+                                              ),
+                                              onPressed: () async {
+                                                logFirebaseEvent(
+                                                    'HEADER_MAIN_SOUNDS_menu_rounded_ICN_ON_T');
+                                                logFirebaseEvent(
+                                                    'IconButton_bottom_sheet');
+                                                await showModalBottomSheet(
+                                                  isScrollControlled: true,
+                                                  backgroundColor:
+                                                      Colors.transparent,
+                                                  context: context,
+                                                  builder: (context) {
+                                                    return WebViewAware(
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child: const SideNavWidget(),
+                                                      ),
+                                                    );
+                                                  },
+                                                ).then((value) =>
+                                                    safeSetState(() {}));
+                                              },
                                             ),
-                                            onPressed: () async {
-                                              logFirebaseEvent(
-                                                  'HEADER_MAIN_SOUNDS_menu_rounded_ICN_ON_T');
-                                              logFirebaseEvent(
-                                                  'IconButton_bottom_sheet');
-                                              await showModalBottomSheet(
-                                                isScrollControlled: true,
-                                                backgroundColor:
-                                                    Colors.transparent,
-                                                context: context,
-                                                builder: (context) {
-                                                  return WebViewAware(
-                                                    child: Padding(
-                                                      padding: MediaQuery
-                                                          .viewInsetsOf(
-                                                              context),
-                                                      child: const SideNavWidget(),
-                                                    ),
-                                                  );
-                                                },
-                                              ).then((value) =>
-                                                  safeSetState(() {}));
-                                            },
                                           ),
                                         ),
-                                      ),
                                       Flexible(
                                         flex: 1,
                                         child: InkWell(
@@ -188,6 +194,9 @@ class _HeaderMainSoundsWidgetState extends State<HeaderMainSoundsWidget> {
                                                       .primaryBackground,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w300,
+                                              useGoogleFonts:
+                                                  GoogleFonts.asMap()
+                                                      .containsKey('Roboto'),
                                             ),
                                       ),
                                     ),
@@ -197,7 +206,7 @@ class _HeaderMainSoundsWidgetState extends State<HeaderMainSoundsWidget> {
                               Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     24.0, 0.0, 24.0, 8.0),
-                                child: GradientText(
+                                child: Text(
                                   FFLocalizations.of(context).getText(
                                     '3s3f720i' /* Start or continue your journey... */,
                                   ),
@@ -205,18 +214,14 @@ class _HeaderMainSoundsWidgetState extends State<HeaderMainSoundsWidget> {
                                       .labelMedium
                                       .override(
                                         fontFamily: 'Roboto',
-                                        color: const Color(0xFF444F8C),
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondary,
                                         fontSize: 20.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w200,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey('Roboto'),
                                       ),
-                                  colors: [
-                                    FlutterFlowTheme.of(context)
-                                        .primaryBackground,
-                                    FlutterFlowTheme.of(context).secondary
-                                  ],
-                                  gradientDirection: GradientDirection.ltr,
-                                  gradientType: GradientType.linear,
                                 ),
                               ),
                               Divider(

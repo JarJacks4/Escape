@@ -4,10 +4,6 @@ import 'onboarding_widget.dart' show OnboardingWidget;
 import 'package:flutter/material.dart';
 
 class OnboardingModel extends FlutterFlowModel<OnboardingWidget> {
-  ///  Local state fields for this page.
-
-  double? page = 0.25;
-
   ///  State fields for stateful widgets in this page.
 
   // State field(s) for PageView widget.

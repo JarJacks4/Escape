@@ -1,19 +1,24 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'walkthrough_comp_model.dart';
-export 'walkthrough_comp_model.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:simple_gradient_text/simple_gradient_text.dart';
+import 'walkthrough_music_comp_model.dart';
+export 'walkthrough_music_comp_model.dart';
 
-class WalkthroughCompWidget extends StatefulWidget {
-  const WalkthroughCompWidget({super.key});
+class WalkthroughMusicCompWidget extends StatefulWidget {
+  const WalkthroughMusicCompWidget({super.key});
 
   @override
-  State<WalkthroughCompWidget> createState() => _WalkthroughCompWidgetState();
+  State<WalkthroughMusicCompWidget> createState() =>
+      _WalkthroughMusicCompWidgetState();
 }
 
-class _WalkthroughCompWidgetState extends State<WalkthroughCompWidget> {
-  late WalkthroughCompModel _model;
+class _WalkthroughMusicCompWidgetState
+    extends State<WalkthroughMusicCompWidget> {
+  late WalkthroughMusicCompModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -24,7 +29,7 @@ class _WalkthroughCompWidgetState extends State<WalkthroughCompWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => WalkthroughCompModel());
+    _model = createModel(context, () => WalkthroughMusicCompModel());
   }
 
   @override
@@ -38,7 +43,7 @@ class _WalkthroughCompWidgetState extends State<WalkthroughCompWidget> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 500.0,
+      height: 535.0,
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).secondaryBackground,
         borderRadius: BorderRadius.circular(16.0),
@@ -60,26 +65,40 @@ class _WalkthroughCompWidgetState extends State<WalkthroughCompWidget> {
                 fit: BoxFit.contain,
               ),
             ),
-            Text(
-              FFLocalizations.of(context).getText(
-                'zuf3ayjh' /* Discover Amazing Features */,
+            Flexible(
+              flex: 1,
+              child: AuthUserStreamWidget(
+                builder: (context) => GradientText(
+                  'Welcome$currentUserDisplayName',
+                  textAlign: TextAlign.center,
+                  style: FlutterFlowTheme.of(context).headlineMedium.override(
+                        fontFamily:
+                            FlutterFlowTheme.of(context).headlineMediumFamily,
+                        color: FlutterFlowTheme.of(context).primaryBackground,
+                        letterSpacing: 0.0,
+                        useGoogleFonts: GoogleFonts.asMap().containsKey(
+                            FlutterFlowTheme.of(context).headlineMediumFamily),
+                      ),
+                  colors: [
+                    FlutterFlowTheme.of(context).primary,
+                    FlutterFlowTheme.of(context).secondary
+                  ],
+                  gradientDirection: GradientDirection.ltr,
+                  gradientType: GradientType.linear,
+                ),
               ),
-              textAlign: TextAlign.center,
-              style: FlutterFlowTheme.of(context).headlineMedium.override(
-                    fontFamily: 'Roboto',
-                    color: FlutterFlowTheme.of(context).primaryBackground,
-                    letterSpacing: 0.0,
-                  ),
             ),
             Text(
               FFLocalizations.of(context).getText(
-                'aounse4v' /* Explore our app's powerful too... */,
+                'aounse4v' /* Use this button to go back or ... */,
               ),
               textAlign: TextAlign.center,
               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                    fontFamily: 'Roboto',
-                    color: FlutterFlowTheme.of(context).secondaryText,
+                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                    color: FlutterFlowTheme.of(context).primaryBackground,
                     letterSpacing: 0.0,
+                    useGoogleFonts: GoogleFonts.asMap().containsKey(
+                        FlutterFlowTheme.of(context).bodyMediumFamily),
                   ),
             ),
             FFButtonWidget(
@@ -96,9 +115,11 @@ class _WalkthroughCompWidgetState extends State<WalkthroughCompWidget> {
                 iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                 color: FlutterFlowTheme.of(context).primary,
                 textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                      fontFamily: 'Roboto',
+                      fontFamily: FlutterFlowTheme.of(context).titleSmallFamily,
                       color: FlutterFlowTheme.of(context).info,
                       letterSpacing: 0.0,
+                      useGoogleFonts: GoogleFonts.asMap().containsKey(
+                          FlutterFlowTheme.of(context).titleSmallFamily),
                     ),
                 elevation: 0.0,
                 borderRadius: BorderRadius.circular(25.0),

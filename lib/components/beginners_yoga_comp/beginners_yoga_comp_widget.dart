@@ -5,8 +5,8 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
-import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'beginners_yoga_comp_model.dart';
 export 'beginners_yoga_comp_model.dart';
 
@@ -133,24 +133,22 @@ class _BeginnersYogaCompWidgetState extends State<BeginnersYogaCompWidget>
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        GradientText(
+                        Text(
                           FFLocalizations.of(context).getText(
                             'zlgw2ekn' /* New Videos */,
                           ),
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Roboto',
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
-                                    fontSize: 20.0,
-                                    letterSpacing: 0.0,
-                                  ),
-                          colors: [
-                            FlutterFlowTheme.of(context).primary,
-                            FlutterFlowTheme.of(context).secondary
-                          ],
-                          gradientDirection: GradientDirection.ltr,
-                          gradientType: GradientType.linear,
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: FlutterFlowTheme.of(context)
+                                    .bodyMediumFamily,
+                                color: FlutterFlowTheme.of(context).tertiary,
+                                fontSize: 28.0,
+                                letterSpacing: 0.0,
+                                useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                    FlutterFlowTheme.of(context)
+                                        .bodyMediumFamily),
+                              ),
                         ),
                       ],
                     ),
@@ -319,14 +317,22 @@ class _BeginnersYogaCompWidgetState extends State<BeginnersYogaCompWidget>
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Roboto',
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .secondaryBackground,
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMediumFamily,
+                                                        color:
+                                                            const Color(0xFF000220),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily),
                                                       ),
                                                 ),
                                               ),
@@ -430,23 +436,20 @@ class _BeginnersYogaCompWidgetState extends State<BeginnersYogaCompWidget>
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  GradientText(
+                  Text(
                     FFLocalizations.of(context).getText(
                       'ozjx8bcz' /* Recent Played */,
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Roboto',
-                          color: FlutterFlowTheme.of(context).primaryBackground,
-                          fontSize: 20.0,
+                          fontFamily:
+                              FlutterFlowTheme.of(context).bodyMediumFamily,
+                          color: FlutterFlowTheme.of(context).tertiary,
+                          fontSize: 28.0,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w300,
+                          useGoogleFonts: GoogleFonts.asMap().containsKey(
+                              FlutterFlowTheme.of(context).bodyMediumFamily),
                         ),
-                    colors: [
-                      FlutterFlowTheme.of(context).primary,
-                      FlutterFlowTheme.of(context).secondary
-                    ],
-                    gradientDirection: GradientDirection.ltr,
-                    gradientType: GradientType.linear,
                   ),
                   Icon(
                     Icons.keyboard_control_outlined,
@@ -629,17 +632,22 @@ class _BeginnersYogaCompWidgetState extends State<BeginnersYogaCompWidget>
                                                                   context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Roboto',
-                                                                color: FlutterFlowTheme.of(
+                                                                fontFamily: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .primaryBackground,
-                                                                fontSize: 12.0,
+                                                                    .bodyMediumFamily,
+                                                                color: const Color(
+                                                                    0xFF000220),
+                                                                fontSize: 14.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyMediumFamily),
                                                               ),
                                                     ),
                                                   ),
@@ -669,22 +677,18 @@ class _BeginnersYogaCompWidgetState extends State<BeginnersYogaCompWidget>
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  GradientText(
+                  Text(
                     FFLocalizations.of(context).getText(
                       'vzn3nxay' /* Channels */,
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Roboto',
-                          color: const Color(0xFF5B4090),
+                          color: FlutterFlowTheme.of(context).tertiary,
                           fontSize: 26.0,
                           letterSpacing: 0.0,
+                          useGoogleFonts:
+                              GoogleFonts.asMap().containsKey('Roboto'),
                         ),
-                    colors: [
-                      FlutterFlowTheme.of(context).primary,
-                      FlutterFlowTheme.of(context).secondary
-                    ],
-                    gradientDirection: GradientDirection.ltr,
-                    gradientType: GradientType.linear,
                   ),
                   Icon(
                     Icons.keyboard_control_outlined,
@@ -892,17 +896,22 @@ class _BeginnersYogaCompWidgetState extends State<BeginnersYogaCompWidget>
                                                                   context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Roboto',
-                                                                color: FlutterFlowTheme.of(
+                                                                fontFamily: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .secondaryBackground,
+                                                                    .bodyMediumFamily,
+                                                                color: const Color(
+                                                                    0xFF000220),
                                                                 fontSize: 14.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyMediumFamily),
                                                               ),
                                                     ),
                                                   ),

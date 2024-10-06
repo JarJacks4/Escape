@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/revenue_cat_util.dart' as revenue_cat;
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'subscription_profile_page_model.dart';
 export 'subscription_profile_page_model.dart';
@@ -83,9 +84,12 @@ class _SubscriptionProfilePageWidgetState
                     'h9pjda3f' /* Subscription / Payment */,
                   ),
                   style: FlutterFlowTheme.of(context).headlineMedium.override(
-                        fontFamily: 'Roboto',
+                        fontFamily:
+                            FlutterFlowTheme.of(context).headlineMediumFamily,
                         fontSize: 36.0,
                         letterSpacing: 0.0,
+                        useGoogleFonts: GoogleFonts.asMap().containsKey(
+                            FlutterFlowTheme.of(context).headlineMediumFamily),
                       ),
                 ),
               ),
@@ -96,11 +100,14 @@ class _SubscriptionProfilePageWidgetState
                     'xk1c06fz' /* Your Subscription */,
                   ),
                   style: FlutterFlowTheme.of(context).labelMedium.override(
-                        fontFamily: 'Roboto',
+                        fontFamily:
+                            FlutterFlowTheme.of(context).labelMediumFamily,
                         color: const Color(0xFF000220),
                         fontSize: 22.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.w600,
+                        useGoogleFonts: GoogleFonts.asMap().containsKey(
+                            FlutterFlowTheme.of(context).labelMediumFamily),
                       ),
                 ),
               ),
@@ -236,6 +243,8 @@ class _SubscriptionProfilePageWidgetState
                                       fontSize: 22.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey('Roboto'),
                                     ),
                               ),
                               subtitle: Text(
@@ -245,11 +254,16 @@ class _SubscriptionProfilePageWidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .headlineMedium
                                     .override(
-                                      fontFamily: 'Roboto',
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .headlineMediumFamily,
                                       color: FlutterFlowTheme.of(context)
                                           .primaryBackground,
                                       fontSize: 16.0,
                                       letterSpacing: 0.0,
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey(
+                                              FlutterFlowTheme.of(context)
+                                                  .headlineMediumFamily),
                                     ),
                               ),
                               tileColor: FlutterFlowTheme.of(context)
@@ -272,11 +286,16 @@ class _SubscriptionProfilePageWidgetState
                               style: FlutterFlowTheme.of(context)
                                   .labelMedium
                                   .override(
-                                    fontFamily: 'Roboto',
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .labelMediumFamily,
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey(
+                                            FlutterFlowTheme.of(context)
+                                                .labelMediumFamily),
                                   ),
                             ),
                           ),
@@ -293,11 +312,14 @@ class _SubscriptionProfilePageWidgetState
                     'j2tkpe32' /* Other Offers */,
                   ),
                   style: FlutterFlowTheme.of(context).labelMedium.override(
-                        fontFamily: 'Roboto',
+                        fontFamily:
+                            FlutterFlowTheme.of(context).labelMediumFamily,
                         color: FlutterFlowTheme.of(context).primary,
                         fontSize: 22.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.bold,
+                        useGoogleFonts: GoogleFonts.asMap().containsKey(
+                            FlutterFlowTheme.of(context).labelMediumFamily),
                       ),
                 ),
               ),
@@ -429,11 +451,16 @@ class _SubscriptionProfilePageWidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .labelSmall
                                     .override(
-                                      fontFamily: 'Roboto',
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .labelSmallFamily,
                                       color: const Color(0xFF000220),
                                       fontSize: 22.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey(
+                                              FlutterFlowTheme.of(context)
+                                                  .labelSmallFamily),
                                     ),
                               ),
                               subtitle: Text(
@@ -443,11 +470,16 @@ class _SubscriptionProfilePageWidgetState
                                 style: FlutterFlowTheme.of(context)
                                     .headlineMedium
                                     .override(
-                                      fontFamily: 'Roboto',
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .headlineMediumFamily,
                                       color: FlutterFlowTheme.of(context)
                                           .primaryBackground,
                                       fontSize: 16.0,
                                       letterSpacing: 0.0,
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey(
+                                              FlutterFlowTheme.of(context)
+                                                  .headlineMediumFamily),
                                     ),
                               ),
                               tileColor: FlutterFlowTheme.of(context)
@@ -470,11 +502,16 @@ class _SubscriptionProfilePageWidgetState
                               style: FlutterFlowTheme.of(context)
                                   .labelMedium
                                   .override(
-                                    fontFamily: 'Roboto',
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .labelMediumFamily,
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey(
+                                            FlutterFlowTheme.of(context)
+                                                .labelMediumFamily),
                                   ),
                             ),
                           ),
@@ -540,9 +577,13 @@ class _SubscriptionProfilePageWidgetState
                             style: FlutterFlowTheme.of(context)
                                 .headlineSmall
                                 .override(
-                                  fontFamily: 'Roboto',
+                                  fontFamily: FlutterFlowTheme.of(context)
+                                      .headlineSmallFamily,
                                   fontSize: 22.0,
                                   letterSpacing: 0.0,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey(FlutterFlowTheme.of(context)
+                                          .headlineSmallFamily),
                                   lineHeight: 1.5,
                                 ),
                           ),
@@ -550,14 +591,19 @@ class _SubscriptionProfilePageWidgetState
                             FFLocalizations.of(context).getText(
                               'ph22k3ql' /* Continue with limited access a... */,
                             ),
-                            style:
-                                FlutterFlowTheme.of(context).bodySmall.override(
-                                      fontFamily: 'Roboto',
-                                      color: FlutterFlowTheme.of(context)
-                                          .primaryBackground,
-                                      fontSize: 16.0,
-                                      letterSpacing: 0.0,
-                                    ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodySmall
+                                .override(
+                                  fontFamily: FlutterFlowTheme.of(context)
+                                      .bodySmallFamily,
+                                  color: FlutterFlowTheme.of(context)
+                                      .primaryBackground,
+                                  fontSize: 16.0,
+                                  letterSpacing: 0.0,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey(FlutterFlowTheme.of(context)
+                                          .bodySmallFamily),
+                                ),
                           ),
                           tileColor:
                               FlutterFlowTheme.of(context).primaryBackground,
@@ -614,10 +660,14 @@ class _SubscriptionProfilePageWidgetState
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
-                                  fontFamily: 'Roboto',
+                                  fontFamily: FlutterFlowTheme.of(context)
+                                      .titleSmallFamily,
                                   color: FlutterFlowTheme.of(context)
                                       .primaryBackground,
                                   letterSpacing: 0.0,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey(FlutterFlowTheme.of(context)
+                                          .titleSmallFamily),
                                 ),
                             elevation: 2.0,
                             borderSide: const BorderSide(

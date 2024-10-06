@@ -5,8 +5,8 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
-import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'grounding_videos_model.dart';
 export 'grounding_videos_model.dart';
 
@@ -132,24 +132,22 @@ class _GroundingVideosWidgetState extends State<GroundingVideosWidget>
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        GradientText(
+                        Text(
                           FFLocalizations.of(context).getText(
                             'h0e58jdm' /* New Videos */,
                           ),
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Roboto',
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
-                                    fontSize: 20.0,
-                                    letterSpacing: 0.0,
-                                  ),
-                          colors: [
-                            FlutterFlowTheme.of(context).primary,
-                            FlutterFlowTheme.of(context).secondary
-                          ],
-                          gradientDirection: GradientDirection.ltr,
-                          gradientType: GradientType.linear,
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: FlutterFlowTheme.of(context)
+                                    .bodyMediumFamily,
+                                color: FlutterFlowTheme.of(context).tertiary,
+                                fontSize: 28.0,
+                                letterSpacing: 0.0,
+                                useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                    FlutterFlowTheme.of(context)
+                                        .bodyMediumFamily),
+                              ),
                         ),
                       ],
                     ),
@@ -315,7 +313,10 @@ class _GroundingVideosWidgetState extends State<GroundingVideosWidget>
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Roboto',
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMediumFamily,
                                                         color: FlutterFlowTheme
                                                                 .of(context)
                                                             .secondaryBackground,
@@ -323,6 +324,12 @@ class _GroundingVideosWidgetState extends State<GroundingVideosWidget>
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily),
                                                       ),
                                                 ),
                                               ),
@@ -375,23 +382,20 @@ class _GroundingVideosWidgetState extends State<GroundingVideosWidget>
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  GradientText(
+                  Text(
                     FFLocalizations.of(context).getText(
                       'x41k5iz6' /* Recent Played */,
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Roboto',
-                          color: FlutterFlowTheme.of(context).primaryBackground,
-                          fontSize: 20.0,
+                          fontFamily:
+                              FlutterFlowTheme.of(context).bodyMediumFamily,
+                          color: FlutterFlowTheme.of(context).tertiary,
+                          fontSize: 22.0,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w300,
+                          useGoogleFonts: GoogleFonts.asMap().containsKey(
+                              FlutterFlowTheme.of(context).bodyMediumFamily),
                         ),
-                    colors: [
-                      FlutterFlowTheme.of(context).primary,
-                      FlutterFlowTheme.of(context).secondary
-                    ],
-                    gradientDirection: GradientDirection.ltr,
-                    gradientType: GradientType.linear,
                   ),
                   Icon(
                     Icons.keyboard_control_outlined,
@@ -417,187 +421,182 @@ class _GroundingVideosWidgetState extends State<GroundingVideosWidget>
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Expanded(
-                            child: FutureBuilder<ApiCallResponse>(
-                              future: YouTubeDataGroundingFINALAPICall.call(),
-                              builder: (context, snapshot) {
-                                // Customize what your widget looks like when it's loading.
-                                if (!snapshot.hasData) {
-                                  return Center(
-                                    child: SizedBox(
-                                      width: 50.0,
-                                      height: 50.0,
-                                      child: CircularProgressIndicator(
-                                        valueColor:
-                                            AlwaysStoppedAnimation<Color>(
-                                          FlutterFlowTheme.of(context).primary,
-                                        ),
+                            child: PagedListView<ApiPagingParams, dynamic>(
+                              pagingController: _model.setListViewController2(
+                                (nextPageMarker) =>
+                                    YouTubeDataQigongDataAPICallCall.call(),
+                              ),
+                              padding: EdgeInsets.zero,
+                              reverse: false,
+                              scrollDirection: Axis.horizontal,
+                              builderDelegate:
+                                  PagedChildBuilderDelegate<dynamic>(
+                                // Customize what your widget looks like when it's loading the first page.
+                                firstPageProgressIndicatorBuilder: (_) =>
+                                    Center(
+                                  child: SizedBox(
+                                    width: 50.0,
+                                    height: 50.0,
+                                    child: CircularProgressIndicator(
+                                      valueColor: AlwaysStoppedAnimation<Color>(
+                                        FlutterFlowTheme.of(context).primary,
                                       ),
                                     ),
-                                  );
-                                }
-                                final listViewYouTubeDataGroundingFINALAPIResponse =
-                                    snapshot.data!;
+                                  ),
+                                ),
+                                // Customize what your widget looks like when it's loading another page.
+                                newPageProgressIndicatorBuilder: (_) => Center(
+                                  child: SizedBox(
+                                    width: 50.0,
+                                    height: 50.0,
+                                    child: CircularProgressIndicator(
+                                      valueColor: AlwaysStoppedAnimation<Color>(
+                                        FlutterFlowTheme.of(context).primary,
+                                      ),
+                                    ),
+                                  ),
+                                ),
 
-                                return Builder(
-                                  builder: (context) {
-                                    final recentItems = getJsonField(
-                                      listViewYouTubeDataGroundingFINALAPIResponse
-                                          .jsonBody,
-                                      r'''$.items[:].snippet''',
-                                    ).toList();
+                                itemBuilder: (context, _, recentItemsIndex) {
+                                  final recentItemsItem = _model
+                                      .listViewPagingController2!
+                                      .itemList![recentItemsIndex];
+                                  return Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 10.0, 0.0),
+                                    child: Container(
+                                      width: 157.0,
+                                      height: 137.0,
+                                      decoration: BoxDecoration(
+                                        color: const Color(0x50090F13),
+                                        borderRadius:
+                                            BorderRadius.circular(9.0),
+                                      ),
+                                      child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          logFirebaseEvent(
+                                              'GROUNDING_VIDEOS_Column_5jggbqfb_ON_TAP');
+                                          logFirebaseEvent(
+                                              'Column_navigate_to');
 
-                                    return ListView.builder(
-                                      padding: EdgeInsets.zero,
-                                      scrollDirection: Axis.horizontal,
-                                      itemCount: recentItems.length,
-                                      itemBuilder: (context, recentItemsIndex) {
-                                        final recentItemsItem =
-                                            recentItems[recentItemsIndex];
-                                        return Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 10.0, 0.0),
-                                          child: Container(
-                                            width: 157.0,
-                                            height: 137.0,
-                                            decoration: BoxDecoration(
-                                              color: const Color(0x50090F13),
-                                              borderRadius:
-                                                  BorderRadius.circular(9.0),
-                                            ),
-                                            child: InkWell(
-                                              splashColor: Colors.transparent,
-                                              focusColor: Colors.transparent,
-                                              hoverColor: Colors.transparent,
-                                              highlightColor:
-                                                  Colors.transparent,
-                                              onTap: () async {
-                                                logFirebaseEvent(
-                                                    'GROUNDING_VIDEOS_Column_5jggbqfb_ON_TAP');
-                                                logFirebaseEvent(
-                                                    'Column_navigate_to');
-
-                                                context.pushNamed(
-                                                  'youtubetestFINAL',
-                                                  queryParameters: {
-                                                    'videoid': serializeParam(
-                                                      getJsonField(
-                                                        recentItemsItem,
-                                                        r'''$.resource.videoid''',
-                                                      ).toString(),
-                                                      ParamType.String,
-                                                    ),
-                                                    'description':
-                                                        serializeParam(
-                                                      getJsonField(
-                                                        recentItemsItem,
-                                                        r'''$.description''',
-                                                      ).toString(),
-                                                      ParamType.String,
-                                                    ),
-                                                    'channelTitle':
-                                                        serializeParam(
-                                                      getJsonField(
-                                                        recentItemsItem,
-                                                        r'''$.channelTitle''',
-                                                      ).toString(),
-                                                      ParamType.String,
-                                                    ),
-                                                    'videoTitle':
-                                                        serializeParam(
-                                                      getJsonField(
-                                                        recentItemsItem,
-                                                        r'''$.title''',
-                                                      ).toString(),
-                                                      ParamType.String,
-                                                    ),
-                                                  }.withoutNulls,
-                                                  extra: <String, dynamic>{
-                                                    kTransitionInfoKey:
-                                                        const TransitionInfo(
-                                                      hasTransition: true,
-                                                      transitionType:
-                                                          PageTransitionType
-                                                              .fade,
-                                                      duration: Duration(
-                                                          milliseconds: 2),
-                                                    ),
-                                                  },
-                                                );
-                                              },
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.center,
-                                                children: [
-                                                  Padding(
-                                                    padding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                1.0, 0.0),
-                                                    child: Hero(
-                                                      tag: getJsonField(
-                                                        recentItemsItem,
-                                                        r'''$.thumbnails.default.url''',
-                                                      ).toString(),
-                                                      transitionOnUserGestures:
-                                                          true,
-                                                      child: ClipRRect(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(9.0),
-                                                        child: Image.network(
-                                                          getJsonField(
-                                                            recentItemsItem,
-                                                            r'''$.thumbnails.default.url''',
-                                                          ).toString(),
-                                                          width: 165.0,
-                                                          height: 100.0,
-                                                          fit: BoxFit.cover,
-                                                        ),
-                                                      ),
-                                                    ),
+                                          context.pushNamed(
+                                            'youtubetestFINAL',
+                                            queryParameters: {
+                                              'videoid': serializeParam(
+                                                getJsonField(
+                                                  recentItemsItem,
+                                                  r'''$.resource.videoid''',
+                                                ).toString(),
+                                                ParamType.String,
+                                              ),
+                                              'description': serializeParam(
+                                                getJsonField(
+                                                  recentItemsItem,
+                                                  r'''$.description''',
+                                                ).toString(),
+                                                ParamType.String,
+                                              ),
+                                              'channelTitle': serializeParam(
+                                                getJsonField(
+                                                  recentItemsItem,
+                                                  r'''$.channelTitle''',
+                                                ).toString(),
+                                                ParamType.String,
+                                              ),
+                                              'videoTitle': serializeParam(
+                                                getJsonField(
+                                                  recentItemsItem,
+                                                  r'''$.title''',
+                                                ).toString(),
+                                                ParamType.String,
+                                              ),
+                                            }.withoutNulls,
+                                            extra: <String, dynamic>{
+                                              kTransitionInfoKey:
+                                                  const TransitionInfo(
+                                                hasTransition: true,
+                                                transitionType:
+                                                    PageTransitionType.fade,
+                                                duration:
+                                                    Duration(milliseconds: 2),
+                                              ),
+                                            },
+                                          );
+                                        },
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            Padding(
+                                              padding: const EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 1.0, 0.0),
+                                              child: Hero(
+                                                tag: getJsonField(
+                                                  recentItemsItem,
+                                                  r'''$.thumbnails.default.url''',
+                                                ).toString(),
+                                                transitionOnUserGestures: true,
+                                                child: ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          9.0),
+                                                  child: Image.network(
+                                                    getJsonField(
+                                                      recentItemsItem,
+                                                      r'''$.thumbnails.default.url''',
+                                                    ).toString(),
+                                                    width: 165.0,
+                                                    height: 100.0,
+                                                    fit: BoxFit.cover,
                                                   ),
-                                                  Padding(
-                                                    padding:
-                                                        const EdgeInsets.all(15.0),
-                                                    child: Text(
-                                                      getJsonField(
-                                                        recentItemsItem,
-                                                        r'''$.title''',
-                                                      ).toString(),
-                                                      textAlign:
-                                                          TextAlign.center,
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Roboto',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryBackground,
-                                                                fontSize: 12.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .normal,
-                                                              ),
-                                                    ),
-                                                  ),
-                                                ],
+                                                ),
                                               ),
                                             ),
-                                          ).animateOnPageLoad(animationsMap[
-                                              'containerOnPageLoadAnimation2']!),
-                                        );
-                                      },
-                                    );
-                                  },
-                                );
-                              },
+                                            Padding(
+                                              padding: const EdgeInsets.all(15.0),
+                                              child: Text(
+                                                getJsonField(
+                                                  recentItemsItem,
+                                                  r'''$.title''',
+                                                ).toString(),
+                                                textAlign: TextAlign.center,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMediumFamily,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryBackground,
+                                                          fontSize: 12.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily),
+                                                        ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ).animateOnPageLoad(animationsMap[
+                                        'containerOnPageLoadAnimation2']!),
+                                  );
+                                },
+                              ),
                             ),
                           ),
                         ],
@@ -613,22 +612,18 @@ class _GroundingVideosWidgetState extends State<GroundingVideosWidget>
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  GradientText(
+                  Text(
                     FFLocalizations.of(context).getText(
                       'xaj8ryc7' /* Channels */,
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Roboto',
-                          color: const Color(0xFF5B4090),
-                          fontSize: 26.0,
+                          color: FlutterFlowTheme.of(context).tertiary,
+                          fontSize: 22.0,
                           letterSpacing: 0.0,
+                          useGoogleFonts:
+                              GoogleFonts.asMap().containsKey('Roboto'),
                         ),
-                    colors: [
-                      FlutterFlowTheme.of(context).primary,
-                      FlutterFlowTheme.of(context).secondary
-                    ],
-                    gradientDirection: GradientDirection.ltr,
-                    gradientType: GradientType.linear,
                   ),
                   Icon(
                     Icons.keyboard_control_outlined,
@@ -673,7 +668,8 @@ class _GroundingVideosWidgetState extends State<GroundingVideosWidget>
                                   pagingController:
                                       _model.setListViewController3(
                                     (nextPageMarker) =>
-                                        YouTubeDataGroundingFINALAPICall.call(),
+                                        YouTubeDataBinauralBeatsAPICopyCall
+                                            .call(),
                                   ),
                                   padding: const EdgeInsets.symmetric(vertical: 5.0),
                                   shrinkWrap: true,
@@ -833,8 +829,9 @@ class _GroundingVideosWidgetState extends State<GroundingVideosWidget>
                                                                   context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Roboto',
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily,
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .secondaryBackground,
@@ -844,6 +841,11 @@ class _GroundingVideosWidgetState extends State<GroundingVideosWidget>
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyMediumFamily),
                                                               ),
                                                     ),
                                                   ),

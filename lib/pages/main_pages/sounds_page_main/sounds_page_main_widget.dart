@@ -105,7 +105,7 @@ class _SoundsPageMainWidgetState extends State<SoundsPageMainWidget>
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(8.0),
                       child: Image.network(
-                        'https://images.unsplash.com/photo-1507041957456-9c397ce39c97?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHw1fHxmb3Jlc3R8ZW58MHx8fHwxNzI0MzkzMjc5fDA&ixlib=rb-4.0.3&q=80&w=1080',
+                        'https://images.unsplash.com/photo-1516571748831-5d81767b788d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHw4fHxzdGFyc3xlbnwwfHx8fDE3MjgxODMyNjF8MA&ixlib=rb-4.0.3&q=80&w=1080',
                         width: 300.0,
                         height: 200.0,
                         fit: BoxFit.cover,
@@ -120,15 +120,12 @@ class _SoundsPageMainWidgetState extends State<SoundsPageMainWidget>
               child: Container(
                 width: double.infinity,
                 height: double.infinity,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   gradient: LinearGradient(
-                    colors: [
-                      const Color(0xA4140B35),
-                      FlutterFlowTheme.of(context).secondaryBackground
-                    ],
-                    stops: const [0.95, 1.0],
-                    begin: const AlignmentDirectional(0.0, -1.0),
-                    end: const AlignmentDirectional(0, 1.0),
+                    colors: [Color(0x44000220), Color(0xFF000220)],
+                    stops: [0.95, 1.0],
+                    begin: AlignmentDirectional(0.0, -1.0),
+                    end: AlignmentDirectional(0, 1.0),
                   ),
                 ),
                 child: ClipRRect(

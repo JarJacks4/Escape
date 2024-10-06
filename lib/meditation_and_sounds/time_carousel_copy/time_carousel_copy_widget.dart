@@ -2,6 +2,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'time_carousel_copy_model.dart';
 export 'time_carousel_copy_model.dart';
 
@@ -79,10 +80,14 @@ Seconds */
                         textAlign: TextAlign.center,
                         style:
                             FlutterFlowTheme.of(context).displayLarge.override(
-                                  fontFamily: 'Roboto',
+                                  fontFamily: FlutterFlowTheme.of(context)
+                                      .displayLargeFamily,
                                   fontSize: 36.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.bold,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey(FlutterFlowTheme.of(context)
+                                          .displayLargeFamily),
                                 ),
                       ),
                     ),
@@ -119,10 +124,14 @@ Seconds */
                         textAlign: TextAlign.center,
                         style:
                             FlutterFlowTheme.of(context).displayLarge.override(
-                                  fontFamily: 'Roboto',
+                                  fontFamily: FlutterFlowTheme.of(context)
+                                      .displayLargeFamily,
                                   fontSize: 36.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.bold,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey(FlutterFlowTheme.of(context)
+                                          .displayLargeFamily),
                                 ),
                       ),
                     ),
@@ -159,10 +168,14 @@ Seconds */
                         textAlign: TextAlign.center,
                         style:
                             FlutterFlowTheme.of(context).displayLarge.override(
-                                  fontFamily: 'Roboto',
+                                  fontFamily: FlutterFlowTheme.of(context)
+                                      .displayLargeFamily,
                                   fontSize: 36.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.bold,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey(FlutterFlowTheme.of(context)
+                                          .displayLargeFamily),
                                 ),
                       ),
                     ),
@@ -199,10 +212,14 @@ Seconds */
                         textAlign: TextAlign.center,
                         style:
                             FlutterFlowTheme.of(context).displayLarge.override(
-                                  fontFamily: 'Roboto',
+                                  fontFamily: FlutterFlowTheme.of(context)
+                                      .displayLargeFamily,
                                   fontSize: 36.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.bold,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey(FlutterFlowTheme.of(context)
+                                          .displayLargeFamily),
                                 ),
                       ),
                     ),
@@ -239,10 +256,14 @@ Minutes */
                         textAlign: TextAlign.center,
                         style:
                             FlutterFlowTheme.of(context).displayLarge.override(
-                                  fontFamily: 'Roboto',
+                                  fontFamily: FlutterFlowTheme.of(context)
+                                      .displayLargeFamily,
                                   fontSize: 36.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.bold,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey(FlutterFlowTheme.of(context)
+                                          .displayLargeFamily),
                                 ),
                       ),
                     ),
@@ -279,10 +300,14 @@ Minutes */
                         textAlign: TextAlign.center,
                         style:
                             FlutterFlowTheme.of(context).displayLarge.override(
-                                  fontFamily: 'Roboto',
+                                  fontFamily: FlutterFlowTheme.of(context)
+                                      .displayLargeFamily,
                                   fontSize: 36.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.bold,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey(FlutterFlowTheme.of(context)
+                                          .displayLargeFamily),
                                 ),
                       ),
                     ),
@@ -319,10 +344,14 @@ Minutes */
                         textAlign: TextAlign.center,
                         style:
                             FlutterFlowTheme.of(context).displayLarge.override(
-                                  fontFamily: 'Roboto',
+                                  fontFamily: FlutterFlowTheme.of(context)
+                                      .displayLargeFamily,
                                   fontSize: 36.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.bold,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey(FlutterFlowTheme.of(context)
+                                          .displayLargeFamily),
                                 ),
                       ),
                     ),

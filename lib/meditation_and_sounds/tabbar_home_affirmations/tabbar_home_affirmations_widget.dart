@@ -6,6 +6,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'tabbar_home_affirmations_model.dart';
 export 'tabbar_home_affirmations_model.dart';
 
@@ -63,17 +64,23 @@ class _TabbarHomeAffirmationsWidgetState
                 useToggleButtonStyle: false,
                 isScrollable: true,
                 labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
-                      fontFamily: 'Roboto',
+                      fontFamily:
+                          FlutterFlowTheme.of(context).labelMediumFamily,
                       fontSize: 14.0,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.w500,
+                      useGoogleFonts: GoogleFonts.asMap().containsKey(
+                          FlutterFlowTheme.of(context).labelMediumFamily),
                     ),
                 unselectedLabelStyle:
                     FlutterFlowTheme.of(context).labelMedium.override(
-                          fontFamily: 'Roboto',
+                          fontFamily:
+                              FlutterFlowTheme.of(context).labelMediumFamily,
                           fontSize: 14.0,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w500,
+                          useGoogleFonts: GoogleFonts.asMap().containsKey(
+                              FlutterFlowTheme.of(context).labelMediumFamily),
                         ),
                 labelColor: Colors.white,
                 unselectedLabelColor: FlutterFlowTheme.of(context).primary,

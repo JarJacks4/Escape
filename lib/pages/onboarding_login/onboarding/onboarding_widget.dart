@@ -6,6 +6,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'onboarding_model.dart';
@@ -484,14 +485,22 @@ Progress */
                                                             context)
                                                         .headlineSmall
                                                         .override(
-                                                          fontFamily: 'Roboto',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .headlineSmallFamily,
+                                                          color:
+                                                              const Color(0xFF000220),
                                                           fontSize: 32.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.bold,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .headlineSmallFamily),
                                                           lineHeight: 1.5,
                                                         ),
                                                   ),
@@ -542,11 +551,11 @@ Progress */
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
-                                                                  color: FlutterFlowTheme.of(
+                                                                  fontFamily: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .secondaryBackground,
+                                                                      .bodyMediumFamily,
+                                                                  color: const Color(
+                                                                      0xFF000220),
                                                                   fontSize:
                                                                       20.0,
                                                                   letterSpacing:
@@ -554,6 +563,11 @@ Progress */
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w300,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily),
                                                                   lineHeight:
                                                                       1.5,
                                                                 ),
@@ -628,7 +642,10 @@ Progress */
                                                           context)
                                                       .headlineSmall
                                                       .override(
-                                                        fontFamily: 'Roboto',
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .headlineSmallFamily,
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -637,6 +654,12 @@ Progress */
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.bold,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .headlineSmallFamily),
                                                         lineHeight: 1.5,
                                                       ),
                                                 ).animateOnPageLoad(animationsMap[
@@ -687,8 +710,9 @@ Progress */
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily,
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .secondaryText,
@@ -696,6 +720,11 @@ Progress */
                                                                       20.0,
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily),
                                                                   lineHeight:
                                                                       1.5,
                                                                 ),
@@ -773,7 +802,10 @@ Community */
                                                           context)
                                                       .headlineSmall
                                                       .override(
-                                                        fontFamily: 'Roboto',
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .headlineSmallFamily,
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -782,6 +814,12 @@ Community */
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.bold,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .headlineSmallFamily),
                                                         lineHeight: 1.5,
                                                       ),
                                                 ),
@@ -831,8 +869,9 @@ Community */
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily,
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .secondaryText,
@@ -840,6 +879,11 @@ Community */
                                                                       20.0,
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily),
                                                                   lineHeight:
                                                                       1.5,
                                                                 ),
@@ -915,7 +959,10 @@ With Meditati... */
                                                           context)
                                                       .headlineSmall
                                                       .override(
-                                                        fontFamily: 'Roboto',
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .headlineSmallFamily,
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -924,6 +971,12 @@ With Meditati... */
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.bold,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .headlineSmallFamily),
                                                         lineHeight: 1.5,
                                                       ),
                                                 ).animateOnPageLoad(animationsMap[
@@ -978,8 +1031,9 @@ With Meditati... */
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily,
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .secondaryText,
@@ -987,6 +1041,11 @@ With Meditati... */
                                                                       20.0,
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily),
                                                                   lineHeight:
                                                                       1.5,
                                                                 ),
@@ -1063,7 +1122,7 @@ With Meditati... */
                     onTap: () async {
                       logFirebaseEvent('ONBOARDING_Container_0dk592ls_ON_TAP');
                       logFirebaseEvent('Container_update_page_state');
-                      _model.page = _model.page! + 0.25;
+
                       safeSetState(() {});
                       logFirebaseEvent('Container_page_view');
                       await _model.pageViewController?.nextPage(
@@ -1078,7 +1137,7 @@ With Meditati... */
                         shape: BoxShape.circle,
                       ),
                       child: Visibility(
-                        visible: _model.page! < 1.0,
+                        visible: _model.pageViewCurrentIndex < 1,
                         child: Stack(
                           alignment: const AlignmentDirectional(0.0, 0.0),
                           children: [
@@ -1116,7 +1175,7 @@ With Meditati... */
                                 );
                               },
                               child: CircularPercentIndicator(
-                                percent: _model.page!,
+                                percent: _model.pageViewCurrentIndex.toDouble(),
                                 radius: 30.0,
                                 lineWidth: 2.0,
                                 animation: true,
@@ -1131,7 +1190,7 @@ With Meditati... */
                       ),
                     ),
                   ),
-                  if (_model.page == 1.0)
+                  if (_model.pageViewCurrentIndex == 1)
                     Flexible(
                       flex: 1,
                       child: Container(

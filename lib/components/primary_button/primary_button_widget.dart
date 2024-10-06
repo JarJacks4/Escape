@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'primary_button_model.dart';
 export 'primary_button_model.dart';
 
@@ -67,10 +68,12 @@ class _PrimaryButtonWidgetState extends State<PrimaryButtonWidget> {
                 widget.buttonText,
                 textAlign: TextAlign.center,
                 style: FlutterFlowTheme.of(context).bodyLarge.override(
-                      fontFamily: 'Roboto',
+                      fontFamily: FlutterFlowTheme.of(context).bodyLargeFamily,
                       color: Colors.white,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.bold,
+                      useGoogleFonts: GoogleFonts.asMap().containsKey(
+                          FlutterFlowTheme.of(context).bodyLargeFamily),
                       lineHeight: 1.5,
                     ),
               ),

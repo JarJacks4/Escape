@@ -2,6 +2,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'top_nav1_model.dart';
 export 'top_nav1_model.dart';
 
@@ -68,29 +69,27 @@ class _TopNav1WidgetState extends State<TopNav1Widget> {
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    if (Theme.of(context).brightness == Brightness.light)
-                      Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
-                        child: Image.asset(
-                          'assets/images/Logo_Black.png',
-                          width: 164.0,
-                          height: 87.0,
-                          fit: BoxFit.cover,
-                          alignment: const Alignment(0.0, 0.0),
-                        ),
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                      child: Image.asset(
+                        'assets/images/ESCAPE_Logo_Clear.png',
+                        width: 164.0,
+                        height: 87.0,
+                        fit: BoxFit.cover,
+                        alignment: const Alignment(0.0, 0.0),
                       ),
-                    if (Theme.of(context).brightness == Brightness.dark)
-                      Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
-                        child: Image.asset(
-                          'assets/images/ff_Experts_Logo_onDark@2x.png',
-                          width: 180.0,
-                          height: 40.0,
-                          fit: BoxFit.fitWidth,
-                        ),
+                    ),
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                      child: Image.asset(
+                        'assets/images/ff_Experts_Logo_onDark@2x.png',
+                        width: 180.0,
+                        height: 40.0,
+                        fit: BoxFit.fitWidth,
                       ),
+                    ),
                     Expanded(
                       child: Padding(
                         padding:
@@ -133,11 +132,19 @@ class _TopNav1WidgetState extends State<TopNav1Widget> {
                                           style: FlutterFlowTheme.of(context)
                                               .titleSmall
                                               .override(
-                                                fontFamily: 'Roboto',
+                                                fontFamily:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmallFamily,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondary,
                                                 letterSpacing: 0.0,
+                                                useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                    .containsKey(
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .titleSmallFamily),
                                               ),
                                         ),
                                       ),
@@ -212,8 +219,14 @@ class _TopNav1WidgetState extends State<TopNav1Widget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
                                           .override(
-                                            fontFamily: 'Roboto',
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyLargeFamily,
                                             letterSpacing: 0.0,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyLargeFamily),
                                           ),
                                     )),
                                     SelectionArea(
@@ -224,8 +237,14 @@ class _TopNav1WidgetState extends State<TopNav1Widget> {
                                       style: FlutterFlowTheme.of(context)
                                           .labelSmall
                                           .override(
-                                            fontFamily: 'Roboto',
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .labelSmallFamily,
                                             letterSpacing: 0.0,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelSmallFamily),
                                           ),
                                     )),
                                   ],
