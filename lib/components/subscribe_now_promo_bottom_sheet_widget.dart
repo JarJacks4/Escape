@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/revenue_cat_util.dart' as revenue_cat;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'subscribe_now_promo_bottom_sheet_model.dart';
 export 'subscribe_now_promo_bottom_sheet_model.dart';
 
@@ -122,6 +123,9 @@ class _SubscribeNowPromoBottomSheetWidgetState
                                                 fontSize: 36.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w300,
+                                                useGoogleFonts:
+                                                    GoogleFonts.asMap()
+                                                        .containsKey('Roboto'),
                                               ),
                                         )),
                                       ),
@@ -199,6 +203,10 @@ Timed Out A... */
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w300,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        'Roboto'),
                                                               ),
                                                         ),
                                                       ],
@@ -257,6 +265,10 @@ Timed Out A... */
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w300,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        'Roboto'),
                                                               ),
                                                         ),
                                                       ],
@@ -317,6 +329,10 @@ least 100 Videos... */
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w300,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        'Roboto'),
                                                               ),
                                                         ),
                                                       ],
@@ -351,6 +367,9 @@ least 100 Videos... */
                                                 fontSize: 36.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w300,
+                                                useGoogleFonts:
+                                                    GoogleFonts.asMap()
+                                                        .containsKey('Roboto'),
                                               ),
                                         )),
                                       ),
@@ -367,9 +386,17 @@ least 100 Videos... */
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Roboto',
+                                                fontFamily:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMediumFamily,
                                                 fontSize: 30.0,
                                                 letterSpacing: 0.0,
+                                                useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                    .containsKey(
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumFamily),
                                               ),
                                         ),
                                       ),
@@ -386,10 +413,18 @@ least 100 Videos... */
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Roboto',
+                                                fontFamily:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMediumFamily,
                                                 fontSize: 30.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
+                                                useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                    .containsKey(
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMediumFamily),
                                               ),
                                         ),
                                       ),
@@ -403,12 +438,20 @@ least 100 Videos... */
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Roboto',
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMediumFamily,
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryBackground,
                                               fontSize: 22.0,
                                               letterSpacing: 0.0,
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily),
                                             ),
                                       ),
                                     ),
@@ -518,6 +561,9 @@ Provider Community */
                                                 fontSize: 16.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w300,
+                                                useGoogleFonts:
+                                                    GoogleFonts.asMap()
+                                                        .containsKey('Roboto'),
                                               ),
                                         ),
                                       ],
@@ -563,6 +609,9 @@ Offline Capabilit... */
                                                 fontSize: 16.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w300,
+                                                useGoogleFonts:
+                                                    GoogleFonts.asMap()
+                                                        .containsKey('Roboto'),
                                               ),
                                         ),
                                       ],
@@ -606,6 +655,9 @@ Offline Capabilit... */
                                                 fontSize: 16.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w300,
+                                                useGoogleFonts:
+                                                    GoogleFonts.asMap()
+                                                        .containsKey('Roboto'),
                                               ),
                                         ),
                                       ],
@@ -644,9 +696,13 @@ Offline Capabilit... */
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
-                                  fontFamily: 'Roboto',
+                                  fontFamily: FlutterFlowTheme.of(context)
+                                      .titleSmallFamily,
                                   color: Colors.white,
                                   letterSpacing: 0.0,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey(FlutterFlowTheme.of(context)
+                                          .titleSmallFamily),
                                 ),
                             elevation: 8.0,
                             borderRadius: BorderRadius.circular(20.0),
@@ -667,12 +723,17 @@ Offline Capabilit... */
                               style: FlutterFlowTheme.of(context)
                                   .bodyLarge
                                   .override(
-                                    fontFamily: 'Roboto',
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .bodyLargeFamily,
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
                                     decoration: TextDecoration.underline,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey(
+                                            FlutterFlowTheme.of(context)
+                                                .bodyLargeFamily),
                                   ),
                             ),
                             TextSpan(
@@ -682,10 +743,15 @@ Offline Capabilit... */
                               style: FlutterFlowTheme.of(context)
                                   .bodyLarge
                                   .override(
-                                    fontFamily: 'Roboto',
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .bodyLargeFamily,
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
                                     letterSpacing: 0.0,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey(
+                                            FlutterFlowTheme.of(context)
+                                                .bodyLargeFamily),
                                   ),
                             ),
                             TextSpan(
@@ -701,6 +767,8 @@ Offline Capabilit... */
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
                                     decoration: TextDecoration.underline,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey('Roboto'),
                                   ),
                             ),
                             TextSpan(
@@ -710,10 +778,15 @@ Offline Capabilit... */
                               style: FlutterFlowTheme.of(context)
                                   .bodyLarge
                                   .override(
-                                    fontFamily: 'Roboto',
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .bodyLargeFamily,
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
                                     letterSpacing: 0.0,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey(
+                                            FlutterFlowTheme.of(context)
+                                                .bodyLargeFamily),
                                   ),
                             )
                           ],
@@ -724,6 +797,8 @@ Offline Capabilit... */
                                 color: FlutterFlowTheme.of(context).secondary,
                                 fontSize: 16.0,
                                 letterSpacing: 0.0,
+                                useGoogleFonts:
+                                    GoogleFonts.asMap().containsKey('Roboto'),
                                 lineHeight: 1.2,
                               ),
                         ),

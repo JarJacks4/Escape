@@ -10,6 +10,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'user_community_onboarding_model.dart';
 export 'user_community_onboarding_model.dart';
 
@@ -566,6 +567,9 @@ class _UserCommunityOnboardingWidgetState
                                                 fontFamily: 'Roboto',
                                                 fontSize: 36.0,
                                                 letterSpacing: 0.0,
+                                                useGoogleFonts:
+                                                    GoogleFonts.asMap()
+                                                        .containsKey('Roboto'),
                                               ),
                                         ).animateOnPageLoad(animationsMap[
                                             'textOnPageLoadAnimation1']!),
@@ -588,6 +592,10 @@ class _UserCommunityOnboardingWidgetState
                                                   fontSize: 22.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
+                                                  useGoogleFonts:
+                                                      GoogleFonts.asMap()
+                                                          .containsKey(
+                                                              'Roboto'),
                                                 ),
                                           ).animateOnPageLoad(animationsMap[
                                               'textOnPageLoadAnimation2']!),
@@ -630,6 +638,11 @@ class _UserCommunityOnboardingWidgetState
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w300,
+                                                            useGoogleFonts:
+                                                                GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        'Roboto'),
                                                             lineHeight: 1.5,
                                                           ),
                                                     ),
@@ -688,10 +701,19 @@ class _UserCommunityOnboardingWidgetState
                                                             .of(context)
                                                         .titleSmall
                                                         .override(
-                                                          fontFamily: 'Roboto',
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleSmallFamily,
                                                           color: Colors.white,
                                                           fontSize: 22.0,
                                                           letterSpacing: 0.0,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleSmallFamily),
                                                         ),
                                                     elevation: 8.0,
                                                     borderSide: const BorderSide(
@@ -790,6 +812,9 @@ class _UserCommunityOnboardingWidgetState
                                                 fontFamily: 'Roboto',
                                                 fontSize: 36.0,
                                                 letterSpacing: 0.0,
+                                                useGoogleFonts:
+                                                    GoogleFonts.asMap()
+                                                        .containsKey('Roboto'),
                                               ),
                                         ).animateOnPageLoad(animationsMap[
                                             'textOnPageLoadAnimation3']!),
@@ -812,6 +837,10 @@ class _UserCommunityOnboardingWidgetState
                                                   fontSize: 22.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
+                                                  useGoogleFonts:
+                                                      GoogleFonts.asMap()
+                                                          .containsKey(
+                                                              'Roboto'),
                                                 ),
                                           ).animateOnPageLoad(animationsMap[
                                               'textOnPageLoadAnimation4']!),
@@ -845,6 +874,11 @@ class _UserCommunityOnboardingWidgetState
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w300,
+                                                          useGoogleFonts:
+                                                              GoogleFonts
+                                                                      .asMap()
+                                                                  .containsKey(
+                                                                      'Roboto'),
                                                           lineHeight: 1.5,
                                                         ),
                                                   ),
@@ -901,10 +935,19 @@ class _UserCommunityOnboardingWidgetState
                                                             .of(context)
                                                         .titleSmall
                                                         .override(
-                                                          fontFamily: 'Roboto',
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleSmallFamily,
                                                           color: Colors.white,
                                                           fontSize: 22.0,
                                                           letterSpacing: 0.0,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleSmallFamily),
                                                         ),
                                                     elevation: 8.0,
                                                     borderSide: const BorderSide(
@@ -958,11 +1001,20 @@ class _UserCommunityOnboardingWidgetState
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Roboto',
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMediumFamily,
                                                         fontSize: 18.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily),
                                                       ),
                                             ),
                                           ),
@@ -1053,6 +1105,9 @@ class _UserCommunityOnboardingWidgetState
                                                 fontFamily: 'Roboto',
                                                 fontSize: 36.0,
                                                 letterSpacing: 0.0,
+                                                useGoogleFonts:
+                                                    GoogleFonts.asMap()
+                                                        .containsKey('Roboto'),
                                               ),
                                         ).animateOnPageLoad(animationsMap[
                                             'textOnPageLoadAnimation5']!),
@@ -1075,6 +1130,10 @@ class _UserCommunityOnboardingWidgetState
                                                   fontSize: 18.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
+                                                  useGoogleFonts:
+                                                      GoogleFonts.asMap()
+                                                          .containsKey(
+                                                              'Roboto'),
                                                 ),
                                           ).animateOnPageLoad(animationsMap[
                                               'textOnPageLoadAnimation6']!),
@@ -1192,13 +1251,15 @@ class _UserCommunityOnboardingWidgetState
                                                                         .labelMedium
                                                                         .override(
                                                                           fontFamily:
-                                                                              'Roboto',
+                                                                              FlutterFlowTheme.of(context).labelMediumFamily,
                                                                           color:
                                                                               FlutterFlowTheme.of(context).secondaryBackground,
                                                                           fontSize:
                                                                               14.0,
                                                                           letterSpacing:
                                                                               0.0,
+                                                                          useGoogleFonts:
+                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelMediumFamily),
                                                                         ),
                                                                     hintText: FFLocalizations.of(
                                                                             context)
@@ -1298,7 +1359,8 @@ class _UserCommunityOnboardingWidgetState
                                                                   .bodySmall
                                                                   .override(
                                                                     fontFamily:
-                                                                        'Roboto',
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodySmallFamily,
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .secondaryBackground,
@@ -1306,6 +1368,10 @@ class _UserCommunityOnboardingWidgetState
                                                                         14.0,
                                                                     letterSpacing:
                                                                         0.0,
+                                                                    useGoogleFonts: GoogleFonts
+                                                                            .asMap()
+                                                                        .containsKey(
+                                                                            FlutterFlowTheme.of(context).bodySmallFamily),
                                                                     lineHeight:
                                                                         1.5,
                                                                   ),
@@ -1382,13 +1448,19 @@ class _UserCommunityOnboardingWidgetState
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily,
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .secondaryText,
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily),
                                                                 ),
                                                         validator: _model
                                                             .textController1Validator
@@ -1431,7 +1503,8 @@ class _UserCommunityOnboardingWidgetState
                                                                     .bodySmall
                                                                     .override(
                                                                       fontFamily:
-                                                                          'Roboto',
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodySmallFamily,
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .secondaryBackground,
@@ -1439,6 +1512,10 @@ class _UserCommunityOnboardingWidgetState
                                                                           14.0,
                                                                       letterSpacing:
                                                                           0.0,
+                                                                      useGoogleFonts: GoogleFonts
+                                                                              .asMap()
+                                                                          .containsKey(
+                                                                              FlutterFlowTheme.of(context).bodySmallFamily),
                                                                       lineHeight:
                                                                           1.5,
                                                                     ),
@@ -1515,12 +1592,17 @@ class _UserCommunityOnboardingWidgetState
                                                                   .bodyMedium
                                                                   .override(
                                                                     fontFamily:
-                                                                        'Roboto',
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyMediumFamily,
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .secondaryText,
                                                                     letterSpacing:
                                                                         0.0,
+                                                                    useGoogleFonts: GoogleFonts
+                                                                            .asMap()
+                                                                        .containsKey(
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                   ),
                                                               validator: _model
                                                                   .textController2Validator
@@ -1566,7 +1648,8 @@ class _UserCommunityOnboardingWidgetState
                                                                     .bodySmall
                                                                     .override(
                                                                       fontFamily:
-                                                                          'Roboto',
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodySmallFamily,
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .secondaryBackground,
@@ -1574,6 +1657,10 @@ class _UserCommunityOnboardingWidgetState
                                                                           14.0,
                                                                       letterSpacing:
                                                                           0.0,
+                                                                      useGoogleFonts: GoogleFonts
+                                                                              .asMap()
+                                                                          .containsKey(
+                                                                              FlutterFlowTheme.of(context).bodySmallFamily),
                                                                       lineHeight:
                                                                           1.5,
                                                                     ),
@@ -1651,12 +1738,17 @@ class _UserCommunityOnboardingWidgetState
                                                                   .bodyMedium
                                                                   .override(
                                                                     fontFamily:
-                                                                        'Roboto',
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyMediumFamily,
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .secondaryText,
                                                                     letterSpacing:
                                                                         0.0,
+                                                                    useGoogleFonts: GoogleFonts
+                                                                            .asMap()
+                                                                        .containsKey(
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                   ),
                                                               validator: _model
                                                                   .textController3Validator
@@ -1721,10 +1813,19 @@ class _UserCommunityOnboardingWidgetState
                                                             .of(context)
                                                         .titleSmall
                                                         .override(
-                                                          fontFamily: 'Roboto',
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleSmallFamily,
                                                           color: Colors.white,
                                                           fontSize: 22.0,
                                                           letterSpacing: 0.0,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleSmallFamily),
                                                         ),
                                                     elevation: 8.0,
                                                     borderSide: const BorderSide(
@@ -1823,6 +1924,9 @@ class _UserCommunityOnboardingWidgetState
                                                 fontFamily: 'Roboto',
                                                 fontSize: 36.0,
                                                 letterSpacing: 0.0,
+                                                useGoogleFonts:
+                                                    GoogleFonts.asMap()
+                                                        .containsKey('Roboto'),
                                               ),
                                         ).animateOnPageLoad(animationsMap[
                                             'textOnPageLoadAnimation7']!),
@@ -1845,6 +1949,10 @@ class _UserCommunityOnboardingWidgetState
                                                   fontSize: 18.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
+                                                  useGoogleFonts:
+                                                      GoogleFonts.asMap()
+                                                          .containsKey(
+                                                              'Roboto'),
                                                 ),
                                           ).animateOnPageLoad(animationsMap[
                                               'textOnPageLoadAnimation8']!),
@@ -2000,9 +2108,14 @@ class _UserCommunityOnboardingWidgetState
                                                                   .bodyMedium
                                                                   .override(
                                                                     fontFamily:
-                                                                        'Roboto',
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyMediumFamily,
                                                                     letterSpacing:
                                                                         0.0,
+                                                                    useGoogleFonts: GoogleFonts
+                                                                            .asMap()
+                                                                        .containsKey(
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                   ),
                                                           unselectedTextStyle:
                                                               FlutterFlowTheme.of(
@@ -2010,11 +2123,16 @@ class _UserCommunityOnboardingWidgetState
                                                                   .bodyMedium
                                                                   .override(
                                                                     fontFamily:
-                                                                        'Roboto',
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyMediumFamily,
                                                                     fontSize:
                                                                         16.0,
                                                                     letterSpacing:
                                                                         0.0,
+                                                                    useGoogleFonts: GoogleFonts
+                                                                            .asMap()
+                                                                        .containsKey(
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                     lineHeight:
                                                                         1.5,
                                                                   ),
@@ -2082,10 +2200,19 @@ class _UserCommunityOnboardingWidgetState
                                                             .of(context)
                                                         .titleSmall
                                                         .override(
-                                                          fontFamily: 'Roboto',
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleSmallFamily,
                                                           color: Colors.white,
                                                           fontSize: 22.0,
                                                           letterSpacing: 0.0,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleSmallFamily),
                                                         ),
                                                     elevation: 8.0,
                                                     borderSide: const BorderSide(
@@ -2185,6 +2312,9 @@ class _UserCommunityOnboardingWidgetState
                                                 fontFamily: 'Roboto',
                                                 fontSize: 36.0,
                                                 letterSpacing: 0.0,
+                                                useGoogleFonts:
+                                                    GoogleFonts.asMap()
+                                                        .containsKey('Roboto'),
                                               ),
                                         ).animateOnPageLoad(animationsMap[
                                             'textOnPageLoadAnimation9']!),
@@ -2200,13 +2330,22 @@ class _UserCommunityOnboardingWidgetState
                                             style: FlutterFlowTheme.of(context)
                                                 .titleSmall
                                                 .override(
-                                                  fontFamily: 'Roboto',
+                                                  fontFamily:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .titleSmallFamily,
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .primaryText,
                                                   fontSize: 18.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
+                                                  useGoogleFonts: GoogleFonts
+                                                          .asMap()
+                                                      .containsKey(
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleSmallFamily),
                                                 ),
                                           ).animateOnPageLoad(animationsMap[
                                               'textOnPageLoadAnimation10']!),
@@ -2349,9 +2488,14 @@ class _UserCommunityOnboardingWidgetState
                                                                   .bodyMedium
                                                                   .override(
                                                                     fontFamily:
-                                                                        'Roboto',
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyMediumFamily,
                                                                     letterSpacing:
                                                                         0.0,
+                                                                    useGoogleFonts: GoogleFonts
+                                                                            .asMap()
+                                                                        .containsKey(
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                   ),
                                                           unselectedTextStyle:
                                                               FlutterFlowTheme.of(
@@ -2359,11 +2503,16 @@ class _UserCommunityOnboardingWidgetState
                                                                   .bodyMedium
                                                                   .override(
                                                                     fontFamily:
-                                                                        'Roboto',
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyMediumFamily,
                                                                     fontSize:
                                                                         16.0,
                                                                     letterSpacing:
                                                                         0.0,
+                                                                    useGoogleFonts: GoogleFonts
+                                                                            .asMap()
+                                                                        .containsKey(
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                     lineHeight:
                                                                         1.5,
                                                                   ),
@@ -2439,10 +2588,19 @@ class _UserCommunityOnboardingWidgetState
                                                             .of(context)
                                                         .titleSmall
                                                         .override(
-                                                          fontFamily: 'Roboto',
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleSmallFamily,
                                                           color: Colors.white,
                                                           fontSize: 22.0,
                                                           letterSpacing: 0.0,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleSmallFamily),
                                                         ),
                                                     elevation: 8.0,
                                                     borderSide: const BorderSide(

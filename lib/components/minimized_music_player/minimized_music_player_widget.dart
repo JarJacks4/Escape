@@ -2,6 +2,7 @@ import '/flutter_flow/flutter_flow_audio_player.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'minimized_music_player_model.dart';
 export 'minimized_music_player_model.dart';
 
@@ -69,17 +70,22 @@ class _MinimizedMusicPlayerWidgetState
               ),
             ),
             titleTextStyle: FlutterFlowTheme.of(context).titleLarge.override(
-                  fontFamily: 'Roboto',
+                  fontFamily: FlutterFlowTheme.of(context).titleLargeFamily,
                   color: FlutterFlowTheme.of(context).secondary,
                   letterSpacing: 0.0,
+                  useGoogleFonts: GoogleFonts.asMap().containsKey(
+                      FlutterFlowTheme.of(context).titleLargeFamily),
                 ),
-            playbackDurationTextStyle:
-                FlutterFlowTheme.of(context).labelMedium.override(
-                      fontFamily: 'Roboto',
-                      color: FlutterFlowTheme.of(context).success,
-                      fontSize: 16.0,
-                      letterSpacing: 0.0,
-                    ),
+            playbackDurationTextStyle: FlutterFlowTheme.of(context)
+                .labelMedium
+                .override(
+                  fontFamily: FlutterFlowTheme.of(context).labelMediumFamily,
+                  color: FlutterFlowTheme.of(context).success,
+                  fontSize: 16.0,
+                  letterSpacing: 0.0,
+                  useGoogleFonts: GoogleFonts.asMap().containsKey(
+                      FlutterFlowTheme.of(context).labelMediumFamily),
+                ),
             fillColor: const Color(0x7B040B1A),
             playbackButtonColor: const Color(0xFF1C162D),
             activeTrackColor: const Color(0xFF406090),

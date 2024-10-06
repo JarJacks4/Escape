@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'register_sign_up_model.dart';
 export 'register_sign_up_model.dart';
 
@@ -94,11 +95,14 @@ class _RegisterSignUpWidgetState extends State<RegisterSignUpWidget>
                       ),
                       textAlign: TextAlign.center,
                       style: FlutterFlowTheme.of(context).titleLarge.override(
-                            fontFamily: 'Roboto',
+                            fontFamily:
+                                FlutterFlowTheme.of(context).titleLargeFamily,
                             color: FlutterFlowTheme.of(context).primary,
                             fontSize: 32.0,
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.bold,
+                            useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                FlutterFlowTheme.of(context).titleLargeFamily),
                             lineHeight: 1.5,
                           ),
                     ),
@@ -122,14 +126,18 @@ class _RegisterSignUpWidgetState extends State<RegisterSignUpWidget>
                         hintText: FFLocalizations.of(context).getText(
                           '6rno5qlo' /* Email */,
                         ),
-                        hintStyle:
-                            FlutterFlowTheme.of(context).bodySmall.override(
-                                  fontFamily: 'Roboto',
-                                  color: const Color(0xFFADA4A5),
-                                  fontSize: 18.0,
-                                  letterSpacing: 0.0,
-                                  lineHeight: 1.5,
-                                ),
+                        hintStyle: FlutterFlowTheme.of(context)
+                            .bodySmall
+                            .override(
+                              fontFamily:
+                                  FlutterFlowTheme.of(context).bodySmallFamily,
+                              color: const Color(0xFFADA4A5),
+                              fontSize: 18.0,
+                              letterSpacing: 0.0,
+                              useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                  FlutterFlowTheme.of(context).bodySmallFamily),
+                              lineHeight: 1.5,
+                            ),
                         enabledBorder: UnderlineInputBorder(
                           borderSide: BorderSide(
                             color: FlutterFlowTheme.of(context)
@@ -168,10 +176,13 @@ class _RegisterSignUpWidgetState extends State<RegisterSignUpWidget>
                         ),
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Roboto',
+                            fontFamily:
+                                FlutterFlowTheme.of(context).bodyMediumFamily,
                             color: const Color(0xFF000220),
                             fontSize: 18.0,
                             letterSpacing: 0.0,
+                            useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                FlutterFlowTheme.of(context).bodyMediumFamily),
                           ),
                       validator:
                           _model.textController1Validator.asValidator(context),
@@ -189,14 +200,18 @@ class _RegisterSignUpWidgetState extends State<RegisterSignUpWidget>
                         hintText: FFLocalizations.of(context).getText(
                           'acqi7mm8' /* Password */,
                         ),
-                        hintStyle:
-                            FlutterFlowTheme.of(context).bodySmall.override(
-                                  fontFamily: 'Roboto',
-                                  color: const Color(0xFFADA4A5),
-                                  fontSize: 18.0,
-                                  letterSpacing: 0.0,
-                                  lineHeight: 1.5,
-                                ),
+                        hintStyle: FlutterFlowTheme.of(context)
+                            .bodySmall
+                            .override(
+                              fontFamily:
+                                  FlutterFlowTheme.of(context).bodySmallFamily,
+                              color: const Color(0xFFADA4A5),
+                              fontSize: 18.0,
+                              letterSpacing: 0.0,
+                              useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                  FlutterFlowTheme.of(context).bodySmallFamily),
+                              lineHeight: 1.5,
+                            ),
                         enabledBorder: UnderlineInputBorder(
                           borderSide: BorderSide(
                             color: FlutterFlowTheme.of(context)
@@ -248,10 +263,13 @@ class _RegisterSignUpWidgetState extends State<RegisterSignUpWidget>
                         ),
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Roboto',
+                            fontFamily:
+                                FlutterFlowTheme.of(context).bodyMediumFamily,
                             color: const Color(0xF9000220),
                             fontSize: 18.0,
                             letterSpacing: 0.0,
+                            useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                FlutterFlowTheme.of(context).bodyMediumFamily),
                           ),
                       validator:
                           _model.textController2Validator.asValidator(context),
@@ -269,14 +287,18 @@ class _RegisterSignUpWidgetState extends State<RegisterSignUpWidget>
                         hintText: FFLocalizations.of(context).getText(
                           'euzexe7d' /* Confirm Password */,
                         ),
-                        hintStyle:
-                            FlutterFlowTheme.of(context).bodySmall.override(
-                                  fontFamily: 'Roboto',
-                                  color: const Color(0xFFADA4A5),
-                                  fontSize: 18.0,
-                                  letterSpacing: 0.0,
-                                  lineHeight: 1.5,
-                                ),
+                        hintStyle: FlutterFlowTheme.of(context)
+                            .bodySmall
+                            .override(
+                              fontFamily:
+                                  FlutterFlowTheme.of(context).bodySmallFamily,
+                              color: const Color(0xFFADA4A5),
+                              fontSize: 18.0,
+                              letterSpacing: 0.0,
+                              useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                  FlutterFlowTheme.of(context).bodySmallFamily),
+                              lineHeight: 1.5,
+                            ),
                         enabledBorder: UnderlineInputBorder(
                           borderSide: BorderSide(
                             color: FlutterFlowTheme.of(context)
@@ -329,10 +351,13 @@ class _RegisterSignUpWidgetState extends State<RegisterSignUpWidget>
                         ),
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Roboto',
+                            fontFamily:
+                                FlutterFlowTheme.of(context).bodyMediumFamily,
                             color: const Color(0xF8000220),
                             fontSize: 18.0,
                             letterSpacing: 0.0,
+                            useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                FlutterFlowTheme.of(context).bodyMediumFamily),
                           ),
                       validator:
                           _model.textController3Validator.asValidator(context),
@@ -345,7 +370,7 @@ class _RegisterSignUpWidgetState extends State<RegisterSignUpWidget>
                         data: ThemeData(
                           checkboxTheme: CheckboxThemeData(
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(3.0),
+                              borderRadius: BorderRadius.circular(8.0),
                             ),
                           ),
                           unselectedWidgetColor:
@@ -387,11 +412,16 @@ class _RegisterSignUpWidgetState extends State<RegisterSignUpWidget>
                                   style: FlutterFlowTheme.of(context)
                                       .labelSmall
                                       .override(
-                                        fontFamily: 'Roboto',
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .labelSmallFamily,
                                         color: FlutterFlowTheme.of(context)
                                             .success,
                                         fontSize: 14.0,
                                         letterSpacing: 0.0,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey(
+                                                FlutterFlowTheme.of(context)
+                                                    .labelSmallFamily),
                                         lineHeight: 1.5,
                                       ),
                                 ),
@@ -548,9 +578,12 @@ class _RegisterSignUpWidgetState extends State<RegisterSignUpWidget>
                         '9idg71li' /* Already have an account? */,
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Roboto',
+                            fontFamily:
+                                FlutterFlowTheme.of(context).bodyMediumFamily,
                             color: FlutterFlowTheme.of(context).primary,
                             letterSpacing: 0.0,
+                            useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                FlutterFlowTheme.of(context).bodyMediumFamily),
                             lineHeight: 1.5,
                           ),
                     ),
@@ -585,9 +618,13 @@ class _RegisterSignUpWidgetState extends State<RegisterSignUpWidget>
                           style: FlutterFlowTheme.of(context)
                               .bodyMedium
                               .override(
-                                fontFamily: 'Roboto',
+                                fontFamily: FlutterFlowTheme.of(context)
+                                    .bodyMediumFamily,
                                 color: FlutterFlowTheme.of(context).secondary,
                                 letterSpacing: 0.0,
+                                useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                    FlutterFlowTheme.of(context)
+                                        .bodyMediumFamily),
                                 lineHeight: 1.5,
                               ),
                         ),

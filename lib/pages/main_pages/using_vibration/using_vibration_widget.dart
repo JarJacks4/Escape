@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'using_vibration_model.dart';
 export 'using_vibration_model.dart';
 
@@ -263,6 +264,10 @@ class _UsingVibrationWidgetState extends State<UsingVibrationWidget>
                                                     fontSize: 36.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w300,
+                                                    useGoogleFonts:
+                                                        GoogleFonts.asMap()
+                                                            .containsKey(
+                                                                'Roboto'),
                                                   ),
                                             )),
                                           ),

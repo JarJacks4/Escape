@@ -13,8 +13,6 @@ subprojects {
     project.evaluationDependsOn(':app')
 }
 
-flutterflow
 task clean(type: Delete) {
-tasks.register("clean", Delete) { main
     delete rootProject.buildDir
 }

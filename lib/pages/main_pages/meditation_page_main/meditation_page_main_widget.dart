@@ -3,9 +3,6 @@ import '/components/tabbar_home_meditation/tabbar_home_meditation_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/walkthroughs/meditation_walkthrough.dart';
-import 'package:tutorial_coach_mark/tutorial_coach_mark.dart'
-    show TutorialCoachMark;
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'meditation_page_main_model.dart';
@@ -122,7 +119,7 @@ class _MeditationPageMainWidgetState extends State<MeditationPageMainWidget>
               children: [
                 Container(
                   width: double.infinity,
-                  height: 274.0,
+                  height: 233.0,
                   decoration: const BoxDecoration(),
                   child: wrapWithModel(
                     model: _model.headerMainMeditationModel,
@@ -136,13 +133,8 @@ class _MeditationPageMainWidgetState extends State<MeditationPageMainWidget>
                     model: _model.tabbarHomeMeditationModel,
                     updateCallback: () => safeSetState(() {}),
                     child: const TabbarHomeMeditationWidget(),
-                  )
-                      .addWalkthrough(
-                        containerWlqc10m7,
-                        _model.meditationWalkthroughController,
-                      )
-                      .animateOnPageLoad(animationsMap[
-                          'tabbarHomeMeditationOnPageLoadAnimation']!),
+                  ).animateOnPageLoad(animationsMap[
+                      'tabbarHomeMeditationOnPageLoadAnimation']!),
                 ),
               ],
             ),
@@ -151,15 +143,4 @@ class _MeditationPageMainWidgetState extends State<MeditationPageMainWidget>
       ),
     );
   }
-
-  TutorialCoachMark createPageWalkthrough(BuildContext context) =>
-      TutorialCoachMark(
-        targets: createWalkthroughTargets(context),
-        onFinish: () async {
-          safeSetState(() => _model.meditationWalkthroughController = null);
-        },
-        onSkip: () {
-          return true;
-        },
-      );
 }

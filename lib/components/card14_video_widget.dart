@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'card14_video_model.dart';
 export 'card14_video_model.dart';
 
@@ -141,8 +142,11 @@ class _Card14VideoWidgetState extends State<Card14VideoWidget>
                       '439c9p3r' /* Learn to breath */,
                     ),
                     style: FlutterFlowTheme.of(context).bodyLarge.override(
-                          fontFamily: 'Roboto',
+                          fontFamily:
+                              FlutterFlowTheme.of(context).bodyLargeFamily,
                           letterSpacing: 0.0,
+                          useGoogleFonts: GoogleFonts.asMap().containsKey(
+                              FlutterFlowTheme.of(context).bodyLargeFamily),
                         ),
                   ),
                   Padding(
@@ -152,8 +156,11 @@ class _Card14VideoWidgetState extends State<Card14VideoWidget>
                         'lrm9cuzw' /* 4 Min */,
                       ),
                       style: FlutterFlowTheme.of(context).labelSmall.override(
-                            fontFamily: 'Roboto',
+                            fontFamily:
+                                FlutterFlowTheme.of(context).labelSmallFamily,
                             letterSpacing: 0.0,
+                            useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                FlutterFlowTheme.of(context).labelSmallFamily),
                           ),
                     ),
                   ),
@@ -176,13 +183,18 @@ class _Card14VideoWidgetState extends State<Card14VideoWidget>
                           FFLocalizations.of(context).getText(
                             'vwi55wnw' /* George Switzer */,
                           ),
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Roboto',
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
-                                    letterSpacing: 0.0,
-                                  ),
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: FlutterFlowTheme.of(context)
+                                    .bodyMediumFamily,
+                                color: FlutterFlowTheme.of(context)
+                                    .primaryBackground,
+                                letterSpacing: 0.0,
+                                useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                    FlutterFlowTheme.of(context)
+                                        .bodyMediumFamily),
+                              ),
                         ),
                       ),
                     ],

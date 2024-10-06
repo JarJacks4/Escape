@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'tabbar_home_yoga_model.dart';
 export 'tabbar_home_yoga_model.dart';
 
@@ -66,17 +67,23 @@ class _TabbarHomeYogaWidgetState extends State<TabbarHomeYogaWidget>
                   useToggleButtonStyle: false,
                   isScrollable: true,
                   labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
-                        fontFamily: 'Roboto',
+                        fontFamily:
+                            FlutterFlowTheme.of(context).labelMediumFamily,
                         fontSize: 14.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.w500,
+                        useGoogleFonts: GoogleFonts.asMap().containsKey(
+                            FlutterFlowTheme.of(context).labelMediumFamily),
                       ),
                   unselectedLabelStyle:
                       FlutterFlowTheme.of(context).labelMedium.override(
-                            fontFamily: 'Roboto',
-                            fontSize: 14.0,
+                            fontFamily:
+                                FlutterFlowTheme.of(context).labelMediumFamily,
+                            fontSize: 16.0,
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.w500,
+                            useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                FlutterFlowTheme.of(context).labelMediumFamily),
                           ),
                   labelColor: Colors.white,
                   unselectedLabelColor: FlutterFlowTheme.of(context).primary,
@@ -86,7 +93,7 @@ class _TabbarHomeYogaWidgetState extends State<TabbarHomeYogaWidget>
                   unselectedBorderColor: const Color(0x00FFFFFF),
                   borderWidth: 0.0,
                   borderRadius: 10.0,
-                  elevation: 5.0,
+                  elevation: 8.0,
                   labelPadding:
                       const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
                   buttonMargin:
@@ -99,7 +106,7 @@ class _TabbarHomeYogaWidgetState extends State<TabbarHomeYogaWidget>
                       ),
                       icon: const FaIcon(
                         FontAwesomeIcons.alignLeft,
-                        size: 40.0,
+                        size: 30.0,
                       ),
                     ),
                     Tab(
@@ -108,7 +115,7 @@ class _TabbarHomeYogaWidgetState extends State<TabbarHomeYogaWidget>
                       ),
                       icon: const Icon(
                         Icons.spa,
-                        size: 40.0,
+                        size: 30.0,
                       ),
                     ),
                     Tab(
@@ -117,7 +124,7 @@ class _TabbarHomeYogaWidgetState extends State<TabbarHomeYogaWidget>
                       ),
                       icon: const FaIcon(
                         FontAwesomeIcons.solidSmileBeam,
-                        size: 40.0,
+                        size: 30.0,
                       ),
                     ),
                     Tab(
@@ -126,7 +133,7 @@ class _TabbarHomeYogaWidgetState extends State<TabbarHomeYogaWidget>
                       ),
                       icon: const FaIcon(
                         FontAwesomeIcons.yinYang,
-                        size: 40.0,
+                        size: 30.0,
                       ),
                     ),
                     Tab(
@@ -135,7 +142,7 @@ class _TabbarHomeYogaWidgetState extends State<TabbarHomeYogaWidget>
                       ),
                       icon: const FaIcon(
                         FontAwesomeIcons.medrt,
-                        size: 40.0,
+                        size: 30.0,
                       ),
                     ),
                   ],
@@ -155,121 +162,262 @@ class _TabbarHomeYogaWidgetState extends State<TabbarHomeYogaWidget>
                 child: TabBarView(
                   controller: _model.tabBarController,
                   children: [
-                    SingleChildScrollView(
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                15.0, 20.0, 10.0, 0.0),
-                            child: MasonryGridView.builder(
-                              gridDelegate:
-                                  const SliverSimpleGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 2,
-                              ),
-                              crossAxisSpacing: 15.0,
-                              mainAxisSpacing: 11.0,
-                              itemCount: 4,
-                              shrinkWrap: true,
-                              itemBuilder: (context, index) {
-                                return [
-                                  () => Material(
-                                        color: Colors.transparent,
-                                        elevation: 8.0,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(15.0),
-                                        ),
-                                        child: Container(
-                                          width: 88.0,
-                                          height: 271.0,
-                                          decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                            image: DecorationImage(
-                                              fit: BoxFit.cover,
-                                              image: Image.network(
-                                                'https://images.unsplash.com/photo-1549576490-b0b4831ef60a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwyfHx5b2dhJTIwY2xhc3N8ZW58MHx8fHwxNzA5Nzg1NTIzfDA&ixlib=rb-4.0.3&q=80&w=1080',
-                                              ).image,
-                                            ),
-                                            boxShadow: const [
-                                              BoxShadow(
-                                                blurRadius: 4.0,
-                                                color: Color(0x33000000),
-                                                offset: Offset(
-                                                  0.0,
-                                                  2.0,
-                                                ),
-                                                spreadRadius: 2.0,
-                                              )
-                                            ],
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                      child: SingleChildScrollView(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  15.0, 20.0, 10.0, 0.0),
+                              child: MasonryGridView.builder(
+                                gridDelegate:
+                                    const SliverSimpleGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 2,
+                                ),
+                                crossAxisSpacing: 15.0,
+                                mainAxisSpacing: 11.0,
+                                itemCount: 4,
+                                shrinkWrap: true,
+                                itemBuilder: (context, index) {
+                                  return [
+                                    () => Material(
+                                          color: Colors.transparent,
+                                          elevation: 8.0,
+                                          shape: RoundedRectangleBorder(
                                             borderRadius:
                                                 BorderRadius.circular(15.0),
                                           ),
-                                          child: Align(
-                                            alignment:
-                                                const AlignmentDirectional(0.0, 1.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Expanded(
-                                                  flex: 1,
-                                                  child: InkWell(
-                                                    splashColor:
-                                                        Colors.transparent,
-                                                    focusColor:
-                                                        Colors.transparent,
-                                                    hoverColor:
-                                                        Colors.transparent,
-                                                    highlightColor:
-                                                        Colors.transparent,
-                                                    onTap: () async {
-                                                      logFirebaseEvent(
-                                                          'TABBAR_HOME_YOGA_Container_8y2pd8b1_ON_T');
-                                                      logFirebaseEvent(
-                                                          'Container_navigate_to');
+                                          child: Container(
+                                            width: 88.0,
+                                            height: 271.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              image: DecorationImage(
+                                                fit: BoxFit.cover,
+                                                image: Image.network(
+                                                  'https://images.unsplash.com/photo-1549576490-b0b4831ef60a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwyfHx5b2dhJTIwY2xhc3N8ZW58MHx8fHwxNzA5Nzg1NTIzfDA&ixlib=rb-4.0.3&q=80&w=1080',
+                                                ).image,
+                                              ),
+                                              boxShadow: const [
+                                                BoxShadow(
+                                                  blurRadius: 4.0,
+                                                  color: Color(0x33000000),
+                                                  offset: Offset(
+                                                    0.0,
+                                                    2.0,
+                                                  ),
+                                                  spreadRadius: 2.0,
+                                                )
+                                              ],
+                                              borderRadius:
+                                                  BorderRadius.circular(15.0),
+                                            ),
+                                            child: Align(
+                                              alignment: const AlignmentDirectional(
+                                                  0.0, 1.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Expanded(
+                                                    flex: 1,
+                                                    child: InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        logFirebaseEvent(
+                                                            'TABBAR_HOME_YOGA_Container_8y2pd8b1_ON_T');
+                                                        logFirebaseEvent(
+                                                            'Container_navigate_to');
 
-                                                      context.pushNamed(
-                                                        'BeginnersYoga',
-                                                        extra: <String,
-                                                            dynamic>{
-                                                          kTransitionInfoKey:
-                                                              const TransitionInfo(
-                                                            hasTransition: true,
-                                                            transitionType:
-                                                                PageTransitionType
-                                                                    .fade,
-                                                            duration: Duration(
-                                                                milliseconds:
-                                                                    2),
+                                                        context.pushNamed(
+                                                          'BeginnersYoga',
+                                                          extra: <String,
+                                                              dynamic>{
+                                                            kTransitionInfoKey:
+                                                                const TransitionInfo(
+                                                              hasTransition:
+                                                                  true,
+                                                              transitionType:
+                                                                  PageTransitionType
+                                                                      .fade,
+                                                              duration: Duration(
+                                                                  milliseconds:
+                                                                      2),
+                                                            ),
+                                                          },
+                                                        );
+                                                      },
+                                                      child: Container(
+                                                        width: 195.0,
+                                                        height: 69.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color:
+                                                              const Color(0xBE84468E),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      11.0),
+                                                        ),
+                                                        child: Align(
+                                                          alignment:
+                                                              const AlignmentDirectional(
+                                                                  0.0, 0.0),
+                                                          child: Padding(
+                                                            padding:
+                                                                const EdgeInsets.all(
+                                                                    11.0),
+                                                            child: Text(
+                                                              FFLocalizations.of(
+                                                                      context)
+                                                                  .getText(
+                                                                '2ppotz15' /* Beginner's
+Guide */
+                                                                ,
+                                                              ),
+                                                              textAlign:
+                                                                  TextAlign
+                                                                      .center,
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Roboto',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryBackground,
+                                                                    fontSize:
+                                                                        20.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w300,
+                                                                    useGoogleFonts: GoogleFonts
+                                                                            .asMap()
+                                                                        .containsKey(
+                                                                            'Roboto'),
+                                                                  ),
+                                                            ),
                                                           ),
-                                                        },
-                                                      );
-                                                    },
-                                                    child: Container(
-                                                      width: 195.0,
-                                                      height: 69.0,
-                                                      decoration: BoxDecoration(
-                                                        color:
-                                                            const Color(0xBE84468E),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(11.0),
+                                                        ),
                                                       ),
-                                                      child: Align(
-                                                        alignment:
-                                                            const AlignmentDirectional(
-                                                                0.0, 0.0),
-                                                        child: Padding(
-                                                          padding:
-                                                              const EdgeInsets.all(
-                                                                  11.0),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                    () => Material(
+                                          color: Colors.transparent,
+                                          elevation: 8.0,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(15.0),
+                                          ),
+                                          child: Container(
+                                            width: 88.0,
+                                            height: 183.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              image: DecorationImage(
+                                                fit: BoxFit.cover,
+                                                image: Image.network(
+                                                  'https://images.unsplash.com/photo-1512291313931-d4291048e7b6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHw1fHx5b2dhJTIwY2hhbGxlbmdlfGVufDB8fHx8MTcwOTc4NTU1MHww&ixlib=rb-4.0.3&q=80&w=1080',
+                                                ).image,
+                                              ),
+                                              boxShadow: const [
+                                                BoxShadow(
+                                                  blurRadius: 4.0,
+                                                  color: Color(0x33000000),
+                                                  offset: Offset(
+                                                    0.0,
+                                                    2.0,
+                                                  ),
+                                                  spreadRadius: 2.0,
+                                                )
+                                              ],
+                                              borderRadius:
+                                                  BorderRadius.circular(15.0),
+                                            ),
+                                            child: Align(
+                                              alignment: const AlignmentDirectional(
+                                                  0.0, 1.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Expanded(
+                                                    flex: 1,
+                                                    child: InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        logFirebaseEvent(
+                                                            'TABBAR_HOME_YOGA_Container_w48ns2bp_ON_T');
+                                                        logFirebaseEvent(
+                                                            'Container_navigate_to');
+
+                                                        context.pushNamed(
+                                                          'HelpAnxiety',
+                                                          extra: <String,
+                                                              dynamic>{
+                                                            kTransitionInfoKey:
+                                                                const TransitionInfo(
+                                                              hasTransition:
+                                                                  true,
+                                                              transitionType:
+                                                                  PageTransitionType
+                                                                      .fade,
+                                                              duration: Duration(
+                                                                  milliseconds:
+                                                                      2),
+                                                            ),
+                                                          },
+                                                        );
+                                                      },
+                                                      child: Container(
+                                                        width: 166.0,
+                                                        height: 69.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color:
+                                                              const Color(0xBE84468E),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      11.0),
+                                                        ),
+                                                        child: Align(
+                                                          alignment:
+                                                              const AlignmentDirectional(
+                                                                  0.0, 0.0),
                                                           child: Text(
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                              '2ppotz15' /* Beginner's
-Guide */
+                                                              'fd9w4b1o' /* Help
+Anxiety */
                                                               ,
                                                             ),
                                                             textAlign: TextAlign
@@ -290,186 +438,199 @@ Guide */
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w300,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          'Roboto'),
                                                                 ),
                                                           ),
                                                         ),
                                                       ),
                                                     ),
                                                   ),
-                                                ),
-                                              ],
+                                                ],
+                                              ),
                                             ),
                                           ),
                                         ),
-                                      ),
-                                  () => Material(
-                                        color: Colors.transparent,
-                                        elevation: 8.0,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(15.0),
-                                        ),
-                                        child: Container(
-                                          width: 88.0,
-                                          height: 183.0,
-                                          decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                            image: DecorationImage(
-                                              fit: BoxFit.cover,
-                                              image: Image.network(
-                                                'https://images.unsplash.com/photo-1512291313931-d4291048e7b6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHw1fHx5b2dhJTIwY2hhbGxlbmdlfGVufDB8fHx8MTcwOTc4NTU1MHww&ixlib=rb-4.0.3&q=80&w=1080',
-                                              ).image,
-                                            ),
-                                            boxShadow: const [
-                                              BoxShadow(
-                                                blurRadius: 4.0,
-                                                color: Color(0x33000000),
-                                                offset: Offset(
-                                                  0.0,
-                                                  2.0,
-                                                ),
-                                                spreadRadius: 2.0,
-                                              )
-                                            ],
+                                    () => Material(
+                                          color: Colors.transparent,
+                                          elevation: 8.0,
+                                          shape: RoundedRectangleBorder(
                                             borderRadius:
-                                                BorderRadius.circular(15.0),
+                                                BorderRadius.circular(11.0),
                                           ),
-                                          child: Align(
-                                            alignment:
-                                                const AlignmentDirectional(0.0, 1.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Expanded(
-                                                  flex: 1,
-                                                  child: InkWell(
-                                                    splashColor:
-                                                        Colors.transparent,
-                                                    focusColor:
-                                                        Colors.transparent,
-                                                    hoverColor:
-                                                        Colors.transparent,
-                                                    highlightColor:
-                                                        Colors.transparent,
-                                                    onTap: () async {
-                                                      logFirebaseEvent(
-                                                          'TABBAR_HOME_YOGA_Container_w48ns2bp_ON_T');
-                                                      logFirebaseEvent(
-                                                          'Container_navigate_to');
+                                          child: Container(
+                                            width: 88.0,
+                                            height: 300.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              image: DecorationImage(
+                                                fit: BoxFit.cover,
+                                                image: Image.network(
+                                                  'https://images.unsplash.com/photo-1562679299-d21b8e13ac09?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwxNHx8ZWd5cHQlMjB8ZW58MHx8fHwxNzI1NTU0MDAwfDA&ixlib=rb-4.0.3&q=80&w=1080',
+                                                ).image,
+                                              ),
+                                              boxShadow: const [
+                                                BoxShadow(
+                                                  blurRadius: 4.0,
+                                                  color: Color(0x33000000),
+                                                  offset: Offset(
+                                                    0.0,
+                                                    2.0,
+                                                  ),
+                                                  spreadRadius: 2.0,
+                                                )
+                                              ],
+                                              borderRadius:
+                                                  BorderRadius.circular(11.0),
+                                            ),
+                                            child: Align(
+                                              alignment: const AlignmentDirectional(
+                                                  0.0, 1.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Expanded(
+                                                    flex: 1,
+                                                    child: Align(
+                                                      alignment:
+                                                          const AlignmentDirectional(
+                                                              0.0, 1.0),
+                                                      child: InkWell(
+                                                        splashColor:
+                                                            Colors.transparent,
+                                                        focusColor:
+                                                            Colors.transparent,
+                                                        hoverColor:
+                                                            Colors.transparent,
+                                                        highlightColor:
+                                                            Colors.transparent,
+                                                        onTap: () async {
+                                                          logFirebaseEvent(
+                                                              'TABBAR_HOME_YOGA_Container_9qhg0yc3_ON_T');
+                                                          logFirebaseEvent(
+                                                              'Container_navigate_to');
 
-                                                      context.pushNamed(
-                                                        'HelpAnxiety',
-                                                        extra: <String,
-                                                            dynamic>{
-                                                          kTransitionInfoKey:
-                                                              const TransitionInfo(
-                                                            hasTransition: true,
-                                                            transitionType:
-                                                                PageTransitionType
-                                                                    .fade,
-                                                            duration: Duration(
-                                                                milliseconds:
-                                                                    2),
-                                                          ),
-                                                        },
-                                                      );
-                                                    },
-                                                    child: Container(
-                                                      width: 166.0,
-                                                      height: 69.0,
-                                                      decoration: BoxDecoration(
-                                                        color:
-                                                            const Color(0xBE84468E),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(11.0),
-                                                      ),
-                                                      child: Align(
-                                                        alignment:
-                                                            const AlignmentDirectional(
-                                                                0.0, 0.0),
-                                                        child: Text(
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                            'fd9w4b1o' /* Help
-Anxiety */
-                                                            ,
-                                                          ),
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Roboto',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryBackground,
-                                                                fontSize: 20.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w300,
+                                                          context.pushNamed(
+                                                            'KemeticYoga',
+                                                            extra: <String,
+                                                                dynamic>{
+                                                              kTransitionInfoKey:
+                                                                  const TransitionInfo(
+                                                                hasTransition:
+                                                                    true,
+                                                                transitionType:
+                                                                    PageTransitionType
+                                                                        .fade,
+                                                                duration: Duration(
+                                                                    milliseconds:
+                                                                        2),
                                                               ),
+                                                            },
+                                                          );
+                                                        },
+                                                        child: Container(
+                                                          width: 200.0,
+                                                          height: 70.0,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: const Color(
+                                                                0xBE84468E),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        11.0),
+                                                          ),
+                                                          child: Align(
+                                                            alignment:
+                                                                const AlignmentDirectional(
+                                                                    0.0, 0.0),
+                                                            child: Text(
+                                                              FFLocalizations.of(
+                                                                      context)
+                                                                  .getText(
+                                                                'bhcxsiry' /* Kemetic Yoga */,
+                                                              ),
+                                                              textAlign:
+                                                                  TextAlign
+                                                                      .center,
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Roboto',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryBackground,
+                                                                    fontSize:
+                                                                        20.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w300,
+                                                                    useGoogleFonts: GoogleFonts
+                                                                            .asMap()
+                                                                        .containsKey(
+                                                                            'Roboto'),
+                                                                  ),
+                                                            ),
+                                                          ),
                                                         ),
                                                       ),
                                                     ),
                                                   ),
-                                                ),
-                                              ],
+                                                ],
+                                              ),
                                             ),
                                           ),
                                         ),
-                                      ),
-                                  () => Material(
-                                        color: Colors.transparent,
-                                        elevation: 8.0,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(11.0),
-                                        ),
-                                        child: Container(
-                                          width: 88.0,
-                                          height: 300.0,
-                                          decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                            image: DecorationImage(
-                                              fit: BoxFit.cover,
-                                              image: Image.network(
-                                                'https://images.unsplash.com/photo-1562679299-d21b8e13ac09?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwxNHx8ZWd5cHQlMjB8ZW58MHx8fHwxNzI1NTU0MDAwfDA&ixlib=rb-4.0.3&q=80&w=1080',
-                                              ).image,
-                                            ),
-                                            boxShadow: const [
-                                              BoxShadow(
-                                                blurRadius: 4.0,
-                                                color: Color(0x33000000),
-                                                offset: Offset(
-                                                  0.0,
-                                                  2.0,
-                                                ),
-                                                spreadRadius: 2.0,
-                                              )
-                                            ],
+                                    () => Material(
+                                          color: Colors.transparent,
+                                          elevation: 8.0,
+                                          shape: RoundedRectangleBorder(
                                             borderRadius:
-                                                BorderRadius.circular(11.0),
+                                                BorderRadius.circular(15.0),
                                           ),
-                                          child: Align(
-                                            alignment:
-                                                const AlignmentDirectional(0.0, 1.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Expanded(
-                                                  flex: 1,
-                                                  child: Align(
-                                                    alignment:
-                                                        const AlignmentDirectional(
-                                                            0.0, 1.0),
+                                          child: Container(
+                                            width: 88.0,
+                                            height: 243.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              image: DecorationImage(
+                                                fit: BoxFit.cover,
+                                                image: Image.network(
+                                                  'https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHw1fHx5b2dhfGVufDB8fHx8MTcwOTEzMjIyNHww&ixlib=rb-4.0.3&q=80&w=1080',
+                                                ).image,
+                                              ),
+                                              boxShadow: const [
+                                                BoxShadow(
+                                                  blurRadius: 4.0,
+                                                  color: Color(0x33000000),
+                                                  offset: Offset(
+                                                    0.0,
+                                                    2.0,
+                                                  ),
+                                                  spreadRadius: 2.0,
+                                                )
+                                              ],
+                                              borderRadius:
+                                                  BorderRadius.circular(15.0),
+                                            ),
+                                            child: Align(
+                                              alignment: const AlignmentDirectional(
+                                                  0.0, 1.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Expanded(
+                                                    flex: 1,
                                                     child: InkWell(
                                                       splashColor:
                                                           Colors.transparent,
@@ -481,12 +642,12 @@ Anxiety */
                                                           Colors.transparent,
                                                       onTap: () async {
                                                         logFirebaseEvent(
-                                                            'TABBAR_HOME_YOGA_Container_9qhg0yc3_ON_T');
+                                                            'TABBAR_HOME_YOGA_Container_p0lf548e_ON_T');
                                                         logFirebaseEvent(
                                                             'Container_navigate_to');
 
                                                         context.pushNamed(
-                                                          'KemeticYoga',
+                                                          'YogaPoseVideos',
                                                           extra: <String,
                                                               dynamic>{
                                                             kTransitionInfoKey:
@@ -504,8 +665,8 @@ Anxiety */
                                                         );
                                                       },
                                                       child: Container(
-                                                        width: 200.0,
-                                                        height: 70.0,
+                                                        width: 166.0,
+                                                        height: 69.0,
                                                         decoration:
                                                             BoxDecoration(
                                                           color:
@@ -523,7 +684,7 @@ Anxiety */
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                              'bhcxsiry' /* Kemetic Yoga */,
+                                                              '6bjyvt1j' /* Yoga Poses */,
                                                             ),
                                                             textAlign: TextAlign
                                                                 .center,
@@ -543,165 +704,64 @@ Anxiety */
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w300,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          'Roboto'),
                                                                 ),
                                                           ),
                                                         ),
                                                       ),
                                                     ),
                                                   ),
-                                                ),
-                                              ],
+                                                ],
+                                              ),
                                             ),
                                           ),
                                         ),
-                                      ),
-                                  () => Material(
-                                        color: Colors.transparent,
-                                        elevation: 8.0,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(15.0),
-                                        ),
-                                        child: Container(
-                                          width: 88.0,
-                                          height: 243.0,
-                                          decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                            image: DecorationImage(
-                                              fit: BoxFit.cover,
-                                              image: Image.network(
-                                                'https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHw1fHx5b2dhfGVufDB8fHx8MTcwOTEzMjIyNHww&ixlib=rb-4.0.3&q=80&w=1080',
-                                              ).image,
-                                            ),
-                                            boxShadow: const [
-                                              BoxShadow(
-                                                blurRadius: 4.0,
-                                                color: Color(0x33000000),
-                                                offset: Offset(
-                                                  0.0,
-                                                  2.0,
-                                                ),
-                                                spreadRadius: 2.0,
-                                              )
-                                            ],
-                                            borderRadius:
-                                                BorderRadius.circular(15.0),
-                                          ),
-                                          child: Align(
-                                            alignment:
-                                                const AlignmentDirectional(0.0, 1.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Expanded(
-                                                  flex: 1,
-                                                  child: InkWell(
-                                                    splashColor:
-                                                        Colors.transparent,
-                                                    focusColor:
-                                                        Colors.transparent,
-                                                    hoverColor:
-                                                        Colors.transparent,
-                                                    highlightColor:
-                                                        Colors.transparent,
-                                                    onTap: () async {
-                                                      logFirebaseEvent(
-                                                          'TABBAR_HOME_YOGA_Container_p0lf548e_ON_T');
-                                                      logFirebaseEvent(
-                                                          'Container_navigate_to');
-
-                                                      context.pushNamed(
-                                                        'YogaPoseVideos',
-                                                        extra: <String,
-                                                            dynamic>{
-                                                          kTransitionInfoKey:
-                                                              const TransitionInfo(
-                                                            hasTransition: true,
-                                                            transitionType:
-                                                                PageTransitionType
-                                                                    .fade,
-                                                            duration: Duration(
-                                                                milliseconds:
-                                                                    2),
-                                                          ),
-                                                        },
-                                                      );
-                                                    },
-                                                    child: Container(
-                                                      width: 166.0,
-                                                      height: 69.0,
-                                                      decoration: BoxDecoration(
-                                                        color:
-                                                            const Color(0xBE84468E),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(11.0),
-                                                      ),
-                                                      child: Align(
-                                                        alignment:
-                                                            const AlignmentDirectional(
-                                                                0.0, 0.0),
-                                                        child: Text(
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                            '6bjyvt1j' /* Yoga Poses */,
-                                                          ),
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Roboto',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryBackground,
-                                                                fontSize: 20.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w300,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                ][index]();
-                              },
+                                  ][index]();
+                                },
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
-                    wrapWithModel(
-                      model: _model.beginnersYogaCompModel,
-                      updateCallback: () => safeSetState(() {}),
-                      child: const BeginnersYogaCompWidget(),
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                      child: wrapWithModel(
+                        model: _model.beginnersYogaCompModel,
+                        updateCallback: () => safeSetState(() {}),
+                        child: const BeginnersYogaCompWidget(),
+                      ),
                     ),
-                    wrapWithModel(
-                      model: _model.pilatesVideosCompModel,
-                      updateCallback: () => safeSetState(() {}),
-                      child: const PilatesVideosCompWidget(),
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                      child: wrapWithModel(
+                        model: _model.pilatesVideosCompModel,
+                        updateCallback: () => safeSetState(() {}),
+                        child: const PilatesVideosCompWidget(),
+                      ),
                     ),
-                    wrapWithModel(
-                      model: _model.taiChiVideosCompModel,
-                      updateCallback: () => safeSetState(() {}),
-                      child: const TaiChiVideosCompWidget(),
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                      child: wrapWithModel(
+                        model: _model.taiChiVideosCompModel,
+                        updateCallback: () => safeSetState(() {}),
+                        child: const TaiChiVideosCompWidget(),
+                      ),
                     ),
-                    wrapWithModel(
-                      model: _model.groundingVideosModel,
-                      updateCallback: () => safeSetState(() {}),
-                      child: const GroundingVideosWidget(),
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                      child: wrapWithModel(
+                        model: _model.groundingVideosModel,
+                        updateCallback: () => safeSetState(() {}),
+                        child: const GroundingVideosWidget(),
+                      ),
                     ),
                   ],
                 ),

@@ -6,6 +6,7 @@ import '/meditation_and_sounds/time_carousel_copy/time_carousel_copy_widget.dart
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'timed_meditations_model.dart';
 export 'timed_meditations_model.dart';
@@ -133,6 +134,11 @@ class _TimedMeditationsWidgetState extends State<TimedMeditationsWidget> {
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w200,
+                                                          useGoogleFonts:
+                                                              GoogleFonts
+                                                                      .asMap()
+                                                                  .containsKey(
+                                                                      'Roboto'),
                                                         ),
                                                   ),
                                                 ),
@@ -187,6 +193,10 @@ class _TimedMeditationsWidgetState extends State<TimedMeditationsWidget> {
                                                   fontSize: 22.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.normal,
+                                                  useGoogleFonts:
+                                                      GoogleFonts.asMap()
+                                                          .containsKey(
+                                                              'Roboto'),
                                                 ),
                                           ),
                                         ),
@@ -258,6 +268,11 @@ Woul... */
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w300,
+                                                          useGoogleFonts:
+                                                              GoogleFonts
+                                                                      .asMap()
+                                                                  .containsKey(
+                                                                      'Roboto'),
                                                         ),
                                                   ),
                                                 ),
@@ -342,6 +357,10 @@ Woul... */
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w200,
+                                                        useGoogleFonts:
+                                                            GoogleFonts.asMap()
+                                                                .containsKey(
+                                                                    'Roboto'),
                                                       ),
                                                 ),
                                               ),
@@ -395,6 +414,10 @@ Woul... */
                                                   fontSize: 22.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
+                                                  useGoogleFonts:
+                                                      GoogleFonts.asMap()
+                                                          .containsKey(
+                                                              'Roboto'),
                                                 ),
                                           ),
                                         ),
@@ -464,6 +487,11 @@ You Have to Med... */
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w300,
+                                                          useGoogleFonts:
+                                                              GoogleFonts
+                                                                      .asMap()
+                                                                  .containsKey(
+                                                                      'Roboto'),
                                                         ),
                                                   ),
                                                 ),
@@ -548,6 +576,10 @@ You Have to Med... */
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w200,
+                                                        useGoogleFonts:
+                                                            GoogleFonts.asMap()
+                                                                .containsKey(
+                                                                    'Roboto'),
                                                       ),
                                                 ),
                                               ),
@@ -601,6 +633,10 @@ You Have to Med... */
                                                   fontSize: 22.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
+                                                  useGoogleFonts:
+                                                      GoogleFonts.asMap()
+                                                          .containsKey(
+                                                              'Roboto'),
                                                 ),
                                           ),
                                         ),
@@ -706,6 +742,11 @@ How... */
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w300,
+                                                          useGoogleFonts:
+                                                              GoogleFonts
+                                                                      .asMap()
+                                                                  .containsKey(
+                                                                      'Roboto'),
                                                         ),
                                                   ),
                                                 ),

@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/meditation_and_sounds/music_player_comp/music_player_comp_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'binauralbeats_details_model.dart';
@@ -124,6 +125,8 @@ class _BinauralbeatsDetailsWidgetState
                                 fontSize: 16.0,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.w500,
+                                useGoogleFonts:
+                                    GoogleFonts.asMap().containsKey('Outfit'),
                               ),
                         ),
                         Padding(
@@ -133,14 +136,17 @@ class _BinauralbeatsDetailsWidgetState
                             FFLocalizations.of(context).getText(
                               '3kb70v51' /* Tracker:  01 */,
                             ),
-                            style:
-                                FlutterFlowTheme.of(context).bodySmall.override(
-                                      fontFamily: 'Outfit',
-                                      color: const Color(0xFF57636C),
-                                      fontSize: 14.0,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.normal,
-                                    ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodySmall
+                                .override(
+                                  fontFamily: 'Outfit',
+                                  color: const Color(0xFF57636C),
+                                  fontSize: 14.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.normal,
+                                  useGoogleFonts:
+                                      GoogleFonts.asMap().containsKey('Outfit'),
+                                ),
                           ),
                         ),
                         Padding(
@@ -158,6 +164,8 @@ class _BinauralbeatsDetailsWidgetState
                                   fontSize: 14.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w500,
+                                  useGoogleFonts:
+                                      GoogleFonts.asMap().containsKey('Outfit'),
                                 ),
                           ),
                         ),

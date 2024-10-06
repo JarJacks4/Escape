@@ -1,19 +1,21 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/backend/firebase_storage/storage.dart';
 import '/components/primary_button/primary_button_widget.dart';
 import '/components/subscribe_now_promo_bottom_sheet_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
-import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
+import '/flutter_flow/permissions_util.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'complete_profile_f_i_n_a_l_model.dart';
 export 'complete_profile_f_i_n_a_l_model.dart';
@@ -203,12 +205,17 @@ class _CompleteProfileFINALWidgetState extends State<CompleteProfileFINALWidget>
                                   style: FlutterFlowTheme.of(context)
                                       .titleLarge
                                       .override(
-                                        fontFamily: 'Roboto',
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .titleLargeFamily,
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
                                         fontSize: 20.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.bold,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey(
+                                                FlutterFlowTheme.of(context)
+                                                    .titleLargeFamily),
                                         lineHeight: 1.5,
                                       ),
                                 ),
@@ -219,10 +226,15 @@ class _CompleteProfileFINALWidgetState extends State<CompleteProfileFINALWidget>
                                   style: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        fontFamily: 'Roboto',
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .labelMediumFamily,
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryText,
                                         letterSpacing: 0.0,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey(
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMediumFamily),
                                         lineHeight: 1.5,
                                       ),
                                 ),
@@ -270,9 +282,15 @@ class _CompleteProfileFINALWidgetState extends State<CompleteProfileFINALWidget>
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .bodySmall
                                         .override(
-                                          fontFamily: 'Roboto',
+                                          fontFamily:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodySmallFamily,
                                           color: const Color(0xFFADA4A5),
                                           letterSpacing: 0.0,
+                                          useGoogleFonts: GoogleFonts.asMap()
+                                              .containsKey(
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodySmallFamily),
                                           lineHeight: 1.5,
                                         ),
                                     enabledBorder: UnderlineInputBorder(
@@ -318,10 +336,15 @@ class _CompleteProfileFINALWidgetState extends State<CompleteProfileFINALWidget>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Roboto',
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .bodyMediumFamily,
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryText,
                                         letterSpacing: 0.0,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey(
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMediumFamily),
                                       ),
                                   validator: _model.textController1Validator
                                       .asValidator(context),
@@ -389,10 +412,19 @@ class _CompleteProfileFINALWidgetState extends State<CompleteProfileFINALWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .labelMedium
                                                       .override(
-                                                        fontFamily: 'Roboto',
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMediumFamily,
                                                         color:
                                                             const Color(0xFFADA4A5),
                                                         letterSpacing: 0.0,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMediumFamily),
                                                       ),
                                               hintText:
                                                   FFLocalizations.of(context)
@@ -455,9 +487,15 @@ class _CompleteProfileFINALWidgetState extends State<CompleteProfileFINALWidget>
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .bodySmall
                                         .override(
-                                          fontFamily: 'Roboto',
+                                          fontFamily:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodySmallFamily,
                                           color: const Color(0xFFADA4A5),
                                           letterSpacing: 0.0,
+                                          useGoogleFonts: GoogleFonts.asMap()
+                                              .containsKey(
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodySmallFamily),
                                           lineHeight: 1.5,
                                         ),
                                     enabledBorder: UnderlineInputBorder(
@@ -503,10 +541,15 @@ class _CompleteProfileFINALWidgetState extends State<CompleteProfileFINALWidget>
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Roboto',
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .bodyMediumFamily,
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryText,
                                         letterSpacing: 0.0,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey(
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMediumFamily),
                                       ),
                                   validator: _model.textController2Validator
                                       .asValidator(context),
@@ -525,15 +568,23 @@ class _CompleteProfileFINALWidgetState extends State<CompleteProfileFINALWidget>
                                               .getText(
                                             'cqooso5w' /* Favorite Time to Meditate */,
                                           ),
-                                          hintStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodySmall
-                                                  .override(
-                                                    fontFamily: 'Roboto',
-                                                    color: const Color(0xFFADA4A5),
-                                                    letterSpacing: 0.0,
-                                                    lineHeight: 1.5,
-                                                  ),
+                                          hintStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .bodySmall
+                                              .override(
+                                                fontFamily:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmallFamily,
+                                                color: const Color(0xFFADA4A5),
+                                                letterSpacing: 0.0,
+                                                useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                    .containsKey(
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodySmallFamily),
+                                                lineHeight: 1.5,
+                                              ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color:
@@ -585,11 +636,19 @@ class _CompleteProfileFINALWidgetState extends State<CompleteProfileFINALWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Roboto',
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMediumFamily,
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryText,
                                               letterSpacing: 0.0,
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily),
                                             ),
                                         validator: _model
                                             .textController3Validator
@@ -684,34 +743,11 @@ class _CompleteProfileFINALWidgetState extends State<CompleteProfileFINALWidget>
                                           decoration: const BoxDecoration(
                                             shape: BoxShape.circle,
                                           ),
-                                          child: Image.memory(
-                                            _model.uploadedLocalFile.bytes ??
-                                                Uint8List.fromList([]),
+                                          child: Image.network(
+                                            _model.uploadedFileUrl,
                                             fit: BoxFit.cover,
                                           ),
                                         ),
-                                      ),
-                                    ),
-                                    Align(
-                                      alignment:
-                                          const AlignmentDirectional(0.7, 0.95),
-                                      child: FlutterFlowIconButton(
-                                        borderColor:
-                                            FlutterFlowTheme.of(context)
-                                                .primary,
-                                        borderRadius: 20.0,
-                                        borderWidth: 1.0,
-                                        buttonSize: 40.0,
-                                        fillColor: const Color(0xFF000220),
-                                        icon: Icon(
-                                          Icons.add,
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryBackground,
-                                          size: 24.0,
-                                        ),
-                                        onPressed: () {
-                                          print('IconButton pressed ...');
-                                        },
                                       ),
                                     ),
                                   ],
@@ -723,10 +759,15 @@ class _CompleteProfileFINALWidgetState extends State<CompleteProfileFINALWidget>
                             onPressed: () async {
                               logFirebaseEvent(
                                   'COMPLETE_PROFILE_F_I_N_A_L_UPLOAD_PROFIL');
-                              logFirebaseEvent('Button_store_media_for_upload');
+                              logFirebaseEvent('Button_request_permissions');
+                              await requestPermission(photoLibraryPermission);
+                              logFirebaseEvent(
+                                  'Button_upload_media_to_firebase');
                               final selectedMedia =
                                   await selectMediaWithSourceBottomSheet(
                                 context: context,
+                                maxWidth: 100.00,
+                                maxHeight: 100.00,
                                 allowPhoto: true,
                               );
                               if (selectedMedia != null &&
@@ -736,6 +777,7 @@ class _CompleteProfileFINALWidgetState extends State<CompleteProfileFINALWidget>
                                     () => _model.isDataUploading = true);
                                 var selectedUploadedFiles = <FFUploadedFile>[];
 
+                                var downloadUrls = <String>[];
                                 try {
                                   selectedUploadedFiles = selectedMedia
                                       .map((m) => FFUploadedFile(
@@ -746,25 +788,44 @@ class _CompleteProfileFINALWidgetState extends State<CompleteProfileFINALWidget>
                                             blurHash: m.blurHash,
                                           ))
                                       .toList();
+
+                                  downloadUrls = (await Future.wait(
+                                    selectedMedia.map(
+                                      (m) async => await uploadData(
+                                          m.storagePath, m.bytes),
+                                    ),
+                                  ))
+                                      .where((u) => u != null)
+                                      .map((u) => u!)
+                                      .toList();
                                 } finally {
                                   _model.isDataUploading = false;
                                 }
                                 if (selectedUploadedFiles.length ==
-                                    selectedMedia.length) {
+                                        selectedMedia.length &&
+                                    downloadUrls.length ==
+                                        selectedMedia.length) {
                                   safeSetState(() {
                                     _model.uploadedLocalFile =
                                         selectedUploadedFiles.first;
+                                    _model.uploadedFileUrl = downloadUrls.first;
                                   });
                                 } else {
                                   safeSetState(() {});
                                   return;
                                 }
                               }
+
+                              logFirebaseEvent('Button_update_app_state');
+                              FFAppState().ProfilePicture =
+                                  _model.uploadedFileUrl;
+                              FFAppState().update(() {});
                             },
                             text: FFLocalizations.of(context).getText(
                               'tyhpos95' /* Upload Profile Photo */,
                             ),
                             options: FFButtonOptions(
+                              width: MediaQuery.sizeOf(context).width * 0.5,
                               height: 40.0,
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   24.0, 0.0, 24.0, 0.0),
@@ -774,9 +835,14 @@ class _CompleteProfileFINALWidgetState extends State<CompleteProfileFINALWidget>
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
-                                    fontFamily: 'Roboto',
+                                    fontFamily: FlutterFlowTheme.of(context)
+                                        .titleSmallFamily,
                                     color: Colors.white,
                                     letterSpacing: 0.0,
+                                    useGoogleFonts: GoogleFonts.asMap()
+                                        .containsKey(
+                                            FlutterFlowTheme.of(context)
+                                                .titleSmallFamily),
                                   ),
                               elevation: 3.0,
                               borderSide: const BorderSide(
@@ -799,12 +865,17 @@ class _CompleteProfileFINALWidgetState extends State<CompleteProfileFINALWidget>
                                   style: FlutterFlowTheme.of(context)
                                       .titleLarge
                                       .override(
-                                        fontFamily: 'Roboto',
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .titleLargeFamily,
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
                                         fontSize: 20.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.bold,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey(
+                                                FlutterFlowTheme.of(context)
+                                                    .titleLargeFamily),
                                         lineHeight: 1.5,
                                       ),
                                 ),
@@ -815,10 +886,15 @@ class _CompleteProfileFINALWidgetState extends State<CompleteProfileFINALWidget>
                                   style: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        fontFamily: 'Roboto',
+                                        fontFamily: FlutterFlowTheme.of(context)
+                                            .labelMediumFamily,
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryText,
                                         letterSpacing: 0.0,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey(
+                                                FlutterFlowTheme.of(context)
+                                                    .labelMediumFamily),
                                         lineHeight: 1.5,
                                       ),
                                 ),
@@ -877,9 +953,18 @@ class _CompleteProfileFINALWidgetState extends State<CompleteProfileFINALWidget>
                                                 FlutterFlowTheme.of(context)
                                                     .labelMedium
                                                     .override(
-                                                      fontFamily: 'Roboto',
+                                                      fontFamily:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMediumFamily,
                                                       color: const Color(0xFFADA4A5),
                                                       letterSpacing: 0.0,
+                                                      useGoogleFonts: GoogleFonts
+                                                              .asMap()
+                                                          .containsKey(
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMediumFamily),
                                                     ),
                                             hintText:
                                                 FFLocalizations.of(context)
@@ -977,9 +1062,17 @@ class _CompleteProfileFINALWidgetState extends State<CompleteProfileFINALWidget>
                                         textStyle: FlutterFlowTheme.of(context)
                                             .labelMedium
                                             .override(
-                                              fontFamily: 'Roboto',
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelMediumFamily,
                                               color: const Color(0xFFADA4A5),
                                               letterSpacing: 0.0,
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelMediumFamily),
                                             ),
                                         hintText:
                                             FFLocalizations.of(context).getText(
@@ -1014,15 +1107,23 @@ class _CompleteProfileFINALWidgetState extends State<CompleteProfileFINALWidget>
                                               .getText(
                                             'h927rwu4' /* Phone Number */,
                                           ),
-                                          hintStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodySmall
-                                                  .override(
-                                                    fontFamily: 'Roboto',
-                                                    color: const Color(0xFFADA4A5),
-                                                    letterSpacing: 0.0,
-                                                    lineHeight: 1.5,
-                                                  ),
+                                          hintStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .bodySmall
+                                              .override(
+                                                fontFamily:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmallFamily,
+                                                color: const Color(0xFFADA4A5),
+                                                letterSpacing: 0.0,
+                                                useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                    .containsKey(
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodySmallFamily),
+                                                lineHeight: 1.5,
+                                              ),
                                           enabledBorder: UnderlineInputBorder(
                                             borderSide: BorderSide(
                                               color:
@@ -1074,11 +1175,19 @@ class _CompleteProfileFINALWidgetState extends State<CompleteProfileFINALWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Roboto',
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMediumFamily,
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryText,
                                               letterSpacing: 0.0,
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMediumFamily),
                                             ),
                                         validator: _model
                                             .textController4Validator
@@ -1087,77 +1196,69 @@ class _CompleteProfileFINALWidgetState extends State<CompleteProfileFINALWidget>
                                     ),
                                   ],
                                 ),
-                                Opacity(
-                                  opacity:
-                                      _model.pageViewCurrentIndex.toDouble(),
-                                  child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 16.0, 0.0, 0.0),
-                                    child: InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        logFirebaseEvent(
-                                            'COMPLETE_PROFILE_F_I_N_A_L_Container_hnr');
-                                        logFirebaseEvent(
-                                            'primaryButton_backend_call');
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 16.0, 0.0, 0.0),
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      logFirebaseEvent(
+                                          'COMPLETE_PROFILE_F_I_N_A_L_Container_hnr');
+                                      logFirebaseEvent(
+                                          'primaryButton_backend_call');
 
-                                        await currentUserReference!
-                                            .update(createUsersRecordData(
-                                          photoUrl: currentUserPhoto,
-                                          createdTime: getCurrentTimestamp,
-                                          role: _model.roleDrowdownValue,
-                                          phoneNumber:
-                                              _model.textController4.text,
-                                          isSubscriber: _model
-                                                          .planDropdownValue !=
-                                                      null &&
-                                                  _model.planDropdownValue !=
-                                                      ''
-                                              ? valueOrDefault<bool>(
-                                                  currentUserDocument
-                                                      ?.isSubscriber,
-                                                  false)
-                                              : valueOrDefault<bool>(
-                                                  currentUserDocument
-                                                      ?.freeUser,
-                                                  false),
-                                          gender: _model.dropDownValue,
-                                          favoriteTimeToMeditate:
-                                              _model.datePicked2,
-                                          displayName:
-                                              _model.textController1.text,
-                                        ));
-                                        logFirebaseEvent(
-                                            'primaryButton_navigate_to');
+                                      await currentUserReference!
+                                          .update(createUsersRecordData(
+                                        photoUrl: currentUserPhoto,
+                                        createdTime: getCurrentTimestamp,
+                                        role: _model.roleDrowdownValue,
+                                        phoneNumber:
+                                            _model.textController4.text,
+                                        isSubscriber: _model
+                                                        .planDropdownValue !=
+                                                    null &&
+                                                _model.planDropdownValue != ''
+                                            ? valueOrDefault<bool>(
+                                                currentUserDocument
+                                                    ?.isSubscriber,
+                                                false)
+                                            : valueOrDefault<bool>(
+                                                currentUserDocument?.freeUser,
+                                                false),
+                                        gender: _model.dropDownValue,
+                                        favoriteTimeToMeditate:
+                                            _model.datePicked2,
+                                        displayName:
+                                            _model.textController1.text,
+                                      ));
+                                      logFirebaseEvent(
+                                          'primaryButton_navigate_to');
 
-                                        context.pushNamed(
-                                          'UserGoalsSwipeStack',
-                                          extra: <String, dynamic>{
-                                            kTransitionInfoKey:
-                                                const TransitionInfo(
-                                              hasTransition: true,
-                                              transitionType:
-                                                  PageTransitionType.fade,
-                                              duration:
-                                                  Duration(milliseconds: 400),
-                                            ),
-                                          },
-                                        );
-                                      },
-                                      child: wrapWithModel(
-                                        model: _model.primaryButtonModel2,
-                                        updateCallback: () =>
-                                            safeSetState(() {}),
-                                        child: const PrimaryButtonWidget(
-                                          buttonText: 'Next',
-                                        ),
+                                      context.pushNamed(
+                                        'UserGoalsSwipeStack',
+                                        extra: <String, dynamic>{
+                                          kTransitionInfoKey: const TransitionInfo(
+                                            hasTransition: true,
+                                            transitionType:
+                                                PageTransitionType.fade,
+                                            duration:
+                                                Duration(milliseconds: 400),
+                                          ),
+                                        },
+                                      );
+                                    },
+                                    child: wrapWithModel(
+                                      model: _model.primaryButtonModel2,
+                                      updateCallback: () => safeSetState(() {}),
+                                      child: const PrimaryButtonWidget(
+                                        buttonText: 'Next',
                                       ),
-                                    ).animateOnPageLoad(animationsMap[
-                                        'primaryButtonOnPageLoadAnimation']!),
-                                  ),
+                                    ),
+                                  ).animateOnPageLoad(animationsMap[
+                                      'primaryButtonOnPageLoadAnimation']!),
                                 ),
                               ],
                             ).animateOnPageLoad(

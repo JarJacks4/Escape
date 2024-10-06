@@ -2,6 +2,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'yoga_carousel_model.dart';
 export 'yoga_carousel_model.dart';
@@ -99,6 +100,8 @@ class _YogaCarouselWidgetState extends State<YogaCarouselWidget> {
                                       fontSize: 20.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w300,
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey('Roboto'),
                                     ),
                                 colors: [
                                   FlutterFlowTheme.of(context).alternate,
@@ -163,6 +166,8 @@ class _YogaCarouselWidgetState extends State<YogaCarouselWidget> {
                                       fontSize: 20.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w300,
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey('Roboto'),
                                     ),
                                 colors: [
                                   FlutterFlowTheme.of(context).alternate,
@@ -227,6 +232,8 @@ class _YogaCarouselWidgetState extends State<YogaCarouselWidget> {
                                       fontSize: 20.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w300,
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey('Roboto'),
                                     ),
                                 colors: [
                                   FlutterFlowTheme.of(context).alternate,
@@ -291,6 +298,8 @@ class _YogaCarouselWidgetState extends State<YogaCarouselWidget> {
                                       fontSize: 20.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w300,
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey('Roboto'),
                                     ),
                                 colors: [
                                   FlutterFlowTheme.of(context).alternate,
@@ -355,6 +364,8 @@ class _YogaCarouselWidgetState extends State<YogaCarouselWidget> {
                                       fontSize: 20.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w300,
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey('Roboto'),
                                     ),
                                 colors: [
                                   FlutterFlowTheme.of(context).alternate,
