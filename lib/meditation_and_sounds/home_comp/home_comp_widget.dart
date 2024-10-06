@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'home_comp_model.dart';
@@ -50,16 +51,18 @@ class _HomeCompWidgetState extends State<HomeCompWidget> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 0.0, 0.0),
+            padding: const EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 0.0, 8.0),
             child: Text(
               FFLocalizations.of(context).getText(
                 '8r0sqynj' /* Home */,
               ),
               style: FlutterFlowTheme.of(context).displaySmall.override(
-                    fontFamily: 'Roboto',
+                    fontFamily: FlutterFlowTheme.of(context).displaySmallFamily,
                     color: FlutterFlowTheme.of(context).secondaryBackground,
                     letterSpacing: 0.0,
-                    fontWeight: FontWeight.w200,
+                    fontWeight: FontWeight.w500,
+                    useGoogleFonts: GoogleFonts.asMap().containsKey(
+                        FlutterFlowTheme.of(context).displaySmallFamily),
                   ),
             ),
           ),
@@ -71,9 +74,12 @@ class _HomeCompWidgetState extends State<HomeCompWidget> {
               ),
               textAlign: TextAlign.start,
               style: FlutterFlowTheme.of(context).titleLarge.override(
-                    fontFamily: 'Roboto',
+                    fontFamily: FlutterFlowTheme.of(context).titleLargeFamily,
                     fontSize: 18.0,
                     letterSpacing: 0.0,
+                    fontWeight: FontWeight.w300,
+                    useGoogleFonts: GoogleFonts.asMap().containsKey(
+                        FlutterFlowTheme.of(context).titleLargeFamily),
                   ),
               colors: [
                 FlutterFlowTheme.of(context).primary,
@@ -136,14 +142,14 @@ class _HomeCompWidgetState extends State<HomeCompWidget> {
                                             'Container_navigate_to');
 
                                         context.pushNamed(
-                                          'LearningToMeditatePage1',
+                                          'SoundsDetailsGuidedMeditations',
                                           extra: <String, dynamic>{
                                             kTransitionInfoKey: const TransitionInfo(
                                               hasTransition: true,
                                               transitionType:
                                                   PageTransitionType.fade,
                                               duration:
-                                                  Duration(milliseconds: 3),
+                                                  Duration(milliseconds: 2),
                                             ),
                                           },
                                         );
@@ -164,8 +170,8 @@ class _HomeCompWidgetState extends State<HomeCompWidget> {
                                             child: Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                'nr1u8gzs' /* Meditation
-Help */
+                                                'nr1u8gzs' /* Guided
+Meditations */
                                                 ,
                                               ),
                                               textAlign: TextAlign.center,
@@ -173,12 +179,21 @@ Help */
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Roboto',
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMediumFamily,
                                                         color: FlutterFlowTheme
                                                                 .of(context)
                                                             .primaryBackground,
                                                         fontSize: 16.0,
                                                         letterSpacing: 0.0,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily),
                                                       ),
                                             ),
                                           ),
@@ -265,12 +280,21 @@ Help */
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Roboto',
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMediumFamily,
                                                         color: FlutterFlowTheme
                                                                 .of(context)
                                                             .primaryBackground,
                                                         fontSize: 16.0,
                                                         letterSpacing: 0.0,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily),
                                                       ),
                                             ),
                                           ),
@@ -387,12 +411,21 @@ Help */
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Roboto',
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMediumFamily,
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryBackground,
                                                           fontSize: 16.0,
                                                           letterSpacing: 0.0,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily),
                                                         ),
                                               ),
                                             ),
@@ -480,12 +513,21 @@ Help */
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily: 'Roboto',
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMediumFamily,
                                                         color: FlutterFlowTheme
                                                                 .of(context)
                                                             .primaryBackground,
                                                         fontSize: 16.0,
                                                         letterSpacing: 0.0,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily),
                                                       ),
                                             ),
                                           ),

@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'sounds_details_binaural_beats_model.dart';
 export 'sounds_details_binaural_beats_model.dart';
 
@@ -192,11 +193,17 @@ class _SoundsDetailsBinauralBeatsWidgetState
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Roboto',
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMediumFamily,
                                             color: FlutterFlowTheme.of(context)
                                                 .primary,
                                             fontSize: 90.0,
                                             letterSpacing: 0.0,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMediumFamily),
                                             lineHeight: 0.6,
                                           ),
                                     ),
@@ -379,7 +386,9 @@ class _SoundsDetailsBinauralBeatsWidgetState
                                                 width: 4.0,
                                                 height: 90.0,
                                                 decoration: BoxDecoration(
-                                                  color: const Color(0xFF4B39EF),
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primary,
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           4.0),
@@ -402,6 +411,9 @@ class _SoundsDetailsBinauralBeatsWidgetState
                                                         r'''$.title''',
                                                       )?.toString(),
                                                       'Title',
+                                                    ).maybeHandleOverflow(
+                                                      maxChars: 20,
+                                                      replacement: '…',
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -414,6 +426,11 @@ class _SoundsDetailsBinauralBeatsWidgetState
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
+                                                          useGoogleFonts:
+                                                              GoogleFonts
+                                                                      .asMap()
+                                                                  .containsKey(
+                                                                      'Outfit'),
                                                         ),
                                                   ),
                                                   Padding(
@@ -428,6 +445,9 @@ class _SoundsDetailsBinauralBeatsWidgetState
                                                           r'''$.channelTitle''',
                                                         )?.toString(),
                                                         'ChannelTitle',
+                                                      ).maybeHandleOverflow(
+                                                        maxChars: 20,
+                                                        replacement: '…',
                                                       ),
                                                       style: FlutterFlowTheme
                                                               .of(context)
@@ -442,6 +462,11 @@ class _SoundsDetailsBinauralBeatsWidgetState
                                                             fontWeight:
                                                                 FontWeight
                                                                     .normal,
+                                                            useGoogleFonts:
+                                                                GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        'Outfit'),
                                                           ),
                                                     ),
                                                   ),
@@ -537,6 +562,10 @@ class _SoundsDetailsBinauralBeatsWidgetState
                                                               fontWeight:
                                                                   FontWeight
                                                                       .w500,
+                                                              useGoogleFonts: GoogleFonts
+                                                                      .asMap()
+                                                                  .containsKey(
+                                                                      'Outfit'),
                                                             ),
                                                       ),
                                                     ),

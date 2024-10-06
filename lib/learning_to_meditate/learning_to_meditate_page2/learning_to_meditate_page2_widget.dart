@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'learning_to_meditate_page2_model.dart';
 export 'learning_to_meditate_page2_model.dart';
@@ -118,15 +119,18 @@ class _LearningToMeditatePage2WidgetState
                             'gjvjlcp0' /* Before We Begin: */,
                           ),
                           textAlign: TextAlign.start,
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Roboto',
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
-                                    fontSize: 36.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.normal,
-                                  ),
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'Roboto',
+                                color: FlutterFlowTheme.of(context)
+                                    .primaryBackground,
+                                fontSize: 36.0,
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.normal,
+                                useGoogleFonts:
+                                    GoogleFonts.asMap().containsKey('Roboto'),
+                              ),
                         ),
                       ),
                     ],
@@ -159,6 +163,8 @@ class _LearningToMeditatePage2WidgetState
                                   fontSize: 20.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w200,
+                                  useGoogleFonts:
+                                      GoogleFonts.asMap().containsKey('Roboto'),
                                   lineHeight: 4.0,
                                 ),
                           ),
@@ -213,9 +219,13 @@ class _LearningToMeditatePage2WidgetState
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
-                                  fontFamily: 'Roboto',
+                                  fontFamily: FlutterFlowTheme.of(context)
+                                      .titleSmallFamily,
                                   color: Colors.white,
                                   letterSpacing: 0.0,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey(FlutterFlowTheme.of(context)
+                                          .titleSmallFamily),
                                 ),
                             elevation: 8.0,
                             borderSide: const BorderSide(

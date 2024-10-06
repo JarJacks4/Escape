@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'increase_focus_model.dart';
 export 'increase_focus_model.dart';
 
@@ -313,7 +314,7 @@ class _IncreaseFocusWidgetState extends State<IncreaseFocusWidget>
                                                                       'Roboto',
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .secondaryBackground,
+                                                                      .primaryText,
                                                                   fontSize:
                                                                       36.0,
                                                                   letterSpacing:
@@ -321,6 +322,10 @@ class _IncreaseFocusWidgetState extends State<IncreaseFocusWidget>
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w300,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          'Roboto'),
                                                                 ),
                                                       )),
                                                     ),

@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'header_home_model.dart';
 export 'header_home_model.dart';
@@ -144,10 +145,13 @@ class _HeaderHomeWidgetState extends State<HeaderHomeWidget> {
                     'c92aab97' /* Hello, */,
                   ),
                   style: FlutterFlowTheme.of(context).displaySmall.override(
-                        fontFamily: 'Roboto',
+                        fontFamily:
+                            FlutterFlowTheme.of(context).displaySmallFamily,
                         color: const Color(0xF96450A5),
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
+                        useGoogleFonts: GoogleFonts.asMap().containsKey(
+                            FlutterFlowTheme.of(context).displaySmallFamily),
                       ),
                 ),
                 Padding(
@@ -156,10 +160,14 @@ class _HeaderHomeWidgetState extends State<HeaderHomeWidget> {
                     builder: (context) => Text(
                       currentUserDisplayName,
                       style: FlutterFlowTheme.of(context).displaySmall.override(
-                            fontFamily: 'Roboto',
+                            fontFamily:
+                                FlutterFlowTheme.of(context).displaySmallFamily,
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
                             letterSpacing: 0.0,
+                            useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                FlutterFlowTheme.of(context)
+                                    .displaySmallFamily),
                           ),
                     ),
                   ),
@@ -174,10 +182,12 @@ class _HeaderHomeWidgetState extends State<HeaderHomeWidget> {
                 '3fak2gg9' /* Start or continue your journey... */,
               ),
               style: FlutterFlowTheme.of(context).labelMedium.override(
-                    fontFamily: 'Roboto',
+                    fontFamily: FlutterFlowTheme.of(context).labelMediumFamily,
                     color: FlutterFlowTheme.of(context).tertiary,
                     fontSize: 20.0,
                     letterSpacing: 0.0,
+                    useGoogleFonts: GoogleFonts.asMap().containsKey(
+                        FlutterFlowTheme.of(context).labelMediumFamily),
                   ),
             ),
           ),
@@ -213,12 +223,16 @@ class _HeaderHomeWidgetState extends State<HeaderHomeWidget> {
                           '7gledzeo' /* Daily Affirmation */,
                         ),
                         style: FlutterFlowTheme.of(context).titleLarge.override(
-                              fontFamily: 'Roboto',
+                              fontFamily:
+                                  FlutterFlowTheme.of(context).titleLargeFamily,
                               color: FlutterFlowTheme.of(context)
                                   .primaryBackground,
                               fontSize: 20.0,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.w200,
+                              useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                  FlutterFlowTheme.of(context)
+                                      .titleLargeFamily),
                             ),
                       ),
                     ),
@@ -229,10 +243,14 @@ class _HeaderHomeWidgetState extends State<HeaderHomeWidget> {
                           'mp9t0cse' /* "You are loved just for being ... */,
                         ),
                         style: FlutterFlowTheme.of(context).titleLarge.override(
-                              fontFamily: 'Roboto',
+                              fontFamily:
+                                  FlutterFlowTheme.of(context).titleLargeFamily,
                               fontSize: 16.0,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.w200,
+                              useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                  FlutterFlowTheme.of(context)
+                                      .titleLargeFamily),
                             ),
                       ),
                     ),
@@ -254,11 +272,16 @@ class _HeaderHomeWidgetState extends State<HeaderHomeWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .headlineLarge
                                     .override(
-                                      fontFamily: 'Roboto',
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .headlineLargeFamily,
                                       color: FlutterFlowTheme.of(context)
                                           .primaryBackground,
                                       fontSize: 16.0,
                                       letterSpacing: 0.0,
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey(
+                                              FlutterFlowTheme.of(context)
+                                                  .headlineLargeFamily),
                                     ),
                               ),
                             ),

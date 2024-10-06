@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'header_provider_community_model.dart';
 export 'header_provider_community_model.dart';
 
@@ -66,6 +67,8 @@ class _HeaderProviderCommunityWidgetState
                           fontSize: 36.0,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w500,
+                          useGoogleFonts:
+                              GoogleFonts.asMap().containsKey('Roboto'),
                         ),
                   ),
                 ],

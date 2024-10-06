@@ -8,6 +8,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'meditation_help_comp_model.dart';
 export 'meditation_help_comp_model.dart';
 
@@ -419,12 +420,21 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Roboto',
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMediumFamily,
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryBackground,
                                                           fontSize: 22.0,
                                                           letterSpacing: 0.0,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily),
                                                         ),
                                                   ),
                                                 ),
@@ -446,10 +456,16 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .bodySmall
                                           .override(
-                                            fontFamily: 'Roboto',
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodySmallFamily,
                                             color: Colors.white,
                                             fontSize: 18.0,
                                             letterSpacing: 0.0,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmallFamily),
                                           ),
                                     ).animateOnPageLoad(animationsMap[
                                         'textOnPageLoadAnimation1']!),
@@ -468,6 +484,8 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                                             color: const Color(0x9AFFFFFF),
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w300,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey('Roboto'),
                                           ),
                                     ).animateOnPageLoad(animationsMap[
                                         'textOnPageLoadAnimation2']!),
@@ -601,12 +619,21 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Roboto',
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMediumFamily,
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryBackground,
                                                           fontSize: 22.0,
                                                           letterSpacing: 0.0,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily),
                                                         ),
                                                   ),
                                                 ),
@@ -632,6 +659,8 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                                             color: Colors.white,
                                             fontSize: 18.0,
                                             letterSpacing: 0.0,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey('Roboto'),
                                           ),
                                     ).animateOnPageLoad(animationsMap[
                                         'textOnPageLoadAnimation3']!),
@@ -650,6 +679,8 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                                             color: const Color(0x9AFFFFFF),
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w300,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey('Roboto'),
                                           ),
                                     ).animateOnPageLoad(animationsMap[
                                         'textOnPageLoadAnimation4']!),
@@ -788,6 +819,11 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                                                               .primaryBackground,
                                                           fontSize: 22.0,
                                                           letterSpacing: 0.0,
+                                                          useGoogleFonts:
+                                                              GoogleFonts
+                                                                      .asMap()
+                                                                  .containsKey(
+                                                                      'Roboto'),
                                                         ),
                                                   ),
                                                 ),
@@ -813,6 +849,8 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                                             color: Colors.white,
                                             fontSize: 18.0,
                                             letterSpacing: 0.0,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey('Roboto'),
                                           ),
                                     ).animateOnPageLoad(animationsMap[
                                         'textOnPageLoadAnimation5']!),
@@ -831,6 +869,8 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                                             color: const Color(0x9AFFFFFF),
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w300,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey('Roboto'),
                                           ),
                                     ).animateOnPageLoad(animationsMap[
                                         'textOnPageLoadAnimation6']!),

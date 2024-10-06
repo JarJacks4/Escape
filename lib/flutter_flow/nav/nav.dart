@@ -89,11 +89,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const OnboardingWidget(),
         ),
         FFRoute(
-          name: 'completeProfile',
-          path: '/completeProfile',
-          builder: (context, params) => const CompleteProfileWidget(),
-        ),
-        FFRoute(
           name: 'UserGoalsSwipeStack',
           path: '/goals',
           builder: (context, params) => const UserGoalsSwipeStackWidget(),
@@ -187,11 +182,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const TimedMeditationsWidget(),
         ),
         FFRoute(
-          name: 'Details15Timer',
-          path: '/details15Timer',
-          builder: (context, params) => const Details15TimerWidget(),
-        ),
-        FFRoute(
           name: 'MeditationPlayerTimer',
           path: '/meditationPlayerTimer',
           builder: (context, params) => MeditationPlayerTimerWidget(
@@ -243,11 +233,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'StartLogoScreen',
           path: '/startLogoScreen',
           builder: (context, params) => const StartLogoScreenWidget(),
-        ),
-        FFRoute(
-          name: 'ProfilePage2',
-          path: '/profilePage2',
-          builder: (context, params) => const ProfilePage2Widget(),
         ),
         FFRoute(
           name: 'EventsFINAL',
@@ -310,21 +295,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'ProfilePage3',
           path: '/profilePage3',
           builder: (context, params) => const ProfilePage3Widget(),
-        ),
-        FFRoute(
-          name: 'notificationsScreen',
-          path: '/notificationsScreen',
-          builder: (context, params) => const NotificationsScreenWidget(),
-        ),
-        FFRoute(
-          name: 'Home15Store',
-          path: '/home15Store',
-          builder: (context, params) => const Home15StoreWidget(),
-        ),
-        FFRoute(
-          name: 'fetchapi',
-          path: '/fetchapi',
-          builder: (context, params) => const FetchapiWidget(),
         ),
         FFRoute(
           name: 'SoundsDetailsBody',

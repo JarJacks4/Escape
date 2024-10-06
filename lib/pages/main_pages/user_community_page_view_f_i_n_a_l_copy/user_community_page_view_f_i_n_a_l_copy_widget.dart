@@ -8,6 +8,7 @@ import '/walkthroughs/provider_community_walkthrough.dart';
 import 'package:tutorial_coach_mark/tutorial_coach_mark.dart'
     show TutorialCoachMark;
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'user_community_page_view_f_i_n_a_l_copy_model.dart';
 export 'user_community_page_view_f_i_n_a_l_copy_model.dart';
@@ -36,6 +37,15 @@ class _UserCommunityPageViewFINALCopyWidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'UserCommunityPageViewFINALCopy'});
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('USER_COMMUNITY_VIEW_F_I_N_A_L_COPY_UserC');
+      logFirebaseEvent('UserCommunityPageViewFINALCopy_start_wal');
+      safeSetState(() => _model.providerCommunityWalkthroughController =
+          createPageWalkthrough(context));
+      _model.providerCommunityWalkthroughController?.show(context: context);
+    });
+
     animationsMap.addAll({
       'stackOnPageLoadAnimation': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
@@ -123,118 +133,124 @@ class _UserCommunityPageViewFINALCopyWidgetState
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        SizedBox(
-                          width: double.infinity,
-                          child: Stack(
-                            children: [
-                              Image.network(
-                                'https://images.unsplash.com/photo-1511632765486-a01980e01a18?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHw1fHxjb21tdW5pdHl8ZW58MHx8fHwxNzI2NDIzNzE5fDA&ixlib=rb-4.0.3&q=80&w=1080',
-                                width: double.infinity,
-                                height: 196.0,
-                                fit: BoxFit.cover,
-                              ),
-                              Container(
-                                height: 200.0,
-                                decoration: const BoxDecoration(),
-                              ),
-                              Container(
-                                width: 393.0,
-                                height: 201.0,
-                                decoration: const BoxDecoration(
-                                  gradient: LinearGradient(
-                                    colors: [
-                                      Color(0xC2FFFFFF),
-                                      Color(0xFCFFFFFF)
-                                    ],
-                                    stops: [0.2, 1.0],
-                                    begin: AlignmentDirectional(0.0, -1.0),
-                                    end: AlignmentDirectional(0, 1.0),
-                                  ),
+                        Flexible(
+                          flex: 1,
+                          child: SizedBox(
+                            width: double.infinity,
+                            child: Stack(
+                              children: [
+                                Image.network(
+                                  'https://images.unsplash.com/photo-1511632765486-a01980e01a18?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHw1fHxjb21tdW5pdHl8ZW58MHx8fHwxNzI2NDIzNzE5fDA&ixlib=rb-4.0.3&q=80&w=1080',
+                                  width: double.infinity,
+                                  height: 196.0,
+                                  fit: BoxFit.cover,
                                 ),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  child: Image.asset(
-                                    'assets/images/ESCAPE_Logo_Clear.png',
-                                    width: 200.0,
-                                    height: 200.0,
-                                    fit: BoxFit.contain,
-                                  ),
+                                Container(
+                                  height: 200.0,
+                                  decoration: const BoxDecoration(),
                                 ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    15.0, 40.0, 15.0, 0.0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    FlutterFlowIconButton(
-                                      borderColor: Colors.transparent,
-                                      borderRadius: 30.0,
-                                      borderWidth: 1.0,
-                                      buttonSize: 50.0,
-                                      icon: Icon(
-                                        Icons.menu,
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        size: 30.0,
-                                      ),
-                                      onPressed: () async {
-                                        logFirebaseEvent(
-                                            'USER_COMMUNITY_VIEW_F_I_N_A_L_COPY_menu_');
-                                        logFirebaseEvent(
-                                            'IconButton_navigate_back');
-                                        context.safePop();
-                                      },
+                                Container(
+                                  width: 896.0,
+                                  height: 201.0,
+                                  decoration: const BoxDecoration(
+                                    gradient: LinearGradient(
+                                      colors: [
+                                        Color(0xC2FFFFFF),
+                                        Color(0xFCFFFFFF)
+                                      ],
+                                      stops: [0.2, 1.0],
+                                      begin: AlignmentDirectional(0.0, -1.0),
+                                      end: AlignmentDirectional(0, 1.0),
                                     ),
-                                    AuthUserStreamWidget(
-                                      builder: (context) => InkWell(
-                                        splashColor: Colors.transparent,
-                                        focusColor: Colors.transparent,
-                                        hoverColor: Colors.transparent,
-                                        highlightColor: Colors.transparent,
-                                        onTap: () async {
+                                  ),
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                    child: Image.asset(
+                                      'assets/images/ESCAPE_Logo_Clear.png',
+                                      width: 387.0,
+                                      height: 200.0,
+                                      fit: BoxFit.contain,
+                                    ),
+                                  ).addWalkthrough(
+                                    imageXeprwcpj,
+                                    _model
+                                        .providerCommunityWalkthroughController,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      15.0, 40.0, 15.0, 0.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      FlutterFlowIconButton(
+                                        borderColor: Colors.transparent,
+                                        borderRadius: 30.0,
+                                        borderWidth: 1.0,
+                                        buttonSize: 60.0,
+                                        icon: const Icon(
+                                          Icons.menu,
+                                          color: Color(0xFF000220),
+                                          size: 40.0,
+                                        ),
+                                        onPressed: () async {
                                           logFirebaseEvent(
-                                              'USER_COMMUNITY_VIEW_F_I_N_A_L_COPY_Circl');
+                                              'USER_COMMUNITY_VIEW_F_I_N_A_L_COPY_menu_');
                                           logFirebaseEvent(
-                                              'CircleImage_navigate_to');
-
-                                          context.pushNamed(
-                                            'ProfilePage3',
-                                            extra: <String, dynamic>{
-                                              kTransitionInfoKey:
-                                                  const TransitionInfo(
-                                                hasTransition: true,
-                                                transitionType:
-                                                    PageTransitionType.fade,
-                                                duration:
-                                                    Duration(milliseconds: 2),
-                                              ),
-                                            },
-                                          );
+                                              'IconButton_navigate_back');
+                                          context.safePop();
                                         },
-                                        child: Container(
-                                          width: 70.0,
-                                          height: 70.0,
-                                          clipBehavior: Clip.antiAlias,
-                                          decoration: const BoxDecoration(
-                                            shape: BoxShape.circle,
-                                          ),
-                                          child: Image.network(
-                                            currentUserPhoto,
-                                            fit: BoxFit.cover,
+                                      ),
+                                      AuthUserStreamWidget(
+                                        builder: (context) => InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            logFirebaseEvent(
+                                                'USER_COMMUNITY_VIEW_F_I_N_A_L_COPY_Circl');
+                                            logFirebaseEvent(
+                                                'CircleImage_navigate_to');
+
+                                            context.pushNamed(
+                                              'ProfilePage3',
+                                              extra: <String, dynamic>{
+                                                kTransitionInfoKey:
+                                                    const TransitionInfo(
+                                                  hasTransition: true,
+                                                  transitionType:
+                                                      PageTransitionType.fade,
+                                                  duration:
+                                                      Duration(milliseconds: 2),
+                                                ),
+                                              },
+                                            );
+                                          },
+                                          child: Container(
+                                            width: 70.0,
+                                            height: 70.0,
+                                            clipBehavior: Clip.antiAlias,
+                                            decoration: const BoxDecoration(
+                                              shape: BoxShape.circle,
+                                            ),
+                                            child: Image.network(
+                                              currentUserPhoto,
+                                              fit: BoxFit.cover,
+                                            ),
                                           ),
                                         ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
-                              ),
-                            ],
-                          ),
-                        ).animateOnPageLoad(
-                            animationsMap['stackOnPageLoadAnimation']!),
+                              ],
+                            ),
+                          ).animateOnPageLoad(
+                              animationsMap['stackOnPageLoadAnimation']!),
+                        ),
                         Flexible(
                           flex: 1,
                           child: Padding(
@@ -255,14 +271,8 @@ class _UserCommunityPageViewFINALCopyWidgetState
                                     child: TabbarHomeCommunityWidget(),
                                   ),
                                 ),
-                              )
-                                  .addWalkthrough(
-                                    containerHvg4gmsi,
-                                    _model
-                                        .providerCommunityWalkthroughController,
-                                  )
-                                  .animateOnPageLoad(animationsMap[
-                                      'tabbarHomeCommunityOnPageLoadAnimation']!),
+                              ).animateOnPageLoad(animationsMap[
+                                  'tabbarHomeCommunityOnPageLoadAnimation']!),
                             ),
                           ),
                         ),

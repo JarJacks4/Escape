@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'header_yoga_model.dart';
 export 'header_yoga_model.dart';
@@ -153,6 +154,8 @@ class _HeaderYogaWidgetState extends State<HeaderYogaWidget> {
                           color: FlutterFlowTheme.of(context).primary,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.normal,
+                          useGoogleFonts:
+                              GoogleFonts.asMap().containsKey('Roboto'),
                         ),
                   ),
                 ],
@@ -165,10 +168,13 @@ class _HeaderYogaWidgetState extends State<HeaderYogaWidget> {
                   '5enqxlfb' /* Start or continue your journey... */,
                 ),
                 style: FlutterFlowTheme.of(context).labelMedium.override(
-                      fontFamily: 'Roboto',
-                      color: const Color(0xC46450A5),
+                      fontFamily:
+                          FlutterFlowTheme.of(context).labelMediumFamily,
+                      color: const Color(0xFF000220),
                       fontSize: 20.0,
                       letterSpacing: 0.0,
+                      useGoogleFonts: GoogleFonts.asMap().containsKey(
+                          FlutterFlowTheme.of(context).labelMediumFamily),
                     ),
               ),
             ),

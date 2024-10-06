@@ -15,6 +15,11 @@ class GroundingVideosModel extends FlutterFlowModel<GroundingVideosWidget> {
 
   // State field(s) for ListView widget.
 
+  PagingController<ApiPagingParams, dynamic>? listViewPagingController2;
+  Function(ApiPagingParams nextPageMarker)? listViewApiCall2;
+
+  // State field(s) for ListView widget.
+
   PagingController<ApiPagingParams, dynamic>? listViewPagingController3;
   Function(ApiPagingParams nextPageMarker)? listViewApiCall3;
 
@@ -24,6 +29,7 @@ class GroundingVideosModel extends FlutterFlowModel<GroundingVideosWidget> {
   @override
   void dispose() {
     listViewPagingController1?.dispose();
+    listViewPagingController2?.dispose();
     listViewPagingController3?.dispose();
   }
 
@@ -72,6 +78,50 @@ class GroundingVideosModel extends FlutterFlowModel<GroundingVideosWidget> {
         );
       });
 
+  PagingController<ApiPagingParams, dynamic> setListViewController2(
+    Function(ApiPagingParams) apiCall,
+  ) {
+    listViewApiCall2 = apiCall;
+    return listViewPagingController2 ??= _createListViewController2(apiCall);
+  }
+
+  PagingController<ApiPagingParams, dynamic> _createListViewController2(
+    Function(ApiPagingParams) query,
+  ) {
+    final controller = PagingController<ApiPagingParams, dynamic>(
+      firstPageKey: ApiPagingParams(
+        nextPageNumber: 0,
+        numItems: 0,
+        lastResponse: null,
+      ),
+    );
+    return controller
+      ..addPageRequestListener(listViewYouTubeDataQigongDataAPICallPage2);
+  }
+
+  void listViewYouTubeDataQigongDataAPICallPage2(
+          ApiPagingParams nextPageMarker) =>
+      listViewApiCall2!(nextPageMarker)
+          .then((listViewYouTubeDataQigongDataAPICallResponse) {
+        final pageItems = (getJsonField(
+                  listViewYouTubeDataQigongDataAPICallResponse.jsonBody,
+                  r'''$.items[:].snippet''',
+                ) ??
+                [])
+            .toList() as List;
+        final newNumItems = nextPageMarker.numItems + pageItems.length;
+        listViewPagingController2?.appendPage(
+          pageItems,
+          (pageItems.isNotEmpty)
+              ? ApiPagingParams(
+                  nextPageNumber: nextPageMarker.nextPageNumber + 1,
+                  numItems: newNumItems,
+                  lastResponse: listViewYouTubeDataQigongDataAPICallResponse,
+                )
+              : null,
+        );
+      });
+
   PagingController<ApiPagingParams, dynamic> setListViewController3(
     Function(ApiPagingParams) apiCall,
   ) {
@@ -90,15 +140,15 @@ class GroundingVideosModel extends FlutterFlowModel<GroundingVideosWidget> {
       ),
     );
     return controller
-      ..addPageRequestListener(listViewYouTubeDataGroundingFINALAPIPage3);
+      ..addPageRequestListener(listViewYouTubeDataBinauralBeatsAPICopyPage3);
   }
 
-  void listViewYouTubeDataGroundingFINALAPIPage3(
+  void listViewYouTubeDataBinauralBeatsAPICopyPage3(
           ApiPagingParams nextPageMarker) =>
       listViewApiCall3!(nextPageMarker)
-          .then((listViewYouTubeDataGroundingFINALAPIResponse) {
+          .then((listViewYouTubeDataBinauralBeatsAPICopyResponse) {
         final pageItems = (getJsonField(
-                  listViewYouTubeDataGroundingFINALAPIResponse.jsonBody,
+                  listViewYouTubeDataBinauralBeatsAPICopyResponse.jsonBody,
                   r'''$.items[:].snippet''',
                 ) ??
                 [])
@@ -110,7 +160,7 @@ class GroundingVideosModel extends FlutterFlowModel<GroundingVideosWidget> {
               ? ApiPagingParams(
                   nextPageNumber: nextPageMarker.nextPageNumber + 1,
                   numItems: newNumItems,
-                  lastResponse: listViewYouTubeDataGroundingFINALAPIResponse,
+                  lastResponse: listViewYouTubeDataBinauralBeatsAPICopyResponse,
                 )
               : null,
         );

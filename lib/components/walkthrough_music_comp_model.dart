@@ -1,8 +1,9 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'walkthrough_comp_widget.dart' show WalkthroughCompWidget;
+import 'walkthrough_music_comp_widget.dart' show WalkthroughMusicCompWidget;
 import 'package:flutter/material.dart';
 
-class WalkthroughCompModel extends FlutterFlowModel<WalkthroughCompWidget> {
+class WalkthroughMusicCompModel
+    extends FlutterFlowModel<WalkthroughMusicCompWidget> {
   @override
   void initState(BuildContext context) {}
 
