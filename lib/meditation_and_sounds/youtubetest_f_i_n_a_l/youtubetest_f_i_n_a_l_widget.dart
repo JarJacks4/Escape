@@ -636,7 +636,6 @@ class _YoutubetestFINALWidgetState extends State<YoutubetestFINALWidget>
                                                                     ),
                                                                   ),
                                                                 ),
-                                                              ),
                                                               Padding(
                                                                 padding:
                                                                     const EdgeInsetsDirectional
@@ -644,7 +643,8 @@ class _YoutubetestFINALWidgetState extends State<YoutubetestFINALWidget>
                                                                             3.0,
                                                                             0.0,
                                                                             0.0,
-                                                                            0.0),
+                                                                            0.0
+                                                                        ),
                                                                 child: Text(
                                                                   getJsonField(
                                                                     recentItemsItem,
