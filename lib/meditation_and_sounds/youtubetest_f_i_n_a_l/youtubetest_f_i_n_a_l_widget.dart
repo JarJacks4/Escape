@@ -522,6 +522,8 @@ class _YoutubetestFINALWidgetState extends State<YoutubetestFINALWidget>
                                                                       9.0),
                                                         ),
                                                       ),
+                                                    },
+                                                  ),
                                                         child: InkWell(
                                                           splashColor: Colors
                                                               .transparent,
