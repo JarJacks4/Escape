@@ -663,5 +663,44 @@ class _YoutubetestFINALWidgetState extends State<YoutubetestFINALWidget>
                                                                             .primaryBackground,
                                                                         fontSize:
                                                                             12.0,
-                                                                        letterSpacing: 
-                                                                        
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                      ),
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ).animateOnPageLoad(
+                                                          animationsMap[
+                                                              'containerOnPageLoadAnimation']!),
+                                                    );
+                                                  },
+                                                ).animateOnPageLoad(animationsMap[
+                                                    'listViewOnPageLoadAnimation']!);
+                                              },
+                                            );
+                                          },
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
