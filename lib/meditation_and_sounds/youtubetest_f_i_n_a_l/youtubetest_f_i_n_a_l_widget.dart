@@ -521,9 +521,6 @@ class _YoutubetestFINALWidgetState extends State<YoutubetestFINALWidget>
                                                                   .circular(
                                                                       9.0),
                                                         ),
-                                                      ),
-                                                    },
-                                                  ),
                                                         child: InkWell(
                                                           splashColor: Colors
                                                               .transparent,
@@ -647,8 +644,7 @@ class _YoutubetestFINALWidgetState extends State<YoutubetestFINALWidget>
                                                                             3.0,
                                                                             0.0,
                                                                             0.0,
-                                                                            0.0
-                                                                        ),
+                                                                            0.0),
                                                                 child: Text(
                                                                   getJsonField(
                                                                     recentItemsItem,
@@ -667,11 +663,5 @@ class _YoutubetestFINALWidgetState extends State<YoutubetestFINALWidget>
                                                                             .primaryBackground,
                                                                         fontSize:
                                                                             12.0,
-                                                                        letterSpacing:
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            ),
-                                                          ),     
+                                                                        letterSpacing: 
+                                                                        
