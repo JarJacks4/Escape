@@ -178,7 +178,7 @@ class _MeditationPlayerTimerWidgetState
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Lottie.asset(
-                              'assets/lottie_animations/Animation_-_1709690286572.json',
+                              'assets/jsons/Animation_-_1709690286572.json',
                               width: 157.0,
                               height: 99.0,
                               fit: BoxFit.cover,

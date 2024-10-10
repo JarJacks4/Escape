@@ -140,7 +140,7 @@ class _RegistrationSuccessWidgetState extends State<RegistrationSuccessWidget>
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Lottie.asset(
-                        'assets/lottie_animations/Animation_-_1708887204153.json',
+                        'assets/jsons/Animation_-_1708887204153.json',
                         width: 383.0,
                         height: 315.0,
                         fit: BoxFit.contain,

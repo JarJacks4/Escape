@@ -248,7 +248,7 @@ class _LearningToMeditatePage2WidgetState
                 Padding(
                   padding: const EdgeInsets.all(22.0),
                   child: Lottie.asset(
-                    'assets/lottie_animations/Animation_-_1709680091534.json',
+                    'assets/jsons/Animation_-_1709680091534.json',
                     width: 193.0,
                     height: 164.0,
                     fit: BoxFit.cover,
