@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
+import '/flutter_flow/permissions_util.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -197,35 +198,36 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                     ),
                                     child: Padding(
                                       padding: const EdgeInsets.all(2.0),
-                                      child: InkWell(
-                                        splashColor: Colors.transparent,
-                                        focusColor: Colors.transparent,
-                                        hoverColor: Colors.transparent,
-                                        highlightColor: Colors.transparent,
-                                        onTap: () async {
-                                          logFirebaseEvent(
-                                              'EDIT_PROFILE_CircleImage_fxugtfo0_ON_TAP');
-                                          logFirebaseEvent(
-                                              'CircleImage_update_app_state');
-                                          FFAppState().ProfilePicture =
-                                              currentUserPhoto;
-                                          FFAppState().update(() {});
-                                        },
-                                        child: Container(
-                                          width: 90.0,
-                                          height: 90.0,
-                                          clipBehavior: Clip.antiAlias,
-                                          decoration: const BoxDecoration(
-                                            shape: BoxShape.circle,
-                                          ),
-                                          child: CachedNetworkImage(
-                                            fadeInDuration:
-                                                const Duration(milliseconds: 500),
-                                            fadeOutDuration:
-                                                const Duration(milliseconds: 500),
-                                            imageUrl:
-                                                'https://images.unsplash.com/photo-1536164261511-3a17e671d380?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=630&q=80',
-                                            fit: BoxFit.fitWidth,
+                                      child: AuthUserStreamWidget(
+                                        builder: (context) => InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            logFirebaseEvent(
+                                                'EDIT_PROFILE_CircleImage_fxugtfo0_ON_TAP');
+                                            logFirebaseEvent(
+                                                'CircleImage_update_app_state');
+                                            FFAppState().ProfilePicture =
+                                                currentUserPhoto;
+                                            FFAppState().update(() {});
+                                          },
+                                          child: Container(
+                                            width: 90.0,
+                                            height: 90.0,
+                                            clipBehavior: Clip.antiAlias,
+                                            decoration: const BoxDecoration(
+                                              shape: BoxShape.circle,
+                                            ),
+                                            child: CachedNetworkImage(
+                                              fadeInDuration:
+                                                  const Duration(milliseconds: 500),
+                                              fadeOutDuration:
+                                                  const Duration(milliseconds: 500),
+                                              imageUrl: currentUserPhoto,
+                                              fit: BoxFit.fitWidth,
+                                            ),
                                           ),
                                         ),
                                       ),
@@ -236,6 +238,10 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                   onPressed: () async {
                                     logFirebaseEvent(
                                         'EDIT_PROFILE_CHANGE_PHOTO_BTN_ON_TAP');
+                                    logFirebaseEvent(
+                                        'Button_request_permissions');
+                                    await requestPermission(
+                                        photoLibraryPermission);
                                     logFirebaseEvent(
                                         'Button_store_media_for_upload');
                                     final selectedMedia =
@@ -293,14 +299,16 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                         24.0, 0.0, 24.0, 0.0),
                                     iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
-                                    color:
-                                        FlutterFlowTheme.of(context).tertiary,
+                                    color: FlutterFlowTheme.of(context).accent2,
                                     textStyle: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
                                           fontFamily:
                                               FlutterFlowTheme.of(context)
                                                   .bodyMediumFamily,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBackground,
+                                          fontSize: 16.0,
                                           letterSpacing: 0.0,
                                           useGoogleFonts: GoogleFonts.asMap()
                                               .containsKey(
@@ -389,8 +397,8 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                   borderRadius: BorderRadius.circular(12.0),
                                 ),
                                 filled: true,
-                                fillColor:
-                                    FlutterFlowTheme.of(context).secondary,
+                                fillColor: FlutterFlowTheme.of(context)
+                                    .primaryBackground,
                                 contentPadding: const EdgeInsetsDirectional.fromSTEB(
                                     20.0, 24.0, 20.0, 24.0),
                               ),
@@ -477,8 +485,8 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                   borderRadius: BorderRadius.circular(12.0),
                                 ),
                                 filled: true,
-                                fillColor:
-                                    FlutterFlowTheme.of(context).secondary,
+                                fillColor: FlutterFlowTheme.of(context)
+                                    .primaryBackground,
                                 contentPadding: const EdgeInsetsDirectional.fromSTEB(
                                     20.0, 24.0, 20.0, 24.0),
                               ),
@@ -567,8 +575,8 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                   borderRadius: BorderRadius.circular(12.0),
                                 ),
                                 filled: true,
-                                fillColor:
-                                    FlutterFlowTheme.of(context).secondary,
+                                fillColor: FlutterFlowTheme.of(context)
+                                    .primaryBackground,
                                 contentPadding: const EdgeInsetsDirectional.fromSTEB(
                                     20.0, 24.0, 20.0, 24.0),
                               ),
@@ -630,78 +638,16 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                               ),
                                         )),
                                       ),
-                                      Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 8.0, 0.0, 0.0),
-                                        child: SelectionArea(
-                                            child: Text(
-                                          currentUserEmail,
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyLarge
-                                              .override(
-                                                fontFamily:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyLargeFamily,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryBackground,
-                                                letterSpacing: 0.0,
-                                                useGoogleFonts: GoogleFonts
-                                                        .asMap()
-                                                    .containsKey(
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyLargeFamily),
-                                              ),
-                                        )),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Flexible(
-                                  flex: 2,
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 16.0, 0.0, 0.0),
-                                        child: SelectionArea(
-                                            child: Text(
-                                          FFLocalizations.of(context).getText(
-                                            'qozvl91e' /* Created On: */,
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .labelMedium
-                                              .override(
-                                                fontFamily:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelMediumFamily,
-                                                letterSpacing: 0.0,
-                                                useGoogleFonts: GoogleFonts
-                                                        .asMap()
-                                                    .containsKey(
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .labelMediumFamily),
-                                              ),
-                                        )),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 4.0, 0.0, 0.0),
-                                        child: AuthUserStreamWidget(
-                                          builder: (context) => SelectionArea(
+                                      Align(
+                                        alignment:
+                                            const AlignmentDirectional(0.0, 0.0),
+                                        child: Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 22.0, 0.0, 0.0),
+                                          child: SelectionArea(
                                               child: Text(
-                                            dateTimeFormat(
-                                              "yMMMd",
-                                              currentUserDocument!.createdTime!,
-                                              locale:
-                                                  FFLocalizations.of(context)
-                                                      .languageCode,
-                                            ),
+                                            currentUserEmail,
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyLarge
                                                 .override(
@@ -712,75 +658,9 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .primaryBackground,
+                                                  fontSize: 22.0,
                                                   letterSpacing: 0.0,
-                                                  useGoogleFonts: GoogleFonts
-                                                          .asMap()
-                                                      .containsKey(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyLargeFamily),
-                                                ),
-                                          )),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Flexible(
-                                  flex: 2,
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 16.0, 0.0, 0.0),
-                                        child: SelectionArea(
-                                            child: Text(
-                                          FFLocalizations.of(context).getText(
-                                            '1fddo5jd' /* Last Active: */,
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .labelMedium
-                                              .override(
-                                                fontFamily:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelMediumFamily,
-                                                letterSpacing: 0.0,
-                                                useGoogleFonts: GoogleFonts
-                                                        .asMap()
-                                                    .containsKey(
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .labelMediumFamily),
-                                              ),
-                                        )),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 4.0, 0.0, 0.0),
-                                        child: AuthUserStreamWidget(
-                                          builder: (context) => SelectionArea(
-                                              child: Text(
-                                            dateTimeFormat(
-                                              "relative",
-                                              currentUserDocument!.createdTime!,
-                                              locale:
-                                                  FFLocalizations.of(context)
-                                                      .languageCode,
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyLarge
-                                                .override(
-                                                  fontFamily:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyLargeFamily,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryBackground,
-                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w600,
                                                   useGoogleFonts: GoogleFonts
                                                           .asMap()
                                                       .containsKey(
@@ -873,8 +753,9 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                       displayName:
                                           _model.yourNameTextController1.text,
                                     ));
-                                    logFirebaseEvent('Button_navigate_back');
-                                    context.pop();
+                                    logFirebaseEvent('Button_bottom_sheet');
+                                    Navigator.pop(context,
+                                        _model.isDataUploading.toString());
                                     logFirebaseEvent('Button_show_snack_bar');
                                     ScaffoldMessenger.of(context).showSnackBar(
                                       SnackBar(

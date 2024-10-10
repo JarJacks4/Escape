@@ -161,7 +161,7 @@ class _TimedMeditationsWidgetState extends State<TimedMeditationsWidget> {
                                             child: Padding(
                                               padding: const EdgeInsets.all(8.0),
                                               child: Lottie.asset(
-                                                'assets/lottie_animations/Animation_-_1709679604412.json',
+                                                'assets/jsons/Animation_-_1709679604412.json',
                                                 width: 85.0,
                                                 height: 116.0,
                                                 fit: BoxFit.contain,
@@ -382,7 +382,7 @@ Woul... */
                                             child: Padding(
                                               padding: const EdgeInsets.all(8.0),
                                               child: Lottie.asset(
-                                                'assets/lottie_animations/Animation_-_1709679415412.json',
+                                                'assets/jsons/Animation_-_1709679415412.json',
                                                 width: 46.0,
                                                 height: 88.0,
                                                 fit: BoxFit.cover,
@@ -601,7 +601,7 @@ You Have to Med... */
                                             child: Padding(
                                               padding: const EdgeInsets.all(8.0),
                                               child: Lottie.asset(
-                                                'assets/lottie_animations/Animation_-_1709680091534.json',
+                                                'assets/jsons/Animation_-_1709680091534.json',
                                                 width: 46.0,
                                                 height: 88.0,
                                                 fit: BoxFit.contain,
