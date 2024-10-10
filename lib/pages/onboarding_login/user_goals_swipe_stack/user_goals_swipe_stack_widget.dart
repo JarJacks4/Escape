@@ -43,7 +43,7 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: SafeArea(
           top: true,
           child: Padding(
@@ -88,7 +88,8 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
                               .override(
                                 fontFamily: FlutterFlowTheme.of(context)
                                     .bodyLargeFamily,
-                                color: const Color(0xFF898F98),
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
                                 fontSize: 18.0,
                                 letterSpacing: 0.0,
                                 useGoogleFonts: GoogleFonts.asMap().containsKey(
@@ -181,7 +182,7 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
                                                             .fromSTEB(0.0, 8.0,
                                                                 0.0, 0.0),
                                                     child: Lottie.asset(
-                                                      'assets/lottie_animations/Animation_-_1708911023036.json',
+                                                      'assets/jsons/Animation_-_1708911023036.json',
                                                       width: 315.0,
                                                       height: 206.0,
                                                       fit: BoxFit.contain,
@@ -404,7 +405,7 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
                                                                         -1.0),
                                                                 child: Lottie
                                                                     .asset(
-                                                                  'assets/lottie_animations/Animation_-_1708910547293.json',
+                                                                  'assets/jsons/Animation_-_1708910547293.json',
                                                                   width: 396.0,
                                                                   height: 217.0,
                                                                   fit: BoxFit
@@ -519,7 +520,7 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
                                                     .fromSTEB(
                                                         0.0, 8.0, 0.0, 0.0),
                                                 child: Lottie.asset(
-                                                  'assets/lottie_animations/Animation_-_1708909449328_(1).json',
+                                                  'assets/jsons/Animation_-_1708909449328_(1).json',
                                                   width: 246.0,
                                                   height: 212.0,
                                                   fit: BoxFit.contain,
@@ -690,7 +691,7 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
                                                     .fromSTEB(
                                                         0.0, 8.0, 0.0, 0.0),
                                                 child: Lottie.asset(
-                                                  'assets/lottie_animations/Animation_-_1708910114414.json',
+                                                  'assets/jsons/Animation_-_1708910114414.json',
                                                   width: 246.0,
                                                   height: 248.0,
                                                   fit: BoxFit.contain,
@@ -854,7 +855,7 @@ class _UserGoalsSwipeStackWidgetState extends State<UserGoalsSwipeStackWidget> {
                                                     .fromSTEB(
                                                         0.0, 8.0, 0.0, 0.0),
                                                 child: Lottie.asset(
-                                                  'assets/lottie_animations/Animation_-_1708909671341.json',
+                                                  'assets/jsons/Animation_-_1708909671341.json',
                                                   width: 246.0,
                                                   height: 212.0,
                                                   fit: BoxFit.contain,
