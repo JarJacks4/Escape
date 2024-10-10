@@ -62,7 +62,7 @@ android {
 //       }
          release {
              keyAlias "escape-ujuzxr"
-             storeFile file("C:\Users\whart\Downloads\escape-ujuzxr.jks")
+             storeFile file('C:\Users\whart\Downloads\escape-ujuzxr.jks')
              keyPassword "2845d3f030655f8baf83f485afc13e32"
              storePassword "2845d3f030655f8baf83f485afc13e32"
          }
