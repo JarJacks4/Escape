@@ -437,7 +437,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget>
                                 width: MediaQuery.sizeOf(context).width * 1.0,
                                 decoration: const BoxDecoration(),
                                 child: Lottie.asset(
-                                  'assets/lottie_animations/Animation_-_1708889929967.json',
+                                  'assets/jsons/Animation_-_1708889929967.json',
                                   width: 103.0,
                                   height: 467.0,
                                   fit: BoxFit.contain,
@@ -601,7 +601,7 @@ Progress */
                                 width: MediaQuery.sizeOf(context).width * 1.0,
                                 decoration: const BoxDecoration(),
                                 child: Lottie.asset(
-                                  'assets/lottie_animations/Animation_-_1708891000222.json',
+                                  'assets/jsons/Animation_-_1708891000222.json',
                                   width: 150.0,
                                   height: 424.0,
                                   fit: BoxFit.contain,
@@ -758,7 +758,7 @@ Progress */
                                 width: MediaQuery.sizeOf(context).width * 1.0,
                                 decoration: const BoxDecoration(),
                                 child: Lottie.asset(
-                                  'assets/lottie_animations/Animation_-_1708891973631.json',
+                                  'assets/jsons/Animation_-_1708891973631.json',
                                   width: 150.0,
                                   height: 404.0,
                                   fit: BoxFit.contain,
@@ -917,7 +917,7 @@ Community */
                                 width: MediaQuery.sizeOf(context).width * 1.0,
                                 decoration: const BoxDecoration(),
                                 child: Lottie.asset(
-                                  'assets/lottie_animations/Animation_-_1708892458656.json',
+                                  'assets/jsons/Animation_-_1708892458656.json',
                                   width: 150.0,
                                   height: 469.0,
                                   fit: BoxFit.contain,

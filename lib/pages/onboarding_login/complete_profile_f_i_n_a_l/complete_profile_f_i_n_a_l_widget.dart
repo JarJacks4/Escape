@@ -1208,6 +1208,22 @@ class _CompleteProfileFINALWidgetState extends State<CompleteProfileFINALWidget>
                                       logFirebaseEvent(
                                           'COMPLETE_PROFILE_F_I_N_A_L_Container_hnr');
                                       logFirebaseEvent(
+                                          'primaryButton_navigate_to');
+
+                                      context.pushNamed(
+                                        'UserGoalsSwipeStack',
+                                        extra: <String, dynamic>{
+                                          kTransitionInfoKey: const TransitionInfo(
+                                            hasTransition: true,
+                                            transitionType:
+                                                PageTransitionType.fade,
+                                            duration:
+                                                Duration(milliseconds: 400),
+                                          ),
+                                        },
+                                      );
+
+                                      logFirebaseEvent(
                                           'primaryButton_backend_call');
 
                                       await currentUserReference!
@@ -1234,21 +1250,6 @@ class _CompleteProfileFINALWidgetState extends State<CompleteProfileFINALWidget>
                                         displayName:
                                             _model.textController1.text,
                                       ));
-                                      logFirebaseEvent(
-                                          'primaryButton_navigate_to');
-
-                                      context.pushNamed(
-                                        'UserGoalsSwipeStack',
-                                        extra: <String, dynamic>{
-                                          kTransitionInfoKey: const TransitionInfo(
-                                            hasTransition: true,
-                                            transitionType:
-                                                PageTransitionType.fade,
-                                            duration:
-                                                Duration(milliseconds: 400),
-                                          ),
-                                        },
-                                      );
                                     },
                                     child: wrapWithModel(
                                       model: _model.primaryButtonModel2,
