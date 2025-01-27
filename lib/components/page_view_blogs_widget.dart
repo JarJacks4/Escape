@@ -1,7 +1,11 @@
+import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:ui';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'page_view_blogs_model.dart';
 export 'page_view_blogs_model.dart';
 
@@ -41,8 +45,8 @@ class _PageViewBlogsWidgetState extends State<PageViewBlogsWidget> {
       children: [
         Expanded(
           child: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 0.0),
-            child: SizedBox(
+            padding: EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 0.0),
+            child: Container(
               width: MediaQuery.sizeOf(context).width * 0.5,
               height: 157.0,
               child: Stack(
@@ -76,10 +80,10 @@ class _PageViewBlogsWidgetState extends State<PageViewBlogsWidget> {
                     ],
                   ),
                   Align(
-                    alignment: const AlignmentDirectional(0.0, 1.0),
+                    alignment: AlignmentDirectional(0.0, 1.0),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
                       child: smooth_page_indicator.SmoothPageIndicator(
                         controller: _model.pageViewController ??=
                             PageController(initialPage: 0),
@@ -88,12 +92,12 @@ class _PageViewBlogsWidgetState extends State<PageViewBlogsWidget> {
                         onDotClicked: (i) async {
                           await _model.pageViewController!.animateToPage(
                             i,
-                            duration: const Duration(milliseconds: 500),
+                            duration: Duration(milliseconds: 500),
                             curve: Curves.ease,
                           );
                           safeSetState(() {});
                         },
-                        effect: const smooth_page_indicator.SlideEffect(
+                        effect: smooth_page_indicator.SlideEffect(
                           spacing: 8.0,
                           radius: 16.0,
                           dotWidth: 8.0,

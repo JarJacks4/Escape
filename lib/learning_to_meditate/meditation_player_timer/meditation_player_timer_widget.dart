@@ -3,11 +3,13 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:ui';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
+import 'package:provider/provider.dart';
 import 'meditation_player_timer_model.dart';
 export 'meditation_player_timer_model.dart';
 
@@ -54,7 +56,10 @@ class _MeditationPlayerTimerWidgetState
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -77,7 +82,7 @@ class _MeditationPlayerTimerWidgetState
                 child: Container(
                   width: 100.0,
                   height: 100.0,
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                     color: Color(0x30000811),
                   ),
                   child: Column(
@@ -86,21 +91,21 @@ class _MeditationPlayerTimerWidgetState
                     children: [
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 22.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 22.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   10.0, 35.0, 0.0, 0.0),
                               child: FlutterFlowIconButton(
                                 borderColor: Colors.transparent,
                                 borderRadius: 30.0,
                                 borderWidth: 0.0,
                                 buttonSize: 60.0,
-                                fillColor: const Color(0x16FFFFFF),
+                                fillColor: Color(0x16FFFFFF),
                                 icon: Icon(
                                   Icons.chevron_left_sharp,
                                   color: FlutterFlowTheme.of(context)
@@ -116,7 +121,7 @@ class _MeditationPlayerTimerWidgetState
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 50.0, 0.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -124,38 +129,32 @@ class _MeditationPlayerTimerWidgetState
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Align(
-                                    alignment: const AlignmentDirectional(0.0, 0.0),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 35.0, 0.0),
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 40.0, 0.0),
                                       child: Text(
                                         valueOrDefault<String>(
-                                          widget.meditationPose,
+                                          widget!.meditationPose,
                                           'Laying Down',
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMediumFamily,
+                                              fontFamily: 'WorkSans',
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
-                                              fontSize: 22.0,
+                                              fontSize: 28.0,
                                               letterSpacing: 0.0,
-                                              useGoogleFonts: GoogleFonts
-                                                      .asMap()
-                                                  .containsKey(
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMediumFamily),
+                                              fontWeight: FontWeight.bold,
+                                              useGoogleFonts: false,
                                             ),
                                       ),
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         10.0, 0.0, 20.0, 0.0),
                                     child: Icon(
                                       Icons.volume_up_sharp,
@@ -171,7 +170,7 @@ class _MeditationPlayerTimerWidgetState
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             45.0, 0.0, 45.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -192,16 +191,16 @@ class _MeditationPlayerTimerWidgetState
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Align(
-                            alignment: const AlignmentDirectional(0.0, 1.0),
+                            alignment: AlignmentDirectional(0.0, 1.0),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 44.0, 0.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         15.0, 8.0, 15.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -223,9 +222,6 @@ class _MeditationPlayerTimerWidgetState
                                                 fontSize: 20.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w300,
-                                                useGoogleFonts:
-                                                    GoogleFonts.asMap()
-                                                        .containsKey('Roboto'),
                                               ),
                                         ),
                                         FlutterFlowIconButton(
@@ -261,7 +257,7 @@ class _MeditationPlayerTimerWidgetState
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 32.0, 0.0, 20.0),
                                         child: FlutterFlowTimer(
                                           initialTime:
@@ -276,9 +272,8 @@ class _MeditationPlayerTimerWidgetState
                                               shouldUpdate) {
                                             _model.timerMilliseconds = value;
                                             _model.timerValue = displayTime;
-                                            if (shouldUpdate) {
+                                            if (shouldUpdate)
                                               safeSetState(() {});
-                                            }
                                           },
                                           textAlign: TextAlign.center,
                                           style: FlutterFlowTheme.of(context)
@@ -291,9 +286,6 @@ class _MeditationPlayerTimerWidgetState
                                                 fontSize: 64.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w200,
-                                                useGoogleFonts:
-                                                    GoogleFonts.asMap()
-                                                        .containsKey('Roboto'),
                                               ),
                                         ),
                                       ),
@@ -355,17 +347,17 @@ class _MeditationPlayerTimerWidgetState
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 24.0, 0.0, 0.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
                                 Align(
-                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Container(
                                     width: double.infinity,
-                                    decoration: const BoxDecoration(
+                                    decoration: BoxDecoration(
                                       color: Color(0xB5FCFFF9),
                                       boxShadow: [
                                         BoxShadow(
@@ -385,7 +377,7 @@ class _MeditationPlayerTimerWidgetState
                                       ),
                                     ),
                                     child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           15.0, 12.0, 15.0, 25.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
@@ -396,7 +388,7 @@ class _MeditationPlayerTimerWidgetState
                                         children: [
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 12.0, 0.0, 0.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
@@ -409,7 +401,7 @@ class _MeditationPlayerTimerWidgetState
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -433,16 +425,12 @@ class _MeditationPlayerTimerWidgetState
                                                                       .secondaryBackground,
                                                                   letterSpacing:
                                                                       0.0,
-                                                                  useGoogleFonts: GoogleFonts
-                                                                          .asMap()
-                                                                      .containsKey(
-                                                                          'Roboto'),
                                                                 ),
                                                       ),
                                                     ),
                                                     Text(
                                                       valueOrDefault<String>(
-                                                        widget.meditationPlace,
+                                                        widget!.meditationPlace,
                                                         'rain',
                                                       ),
                                                       style:
@@ -457,16 +445,12 @@ class _MeditationPlayerTimerWidgetState
                                                                     .primary,
                                                                 letterSpacing:
                                                                     0.0,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        'Roboto'),
                                                               ),
                                                     ),
                                                   ],
                                                 ),
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 12.0, 0.0, 12.0),
                                                   child: Row(
@@ -494,15 +478,11 @@ class _MeditationPlayerTimerWidgetState
                                                                       .secondaryBackground,
                                                                   letterSpacing:
                                                                       0.0,
-                                                                  useGoogleFonts: GoogleFonts
-                                                                          .asMap()
-                                                                      .containsKey(
-                                                                          'Roboto'),
                                                                 ),
                                                       ),
                                                       Text(
                                                         valueOrDefault<String>(
-                                                          widget
+                                                          widget!
                                                               .meditationTime,
                                                           '30 Secs',
                                                         ),
@@ -521,10 +501,6 @@ class _MeditationPlayerTimerWidgetState
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w300,
-                                                                  useGoogleFonts: GoogleFonts
-                                                                          .asMap()
-                                                                      .containsKey(
-                                                                          'Roboto'),
                                                                 ),
                                                       ),
                                                     ],
@@ -535,29 +511,11 @@ class _MeditationPlayerTimerWidgetState
                                           ),
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 20.0, 0.0, 44.0),
                                             child: FFButtonWidget(
-                                              onPressed: () async {
-                                                logFirebaseEvent(
-                                                    'MEDITATION_PLAYER_TIMER_COMPLETE_MEDITAT');
-                                                logFirebaseEvent(
-                                                    'Button_navigate_to');
-
-                                                context.pushNamed(
-                                                  'NewHome',
-                                                  extra: <String, dynamic>{
-                                                    kTransitionInfoKey:
-                                                        const TransitionInfo(
-                                                      hasTransition: true,
-                                                      transitionType:
-                                                          PageTransitionType
-                                                              .fade,
-                                                      duration: Duration(
-                                                          milliseconds: 3),
-                                                    ),
-                                                  },
-                                                );
+                                              onPressed: () {
+                                                print('Button pressed ...');
                                               },
                                               text: FFLocalizations.of(context)
                                                   .getText(
@@ -573,35 +531,28 @@ class _MeditationPlayerTimerWidgetState
                                               options: FFButtonOptions(
                                                 width: double.infinity,
                                                 height: 50.0,
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 0.0),
                                                 iconPadding:
-                                                    const EdgeInsets.all(8.0),
+                                                    EdgeInsets.all(8.0),
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .alternate,
-                                                textStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleSmall
-                                                        .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleSmallFamily,
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
+                                                textStyle: FlutterFlowTheme.of(
+                                                        context)
+                                                    .titleSmall
+                                                    .override(
+                                                      fontFamily: 'WorkSans',
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
                                                               .primaryText,
-                                                          letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleSmallFamily),
-                                                        ),
+                                                      letterSpacing: 0.0,
+                                                      useGoogleFonts: false,
+                                                    ),
                                                 elevation: 5.0,
-                                                borderSide: const BorderSide(
+                                                borderSide: BorderSide(
                                                   color: Colors.transparent,
                                                   width: 1.0,
                                                 ),

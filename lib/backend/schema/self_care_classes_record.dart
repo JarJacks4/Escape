@@ -3,15 +3,16 @@ import 'dart:async';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
+import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 class SelfCareClassesRecord extends FirestoreRecord {
   SelfCareClassesRecord._(
-    super.reference,
-    super.data,
-  ) {
+    DocumentReference reference,
+    Map<String, dynamic> data,
+  ) : super(reference, data) {
     _initializeFields();
   }
 
@@ -60,15 +61,10 @@ class SelfCareClassesRecord extends FirestoreRecord {
   String get classID => _classID ?? '';
   bool hasClassID() => _classID != null;
 
-  // "classImage" field.
-  String? _classImage;
-  String get classImage => _classImage ?? '';
-  bool hasClassImage() => _classImage != null;
-
-  // "classImages" field.
-  List<String>? _classImages;
-  List<String> get classImages => _classImages ?? const [];
-  bool hasClassImages() => _classImages != null;
+  // "ProfilePicture" field.
+  String? _profilePicture;
+  String get profilePicture => _profilePicture ?? '';
+  bool hasProfilePicture() => _profilePicture != null;
 
   void _initializeFields() {
     _title = snapshotData['title'] as String?;
@@ -80,8 +76,7 @@ class SelfCareClassesRecord extends FirestoreRecord {
     _provider = snapshotData['provider'] as DocumentReference?;
     _reviews = getDataList(snapshotData['reviews']);
     _classID = snapshotData['classID'] as String?;
-    _classImage = snapshotData['classImage'] as String?;
-    _classImages = getDataList(snapshotData['classImages']);
+    _profilePicture = snapshotData['ProfilePicture'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -127,7 +122,7 @@ Map<String, dynamic> createSelfCareClassesRecordData({
   String? location,
   DocumentReference? provider,
   String? classID,
-  String? classImage,
+  String? profilePicture,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -139,7 +134,7 @@ Map<String, dynamic> createSelfCareClassesRecordData({
       'location': location,
       'provider': provider,
       'classID': classID,
-      'classImage': classImage,
+      'ProfilePicture': profilePicture,
     }.withoutNulls,
   );
 
@@ -162,8 +157,7 @@ class SelfCareClassesRecordDocumentEquality
         e1?.provider == e2?.provider &&
         listEquality.equals(e1?.reviews, e2?.reviews) &&
         e1?.classID == e2?.classID &&
-        e1?.classImage == e2?.classImage &&
-        listEquality.equals(e1?.classImages, e2?.classImages);
+        e1?.profilePicture == e2?.profilePicture;
   }
 
   @override
@@ -177,8 +171,7 @@ class SelfCareClassesRecordDocumentEquality
         e?.provider,
         e?.reviews,
         e?.classID,
-        e?.classImage,
-        e?.classImages
+        e?.profilePicture
       ]);
 
   @override

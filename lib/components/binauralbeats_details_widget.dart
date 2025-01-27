@@ -2,6 +2,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/meditation_and_sounds/music_player_comp/music_player_comp_widget.dart';
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -47,12 +48,10 @@ class _BinauralbeatsDetailsWidgetState
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Container(
       width: double.infinity,
       height: 692.0,
-      decoration: const BoxDecoration(),
+      decoration: BoxDecoration(),
       child: ListView(
         padding: EdgeInsets.zero,
         primary: false,
@@ -60,12 +59,12 @@ class _BinauralbeatsDetailsWidgetState
         scrollDirection: Axis.vertical,
         children: [
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(10.0, 12.0, 10.0, 0.0),
+            padding: EdgeInsetsDirectional.fromSTEB(10.0, 12.0, 10.0, 0.0),
             child: Container(
               width: MediaQuery.sizeOf(context).width * 1.048,
               decoration: BoxDecoration(
                 color: Colors.white,
-                boxShadow: const [
+                boxShadow: [
                   BoxShadow(
                     blurRadius: 3.0,
                     color: Color(0x25000000),
@@ -82,7 +81,7 @@ class _BinauralbeatsDetailsWidgetState
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   ClipRRect(
-                    borderRadius: const BorderRadius.only(
+                    borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(5.0),
                       bottomRight: Radius.circular(0.0),
                       topLeft: Radius.circular(5.0),
@@ -96,19 +95,19 @@ class _BinauralbeatsDetailsWidgetState
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 4.0, 8.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 4.0, 8.0),
                     child: Container(
                       width: 4.0,
                       height: 90.0,
                       decoration: BoxDecoration(
-                        color: const Color(0xFF4B39EF),
+                        color: Color(0xFF4B39EF),
                         borderRadius: BorderRadius.circular(4.0),
                       ),
                     ),
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 16.0, 12.0),
+                        EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 16.0, 12.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -121,36 +120,31 @@ class _BinauralbeatsDetailsWidgetState
                               .headlineMedium
                               .override(
                                 fontFamily: 'Outfit',
-                                color: const Color(0xFF101213),
+                                color: Color(0xFF101213),
                                 fontSize: 16.0,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.w500,
-                                useGoogleFonts:
-                                    GoogleFonts.asMap().containsKey('Outfit'),
                               ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 4.0, 0.0, 0.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
                               '3kb70v51' /* Tracker:  01 */,
                             ),
-                            style: FlutterFlowTheme.of(context)
-                                .bodySmall
-                                .override(
-                                  fontFamily: 'Outfit',
-                                  color: const Color(0xFF57636C),
-                                  fontSize: 14.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.normal,
-                                  useGoogleFonts:
-                                      GoogleFonts.asMap().containsKey('Outfit'),
-                                ),
+                            style:
+                                FlutterFlowTheme.of(context).bodySmall.override(
+                                      fontFamily: 'Outfit',
+                                      color: Color(0xFF57636C),
+                                      fontSize: 14.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.normal,
+                                    ),
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 4.0, 0.0, 0.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
@@ -160,12 +154,10 @@ class _BinauralbeatsDetailsWidgetState
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Outfit',
-                                  color: const Color(0xFF4B39EF),
+                                  color: Color(0xFF4B39EF),
                                   fontSize: 14.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w500,
-                                  useGoogleFonts:
-                                      GoogleFonts.asMap().containsKey('Outfit'),
                                 ),
                           ),
                         ),
@@ -182,7 +174,7 @@ class _BinauralbeatsDetailsWidgetState
                           borderRadius: 30.0,
                           borderWidth: 1.0,
                           buttonSize: 60.0,
-                          icon: const Icon(
+                          icon: Icon(
                             Icons.play_circle_outline_rounded,
                             color: Color(0xF3E00B67),
                             size: 30.0,
@@ -194,18 +186,15 @@ class _BinauralbeatsDetailsWidgetState
                             await showModalBottomSheet(
                               isScrollControlled: true,
                               backgroundColor: Colors.transparent,
-                              barrierColor: const Color(0x00000000),
+                              barrierColor: Color(0x00000000),
                               context: context,
                               builder: (context) {
                                 return WebViewAware(
                                   child: Padding(
                                     padding: MediaQuery.viewInsetsOf(context),
-                                    child: SizedBox(
+                                    child: Container(
                                       height: double.infinity,
-                                      child: MusicPlayerCompWidget(
-                                        ambientMusic:
-                                            FFAppState().sampleSongsEpidemic,
-                                      ),
+                                      child: MusicPlayerCompWidget(),
                                     ),
                                   ),
                                 );
@@ -221,12 +210,12 @@ class _BinauralbeatsDetailsWidgetState
             ),
           ),
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
+            padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
             child: Container(
               width: MediaQuery.sizeOf(context).width * 1.0,
               decoration: BoxDecoration(
                 color: Colors.white,
-                boxShadow: const [
+                boxShadow: [
                   BoxShadow(
                     blurRadius: 3.0,
                     color: Color(0x25000000),

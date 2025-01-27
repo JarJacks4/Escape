@@ -1,12 +1,12 @@
 import '/backend/api_requests/api_calls.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'sounds_details_binaural_beats_model.dart';
 export 'sounds_details_binaural_beats_model.dart';
 
@@ -19,13 +19,10 @@ class SoundsDetailsBinauralBeatsWidget extends StatefulWidget {
 }
 
 class _SoundsDetailsBinauralBeatsWidgetState
-    extends State<SoundsDetailsBinauralBeatsWidget>
-    with TickerProviderStateMixin {
+    extends State<SoundsDetailsBinauralBeatsWidget> {
   late SoundsDetailsBinauralBeatsModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -34,46 +31,6 @@ class _SoundsDetailsBinauralBeatsWidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'SoundsDetailsBinauralBeats'});
-    animationsMap.addAll({
-      'stackOnPageLoadAnimation': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          FadeEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          MoveEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: const Offset(100.0, 0.0),
-            end: const Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-      'listViewOnPageLoadAnimation': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          FadeEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          MoveEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: const Offset(100.0, 0.0),
-            end: const Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-    });
   }
 
   @override
@@ -86,7 +43,10 @@ class _SoundsDetailsBinauralBeatsWidgetState
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -96,25 +56,22 @@ class _SoundsDetailsBinauralBeatsWidgetState
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Flexible(
-                  flex: 1,
-                  child: Container(
-                    width: 424.0,
-                    height: 918.0,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                    ),
-                    child: Hero(
-                      tag: 'BackgroundPicture',
-                      transitionOnUserGestures: true,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(8.0),
-                        child: Image.network(
-                          'https://images.unsplash.com/photo-1615640848864-21d95c1dc365?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHw2fHxtdXNpYyUyMGFwcHxlbnwwfHx8fDE3MDkyMzg0NjR8MA&ixlib=rb-4.0.3&q=80&w=1080',
-                          width: 300.0,
-                          height: 200.0,
-                          fit: BoxFit.cover,
-                        ),
+                Container(
+                  width: 424.0,
+                  height: 918.0,
+                  decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                  ),
+                  child: Hero(
+                    tag: 'BackgroundPicture',
+                    transitionOnUserGestures: true,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(8.0),
+                      child: Image.network(
+                        'https://images.unsplash.com/photo-1615640848864-21d95c1dc365?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHw2fHxtdXNpYyUyMGFwcHxlbnwwfHx8fDE3MDkyMzg0NjR8MA&ixlib=rb-4.0.3&q=80&w=1080',
+                        width: 300.0,
+                        height: 200.0,
+                        fit: BoxFit.cover,
                       ),
                     ),
                   ),
@@ -122,19 +79,19 @@ class _SoundsDetailsBinauralBeatsWidgetState
               ],
             ),
             Align(
-              alignment: const AlignmentDirectional(0.0, 0.0),
+              alignment: AlignmentDirectional(0.0, 0.0),
               child: Container(
                 width: double.infinity,
                 height: double.infinity,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [
-                      const Color(0xC8FCFFF9),
+                      Color(0xC8FCFFF9),
                       FlutterFlowTheme.of(context).primaryBackground
                     ],
-                    stops: const [0.95, 1.0],
-                    begin: const AlignmentDirectional(0.0, -1.0),
-                    end: const AlignmentDirectional(0, 1.0),
+                    stops: [0.95, 1.0],
+                    begin: AlignmentDirectional(0.0, -1.0),
+                    end: AlignmentDirectional(0, 1.0),
                   ),
                 ),
                 child: ClipRRect(
@@ -147,12 +104,31 @@ class _SoundsDetailsBinauralBeatsWidgetState
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        Flexible(
-                          flex: 1,
-                          child: Material(
-                            color: Colors.transparent,
-                            elevation: 8.0,
-                            shape: const RoundedRectangleBorder(
+                        Material(
+                          color: Colors.transparent,
+                          elevation: 8.0,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(30.0),
+                              bottomRight: Radius.circular(30.0),
+                              topLeft: Radius.circular(0.0),
+                              topRight: Radius.circular(0.0),
+                            ),
+                          ),
+                          child: Container(
+                            width: double.infinity,
+                            height: 250.0,
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                colors: [
+                                  Color(0xFFD2394E),
+                                  FlutterFlowTheme.of(context).primary,
+                                  Color(0xFFEF39D4)
+                                ],
+                                stops: [0.0, 0.0, 0.5],
+                                begin: AlignmentDirectional(1.0, -0.77),
+                                end: AlignmentDirectional(-1.0, 0.77),
+                              ),
                               borderRadius: BorderRadius.only(
                                 bottomLeft: Radius.circular(30.0),
                                 bottomRight: Radius.circular(30.0),
@@ -160,131 +136,60 @@ class _SoundsDetailsBinauralBeatsWidgetState
                                 topRight: Radius.circular(0.0),
                               ),
                             ),
-                            child: Container(
-                              width: double.infinity,
-                              height: 250.0,
-                              decoration: BoxDecoration(
-                                gradient: LinearGradient(
-                                  colors: [
-                                    const Color(0xFFD2394E),
-                                    FlutterFlowTheme.of(context).primary,
-                                    const Color(0xFFEF39D4)
-                                  ],
-                                  stops: const [0.0, 0.0, 0.5],
-                                  begin: const AlignmentDirectional(1.0, -0.77),
-                                  end: const AlignmentDirectional(-1.0, 0.77),
+                            child: Stack(
+                              children: [
+                                Align(
+                                  alignment: AlignmentDirectional(0.92, 0.74),
+                                  child: Text(
+                                    FFLocalizations.of(context).getText(
+                                      '5jurbgam' /* Binaural beats */,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'WorkSans',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          fontSize: 90.0,
+                                          letterSpacing: 0.0,
+                                          useGoogleFonts: false,
+                                          lineHeight: 0.6,
+                                        ),
+                                  ),
                                 ),
-                                borderRadius: const BorderRadius.only(
-                                  bottomLeft: Radius.circular(30.0),
-                                  bottomRight: Radius.circular(30.0),
-                                  topLeft: Radius.circular(0.0),
-                                  topRight: Radius.circular(0.0),
-                                ),
-                              ),
-                              child: Stack(
-                                children: [
-                                  Align(
-                                    alignment: const AlignmentDirectional(0.92, 0.73),
-                                    child: Text(
-                                      FFLocalizations.of(context).getText(
-                                        '5jurbgam' /* Binaural beats */,
-                                      ),
-                                      textAlign: TextAlign.center,
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMediumFamily,
+                                Align(
+                                  alignment: AlignmentDirectional(0.0, -1.53),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        10.0, 55.0, 10.0, 10.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        FlutterFlowIconButton(
+                                          borderColor: Colors.transparent,
+                                          borderRadius: 30.0,
+                                          borderWidth: 0.0,
+                                          buttonSize: 60.0,
+                                          icon: Icon(
+                                            Icons.chevron_left_sharp,
                                             color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                            fontSize: 90.0,
-                                            letterSpacing: 0.0,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey(
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMediumFamily),
-                                            lineHeight: 0.6,
+                                                .primaryBackground,
+                                            size: 36.0,
                                           ),
+                                          onPressed: () async {
+                                            logFirebaseEvent(
+                                                'SOUNDS_DETAILS_BINAURAL_BEATS_chevron_le');
+                                            logFirebaseEvent(
+                                                'IconButton_navigate_back');
+                                            context.safePop();
+                                          },
+                                        ),
+                                      ],
                                     ),
                                   ),
-                                  Align(
-                                    alignment: const AlignmentDirectional(0.0, -1.53),
-                                    child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 55.0, 10.0, 10.0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          FlutterFlowIconButton(
-                                            borderColor: Colors.transparent,
-                                            borderRadius: 30.0,
-                                            borderWidth: 0.0,
-                                            buttonSize: 60.0,
-                                            icon: Icon(
-                                              Icons.chevron_left_sharp,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryBackground,
-                                              size: 36.0,
-                                            ),
-                                            onPressed: () async {
-                                              logFirebaseEvent(
-                                                  'SOUNDS_DETAILS_BINAURAL_BEATS_chevron_le');
-                                              logFirebaseEvent(
-                                                  'IconButton_navigate_back');
-                                              context.safePop();
-                                            },
-                                          ),
-                                          InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              logFirebaseEvent(
-                                                  'SOUNDS_DETAILS_BINAURAL_BEATS_Image_zdlw');
-                                              logFirebaseEvent(
-                                                  'Image_navigate_to');
-
-                                              context.pushNamed(
-                                                'NewHome',
-                                                extra: <String, dynamic>{
-                                                  kTransitionInfoKey:
-                                                      const TransitionInfo(
-                                                    hasTransition: true,
-                                                    transitionType:
-                                                        PageTransitionType.fade,
-                                                    duration: Duration(
-                                                        milliseconds: 2),
-                                                  ),
-                                                },
-                                              );
-                                            },
-                                            child: Hero(
-                                              tag: 'logo',
-                                              transitionOnUserGestures: true,
-                                              child: ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                                child: Image.asset(
-                                                  'assets/images/ESCAPE_Logo_Clear.png',
-                                                  width: 105.0,
-                                                  height: 72.0,
-                                                  fit: BoxFit.contain,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ).animateOnPageLoad(
-                                  animationsMap['stackOnPageLoadAnimation']!),
+                                ),
+                              ],
                             ),
                           ),
                         ),
@@ -326,7 +231,7 @@ class _SoundsDetailsBinauralBeatsWidgetState
                                     final binauralBeatsItem =
                                         binauralBeats[binauralBeatsIndex];
                                     return Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           5.0, 12.0, 5.0, 0.0),
                                       child: Container(
                                         width:
@@ -334,7 +239,7 @@ class _SoundsDetailsBinauralBeatsWidgetState
                                                 1.099,
                                         decoration: BoxDecoration(
                                           color: Colors.white,
-                                          boxShadow: const [
+                                          boxShadow: [
                                             BoxShadow(
                                               blurRadius: 3.0,
                                               color: Color(0x25000000),
@@ -359,7 +264,7 @@ class _SoundsDetailsBinauralBeatsWidgetState
                                               ).toString(),
                                               transitionOnUserGestures: true,
                                               child: ClipRRect(
-                                                borderRadius: const BorderRadius.only(
+                                                borderRadius: BorderRadius.only(
                                                   bottomLeft:
                                                       Radius.circular(5.0),
                                                   bottomRight:
@@ -380,15 +285,13 @@ class _SoundsDetailsBinauralBeatsWidgetState
                                               ),
                                             ),
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(8.0, 8.0, 4.0, 8.0),
                                               child: Container(
                                                 width: 4.0,
                                                 height: 90.0,
                                                 decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primary,
+                                                  color: Color(0xFF4B39EF),
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           4.0),
@@ -396,7 +299,7 @@ class _SoundsDetailsBinauralBeatsWidgetState
                                               ),
                                             ),
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       12.0, 12.0, 16.0, 12.0),
                                               child: Column(
@@ -411,9 +314,6 @@ class _SoundsDetailsBinauralBeatsWidgetState
                                                         r'''$.title''',
                                                       )?.toString(),
                                                       'Title',
-                                                    ).maybeHandleOverflow(
-                                                      maxChars: 20,
-                                                      replacement: '…',
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -421,21 +321,16 @@ class _SoundsDetailsBinauralBeatsWidgetState
                                                         .override(
                                                           fontFamily: 'Outfit',
                                                           color:
-                                                              const Color(0xFF101213),
+                                                              Color(0xFF101213),
                                                           fontSize: 16.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
-                                                          useGoogleFonts:
-                                                              GoogleFonts
-                                                                      .asMap()
-                                                                  .containsKey(
-                                                                      'Outfit'),
                                                         ),
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 4.0,
                                                                 0.0, 0.0),
                                                     child: Text(
@@ -445,9 +340,6 @@ class _SoundsDetailsBinauralBeatsWidgetState
                                                           r'''$.channelTitle''',
                                                         )?.toString(),
                                                         'ChannelTitle',
-                                                      ).maybeHandleOverflow(
-                                                        maxChars: 20,
-                                                        replacement: '…',
                                                       ),
                                                       style: FlutterFlowTheme
                                                               .of(context)
@@ -455,119 +347,40 @@ class _SoundsDetailsBinauralBeatsWidgetState
                                                           .override(
                                                             fontFamily:
                                                                 'Outfit',
-                                                            color: const Color(
+                                                            color: Color(
                                                                 0xFF57636C),
                                                             fontSize: 14.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight
                                                                     .normal,
-                                                            useGoogleFonts:
-                                                                GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        'Outfit'),
                                                           ),
                                                     ),
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 4.0,
                                                                 0.0, 0.0),
-                                                    child: InkWell(
-                                                      splashColor:
-                                                          Colors.transparent,
-                                                      focusColor:
-                                                          Colors.transparent,
-                                                      hoverColor:
-                                                          Colors.transparent,
-                                                      highlightColor:
-                                                          Colors.transparent,
-                                                      onTap: () async {
-                                                        logFirebaseEvent(
-                                                            'SOUNDS_DETAILS_BINAURAL_BEATS_Text_dsu6f');
-                                                        logFirebaseEvent(
-                                                            'Text_navigate_to');
-
-                                                        context.pushNamed(
-                                                          'youtubetestFINAL',
-                                                          queryParameters: {
-                                                            'videoid':
-                                                                serializeParam(
-                                                              getJsonField(
-                                                                binauralBeatsItem,
-                                                                r'''$.resource.videoid''',
-                                                              ).toString(),
-                                                              ParamType.String,
-                                                            ),
-                                                            'description':
-                                                                serializeParam(
-                                                              getJsonField(
-                                                                binauralBeatsItem,
-                                                                r'''$.description''',
-                                                              ).toString(),
-                                                              ParamType.String,
-                                                            ),
-                                                            'channelTitle':
-                                                                serializeParam(
-                                                              getJsonField(
-                                                                binauralBeatsItem,
-                                                                r'''$.channelTitle''',
-                                                              ).toString(),
-                                                              ParamType.String,
-                                                            ),
-                                                            'videoTitle':
-                                                                serializeParam(
-                                                              getJsonField(
-                                                                binauralBeatsItem,
-                                                                r'''$.title''',
-                                                              ).toString(),
-                                                              ParamType.String,
-                                                            ),
-                                                          }.withoutNulls,
-                                                          extra: <String,
-                                                              dynamic>{
-                                                            kTransitionInfoKey:
-                                                                const TransitionInfo(
-                                                              hasTransition:
-                                                                  true,
-                                                              transitionType:
-                                                                  PageTransitionType
-                                                                      .fade,
-                                                              duration: Duration(
-                                                                  milliseconds:
-                                                                      2),
-                                                            ),
-                                                          },
-                                                        );
-                                                      },
-                                                      child: Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          'm2s6hak9' /* Click Here to Play */,
-                                                        ),
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Outfit',
-                                                              color: const Color(
-                                                                  0xFF4B39EF),
-                                                              fontSize: 14.0,
-                                                              letterSpacing:
-                                                                  0.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500,
-                                                              useGoogleFonts: GoogleFonts
-                                                                      .asMap()
-                                                                  .containsKey(
-                                                                      'Outfit'),
-                                                            ),
+                                                    child: Text(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'm2s6hak9' /* Click Here to Play */,
                                                       ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Outfit',
+                                                            color: Color(
+                                                                0xFF4B39EF),
+                                                            fontSize: 14.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                          ),
                                                     ),
                                                   ),
                                                 ],
@@ -578,8 +391,7 @@ class _SoundsDetailsBinauralBeatsWidgetState
                                       ),
                                     );
                                   },
-                                ).animateOnPageLoad(animationsMap[
-                                    'listViewOnPageLoadAnimation']!);
+                                );
                               },
                             );
                           },

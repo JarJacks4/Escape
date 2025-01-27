@@ -2,10 +2,12 @@ import '/components/meditation_sounds_list/meditation_sounds_list_widget.dart';
 import '/flutter_flow/flutter_flow_button_tabbar.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'tabbar_home_model.dart';
 export 'tabbar_home_model.dart';
 
@@ -53,53 +55,49 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
         desktop: false,
       ),
       child: Align(
-        alignment: const AlignmentDirectional(-1.0, 0.0),
+        alignment: AlignmentDirectional(-1.0, 0.0),
         child: Column(
           children: [
             Align(
-              alignment: const Alignment(-1.0, 0),
+              alignment: Alignment(-1.0, 0),
               child: FlutterFlowButtonTabBar(
                 useToggleButtonStyle: false,
                 isScrollable: true,
                 labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
-                      fontFamily:
-                          FlutterFlowTheme.of(context).labelMediumFamily,
+                      fontFamily: 'WorkSans',
                       fontSize: 14.0,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.w500,
-                      useGoogleFonts: GoogleFonts.asMap().containsKey(
-                          FlutterFlowTheme.of(context).labelMediumFamily),
+                      useGoogleFonts: false,
                     ),
                 unselectedLabelStyle:
                     FlutterFlowTheme.of(context).labelMedium.override(
-                          fontFamily:
-                              FlutterFlowTheme.of(context).labelMediumFamily,
+                          fontFamily: 'WorkSans',
                           fontSize: 14.0,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w500,
-                          useGoogleFonts: GoogleFonts.asMap().containsKey(
-                              FlutterFlowTheme.of(context).labelMediumFamily),
+                          useGoogleFonts: false,
                         ),
                 labelColor: Colors.white,
                 unselectedLabelColor: FlutterFlowTheme.of(context).primary,
-                backgroundColor: const Color(0xFF2082A2),
-                unselectedBackgroundColor: const Color(0xFFA0A3B1),
-                borderColor: const Color(0x00FFFFFF),
-                unselectedBorderColor: const Color(0x00FFFFFF),
+                backgroundColor: Color(0xFF2082A2),
+                unselectedBackgroundColor: Color(0xFFA0A3B1),
+                borderColor: Color(0x00FFFFFF),
+                unselectedBorderColor: Color(0x00FFFFFF),
                 borderWidth: 0.0,
                 borderRadius: 10.0,
                 elevation: 5.0,
                 labelPadding:
-                    const EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                    EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
                 buttonMargin:
-                    const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                    EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
                 tabs: [
                   Tab(
                     text: FFLocalizations.of(context).getText(
                       'iumvt9n4' /* All */,
                     ),
-                    icon: const FaIcon(
+                    icon: FaIcon(
                       FontAwesomeIcons.alignLeft,
                     ),
                   ),
@@ -107,7 +105,7 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                     text: FFLocalizations.of(context).getText(
                       '3ufmn5om' /* Anxiety */,
                     ),
-                    icon: const Icon(
+                    icon: Icon(
                       Icons.electric_bolt_sharp,
                     ),
                   ),
@@ -115,7 +113,7 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                     text: FFLocalizations.of(context).getText(
                       'czlfvmzx' /* Kids */,
                     ),
-                    icon: const FaIcon(
+                    icon: FaIcon(
                       FontAwesomeIcons.babyCarriage,
                     ),
                   ),
@@ -123,7 +121,7 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                     text: FFLocalizations.of(context).getText(
                       'hdfy77sq' /* Sleep */,
                     ),
-                    icon: const Icon(
+                    icon: Icon(
                       Icons.bed,
                     ),
                   ),
@@ -131,7 +129,7 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                     text: FFLocalizations.of(context).getText(
                       'pk32goul' /* Metaphysical */,
                     ),
-                    icon: const FaIcon(
+                    icon: FaIcon(
                       FontAwesomeIcons.atom,
                     ),
                   ),
@@ -139,7 +137,7 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                     text: FFLocalizations.of(context).getText(
                       'znokofks' /* Embrace Love */,
                     ),
-                    icon: const Icon(
+                    icon: Icon(
                       Icons.favorite,
                     ),
                   ),
@@ -147,7 +145,7 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                     text: FFLocalizations.of(context).getText(
                       'b85t02ok' /* Vocalization */,
                     ),
-                    icon: const Icon(
+                    icon: Icon(
                       Icons.record_voice_over_outlined,
                     ),
                   ),
@@ -155,7 +153,7 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                     text: FFLocalizations.of(context).getText(
                       'dmjho5zy' /* Grounding */,
                     ),
-                    icon: const FaIcon(
+                    icon: FaIcon(
                       FontAwesomeIcons.medrt,
                     ),
                   ),
@@ -163,7 +161,7 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                     text: FFLocalizations.of(context).getText(
                       's4jxxxu4' /* Faith */,
                     ),
-                    icon: const FaIcon(
+                    icon: FaIcon(
                       FontAwesomeIcons.prayingHands,
                     ),
                   ),
@@ -171,7 +169,7 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                     text: FFLocalizations.of(context).getText(
                       '2mzigygs' /* Perception */,
                     ),
-                    icon: const Icon(
+                    icon: Icon(
                       Icons.remove_red_eye,
                     ),
                   ),
@@ -179,7 +177,7 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                     text: FFLocalizations.of(context).getText(
                       'bcl976bn' /* Growth */,
                     ),
-                    icon: const FaIcon(
+                    icon: FaIcon(
                       FontAwesomeIcons.arrowUp,
                     ),
                   ),
@@ -187,7 +185,7 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                     text: FFLocalizations.of(context).getText(
                       'rmwopa2y' /* Mindset */,
                     ),
-                    icon: const FaIcon(
+                    icon: FaIcon(
                       FontAwesomeIcons.brain,
                     ),
                   ),
@@ -195,7 +193,7 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                     text: FFLocalizations.of(context).getText(
                       's3qhfy7v' /* Spirituality */,
                     ),
-                    icon: const Icon(
+                    icon: Icon(
                       Icons.rowing,
                     ),
                   ),
@@ -203,7 +201,7 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                     text: FFLocalizations.of(context).getText(
                       'iur5kuh7' /* Numerology */,
                     ),
-                    icon: const FaIcon(
+                    icon: FaIcon(
                       FontAwesomeIcons.sortNumericUp,
                     ),
                   ),
@@ -211,7 +209,7 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                     text: FFLocalizations.of(context).getText(
                       'q61nd4wd' /* Uplift */,
                     ),
-                    icon: const Icon(
+                    icon: Icon(
                       Icons.hail,
                     ),
                   ),
@@ -244,10 +242,10 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                 children: [
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 22.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 22.0, 0.0, 0.0),
                     child: MasonryGridView.builder(
                       gridDelegate:
-                          const SliverSimpleGridDelegateWithFixedCrossAxisCount(
+                          SliverSimpleGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
                       ),
                       crossAxisSpacing: 9.0,
@@ -277,7 +275,7 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                                     borderRadius: BorderRadius.circular(15.0),
                                   ),
                                   child: Align(
-                                    alignment: const AlignmentDirectional(0.0, 1.0),
+                                    alignment: AlignmentDirectional(0.0, 1.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -285,15 +283,15 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                                           width: 194.0,
                                           height: 69.0,
                                           decoration: BoxDecoration(
-                                            color: const Color(0xC9040404),
+                                            color: Color(0xC9040404),
                                             borderRadius:
                                                 BorderRadius.circular(15.0),
                                           ),
                                           child: Align(
                                             alignment:
-                                                const AlignmentDirectional(0.0, 0.0),
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Padding(
-                                              padding: const EdgeInsets.all(11.0),
+                                              padding: EdgeInsets.all(11.0),
                                               child: Text(
                                                 FFLocalizations.of(context)
                                                     .getText(
@@ -305,20 +303,13 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
+                                                              'WorkSans',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryBackground,
                                                           fontSize: 20.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily),
+                                                          useGoogleFonts: false,
                                                         ),
                                               ),
                                             ),
@@ -350,7 +341,7 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                                     borderRadius: BorderRadius.circular(11.0),
                                   ),
                                   child: Align(
-                                    alignment: const AlignmentDirectional(0.0, 1.0),
+                                    alignment: AlignmentDirectional(0.0, 1.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -358,15 +349,15 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                                           width: 200.0,
                                           height: 69.0,
                                           decoration: BoxDecoration(
-                                            color: const Color(0xC9040404),
+                                            color: Color(0xC9040404),
                                             borderRadius:
                                                 BorderRadius.circular(15.0),
                                           ),
                                           child: Align(
                                             alignment:
-                                                const AlignmentDirectional(0.0, 0.0),
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Padding(
-                                              padding: const EdgeInsets.all(11.0),
+                                              padding: EdgeInsets.all(11.0),
                                               child: Text(
                                                 FFLocalizations.of(context)
                                                     .getText(
@@ -378,20 +369,13 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
+                                                              'WorkSans',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryBackground,
                                                           fontSize: 20.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily),
+                                                          useGoogleFonts: false,
                                                         ),
                                               ),
                                             ),
@@ -423,7 +407,7 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                                     borderRadius: BorderRadius.circular(15.0),
                                   ),
                                   child: Align(
-                                    alignment: const AlignmentDirectional(0.0, 1.0),
+                                    alignment: AlignmentDirectional(0.0, 1.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -431,15 +415,15 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                                           width: 196.0,
                                           height: 69.0,
                                           decoration: BoxDecoration(
-                                            color: const Color(0xC9040404),
+                                            color: Color(0xC9040404),
                                             borderRadius:
                                                 BorderRadius.circular(15.0),
                                           ),
                                           child: Align(
                                             alignment:
-                                                const AlignmentDirectional(0.0, 0.0),
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Padding(
-                                              padding: const EdgeInsets.all(11.0),
+                                              padding: EdgeInsets.all(11.0),
                                               child: Text(
                                                 FFLocalizations.of(context)
                                                     .getText(
@@ -451,20 +435,13 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
+                                                              'WorkSans',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryBackground,
                                                           fontSize: 20.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily),
+                                                          useGoogleFonts: false,
                                                         ),
                                               ),
                                             ),
@@ -496,7 +473,7 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                                     borderRadius: BorderRadius.circular(15.0),
                                   ),
                                   child: Align(
-                                    alignment: const AlignmentDirectional(0.0, 1.0),
+                                    alignment: AlignmentDirectional(0.0, 1.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -504,15 +481,15 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                                           width: 196.0,
                                           height: 69.0,
                                           decoration: BoxDecoration(
-                                            color: const Color(0xC9040404),
+                                            color: Color(0xC9040404),
                                             borderRadius:
                                                 BorderRadius.circular(15.0),
                                           ),
                                           child: Align(
                                             alignment:
-                                                const AlignmentDirectional(0.0, 0.0),
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Padding(
-                                              padding: const EdgeInsets.all(11.0),
+                                              padding: EdgeInsets.all(11.0),
                                               child: Text(
                                                 FFLocalizations.of(context)
                                                     .getText(
@@ -524,20 +501,13 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
+                                                              'WorkSans',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryBackground,
                                                           fontSize: 20.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily),
+                                                          useGoogleFonts: false,
                                                         ),
                                               ),
                                             ),
@@ -555,7 +525,7 @@ class _TabbarHomeWidgetState extends State<TabbarHomeWidget>
                   wrapWithModel(
                     model: _model.meditationSoundsListModel,
                     updateCallback: () => safeSetState(() {}),
-                    child: const MeditationSoundsListWidget(),
+                    child: MeditationSoundsListWidget(),
                   ),
                   Container(),
                   Container(),

@@ -1,9 +1,12 @@
 import '/components/page_view_blogs_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'blogs_model.dart';
 export 'blogs_model.dart';
 
@@ -37,7 +40,10 @@ class _BlogsWidgetState extends State<BlogsWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -51,14 +57,14 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                   wrapWithModel(
                     model: _model.pageViewBlogsModel,
                     updateCallback: () => safeSetState(() {}),
-                    child: const PageViewBlogsWidget(),
+                    child: PageViewBlogsWidget(),
                   ),
                   Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -67,7 +73,7 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                               width: 82.0,
                               height: 106.0,
                               decoration: BoxDecoration(
-                                color: const Color(0xFFEEEEEE),
+                                color: Color(0xFFEEEEEE),
                                 image: DecorationImage(
                                   fit: BoxFit.cover,
                                   image: Image.asset(
@@ -76,7 +82,7 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                 ),
                                 borderRadius: BorderRadius.circular(20.0),
                                 border: Border.all(
-                                  color: const Color(0xFF656565),
+                                  color: Color(0xFF656565),
                                   width: 0.5,
                                 ),
                               ),
@@ -86,7 +92,7 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                               height: 106.0,
                               decoration: BoxDecoration(
                                 color: Colors.white,
-                                boxShadow: const [
+                                boxShadow: [
                                   BoxShadow(
                                     blurRadius: 6.0,
                                     color: Color(0x34000000),
@@ -103,7 +109,7 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         12.0, 8.0, 0.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
@@ -119,13 +125,11 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                             fontSize: 12.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w300,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey('Lexend Deca'),
                                           ),
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         12.0, 5.0, 0.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
@@ -138,13 +142,11 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                             fontSize: 13.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey('Lexend Deca'),
                                           ),
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         12.0, 5.0, 0.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -157,7 +159,7 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   5.0, 0.0, 0.0, 0.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
@@ -170,16 +172,12 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                                   fontSize: 12.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
-                                                  useGoogleFonts:
-                                                      GoogleFonts.asMap()
-                                                          .containsKey(
-                                                              'Lexend Deca'),
                                                 ),
                                           ),
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   8.0, 0.0, 0.0, 0.0),
                                           child: FaIcon(
                                             FontAwesomeIcons.calendarAlt,
@@ -190,7 +188,7 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   5.0, 0.0, 0.0, 0.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
@@ -203,10 +201,6 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                                   fontSize: 12.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
-                                                  useGoogleFonts:
-                                                      GoogleFonts.asMap()
-                                                          .containsKey(
-                                                              'Lexend Deca'),
                                                 ),
                                           ),
                                         ),
@@ -221,7 +215,7 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                       ),
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -230,7 +224,7 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                               width: 82.0,
                               height: 106.0,
                               decoration: BoxDecoration(
-                                color: const Color(0xFFEEEEEE),
+                                color: Color(0xFFEEEEEE),
                                 image: DecorationImage(
                                   fit: BoxFit.cover,
                                   image: Image.asset(
@@ -239,7 +233,7 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                 ),
                                 borderRadius: BorderRadius.circular(20.0),
                                 border: Border.all(
-                                  color: const Color(0xFF656565),
+                                  color: Color(0xFF656565),
                                   width: 0.5,
                                 ),
                               ),
@@ -248,7 +242,7 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                               width: 260.0,
                               height: 106.0,
                               decoration: BoxDecoration(
-                                color: const Color(0xFFEEEEEE),
+                                color: Color(0xFFEEEEEE),
                                 borderRadius: BorderRadius.circular(20.0),
                               ),
                               child: Column(
@@ -256,7 +250,7 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         12.0, 8.0, 0.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
@@ -272,13 +266,11 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                             fontSize: 12.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w300,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey('Lexend Deca'),
                                           ),
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         12.0, 5.0, 0.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
@@ -291,13 +283,11 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                             fontSize: 13.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey('Lexend Deca'),
                                           ),
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         12.0, 5.0, 0.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -310,7 +300,7 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   5.0, 0.0, 0.0, 0.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
@@ -323,16 +313,12 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                                   fontSize: 12.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
-                                                  useGoogleFonts:
-                                                      GoogleFonts.asMap()
-                                                          .containsKey(
-                                                              'Lexend Deca'),
                                                 ),
                                           ),
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   8.0, 0.0, 0.0, 0.0),
                                           child: FaIcon(
                                             FontAwesomeIcons.calendarAlt,
@@ -343,7 +329,7 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   5.0, 0.0, 0.0, 0.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
@@ -356,10 +342,6 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                                   fontSize: 12.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
-                                                  useGoogleFonts:
-                                                      GoogleFonts.asMap()
-                                                          .containsKey(
-                                                              'Lexend Deca'),
                                                 ),
                                           ),
                                         ),
@@ -374,7 +356,7 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                       ),
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -383,7 +365,7 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                               width: 82.0,
                               height: 106.0,
                               decoration: BoxDecoration(
-                                color: const Color(0xFFEEEEEE),
+                                color: Color(0xFFEEEEEE),
                                 image: DecorationImage(
                                   fit: BoxFit.cover,
                                   image: Image.asset(
@@ -392,7 +374,7 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                 ),
                                 borderRadius: BorderRadius.circular(20.0),
                                 border: Border.all(
-                                  color: const Color(0xFF656565),
+                                  color: Color(0xFF656565),
                                   width: 0.5,
                                 ),
                               ),
@@ -401,7 +383,7 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                               width: 260.0,
                               height: 106.0,
                               decoration: BoxDecoration(
-                                color: const Color(0xFFEEEEEE),
+                                color: Color(0xFFEEEEEE),
                                 borderRadius: BorderRadius.circular(20.0),
                               ),
                               child: Column(
@@ -409,7 +391,7 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         12.0, 8.0, 0.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
@@ -425,13 +407,11 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                             fontSize: 12.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w300,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey('Lexend Deca'),
                                           ),
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         12.0, 5.0, 0.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
@@ -444,13 +424,11 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                             fontSize: 13.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey('Lexend Deca'),
                                           ),
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         12.0, 5.0, 0.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -463,7 +441,7 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   5.0, 0.0, 0.0, 0.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
@@ -476,16 +454,12 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                                   fontSize: 12.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
-                                                  useGoogleFonts:
-                                                      GoogleFonts.asMap()
-                                                          .containsKey(
-                                                              'Lexend Deca'),
                                                 ),
                                           ),
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   8.0, 0.0, 0.0, 0.0),
                                           child: FaIcon(
                                             FontAwesomeIcons.calendarAlt,
@@ -496,7 +470,7 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   5.0, 0.0, 0.0, 0.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
@@ -509,10 +483,6 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                                   fontSize: 12.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
-                                                  useGoogleFonts:
-                                                      GoogleFonts.asMap()
-                                                          .containsKey(
-                                                              'Lexend Deca'),
                                                 ),
                                           ),
                                         ),
@@ -527,7 +497,7 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                       ),
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -536,7 +506,7 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                               width: 82.0,
                               height: 106.0,
                               decoration: BoxDecoration(
-                                color: const Color(0xFFEEEEEE),
+                                color: Color(0xFFEEEEEE),
                                 image: DecorationImage(
                                   fit: BoxFit.cover,
                                   image: Image.asset(
@@ -545,7 +515,7 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                 ),
                                 borderRadius: BorderRadius.circular(20.0),
                                 border: Border.all(
-                                  color: const Color(0xFF656565),
+                                  color: Color(0xFF656565),
                                   width: 0.5,
                                 ),
                               ),
@@ -554,7 +524,7 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                               width: 260.0,
                               height: 106.0,
                               decoration: BoxDecoration(
-                                color: const Color(0xFFEEEEEE),
+                                color: Color(0xFFEEEEEE),
                                 borderRadius: BorderRadius.circular(20.0),
                               ),
                               child: Column(
@@ -562,7 +532,7 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         12.0, 8.0, 0.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
@@ -578,13 +548,11 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                             fontSize: 12.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w300,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey('Lexend Deca'),
                                           ),
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         12.0, 5.0, 0.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
@@ -597,13 +565,11 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                             fontSize: 13.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey('Lexend Deca'),
                                           ),
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         12.0, 5.0, 0.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -616,7 +582,7 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   5.0, 0.0, 0.0, 0.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
@@ -629,16 +595,12 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                                   fontSize: 12.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
-                                                  useGoogleFonts:
-                                                      GoogleFonts.asMap()
-                                                          .containsKey(
-                                                              'Lexend Deca'),
                                                 ),
                                           ),
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   8.0, 0.0, 0.0, 0.0),
                                           child: FaIcon(
                                             FontAwesomeIcons.calendarAlt,
@@ -649,7 +611,7 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   5.0, 0.0, 0.0, 0.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
@@ -662,10 +624,6 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                                   fontSize: 12.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
-                                                  useGoogleFonts:
-                                                      GoogleFonts.asMap()
-                                                          .containsKey(
-                                                              'Lexend Deca'),
                                                 ),
                                           ),
                                         ),
@@ -680,7 +638,7 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                       ),
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -689,7 +647,7 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                               width: 82.0,
                               height: 106.0,
                               decoration: BoxDecoration(
-                                color: const Color(0xFFEEEEEE),
+                                color: Color(0xFFEEEEEE),
                                 image: DecorationImage(
                                   fit: BoxFit.cover,
                                   image: Image.asset(
@@ -698,7 +656,7 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                 ),
                                 borderRadius: BorderRadius.circular(20.0),
                                 border: Border.all(
-                                  color: const Color(0xFF656565),
+                                  color: Color(0xFF656565),
                                   width: 0.5,
                                 ),
                               ),
@@ -708,7 +666,7 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                               height: 106.0,
                               decoration: BoxDecoration(
                                 color: Colors.white,
-                                boxShadow: const [
+                                boxShadow: [
                                   BoxShadow(
                                     blurRadius: 6.0,
                                     color: Color(0x34000000),
@@ -725,7 +683,7 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         12.0, 8.0, 0.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
@@ -741,13 +699,11 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                             fontSize: 12.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w300,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey('Lexend Deca'),
                                           ),
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         12.0, 5.0, 0.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
@@ -760,13 +716,11 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                             fontSize: 13.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey('Lexend Deca'),
                                           ),
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         12.0, 5.0, 0.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -779,7 +733,7 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   5.0, 0.0, 0.0, 0.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
@@ -792,16 +746,12 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                                   fontSize: 12.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
-                                                  useGoogleFonts:
-                                                      GoogleFonts.asMap()
-                                                          .containsKey(
-                                                              'Lexend Deca'),
                                                 ),
                                           ),
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   8.0, 0.0, 0.0, 0.0),
                                           child: FaIcon(
                                             FontAwesomeIcons.calendarAlt,
@@ -812,7 +762,7 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   5.0, 0.0, 0.0, 0.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
@@ -825,10 +775,6 @@ class _BlogsWidgetState extends State<BlogsWidget> {
                                                   fontSize: 12.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
-                                                  useGoogleFonts:
-                                                      GoogleFonts.asMap()
-                                                          .containsKey(
-                                                              'Lexend Deca'),
                                                 ),
                                           ),
                                         ),

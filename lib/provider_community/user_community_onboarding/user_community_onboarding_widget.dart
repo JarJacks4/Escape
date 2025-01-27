@@ -5,12 +5,16 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import 'dart:math';
 import 'dart:ui';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'user_community_onboarding_model.dart';
 export 'user_community_onboarding_model.dart';
 
@@ -61,8 +65,8 @@ class _UserCommunityOnboardingWidgetState
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(1.4, 1.4),
-            end: const Offset(1.0, 1.0),
+            begin: Offset(1.4, 1.4),
+            end: Offset(1.0, 1.0),
           ),
         ],
       ),
@@ -80,8 +84,8 @@ class _UserCommunityOnboardingWidgetState
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, 70.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 70.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -99,27 +103,8 @@ class _UserCommunityOnboardingWidgetState
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, 90.0),
-            end: const Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-      'containerOnPageLoadAnimation2': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          FadeEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          MoveEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: const Offset(100.0, 0.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 90.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -137,19 +122,19 @@ class _UserCommunityOnboardingWidgetState
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, 50.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 50.0),
+            end: Offset(0.0, 0.0),
           ),
           ScaleEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.3, 0.3),
-            end: const Offset(1.0, 1.0),
+            begin: Offset(0.3, 0.3),
+            end: Offset(1.0, 1.0),
           ),
         ],
       ),
-      'containerOnPageLoadAnimation3': AnimationInfo(
+      'containerOnPageLoadAnimation2': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           FadeEffect(
@@ -163,8 +148,8 @@ class _UserCommunityOnboardingWidgetState
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(1.4, 1.4),
-            end: const Offset(1.0, 1.0),
+            begin: Offset(1.4, 1.4),
+            end: Offset(1.0, 1.0),
           ),
         ],
       ),
@@ -182,8 +167,8 @@ class _UserCommunityOnboardingWidgetState
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, 70.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 70.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -201,8 +186,8 @@ class _UserCommunityOnboardingWidgetState
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, 90.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 90.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -220,19 +205,19 @@ class _UserCommunityOnboardingWidgetState
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, 50.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 50.0),
+            end: Offset(0.0, 0.0),
           ),
           ScaleEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.3, 0.3),
-            end: const Offset(1.0, 1.0),
+            begin: Offset(0.3, 0.3),
+            end: Offset(1.0, 1.0),
           ),
         ],
       ),
-      'containerOnPageLoadAnimation4': AnimationInfo(
+      'containerOnPageLoadAnimation3': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           FadeEffect(
@@ -246,8 +231,8 @@ class _UserCommunityOnboardingWidgetState
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(1.4, 1.4),
-            end: const Offset(1.0, 1.0),
+            begin: Offset(1.4, 1.4),
+            end: Offset(1.0, 1.0),
           ),
         ],
       ),
@@ -265,8 +250,8 @@ class _UserCommunityOnboardingWidgetState
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, 70.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 70.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -284,8 +269,8 @@ class _UserCommunityOnboardingWidgetState
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, 90.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 90.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -303,19 +288,19 @@ class _UserCommunityOnboardingWidgetState
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, 50.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 50.0),
+            end: Offset(0.0, 0.0),
           ),
           ScaleEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.3, 0.3),
-            end: const Offset(1.0, 1.0),
+            begin: Offset(0.3, 0.3),
+            end: Offset(1.0, 1.0),
           ),
         ],
       ),
-      'containerOnPageLoadAnimation5': AnimationInfo(
+      'containerOnPageLoadAnimation4': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           FadeEffect(
@@ -329,8 +314,8 @@ class _UserCommunityOnboardingWidgetState
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(1.4, 1.4),
-            end: const Offset(1.0, 1.0),
+            begin: Offset(1.4, 1.4),
+            end: Offset(1.0, 1.0),
           ),
         ],
       ),
@@ -348,8 +333,8 @@ class _UserCommunityOnboardingWidgetState
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, 70.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 70.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -367,8 +352,8 @@ class _UserCommunityOnboardingWidgetState
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, 90.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 90.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -386,19 +371,19 @@ class _UserCommunityOnboardingWidgetState
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, 50.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 50.0),
+            end: Offset(0.0, 0.0),
           ),
           ScaleEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.3, 0.3),
-            end: const Offset(1.0, 1.0),
+            begin: Offset(0.3, 0.3),
+            end: Offset(1.0, 1.0),
           ),
         ],
       ),
-      'containerOnPageLoadAnimation6': AnimationInfo(
+      'containerOnPageLoadAnimation5': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           FadeEffect(
@@ -412,8 +397,8 @@ class _UserCommunityOnboardingWidgetState
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(1.4, 1.4),
-            end: const Offset(1.0, 1.0),
+            begin: Offset(1.4, 1.4),
+            end: Offset(1.0, 1.0),
           ),
         ],
       ),
@@ -431,8 +416,8 @@ class _UserCommunityOnboardingWidgetState
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, 70.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 70.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -450,8 +435,8 @@ class _UserCommunityOnboardingWidgetState
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, 90.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 90.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -469,19 +454,25 @@ class _UserCommunityOnboardingWidgetState
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, 50.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 50.0),
+            end: Offset(0.0, 0.0),
           ),
           ScaleEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.3, 0.3),
-            end: const Offset(1.0, 1.0),
+            begin: Offset(0.3, 0.3),
+            end: Offset(1.0, 1.0),
           ),
         ],
       ),
     });
+    setupAnimations(
+      animationsMap.values.where((anim) =>
+          anim.trigger == AnimationTrigger.onActionTrigger ||
+          !anim.applyInitialState),
+      this,
+    );
   }
 
   @override
@@ -494,10 +485,13 @@ class _UserCommunityOnboardingWidgetState
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
-        body: SizedBox(
+        body: Container(
           width: double.infinity,
           height: double.infinity,
           child: Stack(
@@ -524,7 +518,7 @@ class _UserCommunityOnboardingWidgetState
                         Container(
                           width: double.infinity,
                           height: 850.0,
-                          decoration: const BoxDecoration(
+                          decoration: BoxDecoration(
                             gradient: LinearGradient(
                               colors: [Color(0xAE903E9F), Color(0xE4000220)],
                               stops: [0.0, 1.0],
@@ -535,11 +529,11 @@ class _UserCommunityOnboardingWidgetState
                           child: Container(
                             width: 100.0,
                             height: 100.0,
-                            decoration: const BoxDecoration(),
+                            decoration: BoxDecoration(),
                             child: Container(
                               width: 100.0,
                               height: 100.0,
-                              decoration: const BoxDecoration(),
+                              decoration: BoxDecoration(),
                               child: ClipRRect(
                                 child: BackdropFilter(
                                   filter: ImageFilter.blur(
@@ -549,7 +543,7 @@ class _UserCommunityOnboardingWidgetState
                                   child: Container(
                                     width: 100.0,
                                     height: 100.0,
-                                    decoration: const BoxDecoration(
+                                    decoration: BoxDecoration(
                                       color: Color(0x97FFFFFF),
                                     ),
                                     child: Column(
@@ -567,15 +561,12 @@ class _UserCommunityOnboardingWidgetState
                                                 fontFamily: 'Roboto',
                                                 fontSize: 36.0,
                                                 letterSpacing: 0.0,
-                                                useGoogleFonts:
-                                                    GoogleFonts.asMap()
-                                                        .containsKey('Roboto'),
                                               ),
                                         ).animateOnPageLoad(animationsMap[
                                             'textOnPageLoadAnimation1']!),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   24.0, 12.0, 24.0, 50.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
@@ -592,10 +583,6 @@ class _UserCommunityOnboardingWidgetState
                                                   fontSize: 22.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
-                                                  useGoogleFonts:
-                                                      GoogleFonts.asMap()
-                                                          .containsKey(
-                                                              'Roboto'),
                                                 ),
                                           ).animateOnPageLoad(animationsMap[
                                               'textOnPageLoadAnimation2']!),
@@ -603,65 +590,49 @@ class _UserCommunityOnboardingWidgetState
                                         Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
-                                            Flexible(
-                                              flex: 1,
-                                              child: Container(
-                                                width: 396.0,
-                                                height: 256.0,
-                                                decoration: const BoxDecoration(
-                                                  color: Color(0x00000811),
-                                                ),
-                                                child: Align(
-                                                  alignment:
-                                                      const AlignmentDirectional(
-                                                          0.0, 0.0),
-                                                  child: Padding(
-                                                    padding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(20.0, 0.0,
-                                                                20.0, 0.0),
-                                                    child: Text(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        '65xwidg2' /* Click the continue button belo... */,
-                                                      ),
-                                                      textAlign:
-                                                          TextAlign.center,
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Roboto',
-                                                            fontSize: 22.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.w300,
-                                                            useGoogleFonts:
-                                                                GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        'Roboto'),
-                                                            lineHeight: 1.5,
-                                                          ),
+                                            Container(
+                                              width: 396.0,
+                                              height: 256.0,
+                                              decoration: BoxDecoration(
+                                                color: Color(0x00000811),
+                                              ),
+                                              child: Align(
+                                                alignment: AlignmentDirectional(
+                                                    0.0, 0.0),
+                                                child: Padding(
+                                                  padding: EdgeInsets.all(20.0),
+                                                  child: Text(
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                      '65xwidg2' /* Click the continue button belo... */,
                                                     ),
+                                                    textAlign: TextAlign.center,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Roboto',
+                                                          fontSize: 22.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.w300,
+                                                          lineHeight: 1.5,
+                                                        ),
                                                   ),
                                                 ),
-                                              ).animateOnPageLoad(animationsMap[
-                                                  'containerOnPageLoadAnimation2']!),
+                                              ),
                                             ),
                                           ],
                                         ),
                                         Padding(
-                                          padding: const EdgeInsets.all(20.0),
+                                          padding: EdgeInsets.all(20.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
                                                 MainAxisAlignment.center,
                                             children: [
                                               Align(
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: FFButtonWidget(
                                                   onPressed: () async {
@@ -672,7 +643,7 @@ class _UserCommunityOnboardingWidgetState
                                                     await _model
                                                         .pageViewController
                                                         ?.nextPage(
-                                                      duration: const Duration(
+                                                      duration: Duration(
                                                           milliseconds: 300),
                                                       curve: Curves.ease,
                                                     );
@@ -689,34 +660,27 @@ class _UserCommunityOnboardingWidgetState
                                                         0.449,
                                                     height: 47.0,
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(24.0, 0.0,
                                                                 24.0, 0.0),
                                                     iconPadding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 0.0),
-                                                    color: const Color(0xAE6450A5),
+                                                    color: Color(0xAE6450A5),
                                                     textStyle: FlutterFlowTheme
                                                             .of(context)
                                                         .titleSmall
                                                         .override(
                                                           fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleSmallFamily,
+                                                              'WorkSans',
                                                           color: Colors.white,
                                                           fontSize: 22.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleSmallFamily),
+                                                          useGoogleFonts: false,
                                                         ),
                                                     elevation: 8.0,
-                                                    borderSide: const BorderSide(
+                                                    borderSide: BorderSide(
                                                       color: Colors.transparent,
                                                       width: 1.0,
                                                     ),
@@ -731,7 +695,7 @@ class _UserCommunityOnboardingWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, 1.0),
+                                              AlignmentDirectional(0.0, 1.0),
                                           child: Image.asset(
                                             'assets/images/ESCAPE_Logo_Clear.png',
                                             width: 200.0,
@@ -769,7 +733,7 @@ class _UserCommunityOnboardingWidgetState
                         Container(
                           width: double.infinity,
                           height: 850.0,
-                          decoration: const BoxDecoration(
+                          decoration: BoxDecoration(
                             gradient: LinearGradient(
                               colors: [Color(0xAE903E9F), Color(0xEB000220)],
                               stops: [0.0, 1.0],
@@ -780,11 +744,11 @@ class _UserCommunityOnboardingWidgetState
                           child: Container(
                             width: 100.0,
                             height: 100.0,
-                            decoration: const BoxDecoration(),
+                            decoration: BoxDecoration(),
                             child: Container(
                               width: 100.0,
                               height: 100.0,
-                              decoration: const BoxDecoration(),
+                              decoration: BoxDecoration(),
                               child: ClipRRect(
                                 child: BackdropFilter(
                                   filter: ImageFilter.blur(
@@ -794,7 +758,7 @@ class _UserCommunityOnboardingWidgetState
                                   child: Container(
                                     width: 100.0,
                                     height: 100.0,
-                                    decoration: const BoxDecoration(
+                                    decoration: BoxDecoration(
                                       color: Color(0x97FFFFFF),
                                     ),
                                     child: Column(
@@ -812,15 +776,12 @@ class _UserCommunityOnboardingWidgetState
                                                 fontFamily: 'Roboto',
                                                 fontSize: 36.0,
                                                 letterSpacing: 0.0,
-                                                useGoogleFonts:
-                                                    GoogleFonts.asMap()
-                                                        .containsKey('Roboto'),
                                               ),
                                         ).animateOnPageLoad(animationsMap[
                                             'textOnPageLoadAnimation3']!),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   24.0, 12.0, 24.0, 50.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
@@ -837,10 +798,6 @@ class _UserCommunityOnboardingWidgetState
                                                   fontSize: 22.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
-                                                  useGoogleFonts:
-                                                      GoogleFonts.asMap()
-                                                          .containsKey(
-                                                              'Roboto'),
                                                 ),
                                           ).animateOnPageLoad(animationsMap[
                                               'textOnPageLoadAnimation4']!),
@@ -851,14 +808,14 @@ class _UserCommunityOnboardingWidgetState
                                             Container(
                                               width: 396.0,
                                               height: 256.0,
-                                              decoration: const BoxDecoration(
+                                              decoration: BoxDecoration(
                                                 color: Color(0x00000811),
                                               ),
                                               child: Align(
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: Padding(
-                                                  padding: const EdgeInsets.all(20.0),
+                                                  padding: EdgeInsets.all(20.0),
                                                   child: Text(
                                                     FFLocalizations.of(context)
                                                         .getText(
@@ -874,11 +831,6 @@ class _UserCommunityOnboardingWidgetState
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w300,
-                                                          useGoogleFonts:
-                                                              GoogleFonts
-                                                                      .asMap()
-                                                                  .containsKey(
-                                                                      'Roboto'),
                                                           lineHeight: 1.5,
                                                         ),
                                                   ),
@@ -888,14 +840,14 @@ class _UserCommunityOnboardingWidgetState
                                           ],
                                         ),
                                         Padding(
-                                          padding: const EdgeInsets.all(20.0),
+                                          padding: EdgeInsets.all(20.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
                                                 MainAxisAlignment.center,
                                             children: [
                                               Align(
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: FFButtonWidget(
                                                   onPressed: () async {
@@ -906,7 +858,7 @@ class _UserCommunityOnboardingWidgetState
                                                     await _model
                                                         .pageViewController
                                                         ?.nextPage(
-                                                      duration: const Duration(
+                                                      duration: Duration(
                                                           milliseconds: 300),
                                                       curve: Curves.ease,
                                                     );
@@ -923,34 +875,27 @@ class _UserCommunityOnboardingWidgetState
                                                         0.449,
                                                     height: 47.0,
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(24.0, 0.0,
                                                                 24.0, 0.0),
                                                     iconPadding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 0.0),
-                                                    color: const Color(0xAE6450A5),
+                                                    color: Color(0xAE6450A5),
                                                     textStyle: FlutterFlowTheme
                                                             .of(context)
                                                         .titleSmall
                                                         .override(
                                                           fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleSmallFamily,
+                                                              'WorkSans',
                                                           color: Colors.white,
                                                           fontSize: 22.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleSmallFamily),
+                                                          useGoogleFonts: false,
                                                         ),
                                                     elevation: 8.0,
-                                                    borderSide: const BorderSide(
+                                                    borderSide: BorderSide(
                                                       color: Colors.transparent,
                                                       width: 1.0,
                                                     ),
@@ -965,63 +910,26 @@ class _UserCommunityOnboardingWidgetState
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 8.0),
-                                          child: InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              logFirebaseEvent(
-                                                  'USER_COMMUNITY_ONBOARDING_Text_kmzb8lmp_');
-                                              logFirebaseEvent(
-                                                  'Text_navigate_to');
-
-                                              context.pushNamed(
-                                                'NewHome',
-                                                extra: <String, dynamic>{
-                                                  kTransitionInfoKey:
-                                                      const TransitionInfo(
-                                                    hasTransition: true,
-                                                    transitionType:
-                                                        PageTransitionType.fade,
-                                                    duration: Duration(
-                                                        milliseconds: 3),
-                                                  ),
-                                                },
-                                              );
-                                            },
-                                            child: Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                '0468v8ug' /* Skip */,
-                                              ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMediumFamily,
-                                                        fontSize: 18.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily),
-                                                      ),
+                                          child: Text(
+                                            FFLocalizations.of(context).getText(
+                                              '0468v8ug' /* Skip */,
                                             ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'WorkSans',
+                                                  fontSize: 18.0,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w600,
+                                                  useGoogleFonts: false,
+                                                ),
                                           ),
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, 1.0),
+                                              AlignmentDirectional(0.0, 1.0),
                                           child: Image.asset(
                                             'assets/images/ESCAPE_Logo_Clear.png',
                                             width: 200.0,
@@ -1036,7 +944,7 @@ class _UserCommunityOnboardingWidgetState
                                 ),
                               ),
                             ).animateOnPageLoad(animationsMap[
-                                'containerOnPageLoadAnimation3']!),
+                                'containerOnPageLoadAnimation2']!),
                           ),
                         ),
                       ],
@@ -1062,22 +970,22 @@ class _UserCommunityOnboardingWidgetState
                           decoration: BoxDecoration(
                             gradient: LinearGradient(
                               colors: [
-                                const Color(0xAE903E9F),
+                                Color(0xAE903E9F),
                                 FlutterFlowTheme.of(context).secondaryBackground
                               ],
-                              stops: const [0.0, 1.0],
-                              begin: const AlignmentDirectional(0.0, -1.0),
-                              end: const AlignmentDirectional(0, 1.0),
+                              stops: [0.0, 1.0],
+                              begin: AlignmentDirectional(0.0, -1.0),
+                              end: AlignmentDirectional(0, 1.0),
                             ),
                           ),
                           child: Container(
                             width: 100.0,
                             height: 100.0,
-                            decoration: const BoxDecoration(),
+                            decoration: BoxDecoration(),
                             child: Container(
                               width: 100.0,
                               height: 100.0,
-                              decoration: const BoxDecoration(),
+                              decoration: BoxDecoration(),
                               child: ClipRRect(
                                 child: BackdropFilter(
                                   filter: ImageFilter.blur(
@@ -1087,7 +995,7 @@ class _UserCommunityOnboardingWidgetState
                                   child: Container(
                                     width: 100.0,
                                     height: 100.0,
-                                    decoration: const BoxDecoration(
+                                    decoration: BoxDecoration(
                                       color: Color(0x97FFFFFF),
                                     ),
                                     child: Column(
@@ -1105,15 +1013,12 @@ class _UserCommunityOnboardingWidgetState
                                                 fontFamily: 'Roboto',
                                                 fontSize: 36.0,
                                                 letterSpacing: 0.0,
-                                                useGoogleFonts:
-                                                    GoogleFonts.asMap()
-                                                        .containsKey('Roboto'),
                                               ),
                                         ).animateOnPageLoad(animationsMap[
                                             'textOnPageLoadAnimation5']!),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   24.0, 12.0, 24.0, 50.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
@@ -1130,10 +1035,6 @@ class _UserCommunityOnboardingWidgetState
                                                   fontSize: 18.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
-                                                  useGoogleFonts:
-                                                      GoogleFonts.asMap()
-                                                          .containsKey(
-                                                              'Roboto'),
                                                 ),
                                           ).animateOnPageLoad(animationsMap[
                                               'textOnPageLoadAnimation6']!),
@@ -1144,11 +1045,11 @@ class _UserCommunityOnboardingWidgetState
                                             Container(
                                               width: 396.0,
                                               height: 256.0,
-                                              decoration: const BoxDecoration(
+                                              decoration: BoxDecoration(
                                                 color: Color(0x00000811),
                                               ),
                                               child: Padding(
-                                                padding: const EdgeInsets.all(15.0),
+                                                padding: EdgeInsets.all(15.0),
                                                 child: Column(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -1158,7 +1059,7 @@ class _UserCommunityOnboardingWidgetState
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -1181,7 +1082,7 @@ class _UserCommunityOnboardingWidgetState
                                                           ),
                                                           child: Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
@@ -1193,7 +1094,7 @@ class _UserCommunityOnboardingWidgetState
                                                                       .max,
                                                               children: [
                                                                 Padding(
-                                                                  padding: const EdgeInsetsDirectional
+                                                                  padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           10.0,
                                                                           0.0,
@@ -1251,7 +1152,7 @@ class _UserCommunityOnboardingWidgetState
                                                                         .labelMedium
                                                                         .override(
                                                                           fontFamily:
-                                                                              FlutterFlowTheme.of(context).labelMediumFamily,
+                                                                              'WorkSans',
                                                                           color:
                                                                               FlutterFlowTheme.of(context).secondaryBackground,
                                                                           fontSize:
@@ -1259,7 +1160,7 @@ class _UserCommunityOnboardingWidgetState
                                                                           letterSpacing:
                                                                               0.0,
                                                                           useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelMediumFamily),
+                                                                              false,
                                                                         ),
                                                                     hintText: FFLocalizations.of(
                                                                             context)
@@ -1278,7 +1179,7 @@ class _UserCommunityOnboardingWidgetState
                                                                         0.0,
                                                                     borderRadius:
                                                                         0.0,
-                                                                    margin: const EdgeInsetsDirectional
+                                                                    margin: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             12.0,
                                                                             4.0,
@@ -1300,7 +1201,7 @@ class _UserCommunityOnboardingWidgetState
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -1317,7 +1218,7 @@ class _UserCommunityOnboardingWidgetState
                                                               'USER_COMMUNITY_ONBOARDING_TextField_21yu');
                                                           logFirebaseEvent(
                                                               'TextField_date_time_picker');
-                                                          final datePickedDate =
+                                                          final _datePickedDate =
                                                               await showDatePicker(
                                                             context: context,
                                                             initialDate:
@@ -1328,16 +1229,16 @@ class _UserCommunityOnboardingWidgetState
                                                                 getCurrentTimestamp,
                                                           );
 
-                                                          if (datePickedDate !=
+                                                          if (_datePickedDate !=
                                                               null) {
                                                             safeSetState(() {
                                                               _model.datePicked =
                                                                   DateTime(
-                                                                datePickedDate
+                                                                _datePickedDate
                                                                     .year,
-                                                                datePickedDate
+                                                                _datePickedDate
                                                                     .month,
-                                                                datePickedDate
+                                                                _datePickedDate
                                                                     .day,
                                                               );
                                                             });
@@ -1359,8 +1260,7 @@ class _UserCommunityOnboardingWidgetState
                                                                   .bodySmall
                                                                   .override(
                                                                     fontFamily:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodySmallFamily,
+                                                                        'WorkSans',
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .secondaryBackground,
@@ -1368,10 +1268,8 @@ class _UserCommunityOnboardingWidgetState
                                                                         14.0,
                                                                     letterSpacing:
                                                                         0.0,
-                                                                    useGoogleFonts: GoogleFonts
-                                                                            .asMap()
-                                                                        .containsKey(
-                                                                            FlutterFlowTheme.of(context).bodySmallFamily),
+                                                                    useGoogleFonts:
+                                                                        false,
                                                                     lineHeight:
                                                                         1.5,
                                                                   ),
@@ -1406,7 +1304,7 @@ class _UserCommunityOnboardingWidgetState
                                                           errorBorder:
                                                               UnderlineInputBorder(
                                                             borderSide:
-                                                                const BorderSide(
+                                                                BorderSide(
                                                               color: Color(
                                                                   0x00000000),
                                                               width: 1.0,
@@ -1419,7 +1317,7 @@ class _UserCommunityOnboardingWidgetState
                                                           focusedErrorBorder:
                                                               UnderlineInputBorder(
                                                             borderSide:
-                                                                const BorderSide(
+                                                                BorderSide(
                                                               color: Color(
                                                                   0x00000000),
                                                               width: 1.0,
@@ -1448,19 +1346,15 @@ class _UserCommunityOnboardingWidgetState
                                                                     context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily,
+                                                                  fontFamily:
+                                                                      'WorkSans',
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .secondaryText,
                                                                   letterSpacing:
                                                                       0.0,
-                                                                  useGoogleFonts: GoogleFonts
-                                                                          .asMap()
-                                                                      .containsKey(
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodyMediumFamily),
+                                                                  useGoogleFonts:
+                                                                      false,
                                                                 ),
                                                         validator: _model
                                                             .textController1Validator
@@ -1475,7 +1369,7 @@ class _UserCommunityOnboardingWidgetState
                                                         Expanded(
                                                           child: Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
@@ -1503,8 +1397,7 @@ class _UserCommunityOnboardingWidgetState
                                                                     .bodySmall
                                                                     .override(
                                                                       fontFamily:
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodySmallFamily,
+                                                                          'WorkSans',
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .secondaryBackground,
@@ -1512,10 +1405,8 @@ class _UserCommunityOnboardingWidgetState
                                                                           14.0,
                                                                       letterSpacing:
                                                                           0.0,
-                                                                      useGoogleFonts: GoogleFonts
-                                                                              .asMap()
-                                                                          .containsKey(
-                                                                              FlutterFlowTheme.of(context).bodySmallFamily),
+                                                                      useGoogleFonts:
+                                                                          false,
                                                                       lineHeight:
                                                                           1.5,
                                                                     ),
@@ -1550,7 +1441,7 @@ class _UserCommunityOnboardingWidgetState
                                                                 errorBorder:
                                                                     UnderlineInputBorder(
                                                                   borderSide:
-                                                                      const BorderSide(
+                                                                      BorderSide(
                                                                     color: Color(
                                                                         0x00000000),
                                                                     width: 1.0,
@@ -1563,7 +1454,7 @@ class _UserCommunityOnboardingWidgetState
                                                                 focusedErrorBorder:
                                                                     UnderlineInputBorder(
                                                                   borderSide:
-                                                                      const BorderSide(
+                                                                      BorderSide(
                                                                     color: Color(
                                                                         0x00000000),
                                                                     width: 1.0,
@@ -1592,17 +1483,14 @@ class _UserCommunityOnboardingWidgetState
                                                                   .bodyMedium
                                                                   .override(
                                                                     fontFamily:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyMediumFamily,
+                                                                        'WorkSans',
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .secondaryText,
                                                                     letterSpacing:
                                                                         0.0,
-                                                                    useGoogleFonts: GoogleFonts
-                                                                            .asMap()
-                                                                        .containsKey(
-                                                                            FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                    useGoogleFonts:
+                                                                        false,
                                                                   ),
                                                               validator: _model
                                                                   .textController2Validator
@@ -1620,7 +1508,7 @@ class _UserCommunityOnboardingWidgetState
                                                         Expanded(
                                                           child: Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0.0,
                                                                         0.0,
@@ -1648,8 +1536,7 @@ class _UserCommunityOnboardingWidgetState
                                                                     .bodySmall
                                                                     .override(
                                                                       fontFamily:
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodySmallFamily,
+                                                                          'WorkSans',
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .secondaryBackground,
@@ -1657,10 +1544,8 @@ class _UserCommunityOnboardingWidgetState
                                                                           14.0,
                                                                       letterSpacing:
                                                                           0.0,
-                                                                      useGoogleFonts: GoogleFonts
-                                                                              .asMap()
-                                                                          .containsKey(
-                                                                              FlutterFlowTheme.of(context).bodySmallFamily),
+                                                                      useGoogleFonts:
+                                                                          false,
                                                                       lineHeight:
                                                                           1.5,
                                                                     ),
@@ -1695,7 +1580,7 @@ class _UserCommunityOnboardingWidgetState
                                                                 errorBorder:
                                                                     UnderlineInputBorder(
                                                                   borderSide:
-                                                                      const BorderSide(
+                                                                      BorderSide(
                                                                     color: Color(
                                                                         0x00000000),
                                                                     width: 1.0,
@@ -1708,7 +1593,7 @@ class _UserCommunityOnboardingWidgetState
                                                                 focusedErrorBorder:
                                                                     UnderlineInputBorder(
                                                                   borderSide:
-                                                                      const BorderSide(
+                                                                      BorderSide(
                                                                     color: Color(
                                                                         0x00000000),
                                                                     width: 1.0,
@@ -1738,17 +1623,14 @@ class _UserCommunityOnboardingWidgetState
                                                                   .bodyMedium
                                                                   .override(
                                                                     fontFamily:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyMediumFamily,
+                                                                        'WorkSans',
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .secondaryText,
                                                                     letterSpacing:
                                                                         0.0,
-                                                                    useGoogleFonts: GoogleFonts
-                                                                            .asMap()
-                                                                        .containsKey(
-                                                                            FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                    useGoogleFonts:
+                                                                        false,
                                                                   ),
                                                               validator: _model
                                                                   .textController3Validator
@@ -1766,14 +1648,14 @@ class _UserCommunityOnboardingWidgetState
                                           ],
                                         ),
                                         Padding(
-                                          padding: const EdgeInsets.all(20.0),
+                                          padding: EdgeInsets.all(20.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
                                                 MainAxisAlignment.center,
                                             children: [
                                               Align(
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: FFButtonWidget(
                                                   onPressed: () async {
@@ -1784,7 +1666,7 @@ class _UserCommunityOnboardingWidgetState
                                                     await _model
                                                         .pageViewController
                                                         ?.nextPage(
-                                                      duration: const Duration(
+                                                      duration: Duration(
                                                           milliseconds: 300),
                                                       curve: Curves.ease,
                                                     );
@@ -1801,34 +1683,27 @@ class _UserCommunityOnboardingWidgetState
                                                         0.539,
                                                     height: 47.0,
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(24.0, 0.0,
                                                                 24.0, 0.0),
                                                     iconPadding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 0.0),
-                                                    color: const Color(0xAE6450A5),
+                                                    color: Color(0xAE6450A5),
                                                     textStyle: FlutterFlowTheme
                                                             .of(context)
                                                         .titleSmall
                                                         .override(
                                                           fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleSmallFamily,
+                                                              'WorkSans',
                                                           color: Colors.white,
                                                           fontSize: 22.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleSmallFamily),
+                                                          useGoogleFonts: false,
                                                         ),
                                                     elevation: 8.0,
-                                                    borderSide: const BorderSide(
+                                                    borderSide: BorderSide(
                                                       color: Colors.transparent,
                                                       width: 1.0,
                                                     ),
@@ -1843,7 +1718,7 @@ class _UserCommunityOnboardingWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, 1.0),
+                                              AlignmentDirectional(0.0, 1.0),
                                           child: Image.asset(
                                             'assets/images/ESCAPE_Logo_Clear.png',
                                             width: 200.0,
@@ -1858,7 +1733,7 @@ class _UserCommunityOnboardingWidgetState
                                 ),
                               ),
                             ).animateOnPageLoad(animationsMap[
-                                'containerOnPageLoadAnimation4']!),
+                                'containerOnPageLoadAnimation3']!),
                           ),
                         ),
                       ],
@@ -1881,7 +1756,7 @@ class _UserCommunityOnboardingWidgetState
                         Container(
                           width: double.infinity,
                           height: 850.0,
-                          decoration: const BoxDecoration(
+                          decoration: BoxDecoration(
                             gradient: LinearGradient(
                               colors: [Color(0xAE903E9F), Color(0xD9000220)],
                               stops: [0.0, 1.0],
@@ -1892,11 +1767,11 @@ class _UserCommunityOnboardingWidgetState
                           child: Container(
                             width: 100.0,
                             height: 100.0,
-                            decoration: const BoxDecoration(),
+                            decoration: BoxDecoration(),
                             child: Container(
                               width: 100.0,
                               height: 100.0,
-                              decoration: const BoxDecoration(),
+                              decoration: BoxDecoration(),
                               child: ClipRRect(
                                 child: BackdropFilter(
                                   filter: ImageFilter.blur(
@@ -1906,7 +1781,7 @@ class _UserCommunityOnboardingWidgetState
                                   child: Container(
                                     width: 100.0,
                                     height: 100.0,
-                                    decoration: const BoxDecoration(
+                                    decoration: BoxDecoration(
                                       color: Color(0x97FFFFFF),
                                     ),
                                     child: Column(
@@ -1924,15 +1799,12 @@ class _UserCommunityOnboardingWidgetState
                                                 fontFamily: 'Roboto',
                                                 fontSize: 36.0,
                                                 letterSpacing: 0.0,
-                                                useGoogleFonts:
-                                                    GoogleFonts.asMap()
-                                                        .containsKey('Roboto'),
                                               ),
                                         ).animateOnPageLoad(animationsMap[
                                             'textOnPageLoadAnimation7']!),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   24.0, 12.0, 24.0, 50.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
@@ -1949,10 +1821,6 @@ class _UserCommunityOnboardingWidgetState
                                                   fontSize: 18.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
-                                                  useGoogleFonts:
-                                                      GoogleFonts.asMap()
-                                                          .containsKey(
-                                                              'Roboto'),
                                                 ),
                                           ).animateOnPageLoad(animationsMap[
                                               'textOnPageLoadAnimation8']!),
@@ -1963,11 +1831,11 @@ class _UserCommunityOnboardingWidgetState
                                             Container(
                                               width: 396.0,
                                               height: 310.0,
-                                              decoration: const BoxDecoration(
+                                              decoration: BoxDecoration(
                                                 color: Color(0x00000811),
                                               ),
                                               child: Padding(
-                                                padding: const EdgeInsets.all(15.0),
+                                                padding: EdgeInsets.all(15.0),
                                                 child: Column(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -1977,7 +1845,7 @@ class _UserCommunityOnboardingWidgetState
                                                   children: [
                                                     Align(
                                                       alignment:
-                                                          const AlignmentDirectional(
+                                                          AlignmentDirectional(
                                                               -1.0, -1.0),
                                                       child: Container(
                                                         width: double.infinity,
@@ -1985,7 +1853,7 @@ class _UserCommunityOnboardingWidgetState
                                                         decoration:
                                                             BoxDecoration(
                                                           color:
-                                                              const Color(0x07DBEDF2),
+                                                              Color(0x07DBEDF2),
                                                           borderRadius:
                                                               BorderRadius
                                                                   .circular(
@@ -2108,14 +1976,11 @@ class _UserCommunityOnboardingWidgetState
                                                                   .bodyMedium
                                                                   .override(
                                                                     fontFamily:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyMediumFamily,
+                                                                        'WorkSans',
                                                                     letterSpacing:
                                                                         0.0,
-                                                                    useGoogleFonts: GoogleFonts
-                                                                            .asMap()
-                                                                        .containsKey(
-                                                                            FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                    useGoogleFonts:
+                                                                        false,
                                                                   ),
                                                           unselectedTextStyle:
                                                               FlutterFlowTheme.of(
@@ -2123,16 +1988,13 @@ class _UserCommunityOnboardingWidgetState
                                                                   .bodyMedium
                                                                   .override(
                                                                     fontFamily:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyMediumFamily,
+                                                                        'WorkSans',
                                                                     fontSize:
                                                                         16.0,
                                                                     letterSpacing:
                                                                         0.0,
-                                                                    useGoogleFonts: GoogleFonts
-                                                                            .asMap()
-                                                                        .containsKey(
-                                                                            FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                    useGoogleFonts:
+                                                                        false,
                                                                     lineHeight:
                                                                         1.5,
                                                                   ),
@@ -2153,14 +2015,14 @@ class _UserCommunityOnboardingWidgetState
                                           ],
                                         ),
                                         Padding(
-                                          padding: const EdgeInsets.all(20.0),
+                                          padding: EdgeInsets.all(20.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
                                                 MainAxisAlignment.center,
                                             children: [
                                               Align(
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: FFButtonWidget(
                                                   onPressed: () async {
@@ -2171,7 +2033,7 @@ class _UserCommunityOnboardingWidgetState
                                                     await _model
                                                         .pageViewController
                                                         ?.nextPage(
-                                                      duration: const Duration(
+                                                      duration: Duration(
                                                           milliseconds: 300),
                                                       curve: Curves.ease,
                                                     );
@@ -2188,34 +2050,27 @@ class _UserCommunityOnboardingWidgetState
                                                         0.539,
                                                     height: 47.0,
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(24.0, 0.0,
                                                                 24.0, 0.0),
                                                     iconPadding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 0.0),
-                                                    color: const Color(0xAE6450A5),
+                                                    color: Color(0xAE6450A5),
                                                     textStyle: FlutterFlowTheme
                                                             .of(context)
                                                         .titleSmall
                                                         .override(
                                                           fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleSmallFamily,
+                                                              'WorkSans',
                                                           color: Colors.white,
                                                           fontSize: 22.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleSmallFamily),
+                                                          useGoogleFonts: false,
                                                         ),
                                                     elevation: 8.0,
-                                                    borderSide: const BorderSide(
+                                                    borderSide: BorderSide(
                                                       color: Colors.transparent,
                                                       width: 1.0,
                                                     ),
@@ -2230,7 +2085,7 @@ class _UserCommunityOnboardingWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, 1.0),
+                                              AlignmentDirectional(0.0, 1.0),
                                           child: Image.asset(
                                             'assets/images/ESCAPE_Logo_Clear.png',
                                             width: 200.0,
@@ -2245,7 +2100,7 @@ class _UserCommunityOnboardingWidgetState
                                 ),
                               ),
                             ).animateOnPageLoad(animationsMap[
-                                'containerOnPageLoadAnimation5']!),
+                                'containerOnPageLoadAnimation4']!),
                           ),
                         ),
                       ],
@@ -2268,7 +2123,7 @@ class _UserCommunityOnboardingWidgetState
                         Container(
                           width: double.infinity,
                           height: 850.0,
-                          decoration: const BoxDecoration(
+                          decoration: BoxDecoration(
                             gradient: LinearGradient(
                               colors: [Color(0xAE903E9F), Color(0xD9000220)],
                               stops: [0.0, 1.0],
@@ -2279,11 +2134,11 @@ class _UserCommunityOnboardingWidgetState
                           child: Container(
                             width: 100.0,
                             height: 100.0,
-                            decoration: const BoxDecoration(),
+                            decoration: BoxDecoration(),
                             child: Container(
                               width: 100.0,
                               height: 100.0,
-                              decoration: const BoxDecoration(),
+                              decoration: BoxDecoration(),
                               child: ClipRRect(
                                 child: BackdropFilter(
                                   filter: ImageFilter.blur(
@@ -2293,7 +2148,7 @@ class _UserCommunityOnboardingWidgetState
                                   child: Container(
                                     width: 100.0,
                                     height: 100.0,
-                                    decoration: const BoxDecoration(
+                                    decoration: BoxDecoration(
                                       color: Color(0x97FFFFFF),
                                     ),
                                     child: Column(
@@ -2312,15 +2167,12 @@ class _UserCommunityOnboardingWidgetState
                                                 fontFamily: 'Roboto',
                                                 fontSize: 36.0,
                                                 letterSpacing: 0.0,
-                                                useGoogleFonts:
-                                                    GoogleFonts.asMap()
-                                                        .containsKey('Roboto'),
                                               ),
                                         ).animateOnPageLoad(animationsMap[
                                             'textOnPageLoadAnimation9']!),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   24.0, 12.0, 24.0, 50.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
@@ -2330,22 +2182,14 @@ class _UserCommunityOnboardingWidgetState
                                             style: FlutterFlowTheme.of(context)
                                                 .titleSmall
                                                 .override(
-                                                  fontFamily:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .titleSmallFamily,
+                                                  fontFamily: 'WorkSans',
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .primaryText,
                                                   fontSize: 18.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
-                                                  useGoogleFonts: GoogleFonts
-                                                          .asMap()
-                                                      .containsKey(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .titleSmallFamily),
+                                                  useGoogleFonts: false,
                                                 ),
                                           ).animateOnPageLoad(animationsMap[
                                               'textOnPageLoadAnimation10']!),
@@ -2356,11 +2200,11 @@ class _UserCommunityOnboardingWidgetState
                                             Container(
                                               width: 396.0,
                                               height: 310.0,
-                                              decoration: const BoxDecoration(
+                                              decoration: BoxDecoration(
                                                 color: Color(0x00000811),
                                               ),
                                               child: Padding(
-                                                padding: const EdgeInsets.all(15.0),
+                                                padding: EdgeInsets.all(15.0),
                                                 child: Column(
                                                   mainAxisSize:
                                                       MainAxisSize.max,
@@ -2370,15 +2214,15 @@ class _UserCommunityOnboardingWidgetState
                                                   children: [
                                                     Align(
                                                       alignment:
-                                                          const AlignmentDirectional(
+                                                          AlignmentDirectional(
                                                               -1.0, -1.0),
                                                       child: Container(
                                                         width: double.infinity,
-                                                        height: 304.0,
+                                                        height: 277.0,
                                                         decoration:
                                                             BoxDecoration(
                                                           color:
-                                                              const Color(0x07DBEDF2),
+                                                              Color(0x07DBEDF2),
                                                           borderRadius:
                                                               BorderRadius
                                                                   .circular(
@@ -2488,14 +2332,11 @@ class _UserCommunityOnboardingWidgetState
                                                                   .bodyMedium
                                                                   .override(
                                                                     fontFamily:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyMediumFamily,
+                                                                        'WorkSans',
                                                                     letterSpacing:
                                                                         0.0,
-                                                                    useGoogleFonts: GoogleFonts
-                                                                            .asMap()
-                                                                        .containsKey(
-                                                                            FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                    useGoogleFonts:
+                                                                        false,
                                                                   ),
                                                           unselectedTextStyle:
                                                               FlutterFlowTheme.of(
@@ -2503,16 +2344,13 @@ class _UserCommunityOnboardingWidgetState
                                                                   .bodyMedium
                                                                   .override(
                                                                     fontFamily:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyMediumFamily,
+                                                                        'WorkSans',
                                                                     fontSize:
                                                                         16.0,
                                                                     letterSpacing:
                                                                         0.0,
-                                                                    useGoogleFonts: GoogleFonts
-                                                                            .asMap()
-                                                                        .containsKey(
-                                                                            FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                    useGoogleFonts:
+                                                                        false,
                                                                     lineHeight:
                                                                         1.5,
                                                                   ),
@@ -2533,14 +2371,14 @@ class _UserCommunityOnboardingWidgetState
                                           ],
                                         ),
                                         Padding(
-                                          padding: const EdgeInsets.all(20.0),
+                                          padding: EdgeInsets.all(20.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
                                                 MainAxisAlignment.center,
                                             children: [
                                               Align(
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: FFButtonWidget(
                                                   onPressed: () async {
@@ -2550,16 +2388,16 @@ class _UserCommunityOnboardingWidgetState
                                                         'Button_navigate_to');
 
                                                     context.pushNamed(
-                                                      'NewHome',
+                                                      'UserCommunityPageViewFINAL',
                                                       extra: <String, dynamic>{
                                                         kTransitionInfoKey:
-                                                            const TransitionInfo(
+                                                            TransitionInfo(
                                                           hasTransition: true,
                                                           transitionType:
                                                               PageTransitionType
                                                                   .fade,
                                                           duration: Duration(
-                                                              milliseconds: 2),
+                                                              milliseconds: 3),
                                                         ),
                                                       },
                                                     );
@@ -2576,34 +2414,27 @@ class _UserCommunityOnboardingWidgetState
                                                         0.539,
                                                     height: 47.0,
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(24.0, 0.0,
                                                                 24.0, 0.0),
                                                     iconPadding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 0.0),
-                                                    color: const Color(0xAE6450A5),
+                                                    color: Color(0xAE6450A5),
                                                     textStyle: FlutterFlowTheme
                                                             .of(context)
                                                         .titleSmall
                                                         .override(
                                                           fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleSmallFamily,
+                                                              'WorkSans',
                                                           color: Colors.white,
                                                           fontSize: 22.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleSmallFamily),
+                                                          useGoogleFonts: false,
                                                         ),
                                                     elevation: 8.0,
-                                                    borderSide: const BorderSide(
+                                                    borderSide: BorderSide(
                                                       color: Colors.transparent,
                                                       width: 1.0,
                                                     ),
@@ -2618,7 +2449,7 @@ class _UserCommunityOnboardingWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, 1.0),
+                                              AlignmentDirectional(0.0, 1.0),
                                           child: Image.asset(
                                             'assets/images/ESCAPE_Logo_Clear.png',
                                             width: 200.0,
@@ -2633,7 +2464,7 @@ class _UserCommunityOnboardingWidgetState
                                 ),
                               ),
                             ).animateOnPageLoad(animationsMap[
-                                'containerOnPageLoadAnimation6']!),
+                                'containerOnPageLoadAnimation5']!),
                           ),
                         ),
                       ],
@@ -2642,9 +2473,9 @@ class _UserCommunityOnboardingWidgetState
                 ],
               ),
               Align(
-                alignment: const AlignmentDirectional(0.0, 1.0),
+                alignment: AlignmentDirectional(0.0, 1.0),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 30.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 30.0),
                   child: smooth_page_indicator.SmoothPageIndicator(
                     controller: _model.pageViewController ??=
                         PageController(initialPage: 0),
@@ -2653,7 +2484,7 @@ class _UserCommunityOnboardingWidgetState
                     onDotClicked: (i) async {
                       await _model.pageViewController!.animateToPage(
                         i,
-                        duration: const Duration(milliseconds: 500),
+                        duration: Duration(milliseconds: 500),
                         curve: Curves.ease,
                       );
                       safeSetState(() {});

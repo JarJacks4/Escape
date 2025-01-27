@@ -1,19 +1,16 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'music_player_comp_model.dart';
 export 'music_player_comp_model.dart';
 
 class MusicPlayerCompWidget extends StatefulWidget {
-  const MusicPlayerCompWidget({
-    super.key,
-    required this.ambientMusic,
-  });
-
-  final List<String>? ambientMusic;
+  const MusicPlayerCompWidget({super.key});
 
   @override
   State<MusicPlayerCompWidget> createState() => _MusicPlayerCompWidgetState();
@@ -48,7 +45,7 @@ class _MusicPlayerCompWidgetState extends State<MusicPlayerCompWidget> {
     return Container(
       width: double.infinity,
       height: double.infinity,
-      decoration: const BoxDecoration(),
+      decoration: BoxDecoration(),
       child: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
@@ -68,7 +65,7 @@ class _MusicPlayerCompWidgetState extends State<MusicPlayerCompWidget> {
               child: Container(
                 width: 100.0,
                 height: 100.0,
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   color: Color(0x30000811),
                 ),
                 child: Column(
@@ -76,21 +73,21 @@ class _MusicPlayerCompWidgetState extends State<MusicPlayerCompWidget> {
                   children: [
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 22.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 22.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 10.0, 35.0, 0.0, 0.0),
                             child: FlutterFlowIconButton(
                               borderColor: Colors.transparent,
                               borderRadius: 30.0,
                               borderWidth: 0.0,
                               buttonSize: 60.0,
-                              fillColor: const Color(0x16FFFFFF),
+                              fillColor: Color(0x16FFFFFF),
                               icon: FaIcon(
                                 FontAwesomeIcons.chevronDown,
                                 color: FlutterFlowTheme.of(context)
@@ -106,14 +103,14 @@ class _MusicPlayerCompWidgetState extends State<MusicPlayerCompWidget> {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 8.0, 50.0, 0.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       50.0, 0.0, 0.0, 0.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
@@ -122,22 +119,17 @@ class _MusicPlayerCompWidgetState extends State<MusicPlayerCompWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMediumFamily,
+                                          fontFamily: 'WorkSans',
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
                                           fontSize: 22.0,
                                           letterSpacing: 0.0,
-                                          useGoogleFonts: GoogleFonts.asMap()
-                                              .containsKey(
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMediumFamily),
+                                          useGoogleFonts: false,
                                         ),
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       10.0, 0.0, 0.0, 0.0),
                                   child: Icon(
                                     Icons.volume_up_sharp,
@@ -147,7 +139,7 @@ class _MusicPlayerCompWidgetState extends State<MusicPlayerCompWidget> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       50.0, 0.0, 0.0, 0.0),
                                   child: Icon(
                                     Icons.queue_music_sharp,
@@ -166,8 +158,8 @@ class _MusicPlayerCompWidgetState extends State<MusicPlayerCompWidget> {
                       width: 280.0,
                       height: 350.0,
                       decoration: BoxDecoration(
-                        color: const Color(0x27000000),
-                        boxShadow: const [
+                        color: Color(0x27000000),
+                        boxShadow: [
                           BoxShadow(
                             blurRadius: 9.0,
                             color: Color(0x33000000),
@@ -192,7 +184,7 @@ class _MusicPlayerCompWidgetState extends State<MusicPlayerCompWidget> {
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(20.0, 25.0, 0.0, 8.0),
+                          EdgeInsetsDirectional.fromSTEB(20.0, 25.0, 0.0, 8.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -204,9 +196,9 @@ class _MusicPlayerCompWidgetState extends State<MusicPlayerCompWidget> {
                             size: 36.0,
                           ),
                           Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   60.0, 0.0, 60.0, 0.0),
                               child: Text(
                                 FFLocalizations.of(context).getText(
@@ -215,22 +207,18 @@ class _MusicPlayerCompWidgetState extends State<MusicPlayerCompWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: FlutterFlowTheme.of(context)
-                                          .bodyMediumFamily,
+                                      fontFamily: 'WorkSans',
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
                                       fontSize: 26.0,
                                       letterSpacing: 0.0,
-                                      useGoogleFonts: GoogleFonts.asMap()
-                                          .containsKey(
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMediumFamily),
+                                      useGoogleFonts: false,
                                     ),
                               ),
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 20.0, 0.0),
                             child: Icon(
                               Icons.favorite_border_outlined,
@@ -243,7 +231,7 @@ class _MusicPlayerCompWidgetState extends State<MusicPlayerCompWidget> {
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(53.0, 0.0, 50.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(53.0, 0.0, 50.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -255,36 +243,33 @@ class _MusicPlayerCompWidgetState extends State<MusicPlayerCompWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .bodyMediumFamily,
+                                  fontFamily: 'WorkSans',
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
                                   fontSize: 16.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,
-                                  useGoogleFonts: GoogleFonts.asMap()
-                                      .containsKey(FlutterFlowTheme.of(context)
-                                          .bodyMediumFamily),
+                                  useGoogleFonts: false,
                                 ),
                           ),
                         ],
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(15.0),
+                      padding: EdgeInsets.all(15.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 30.0, 0.0, 0.0, 0.0),
-                            child: SizedBox(
+                            child: Container(
                               width: 325.0,
                               child: Slider(
                                 activeColor:
                                     FlutterFlowTheme.of(context).alternate,
-                                inactiveColor: const Color(0xB5000811),
+                                inactiveColor: Color(0xB5000811),
                                 min: 50.0,
                                 max: 9.0,
                                 value: _model.sliderValue ??= 9.0,
@@ -300,7 +285,7 @@ class _MusicPlayerCompWidgetState extends State<MusicPlayerCompWidget> {
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(45.0, 0.0, 45.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(45.0, 0.0, 45.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -312,16 +297,13 @@ class _MusicPlayerCompWidgetState extends State<MusicPlayerCompWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .bodyMediumFamily,
+                                  fontFamily: 'WorkSans',
                                   color: FlutterFlowTheme.of(context)
                                       .primaryBackground,
                                   fontSize: 14.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,
-                                  useGoogleFonts: GoogleFonts.asMap()
-                                      .containsKey(FlutterFlowTheme.of(context)
-                                          .bodyMediumFamily),
+                                  useGoogleFonts: false,
                                 ),
                           ),
                           Text(
@@ -331,26 +313,119 @@ class _MusicPlayerCompWidgetState extends State<MusicPlayerCompWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .bodyMediumFamily,
+                                  fontFamily: 'WorkSans',
                                   color: FlutterFlowTheme.of(context)
                                       .primaryBackground,
                                   fontSize: 14.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,
-                                  useGoogleFonts: GoogleFonts.asMap()
-                                      .containsKey(FlutterFlowTheme.of(context)
-                                          .bodyMediumFamily),
+                                  useGoogleFonts: false,
                                 ),
                           ),
                         ],
                       ),
                     ),
-                    const Padding(
-                      padding: EdgeInsets.all(30.0),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                          25.0, 15.0, 25.0, 15.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
-                        children: [],
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          FlutterFlowIconButton(
+                            borderColor: Colors.transparent,
+                            borderRadius: 30.0,
+                            borderWidth: 0.0,
+                            buttonSize: 60.0,
+                            icon: Icon(
+                              Icons.repeat,
+                              color: Color(0xFF8F559A),
+                              size: 30.0,
+                            ),
+                            onPressed: () {
+                              print('IconButton pressed ...');
+                            },
+                          ),
+                          FlutterFlowIconButton(
+                            borderColor: Colors.transparent,
+                            borderRadius: 25.0,
+                            borderWidth: 0.0,
+                            buttonSize: 60.0,
+                            icon: FaIcon(
+                              FontAwesomeIcons.backward,
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                              size: 30.0,
+                            ),
+                            onPressed: () {
+                              print('IconButton pressed ...');
+                            },
+                          ),
+                          Container(
+                            width: 100.0,
+                            height: 100.0,
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                colors: [
+                                  FlutterFlowTheme.of(context).alternate,
+                                  Color(0xFFF501C4)
+                                ],
+                                stops: [0.0, 1.0],
+                                begin: AlignmentDirectional(0.87, 1.0),
+                                end: AlignmentDirectional(-0.87, -1.0),
+                              ),
+                              borderRadius: BorderRadius.circular(50.0),
+                            ),
+                            child: FlutterFlowIconButton(
+                              borderColor: Colors.transparent,
+                              borderRadius: 30.0,
+                              borderWidth: 1.0,
+                              buttonSize: 60.0,
+                              icon: Icon(
+                                Icons.pause_rounded,
+                                color: FlutterFlowTheme.of(context)
+                                    .primaryBackground,
+                                size: 60.0,
+                              ),
+                              onPressed: () {
+                                print('IconButton pressed ...');
+                              },
+                            ),
+                          ),
+                          FlutterFlowIconButton(
+                            borderColor: Colors.transparent,
+                            borderRadius: 30.0,
+                            borderWidth: 0.0,
+                            buttonSize: 60.0,
+                            icon: Icon(
+                              Icons.fast_forward_sharp,
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                              size: 36.0,
+                            ),
+                            onPressed: () {
+                              print('IconButton pressed ...');
+                            },
+                          ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 10.0, 0.0),
+                            child: FlutterFlowIconButton(
+                              borderColor: Colors.transparent,
+                              borderRadius: 30.0,
+                              borderWidth: 0.0,
+                              buttonSize: 60.0,
+                              icon: Icon(
+                                Icons.replay_outlined,
+                                color: Color(0xFF8F559A),
+                                size: 36.0,
+                              ),
+                              onPressed: () {
+                                print('IconButton pressed ...');
+                              },
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ],

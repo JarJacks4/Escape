@@ -1,10 +1,16 @@
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/provider_community/tabbar_home_community/tabbar_home_community_widget.dart';
+import 'dart:math';
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'user_community_page_view_model.dart';
 export 'user_community_page_view_model.dart';
 
@@ -46,8 +52,8 @@ class _UserCommunityPageViewWidgetState
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(1.4, 1.4),
-            end: const Offset(1.0, 1.0),
+            begin: Offset(1.4, 1.4),
+            end: Offset(1.0, 1.0),
           ),
         ],
       ),
@@ -70,14 +76,17 @@ class _UserCommunityPageViewWidgetState
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         body: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
             Expanded(
-              child: SizedBox(
+              child: Container(
                 width: double.infinity,
                 height: 500.0,
                 child: PageView(
@@ -113,9 +122,9 @@ class _UserCommunityPageViewWidgetState
                                       .primaryBackground,
                                   FlutterFlowTheme.of(context).accent3
                                 ],
-                                stops: const [0.0, 1.0],
-                                begin: const AlignmentDirectional(0.0, -1.0),
-                                end: const AlignmentDirectional(0, 1.0),
+                                stops: [0.0, 1.0],
+                                begin: AlignmentDirectional(0.0, -1.0),
+                                end: AlignmentDirectional(0, 1.0),
                               ),
                             ),
                             child: Column(
@@ -126,7 +135,7 @@ class _UserCommunityPageViewWidgetState
                                   child: wrapWithModel(
                                     model: _model.tabbarHomeCommunityModel,
                                     updateCallback: () => safeSetState(() {}),
-                                    child: const TabbarHomeCommunityWidget(),
+                                    child: TabbarHomeCommunityWidget(),
                                   ),
                                 ),
                               ],

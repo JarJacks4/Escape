@@ -1,0 +1,561 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:ui';
+import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+import 'lucille_chat_a_i_page_model.dart';
+export 'lucille_chat_a_i_page_model.dart';
+
+class LucilleChatAIPageWidget extends StatefulWidget {
+  const LucilleChatAIPageWidget({super.key});
+
+  @override
+  State<LucilleChatAIPageWidget> createState() =>
+      _LucilleChatAIPageWidgetState();
+}
+
+class _LucilleChatAIPageWidgetState extends State<LucilleChatAIPageWidget> {
+  late LucilleChatAIPageModel _model;
+
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => LucilleChatAIPageModel());
+
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'LucilleChatAIPage'});
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        appBar: responsiveVisibility(
+          context: context,
+          tablet: false,
+          tabletLandscape: false,
+          desktop: false,
+        )
+            ? AppBar(
+                backgroundColor: FlutterFlowTheme.of(context).primary,
+                automaticallyImplyLeading: false,
+                actions: [],
+                flexibleSpace: FlexibleSpaceBar(
+                  background: Container(
+                    width: 100.0,
+                    height: 52.0,
+                    decoration: BoxDecoration(
+                      color: FlutterFlowTheme.of(context).primaryBackground,
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Flexible(
+                          flex: 1,
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                15.0, 0.0, 0.0, 0.0),
+                            child: AuthUserStreamWidget(
+                              builder: (context) => Text(
+                                'Hello,${currentUserDisplayName}',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'The Seasons',
+                                      fontSize: 24.0,
+                                      letterSpacing: 0.0,
+                                      useGoogleFonts: false,
+                                    ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Align(
+                          alignment: AlignmentDirectional(1.0, 0.0),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                120.0, 0.0, 8.0, 0.0),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(8.0),
+                              child: Image.asset(
+                                'assets/images/Logo_ESCAPE_DarkBlue.png',
+                                width: MediaQuery.sizeOf(context).width * 0.352,
+                                height: 156.0,
+                                fit: BoxFit.contain,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                centerTitle: true,
+                elevation: 0.0,
+              )
+            : null,
+        body: SafeArea(
+          top: true,
+          child: Stack(
+            children: [
+              Column(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Container(
+                    width: double.infinity,
+                    height: 56.0,
+                    decoration: BoxDecoration(),
+                    alignment: AlignmentDirectional(0.0, 0.0),
+                    child: Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(8.0),
+                            child: Image.asset(
+                              'assets/images/chatgpt_robot.png',
+                              width: 40.0,
+                              height: 40.0,
+                              fit: BoxFit.contain,
+                            ),
+                          ),
+                          Text(
+                            FFLocalizations.of(context).getText(
+                              'w4yk5tjz' /* Lucille AI Chat Agent */,
+                            ),
+                            style: FlutterFlowTheme.of(context)
+                                .headlineMedium
+                                .override(
+                                  fontFamily: 'WorkSans',
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  fontSize: 20.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w600,
+                                  useGoogleFonts: false,
+                                ),
+                          ),
+                        ].divide(SizedBox(width: 16.0)),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: EdgeInsets.all(16.0),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Spacer(flex: 4),
+                          Align(
+                            alignment: AlignmentDirectional(-1.0, 1.0),
+                            child: Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Text(
+                                FFLocalizations.of(context).getText(
+                                  'erjo9seh' /* Welcome to Lucille, The Self-C... */,
+                                ),
+                                textAlign: TextAlign.center,
+                                style: FlutterFlowTheme.of(context)
+                                    .headlineLarge
+                                    .override(
+                                      fontFamily: 'WorkSans',
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
+                                      fontSize: 14.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.normal,
+                                      useGoogleFonts: false,
+                                      lineHeight: 1.75,
+                                    ),
+                              ),
+                            ),
+                          ),
+                          Spacer(flex: 3),
+                          SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Builder(
+                                      builder: (context) {
+                                        final question =
+                                            FFAppConstants.questions.toList();
+
+                                        return Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: List.generate(
+                                              question.length, (questionIndex) {
+                                            final questionItem =
+                                                question[questionIndex];
+                                            return InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                logFirebaseEvent(
+                                                    'LUCILLE_CHAT_A_I_Card_opljsag0_ON_TAP');
+                                                logFirebaseEvent(
+                                                    'Card_navigate_to');
+
+                                                context.pushNamed(
+                                                  'ThreadScreen',
+                                                  queryParameters: {
+                                                    'collectionId':
+                                                        serializeParam(
+                                                      getCurrentTimestamp
+                                                          .millisecondsSinceEpoch,
+                                                      ParamType.int,
+                                                    ),
+                                                    'question': serializeParam(
+                                                      questionIndex.toString(),
+                                                      ParamType.String,
+                                                    ),
+                                                  }.withoutNulls,
+                                                  extra: <String, dynamic>{
+                                                    kTransitionInfoKey:
+                                                        TransitionInfo(
+                                                      hasTransition: true,
+                                                      transitionType:
+                                                          PageTransitionType
+                                                              .fade,
+                                                    ),
+                                                  },
+                                                );
+                                              },
+                                              child: Card(
+                                                clipBehavior:
+                                                    Clip.antiAliasWithSaveLayer,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .alternate,
+                                                elevation: 4.0,
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                ),
+                                                child: Padding(
+                                                  padding: EdgeInsets.all(
+                                                      valueOrDefault<double>(
+                                                    functions.getVerticalSize(
+                                                        MediaQuery.sizeOf(
+                                                                context)
+                                                            .height,
+                                                        7.0),
+                                                    0.0,
+                                                  )),
+                                                  child: Text(
+                                                    questionItem,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'WorkSans',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .accent3,
+                                                          letterSpacing: 0.0,
+                                                          useGoogleFonts: false,
+                                                        ),
+                                                  ),
+                                                ),
+                                              ),
+                                            );
+                                          }).divide(SizedBox(width: 5.0)),
+                                        );
+                                      },
+                                    ),
+                                    Builder(
+                                      builder: (context) {
+                                        final question =
+                                            FFAppConstants.questions.toList();
+
+                                        return Row(
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: List.generate(
+                                              question.length, (questionIndex) {
+                                            final questionItem =
+                                                question[questionIndex];
+                                            return InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                logFirebaseEvent(
+                                                    'LUCILLE_CHAT_A_I_Card_i78fux95_ON_TAP');
+                                                logFirebaseEvent(
+                                                    'Card_navigate_to');
+
+                                                context.pushNamed(
+                                                  'ThreadScreen',
+                                                  queryParameters: {
+                                                    'collectionId':
+                                                        serializeParam(
+                                                      getCurrentTimestamp
+                                                          .millisecondsSinceEpoch,
+                                                      ParamType.int,
+                                                    ),
+                                                    'question': serializeParam(
+                                                      questionIndex.toString(),
+                                                      ParamType.String,
+                                                    ),
+                                                  }.withoutNulls,
+                                                  extra: <String, dynamic>{
+                                                    kTransitionInfoKey:
+                                                        TransitionInfo(
+                                                      hasTransition: true,
+                                                      transitionType:
+                                                          PageTransitionType
+                                                              .fade,
+                                                    ),
+                                                  },
+                                                );
+                                              },
+                                              child: Card(
+                                                clipBehavior:
+                                                    Clip.antiAliasWithSaveLayer,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .alternate,
+                                                elevation: 4.0,
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                ),
+                                                child: Padding(
+                                                  padding: EdgeInsets.all(5.0),
+                                                  child: Text(
+                                                    questionItem,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'WorkSans',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .accent3,
+                                                          letterSpacing: 0.0,
+                                                          useGoogleFonts: false,
+                                                        ),
+                                                  ),
+                                                ),
+                                              ),
+                                            );
+                                          }).divide(SizedBox(width: 5.0)),
+                                        );
+                                      },
+                                    ),
+                                    Builder(
+                                      builder: (context) {
+                                        final question =
+                                            FFAppConstants.questions.toList();
+
+                                        return Row(
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: List.generate(
+                                              question.length, (questionIndex) {
+                                            final questionItem =
+                                                question[questionIndex];
+                                            return InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                logFirebaseEvent(
+                                                    'LUCILLE_CHAT_A_I_Card_jt7vsmnk_ON_TAP');
+                                                logFirebaseEvent(
+                                                    'Card_navigate_to');
+
+                                                context.pushNamed(
+                                                  'ThreadScreen',
+                                                  queryParameters: {
+                                                    'collectionId':
+                                                        serializeParam(
+                                                      getCurrentTimestamp
+                                                          .millisecondsSinceEpoch,
+                                                      ParamType.int,
+                                                    ),
+                                                    'question': serializeParam(
+                                                      questionIndex.toString(),
+                                                      ParamType.String,
+                                                    ),
+                                                  }.withoutNulls,
+                                                  extra: <String, dynamic>{
+                                                    kTransitionInfoKey:
+                                                        TransitionInfo(
+                                                      hasTransition: true,
+                                                      transitionType:
+                                                          PageTransitionType
+                                                              .fade,
+                                                    ),
+                                                  },
+                                                );
+                                              },
+                                              child: Card(
+                                                clipBehavior:
+                                                    Clip.antiAliasWithSaveLayer,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .alternate,
+                                                elevation: 4.0,
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                ),
+                                                child: Padding(
+                                                  padding: EdgeInsets.all(5.0),
+                                                  child: Text(
+                                                    questionItem,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'WorkSans',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .accent3,
+                                                          letterSpacing: 0.0,
+                                                          useGoogleFonts: false,
+                                                        ),
+                                                  ),
+                                                ),
+                                              ),
+                                            );
+                                          }).divide(SizedBox(width: 5.0)),
+                                        );
+                                      },
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                          Spacer(flex: 2),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 16.0),
+                    child: InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        logFirebaseEvent(
+                            'LUCILLE_CHAT_A_I_Container_p2kl8deb_ON_T');
+                        logFirebaseEvent('Container_navigate_to');
+
+                        context.pushNamed(
+                          'ThreadScreen',
+                          queryParameters: {
+                            'collectionId': serializeParam(
+                              getCurrentTimestamp.millisecondsSinceEpoch,
+                              ParamType.int,
+                            ),
+                          }.withoutNulls,
+                          extra: <String, dynamic>{
+                            kTransitionInfoKey: TransitionInfo(
+                              hasTransition: true,
+                              transitionType: PageTransitionType.fade,
+                            ),
+                          },
+                        );
+                      },
+                      child: Container(
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          borderRadius: BorderRadius.circular(12.0),
+                          border: Border.all(
+                            color: FlutterFlowTheme.of(context).alternate,
+                            width: 2.0,
+                          ),
+                        ),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              valueOrDefault<double>(
+                                functions.getHorizontalSize(
+                                    MediaQuery.sizeOf(context).width, 22.0),
+                                0.0,
+                              ),
+                              valueOrDefault<double>(
+                                functions.getVerticalSize(
+                                    MediaQuery.sizeOf(context).height, 14.0),
+                                0.0,
+                              ),
+                              0.0,
+                              valueOrDefault<double>(
+                                functions.getVerticalSize(
+                                    MediaQuery.sizeOf(context).height, 14.0),
+                                0.0,
+                              )),
+                          child: Text(
+                            FFLocalizations.of(context).getText(
+                              'c22qc0rt' /* Ask anything... */,
+                            ),
+                            style: FlutterFlowTheme.of(context)
+                                .labelMedium
+                                .override(
+                                  fontFamily: 'WorkSans',
+                                  letterSpacing: 0.0,
+                                  useGoogleFonts: false,
+                                ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

@@ -1,8 +1,11 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:ui';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'top_nav1_model.dart';
 export 'top_nav1_model.dart';
 
@@ -44,13 +47,13 @@ class _TopNav1WidgetState extends State<TopNav1Widget> {
         tablet: false,
       ),
       child: Align(
-        alignment: const AlignmentDirectional(-1.0, -1.0),
+        alignment: AlignmentDirectional(-1.0, -1.0),
         child: Padding(
-          padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
+          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
           child: Container(
             width: MediaQuery.sizeOf(context).width * 0.5,
             height: 88.0,
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               boxShadow: [
                 BoxShadow(
                   blurRadius: 4.0,
@@ -63,26 +66,26 @@ class _TopNav1WidgetState extends State<TopNav1Widget> {
               ],
             ),
             child: Align(
-              alignment: const AlignmentDirectional(0.0, -1.0),
+              alignment: AlignmentDirectional(0.0, -1.0),
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                       child: Image.asset(
-                        'assets/images/ESCAPE_Logo_Clear.png',
+                        'assets/images/Logo_Black.png',
                         width: 164.0,
                         height: 87.0,
                         fit: BoxFit.cover,
-                        alignment: const Alignment(0.0, 0.0),
+                        alignment: Alignment(0.0, 0.0),
                       ),
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                       child: Image.asset(
                         'assets/images/ff_Experts_Logo_onDark@2x.png',
                         width: 180.0,
@@ -93,13 +96,13 @@ class _TopNav1WidgetState extends State<TopNav1Widget> {
                     Expanded(
                       child: Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 0.0, 8.0),
+                            EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 0.0, 8.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   24.0, 0.0, 8.0, 0.0),
                               child: Container(
                                 width: 120.0,
@@ -111,7 +114,7 @@ class _TopNav1WidgetState extends State<TopNav1Widget> {
                                   shape: BoxShape.rectangle,
                                 ),
                                 child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: EdgeInsets.all(8.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.center,
@@ -123,7 +126,7 @@ class _TopNav1WidgetState extends State<TopNav1Widget> {
                                         size: 28.0,
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             12.0, 0.0, 0.0, 0.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
@@ -132,19 +135,12 @@ class _TopNav1WidgetState extends State<TopNav1Widget> {
                                           style: FlutterFlowTheme.of(context)
                                               .titleSmall
                                               .override(
-                                                fontFamily:
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleSmallFamily,
+                                                fontFamily: 'WorkSans',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondary,
                                                 letterSpacing: 0.0,
-                                                useGoogleFonts: GoogleFonts
-                                                        .asMap()
-                                                    .containsKey(
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .titleSmallFamily),
+                                                useGoogleFonts: false,
                                               ),
                                         ),
                                       ),
@@ -158,7 +154,7 @@ class _TopNav1WidgetState extends State<TopNav1Widget> {
                               desktop: false,
                             ))
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 16.0, 0.0),
                                 child: Container(
                                   width: 50.0,
@@ -180,12 +176,12 @@ class _TopNav1WidgetState extends State<TopNav1Widget> {
                             Container(
                               width: 44.0,
                               height: 44.0,
-                              decoration: const BoxDecoration(
+                              decoration: BoxDecoration(
                                 color: Color(0xFFE0E3E7),
                                 shape: BoxShape.circle,
                               ),
                               child: Padding(
-                                padding: const EdgeInsets.all(2.0),
+                                padding: EdgeInsets.all(2.0),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(60.0),
                                   child: Image.network(
@@ -204,7 +200,7 @@ class _TopNav1WidgetState extends State<TopNav1Widget> {
                               tabletLandscape: false,
                             ))
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     12.0, 0.0, 12.0, 0.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
@@ -219,14 +215,9 @@ class _TopNav1WidgetState extends State<TopNav1Widget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
                                           .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyLargeFamily,
+                                            fontFamily: 'WorkSans',
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey(
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyLargeFamily),
+                                            useGoogleFonts: false,
                                           ),
                                     )),
                                     SelectionArea(
@@ -237,14 +228,9 @@ class _TopNav1WidgetState extends State<TopNav1Widget> {
                                       style: FlutterFlowTheme.of(context)
                                           .labelSmall
                                           .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .labelSmallFamily,
+                                            fontFamily: 'WorkSans',
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey(
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelSmallFamily),
+                                            useGoogleFonts: false,
                                           ),
                                     )),
                                   ],

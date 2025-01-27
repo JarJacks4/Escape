@@ -3,6 +3,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '/backend/schema/util/firestore_util.dart';
+import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -126,11 +127,15 @@ class SnippetStruct extends FFFirebaseStruct {
         channelId: data['channelId'] as String?,
         title: data['title'] as String?,
         description: data['description'] as String?,
-        thumbnails: ThumbnailsAllStruct.maybeFromMap(data['thumbnails']),
+        thumbnails: data['thumbnails'] is ThumbnailsAllStruct
+            ? data['thumbnails']
+            : ThumbnailsAllStruct.maybeFromMap(data['thumbnails']),
         channelTitle: data['channelTitle'] as String?,
         playlistId: data['playlistId'] as String?,
         position: castToType<int>(data['position']),
-        resourceId: ResourceIdStruct.maybeFromMap(data['resourceId']),
+        resourceId: data['resourceId'] is ResourceIdStruct
+            ? data['resourceId']
+            : ResourceIdStruct.maybeFromMap(data['resourceId']),
         videoOwnerChannelTitle: data['videoOwnerChannelTitle'] as String?,
         videoOwnerChannelId: data['videoOwnerChannelId'] as String?,
       );

@@ -1,8 +1,10 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'staggered_view_meditation_model.dart';
 export 'staggered_view_meditation_model.dart';
 
@@ -45,9 +47,9 @@ class _StaggeredViewMeditationWidgetState
         Container(
           width: 387.0,
           height: 530.0,
-          decoration: const BoxDecoration(),
+          decoration: BoxDecoration(),
           child: MasonryGridView.builder(
-            gridDelegate: const SliverSimpleGridDelegateWithFixedCrossAxisCount(
+            gridDelegate: SliverSimpleGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
             ),
             crossAxisSpacing: 8.0,
@@ -77,7 +79,7 @@ class _StaggeredViewMeditationWidgetState
                           borderRadius: BorderRadius.circular(15.0),
                         ),
                         child: Align(
-                          alignment: const AlignmentDirectional(0.0, 1.0),
+                          alignment: AlignmentDirectional(0.0, 1.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -85,13 +87,13 @@ class _StaggeredViewMeditationWidgetState
                                 width: 190.0,
                                 height: 69.0,
                                 decoration: BoxDecoration(
-                                  color: const Color(0xC9040404),
+                                  color: Color(0xC9040404),
                                   borderRadius: BorderRadius.circular(15.0),
                                 ),
                                 child: Align(
-                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Padding(
-                                    padding: const EdgeInsets.all(11.0),
+                                    padding: EdgeInsets.all(11.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
                                         '80jbdi42' /* How to Meditate */,
@@ -100,17 +102,12 @@ class _StaggeredViewMeditationWidgetState
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMediumFamily,
+                                            fontFamily: 'WorkSans',
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryBackground,
                                             fontSize: 20.0,
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey(
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMediumFamily),
+                                            useGoogleFonts: false,
                                           ),
                                     ),
                                   ),
@@ -142,7 +139,7 @@ class _StaggeredViewMeditationWidgetState
                           borderRadius: BorderRadius.circular(15.0),
                         ),
                         child: Align(
-                          alignment: const AlignmentDirectional(0.0, 1.0),
+                          alignment: AlignmentDirectional(0.0, 1.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -150,13 +147,13 @@ class _StaggeredViewMeditationWidgetState
                                 width: 190.0,
                                 height: 69.0,
                                 decoration: BoxDecoration(
-                                  color: const Color(0xC9040404),
+                                  color: Color(0xC9040404),
                                   borderRadius: BorderRadius.circular(15.0),
                                 ),
                                 child: Align(
-                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Padding(
-                                    padding: const EdgeInsets.all(11.0),
+                                    padding: EdgeInsets.all(11.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
                                         'yil3azqt' /* 7 Days of Calm */,
@@ -165,17 +162,12 @@ class _StaggeredViewMeditationWidgetState
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMediumFamily,
+                                            fontFamily: 'WorkSans',
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryBackground,
                                             fontSize: 20.0,
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey(
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMediumFamily),
+                                            useGoogleFonts: false,
                                           ),
                                     ),
                                   ),
@@ -207,7 +199,7 @@ class _StaggeredViewMeditationWidgetState
                           borderRadius: BorderRadius.circular(15.0),
                         ),
                         child: Align(
-                          alignment: const AlignmentDirectional(0.0, 1.0),
+                          alignment: AlignmentDirectional(0.0, 1.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -215,13 +207,13 @@ class _StaggeredViewMeditationWidgetState
                                 width: 190.0,
                                 height: 69.0,
                                 decoration: BoxDecoration(
-                                  color: const Color(0xC9040404),
+                                  color: Color(0xC9040404),
                                   borderRadius: BorderRadius.circular(15.0),
                                 ),
                                 child: Align(
-                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Padding(
-                                    padding: const EdgeInsets.all(11.0),
+                                    padding: EdgeInsets.all(11.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
                                         'ddto8et5' /* How to Use Vibration */,
@@ -230,17 +222,12 @@ class _StaggeredViewMeditationWidgetState
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMediumFamily,
+                                            fontFamily: 'WorkSans',
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryBackground,
                                             fontSize: 20.0,
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey(
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMediumFamily),
+                                            useGoogleFonts: false,
                                           ),
                                     ),
                                   ),
@@ -272,7 +259,7 @@ class _StaggeredViewMeditationWidgetState
                           borderRadius: BorderRadius.circular(15.0),
                         ),
                         child: Align(
-                          alignment: const AlignmentDirectional(0.0, 1.0),
+                          alignment: AlignmentDirectional(0.0, 1.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -280,13 +267,13 @@ class _StaggeredViewMeditationWidgetState
                                 width: 200.0,
                                 height: 69.0,
                                 decoration: BoxDecoration(
-                                  color: const Color(0xC9040404),
+                                  color: Color(0xC9040404),
                                   borderRadius: BorderRadius.circular(15.0),
                                 ),
                                 child: Align(
-                                  alignment: const AlignmentDirectional(0.0, 0.0),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Padding(
-                                    padding: const EdgeInsets.all(11.0),
+                                    padding: EdgeInsets.all(11.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
                                         '82ano6os' /* Reduce Anxiety */,
@@ -295,17 +282,12 @@ class _StaggeredViewMeditationWidgetState
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMediumFamily,
+                                            fontFamily: 'WorkSans',
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryBackground,
                                             fontSize: 20.0,
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey(
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMediumFamily),
+                                            useGoogleFonts: false,
                                           ),
                                     ),
                                   ),

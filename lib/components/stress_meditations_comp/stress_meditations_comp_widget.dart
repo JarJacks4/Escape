@@ -2,10 +2,14 @@ import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:math';
+import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'stress_meditations_comp_model.dart';
 export 'stress_meditations_comp_model.dart';
 
@@ -50,8 +54,8 @@ class _StressMeditationsCompWidgetState
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(100.0, 0.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -70,8 +74,8 @@ class _StressMeditationsCompWidgetState
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(100.0, 0.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -90,8 +94,8 @@ class _StressMeditationsCompWidgetState
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(100.0, 0.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -110,8 +114,8 @@ class _StressMeditationsCompWidgetState
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(100.0, 0.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -130,8 +134,8 @@ class _StressMeditationsCompWidgetState
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(100.0, 0.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -150,8 +154,8 @@ class _StressMeditationsCompWidgetState
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(100.0, 0.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -170,8 +174,8 @@ class _StressMeditationsCompWidgetState
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(100.0, 0.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -190,8 +194,8 @@ class _StressMeditationsCompWidgetState
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, -18.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, -18.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -216,19 +220,19 @@ class _StressMeditationsCompWidgetState
     return Container(
       width: double.infinity,
       height: double.infinity,
-      decoration: const BoxDecoration(),
+      decoration: BoxDecoration(),
       child: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -236,19 +240,15 @@ class _StressMeditationsCompWidgetState
                           FFLocalizations.of(context).getText(
                             'ba4pg9qy' /* New Sounds */,
                           ),
-                          style: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                                fontFamily: FlutterFlowTheme.of(context)
-                                    .bodyMediumFamily,
-                                color: FlutterFlowTheme.of(context)
-                                    .primaryBackground,
-                                fontSize: 20.0,
-                                letterSpacing: 0.0,
-                                useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                    FlutterFlowTheme.of(context)
-                                        .bodyMediumFamily),
-                              ),
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'WorkSans',
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryBackground,
+                                    fontSize: 20.0,
+                                    letterSpacing: 0.0,
+                                    useGoogleFonts: false,
+                                  ),
                         ),
                       ],
                     ),
@@ -256,7 +256,7 @@ class _StressMeditationsCompWidgetState
                   Container(
                     width: double.infinity,
                     height: 100.0,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       color: Colors.transparent,
                     ),
                     child: Row(
@@ -264,7 +264,7 @@ class _StressMeditationsCompWidgetState
                       children: [
                         Expanded(
                           child: FutureBuilder<ApiCallResponse>(
-                            future: YouTubeDataTaiChiAPICall.call(),
+                            future: YouTubeDataTaiChiAPIFINALCall.call(),
                             builder: (context, snapshot) {
                               // Customize what your widget looks like when it's loading.
                               if (!snapshot.hasData) {
@@ -280,13 +280,13 @@ class _StressMeditationsCompWidgetState
                                   ),
                                 );
                               }
-                              final listViewYouTubeDataTaiChiAPIResponse =
+                              final listViewYouTubeDataTaiChiAPIFINALResponse =
                                   snapshot.data!;
 
                               return Builder(
                                 builder: (context) {
                                   final soundsthumbnails = getJsonField(
-                                    listViewYouTubeDataTaiChiAPIResponse
+                                    listViewYouTubeDataTaiChiAPIFINALResponse
                                         .jsonBody,
                                     r'''$.thumbnails.default.url''',
                                   ).toList();
@@ -301,19 +301,19 @@ class _StressMeditationsCompWidgetState
                                           soundsthumbnails[
                                               soundsthumbnailsIndex];
                                       return Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             10.0, 0.0, 0.0, 0.0),
                                         child: Container(
                                           width: 70.0,
                                           height: 50.0,
-                                          decoration: const BoxDecoration(
+                                          decoration: BoxDecoration(
                                             color: Colors.transparent,
                                           ),
                                           child: Container(
                                             width: 80.0,
                                             height: 80.0,
                                             clipBehavior: Clip.antiAlias,
-                                            decoration: const BoxDecoration(
+                                            decoration: BoxDecoration(
                                               shape: BoxShape.circle,
                                             ),
                                             child: Image.asset(
@@ -338,7 +338,7 @@ class _StressMeditationsCompWidgetState
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: EdgeInsets.all(10.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -348,14 +348,12 @@ class _StressMeditationsCompWidgetState
                       'dlvm3d8k' /* Trending */,
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily:
-                              FlutterFlowTheme.of(context).bodyMediumFamily,
+                          fontFamily: 'WorkSans',
                           color: FlutterFlowTheme.of(context).primaryBackground,
                           fontSize: 20.0,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w300,
-                          useGoogleFonts: GoogleFonts.asMap().containsKey(
-                              FlutterFlowTheme.of(context).bodyMediumFamily),
+                          useGoogleFonts: false,
                         ),
                   ),
                   Icon(
@@ -367,7 +365,7 @@ class _StressMeditationsCompWidgetState
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: EdgeInsets.all(10.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -375,7 +373,7 @@ class _StressMeditationsCompWidgetState
                     child: Container(
                       width: 100.0,
                       height: 80.0,
-                      decoration: const BoxDecoration(
+                      decoration: BoxDecoration(
                         color: Colors.transparent,
                       ),
                       child: Row(
@@ -387,7 +385,7 @@ class _StressMeditationsCompWidgetState
                               scrollDirection: Axis.horizontal,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 10.0, 0.0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
@@ -402,7 +400,7 @@ class _StressMeditationsCompWidgetState
                                       context.pushNamed(
                                         'SoundsDetailsBinauralBeats',
                                         extra: <String, dynamic>{
-                                          kTransitionInfoKey: const TransitionInfo(
+                                          kTransitionInfoKey: TransitionInfo(
                                             hasTransition: true,
                                             transitionType:
                                                 PageTransitionType.fade,
@@ -415,7 +413,7 @@ class _StressMeditationsCompWidgetState
                                       width: 150.0,
                                       height: 25.0,
                                       decoration: BoxDecoration(
-                                        gradient: const LinearGradient(
+                                        gradient: LinearGradient(
                                           colors: [
                                             Color(0xFFEF39D4),
                                             Color(0xFFD2394E),
@@ -441,17 +439,9 @@ class _StressMeditationsCompWidgetState
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMediumFamily,
+                                                  fontFamily: 'WorkSans',
                                                   letterSpacing: 0.0,
-                                                  useGoogleFonts: GoogleFonts
-                                                          .asMap()
-                                                      .containsKey(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMediumFamily),
+                                                  useGoogleFonts: false,
                                                 ),
                                           ),
                                         ],
@@ -461,7 +451,7 @@ class _StressMeditationsCompWidgetState
                                       'containerOnPageLoadAnimation2']!),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 10.0, 0.0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
@@ -476,7 +466,7 @@ class _StressMeditationsCompWidgetState
                                       context.pushNamed(
                                         'SoundsDetailsAmbientMusic',
                                         extra: <String, dynamic>{
-                                          kTransitionInfoKey: const TransitionInfo(
+                                          kTransitionInfoKey: TransitionInfo(
                                             hasTransition: true,
                                             transitionType:
                                                 PageTransitionType.fade,
@@ -491,15 +481,15 @@ class _StressMeditationsCompWidgetState
                                       decoration: BoxDecoration(
                                         gradient: LinearGradient(
                                           colors: [
-                                            const Color(0xFFEF39D4),
+                                            Color(0xFFEF39D4),
                                             FlutterFlowTheme.of(context)
                                                 .primary,
-                                            const Color(0xFF48C8FF)
+                                            Color(0xFF48C8FF)
                                           ],
-                                          stops: const [0.0, 1.0, 1.0],
+                                          stops: [0.0, 1.0, 1.0],
                                           begin:
-                                              const AlignmentDirectional(1.0, -0.77),
-                                          end: const AlignmentDirectional(-1.0, 0.77),
+                                              AlignmentDirectional(1.0, -0.77),
+                                          end: AlignmentDirectional(-1.0, 0.77),
                                         ),
                                         borderRadius:
                                             BorderRadius.circular(10.0),
@@ -518,7 +508,7 @@ class _StressMeditationsCompWidgetState
                                             'SoundsDetailsAmbientMusic',
                                             extra: <String, dynamic>{
                                               kTransitionInfoKey:
-                                                  const TransitionInfo(
+                                                  TransitionInfo(
                                                 hasTransition: true,
                                                 transitionType:
                                                     PageTransitionType.fade,
@@ -542,17 +532,9 @@ class _StressMeditationsCompWidgetState
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMediumFamily,
+                                                        fontFamily: 'WorkSans',
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily),
+                                                        useGoogleFonts: false,
                                                       ),
                                             ),
                                           ],
@@ -563,7 +545,7 @@ class _StressMeditationsCompWidgetState
                                       'containerOnPageLoadAnimation3']!),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 10.0, 0.0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
@@ -578,7 +560,7 @@ class _StressMeditationsCompWidgetState
                                       context.pushNamed(
                                         'SoundsDetailsNatureSounds',
                                         extra: <String, dynamic>{
-                                          kTransitionInfoKey: const TransitionInfo(
+                                          kTransitionInfoKey: TransitionInfo(
                                             hasTransition: true,
                                             transitionType:
                                                 PageTransitionType.fade,
@@ -591,7 +573,7 @@ class _StressMeditationsCompWidgetState
                                       width: 150.0,
                                       height: 25.0,
                                       decoration: BoxDecoration(
-                                        gradient: const LinearGradient(
+                                        gradient: LinearGradient(
                                           colors: [
                                             Color(0xFFEF39D4),
                                             Color(0xFFD2CB39),
@@ -619,7 +601,7 @@ class _StressMeditationsCompWidgetState
                                             'SoundsDetailsNatureSounds',
                                             extra: <String, dynamic>{
                                               kTransitionInfoKey:
-                                                  const TransitionInfo(
+                                                  TransitionInfo(
                                                 hasTransition: true,
                                                 transitionType:
                                                     PageTransitionType.fade,
@@ -643,17 +625,9 @@ class _StressMeditationsCompWidgetState
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMediumFamily,
+                                                        fontFamily: 'WorkSans',
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily),
+                                                        useGoogleFonts: false,
                                                       ),
                                             ),
                                           ],
@@ -664,13 +638,13 @@ class _StressMeditationsCompWidgetState
                                       'containerOnPageLoadAnimation4']!),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 10.0, 0.0),
                                   child: Container(
                                     width: 150.0,
                                     height: 25.0,
                                     decoration: BoxDecoration(
-                                      gradient: const LinearGradient(
+                                      gradient: LinearGradient(
                                         colors: [
                                           Color(0xFFD2CB39),
                                           Color(0xFFEB0D70)
@@ -693,16 +667,9 @@ class _StressMeditationsCompWidgetState
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMediumFamily,
+                                                fontFamily: 'WorkSans',
                                                 letterSpacing: 0.0,
-                                                useGoogleFonts: GoogleFonts
-                                                        .asMap()
-                                                    .containsKey(
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMediumFamily),
+                                                useGoogleFonts: false,
                                               ),
                                         ),
                                       ],
@@ -711,7 +678,7 @@ class _StressMeditationsCompWidgetState
                                       'containerOnPageLoadAnimation5']!),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 10.0, 0.0),
                                   child: Container(
                                     width: 150.0,
@@ -722,11 +689,11 @@ class _StressMeditationsCompWidgetState
                                           FlutterFlowTheme.of(context)
                                               .secondary,
                                           FlutterFlowTheme.of(context).primary,
-                                          const Color(0xFFEB0D70)
+                                          Color(0xFFEB0D70)
                                         ],
-                                        stops: const [0.0, 1.0, 1.0],
-                                        begin: const AlignmentDirectional(1.0, -0.77),
-                                        end: const AlignmentDirectional(-1.0, 0.77),
+                                        stops: [0.0, 1.0, 1.0],
+                                        begin: AlignmentDirectional(1.0, -0.77),
+                                        end: AlignmentDirectional(-1.0, 0.77),
                                       ),
                                       borderRadius: BorderRadius.circular(10.0),
                                     ),
@@ -742,16 +709,9 @@ class _StressMeditationsCompWidgetState
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMediumFamily,
+                                                fontFamily: 'WorkSans',
                                                 letterSpacing: 0.0,
-                                                useGoogleFonts: GoogleFonts
-                                                        .asMap()
-                                                    .containsKey(
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMediumFamily),
+                                                useGoogleFonts: false,
                                               ),
                                         ),
                                       ],
@@ -770,7 +730,7 @@ class _StressMeditationsCompWidgetState
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: EdgeInsets.all(10.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -780,14 +740,12 @@ class _StressMeditationsCompWidgetState
                       '4wp8oykp' /* Recent Played */,
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily:
-                              FlutterFlowTheme.of(context).bodyMediumFamily,
+                          fontFamily: 'WorkSans',
                           color: FlutterFlowTheme.of(context).primaryBackground,
                           fontSize: 20.0,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w300,
-                          useGoogleFonts: GoogleFonts.asMap().containsKey(
-                              FlutterFlowTheme.of(context).bodyMediumFamily),
+                          useGoogleFonts: false,
                         ),
                   ),
                   Icon(
@@ -799,7 +757,7 @@ class _StressMeditationsCompWidgetState
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: EdgeInsets.all(10.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -807,7 +765,7 @@ class _StressMeditationsCompWidgetState
                     child: Container(
                       width: double.infinity,
                       height: 142.0,
-                      decoration: const BoxDecoration(
+                      decoration: BoxDecoration(
                         color: Colors.transparent,
                       ),
                       child: Row(
@@ -852,13 +810,13 @@ class _StressMeditationsCompWidgetState
                                             recentItems[recentItemsIndex];
                                         return Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 10.0, 0.0),
                                           child: Container(
                                             width: 100.0,
                                             height: 137.0,
                                             decoration: BoxDecoration(
-                                              color: const Color(0x50090F13),
+                                              color: Color(0x50090F13),
                                               borderRadius:
                                                   BorderRadius.circular(9.0),
                                             ),
@@ -868,7 +826,7 @@ class _StressMeditationsCompWidgetState
                                                   CrossAxisAlignment.center,
                                               children: [
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 1.0, 0.0),
                                                   child: Hero(
@@ -895,7 +853,7 @@ class _StressMeditationsCompWidgetState
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           3.0, 0.0, 0.0, 0.0),
                                                   child: Text(
@@ -909,9 +867,7 @@ class _StressMeditationsCompWidgetState
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
+                                                              'WorkSans',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryBackground,
@@ -919,12 +875,7 @@ class _StressMeditationsCompWidgetState
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily),
+                                                          useGoogleFonts: false,
                                                         ),
                                                   ),
                                                 ),
@@ -948,7 +899,7 @@ class _StressMeditationsCompWidgetState
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(15.0),
+              padding: EdgeInsets.all(15.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -959,11 +910,9 @@ class _StressMeditationsCompWidgetState
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Roboto',
-                          color: const Color(0xFF5B4090),
+                          color: Color(0xFF5B4090),
                           fontSize: 26.0,
                           letterSpacing: 0.0,
-                          useGoogleFonts:
-                              GoogleFonts.asMap().containsKey('Roboto'),
                         ),
                   ),
                   Icon(
@@ -975,7 +924,7 @@ class _StressMeditationsCompWidgetState
               ),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -983,7 +932,7 @@ class _StressMeditationsCompWidgetState
                     child: Container(
                       width: double.infinity,
                       height: 480.0,
-                      decoration: const BoxDecoration(
+                      decoration: BoxDecoration(
                         color: Colors.transparent,
                       ),
                       child: Column(
@@ -1021,7 +970,7 @@ class _StressMeditationsCompWidgetState
 
                                     return MasonryGridView.builder(
                                       gridDelegate:
-                                          const SliverSimpleGridDelegateWithFixedCrossAxisCount(
+                                          SliverSimpleGridDelegateWithFixedCrossAxisCount(
                                         crossAxisCount: 2,
                                       ),
                                       crossAxisSpacing: 10.0,

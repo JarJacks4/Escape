@@ -1,9 +1,2 @@
 NSCameraUsageDescription = "Tailor your permissions message";
 NSPhotoLibraryUsageDescription = "Tailor your permissions message";
-NSProductInteraction = "In order to make a better user experience for Escape, this app requires permission to collect Product Interaction data.";
-NSContactInfo = "In order to make a better user experience for Escape, this app requires permission to collect Contact Info data.";
-NSIIdentifiersUserID = "In order to certify user membership, this app requires permission to collect User ID data.";
-NSUserContent = "In order to upload User Content, this app requires permission to access any photo or video libraries on your device.";
-NSCrashData = "In order to track bugs with Escape, this app requires permission to track Crash data.";
-NSPerformanceData = "In order to track app performance for Escape, this app requires permission to track Performance Data.";
-NSAppTransportSecurity = "In order to track app security, this app requires permission to track App Transport Security data.";
