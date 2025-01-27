@@ -10,7 +10,6 @@ export '../base_auth_user_provider.dart';
 class EscapeFirebaseUser extends BaseAuthUser {
   EscapeFirebaseUser(this.user);
   User? user;
-  @override
   bool get loggedIn => user != null;
 
   @override
@@ -32,6 +31,11 @@ class EscapeFirebaseUser extends BaseAuthUser {
     } catch (_) {
       await user?.verifyBeforeUpdateEmail(email);
     }
+  }
+
+  @override
+  Future? updatePassword(String newPassword) async {
+    await user?.updatePassword(newPassword);
   }
 
   @override

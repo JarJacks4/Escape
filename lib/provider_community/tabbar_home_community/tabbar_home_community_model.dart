@@ -1,13 +1,25 @@
 import '/backend/api_requests/api_calls.dart';
-import '/backend/backend.dart';
 import '/components/pilates_videos_comp/pilates_videos_comp_widget.dart';
 import '/components/tai_chi_videos_comp/tai_chi_videos_comp_widget.dart';
+import '/components/video_player_high_fidelity_widget.dart';
+import '/components/videoplayer_comp_copy_widget.dart';
 import '/components/yoga_videos_comp/yoga_videos_comp_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'dart:async';
+import 'dart:math';
+import 'dart:ui';
 import 'tabbar_home_community_widget.dart' show TabbarHomeCommunityWidget;
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
+import 'package:provider/provider.dart';
+import 'package:simple_gradient_text/simple_gradient_text.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 
 class TabbarHomeCommunityModel
     extends FlutterFlowModel<TabbarHomeCommunityWidget> {
@@ -20,12 +32,12 @@ class TabbarHomeCommunityModel
 
   // State field(s) for ListView widget.
 
-  PagingController<DocumentSnapshot?, VideosCollectionRecord>?
-      listViewPagingController5;
-  Query? listViewPagingQuery5;
-  List<StreamSubscription?> listViewStreamSubscriptions5 = [];
+  PagingController<ApiPagingParams, dynamic>? listViewPagingController4;
+  Function(ApiPagingParams nextPageMarker)? listViewApiCall4;
 
-  Completer<ApiCallResponse>? apiRequestCompleter;
+  // Models for VideoplayerCompCopy dynamic component.
+  late FlutterFlowDynamicModels<VideoplayerCompCopyModel>
+      videoplayerCompCopyModels;
   // Model for YogaVideosComp component.
   late YogaVideosCompModel yogaVideosCompModel;
   // Model for PilatesVideosComp component.
@@ -35,6 +47,8 @@ class TabbarHomeCommunityModel
 
   @override
   void initState(BuildContext context) {
+    videoplayerCompCopyModels =
+        FlutterFlowDynamicModels(() => VideoplayerCompCopyModel());
     yogaVideosCompModel = createModel(context, () => YogaVideosCompModel());
     pilatesVideosCompModel =
         createModel(context, () => PilatesVideosCompModel());
@@ -44,62 +58,54 @@ class TabbarHomeCommunityModel
   @override
   void dispose() {
     tabBarController?.dispose();
-    for (var s in listViewStreamSubscriptions5) {
-      s?.cancel();
-    }
-    listViewPagingController5?.dispose();
-
+    listViewPagingController4?.dispose();
+    videoplayerCompCopyModels.dispose();
     yogaVideosCompModel.dispose();
     pilatesVideosCompModel.dispose();
     taiChiVideosCompModel.dispose();
   }
 
   /// Additional helper methods.
-  PagingController<DocumentSnapshot?, VideosCollectionRecord>
-      setListViewController5(
-    Query query, {
-    DocumentReference<Object?>? parent,
-  }) {
-    listViewPagingController5 ??= _createListViewController5(query, parent);
-    if (listViewPagingQuery5 != query) {
-      listViewPagingQuery5 = query;
-      listViewPagingController5?.refresh();
-    }
-    return listViewPagingController5!;
-  }
-
-  PagingController<DocumentSnapshot?, VideosCollectionRecord>
-      _createListViewController5(
-    Query query,
-    DocumentReference<Object?>? parent,
+  PagingController<ApiPagingParams, dynamic> setListViewController4(
+    Function(ApiPagingParams) apiCall,
   ) {
-    final controller =
-        PagingController<DocumentSnapshot?, VideosCollectionRecord>(
-            firstPageKey: null);
-    return controller
-      ..addPageRequestListener(
-        (nextPageMarker) => queryVideosCollectionRecordPage(
-          nextPageMarker: nextPageMarker,
-          streamSubscriptions: listViewStreamSubscriptions5,
-          controller: controller,
-          pageSize: 25,
-          isStream: true,
-        ),
-      );
+    listViewApiCall4 = apiCall;
+    return listViewPagingController4 ??= _createListViewController4(apiCall);
   }
 
-  Future waitForApiRequestCompleted({
-    double minWait = 0,
-    double maxWait = double.infinity,
-  }) async {
-    final stopwatch = Stopwatch()..start();
-    while (true) {
-      await Future.delayed(const Duration(milliseconds: 50));
-      final timeElapsed = stopwatch.elapsedMilliseconds;
-      final requestComplete = apiRequestCompleter?.isCompleted ?? false;
-      if (timeElapsed > maxWait || (requestComplete && timeElapsed > minWait)) {
-        break;
-      }
-    }
+  PagingController<ApiPagingParams, dynamic> _createListViewController4(
+    Function(ApiPagingParams) query,
+  ) {
+    final controller = PagingController<ApiPagingParams, dynamic>(
+      firstPageKey: ApiPagingParams(
+        nextPageNumber: 0,
+        numItems: 0,
+        lastResponse: null,
+      ),
+    );
+    return controller
+      ..addPageRequestListener(listViewYouTubeDataAPIVibrationPage4);
   }
+
+  void listViewYouTubeDataAPIVibrationPage4(ApiPagingParams nextPageMarker) =>
+      listViewApiCall4!(nextPageMarker)
+          .then((listViewYouTubeDataAPIVibrationResponse) {
+        final pageItems = (getJsonField(
+                  listViewYouTubeDataAPIVibrationResponse.jsonBody,
+                  r'''$.resource.videoId''',
+                ) ??
+                [])
+            .toList() as List;
+        final newNumItems = nextPageMarker.numItems + pageItems.length;
+        listViewPagingController4?.appendPage(
+          pageItems,
+          (pageItems.length > 0)
+              ? ApiPagingParams(
+                  nextPageNumber: nextPageMarker.nextPageNumber + 1,
+                  numItems: newNumItems,
+                  lastResponse: listViewYouTubeDataAPIVibrationResponse,
+                )
+              : null,
+        );
+      });
 }

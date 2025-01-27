@@ -1,9 +1,13 @@
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:math';
+import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'classes_card_model.dart';
 export 'classes_card_model.dart';
 
@@ -46,8 +50,8 @@ class _ClassesCardWidgetState extends State<ClassesCardWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 800.0.ms,
-            begin: const Offset(50.0, 0.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(50.0, 0.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -70,13 +74,13 @@ class _ClassesCardWidgetState extends State<ClassesCardWidget>
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 12.0),
+      padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 12.0),
       child: Container(
         width: double.infinity,
         height: 100.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).primaryBackground,
-          boxShadow: const [
+          boxShadow: [
             BoxShadow(
               blurRadius: 4.0,
               color: Color(0x230E151B),
@@ -91,7 +95,7 @@ class _ClassesCardWidgetState extends State<ClassesCardWidget>
         child: Stack(
           children: [
             ClipRRect(
-              borderRadius: const BorderRadius.only(
+              borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(12.0),
                 bottomRight: Radius.circular(0.0),
                 topLeft: Radius.circular(12.0),
@@ -105,13 +109,13 @@ class _ClassesCardWidgetState extends State<ClassesCardWidget>
               ),
             ),
             Align(
-              alignment: const AlignmentDirectional(-0.9, 0.85),
+              alignment: AlignmentDirectional(-0.9, 0.85),
               child: Container(
                 width: 32.0,
                 height: 32.0,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).secondaryBackground,
-                  boxShadow: const [
+                  boxShadow: [
                     BoxShadow(
                       blurRadius: 4.0,
                       color: Color(0x230E151B),
@@ -131,39 +135,35 @@ class _ClassesCardWidgetState extends State<ClassesCardWidget>
               ),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(130.0, 0.0, 12.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(130.0, 0.0, 12.0, 0.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 3.0, 0.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 3.0, 0.0, 0.0),
                     child: Text(
                       FFLocalizations.of(context).getText(
                         'w5sniixn' /* Learn to breath */,
                       ),
                       style: FlutterFlowTheme.of(context).bodyLarge.override(
-                            fontFamily:
-                                FlutterFlowTheme.of(context).bodyLargeFamily,
+                            fontFamily: 'WorkSans',
                             letterSpacing: 0.0,
-                            useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                FlutterFlowTheme.of(context).bodyLargeFamily),
+                            useGoogleFonts: false,
                           ),
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
                     child: Text(
                       FFLocalizations.of(context).getText(
                         '0qe70x0c' /* 4 Min */,
                       ),
                       style: FlutterFlowTheme.of(context).labelSmall.override(
-                            fontFamily:
-                                FlutterFlowTheme.of(context).labelSmallFamily,
+                            fontFamily: 'WorkSans',
                             letterSpacing: 0.0,
-                            useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                FlutterFlowTheme.of(context).labelSmallFamily),
+                            useGoogleFonts: false,
                           ),
                     ),
                   ),
@@ -181,22 +181,18 @@ class _ClassesCardWidgetState extends State<ClassesCardWidget>
                       ),
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                         child: Text(
                           FFLocalizations.of(context).getText(
                             'zp6xr0g7' /* George Switzer */,
                           ),
-                          style: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                                fontFamily: FlutterFlowTheme.of(context)
-                                    .bodyMediumFamily,
-                                color: FlutterFlowTheme.of(context).primary,
-                                letterSpacing: 0.0,
-                                useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                    FlutterFlowTheme.of(context)
-                                        .bodyMediumFamily),
-                              ),
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'WorkSans',
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    letterSpacing: 0.0,
+                                    useGoogleFonts: false,
+                                  ),
                         ),
                       ),
                     ],

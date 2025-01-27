@@ -1,11 +1,11 @@
 import '/components/sounds_comp/sounds_comp_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/headers/header_main_sounds/header_main_sounds_widget.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'sounds_page_main_model.dart';
 export 'sounds_page_main_model.dart';
 
@@ -16,13 +16,10 @@ class SoundsPageMainWidget extends StatefulWidget {
   State<SoundsPageMainWidget> createState() => _SoundsPageMainWidgetState();
 }
 
-class _SoundsPageMainWidgetState extends State<SoundsPageMainWidget>
-    with TickerProviderStateMixin {
+class _SoundsPageMainWidgetState extends State<SoundsPageMainWidget> {
   late SoundsPageMainModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -31,46 +28,6 @@ class _SoundsPageMainWidgetState extends State<SoundsPageMainWidget>
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'SoundsPageMain'});
-    animationsMap.addAll({
-      'headerMainSoundsOnPageLoadAnimation': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          FadeEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          MoveEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: const Offset(100.0, 0.0),
-            end: const Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-      'soundsCompOnPageLoadAnimation': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          FadeEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          MoveEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: const Offset(100.0, 0.0),
-            end: const Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-    });
   }
 
   @override
@@ -83,7 +40,10 @@ class _SoundsPageMainWidgetState extends State<SoundsPageMainWidget>
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -105,7 +65,7 @@ class _SoundsPageMainWidgetState extends State<SoundsPageMainWidget>
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(8.0),
                       child: Image.network(
-                        'https://images.unsplash.com/photo-1516571748831-5d81767b788d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHw4fHxzdGFyc3xlbnwwfHx8fDE3MjgxODMyNjF8MA&ixlib=rb-4.0.3&q=80&w=1080',
+                        'https://images.unsplash.com/photo-1433086966358-54859d0ed716?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwyfHxuYXR1cmV8ZW58MHx8fHwxNzI2MTAxMTMyfDA&ixlib=rb-4.0.3&q=80&w=1080',
                         width: 300.0,
                         height: 200.0,
                         fit: BoxFit.cover,
@@ -116,13 +76,16 @@ class _SoundsPageMainWidgetState extends State<SoundsPageMainWidget>
               ],
             ),
             Align(
-              alignment: const AlignmentDirectional(0.0, 0.0),
+              alignment: AlignmentDirectional(0.0, 0.0),
               child: Container(
                 width: double.infinity,
                 height: double.infinity,
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   gradient: LinearGradient(
-                    colors: [Color(0x44000220), Color(0xFF000220)],
+                    colors: [
+                      Color(0xA4140B35),
+                      FlutterFlowTheme.of(context).secondaryBackground
+                    ],
                     stops: [0.95, 1.0],
                     begin: AlignmentDirectional(0.0, -1.0),
                     end: AlignmentDirectional(0, 1.0),
@@ -138,42 +101,22 @@ class _SoundsPageMainWidgetState extends State<SoundsPageMainWidget>
                     child: Container(
                       width: 100.0,
                       height: 0.0,
-                      decoration: const BoxDecoration(),
+                      decoration: BoxDecoration(),
                       child: Align(
-                        alignment: const AlignmentDirectional(0.0, -1.0),
+                        alignment: AlignmentDirectional(0.0, -1.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Container(
                               width: double.infinity,
-                              height: 276.0,
-                              decoration: const BoxDecoration(
-                                color: Color(0x00000220),
-                              ),
-                              child: wrapWithModel(
-                                model: _model.headerMainSoundsModel,
-                                updateCallback: () => safeSetState(() {}),
-                                child: const Hero(
-                                  tag: 'SoundsPage',
-                                  transitionOnUserGestures: true,
-                                  child: Material(
-                                    color: Colors.transparent,
-                                    child: HeaderMainSoundsWidget(),
-                                  ),
-                                ),
-                              ).animateOnPageLoad(animationsMap[
-                                  'headerMainSoundsOnPageLoadAnimation']!),
-                            ),
-                            Container(
-                              width: double.infinity,
-                              height: 606.0,
-                              decoration: const BoxDecoration(
+                              height: 829.0,
+                              decoration: BoxDecoration(
                                 color: Color(0x00000220),
                               ),
                               child: wrapWithModel(
                                 model: _model.soundsCompModel,
                                 updateCallback: () => safeSetState(() {}),
-                                child: const Hero(
+                                child: Hero(
                                   tag: 'SoundsPage',
                                   transitionOnUserGestures: true,
                                   child: Material(
@@ -181,8 +124,7 @@ class _SoundsPageMainWidgetState extends State<SoundsPageMainWidget>
                                     child: SoundsCompWidget(),
                                   ),
                                 ),
-                              ).animateOnPageLoad(animationsMap[
-                                  'soundsCompOnPageLoadAnimation']!),
+                              ),
                             ),
                           ],
                         ),

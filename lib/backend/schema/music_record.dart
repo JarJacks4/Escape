@@ -3,15 +3,16 @@ import 'dart:async';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
+import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 class MusicRecord extends FirestoreRecord {
   MusicRecord._(
-    super.reference,
-    super.data,
-  ) {
+    DocumentReference reference,
+    Map<String, dynamic> data,
+  ) : super(reference, data) {
     _initializeFields();
   }
 
@@ -70,17 +71,6 @@ class MusicRecord extends FirestoreRecord {
   String get mp3File => _mp3File ?? '';
   bool hasMp3File() => _mp3File != null;
 
-  // "epidemicSoundSampleSongs" field.
-  List<String>? _epidemicSoundSampleSongs;
-  List<String> get epidemicSoundSampleSongs =>
-      _epidemicSoundSampleSongs ?? const [];
-  bool hasEpidemicSoundSampleSongs() => _epidemicSoundSampleSongs != null;
-
-  // "uploadedMusic" field.
-  String? _uploadedMusic;
-  String get uploadedMusic => _uploadedMusic ?? '';
-  bool hasUploadedMusic() => _uploadedMusic != null;
-
   void _initializeFields() {
     _musicName = snapshotData['music_name'] as String?;
     _artistName = snapshotData['artist_name'] as String?;
@@ -93,9 +83,6 @@ class MusicRecord extends FirestoreRecord {
     _likes = castToType<int>(snapshotData['likes']);
     _playCount = castToType<int>(snapshotData['playCount']);
     _mp3File = snapshotData['mp3File'] as String?;
-    _epidemicSoundSampleSongs =
-        getDataList(snapshotData['epidemicSoundSampleSongs']);
-    _uploadedMusic = snapshotData['uploadedMusic'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -143,7 +130,6 @@ Map<String, dynamic> createMusicRecordData({
   int? likes,
   int? playCount,
   String? mp3File,
-  String? uploadedMusic,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -158,7 +144,6 @@ Map<String, dynamic> createMusicRecordData({
       'likes': likes,
       'playCount': playCount,
       'mp3File': mp3File,
-      'uploadedMusic': uploadedMusic,
     }.withoutNulls,
   );
 
@@ -170,7 +155,6 @@ class MusicRecordDocumentEquality implements Equality<MusicRecord> {
 
   @override
   bool equals(MusicRecord? e1, MusicRecord? e2) {
-    const listEquality = ListEquality();
     return e1?.musicName == e2?.musicName &&
         e1?.artistName == e2?.artistName &&
         e1?.albumName == e2?.albumName &&
@@ -181,10 +165,7 @@ class MusicRecordDocumentEquality implements Equality<MusicRecord> {
         e1?.duration == e2?.duration &&
         e1?.likes == e2?.likes &&
         e1?.playCount == e2?.playCount &&
-        e1?.mp3File == e2?.mp3File &&
-        listEquality.equals(
-            e1?.epidemicSoundSampleSongs, e2?.epidemicSoundSampleSongs) &&
-        e1?.uploadedMusic == e2?.uploadedMusic;
+        e1?.mp3File == e2?.mp3File;
   }
 
   @override
@@ -199,9 +180,7 @@ class MusicRecordDocumentEquality implements Equality<MusicRecord> {
         e?.duration,
         e?.likes,
         e?.playCount,
-        e?.mp3File,
-        e?.epidemicSoundSampleSongs,
-        e?.uploadedMusic
+        e?.mp3File
       ]);
 
   @override

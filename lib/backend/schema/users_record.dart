@@ -3,15 +3,16 @@ import 'dart:async';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
+import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 class UsersRecord extends FirestoreRecord {
   UsersRecord._(
-    super.reference,
-    super.data,
-  ) {
+    DocumentReference reference,
+    Map<String, dynamic> data,
+  ) : super(reference, data) {
     _initializeFields();
   }
 
@@ -60,45 +61,20 @@ class UsersRecord extends FirestoreRecord {
   bool get freeUser => _freeUser ?? false;
   bool hasFreeUser() => _freeUser != null;
 
-  // "isSubscriber" field.
-  bool? _isSubscriber;
-  bool get isSubscriber => _isSubscriber ?? false;
-  bool hasIsSubscriber() => _isSubscriber != null;
-
-  // "gender" field.
-  String? _gender;
-  String get gender => _gender ?? '';
-  bool hasGender() => _gender != null;
-
-  // "dateOfBirth" field.
-  DateTime? _dateOfBirth;
-  DateTime? get dateOfBirth => _dateOfBirth;
-  bool hasDateOfBirth() => _dateOfBirth != null;
-
-  // "FavoriteTimeToMeditate" field.
+  // "favoriteTimeToMeditate" field.
   DateTime? _favoriteTimeToMeditate;
   DateTime? get favoriteTimeToMeditate => _favoriteTimeToMeditate;
   bool hasFavoriteTimeToMeditate() => _favoriteTimeToMeditate != null;
 
-  // "uploadedMusicFiles" field.
-  String? _uploadedMusicFiles;
-  String get uploadedMusicFiles => _uploadedMusicFiles ?? '';
-  bool hasUploadedMusicFiles() => _uploadedMusicFiles != null;
+  // "isSubscriber" field.
+  DocumentReference? _isSubscriber;
+  DocumentReference? get isSubscriber => _isSubscriber;
+  bool hasIsSubscriber() => _isSubscriber != null;
 
-  // "password" field.
-  String? _password;
-  String get password => _password ?? '';
-  bool hasPassword() => _password != null;
-
-  // "uploadedVideos" field.
-  DocumentReference? _uploadedVideos;
-  DocumentReference? get uploadedVideos => _uploadedVideos;
-  bool hasUploadedVideos() => _uploadedVideos != null;
-
-  // "uploadedMusic" field.
-  DocumentReference? _uploadedMusic;
-  DocumentReference? get uploadedMusic => _uploadedMusic;
-  bool hasUploadedMusic() => _uploadedMusic != null;
+  // "isSubscribed" field.
+  bool? _isSubscribed;
+  bool get isSubscribed => _isSubscribed ?? false;
+  bool hasIsSubscribed() => _isSubscribed != null;
 
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
@@ -110,15 +86,10 @@ class UsersRecord extends FirestoreRecord {
     _displayName = snapshotData['display_name'] as String?;
     _phoneNumber = snapshotData['phone_number'] as String?;
     _freeUser = snapshotData['freeUser'] as bool?;
-    _isSubscriber = snapshotData['isSubscriber'] as bool?;
-    _gender = snapshotData['gender'] as String?;
-    _dateOfBirth = snapshotData['dateOfBirth'] as DateTime?;
     _favoriteTimeToMeditate =
-        snapshotData['FavoriteTimeToMeditate'] as DateTime?;
-    _uploadedMusicFiles = snapshotData['uploadedMusicFiles'] as String?;
-    _password = snapshotData['password'] as String?;
-    _uploadedVideos = snapshotData['uploadedVideos'] as DocumentReference?;
-    _uploadedMusic = snapshotData['uploadedMusic'] as DocumentReference?;
+        snapshotData['favoriteTimeToMeditate'] as DateTime?;
+    _isSubscriber = snapshotData['isSubscriber'] as DocumentReference?;
+    _isSubscribed = snapshotData['isSubscribed'] as bool?;
   }
 
   static CollectionReference get collection =>
@@ -164,14 +135,9 @@ Map<String, dynamic> createUsersRecordData({
   String? displayName,
   String? phoneNumber,
   bool? freeUser,
-  bool? isSubscriber,
-  String? gender,
-  DateTime? dateOfBirth,
   DateTime? favoriteTimeToMeditate,
-  String? uploadedMusicFiles,
-  String? password,
-  DocumentReference? uploadedVideos,
-  DocumentReference? uploadedMusic,
+  DocumentReference? isSubscriber,
+  bool? isSubscribed,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -184,14 +150,9 @@ Map<String, dynamic> createUsersRecordData({
       'display_name': displayName,
       'phone_number': phoneNumber,
       'freeUser': freeUser,
+      'favoriteTimeToMeditate': favoriteTimeToMeditate,
       'isSubscriber': isSubscriber,
-      'gender': gender,
-      'dateOfBirth': dateOfBirth,
-      'FavoriteTimeToMeditate': favoriteTimeToMeditate,
-      'uploadedMusicFiles': uploadedMusicFiles,
-      'password': password,
-      'uploadedVideos': uploadedVideos,
-      'uploadedMusic': uploadedMusic,
+      'isSubscribed': isSubscribed,
     }.withoutNulls,
   );
 
@@ -212,14 +173,9 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.displayName == e2?.displayName &&
         e1?.phoneNumber == e2?.phoneNumber &&
         e1?.freeUser == e2?.freeUser &&
-        e1?.isSubscriber == e2?.isSubscriber &&
-        e1?.gender == e2?.gender &&
-        e1?.dateOfBirth == e2?.dateOfBirth &&
         e1?.favoriteTimeToMeditate == e2?.favoriteTimeToMeditate &&
-        e1?.uploadedMusicFiles == e2?.uploadedMusicFiles &&
-        e1?.password == e2?.password &&
-        e1?.uploadedVideos == e2?.uploadedVideos &&
-        e1?.uploadedMusic == e2?.uploadedMusic;
+        e1?.isSubscriber == e2?.isSubscriber &&
+        e1?.isSubscribed == e2?.isSubscribed;
   }
 
   @override
@@ -233,14 +189,9 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.displayName,
         e?.phoneNumber,
         e?.freeUser,
-        e?.isSubscriber,
-        e?.gender,
-        e?.dateOfBirth,
         e?.favoriteTimeToMeditate,
-        e?.uploadedMusicFiles,
-        e?.password,
-        e?.uploadedVideos,
-        e?.uploadedMusic
+        e?.isSubscriber,
+        e?.isSubscribed
       ]);
 
   @override

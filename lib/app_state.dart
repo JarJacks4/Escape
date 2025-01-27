@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
+import '/backend/api_requests/api_manager.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 
@@ -15,27 +18,12 @@ class FFAppState extends ChangeNotifier {
     _instance = FFAppState._internal();
   }
 
-  Future initializePersistedState() async {
-    prefs = await SharedPreferences.getInstance();
-    _safeInit(() {
-      _sampleSongsEpidemic =
-          prefs.getStringList('ff_sampleSongsEpidemic') ?? _sampleSongsEpidemic;
-    });
-    _safeInit(() {
-      _uploadedSongs =
-          prefs.getString('ff_uploadedSongs')?.ref ?? _uploadedSongs;
-    });
-    _safeInit(() {
-      _isSubscriber = prefs.getBool('ff_isSubscriber') ?? _isSubscriber;
-    });
-  }
+  Future initializePersistedState() async {}
 
   void update(VoidCallback callback) {
     callback();
     notifyListeners();
   }
-
-  late SharedPreferences prefs;
 
   String _ProfilePicture = '';
   String get ProfilePicture => _ProfilePicture;
@@ -72,66 +60,85 @@ class FFAppState extends ChangeNotifier {
     TherapistLocation.insert(index, value);
   }
 
-  List<String> _sampleSongsEpidemic = ['gs://escape-ujuzxr.appspot.com'];
-  List<String> get sampleSongsEpidemic => _sampleSongsEpidemic;
-  set sampleSongsEpidemic(List<String> value) {
-    _sampleSongsEpidemic = value;
-    prefs.setStringList('ff_sampleSongsEpidemic', value);
+  DocumentReference? _historyReference;
+  DocumentReference? get historyReference => _historyReference;
+  set historyReference(DocumentReference? value) {
+    _historyReference = value;
   }
 
-  void addToSampleSongsEpidemic(String value) {
-    sampleSongsEpidemic.add(value);
-    prefs.setStringList('ff_sampleSongsEpidemic', _sampleSongsEpidemic);
+  List<String> _newListLike = [];
+  List<String> get newListLike => _newListLike;
+  set newListLike(List<String> value) {
+    _newListLike = value;
   }
 
-  void removeFromSampleSongsEpidemic(String value) {
-    sampleSongsEpidemic.remove(value);
-    prefs.setStringList('ff_sampleSongsEpidemic', _sampleSongsEpidemic);
+  void addToNewListLike(String value) {
+    newListLike.add(value);
   }
 
-  void removeAtIndexFromSampleSongsEpidemic(int index) {
-    sampleSongsEpidemic.removeAt(index);
-    prefs.setStringList('ff_sampleSongsEpidemic', _sampleSongsEpidemic);
+  void removeFromNewListLike(String value) {
+    newListLike.remove(value);
   }
 
-  void updateSampleSongsEpidemicAtIndex(
+  void removeAtIndexFromNewListLike(int index) {
+    newListLike.removeAt(index);
+  }
+
+  void updateNewListLikeAtIndex(
     int index,
     String Function(String) updateFn,
   ) {
-    sampleSongsEpidemic[index] = updateFn(_sampleSongsEpidemic[index]);
-    prefs.setStringList('ff_sampleSongsEpidemic', _sampleSongsEpidemic);
+    newListLike[index] = updateFn(_newListLike[index]);
   }
 
-  void insertAtIndexInSampleSongsEpidemic(int index, String value) {
-    sampleSongsEpidemic.insert(index, value);
-    prefs.setStringList('ff_sampleSongsEpidemic', _sampleSongsEpidemic);
+  void insertAtIndexInNewListLike(int index, String value) {
+    newListLike.insert(index, value);
   }
 
-  DocumentReference? _uploadedSongs;
-  DocumentReference? get uploadedSongs => _uploadedSongs;
-  set uploadedSongs(DocumentReference? value) {
-    _uploadedSongs = value;
-    value != null
-        ? prefs.setString('ff_uploadedSongs', value.path)
-        : prefs.remove('ff_uploadedSongs');
+  int _videoId = 0;
+  int get videoId => _videoId;
+  set videoId(int value) {
+    _videoId = value;
   }
 
-  bool _isSubscriber = false;
-  bool get isSubscriber => _isSubscriber;
-  set isSubscriber(bool value) {
-    _isSubscriber = value;
-    prefs.setBool('ff_isSubscriber', value);
+  bool _isLiked = false;
+  bool get isLiked => _isLiked;
+  set isLiked(bool value) {
+    _isLiked = value;
   }
-}
 
-void _safeInit(Function() initializeField) {
-  try {
-    initializeField();
-  } catch (_) {}
-}
+  List<String> _newListBookmarks = [];
+  List<String> get newListBookmarks => _newListBookmarks;
+  set newListBookmarks(List<String> value) {
+    _newListBookmarks = value;
+  }
 
-Future _safeInitAsync(Function() initializeField) async {
-  try {
-    await initializeField();
-  } catch (_) {}
+  void addToNewListBookmarks(String value) {
+    newListBookmarks.add(value);
+  }
+
+  void removeFromNewListBookmarks(String value) {
+    newListBookmarks.remove(value);
+  }
+
+  void removeAtIndexFromNewListBookmarks(int index) {
+    newListBookmarks.removeAt(index);
+  }
+
+  void updateNewListBookmarksAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    newListBookmarks[index] = updateFn(_newListBookmarks[index]);
+  }
+
+  void insertAtIndexInNewListBookmarks(int index, String value) {
+    newListBookmarks.insert(index, value);
+  }
+
+  bool _isBookmarked = false;
+  bool get isBookmarked => _isBookmarked;
+  set isBookmarked(bool value) {
+    _isBookmarked = value;
+  }
 }

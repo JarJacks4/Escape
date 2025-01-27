@@ -2,9 +2,13 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
+import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'classes_page_model.dart';
 export 'classes_page_model.dart';
 
@@ -45,8 +49,8 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
             curve: Curves.easeInOut,
             delay: 100.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, 170.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 170.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -65,8 +69,8 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
             curve: Curves.easeInOut,
             delay: 150.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, 170.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 170.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -83,7 +87,10 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -99,25 +106,22 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                   children: [
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(24.0, 22.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(24.0, 22.0, 0.0, 0.0),
                       child: Text(
                         FFLocalizations.of(context).getText(
                           't32f9clt' /* Feb 8th */,
                         ),
                         style:
                             FlutterFlowTheme.of(context).displaySmall.override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .displaySmallFamily,
+                                  fontFamily: 'WorkSans',
                                   letterSpacing: 0.0,
-                                  useGoogleFonts: GoogleFonts.asMap()
-                                      .containsKey(FlutterFlowTheme.of(context)
-                                          .displaySmallFamily),
+                                  useGoogleFonts: false,
                                 ),
                       ),
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(24.0, 4.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(24.0, 4.0, 0.0, 0.0),
                       child: Text(
                         FFLocalizations.of(context).getText(
                           'g82fqpyf' /* Wednesday */,
@@ -125,12 +129,9 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                         textAlign: TextAlign.start,
                         style:
                             FlutterFlowTheme.of(context).labelMedium.override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .labelMediumFamily,
+                                  fontFamily: 'WorkSans',
                                   letterSpacing: 0.0,
-                                  useGoogleFonts: GoogleFonts.asMap()
-                                      .containsKey(FlutterFlowTheme.of(context)
-                                          .labelMediumFamily),
+                                  useGoogleFonts: false,
                                 ),
                       ),
                     ),
@@ -141,7 +142,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(24.0, 4.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(24.0, 4.0, 0.0, 0.0),
                       child: Text(
                         FFLocalizations.of(context).getText(
                           '7gk481xs' /* FlutterFlow Design Basics */,
@@ -150,36 +151,30 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                         style: FlutterFlowTheme.of(context)
                             .headlineMedium
                             .override(
-                              fontFamily: FlutterFlowTheme.of(context)
-                                  .headlineMediumFamily,
+                              fontFamily: 'WorkSans',
                               letterSpacing: 0.0,
-                              useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                  FlutterFlowTheme.of(context)
-                                      .headlineMediumFamily),
+                              useGoogleFonts: false,
                             ),
                       ),
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(24.0, 12.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(24.0, 12.0, 0.0, 0.0),
                       child: Text(
                         FFLocalizations.of(context).getText(
                           '3qpf1gzq' /* Class Details */,
                         ),
                         textAlign: TextAlign.start,
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily:
-                                  FlutterFlowTheme.of(context).bodyMediumFamily,
+                              fontFamily: 'WorkSans',
                               letterSpacing: 0.0,
-                              useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                  FlutterFlowTheme.of(context)
-                                      .bodyMediumFamily),
+                              useGoogleFonts: false,
                             ),
                       ),
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(24.0, 4.0, 24.0, 12.0),
+                          EdgeInsetsDirectional.fromSTEB(24.0, 4.0, 24.0, 12.0),
                       child: Text(
                         FFLocalizations.of(context).getText(
                           'f0viz556' /* Experience the power of Supaba... */,
@@ -187,37 +182,31 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                         textAlign: TextAlign.start,
                         style:
                             FlutterFlowTheme.of(context).labelMedium.override(
-                                  fontFamily: FlutterFlowTheme.of(context)
-                                      .labelMediumFamily,
+                                  fontFamily: 'WorkSans',
                                   letterSpacing: 0.0,
-                                  useGoogleFonts: GoogleFonts.asMap()
-                                      .containsKey(FlutterFlowTheme.of(context)
-                                          .labelMediumFamily),
+                                  useGoogleFonts: false,
                                 ),
                       ).animateOnPageLoad(
                           animationsMap['textOnPageLoadAnimation']!),
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(24.0, 4.0, 0.0, 12.0),
+                          EdgeInsetsDirectional.fromSTEB(24.0, 4.0, 0.0, 12.0),
                       child: Text(
                         FFLocalizations.of(context).getText(
                           'lglod63k' /* Class Content */,
                         ),
                         textAlign: TextAlign.start,
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily:
-                                  FlutterFlowTheme.of(context).bodyMediumFamily,
+                              fontFamily: 'WorkSans',
                               letterSpacing: 0.0,
-                              useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                  FlutterFlowTheme.of(context)
-                                      .bodyMediumFamily),
+                              useGoogleFonts: false,
                             ),
                       ),
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 24.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 24.0),
                       child: ListView(
                         padding: EdgeInsets.zero,
                         primary: false,
@@ -225,11 +214,11 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                         scrollDirection: Axis.vertical,
                         children: [
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 24.0, 0.0, 24.0, 12.0),
                             child: Container(
                               width: double.infinity,
-                              constraints: const BoxConstraints(
+                              constraints: BoxConstraints(
                                 maxWidth: 570.0,
                               ),
                               decoration: BoxDecoration(
@@ -242,7 +231,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                 ),
                               ),
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 12.0, 16.0, 12.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -251,7 +240,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                   children: [
                                     Expanded(
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 12.0, 0.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
@@ -269,21 +258,13 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .bodyLarge
                                                       .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyLargeFamily,
+                                                        fontFamily: 'WorkSans',
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyLargeFamily),
+                                                        useGoogleFonts: false,
                                                       ),
                                             ),
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 4.0, 0.0, 0.0),
                                               child: Text(
                                                 FFLocalizations.of(context)
@@ -295,16 +276,9 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                                         .labelMedium
                                                         .override(
                                                           fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .labelMediumFamily,
+                                                              'WorkSans',
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelMediumFamily),
+                                                          useGoogleFonts: false,
                                                         ),
                                               ),
                                             ),
@@ -320,14 +294,9 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .headlineSmall
                                           .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .headlineSmallFamily,
+                                            fontFamily: 'WorkSans',
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey(
-                                                    FlutterFlowTheme.of(context)
-                                                        .headlineSmallFamily),
+                                            useGoogleFonts: false,
                                           ),
                                     ),
                                   ],
@@ -336,11 +305,11 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 24.0, 0.0, 24.0, 12.0),
                             child: Container(
                               width: double.infinity,
-                              constraints: const BoxConstraints(
+                              constraints: BoxConstraints(
                                 maxWidth: 570.0,
                               ),
                               decoration: BoxDecoration(
@@ -353,7 +322,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                 ),
                               ),
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 12.0, 16.0, 12.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -362,7 +331,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                   children: [
                                     Expanded(
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 12.0, 0.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
@@ -380,21 +349,13 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .bodyLarge
                                                       .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyLargeFamily,
+                                                        fontFamily: 'WorkSans',
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyLargeFamily),
+                                                        useGoogleFonts: false,
                                                       ),
                                             ),
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 4.0, 0.0, 0.0),
                                               child: Text(
                                                 FFLocalizations.of(context)
@@ -406,16 +367,9 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                                         .labelMedium
                                                         .override(
                                                           fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .labelMediumFamily,
+                                                              'WorkSans',
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelMediumFamily),
+                                                          useGoogleFonts: false,
                                                         ),
                                               ),
                                             ),
@@ -431,14 +385,9 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .headlineSmall
                                           .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .headlineSmallFamily,
+                                            fontFamily: 'WorkSans',
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey(
-                                                    FlutterFlowTheme.of(context)
-                                                        .headlineSmallFamily),
+                                            useGoogleFonts: false,
                                           ),
                                     ),
                                   ],
@@ -447,11 +396,11 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 24.0, 0.0, 24.0, 12.0),
                             child: Container(
                               width: double.infinity,
-                              constraints: const BoxConstraints(
+                              constraints: BoxConstraints(
                                 maxWidth: 570.0,
                               ),
                               decoration: BoxDecoration(
@@ -464,7 +413,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                 ),
                               ),
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 12.0, 16.0, 12.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -473,7 +422,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                   children: [
                                     Expanded(
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 12.0, 0.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
@@ -491,21 +440,13 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .bodyLarge
                                                       .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyLargeFamily,
+                                                        fontFamily: 'WorkSans',
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyLargeFamily),
+                                                        useGoogleFonts: false,
                                                       ),
                                             ),
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 4.0, 0.0, 0.0),
                                               child: Text(
                                                 FFLocalizations.of(context)
@@ -517,16 +458,9 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                                         .labelMedium
                                                         .override(
                                                           fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .labelMediumFamily,
+                                                              'WorkSans',
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelMediumFamily),
+                                                          useGoogleFonts: false,
                                                         ),
                                               ),
                                             ),
@@ -542,14 +476,9 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .headlineSmall
                                           .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .headlineSmallFamily,
+                                            fontFamily: 'WorkSans',
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey(
-                                                    FlutterFlowTheme.of(context)
-                                                        .headlineSmallFamily),
+                                            useGoogleFonts: false,
                                           ),
                                     ),
                                   ],
@@ -558,11 +487,11 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 24.0, 0.0, 24.0, 12.0),
                             child: Container(
                               width: double.infinity,
-                              constraints: const BoxConstraints(
+                              constraints: BoxConstraints(
                                 maxWidth: 570.0,
                               ),
                               decoration: BoxDecoration(
@@ -575,7 +504,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                 ),
                               ),
                               child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 12.0, 16.0, 12.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -584,7 +513,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                   children: [
                                     Expanded(
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 12.0, 0.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
@@ -602,21 +531,13 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .bodyLarge
                                                       .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyLargeFamily,
+                                                        fontFamily: 'WorkSans',
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyLargeFamily),
+                                                        useGoogleFonts: false,
                                                       ),
                                             ),
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 4.0, 0.0, 0.0),
                                               child: Text(
                                                 FFLocalizations.of(context)
@@ -628,16 +549,9 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                                         .labelMedium
                                                         .override(
                                                           fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .labelMediumFamily,
+                                                              'WorkSans',
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelMediumFamily),
+                                                          useGoogleFonts: false,
                                                         ),
                                               ),
                                             ),
@@ -653,14 +567,9 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .headlineSmall
                                           .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .headlineSmallFamily,
+                                            fontFamily: 'WorkSans',
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey(
-                                                    FlutterFlowTheme.of(context)
-                                                        .headlineSmallFamily),
+                                            useGoogleFonts: false,
                                           ),
                                     ),
                                   ],
@@ -677,7 +586,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
               ),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 12.0),
+              padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 12.0),
               child: FFButtonWidget(
                 onPressed: () {
                   print('Button pressed ...');
@@ -688,16 +597,14 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                 options: FFButtonOptions(
                   width: double.infinity,
                   height: 52.0,
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                   iconPadding:
-                      const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                   color: FlutterFlowTheme.of(context).primary,
                   textStyle: FlutterFlowTheme.of(context).titleMedium.override(
-                        fontFamily:
-                            FlutterFlowTheme.of(context).titleMediumFamily,
+                        fontFamily: 'WorkSans',
                         letterSpacing: 0.0,
-                        useGoogleFonts: GoogleFonts.asMap().containsKey(
-                            FlutterFlowTheme.of(context).titleMediumFamily),
+                        useGoogleFonts: false,
                       ),
                   borderSide: BorderSide(
                     color: FlutterFlowTheme.of(context).primary,
@@ -708,7 +615,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
               ),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 12.0),
+              padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 12.0),
               child: FFButtonWidget(
                 onPressed: () {
                   print('Button pressed ...');
@@ -716,24 +623,22 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                 text: FFLocalizations.of(context).getText(
                   'du1l7nl0' /* Favorite Class */,
                 ),
-                icon: const Icon(
+                icon: Icon(
                   Icons.favorite_border,
                   size: 15.0,
                 ),
                 options: FFButtonOptions(
                   width: double.infinity,
                   height: 52.0,
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                   iconPadding:
-                      const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                   color: FlutterFlowTheme.of(context).accent1,
                   textStyle: FlutterFlowTheme.of(context).titleLarge.override(
-                        fontFamily:
-                            FlutterFlowTheme.of(context).titleLargeFamily,
+                        fontFamily: 'WorkSans',
                         color: FlutterFlowTheme.of(context).primary,
                         letterSpacing: 0.0,
-                        useGoogleFonts: GoogleFonts.asMap().containsKey(
-                            FlutterFlowTheme.of(context).titleLargeFamily),
+                        useGoogleFonts: false,
                       ),
                   borderSide: BorderSide(
                     color: FlutterFlowTheme.of(context).primary,

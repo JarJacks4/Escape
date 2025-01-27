@@ -1,4 +1,6 @@
 import 'dart:convert';
+import 'dart:typed_data';
+import '../schema/structs/index.dart';
 
 import 'package:flutter/foundation.dart';
 
@@ -8,6 +10,105 @@ import 'api_manager.dart';
 export 'api_manager.dart' show ApiCallResponse;
 
 const _kPrivateApiFunctionName = 'ffPrivateApiCall';
+
+/// Start FastAPI Group Code
+
+class FastAPIGroup {
+  static String getBaseUrl() =>
+      'https://app.swaggerhub.com/apis/GAHOISIDDHANT/fast-api/1.0.0';
+  static Map<String, String> headers = {
+    'Content-Type': 'application/json',
+    'Authorization':
+        'Bearer sk-proj-t5GY3pUWUxjh4mZLGWUxT3BlbkFJmQ2aJzbx24KyMdvAnXjf',
+  };
+  static ChatChatPostCall chatChatPostCall = ChatChatPostCall();
+  static RootGetCall rootGetCall = RootGetCall();
+  static GetChatHistoryChatSessionIdGetCall getChatHistoryChatSessionIdGetCall =
+      GetChatHistoryChatSessionIdGetCall();
+}
+
+class ChatChatPostCall {
+  Future<ApiCallResponse> call() async {
+    final baseUrl = FastAPIGroup.getBaseUrl();
+
+    final ffApiRequestBody = '''
+{
+  "message": "",
+  "session_id": ""
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'chat_chat_post',
+      apiUrl: '${baseUrl}/chat',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization':
+            'Bearer sk-proj-t5GY3pUWUxjh4mZLGWUxT3BlbkFJmQ2aJzbx24KyMdvAnXjf',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class RootGetCall {
+  Future<ApiCallResponse> call() async {
+    final baseUrl = FastAPIGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'root__get',
+      apiUrl: '${baseUrl}/root',
+      callType: ApiCallType.GET,
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization':
+            'Bearer sk-proj-t5GY3pUWUxjh4mZLGWUxT3BlbkFJmQ2aJzbx24KyMdvAnXjf',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class GetChatHistoryChatSessionIdGetCall {
+  Future<ApiCallResponse> call({
+    String? sessionId = '',
+  }) async {
+    final baseUrl = FastAPIGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'get_chat_history_chat__session_id__get',
+      apiUrl: '${baseUrl}/chat/${sessionId}',
+      callType: ApiCallType.GET,
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization':
+            'Bearer sk-proj-t5GY3pUWUxjh4mZLGWUxT3BlbkFJmQ2aJzbx24KyMdvAnXjf',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+/// End FastAPI Group Code
 
 class YouTubeDataAPIBaseCall {
   static Future<ApiCallResponse> call() async {
@@ -799,1076 +900,12 @@ class YouTubeDataBinauralBeatsAPICopyCall {
           .toList();
 }
 
-class YouTubeDataTaiChiAPICall {
+class YouTubeDataTaiChiAPIFINALCall {
   static Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
-      callName: 'YouTube Data Tai Chi API',
+      callName: 'YouTube Data Tai Chi  API FINAL',
       apiUrl:
           'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLyC3pcUWmqsS8np_023S06Nf32JFLPVIj&key=AIzaSyCm8Xdnu-h9T7hS_-XZLtnNSrImqjnoCGY',
-      callType: ApiCallType.GET,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      params: {},
-      returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: false,
-      cache: false,
-      isStreamingApi: false,
-      alwaysAllowBody: false,
-    );
-  }
-
-  static List? itemSnippet(dynamic response) => getJsonField(
-        response,
-        r'''$.items[:].snippet''',
-        true,
-      ) as List?;
-  static List<String>? itemSnippetChannel(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.channelId''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List<String>? itemsSnippetTitle(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.title''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List<String>? snippetDescription(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.description''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List? snipppetThumbnails(dynamic response) => getJsonField(
-        response,
-        r'''$.items[:].snippet.thumbnails''',
-        true,
-      ) as List?;
-  static List? snippetThumbnailsDefault(dynamic response) => getJsonField(
-        response,
-        r'''$.items[:].snippet.thumbnails.default''',
-        true,
-      ) as List?;
-  static List? snippetThumbnailsStandard(dynamic response) => getJsonField(
-        response,
-        r'''$.items[:].snippet.thumbnails.standard''',
-        true,
-      ) as List?;
-  static List<String>? snippetPlaylistId(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.playlistId''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List<String>? snippetChannelTitle(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.channelTitle''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List? items(dynamic response) => getJsonField(
-        response,
-        r'''$.items''',
-        true,
-      ) as List?;
-  static List<String>? videoID(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.resourceId.videoId''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List<String>? videoChannelTitle(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.videoOwnerChannelTitle''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List<String>? videoChannelID(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.videoOwnerChannelId''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List? resourceID(dynamic response) => getJsonField(
-        response,
-        r'''$.items[:].snippet.resourceId''',
-        true,
-      ) as List?;
-  static List<String>? resourceKind(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.resourceId.kind''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-}
-
-class YouTubeDataTaiChiFormEightAPIFINALCopyCall {
-  static Future<ApiCallResponse> call() async {
-    return ApiManager.instance.makeApiCall(
-      callName: 'YouTube Data Tai Chi Form Eight API FINAL Copy',
-      apiUrl:
-          'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLKbhoDbSI76uVjLsjQNVJHULDBIcMS2cH&key=AIzaSyCm8Xdnu-h9T7hS_-XZLtnNSrImqjnoCGY',
-      callType: ApiCallType.GET,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      params: {},
-      returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: false,
-      cache: false,
-      isStreamingApi: false,
-      alwaysAllowBody: false,
-    );
-  }
-
-  static List? itemSnippet(dynamic response) => getJsonField(
-        response,
-        r'''$.items[:].snippet''',
-        true,
-      ) as List?;
-  static List<String>? itemSnippetChannel(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.channelId''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List<String>? itemsSnippetTitle(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.title''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List<String>? snippetDescription(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.description''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List? snipppetThumbnails(dynamic response) => getJsonField(
-        response,
-        r'''$.items[:].snippet.thumbnails''',
-        true,
-      ) as List?;
-  static List? snippetThumbnailsDefault(dynamic response) => getJsonField(
-        response,
-        r'''$.items[:].snippet.thumbnails.default''',
-        true,
-      ) as List?;
-  static List? snippetThumbnailsStandard(dynamic response) => getJsonField(
-        response,
-        r'''$.items[:].snippet.thumbnails.standard''',
-        true,
-      ) as List?;
-  static List<String>? snippetPlaylistId(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.playlistId''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List<String>? snippetChannelTitle(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.channelTitle''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List? items(dynamic response) => getJsonField(
-        response,
-        r'''$.items''',
-        true,
-      ) as List?;
-  static List<String>? videoID(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.resourceId.videoId''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List<String>? videoChannelTitle(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.videoOwnerChannelTitle''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List<String>? videoChannelID(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.videoOwnerChannelId''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List? resourceID(dynamic response) => getJsonField(
-        response,
-        r'''$.items[:].snippet.resourceId''',
-        true,
-      ) as List?;
-  static List<String>? resourceKind(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.resourceId.kind''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-}
-
-class YouTubeDataBoostCreativityCall {
-  static Future<ApiCallResponse> call() async {
-    return ApiManager.instance.makeApiCall(
-      callName: 'YouTube Data Boost Creativity',
-      apiUrl:
-          'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLkFHhEEbS0xRuCVC1Y2acpalP-SsHyRuh&key=AIzaSyCm8Xdnu-h9T7hS_-XZLtnNSrImqjnoCGY',
-      callType: ApiCallType.GET,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      params: {},
-      returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: false,
-      cache: false,
-      isStreamingApi: false,
-      alwaysAllowBody: false,
-    );
-  }
-
-  static List? itemSnippet(dynamic response) => getJsonField(
-        response,
-        r'''$.items[:].snippet''',
-        true,
-      ) as List?;
-  static List<String>? itemSnippetChannel(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.channelId''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List<String>? itemsSnippetTitle(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.title''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List<String>? snippetDescription(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.description''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List? snipppetThumbnails(dynamic response) => getJsonField(
-        response,
-        r'''$.items[:].snippet.thumbnails''',
-        true,
-      ) as List?;
-  static List? snippetThumbnailsDefault(dynamic response) => getJsonField(
-        response,
-        r'''$.items[:].snippet.thumbnails.default''',
-        true,
-      ) as List?;
-  static List? snippetThumbnailsStandard(dynamic response) => getJsonField(
-        response,
-        r'''$.items[:].snippet.thumbnails.standard''',
-        true,
-      ) as List?;
-  static List<String>? snippetPlaylistId(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.playlistId''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List<String>? snippetChannelTitle(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.channelTitle''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List? items(dynamic response) => getJsonField(
-        response,
-        r'''$.items''',
-        true,
-      ) as List?;
-  static List<String>? videoID(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.resourceId.videoId''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List<String>? videoChannelTitle(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.videoOwnerChannelTitle''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List<String>? videoChannelID(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.videoOwnerChannelId''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List? resourceID(dynamic response) => getJsonField(
-        response,
-        r'''$.items[:].snippet.resourceId''',
-        true,
-      ) as List?;
-  static List<String>? resourceKind(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.resourceId.kind''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-}
-
-class YouTubeDataGeneralSoundscapesAPICallCall {
-  static Future<ApiCallResponse> call() async {
-    return ApiManager.instance.makeApiCall(
-      callName: 'YouTube Data General Soundscapes API Call',
-      apiUrl:
-          'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLyC3pcUWmqsSo3eWgzk-eAkyhaxTf-_Dm&key=AIzaSyCm8Xdnu-h9T7hS_-XZLtnNSrImqjnoCGY',
-      callType: ApiCallType.GET,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      params: {},
-      returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: false,
-      cache: false,
-      isStreamingApi: false,
-      alwaysAllowBody: false,
-    );
-  }
-
-  static List? itemSnippet(dynamic response) => getJsonField(
-        response,
-        r'''$.items[:].snippet''',
-        true,
-      ) as List?;
-  static List<String>? itemSnippetChannel(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.channelId''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List<String>? itemsSnippetTitle(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.title''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List<String>? snippetDescription(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.description''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List? snipppetThumbnails(dynamic response) => getJsonField(
-        response,
-        r'''$.items[:].snippet.thumbnails''',
-        true,
-      ) as List?;
-  static List? snippetThumbnailsDefault(dynamic response) => getJsonField(
-        response,
-        r'''$.items[:].snippet.thumbnails.default''',
-        true,
-      ) as List?;
-  static List? snippetThumbnailsStandard(dynamic response) => getJsonField(
-        response,
-        r'''$.items[:].snippet.thumbnails.standard''',
-        true,
-      ) as List?;
-  static List<String>? snippetPlaylistId(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.playlistId''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List<String>? snippetChannelTitle(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.channelTitle''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List? items(dynamic response) => getJsonField(
-        response,
-        r'''$.items''',
-        true,
-      ) as List?;
-  static List<String>? videoID(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.resourceId.videoId''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List<String>? videoChannelTitle(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.videoOwnerChannelTitle''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List<String>? videoChannelID(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.videoOwnerChannelId''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List? resourceID(dynamic response) => getJsonField(
-        response,
-        r'''$.items[:].snippet.resourceId''',
-        true,
-      ) as List?;
-  static List<String>? resourceKind(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.resourceId.kind''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-}
-
-class YouTubeDataAmbientSoundscapesAPICallCall {
-  static Future<ApiCallResponse> call() async {
-    return ApiManager.instance.makeApiCall(
-      callName: 'YouTube Data Ambient Soundscapes API Call',
-      apiUrl:
-          'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLyC3pcUWmqsSo3eWgzk-eAkyhaxTf-_Dm&key=AIzaSyCm8Xdnu-h9T7hS_-XZLtnNSrImqjnoCGY',
-      callType: ApiCallType.GET,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      params: {},
-      returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: false,
-      cache: false,
-      isStreamingApi: false,
-      alwaysAllowBody: false,
-    );
-  }
-
-  static List? itemSnippet(dynamic response) => getJsonField(
-        response,
-        r'''$.items[:].snippet''',
-        true,
-      ) as List?;
-  static List<String>? itemSnippetChannel(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.channelId''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List<String>? itemsSnippetTitle(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.title''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List<String>? snippetDescription(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.description''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List? snipppetThumbnails(dynamic response) => getJsonField(
-        response,
-        r'''$.items[:].snippet.thumbnails''',
-        true,
-      ) as List?;
-  static List? snippetThumbnailsDefault(dynamic response) => getJsonField(
-        response,
-        r'''$.items[:].snippet.thumbnails.default''',
-        true,
-      ) as List?;
-  static List? snippetThumbnailsStandard(dynamic response) => getJsonField(
-        response,
-        r'''$.items[:].snippet.thumbnails.standard''',
-        true,
-      ) as List?;
-  static List<String>? snippetPlaylistId(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.playlistId''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List<String>? snippetChannelTitle(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.channelTitle''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List? items(dynamic response) => getJsonField(
-        response,
-        r'''$.items''',
-        true,
-      ) as List?;
-  static List<String>? videoID(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.resourceId.videoId''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List<String>? videoChannelTitle(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.videoOwnerChannelTitle''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List<String>? videoChannelID(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.videoOwnerChannelId''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List? resourceID(dynamic response) => getJsonField(
-        response,
-        r'''$.items[:].snippet.resourceId''',
-        true,
-      ) as List?;
-  static List<String>? resourceKind(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.resourceId.kind''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-}
-
-class YouTubeDataCitySoundscapesAPICallCopyCall {
-  static Future<ApiCallResponse> call() async {
-    return ApiManager.instance.makeApiCall(
-      callName: 'YouTube Data City Soundscapes API Call Copy',
-      apiUrl:
-          'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLhOwWgsOZ3tkAh0JFGw52xACehD2V3-Su&key=AIzaSyCm8Xdnu-h9T7hS_-XZLtnNSrImqjnoCGY',
-      callType: ApiCallType.GET,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      params: {},
-      returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: false,
-      cache: false,
-      isStreamingApi: false,
-      alwaysAllowBody: false,
-    );
-  }
-
-  static List? itemSnippet(dynamic response) => getJsonField(
-        response,
-        r'''$.items[:].snippet''',
-        true,
-      ) as List?;
-  static List<String>? itemSnippetChannel(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.channelId''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List<String>? itemsSnippetTitle(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.title''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List<String>? snippetDescription(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.description''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List? snipppetThumbnails(dynamic response) => getJsonField(
-        response,
-        r'''$.items[:].snippet.thumbnails''',
-        true,
-      ) as List?;
-  static List? snippetThumbnailsDefault(dynamic response) => getJsonField(
-        response,
-        r'''$.items[:].snippet.thumbnails.default''',
-        true,
-      ) as List?;
-  static List? snippetThumbnailsStandard(dynamic response) => getJsonField(
-        response,
-        r'''$.items[:].snippet.thumbnails.standard''',
-        true,
-      ) as List?;
-  static List<String>? snippetPlaylistId(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.playlistId''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List<String>? snippetChannelTitle(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.channelTitle''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List? items(dynamic response) => getJsonField(
-        response,
-        r'''$.items''',
-        true,
-      ) as List?;
-  static List<String>? videoID(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.resourceId.videoId''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List<String>? videoChannelTitle(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.videoOwnerChannelTitle''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List<String>? videoChannelID(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.videoOwnerChannelId''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List? resourceID(dynamic response) => getJsonField(
-        response,
-        r'''$.items[:].snippet.resourceId''',
-        true,
-      ) as List?;
-  static List<String>? resourceKind(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.resourceId.kind''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-}
-
-class YouTubeDataSleepAPICallCopyCall {
-  static Future<ApiCallResponse> call() async {
-    return ApiManager.instance.makeApiCall(
-      callName: 'YouTube Data Sleep API Call Copy',
-      apiUrl:
-          'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLyC3pcUWmqsRfYKuYTEVZagZze83K_Gt5&key=AIzaSyCm8Xdnu-h9T7hS_-XZLtnNSrImqjnoCGY',
-      callType: ApiCallType.GET,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      params: {},
-      returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: false,
-      cache: false,
-      isStreamingApi: false,
-      alwaysAllowBody: false,
-    );
-  }
-
-  static List? itemSnippet(dynamic response) => getJsonField(
-        response,
-        r'''$.items[:].snippet''',
-        true,
-      ) as List?;
-  static List<String>? itemSnippetChannel(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.channelId''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List<String>? itemsSnippetTitle(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.title''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List<String>? snippetDescription(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.description''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List? snipppetThumbnails(dynamic response) => getJsonField(
-        response,
-        r'''$.items[:].snippet.thumbnails''',
-        true,
-      ) as List?;
-  static List? snippetThumbnailsDefault(dynamic response) => getJsonField(
-        response,
-        r'''$.items[:].snippet.thumbnails.default''',
-        true,
-      ) as List?;
-  static List? snippetThumbnailsStandard(dynamic response) => getJsonField(
-        response,
-        r'''$.items[:].snippet.thumbnails.standard''',
-        true,
-      ) as List?;
-  static List<String>? snippetPlaylistId(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.playlistId''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List<String>? snippetChannelTitle(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.channelTitle''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List? items(dynamic response) => getJsonField(
-        response,
-        r'''$.items''',
-        true,
-      ) as List?;
-  static List<String>? videoID(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.resourceId.videoId''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List<String>? videoChannelTitle(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.videoOwnerChannelTitle''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List<String>? videoChannelID(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.videoOwnerChannelId''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List? resourceID(dynamic response) => getJsonField(
-        response,
-        r'''$.items[:].snippet.resourceId''',
-        true,
-      ) as List?;
-  static List<String>? resourceKind(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.resourceId.kind''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-}
-
-class YouTubeDataTaiChiForBeginnersDataAPICallCall {
-  static Future<ApiCallResponse> call() async {
-    return ApiManager.instance.makeApiCall(
-      callName: 'YouTube Data Tai Chi For Beginners Data API Call',
-      apiUrl:
-          'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLMypbNPFKGgRcuiKMpj79cE-VHP4I2zhB&key=AIzaSyCm8Xdnu-h9T7hS_-XZLtnNSrImqjnoCGY',
-      callType: ApiCallType.GET,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      params: {},
-      returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: false,
-      cache: false,
-      isStreamingApi: false,
-      alwaysAllowBody: false,
-    );
-  }
-
-  static List? itemSnippet(dynamic response) => getJsonField(
-        response,
-        r'''$.items[:].snippet''',
-        true,
-      ) as List?;
-  static List<String>? itemSnippetChannel(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.channelId''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List<String>? itemsSnippetTitle(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.title''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List<String>? snippetDescription(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.description''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List? snipppetThumbnails(dynamic response) => getJsonField(
-        response,
-        r'''$.items[:].snippet.thumbnails''',
-        true,
-      ) as List?;
-  static List? snippetThumbnailsDefault(dynamic response) => getJsonField(
-        response,
-        r'''$.items[:].snippet.thumbnails.default''',
-        true,
-      ) as List?;
-  static List? snippetThumbnailsStandard(dynamic response) => getJsonField(
-        response,
-        r'''$.items[:].snippet.thumbnails.standard''',
-        true,
-      ) as List?;
-  static List<String>? snippetPlaylistId(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.playlistId''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List<String>? snippetChannelTitle(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.channelTitle''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List? items(dynamic response) => getJsonField(
-        response,
-        r'''$.items''',
-        true,
-      ) as List?;
-  static List<String>? videoID(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.resourceId.videoId''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List<String>? videoChannelTitle(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.videoOwnerChannelTitle''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List<String>? videoChannelID(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.videoOwnerChannelId''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static List? resourceID(dynamic response) => getJsonField(
-        response,
-        r'''$.items[:].snippet.resourceId''',
-        true,
-      ) as List?;
-  static List<String>? resourceKind(dynamic response) => (getJsonField(
-        response,
-        r'''$.items[:].snippet.resourceId.kind''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-}
-
-class YouTubeDataQigongDataAPICallCall {
-  static Future<ApiCallResponse> call() async {
-    return ApiManager.instance.makeApiCall(
-      callName: 'YouTube Data Qigong Data API Call',
-      apiUrl:
-          'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLkFHhEEbS0xT2Wfi2KQWRL9ZcmKJxClSU&key=AIzaSyCm8Xdnu-h9T7hS_-XZLtnNSrImqjnoCGY',
       callType: ApiCallType.GET,
       headers: {
         'Content-Type': 'application/json',
@@ -2932,7 +1969,7 @@ class YouTubeDataFireSoundsAPIFINALCall {
     return ApiManager.instance.makeApiCall(
       callName: 'YouTube Data Fire Sounds API FINAL  ',
       apiUrl:
-          'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLyC3pcUWmqsR8EDc5ibmlm_51fj2M4y6o&key=AIzaSyCm8Xdnu-h9T7hS_-XZLtnNSrImqjnoCGY',
+          'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLyC3pcUWmqsS9kb5LkS1Thhut2hHwqYN5&key=AIzaSyCm8Xdnu-h9T7hS_-XZLtnNSrImqjnoCGY',
       callType: ApiCallType.GET,
       headers: {
         'Content-Type': 'application/json',
@@ -4036,4 +3073,15 @@ String _serializeJson(dynamic jsonVar, [bool isList = false]) {
     }
     return isList ? '[]' : '{}';
   }
+}
+
+String? escapeStringForJson(String? input) {
+  if (input == null) {
+    return null;
+  }
+  return input
+      .replaceAll('\\', '\\\\')
+      .replaceAll('"', '\\"')
+      .replaceAll('\n', '\\n')
+      .replaceAll('\t', '\\t');
 }

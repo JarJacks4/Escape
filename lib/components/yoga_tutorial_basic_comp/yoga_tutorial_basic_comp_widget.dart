@@ -3,13 +3,17 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
+import 'dart:ui';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'yoga_tutorial_basic_comp_model.dart';
 export 'yoga_tutorial_basic_comp_model.dart';
 
@@ -53,8 +57,8 @@ class _YogaTutorialBasicCompWidgetState
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 300.0.ms,
-            begin: const Offset(0.5, 0.0),
-            end: const Offset(0.0, 1.0),
+            begin: Offset(0.5, 0.0),
+            end: Offset(0.0, 1.0),
           ),
         ],
       ),
@@ -72,8 +76,8 @@ class _YogaTutorialBasicCompWidgetState
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, 80.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 80.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -91,8 +95,8 @@ class _YogaTutorialBasicCompWidgetState
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, 100.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 100.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -110,8 +114,8 @@ class _YogaTutorialBasicCompWidgetState
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, 120.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 120.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -129,8 +133,8 @@ class _YogaTutorialBasicCompWidgetState
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 300.0.ms,
-            begin: const Offset(0.5, 0.0),
-            end: const Offset(0.0, 1.0),
+            begin: Offset(0.5, 0.0),
+            end: Offset(0.0, 1.0),
           ),
         ],
       ),
@@ -148,8 +152,8 @@ class _YogaTutorialBasicCompWidgetState
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, 80.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 80.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -167,8 +171,8 @@ class _YogaTutorialBasicCompWidgetState
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, 100.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 100.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -186,8 +190,8 @@ class _YogaTutorialBasicCompWidgetState
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, 120.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 120.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -205,8 +209,8 @@ class _YogaTutorialBasicCompWidgetState
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 300.0.ms,
-            begin: const Offset(0.5, 0.0),
-            end: const Offset(0.0, 1.0),
+            begin: Offset(0.5, 0.0),
+            end: Offset(0.0, 1.0),
           ),
         ],
       ),
@@ -224,8 +228,8 @@ class _YogaTutorialBasicCompWidgetState
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, 80.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 80.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -243,8 +247,8 @@ class _YogaTutorialBasicCompWidgetState
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, 100.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 100.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -262,8 +266,8 @@ class _YogaTutorialBasicCompWidgetState
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, 120.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 120.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -288,12 +292,12 @@ class _YogaTutorialBasicCompWidgetState
     return Container(
       width: double.infinity,
       height: double.infinity,
-      decoration: const BoxDecoration(),
+      decoration: BoxDecoration(),
       child: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
           Expanded(
-            child: SizedBox(
+            child: Container(
               width: double.infinity,
               height: MediaQuery.sizeOf(context).height * 1.0,
               child: Stack(
@@ -308,7 +312,7 @@ class _YogaTutorialBasicCompWidgetState
                         height: double.infinity,
                         decoration: BoxDecoration(
                           color: FlutterFlowTheme.of(context).primaryBackground,
-                          image: const DecorationImage(
+                          image: DecorationImage(
                             fit: BoxFit.cover,
                             image: CachedNetworkImageProvider(
                               'https://images.unsplash.com/photo-1566581184707-0ff96ae2f0bf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwxOHx8YmxhY2slMjB3b21hbiUyMHlvZ2F8ZW58MHx8fHwxNzIwMjg5NjU0fDA&ixlib=rb-4.0.3&q=80&w=1080',
@@ -320,7 +324,7 @@ class _YogaTutorialBasicCompWidgetState
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 44.0, 16.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -332,7 +336,7 @@ class _YogaTutorialBasicCompWidgetState
                                     borderRadius: 30.0,
                                     borderWidth: 1.0,
                                     buttonSize: 40.0,
-                                    fillColor: const Color(0x33090F13),
+                                    fillColor: Color(0x33090F13),
                                     icon: FaIcon(
                                       FontAwesomeIcons.angleDown,
                                       color: FlutterFlowTheme.of(context)
@@ -349,7 +353,7 @@ class _YogaTutorialBasicCompWidgetState
                                   ).animateOnPageLoad(animationsMap[
                                       'iconButtonOnPageLoadAnimation1']!),
                                   Align(
-                                    alignment: const AlignmentDirectional(1.0, 1.0),
+                                    alignment: AlignmentDirectional(1.0, 1.0),
                                     child: FFButtonWidget(
                                       onPressed: () {
                                         print('Button pressed ...');
@@ -357,36 +361,29 @@ class _YogaTutorialBasicCompWidgetState
                                       text: FFLocalizations.of(context).getText(
                                         'au71uehg' /* Finish Tutorial */,
                                       ),
-                                      icon: const FaIcon(
+                                      icon: FaIcon(
                                         FontAwesomeIcons.flagCheckered,
                                         size: 15.0,
                                       ),
                                       options: FFButtonOptions(
                                         height: 35.0,
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             24.0, 0.0, 24.0, 0.0),
                                         iconPadding:
-                                            const EdgeInsetsDirectional.fromSTEB(
+                                            EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
                                         color: FlutterFlowTheme.of(context)
                                             .accent2,
                                         textStyle: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
-                                              fontFamily:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleSmallFamily,
+                                              fontFamily: 'WorkSans',
                                               color: Colors.white,
                                               letterSpacing: 0.0,
-                                              useGoogleFonts: GoogleFonts
-                                                      .asMap()
-                                                  .containsKey(
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .titleSmallFamily),
+                                              useGoogleFonts: false,
                                             ),
                                         elevation: 3.0,
-                                        borderSide: const BorderSide(
+                                        borderSide: BorderSide(
                                           color: Colors.transparent,
                                           width: 1.0,
                                         ),
@@ -401,7 +398,7 @@ class _YogaTutorialBasicCompWidgetState
                             Container(
                               width: double.infinity,
                               height: 500.0,
-                              decoration: const BoxDecoration(
+                              decoration: BoxDecoration(
                                 gradient: LinearGradient(
                                   colors: [
                                     Color(0x00090F13),
@@ -413,14 +410,14 @@ class _YogaTutorialBasicCompWidgetState
                                 ),
                               ),
                               child: Padding(
-                                padding: const EdgeInsets.all(16.0),
+                                padding: EdgeInsets.all(16.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 12.0, 0.0, 12.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -452,11 +449,11 @@ class _YogaTutorialBasicCompWidgetState
                                                                 context)
                                                             .secondary
                                                       ],
-                                                      stops: const [0.0, 1.0],
+                                                      stops: [0.0, 1.0],
                                                       begin:
-                                                          const AlignmentDirectional(
+                                                          AlignmentDirectional(
                                                               0.0, -1.0),
-                                                      end: const AlignmentDirectional(
+                                                      end: AlignmentDirectional(
                                                           0, 1.0),
                                                     ),
                                                     borderRadius:
@@ -464,11 +461,11 @@ class _YogaTutorialBasicCompWidgetState
                                                             12.0),
                                                   ),
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           0.0, 0.0),
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(8.0, 0.0,
                                                                 8.0, 0.0),
                                                     child: Text(
@@ -482,20 +479,16 @@ class _YogaTutorialBasicCompWidgetState
                                                                   context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily,
+                                                                fontFamily:
+                                                                    'WorkSans',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primaryBackground,
                                                                 fontSize: 18.0,
                                                                 letterSpacing:
                                                                     0.0,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyMediumFamily),
+                                                                useGoogleFonts:
+                                                                    false,
                                                               ),
                                                     ),
                                                   ),
@@ -508,7 +501,7 @@ class _YogaTutorialBasicCompWidgetState
                                           'rowOnPageLoadAnimation1']!),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 4.0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
@@ -517,24 +510,17 @@ class _YogaTutorialBasicCompWidgetState
                                         style: FlutterFlowTheme.of(context)
                                             .bodySmall
                                             .override(
-                                              fontFamily:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodySmallFamily,
+                                              fontFamily: 'WorkSans',
                                               color: Colors.white,
                                               fontSize: 16.0,
                                               letterSpacing: 0.0,
-                                              useGoogleFonts:
-                                                  GoogleFonts.asMap()
-                                                      .containsKey(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodySmallFamily),
+                                              useGoogleFonts: false,
                                             ),
                                       ).animateOnPageLoad(animationsMap[
                                           'textOnPageLoadAnimation1']!),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 24.0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
@@ -544,13 +530,9 @@ class _YogaTutorialBasicCompWidgetState
                                             .titleSmall
                                             .override(
                                               fontFamily: 'Readex Pro',
-                                              color: const Color(0x9AFFFFFF),
+                                              color: Color(0x9AFFFFFF),
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w300,
-                                              useGoogleFonts:
-                                                  GoogleFonts.asMap()
-                                                      .containsKey(
-                                                          'Readex Pro'),
                                             ),
                                       ).animateOnPageLoad(animationsMap[
                                           'textOnPageLoadAnimation2']!),
@@ -567,7 +549,7 @@ class _YogaTutorialBasicCompWidgetState
                         height: double.infinity,
                         decoration: BoxDecoration(
                           color: FlutterFlowTheme.of(context).primaryBackground,
-                          image: const DecorationImage(
+                          image: DecorationImage(
                             fit: BoxFit.cover,
                             image: CachedNetworkImageProvider(
                               'https://images.unsplash.com/photo-1554244933-d876deb6b2ff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHw0fHxicmVhdGhpbmd8ZW58MHx8fHwxNzIwMjkwMDIwfDA&ixlib=rb-4.0.3&q=80&w=1080',
@@ -579,7 +561,7 @@ class _YogaTutorialBasicCompWidgetState
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 44.0, 16.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -591,7 +573,7 @@ class _YogaTutorialBasicCompWidgetState
                                     borderRadius: 30.0,
                                     borderWidth: 1.0,
                                     buttonSize: 40.0,
-                                    fillColor: const Color(0xE5000B17),
+                                    fillColor: Color(0xE5000B17),
                                     icon: FaIcon(
                                       FontAwesomeIcons.angleDown,
                                       color: FlutterFlowTheme.of(context)
@@ -613,7 +595,7 @@ class _YogaTutorialBasicCompWidgetState
                             Container(
                               width: double.infinity,
                               height: 500.0,
-                              decoration: const BoxDecoration(
+                              decoration: BoxDecoration(
                                 gradient: LinearGradient(
                                   colors: [
                                     Color(0x00090F13),
@@ -625,14 +607,14 @@ class _YogaTutorialBasicCompWidgetState
                                 ),
                               ),
                               child: Padding(
-                                padding: const EdgeInsets.all(16.0),
+                                padding: EdgeInsets.all(16.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 12.0, 0.0, 12.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -664,11 +646,11 @@ class _YogaTutorialBasicCompWidgetState
                                                                 context)
                                                             .secondary
                                                       ],
-                                                      stops: const [0.0, 1.0],
+                                                      stops: [0.0, 1.0],
                                                       begin:
-                                                          const AlignmentDirectional(
+                                                          AlignmentDirectional(
                                                               0.0, -1.0),
-                                                      end: const AlignmentDirectional(
+                                                      end: AlignmentDirectional(
                                                           0, 1.0),
                                                     ),
                                                     borderRadius:
@@ -676,11 +658,11 @@ class _YogaTutorialBasicCompWidgetState
                                                             12.0),
                                                   ),
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           0.0, 0.0),
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(8.0, 0.0,
                                                                 8.0, 0.0),
                                                     child: Text(
@@ -694,20 +676,16 @@ class _YogaTutorialBasicCompWidgetState
                                                                   context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily,
+                                                                fontFamily:
+                                                                    'WorkSans',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primaryBackground,
                                                                 fontSize: 18.0,
                                                                 letterSpacing:
                                                                     0.0,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyMediumFamily),
+                                                                useGoogleFonts:
+                                                                    false,
                                                               ),
                                                     ),
                                                   ),
@@ -720,7 +698,7 @@ class _YogaTutorialBasicCompWidgetState
                                           'rowOnPageLoadAnimation2']!),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 4.0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
@@ -729,24 +707,17 @@ class _YogaTutorialBasicCompWidgetState
                                         style: FlutterFlowTheme.of(context)
                                             .bodySmall
                                             .override(
-                                              fontFamily:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodySmallFamily,
+                                              fontFamily: 'WorkSans',
                                               color: Colors.white,
                                               fontSize: 16.0,
                                               letterSpacing: 0.0,
-                                              useGoogleFonts:
-                                                  GoogleFonts.asMap()
-                                                      .containsKey(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodySmallFamily),
+                                              useGoogleFonts: false,
                                             ),
                                       ).animateOnPageLoad(animationsMap[
                                           'textOnPageLoadAnimation3']!),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 24.0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
@@ -756,12 +727,8 @@ class _YogaTutorialBasicCompWidgetState
                                             .titleSmall
                                             .override(
                                               fontFamily: 'Readex Pro',
-                                              color: const Color(0x9AFFFFFF),
+                                              color: Color(0x9AFFFFFF),
                                               letterSpacing: 0.0,
-                                              useGoogleFonts:
-                                                  GoogleFonts.asMap()
-                                                      .containsKey(
-                                                          'Readex Pro'),
                                             ),
                                       ).animateOnPageLoad(animationsMap[
                                           'textOnPageLoadAnimation4']!),
@@ -778,7 +745,7 @@ class _YogaTutorialBasicCompWidgetState
                         height: double.infinity,
                         decoration: BoxDecoration(
                           color: FlutterFlowTheme.of(context).primaryBackground,
-                          image: const DecorationImage(
+                          image: DecorationImage(
                             fit: BoxFit.cover,
                             image: CachedNetworkImageProvider(
                               'https://images.unsplash.com/photo-1552196585-066d05191865?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHw4fHxzdHJldGNoaW5nJTIweW9nYSUyMGJsYWNrJTIwd29tYW58ZW58MHx8fHwxNzIwMjg5ODEwfDA&ixlib=rb-4.0.3&q=80&w=1080',
@@ -790,7 +757,7 @@ class _YogaTutorialBasicCompWidgetState
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 44.0, 16.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -802,7 +769,7 @@ class _YogaTutorialBasicCompWidgetState
                                     borderRadius: 30.0,
                                     borderWidth: 1.0,
                                     buttonSize: 40.0,
-                                    fillColor: const Color(0xAD00152B),
+                                    fillColor: Color(0xAD00152B),
                                     icon: FaIcon(
                                       FontAwesomeIcons.angleDown,
                                       color: FlutterFlowTheme.of(context)
@@ -824,7 +791,7 @@ class _YogaTutorialBasicCompWidgetState
                             Container(
                               width: double.infinity,
                               height: 500.0,
-                              decoration: const BoxDecoration(
+                              decoration: BoxDecoration(
                                 gradient: LinearGradient(
                                   colors: [
                                     Color(0x00090F13),
@@ -836,14 +803,14 @@ class _YogaTutorialBasicCompWidgetState
                                 ),
                               ),
                               child: Padding(
-                                padding: const EdgeInsets.all(16.0),
+                                padding: EdgeInsets.all(16.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 12.0, 0.0, 12.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -875,11 +842,11 @@ class _YogaTutorialBasicCompWidgetState
                                                                 context)
                                                             .secondary
                                                       ],
-                                                      stops: const [0.0, 1.0],
+                                                      stops: [0.0, 1.0],
                                                       begin:
-                                                          const AlignmentDirectional(
+                                                          AlignmentDirectional(
                                                               0.0, -1.0),
-                                                      end: const AlignmentDirectional(
+                                                      end: AlignmentDirectional(
                                                           0, 1.0),
                                                     ),
                                                     borderRadius:
@@ -887,11 +854,11 @@ class _YogaTutorialBasicCompWidgetState
                                                             12.0),
                                                   ),
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           0.0, 0.0),
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(8.0, 0.0,
                                                                 8.0, 0.0),
                                                     child: Text(
@@ -905,20 +872,16 @@ class _YogaTutorialBasicCompWidgetState
                                                                   context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily,
+                                                                fontFamily:
+                                                                    'WorkSans',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primaryBackground,
                                                                 fontSize: 18.0,
                                                                 letterSpacing:
                                                                     0.0,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyMediumFamily),
+                                                                useGoogleFonts:
+                                                                    false,
                                                               ),
                                                     ),
                                                   ),
@@ -931,7 +894,7 @@ class _YogaTutorialBasicCompWidgetState
                                           'rowOnPageLoadAnimation3']!),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 4.0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
@@ -940,24 +903,17 @@ class _YogaTutorialBasicCompWidgetState
                                         style: FlutterFlowTheme.of(context)
                                             .bodySmall
                                             .override(
-                                              fontFamily:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodySmallFamily,
+                                              fontFamily: 'WorkSans',
                                               color: Colors.white,
                                               fontSize: 16.0,
                                               letterSpacing: 0.0,
-                                              useGoogleFonts:
-                                                  GoogleFonts.asMap()
-                                                      .containsKey(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodySmallFamily),
+                                              useGoogleFonts: false,
                                             ),
                                       ).animateOnPageLoad(animationsMap[
                                           'textOnPageLoadAnimation5']!),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 8.0, 0.0, 24.0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
@@ -967,12 +923,8 @@ class _YogaTutorialBasicCompWidgetState
                                             .titleSmall
                                             .override(
                                               fontFamily: 'Readex Pro',
-                                              color: const Color(0x9AFFFFFF),
+                                              color: Color(0x9AFFFFFF),
                                               letterSpacing: 0.0,
-                                              useGoogleFonts:
-                                                  GoogleFonts.asMap()
-                                                      .containsKey(
-                                                          'Readex Pro'),
                                             ),
                                       ).animateOnPageLoad(animationsMap[
                                           'textOnPageLoadAnimation6']!),
@@ -987,9 +939,9 @@ class _YogaTutorialBasicCompWidgetState
                     ],
                   ),
                   Align(
-                    alignment: const AlignmentDirectional(-1.0, 1.0),
+                    alignment: AlignmentDirectional(-1.0, 1.0),
                     child: Padding(
-                      padding: const EdgeInsets.all(15.0),
+                      padding: EdgeInsets.all(15.0),
                       child: smooth_page_indicator.SmoothPageIndicator(
                         controller: _model.pageViewController ??=
                             PageController(initialPage: 0),
@@ -998,7 +950,7 @@ class _YogaTutorialBasicCompWidgetState
                         onDotClicked: (i) async {
                           await _model.pageViewController!.animateToPage(
                             i,
-                            duration: const Duration(milliseconds: 500),
+                            duration: Duration(milliseconds: 500),
                             curve: Curves.ease,
                           );
                           safeSetState(() {});
@@ -1009,7 +961,7 @@ class _YogaTutorialBasicCompWidgetState
                           radius: 40.0,
                           dotWidth: 10.0,
                           dotHeight: 10.0,
-                          dotColor: const Color(0xFFD9D9D9),
+                          dotColor: Color(0xFFD9D9D9),
                           activeDotColor:
                               FlutterFlowTheme.of(context).secondary,
                           paintStyle: PaintingStyle.fill,

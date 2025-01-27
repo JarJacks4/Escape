@@ -1,6 +1,8 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'onboarding_button_model.dart';
 export 'onboarding_button_model.dart';
 
@@ -36,9 +38,9 @@ class _OnboardingButtonWidgetState extends State<OnboardingButtonWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: const AlignmentDirectional(0.0, 0.0),
+      alignment: AlignmentDirectional(0.0, 0.0),
       child: AnimatedContainer(
-        duration: const Duration(milliseconds: 100),
+        duration: Duration(milliseconds: 100),
         curve: Curves.easeIn,
         width: 50.0,
         height: 50.0,
@@ -48,7 +50,7 @@ class _OnboardingButtonWidgetState extends State<OnboardingButtonWidget> {
         ),
         child: Icon(
           Icons.chevron_right,
-          color: FlutterFlowTheme.of(context).primary,
+          color: Colors.white,
           size: 36.0,
         ),
       ),

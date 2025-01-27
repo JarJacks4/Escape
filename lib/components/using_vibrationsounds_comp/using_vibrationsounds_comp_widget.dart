@@ -1,13 +1,18 @@
 import '/backend/api_requests/api_calls.dart';
+import '/components/video_player_high_fidelity_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:math';
+import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
+import 'package:provider/provider.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'using_vibrationsounds_comp_model.dart';
 export 'using_vibrationsounds_comp_model.dart';
 
@@ -53,8 +58,8 @@ class _UsingVibrationsoundsCompWidgetState
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(100.0, 0.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -73,8 +78,8 @@ class _UsingVibrationsoundsCompWidgetState
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(100.0, 0.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -93,8 +98,8 @@ class _UsingVibrationsoundsCompWidgetState
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(100.0, 0.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -113,8 +118,8 @@ class _UsingVibrationsoundsCompWidgetState
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(100.0, 0.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -133,8 +138,8 @@ class _UsingVibrationsoundsCompWidgetState
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(100.0, 0.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -153,8 +158,8 @@ class _UsingVibrationsoundsCompWidgetState
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(100.0, 0.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -173,8 +178,8 @@ class _UsingVibrationsoundsCompWidgetState
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(100.0, 0.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -193,8 +198,8 @@ class _UsingVibrationsoundsCompWidgetState
             curve: Curves.linear,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(100.0, 0.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -219,19 +224,19 @@ class _UsingVibrationsoundsCompWidgetState
     return Container(
       width: double.infinity,
       height: double.infinity,
-      decoration: const BoxDecoration(),
+      decoration: BoxDecoration(),
       child: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -239,19 +244,15 @@ class _UsingVibrationsoundsCompWidgetState
                           FFLocalizations.of(context).getText(
                             '1tzttgp1' /* New Videos */,
                           ),
-                          style: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                                fontFamily: FlutterFlowTheme.of(context)
-                                    .bodyMediumFamily,
-                                color: FlutterFlowTheme.of(context)
-                                    .primaryBackground,
-                                fontSize: 20.0,
-                                letterSpacing: 0.0,
-                                useGoogleFonts: GoogleFonts.asMap().containsKey(
-                                    FlutterFlowTheme.of(context)
-                                        .bodyMediumFamily),
-                              ),
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'WorkSans',
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryBackground,
+                                    fontSize: 20.0,
+                                    letterSpacing: 0.0,
+                                    useGoogleFonts: false,
+                                  ),
                           colors: [
                             FlutterFlowTheme.of(context).primary,
                             FlutterFlowTheme.of(context).secondary
@@ -264,8 +265,8 @@ class _UsingVibrationsoundsCompWidgetState
                   ),
                   Container(
                     width: double.infinity,
-                    height: 281.0,
-                    decoration: const BoxDecoration(
+                    height: 246.0,
+                    decoration: BoxDecoration(
                       color: Colors.transparent,
                     ),
                     child: Row(
@@ -273,265 +274,207 @@ class _UsingVibrationsoundsCompWidgetState
                       children: [
                         Expanded(
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 8.0, 0.0, 8.0),
-                            child: PagedListView<ApiPagingParams, dynamic>(
-                              pagingController: _model.setListViewController1(
-                                (nextPageMarker) =>
-                                    YouTubeDataAPIVibrationCall.call(),
-                              ),
-                              padding: EdgeInsets.zero,
-                              reverse: false,
-                              scrollDirection: Axis.horizontal,
-                              builderDelegate:
-                                  PagedChildBuilderDelegate<dynamic>(
-                                // Customize what your widget looks like when it's loading the first page.
-                                firstPageProgressIndicatorBuilder: (_) =>
-                                    Center(
-                                  child: SizedBox(
-                                    width: 50.0,
-                                    height: 50.0,
-                                    child: CircularProgressIndicator(
-                                      valueColor: AlwaysStoppedAnimation<Color>(
-                                        FlutterFlowTheme.of(context).primary,
+                            child: FutureBuilder<ApiCallResponse>(
+                              future:
+                                  YouTubeDataMeditationAPIFINALCopyCall.call(),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 50.0,
+                                      height: 50.0,
+                                      child: CircularProgressIndicator(
+                                        valueColor:
+                                            AlwaysStoppedAnimation<Color>(
+                                          FlutterFlowTheme.of(context).primary,
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                ),
-                                // Customize what your widget looks like when it's loading another page.
-                                newPageProgressIndicatorBuilder: (_) => Center(
-                                  child: SizedBox(
-                                    width: 50.0,
-                                    height: 50.0,
-                                    child: CircularProgressIndicator(
-                                      valueColor: AlwaysStoppedAnimation<Color>(
-                                        FlutterFlowTheme.of(context).primary,
-                                      ),
-                                    ),
-                                  ),
-                                ),
+                                  );
+                                }
+                                final listViewYouTubeDataMeditationAPIFINALCopyResponse =
+                                    snapshot.data!;
 
-                                itemBuilder: (context, _, meditationsIndex) {
-                                  final meditationsItem = _model
-                                      .listViewPagingController1!
-                                      .itemList![meditationsIndex];
-                                  return Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        10.0, 0.0, 0.0, 0.0),
-                                    child: Container(
-                                      width: 187.0,
-                                      height: 231.0,
-                                      decoration: const BoxDecoration(
-                                        color: Colors.transparent,
-                                      ),
-                                      child: InkWell(
-                                        splashColor: Colors.transparent,
-                                        focusColor: Colors.transparent,
-                                        hoverColor: Colors.transparent,
-                                        highlightColor: Colors.transparent,
-                                        onTap: () async {
-                                          logFirebaseEvent(
-                                              'USING_VIBRATIONSOUNDS_Column_anoiasgz_ON');
-                                          logFirebaseEvent(
-                                              'Column_navigate_to');
+                                return Builder(
+                                  builder: (context) {
+                                    final meditations = getJsonField(
+                                      listViewYouTubeDataMeditationAPIFINALCopyResponse
+                                          .jsonBody,
+                                      r'''$.items[:].snippet''',
+                                    ).toList();
 
-                                          context.pushNamed(
-                                            'youtubetestFINAL',
-                                            queryParameters: {
-                                              'videoid': serializeParam(
-                                                getJsonField(
-                                                  meditationsItem,
-                                                  r'''$.resourceid.videoid''',
-                                                ).toString(),
-                                                ParamType.String,
-                                              ),
-                                              'description': serializeParam(
-                                                getJsonField(
-                                                  meditationsItem,
-                                                  r'''$.description''',
-                                                ).toString(),
-                                                ParamType.String,
-                                              ),
-                                              'channelTitle': serializeParam(
-                                                getJsonField(
-                                                  meditationsItem,
-                                                  r'''$.channelTitle''',
-                                                ).toString(),
-                                                ParamType.String,
-                                              ),
-                                              'videoTitle': serializeParam(
-                                                getJsonField(
-                                                  meditationsItem,
-                                                  r'''$.title''',
-                                                ).toString(),
-                                                ParamType.String,
-                                              ),
-                                            }.withoutNulls,
-                                            extra: <String, dynamic>{
-                                              kTransitionInfoKey:
-                                                  const TransitionInfo(
-                                                hasTransition: true,
-                                                transitionType:
-                                                    PageTransitionType.fade,
-                                                duration:
-                                                    Duration(milliseconds: 3),
-                                              ),
-                                            },
-                                          );
-                                        },
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          children: [
-                                            Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 1.0, 0.0),
-                                              child: Hero(
-                                                tag: getJsonField(
-                                                  meditationsItem,
-                                                  r'''$.thumbnails.default.url''',
-                                                ).toString(),
-                                                transitionOnUserGestures: true,
-                                                child: ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          9.0),
-                                                  child: Image.network(
-                                                    getJsonField(
+                                    return ListView.builder(
+                                      padding: EdgeInsets.zero,
+                                      scrollDirection: Axis.horizontal,
+                                      itemCount: meditations.length,
+                                      itemBuilder: (context, meditationsIndex) {
+                                        final meditationsItem =
+                                            meditations[meditationsIndex];
+                                        return Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  10.0, 0.0, 0.0, 0.0),
+                                          child: Container(
+                                            width: 187.0,
+                                            height: 215.0,
+                                            decoration: BoxDecoration(
+                                              color: Colors.transparent,
+                                            ),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 1.0, 0.0),
+                                                  child: Hero(
+                                                    tag: getJsonField(
                                                       meditationsItem,
                                                       r'''$.thumbnails.default.url''',
                                                     ).toString(),
-                                                    width: 272.0,
-                                                    height: 100.0,
-                                                    fit: BoxFit.cover,
+                                                    transitionOnUserGestures:
+                                                        true,
+                                                    child: ClipRRect(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              9.0),
+                                                      child: Image.network(
+                                                        getJsonField(
+                                                          meditationsItem,
+                                                          r'''$.thumbnails.default.url''',
+                                                        ).toString(),
+                                                        width: 245.0,
+                                                        height: 100.0,
+                                                        fit: BoxFit.cover,
+                                                      ),
+                                                    ),
                                                   ),
                                                 ),
-                                              ),
-                                            ),
-                                            Align(
-                                              alignment: const AlignmentDirectional(
-                                                  -1.0, 0.0),
-                                              child: Padding(
-                                                padding: const EdgeInsets.all(15.0),
-                                                child: Text(
-                                                  getJsonField(
-                                                    meditationsItem,
-                                                    r'''$.title''',
-                                                  )
-                                                      .toString()
-                                                      .maybeHandleOverflow(
-                                                        maxChars: 50,
-                                                        replacement: '…',
-                                                      ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
+                                                Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          -1.0, 0.0),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsets.all(15.0),
+                                                    child: Text(
+                                                      getJsonField(
+                                                        meditationsItem,
+                                                        r'''$.title''',
+                                                      ).toString(),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'WorkSans',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryBackground,
+                                                                fontSize: 12.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                                useGoogleFonts:
+                                                                    false,
+                                                              ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          1.0, 1.0),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsets.all(8.0),
+                                                    child:
+                                                        FlutterFlowIconButton(
+                                                      borderColor:
+                                                          Colors.transparent,
+                                                      borderRadius: 8.0,
+                                                      buttonSize: 40.0,
+                                                      fillColor:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .tertiary,
+                                                      icon: Icon(
+                                                        Icons.play_circle,
+                                                        color:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMediumFamily,
-                                                        color:
-                                                            const Color(0xFF000220),
-                                                        fontSize: 14.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily),
+                                                                .info,
+                                                        size: 24.0,
                                                       ),
-                                                ),
-                                              ),
-                                            ),
-                                            Align(
-                                              alignment: const AlignmentDirectional(
-                                                  1.0, -1.0),
-                                              child: Padding(
-                                                padding: const EdgeInsets.all(11.0),
-                                                child: FlutterFlowIconButton(
-                                                  borderColor:
-                                                      Colors.transparent,
-                                                  borderRadius: 8.0,
-                                                  buttonSize: 40.0,
-                                                  fillColor: const Color(0xFA000220),
-                                                  icon: Icon(
-                                                    Icons.play_circle,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .info,
-                                                    size: 24.0,
-                                                  ),
-                                                  onPressed: () async {
-                                                    logFirebaseEvent(
-                                                        'USING_VIBRATIONSOUNDS_play_circle_ICN_ON');
-                                                    logFirebaseEvent(
-                                                        'IconButton_navigate_to');
-
-                                                    context.pushNamed(
-                                                      'youtubetestFINAL',
-                                                      queryParameters: {
-                                                        'videoid':
-                                                            serializeParam(
-                                                          getJsonField(
-                                                            meditationsItem,
-                                                            r'''$.resourceId.videoId''',
-                                                          ).toString(),
-                                                          ParamType.String,
-                                                        ),
-                                                        'description':
-                                                            serializeParam(
-                                                          getJsonField(
-                                                            meditationsItem,
-                                                            r'''$.description''',
-                                                          ).toString(),
-                                                          ParamType.String,
-                                                        ),
-                                                        'channelTitle':
-                                                            serializeParam(
-                                                          getJsonField(
-                                                            meditationsItem,
-                                                            r'''$.channelTitle''',
-                                                          ).toString(),
-                                                          ParamType.String,
-                                                        ),
-                                                        'videoTitle':
-                                                            serializeParam(
-                                                          getJsonField(
-                                                            meditationsItem,
-                                                            r'''$.title''',
-                                                          ).toString(),
-                                                          ParamType.String,
-                                                        ),
-                                                      }.withoutNulls,
-                                                      extra: <String, dynamic>{
-                                                        kTransitionInfoKey:
-                                                            const TransitionInfo(
-                                                          hasTransition: true,
-                                                          transitionType:
-                                                              PageTransitionType
-                                                                  .fade,
-                                                          duration: Duration(
-                                                              milliseconds: 3),
-                                                        ),
+                                                      onPressed: () async {
+                                                        logFirebaseEvent(
+                                                            'USING_VIBRATIONSOUNDS_play_circle_ICN_ON');
+                                                        logFirebaseEvent(
+                                                            'IconButton_bottom_sheet');
+                                                        await showModalBottomSheet(
+                                                          isScrollControlled:
+                                                              true,
+                                                          backgroundColor:
+                                                              Colors
+                                                                  .transparent,
+                                                          context: context,
+                                                          builder: (context) {
+                                                            return WebViewAware(
+                                                              child: Padding(
+                                                                padding: MediaQuery
+                                                                    .viewInsetsOf(
+                                                                        context),
+                                                                child:
+                                                                    VideoPlayerHighFidelityWidget(
+                                                                  parameter1:
+                                                                      getJsonField(
+                                                                    meditationsItem,
+                                                                    r'''$.resource.videoId''',
+                                                                  ).toString(),
+                                                                  videoTitle:
+                                                                      getJsonField(
+                                                                    meditationsItem,
+                                                                    r'''$.title''',
+                                                                  ).toString(),
+                                                                  channelTitle:
+                                                                      getJsonField(
+                                                                    meditationsItem,
+                                                                    r'''$.channelTitle''',
+                                                                  ).toString(),
+                                                                  description:
+                                                                      getJsonField(
+                                                                    meditationsItem,
+                                                                    r'''$.description''',
+                                                                  ).toString(),
+                                                                ),
+                                                              ),
+                                                            );
+                                                          },
+                                                        ).then((value) =>
+                                                            safeSetState(
+                                                                () {}));
                                                       },
-                                                    );
-                                                  },
+                                                    ),
+                                                  ),
                                                 ),
-                                              ),
+                                              ],
                                             ),
-                                          ],
-                                        ),
-                                      ),
-                                    ).animateOnPageLoad(animationsMap[
-                                        'containerOnPageLoadAnimation1']!),
-                                  );
-                                },
-                              ),
+                                          ).animateOnPageLoad(animationsMap[
+                                              'containerOnPageLoadAnimation1']!),
+                                        );
+                                      },
+                                    );
+                                  },
+                                );
+                              },
                             ),
                           ),
                         ),
@@ -542,7 +485,7 @@ class _UsingVibrationsoundsCompWidgetState
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: EdgeInsets.all(10.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -552,14 +495,12 @@ class _UsingVibrationsoundsCompWidgetState
                       'ognoqjbf' /* Trending */,
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily:
-                              FlutterFlowTheme.of(context).bodyMediumFamily,
+                          fontFamily: 'WorkSans',
                           color: FlutterFlowTheme.of(context).primaryBackground,
                           fontSize: 20.0,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w300,
-                          useGoogleFonts: GoogleFonts.asMap().containsKey(
-                              FlutterFlowTheme.of(context).bodyMediumFamily),
+                          useGoogleFonts: false,
                         ),
                     colors: [
                       FlutterFlowTheme.of(context).primary,
@@ -577,7 +518,7 @@ class _UsingVibrationsoundsCompWidgetState
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: EdgeInsets.all(10.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -585,7 +526,7 @@ class _UsingVibrationsoundsCompWidgetState
                     child: Container(
                       width: 100.0,
                       height: 80.0,
-                      decoration: const BoxDecoration(
+                      decoration: BoxDecoration(
                         color: Colors.transparent,
                       ),
                       child: Row(
@@ -597,7 +538,7 @@ class _UsingVibrationsoundsCompWidgetState
                               scrollDirection: Axis.horizontal,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 10.0, 0.0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
@@ -612,7 +553,7 @@ class _UsingVibrationsoundsCompWidgetState
                                       context.pushNamed(
                                         'SoundsDetailsBinauralBeats',
                                         extra: <String, dynamic>{
-                                          kTransitionInfoKey: const TransitionInfo(
+                                          kTransitionInfoKey: TransitionInfo(
                                             hasTransition: true,
                                             transitionType:
                                                 PageTransitionType.fade,
@@ -625,7 +566,7 @@ class _UsingVibrationsoundsCompWidgetState
                                       width: 150.0,
                                       height: 25.0,
                                       decoration: BoxDecoration(
-                                        gradient: const LinearGradient(
+                                        gradient: LinearGradient(
                                           colors: [
                                             Color(0xFFEF39D4),
                                             Color(0xFFD2394E),
@@ -651,17 +592,9 @@ class _UsingVibrationsoundsCompWidgetState
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMediumFamily,
+                                                  fontFamily: 'WorkSans',
                                                   letterSpacing: 0.0,
-                                                  useGoogleFonts: GoogleFonts
-                                                          .asMap()
-                                                      .containsKey(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMediumFamily),
+                                                  useGoogleFonts: false,
                                                 ),
                                           ),
                                         ],
@@ -671,7 +604,7 @@ class _UsingVibrationsoundsCompWidgetState
                                       'containerOnPageLoadAnimation2']!),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 10.0, 0.0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
@@ -686,7 +619,7 @@ class _UsingVibrationsoundsCompWidgetState
                                       context.pushNamed(
                                         'SoundsDetailsAmbientMusic',
                                         extra: <String, dynamic>{
-                                          kTransitionInfoKey: const TransitionInfo(
+                                          kTransitionInfoKey: TransitionInfo(
                                             hasTransition: true,
                                             transitionType:
                                                 PageTransitionType.fade,
@@ -701,15 +634,15 @@ class _UsingVibrationsoundsCompWidgetState
                                       decoration: BoxDecoration(
                                         gradient: LinearGradient(
                                           colors: [
-                                            const Color(0xFFEF39D4),
+                                            Color(0xFFEF39D4),
                                             FlutterFlowTheme.of(context)
                                                 .primary,
-                                            const Color(0xFF48C8FF)
+                                            Color(0xFF48C8FF)
                                           ],
-                                          stops: const [0.0, 1.0, 1.0],
+                                          stops: [0.0, 1.0, 1.0],
                                           begin:
-                                              const AlignmentDirectional(1.0, -0.77),
-                                          end: const AlignmentDirectional(-1.0, 0.77),
+                                              AlignmentDirectional(1.0, -0.77),
+                                          end: AlignmentDirectional(-1.0, 0.77),
                                         ),
                                         borderRadius:
                                             BorderRadius.circular(10.0),
@@ -728,7 +661,7 @@ class _UsingVibrationsoundsCompWidgetState
                                             'SoundsDetailsAmbientMusic',
                                             extra: <String, dynamic>{
                                               kTransitionInfoKey:
-                                                  const TransitionInfo(
+                                                  TransitionInfo(
                                                 hasTransition: true,
                                                 transitionType:
                                                     PageTransitionType.fade,
@@ -752,17 +685,9 @@ class _UsingVibrationsoundsCompWidgetState
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMediumFamily,
+                                                        fontFamily: 'WorkSans',
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily),
+                                                        useGoogleFonts: false,
                                                       ),
                                             ),
                                           ],
@@ -773,7 +698,7 @@ class _UsingVibrationsoundsCompWidgetState
                                       'containerOnPageLoadAnimation3']!),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 10.0, 0.0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
@@ -786,9 +711,9 @@ class _UsingVibrationsoundsCompWidgetState
                                       logFirebaseEvent('Container_navigate_to');
 
                                       context.pushNamed(
-                                        'SoundsDetailsBinauralBeats',
+                                        'SoundsDetailsNatureSounds',
                                         extra: <String, dynamic>{
-                                          kTransitionInfoKey: const TransitionInfo(
+                                          kTransitionInfoKey: TransitionInfo(
                                             hasTransition: true,
                                             transitionType:
                                                 PageTransitionType.fade,
@@ -801,7 +726,7 @@ class _UsingVibrationsoundsCompWidgetState
                                       width: 150.0,
                                       height: 25.0,
                                       decoration: BoxDecoration(
-                                        gradient: const LinearGradient(
+                                        gradient: LinearGradient(
                                           colors: [
                                             Color(0xFFEF39D4),
                                             Color(0xFFD2CB39),
@@ -829,7 +754,7 @@ class _UsingVibrationsoundsCompWidgetState
                                             'SoundsDetailsNatureSounds',
                                             extra: <String, dynamic>{
                                               kTransitionInfoKey:
-                                                  const TransitionInfo(
+                                                  TransitionInfo(
                                                 hasTransition: true,
                                                 transitionType:
                                                     PageTransitionType.fade,
@@ -853,17 +778,9 @@ class _UsingVibrationsoundsCompWidgetState
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMediumFamily,
+                                                        fontFamily: 'WorkSans',
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily),
+                                                        useGoogleFonts: false,
                                                       ),
                                             ),
                                           ],
@@ -874,150 +791,83 @@ class _UsingVibrationsoundsCompWidgetState
                                       'containerOnPageLoadAnimation4']!),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 10.0, 0.0),
-                                  child: InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      logFirebaseEvent(
-                                          'USING_VIBRATIONSOUNDS_Container_oe96v1u8');
-                                      logFirebaseEvent('Container_navigate_to');
-
-                                      context.pushNamed(
-                                        'SoundsDetailsFireSounds',
-                                        extra: <String, dynamic>{
-                                          kTransitionInfoKey: const TransitionInfo(
-                                            hasTransition: true,
-                                            transitionType:
-                                                PageTransitionType.fade,
-                                            duration: Duration(milliseconds: 2),
-                                          ),
-                                        },
-                                      );
-                                    },
-                                    child: Container(
-                                      width: 150.0,
-                                      height: 25.0,
-                                      decoration: BoxDecoration(
-                                        gradient: const LinearGradient(
-                                          colors: [
-                                            Color(0xFFD2CB39),
-                                            Color(0xFFEB0D70)
-                                          ],
-                                          stops: [0.0, 1.0],
-                                          begin:
-                                              AlignmentDirectional(1.0, -0.77),
-                                          end: AlignmentDirectional(-1.0, 0.77),
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
-                                      ),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            FFLocalizations.of(context).getText(
-                                              'v7k25gp6' /* Fire Vibrations */,
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMediumFamily,
-                                                  letterSpacing: 0.0,
-                                                  useGoogleFonts: GoogleFonts
-                                                          .asMap()
-                                                      .containsKey(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMediumFamily),
-                                                ),
-                                          ),
+                                  child: Container(
+                                    width: 150.0,
+                                    height: 25.0,
+                                    decoration: BoxDecoration(
+                                      gradient: LinearGradient(
+                                        colors: [
+                                          Color(0xFFD2CB39),
+                                          Color(0xFFEB0D70)
                                         ],
+                                        stops: [0.0, 1.0],
+                                        begin: AlignmentDirectional(1.0, -0.77),
+                                        end: AlignmentDirectional(-1.0, 0.77),
                                       ),
+                                      borderRadius: BorderRadius.circular(10.0),
+                                    ),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          FFLocalizations.of(context).getText(
+                                            'v7k25gp6' /* Abundance */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'WorkSans',
+                                                letterSpacing: 0.0,
+                                                useGoogleFonts: false,
+                                              ),
+                                        ),
+                                      ],
                                     ),
                                   ).animateOnPageLoad(animationsMap[
                                       'containerOnPageLoadAnimation5']!),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 10.0, 0.0),
-                                  child: InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      logFirebaseEvent(
-                                          'USING_VIBRATIONSOUNDS_Container_3wl3s84l');
-                                      logFirebaseEvent('Container_navigate_to');
-
-                                      context.pushNamed(
-                                        'SoundsDetailsThunderstorms',
-                                        extra: <String, dynamic>{
-                                          kTransitionInfoKey: const TransitionInfo(
-                                            hasTransition: true,
-                                            transitionType:
-                                                PageTransitionType.fade,
-                                            duration: Duration(milliseconds: 2),
-                                          ),
-                                        },
-                                      );
-                                    },
-                                    child: Container(
-                                      width: 150.0,
-                                      height: 25.0,
-                                      decoration: BoxDecoration(
-                                        gradient: LinearGradient(
-                                          colors: [
-                                            FlutterFlowTheme.of(context)
-                                                .secondary,
-                                            FlutterFlowTheme.of(context)
-                                                .primary,
-                                            const Color(0xFFEB0D70)
-                                          ],
-                                          stops: const [0.0, 1.0, 1.0],
-                                          begin:
-                                              const AlignmentDirectional(1.0, -0.77),
-                                          end: const AlignmentDirectional(-1.0, 0.77),
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
-                                      ),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            FFLocalizations.of(context).getText(
-                                              'l0ff6vxy' /* Thunderstorms */,
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMediumFamily,
-                                                  letterSpacing: 0.0,
-                                                  useGoogleFonts: GoogleFonts
-                                                          .asMap()
-                                                      .containsKey(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMediumFamily),
-                                                ),
-                                          ),
+                                  child: Container(
+                                    width: 150.0,
+                                    height: 25.0,
+                                    decoration: BoxDecoration(
+                                      gradient: LinearGradient(
+                                        colors: [
+                                          FlutterFlowTheme.of(context)
+                                              .secondary,
+                                          FlutterFlowTheme.of(context).primary,
+                                          Color(0xFFEB0D70)
                                         ],
+                                        stops: [0.0, 1.0, 1.0],
+                                        begin: AlignmentDirectional(1.0, -0.77),
+                                        end: AlignmentDirectional(-1.0, 0.77),
                                       ),
+                                      borderRadius: BorderRadius.circular(10.0),
+                                    ),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          FFLocalizations.of(context).getText(
+                                            'l0ff6vxy' /* Peace */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'WorkSans',
+                                                letterSpacing: 0.0,
+                                                useGoogleFonts: false,
+                                              ),
+                                        ),
+                                      ],
                                     ),
                                   ).animateOnPageLoad(animationsMap[
                                       'containerOnPageLoadAnimation6']!),
@@ -1033,7 +883,7 @@ class _UsingVibrationsoundsCompWidgetState
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: EdgeInsets.all(10.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -1043,14 +893,12 @@ class _UsingVibrationsoundsCompWidgetState
                       'p6of7gtj' /* Recent Played */,
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily:
-                              FlutterFlowTheme.of(context).bodyMediumFamily,
+                          fontFamily: 'WorkSans',
                           color: FlutterFlowTheme.of(context).primaryBackground,
                           fontSize: 20.0,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w300,
-                          useGoogleFonts: GoogleFonts.asMap().containsKey(
-                              FlutterFlowTheme.of(context).bodyMediumFamily),
+                          useGoogleFonts: false,
                         ),
                     colors: [
                       FlutterFlowTheme.of(context).primary,
@@ -1068,15 +916,15 @@ class _UsingVibrationsoundsCompWidgetState
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: EdgeInsets.all(10.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Expanded(
                     child: Container(
                       width: double.infinity,
-                      height: 181.0,
-                      decoration: const BoxDecoration(
+                      height: 180.0,
+                      decoration: BoxDecoration(
                         color: Colors.transparent,
                       ),
                       child: Row(
@@ -1084,7 +932,8 @@ class _UsingVibrationsoundsCompWidgetState
                         children: [
                           Expanded(
                             child: FutureBuilder<ApiCallResponse>(
-                              future: YouTubeDataAPIVibrationCall.call(),
+                              future:
+                                  YouTubeDataAPIGuidedMeditationsCall.call(),
                               builder: (context, snapshot) {
                                 // Customize what your widget looks like when it's loading.
                                 if (!snapshot.hasData) {
@@ -1101,13 +950,13 @@ class _UsingVibrationsoundsCompWidgetState
                                     ),
                                   );
                                 }
-                                final listViewYouTubeDataAPIVibrationResponse =
+                                final listViewYouTubeDataAPIGuidedMeditationsResponse =
                                     snapshot.data!;
 
                                 return Builder(
                                   builder: (context) {
                                     final recentItems = getJsonField(
-                                      listViewYouTubeDataAPIVibrationResponse
+                                      listViewYouTubeDataAPIGuidedMeditationsResponse
                                           .jsonBody,
                                       r'''$.items[:].snippet''',
                                     ).toList();
@@ -1121,13 +970,13 @@ class _UsingVibrationsoundsCompWidgetState
                                             recentItems[recentItemsIndex];
                                         return Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 10.0, 0.0),
                                           child: Container(
-                                            width: 165.0,
+                                            width: 151.0,
                                             height: 137.0,
                                             decoration: BoxDecoration(
-                                              color: const Color(0x50090F13),
+                                              color: Color(0x50090F13),
                                               borderRadius:
                                                   BorderRadius.circular(9.0),
                                             ),
@@ -1141,55 +990,46 @@ class _UsingVibrationsoundsCompWidgetState
                                                 logFirebaseEvent(
                                                     'USING_VIBRATIONSOUNDS_Column_qbm28dr3_ON');
                                                 logFirebaseEvent(
-                                                    'Column_navigate_to');
-
-                                                context.pushNamed(
-                                                  'youtubetestFINAL',
-                                                  queryParameters: {
-                                                    'videoid': serializeParam(
-                                                      getJsonField(
-                                                        recentItemsItem,
-                                                        r'''$.resourceid.videoid''',
-                                                      ).toString(),
-                                                      ParamType.String,
-                                                    ),
-                                                    'description':
-                                                        serializeParam(
-                                                      getJsonField(
-                                                        recentItemsItem,
-                                                        r'''$.description''',
-                                                      ).toString(),
-                                                      ParamType.String,
-                                                    ),
-                                                    'channelTitle':
-                                                        serializeParam(
-                                                      getJsonField(
-                                                        recentItemsItem,
-                                                        r'''$.channelTitle''',
-                                                      ).toString(),
-                                                      ParamType.String,
-                                                    ),
-                                                    'videoTitle':
-                                                        serializeParam(
-                                                      getJsonField(
-                                                        recentItemsItem,
-                                                        r'''$.title''',
-                                                      ).toString(),
-                                                      ParamType.String,
-                                                    ),
-                                                  }.withoutNulls,
-                                                  extra: <String, dynamic>{
-                                                    kTransitionInfoKey:
-                                                        const TransitionInfo(
-                                                      hasTransition: true,
-                                                      transitionType:
-                                                          PageTransitionType
-                                                              .fade,
-                                                      duration: Duration(
-                                                          milliseconds: 2),
-                                                    ),
+                                                    'Column_bottom_sheet');
+                                                await showModalBottomSheet(
+                                                  isScrollControlled: true,
+                                                  backgroundColor:
+                                                      Colors.transparent,
+                                                  context: context,
+                                                  builder: (context) {
+                                                    return WebViewAware(
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child:
+                                                            VideoPlayerHighFidelityWidget(
+                                                          parameter1:
+                                                              getJsonField(
+                                                            recentItemsItem,
+                                                            r'''$.resource.videoId''',
+                                                          ).toString(),
+                                                          videoTitle:
+                                                              getJsonField(
+                                                            recentItemsItem,
+                                                            r'''$.title''',
+                                                          ).toString(),
+                                                          channelTitle:
+                                                              getJsonField(
+                                                            recentItemsItem,
+                                                            r'''$.channelTitle''',
+                                                          ).toString(),
+                                                          description:
+                                                              getJsonField(
+                                                            recentItemsItem,
+                                                            r'''$.description''',
+                                                          ).toString(),
+                                                        ),
+                                                      ),
+                                                    );
                                                   },
-                                                );
+                                                ).then((value) =>
+                                                    safeSetState(() {}));
                                               },
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
@@ -1198,7 +1038,7 @@ class _UsingVibrationsoundsCompWidgetState
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 1.0, 0.0),
                                                     child: Hero(
@@ -1217,7 +1057,7 @@ class _UsingVibrationsoundsCompWidgetState
                                                             recentItemsItem,
                                                             r'''$.thumbnails.default.url''',
                                                           ).toString(),
-                                                          width: 423.0,
+                                                          width: 100.0,
                                                           height: 100.0,
                                                           fit: BoxFit.cover,
                                                         ),
@@ -1226,7 +1066,9 @@ class _UsingVibrationsoundsCompWidgetState
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsets.all(11.0),
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(3.0, 15.0,
+                                                                0.0, 0.0),
                                                     child: Text(
                                                       getJsonField(
                                                         recentItemsItem,
@@ -1239,23 +1081,19 @@ class _UsingVibrationsoundsCompWidgetState
                                                                   context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily,
+                                                                fontFamily:
+                                                                    'WorkSans',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primaryBackground,
-                                                                fontSize: 14.0,
+                                                                fontSize: 12.0,
                                                                 letterSpacing:
                                                                     0.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyMediumFamily),
+                                                                useGoogleFonts:
+                                                                    false,
                                                               ),
                                                     ),
                                                   ),
@@ -1280,7 +1118,7 @@ class _UsingVibrationsoundsCompWidgetState
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(15.0),
+              padding: EdgeInsets.all(15.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -1291,11 +1129,9 @@ class _UsingVibrationsoundsCompWidgetState
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Roboto',
-                          color: const Color(0xFF5B4090),
+                          color: Color(0xFF5B4090),
                           fontSize: 26.0,
                           letterSpacing: 0.0,
-                          useGoogleFonts:
-                              GoogleFonts.asMap().containsKey('Roboto'),
                         ),
                     colors: [
                       FlutterFlowTheme.of(context).primary,
@@ -1313,7 +1149,7 @@ class _UsingVibrationsoundsCompWidgetState
               ),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -1321,243 +1157,223 @@ class _UsingVibrationsoundsCompWidgetState
                     child: Container(
                       width: double.infinity,
                       height: 480.0,
-                      decoration: const BoxDecoration(
+                      decoration: BoxDecoration(
                         color: Colors.transparent,
                       ),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          Expanded(
-                            child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 8.0, 0.0, 8.0),
-                              child: RefreshIndicator(
-                                onRefresh: () async {
-                                  logFirebaseEvent(
-                                      'USING_VIBRATIONSOUNDS_ListView_fas0f9lo_');
-                                  logFirebaseEvent(
-                                      'ListView_refresh_database_request');
-                                  safeSetState(() => _model
-                                      .listViewPagingController4
-                                      ?.refresh());
-                                  await _model.waitForOnePageForListView4();
-                                },
-                                child: PagedListView<ApiPagingParams,
-                                    dynamic>.separated(
-                                  pagingController:
-                                      _model.setListViewController4(
-                                    (nextPageMarker) =>
-                                        YouTubeDataBinauralBeatsAPICopyCall
-                                            .call(),
-                                  ),
-                                  padding: const EdgeInsets.symmetric(vertical: 5.0),
-                                  shrinkWrap: true,
-                                  reverse: false,
-                                  scrollDirection: Axis.vertical,
-                                  separatorBuilder: (_, __) =>
-                                      const SizedBox(height: 5.0),
-                                  builderDelegate:
-                                      PagedChildBuilderDelegate<dynamic>(
-                                    // Customize what your widget looks like when it's loading the first page.
-                                    firstPageProgressIndicatorBuilder: (_) =>
-                                        Center(
-                                      child: SizedBox(
-                                        width: 50.0,
-                                        height: 50.0,
-                                        child: CircularProgressIndicator(
-                                          valueColor:
-                                              AlwaysStoppedAnimation<Color>(
-                                            FlutterFlowTheme.of(context)
-                                                .primary,
-                                          ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 8.0, 0.0, 8.0),
+                            child: FutureBuilder<ApiCallResponse>(
+                              future: YouTubeDataAPIVibrationCall.call(),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 50.0,
+                                      height: 50.0,
+                                      child: CircularProgressIndicator(
+                                        valueColor:
+                                            AlwaysStoppedAnimation<Color>(
+                                          FlutterFlowTheme.of(context).primary,
                                         ),
                                       ),
                                     ),
-                                    // Customize what your widget looks like when it's loading another page.
-                                    newPageProgressIndicatorBuilder: (_) =>
-                                        Center(
-                                      child: SizedBox(
-                                        width: 50.0,
-                                        height: 50.0,
-                                        child: CircularProgressIndicator(
-                                          valueColor:
-                                              AlwaysStoppedAnimation<Color>(
-                                            FlutterFlowTheme.of(context)
-                                                .primary,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
+                                  );
+                                }
+                                final listViewYouTubeDataAPIVibrationResponse =
+                                    snapshot.data!;
 
-                                    itemBuilder:
-                                        (context, _, meditationsIndex) {
-                                      final meditationsItem = _model
-                                          .listViewPagingController4!
-                                          .itemList![meditationsIndex];
-                                      return Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 0.0, 0.0, 0.0),
-                                        child: Container(
-                                          width: 187.0,
-                                          height: 215.0,
-                                          decoration: const BoxDecoration(
-                                            color: Colors.transparent,
-                                          ),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            children: [
-                                              Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 0.0, 1.0, 0.0),
-                                                child: Hero(
-                                                  tag: getJsonField(
-                                                    meditationsItem,
-                                                    r'''$.thumbnails.default.url''',
-                                                  ).toString(),
-                                                  transitionOnUserGestures:
-                                                      true,
-                                                  child: ClipRRect(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            9.0),
-                                                    child: Image.network(
-                                                      getJsonField(
+                                return Builder(
+                                  builder: (context) {
+                                    final meditations = getJsonField(
+                                      listViewYouTubeDataAPIVibrationResponse
+                                          .jsonBody,
+                                      r'''$.items[:].snippet''',
+                                    ).toList();
+
+                                    return ListView.builder(
+                                      padding: EdgeInsets.zero,
+                                      shrinkWrap: true,
+                                      scrollDirection: Axis.vertical,
+                                      itemCount: meditations.length,
+                                      itemBuilder: (context, meditationsIndex) {
+                                        final meditationsItem =
+                                            meditations[meditationsIndex];
+                                        return Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  10.0, 0.0, 0.0, 0.0),
+                                          child: Container(
+                                            width: 187.0,
+                                            height: 215.0,
+                                            decoration: BoxDecoration(
+                                              color: Colors.transparent,
+                                            ),
+                                            child: InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                logFirebaseEvent(
+                                                    'USING_VIBRATIONSOUNDS_Column_7xfobfhf_ON');
+                                                logFirebaseEvent(
+                                                    'Column_bottom_sheet');
+                                                await showModalBottomSheet(
+                                                  isScrollControlled: true,
+                                                  backgroundColor:
+                                                      Colors.transparent,
+                                                  context: context,
+                                                  builder: (context) {
+                                                    return WebViewAware(
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child:
+                                                            VideoPlayerHighFidelityWidget(
+                                                          parameter1:
+                                                              getJsonField(
+                                                            meditationsItem,
+                                                            r'''$.resource.videoId''',
+                                                          ).toString(),
+                                                          videoTitle:
+                                                              getJsonField(
+                                                            meditationsItem,
+                                                            r'''$.title''',
+                                                          ).toString(),
+                                                          channelTitle:
+                                                              getJsonField(
+                                                            meditationsItem,
+                                                            r'''$.channelTitle''',
+                                                          ).toString(),
+                                                          description:
+                                                              getJsonField(
+                                                            meditationsItem,
+                                                            r'''$.description''',
+                                                          ).toString(),
+                                                        ),
+                                                      ),
+                                                    );
+                                                  },
+                                                ).then((value) =>
+                                                    safeSetState(() {}));
+                                              },
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                1.0, 0.0),
+                                                    child: Hero(
+                                                      tag: getJsonField(
                                                         meditationsItem,
                                                         r'''$.thumbnails.default.url''',
                                                       ).toString(),
-                                                      width: 535.0,
-                                                      height: 100.0,
-                                                      fit: BoxFit.cover,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                              Align(
-                                                alignment: const AlignmentDirectional(
-                                                    -1.0, 0.0),
-                                                child: Padding(
-                                                  padding: const EdgeInsets.all(15.0),
-                                                  child: Text(
-                                                    getJsonField(
-                                                      meditationsItem,
-                                                      r'''$.title''',
-                                                    ).toString(),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
-                                                          color:
-                                                              const Color(0xFF000220),
-                                                          fontSize: 14.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily),
+                                                      transitionOnUserGestures:
+                                                          true,
+                                                      child: ClipRRect(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(9.0),
+                                                        child: Image.network(
+                                                          getJsonField(
+                                                            meditationsItem,
+                                                            r'''$.thumbnails.default.url''',
+                                                          ).toString(),
+                                                          width: 245.0,
+                                                          height: 100.0,
+                                                          fit: BoxFit.cover,
                                                         ),
-                                                  ),
-                                                ),
-                                              ),
-                                              Align(
-                                                alignment: const AlignmentDirectional(
-                                                    1.0, -1.0),
-                                                child: Padding(
-                                                  padding: const EdgeInsets.all(11.0),
-                                                  child: FlutterFlowIconButton(
-                                                    borderColor:
-                                                        Colors.transparent,
-                                                    borderRadius: 8.0,
-                                                    buttonSize: 40.0,
-                                                    fillColor:
-                                                        const Color(0xFA000220),
-                                                    icon: Icon(
-                                                      Icons.play_circle,
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .info,
-                                                      size: 24.0,
+                                                      ),
                                                     ),
-                                                    onPressed: () async {
-                                                      logFirebaseEvent(
-                                                          'USING_VIBRATIONSOUNDS_play_circle_ICN_ON');
-                                                      logFirebaseEvent(
-                                                          'IconButton_navigate_to');
-
-                                                      context.pushNamed(
-                                                        'youtubetestFINAL',
-                                                        queryParameters: {
-                                                          'videoid':
-                                                              serializeParam(
-                                                            getJsonField(
-                                                              meditationsItem,
-                                                              r'''$.resourceid.videoid''',
-                                                            ).toString(),
-                                                            ParamType.String,
-                                                          ),
-                                                          'description':
-                                                              serializeParam(
-                                                            getJsonField(
-                                                              meditationsItem,
-                                                              r'''$.description''',
-                                                            ).toString(),
-                                                            ParamType.String,
-                                                          ),
-                                                          'channelTitle':
-                                                              serializeParam(
-                                                            getJsonField(
-                                                              meditationsItem,
-                                                              r'''$.channelTitle''',
-                                                            ).toString(),
-                                                            ParamType.String,
-                                                          ),
-                                                          'videoTitle':
-                                                              serializeParam(
-                                                            getJsonField(
-                                                              meditationsItem,
-                                                              r'''$.title''',
-                                                            ).toString(),
-                                                            ParamType.String,
-                                                          ),
-                                                        }.withoutNulls,
-                                                        extra: <String,
-                                                            dynamic>{
-                                                          kTransitionInfoKey:
-                                                              const TransitionInfo(
-                                                            hasTransition: true,
-                                                            transitionType:
-                                                                PageTransitionType
-                                                                    .fade,
-                                                            duration: Duration(
-                                                                milliseconds:
-                                                                    3),
-                                                          ),
-                                                        },
-                                                      );
-                                                    },
                                                   ),
-                                                ),
+                                                  Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            -1.0, 0.0),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsets.all(15.0),
+                                                      child: Text(
+                                                        getJsonField(
+                                                          meditationsItem,
+                                                          r'''$.title''',
+                                                        ).toString(),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'WorkSans',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryBackground,
+                                                                  fontSize:
+                                                                      12.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .normal,
+                                                                  useGoogleFonts:
+                                                                      false,
+                                                                ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            1.0, 1.0),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsets.all(8.0),
+                                                      child:
+                                                          FlutterFlowIconButton(
+                                                        borderColor:
+                                                            Colors.transparent,
+                                                        borderRadius: 8.0,
+                                                        buttonSize: 40.0,
+                                                        fillColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .tertiary,
+                                                        icon: Icon(
+                                                          Icons.play_circle,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .info,
+                                                          size: 24.0,
+                                                        ),
+                                                        onPressed: () {
+                                                          print(
+                                                              'IconButton pressed ...');
+                                                        },
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
                                               ),
-                                            ],
-                                          ),
-                                        ).animateOnPageLoad(animationsMap[
-                                            'containerOnPageLoadAnimation8']!),
-                                      );
-                                    },
-                                  ),
-                                ),
-                              ),
+                                            ),
+                                          ).animateOnPageLoad(animationsMap[
+                                              'containerOnPageLoadAnimation8']!),
+                                        );
+                                      },
+                                    );
+                                  },
+                                );
+                              },
                             ),
                           ),
                         ],

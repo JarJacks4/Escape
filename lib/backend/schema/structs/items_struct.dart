@@ -3,6 +3,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '/backend/schema/util/firestore_util.dart';
+import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -56,7 +57,9 @@ class ItemsStruct extends FFFirebaseStruct {
         kind: data['kind'] as String?,
         etag: data['etag'] as String?,
         id: data['id'] as String?,
-        snippet: SnippetStruct.maybeFromMap(data['snippet']),
+        snippet: data['snippet'] is SnippetStruct
+            ? data['snippet']
+            : SnippetStruct.maybeFromMap(data['snippet']),
       );
 
   static ItemsStruct? maybeFromMap(dynamic data) =>

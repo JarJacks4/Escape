@@ -3,11 +3,16 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
+import 'dart:ui';
 import 'package:styled_divider/styled_divider.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
+import 'package:provider/provider.dart';
 import 'learning_to_meditate_page1_model.dart';
 export 'learning_to_meditate_page1_model.dart';
 
@@ -44,8 +49,8 @@ class _LearningToMeditatePage1WidgetState
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 800.0.ms,
-            begin: const Offset(0, 0),
-            end: const Offset(0, 0.349),
+            begin: Offset(0, 0),
+            end: Offset(0, 0.349),
           ),
         ],
       ),
@@ -62,7 +67,10 @@ class _LearningToMeditatePage1WidgetState
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         body: Container(
@@ -83,15 +91,15 @@ class _LearningToMeditatePage1WidgetState
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  const Color(0x80ECEEEE),
-                  const Color(0x9F01CBAE),
-                  const Color(0xB8673AB7),
-                  const Color(0xEB84468E),
+                  Color(0x80ECEEEE),
+                  Color(0x9F01CBAE),
+                  Color(0xB8673AB7),
+                  Color(0xEB84468E),
                   FlutterFlowTheme.of(context).primaryBackground
                 ],
-                stops: const [0.0, 0.0, 0.3, 0.5, 1.0],
-                begin: const AlignmentDirectional(1.0, -1.0),
-                end: const AlignmentDirectional(-1.0, 1.0),
+                stops: [0.0, 0.0, 0.3, 0.5, 1.0],
+                begin: AlignmentDirectional(1.0, -1.0),
+                end: AlignmentDirectional(-1.0, 1.0),
               ),
             ),
             child: Column(
@@ -99,7 +107,7 @@ class _LearningToMeditatePage1WidgetState
               children: [
                 Padding(
                   padding:
-                      const EdgeInsetsDirectional.fromSTEB(16.0, 44.0, 16.0, 0.0),
+                      EdgeInsetsDirectional.fromSTEB(16.0, 44.0, 16.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -108,7 +116,7 @@ class _LearningToMeditatePage1WidgetState
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 15.0, 2.0, 0.0, 2.0),
                             child: FlutterFlowIconButton(
                               borderColor: Colors.transparent,
@@ -137,10 +145,10 @@ class _LearningToMeditatePage1WidgetState
                 Expanded(
                   child: Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                     child: Container(
                       width: MediaQuery.sizeOf(context).width * 1.0,
-                      decoration: const BoxDecoration(
+                      decoration: BoxDecoration(
                         color: Color(0x7F000220),
                         boxShadow: [
                           BoxShadow(
@@ -164,7 +172,7 @@ class _LearningToMeditatePage1WidgetState
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 16.0, 30.0, 16.0, 8.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
@@ -179,7 +187,7 @@ class _LearningToMeditatePage1WidgetState
                                 ).animateOnPageLoad(
                                     animationsMap['imageOnPageLoadAnimation']!),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 16.0, 0.0, 0.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
@@ -188,23 +196,18 @@ class _LearningToMeditatePage1WidgetState
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMediumFamily,
+                                          fontFamily: 'WorkSans',
                                           color: FlutterFlowTheme.of(context)
                                               .primaryBackground,
                                           fontSize: 32.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.bold,
-                                          useGoogleFonts: GoogleFonts.asMap()
-                                              .containsKey(
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMediumFamily),
+                                          useGoogleFonts: false,
                                         ),
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 6.0, 0.0, 0.0),
                                   child: RichText(
                                     textScaler:
@@ -236,20 +239,15 @@ class _LearningToMeditatePage1WidgetState
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMediumFamily,
+                                            fontFamily: 'WorkSans',
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey(
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMediumFamily),
+                                            useGoogleFonts: false,
                                           ),
                                     ),
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 16.0, 0.0, 0.0),
                                   child: Container(
                                     width: 185.0,
@@ -266,7 +264,7 @@ class _LearningToMeditatePage1WidgetState
                                       children: [
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 10.0, 0.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
@@ -275,20 +273,12 @@ class _LearningToMeditatePage1WidgetState
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMediumFamily,
-                                                  color: const Color(0xFF405090),
+                                                  fontFamily: 'WorkSans',
+                                                  color: Color(0xFF405090),
                                                   fontSize: 12.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
-                                                  useGoogleFonts: GoogleFonts
-                                                          .asMap()
-                                                      .containsKey(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMediumFamily),
+                                                  useGoogleFonts: false,
                                                 ),
                                           ),
                                         ),
@@ -301,8 +291,8 @@ class _LearningToMeditatePage1WidgetState
                                           progressColor:
                                               FlutterFlowTheme.of(context)
                                                   .alternate,
-                                          backgroundColor: const Color(0xFFEFEFF4),
-                                          barRadius: const Radius.circular(50.0),
+                                          backgroundColor: Color(0xFFEFEFF4),
+                                          barRadius: Radius.circular(50.0),
                                           padding: EdgeInsets.zero,
                                         ),
                                       ],
@@ -310,7 +300,7 @@ class _LearningToMeditatePage1WidgetState
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 30.0, 0.0, 30.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -350,20 +340,13 @@ class _LearningToMeditatePage1WidgetState
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMediumFamily,
+                                                fontFamily: 'WorkSans',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryBackground,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
-                                                useGoogleFonts: GoogleFonts
-                                                        .asMap()
-                                                    .containsKey(
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMediumFamily),
+                                                useGoogleFonts: false,
                                                 lineHeight: 1.3,
                                               ),
                                         ),
@@ -373,7 +356,7 @@ class _LearningToMeditatePage1WidgetState
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 15.0),
                                   child: FFButtonWidget(
                                     onPressed: () async {
@@ -384,7 +367,7 @@ class _LearningToMeditatePage1WidgetState
                                       context.pushNamed(
                                         'LearningToMeditatePage2',
                                         extra: <String, dynamic>{
-                                          kTransitionInfoKey: const TransitionInfo(
+                                          kTransitionInfoKey: TransitionInfo(
                                             hasTransition: true,
                                             transitionType:
                                                 PageTransitionType.fade,
@@ -396,7 +379,7 @@ class _LearningToMeditatePage1WidgetState
                                     text: FFLocalizations.of(context).getText(
                                       'a1kz93zl' /* Try It Out! */,
                                     ),
-                                    icon: const Icon(
+                                    icon: Icon(
                                       Icons.air,
                                       size: 40.0,
                                     ),
@@ -404,28 +387,23 @@ class _LearningToMeditatePage1WidgetState
                                       width: MediaQuery.sizeOf(context).width *
                                           0.5,
                                       height: 40.0,
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           24.0, 0.0, 24.0, 0.0),
                                       iconPadding:
-                                          const EdgeInsetsDirectional.fromSTEB(
+                                          EdgeInsetsDirectional.fromSTEB(
                                               0.0, 0.0, 0.0, 0.0),
                                       color:
                                           FlutterFlowTheme.of(context).tertiary,
                                       textStyle: FlutterFlowTheme.of(context)
                                           .titleSmall
                                           .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleSmallFamily,
+                                            fontFamily: 'WorkSans',
                                             color: Colors.white,
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey(
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleSmallFamily),
+                                            useGoogleFonts: false,
                                           ),
                                       elevation: 8.0,
-                                      borderSide: const BorderSide(
+                                      borderSide: BorderSide(
                                         color: Colors.transparent,
                                         width: 1.0,
                                       ),
@@ -455,7 +433,7 @@ class _LearningToMeditatePage1WidgetState
                                         0.397,
                                     height: MediaQuery.sizeOf(context).height *
                                         0.35,
-                                    decoration: const BoxDecoration(),
+                                    decoration: BoxDecoration(),
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(8.0),
                                       child: Image.asset(

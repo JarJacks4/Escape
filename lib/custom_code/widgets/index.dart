@@ -1,1 +1,2 @@
-export 'custom_vid_player.dart' show CustomVidPlayer;
+export 'answer_view.dart' show AnswerView;
+export 'questionary_view.dart' show QuestionaryView;
