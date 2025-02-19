@@ -3,13 +3,13 @@ import '/components/binuaral_beats_card_widget.dart';
 import '/components/body_card_widget.dart';
 import '/components/breathing_card_copy_widget.dart';
 import '/components/meditation_card_widget.dart';
-import '/components/mood_tracking_bottom_sheet_widget.dart';
+import '/components/nature_card_copy_widget.dart';
 import '/components/nature_card_widget.dart';
+import '/components/success_home_feedback_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -41,10 +41,12 @@ class _HomeVersion2WidgetState extends State<HomeVersion2Widget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('HOME_VERSION2_HomeVersion2_ON_INIT_STATE');
+      logFirebaseEvent('HomeVersion2_wait__delay');
+      await Future.delayed(const Duration(milliseconds: 1000));
       logFirebaseEvent('HomeVersion2_bottom_sheet');
       await showModalBottomSheet(
         isScrollControlled: true,
-        backgroundColor: Colors.transparent,
+        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         context: context,
         builder: (context) {
           return WebViewAware(
@@ -55,10 +57,7 @@ class _HomeVersion2WidgetState extends State<HomeVersion2Widget> {
               },
               child: Padding(
                 padding: MediaQuery.viewInsetsOf(context),
-                child: Container(
-                  height: double.infinity,
-                  child: MoodTrackingBottomSheetWidget(),
-                ),
+                child: SuccessHomeFeedbackWidget(),
               ),
             ),
           );
@@ -204,7 +203,7 @@ class _HomeVersion2WidgetState extends State<HomeVersion2Widget> {
                                             'Container_navigate_to');
 
                                         context.pushNamed(
-                                          'LucilleChatAIPage',
+                                          'LucilleChatPage',
                                           extra: <String, dynamic>{
                                             kTransitionInfoKey: TransitionInfo(
                                               hasTransition: true,
@@ -624,21 +623,46 @@ class _HomeVersion2WidgetState extends State<HomeVersion2Widget> {
                           ),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 15.0, 0.0, 0.0),
-                            child: AutoSizeText(
-                              FFLocalizations.of(context).getText(
-                                'w48it1p1' /* Let's write! */,
+                                0.0, 8.0, 0.0, 0.0),
+                            child: FFButtonWidget(
+                              onPressed: () async {
+                                logFirebaseEvent(
+                                    'HOME_VERSION2_LETS_JOURNAL_BTN_ON_TAP');
+                                logFirebaseEvent('Button_navigate_to');
+
+                                context.pushNamed(
+                                  'JournalPage',
+                                  extra: <String, dynamic>{
+                                    kTransitionInfoKey: TransitionInfo(
+                                      hasTransition: true,
+                                      transitionType: PageTransitionType.fade,
+                                      duration: Duration(milliseconds: 2),
+                                    ),
+                                  },
+                                );
+                              },
+                              text: FFLocalizations.of(context).getText(
+                                'opvwb608' /* Let's Journal! */,
                               ),
-                              minFontSize: 14.0,
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'WorkSans',
-                                    letterSpacing: 0.0,
-                                    decoration: TextDecoration.underline,
-                                    useGoogleFonts: false,
-                                    lineHeight: 1.0,
-                                  ),
+                              options: FFButtonOptions(
+                                width: MediaQuery.sizeOf(context).width * 0.5,
+                                height: 40.0,
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    16.0, 0.0, 16.0, 0.0),
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
+                                color: FlutterFlowTheme.of(context).accent1,
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .titleSmall
+                                    .override(
+                                      fontFamily: 'WorkSans',
+                                      color: Colors.white,
+                                      letterSpacing: 0.0,
+                                      useGoogleFonts: false,
+                                    ),
+                                elevation: 0.0,
+                                borderRadius: BorderRadius.circular(15.0),
+                              ),
                             ),
                           ),
                         ],
@@ -658,7 +682,7 @@ class _HomeVersion2WidgetState extends State<HomeVersion2Widget> {
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'The Seasons',
                           color: FlutterFlowTheme.of(context).alternate,
-                          fontSize: 28.0,
+                          fontSize: 36.0,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.bold,
                           useGoogleFonts: false,
@@ -679,15 +703,66 @@ class _HomeVersion2WidgetState extends State<HomeVersion2Widget> {
                       shrinkWrap: true,
                       scrollDirection: Axis.horizontal,
                       children: [
-                        wrapWithModel(
-                          model: _model.meditationCardModel,
-                          updateCallback: () => safeSetState(() {}),
-                          child: MeditationCardWidget(),
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            logFirebaseEvent(
+                                'HOME_VERSION2_Container_yyq1ck6j_ON_TAP');
+                            logFirebaseEvent('MeditationCard_navigate_to');
+
+                            context.pushNamed(
+                              'MeditationChoicePage',
+                              extra: <String, dynamic>{
+                                kTransitionInfoKey: TransitionInfo(
+                                  hasTransition: true,
+                                  transitionType: PageTransitionType.fade,
+                                  duration: Duration(milliseconds: 2),
+                                ),
+                              },
+                            );
+                          },
+                          child: wrapWithModel(
+                            model: _model.meditationCardModel,
+                            updateCallback: () => safeSetState(() {}),
+                            child: Hero(
+                              tag: 'SelfCarePacks',
+                              transitionOnUserGestures: true,
+                              child: Material(
+                                color: Colors.transparent,
+                                child: MeditationCardWidget(),
+                              ),
+                            ),
+                          ),
                         ),
-                        wrapWithModel(
-                          model: _model.breathingCardCopyModel,
-                          updateCallback: () => safeSetState(() {}),
-                          child: BreathingCardCopyWidget(),
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            logFirebaseEvent(
+                                'HOME_VERSION2_Container_xyhxzwp3_ON_TAP');
+                            logFirebaseEvent('BreathingCardCopy_navigate_to');
+
+                            context.pushNamed(
+                              'BreathingChoicePage',
+                              extra: <String, dynamic>{
+                                kTransitionInfoKey: TransitionInfo(
+                                  hasTransition: true,
+                                  transitionType: PageTransitionType.fade,
+                                  duration: Duration(milliseconds: 2),
+                                ),
+                              },
+                            );
+                          },
+                          child: wrapWithModel(
+                            model: _model.breathingCardCopyModel,
+                            updateCallback: () => safeSetState(() {}),
+                            child: BreathingCardCopyWidget(),
+                          ),
                         ),
                         wrapWithModel(
                           model: _model.natureCardModel,
@@ -703,6 +778,11 @@ class _HomeVersion2WidgetState extends State<HomeVersion2Widget> {
                           model: _model.bodyCardModel,
                           updateCallback: () => safeSetState(() {}),
                           child: BodyCardWidget(),
+                        ),
+                        wrapWithModel(
+                          model: _model.natureCardCopyModel,
+                          updateCallback: () => safeSetState(() {}),
+                          child: NatureCardCopyWidget(),
                         ),
                       ].divide(SizedBox(width: 5.0)),
                     ),
@@ -720,7 +800,7 @@ class _HomeVersion2WidgetState extends State<HomeVersion2Widget> {
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'The Seasons',
                           color: FlutterFlowTheme.of(context).alternate,
-                          fontSize: 28.0,
+                          fontSize: 36.0,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.bold,
                           useGoogleFonts: false,

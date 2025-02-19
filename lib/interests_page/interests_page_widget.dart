@@ -75,7 +75,7 @@ class _InterestsPageWidgetState extends State<InterestsPageWidget> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8.0),
                     child: Image.asset(
-                      'assets/images/Erica_Anderson.gif',
+                      'assets/images/Clean_and_organic_AI_interface_by_milkinside.gif',
                       width: double.infinity,
                       height: double.infinity,
                       fit: BoxFit.cover,
@@ -103,10 +103,7 @@ class _InterestsPageWidgetState extends State<InterestsPageWidget> {
                         )
                       ],
                       gradient: LinearGradient(
-                        colors: [
-                          Color(0x401D2428),
-                          FlutterFlowTheme.of(context).alternate
-                        ],
+                        colors: [Color(0xAFD0E3F7), Color(0x97F0831A)],
                         stops: [0.0, 1.0],
                         begin: AlignmentDirectional(0.0, -1.0),
                         end: AlignmentDirectional(0, 1.0),
@@ -154,7 +151,7 @@ class _InterestsPageWidgetState extends State<InterestsPageWidget> {
                                                 fontFamily: 'WorkSans',
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .primary,
+                                                        .alternate,
                                                 letterSpacing: 0.0,
                                                 useGoogleFonts: false,
                                               ),
@@ -174,7 +171,7 @@ class _InterestsPageWidgetState extends State<InterestsPageWidget> {
                                                 fontFamily: 'WorkSans',
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .secondary,
+                                                        .tertiary,
                                                 letterSpacing: 0.0,
                                                 useGoogleFonts: false,
                                               ),
@@ -183,31 +180,7 @@ class _InterestsPageWidgetState extends State<InterestsPageWidget> {
                                       FlutterFlowCheckboxGroup(
                                         options: [
                                           FFLocalizations.of(context).getText(
-                                            '5jlrnfbl' /* Music */,
-                                          ),
-                                          FFLocalizations.of(context).getText(
-                                            'v7b1eaxe' /* Travel */,
-                                          ),
-                                          FFLocalizations.of(context).getText(
-                                            'ilrauivo' /* Photography */,
-                                          ),
-                                          FFLocalizations.of(context).getText(
-                                            '2mfurs6u' /* Food */,
-                                          ),
-                                          FFLocalizations.of(context).getText(
-                                            'lzlfjrjs' /* Fitness */,
-                                          ),
-                                          FFLocalizations.of(context).getText(
-                                            'grx9e4so' /* Fashion */,
-                                          ),
-                                          FFLocalizations.of(context).getText(
-                                            'rmzu9svc' /* Gaming */,
-                                          ),
-                                          FFLocalizations.of(context).getText(
-                                            'dfhkcnzc' /* Literature */,
-                                          ),
-                                          FFLocalizations.of(context).getText(
-                                            'erxq7nsg' /* Art */,
+                                            'dfhkcnzc' /* Pilates */,
                                           ),
                                           FFLocalizations.of(context).getText(
                                             '9gueolqz' /* Yoga */,
@@ -225,13 +198,10 @@ class _InterestsPageWidgetState extends State<InterestsPageWidget> {
                                             'o1afr5fd' /* Meditation */,
                                           ),
                                           FFLocalizations.of(context).getText(
-                                            'bi8yvquk' /* Energy */,
+                                            'bi8yvquk' /* Breathing */,
                                           ),
                                           FFLocalizations.of(context).getText(
                                             '1r2zq5jn' /* Metaphysics */,
-                                          ),
-                                          FFLocalizations.of(context).getText(
-                                            'fzxmaugk' /* Gemstones */,
                                           )
                                         ],
                                         onChanged: (val) => safeSetState(() =>
@@ -255,7 +225,7 @@ class _InterestsPageWidgetState extends State<InterestsPageWidget> {
                                               fontFamily: 'WorkSans',
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .primary,
+                                                      .alternate,
                                               letterSpacing: 0.0,
                                               useGoogleFonts: false,
                                             ),
@@ -266,7 +236,7 @@ class _InterestsPageWidgetState extends State<InterestsPageWidget> {
                                                   fontFamily: 'WorkSans',
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .secondary,
+                                                      .alternate,
                                                   fontSize: 16.0,
                                                   letterSpacing: 0.0,
                                                   useGoogleFonts: false,
@@ -313,6 +283,12 @@ class _InterestsPageWidgetState extends State<InterestsPageWidget> {
                                   onPressed: () async {
                                     logFirebaseEvent(
                                         'INTERESTS_CONTINUE_TO_SELF_CARE_GOALS_BT');
+                                    logFirebaseEvent('Button_update_app_state');
+                                    FFAppState().interests = _model
+                                        .checkboxGroupValues!
+                                        .toList()
+                                        .cast<String>();
+                                    FFAppState().update(() {});
                                     logFirebaseEvent('Button_navigate_to');
 
                                     context.pushNamed(
@@ -337,13 +313,14 @@ class _InterestsPageWidgetState extends State<InterestsPageWidget> {
                                         0.0, 0.0, 0.0, 0.0),
                                     iconPadding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
-                                    color: FlutterFlowTheme.of(context).accent3,
+                                    color:
+                                        FlutterFlowTheme.of(context).alternate,
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleMedium
                                         .override(
                                           fontFamily: 'WorkSans',
                                           color: FlutterFlowTheme.of(context)
-                                              .alternate,
+                                              .accent1,
                                           letterSpacing: 0.0,
                                           useGoogleFonts: false,
                                         ),
@@ -353,8 +330,10 @@ class _InterestsPageWidgetState extends State<InterestsPageWidget> {
                                       width: 1.0,
                                     ),
                                     borderRadius: BorderRadius.circular(50.0),
-                                    hoverColor: FlutterFlowTheme.of(context)
-                                        .primaryText,
+                                    hoverColor:
+                                        FlutterFlowTheme.of(context).primary,
+                                    hoverTextColor:
+                                        FlutterFlowTheme.of(context).accent1,
                                   ),
                                 ),
                               ),

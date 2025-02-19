@@ -1,4 +1,3 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/components/video_player_high_fidelity_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
@@ -251,18 +250,18 @@ class _BodyPageWidgetState extends State<BodyPageWidget>
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 15.0, 0.0, 0.0, 0.0),
-                            child: AuthUserStreamWidget(
-                              builder: (context) => Text(
-                                'Hello,${currentUserDisplayName}',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'The Seasons',
-                                      fontSize: 24.0,
-                                      letterSpacing: 0.0,
-                                      useGoogleFonts: false,
-                                    ),
+                            child: Text(
+                              FFLocalizations.of(context).getText(
+                                'xbiirptg' /* Body */,
                               ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'The Seasons',
+                                    fontSize: 24.0,
+                                    letterSpacing: 0.0,
+                                    useGoogleFonts: false,
+                                  ),
                             ),
                           ),
                         ),

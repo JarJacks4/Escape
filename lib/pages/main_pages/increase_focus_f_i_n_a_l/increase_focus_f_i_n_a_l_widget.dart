@@ -262,21 +262,24 @@ class _IncreaseFocusFINALWidgetState extends State<IncreaseFocusFINALWidget>
                           width: double.infinity,
                           child: Stack(
                             children: [
-                              Hero(
-                                tag: 'gifBackground',
-                                transitionOnUserGestures: true,
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.only(
-                                    bottomLeft: Radius.circular(15.0),
-                                    bottomRight: Radius.circular(15.0),
-                                    topLeft: Radius.circular(0.0),
-                                    topRight: Radius.circular(0.0),
-                                  ),
-                                  child: Image.asset(
-                                    'assets/images/download_(7).gif',
-                                    width: double.infinity,
-                                    height: 207.0,
-                                    fit: BoxFit.cover,
+                              Opacity(
+                                opacity: 0.6,
+                                child: Hero(
+                                  tag: 'gifBackground',
+                                  transitionOnUserGestures: true,
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.only(
+                                      bottomLeft: Radius.circular(15.0),
+                                      bottomRight: Radius.circular(15.0),
+                                      topLeft: Radius.circular(0.0),
+                                      topRight: Radius.circular(0.0),
+                                    ),
+                                    child: Image.asset(
+                                      'assets/images/download_(7).gif',
+                                      width: double.infinity,
+                                      height: 207.0,
+                                      fit: BoxFit.cover,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -579,7 +582,7 @@ class _IncreaseFocusFINALWidgetState extends State<IncreaseFocusFINALWidget>
                                                                               r'''$.title''',
                                                                             ).toString(),
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'WorkSans',
+                                                                                  fontFamily: 'The Seasons',
                                                                                   color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                   fontSize: 16.0,
                                                                                   letterSpacing: 0.0,
@@ -833,7 +836,7 @@ class _IncreaseFocusFINALWidgetState extends State<IncreaseFocusFINALWidget>
                                                                       .bodyMedium
                                                                       .override(
                                                                         fontFamily:
-                                                                            'WorkSans',
+                                                                            'The Seasons',
                                                                         letterSpacing:
                                                                             0.0,
                                                                         useGoogleFonts:
@@ -977,7 +980,7 @@ class _IncreaseFocusFINALWidgetState extends State<IncreaseFocusFINALWidget>
                                                                         .bodyMedium
                                                                         .override(
                                                                           fontFamily:
-                                                                              'WorkSans',
+                                                                              'The Seasons',
                                                                           letterSpacing:
                                                                               0.0,
                                                                           useGoogleFonts:
@@ -1121,7 +1124,7 @@ class _IncreaseFocusFINALWidgetState extends State<IncreaseFocusFINALWidget>
                                                                         .bodyMedium
                                                                         .override(
                                                                           fontFamily:
-                                                                              'WorkSans',
+                                                                              'The Seasons',
                                                                           letterSpacing:
                                                                               0.0,
                                                                           useGoogleFonts:

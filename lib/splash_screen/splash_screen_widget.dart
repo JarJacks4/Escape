@@ -34,25 +34,6 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget>
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'splashScreen'});
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      logFirebaseEvent('SPLASH_SCREEN_splashScreen_ON_INIT_STATE');
-      logFirebaseEvent('splashScreen_wait__delay');
-      await Future.delayed(const Duration(milliseconds: 2));
-      logFirebaseEvent('splashScreen_navigate_to');
-
-      context.pushNamed(
-        'loginPage',
-        extra: <String, dynamic>{
-          kTransitionInfoKey: TransitionInfo(
-            hasTransition: true,
-            transitionType: PageTransitionType.fade,
-            duration: Duration(milliseconds: 2),
-          ),
-        },
-      );
-    });
-
     animationsMap.addAll({
       'containerOnPageLoadAnimation': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
@@ -188,8 +169,9 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget>
                         opacity: 0.8,
                         child: Text(
                           FFLocalizations.of(context).getText(
-                            'kb6n1o7w' /* Self-Care and AI as One. */,
+                            'kb6n1o7w' /* Tap the Portal Above to Procee... */,
                           ),
+                          textAlign: TextAlign.center,
                           style: FlutterFlowTheme.of(context)
                               .bodyMedium
                               .override(

@@ -270,7 +270,7 @@ class _BinauralBeatsPageWidgetState extends State<BinauralBeatsPageWidget>
                                   topRight: Radius.circular(0.0),
                                 ),
                                 child: Image.asset(
-                                  'assets/images/Dark_Future_-_Stefan_Kang.gif',
+                                  'assets/images/Clean_and_organic_AI_interface_by_milkinside.gif',
                                   width: double.infinity,
                                   height: 207.0,
                                   fit: BoxFit.cover,
@@ -535,28 +535,35 @@ class _BinauralBeatsPageWidgetState extends State<BinauralBeatsPageWidget>
                                                                           ),
                                                                         ),
                                                                       ),
-                                                                      Align(
-                                                                        alignment: AlignmentDirectional(
-                                                                            -1.0,
-                                                                            0.0),
+                                                                      Flexible(
+                                                                        flex: 1,
                                                                         child:
-                                                                            Padding(
-                                                                          padding:
-                                                                              EdgeInsets.all(15.0),
+                                                                            Align(
+                                                                          alignment: AlignmentDirectional(
+                                                                              -1.0,
+                                                                              0.0),
                                                                           child:
-                                                                              Text(
-                                                                            getJsonField(
-                                                                              meditationsItem,
-                                                                              r'''$.title''',
-                                                                            ).toString(),
-                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'WorkSans',
-                                                                                  color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                  fontSize: 16.0,
-                                                                                  letterSpacing: 0.0,
-                                                                                  fontWeight: FontWeight.normal,
-                                                                                  useGoogleFonts: false,
-                                                                                ),
+                                                                              Padding(
+                                                                            padding:
+                                                                                EdgeInsets.all(15.0),
+                                                                            child:
+                                                                                Text(
+                                                                              getJsonField(
+                                                                                meditationsItem,
+                                                                                r'''$.title''',
+                                                                              ).toString().maybeHandleOverflow(
+                                                                                    maxChars: 50,
+                                                                                    replacement: '…',
+                                                                                  ),
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'The Seasons',
+                                                                                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                    fontSize: 16.0,
+                                                                                    letterSpacing: 0.0,
+                                                                                    fontWeight: FontWeight.normal,
+                                                                                    useGoogleFonts: false,
+                                                                                  ),
+                                                                            ),
                                                                           ),
                                                                         ),
                                                                       ),
@@ -804,7 +811,7 @@ class _BinauralBeatsPageWidgetState extends State<BinauralBeatsPageWidget>
                                                                       .bodyMedium
                                                                       .override(
                                                                         fontFamily:
-                                                                            'WorkSans',
+                                                                            'The Seasons',
                                                                         letterSpacing:
                                                                             0.0,
                                                                         useGoogleFonts:
@@ -948,7 +955,7 @@ class _BinauralBeatsPageWidgetState extends State<BinauralBeatsPageWidget>
                                                                         .bodyMedium
                                                                         .override(
                                                                           fontFamily:
-                                                                              'WorkSans',
+                                                                              'The Seasons',
                                                                           letterSpacing:
                                                                               0.0,
                                                                           useGoogleFonts:
@@ -1092,7 +1099,7 @@ class _BinauralBeatsPageWidgetState extends State<BinauralBeatsPageWidget>
                                                                         .bodyMedium
                                                                         .override(
                                                                           fontFamily:
-                                                                              'WorkSans',
+                                                                              'The Seasons',
                                                                           letterSpacing:
                                                                               0.0,
                                                                           useGoogleFonts:

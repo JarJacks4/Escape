@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/gemini/gemini.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -10,7 +11,12 @@ import 'mood_track_result_component_model.dart';
 export 'mood_track_result_component_model.dart';
 
 class MoodTrackResultComponentWidget extends StatefulWidget {
-  const MoodTrackResultComponentWidget({super.key});
+  const MoodTrackResultComponentWidget({
+    super.key,
+    this.moodTrackingResults,
+  });
+
+  final String? moodTrackingResults;
 
   @override
   State<MoodTrackResultComponentWidget> createState() =>
@@ -42,6 +48,8 @@ class _MoodTrackResultComponentWidgetState
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Align(
       alignment: AlignmentDirectional(0.0, 0.0),
       child: Padding(
@@ -88,19 +96,29 @@ class _MoodTrackResultComponentWidgetState
                         height: 214.6,
                         decoration: BoxDecoration(
                           color: FlutterFlowTheme.of(context).primaryBackground,
+                          image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: Image.asset(
+                              'assets/images/Escape_Logo_White_and_Black_(1).png',
+                            ).image,
+                          ),
                           borderRadius: BorderRadius.circular(8.0),
                           shape: BoxShape.rectangle,
                         ),
                         alignment: AlignmentDirectional(0.0, 0.0),
                         child: Padding(
                           padding: EdgeInsets.all(2.0),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(6.0),
-                            child: Image.network(
-                              'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjJ8fHByb2ZpbGV8ZW58MHx8MHx8&auto=format&fit=crop&w=900&q=60',
-                              width: 125.8,
-                              height: 219.8,
-                              fit: BoxFit.cover,
+                          child: Hero(
+                            tag: FFAppState().moodPhoto,
+                            transitionOnUserGestures: true,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(6.0),
+                              child: Image.network(
+                                FFAppState().moodPhoto,
+                                width: double.infinity,
+                                height: 219.8,
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
                         ),
@@ -152,6 +170,23 @@ class _MoodTrackResultComponentWidgetState
                                     ),
                                   ),
                                 ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 4.0, 0.0, 0.0),
+                                  child: Text(
+                                    getCurrentTimestamp.toString(),
+                                    style: FlutterFlowTheme.of(context)
+                                        .labelSmall
+                                        .override(
+                                          fontFamily: 'WorkSans',
+                                          color: FlutterFlowTheme.of(context)
+                                              .alternate,
+                                          fontSize: 14.0,
+                                          letterSpacing: 0.0,
+                                          useGoogleFonts: false,
+                                        ),
+                                  ),
+                                ),
                               ],
                             ),
                           ),
@@ -180,43 +215,46 @@ class _MoodTrackResultComponentWidgetState
                   endIndent: 16.0,
                   color: FlutterFlowTheme.of(context).primaryBackground,
                 ),
-                Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 16.0),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        FFLocalizations.of(context).getText(
-                          '15ijl7t1' /* Lucille Mood Tracking Feedback */,
-                        ),
-                        style: FlutterFlowTheme.of(context).titleLarge.override(
-                              fontFamily: 'The Seasons',
-                              color: FlutterFlowTheme.of(context).primary,
-                              fontSize: 18.0,
-                              letterSpacing: 0.0,
-                              fontWeight: FontWeight.bold,
-                              useGoogleFonts: false,
-                            ),
-                      ),
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
-                        child: Text(
+                Flexible(
+                  flex: 1,
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 16.0),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
                           FFLocalizations.of(context).getText(
-                            'tfu1zy5x' /* Your mood seems to be quite ti... */,
+                            '15ijl7t1' /* Lucille Deep Feelings Feedback */,
                           ),
                           style:
-                              FlutterFlowTheme.of(context).labelMedium.override(
-                                    fontFamily: 'WorkSans',
+                              FlutterFlowTheme.of(context).titleLarge.override(
+                                    fontFamily: 'The Seasons',
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    fontSize: 18.0,
                                     letterSpacing: 0.0,
-                                    fontWeight: FontWeight.normal,
+                                    fontWeight: FontWeight.bold,
                                     useGoogleFonts: false,
                                   ),
                         ),
-                      ),
-                    ],
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 12.0, 0.0, 0.0),
+                          child: Text(
+                            FFAppState().deepFeelings,
+                            style: FlutterFlowTheme.of(context)
+                                .labelMedium
+                                .override(
+                                  fontFamily: 'WorkSans',
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.normal,
+                                  useGoogleFonts: false,
+                                ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 Padding(
@@ -230,8 +268,11 @@ class _MoodTrackResultComponentWidgetState
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 12.0, 0.0),
                         child: FFButtonWidget(
-                          onPressed: () {
-                            print('Button pressed ...');
+                          onPressed: () async {
+                            logFirebaseEvent(
+                                'MOOD_TRACK_RESULT_COMPONENT_CANCEL_BTN_O');
+                            logFirebaseEvent('Button_bottom_sheet');
+                            Navigator.pop(context);
                           },
                           text: FFLocalizations.of(context).getText(
                             'yabyy3rj' /* Cancel */,
@@ -263,8 +304,37 @@ class _MoodTrackResultComponentWidgetState
                         ),
                       ),
                       FFButtonWidget(
-                        onPressed: () {
-                          print('Button pressed ...');
+                        onPressed: () async {
+                          logFirebaseEvent(
+                              'MOOD_TRACK_RESULT_COMPONENT_HELP_FROM_LU');
+                          logFirebaseEvent('Button_gemini');
+                          await geminiGenerateText(
+                            context,
+                            'Your name is Lucille, a helpful self care AI Agent. Our user is feeling, \"${widget!.moodTrackingResults}\" and needs help making change.',
+                          ).then((generatedText) {
+                            safeSetState(() =>
+                                _model.moodTrackingLucilleHelp = generatedText);
+                          });
+
+                          logFirebaseEvent('Button_navigate_to');
+
+                          context.pushNamed(
+                            'LucilleChatAIPage',
+                            queryParameters: {
+                              'deepFeelingsGemini': serializeParam(
+                                '',
+                                ParamType.String,
+                              ),
+                            }.withoutNulls,
+                            extra: <String, dynamic>{
+                              kTransitionInfoKey: TransitionInfo(
+                                hasTransition: true,
+                                transitionType: PageTransitionType.fade,
+                              ),
+                            },
+                          );
+
+                          safeSetState(() {});
                         },
                         text: FFLocalizations.of(context).getText(
                           '08xdyd2e' /* Help From Lucille */,

@@ -169,14 +169,21 @@ service cloud.firestore {
       allow delete: if false;
     }
 
-    match /History/{parent}/historyItems/{document} {
+    match /Conversations/{document} {
       allow create: if true;
       allow read: if true;
       allow write: if false;
       allow delete: if false;
     }
 
-    match /{path=**}/historyItems/{document} {
+    match /SelfCareGoals/{parent}/Journal/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if true;
+    }
+
+    match /{path=**}/Journal/{document} {
       allow read: if true;
     }
 

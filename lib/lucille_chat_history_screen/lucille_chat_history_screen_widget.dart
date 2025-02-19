@@ -1,12 +1,8 @@
 import '/auth/firebase_auth/auth_util.dart';
-import '/backend/backend.dart';
-import '/components/empty_data_widget.dart';
-import '/components/history_item_view_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
-import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -45,8 +41,6 @@ class _LucilleChatHistoryScreenWidgetState
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -100,13 +94,36 @@ class _LucilleChatHistoryScreenWidgetState
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 120.0, 0.0, 8.0, 0.0),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(8.0),
-                              child: Image.asset(
-                                'assets/images/Logo_ESCAPE_DarkBlue.png',
-                                width: MediaQuery.sizeOf(context).width * 0.352,
-                                height: 156.0,
-                                fit: BoxFit.contain,
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                logFirebaseEvent(
+                                    'LUCILLE_CHAT_HISTORY_SCREEN_Image_vgjyfr');
+                                logFirebaseEvent('Image_navigate_to');
+
+                                context.pushNamed(
+                                  'HomeVersion2',
+                                  extra: <String, dynamic>{
+                                    kTransitionInfoKey: TransitionInfo(
+                                      hasTransition: true,
+                                      transitionType: PageTransitionType.fade,
+                                      duration: Duration(milliseconds: 7),
+                                    ),
+                                  },
+                                );
+                              },
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(8.0),
+                                child: Image.asset(
+                                  'assets/images/Logo_ESCAPE_DarkBlue.png',
+                                  width:
+                                      MediaQuery.sizeOf(context).width * 0.352,
+                                  height: 156.0,
+                                  fit: BoxFit.contain,
+                                ),
                               ),
                             ),
                           ),
@@ -166,100 +183,9 @@ class _LucilleChatHistoryScreenWidgetState
                       ),
                     ),
                   ),
-                  Expanded(
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          0.0,
-                          valueOrDefault<double>(
-                            functions.getVerticalSize(
-                                MediaQuery.sizeOf(context).height, 16.0),
-                            0.0,
-                          ),
-                          0.0,
-                          0.0),
-                      child: StreamBuilder<List<HistoryItemsRecord>>(
-                        stream: queryHistoryItemsRecord(
-                          parent: FFAppState().historyReference,
-                          queryBuilder: (historyItemsRecord) =>
-                              historyItemsRecord.orderBy('historyId',
-                                  descending: true),
-                        ),
-                        builder: (context, snapshot) {
-                          // Customize what your widget looks like when it's loading.
-                          if (!snapshot.hasData) {
-                            return Center(
-                              child: SizedBox(
-                                width: 50.0,
-                                height: 50.0,
-                                child: CircularProgressIndicator(
-                                  valueColor: AlwaysStoppedAnimation<Color>(
-                                    FlutterFlowTheme.of(context).primary,
-                                  ),
-                                ),
-                              ),
-                            );
-                          }
-                          List<HistoryItemsRecord>
-                              listViewHistoryItemsRecordList = snapshot.data!;
-                          if (listViewHistoryItemsRecordList.isEmpty) {
-                            return EmptyDataWidget();
-                          }
-
-                          return ListView.builder(
-                            padding: EdgeInsets.zero,
-                            primary: false,
-                            shrinkWrap: true,
-                            scrollDirection: Axis.vertical,
-                            itemCount: listViewHistoryItemsRecordList.length,
-                            itemBuilder: (context, listViewIndex) {
-                              final listViewHistoryItemsRecord =
-                                  listViewHistoryItemsRecordList[listViewIndex];
-                              return Container(
-                                height: 200.0,
-                                child: InkWell(
-                                  splashColor: Colors.transparent,
-                                  focusColor: Colors.transparent,
-                                  hoverColor: Colors.transparent,
-                                  highlightColor: Colors.transparent,
-                                  onTap: () async {
-                                    logFirebaseEvent(
-                                        'LUCILLE_CHAT_HISTORY_SCREEN_Container_ja');
-                                    logFirebaseEvent(
-                                        'HistoryItemView_navigate_to');
-
-                                    context.pushNamed(
-                                      'ThreadScreen',
-                                      queryParameters: {
-                                        'collectionId': serializeParam(
-                                          listViewHistoryItemsRecord
-                                              .data.lastOrNull?.created,
-                                          ParamType.int,
-                                        ),
-                                        'thread': serializeParam(
-                                          listViewHistoryItemsRecord,
-                                          ParamType.Document,
-                                        ),
-                                      }.withoutNulls,
-                                      extra: <String, dynamic>{
-                                        'thread': listViewHistoryItemsRecord,
-                                      },
-                                    );
-                                  },
-                                  child: HistoryItemViewWidget(
-                                    key: Key(
-                                        'Keyjaa_${listViewIndex}_of_${listViewHistoryItemsRecordList.length}'),
-                                    chat: listViewHistoryItemsRecord
-                                        .data.lastOrNull!,
-                                    chatDocument:
-                                        listViewHistoryItemsRecord.reference,
-                                  ),
-                                ),
-                              );
-                            },
-                          );
-                        },
-                      ),
-                    ),
+                  Container(
+                    height: 687.3,
+                    decoration: BoxDecoration(),
                   ),
                 ],
               ),

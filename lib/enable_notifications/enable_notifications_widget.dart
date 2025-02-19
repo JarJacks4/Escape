@@ -74,7 +74,7 @@ class _EnableNotificationsWidgetState extends State<EnableNotificationsWidget> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8.0),
                     child: Image.asset(
-                      'assets/images/Erica_Anderson.gif',
+                      'assets/images/Clean_and_organic_AI_interface_by_milkinside.gif',
                       width: double.infinity,
                       height: double.infinity,
                       fit: BoxFit.cover,
@@ -102,10 +102,7 @@ class _EnableNotificationsWidgetState extends State<EnableNotificationsWidget> {
                         )
                       ],
                       gradient: LinearGradient(
-                        colors: [
-                          Color(0x401D2428),
-                          FlutterFlowTheme.of(context).alternate
-                        ],
+                        colors: [Color(0xAFD0E3F7), Color(0x97F0831A)],
                         stops: [0.0, 1.0],
                         begin: AlignmentDirectional(0.0, -1.0),
                         end: AlignmentDirectional(0, 1.0),
@@ -153,7 +150,7 @@ class _EnableNotificationsWidgetState extends State<EnableNotificationsWidget> {
                                                 fontFamily: 'WorkSans',
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .primary,
+                                                        .alternate,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                                 useGoogleFonts: false,
@@ -174,7 +171,7 @@ class _EnableNotificationsWidgetState extends State<EnableNotificationsWidget> {
                                                 fontFamily: 'WorkSans',
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .secondary,
+                                                        .tertiary,
                                                 letterSpacing: 0.0,
                                                 useGoogleFonts: false,
                                               ),
@@ -216,7 +213,7 @@ class _EnableNotificationsWidgetState extends State<EnableNotificationsWidget> {
                                                 fontFamily: 'WorkSans',
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .accent3,
+                                                        .secondaryBackground,
                                                 letterSpacing: 0.0,
                                                 useGoogleFonts: false,
                                               ),

@@ -60,12 +60,6 @@ class FFAppState extends ChangeNotifier {
     TherapistLocation.insert(index, value);
   }
 
-  DocumentReference? _historyReference;
-  DocumentReference? get historyReference => _historyReference;
-  set historyReference(DocumentReference? value) {
-    _historyReference = value;
-  }
-
   List<String> _newListLike = [];
   List<String> get newListLike => _newListLike;
   set newListLike(List<String> value) {
@@ -107,38 +101,99 @@ class FFAppState extends ChangeNotifier {
     _isLiked = value;
   }
 
-  List<String> _newListBookmarks = [];
-  List<String> get newListBookmarks => _newListBookmarks;
-  set newListBookmarks(List<String> value) {
-    _newListBookmarks = value;
+  String _moods = '';
+  String get moods => _moods;
+  set moods(String value) {
+    _moods = value;
   }
 
-  void addToNewListBookmarks(String value) {
-    newListBookmarks.add(value);
+  List<String> _interests = [];
+  List<String> get interests => _interests;
+  set interests(List<String> value) {
+    _interests = value;
   }
 
-  void removeFromNewListBookmarks(String value) {
-    newListBookmarks.remove(value);
+  void addToInterests(String value) {
+    interests.add(value);
   }
 
-  void removeAtIndexFromNewListBookmarks(int index) {
-    newListBookmarks.removeAt(index);
+  void removeFromInterests(String value) {
+    interests.remove(value);
   }
 
-  void updateNewListBookmarksAtIndex(
+  void removeAtIndexFromInterests(int index) {
+    interests.removeAt(index);
+  }
+
+  void updateInterestsAtIndex(
     int index,
     String Function(String) updateFn,
   ) {
-    newListBookmarks[index] = updateFn(_newListBookmarks[index]);
+    interests[index] = updateFn(_interests[index]);
   }
 
-  void insertAtIndexInNewListBookmarks(int index, String value) {
-    newListBookmarks.insert(index, value);
+  void insertAtIndexInInterests(int index, String value) {
+    interests.insert(index, value);
   }
 
-  bool _isBookmarked = false;
-  bool get isBookmarked => _isBookmarked;
-  set isBookmarked(bool value) {
-    _isBookmarked = value;
+  DocumentReference? _userProfile;
+  DocumentReference? get userProfile => _userProfile;
+  set userProfile(DocumentReference? value) {
+    _userProfile = value;
+  }
+
+  String _systemMessage =
+      'You are a self-care expert and helpful assistant. Your name is Lucille and you answer people\'s queries regarding self care and well being. But you are NOT a medical doctor so always add a disclaimer with where required andrefrain from giving medical advise. If someone is suicidal please refer them tto suicide helplines.';
+  String get systemMessage => _systemMessage;
+  set systemMessage(String value) {
+    _systemMessage = value;
+  }
+
+  bool _expandMenu = true;
+  bool get expandMenu => _expandMenu;
+  set expandMenu(bool value) {
+    _expandMenu = value;
+  }
+
+  DocumentReference? _activeChat;
+  DocumentReference? get activeChat => _activeChat;
+  set activeChat(DocumentReference? value) {
+    _activeChat = value;
+  }
+
+  String _newName = '';
+  String get newName => _newName;
+  set newName(String value) {
+    _newName = value;
+  }
+
+  String _moodPhoto = '';
+  String get moodPhoto => _moodPhoto;
+  set moodPhoto(String value) {
+    _moodPhoto = value;
+  }
+
+  bool _isCompletedSelfCareTask = false;
+  bool get isCompletedSelfCareTask => _isCompletedSelfCareTask;
+  set isCompletedSelfCareTask(bool value) {
+    _isCompletedSelfCareTask = value;
+  }
+
+  String _ImprovingThoughts = '';
+  String get ImprovingThoughts => _ImprovingThoughts;
+  set ImprovingThoughts(String value) {
+    _ImprovingThoughts = value;
+  }
+
+  int _pointsEarned = 0;
+  int get pointsEarned => _pointsEarned;
+  set pointsEarned(int value) {
+    _pointsEarned = value;
+  }
+
+  String _deepFeelings = '';
+  String get deepFeelings => _deepFeelings;
+  set deepFeelings(String value) {
+    _deepFeelings = value;
   }
 }

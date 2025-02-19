@@ -1,8 +1,11 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:async';
 import 'dart:ui';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -75,7 +78,7 @@ class _DisplayNameWidgetState extends State<DisplayNameWidget> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8.0),
                     child: Image.asset(
-                      'assets/images/Erica_Anderson.gif',
+                      'assets/images/Clean_and_organic_AI_interface_by_milkinside.gif',
                       width: double.infinity,
                       height: double.infinity,
                       fit: BoxFit.cover,
@@ -103,10 +106,7 @@ class _DisplayNameWidgetState extends State<DisplayNameWidget> {
                         )
                       ],
                       gradient: LinearGradient(
-                        colors: [
-                          Color(0x401D2428),
-                          FlutterFlowTheme.of(context).alternate
-                        ],
+                        colors: [Color(0xAFD0E3F7), Color(0x97F0831A)],
                         stops: [0.0, 1.0],
                         begin: AlignmentDirectional(0.0, -1.0),
                         end: AlignmentDirectional(0, 1.0),
@@ -154,7 +154,7 @@ class _DisplayNameWidgetState extends State<DisplayNameWidget> {
                                                 fontFamily: 'WorkSans',
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .primary,
+                                                        .alternate,
                                                 letterSpacing: 0.0,
                                                 useGoogleFonts: false,
                                               ),
@@ -174,7 +174,7 @@ class _DisplayNameWidgetState extends State<DisplayNameWidget> {
                                                 fontFamily: 'WorkSans',
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .secondary,
+                                                        .tertiary,
                                                 letterSpacing: 0.0,
                                                 useGoogleFonts: false,
                                               ),
@@ -248,7 +248,7 @@ class _DisplayNameWidgetState extends State<DisplayNameWidget> {
                                             filled: true,
                                             fillColor:
                                                 FlutterFlowTheme.of(context)
-                                                    .secondary,
+                                                    .primary,
                                             contentPadding:
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 16.0, 16.0, 8.0),
@@ -302,6 +302,12 @@ class _DisplayNameWidgetState extends State<DisplayNameWidget> {
                                   onPressed: () async {
                                     logFirebaseEvent(
                                         'DISPLAY_NAME_CONTINUE_TO_PROFILE_DETAILS');
+                                    logFirebaseEvent('Button_backend_call');
+
+                                    await currentUserReference!
+                                        .update(createUsersRecordData(
+                                      displayName: _model.textController.text,
+                                    ));
                                     logFirebaseEvent('Button_navigate_to');
 
                                     context.pushNamed(
@@ -326,13 +332,14 @@ class _DisplayNameWidgetState extends State<DisplayNameWidget> {
                                         0.0, 0.0, 0.0, 0.0),
                                     iconPadding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
-                                    color: FlutterFlowTheme.of(context).accent3,
+                                    color:
+                                        FlutterFlowTheme.of(context).alternate,
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleMedium
                                         .override(
                                           fontFamily: 'WorkSans',
                                           color: FlutterFlowTheme.of(context)
-                                              .alternate,
+                                              .accent1,
                                           letterSpacing: 0.0,
                                           useGoogleFonts: false,
                                         ),
@@ -342,8 +349,10 @@ class _DisplayNameWidgetState extends State<DisplayNameWidget> {
                                       width: 1.0,
                                     ),
                                     borderRadius: BorderRadius.circular(50.0),
-                                    hoverColor: FlutterFlowTheme.of(context)
-                                        .primaryText,
+                                    hoverColor:
+                                        FlutterFlowTheme.of(context).primary,
+                                    hoverTextColor:
+                                        FlutterFlowTheme.of(context).accent1,
                                   ),
                                 ),
                               ),

@@ -1,9 +1,9 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/gemini/gemini.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
-import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -12,7 +12,12 @@ import 'lucille_chat_a_i_page_model.dart';
 export 'lucille_chat_a_i_page_model.dart';
 
 class LucilleChatAIPageWidget extends StatefulWidget {
-  const LucilleChatAIPageWidget({super.key});
+  const LucilleChatAIPageWidget({
+    super.key,
+    this.deepFeelingsGemini,
+  });
+
+  final String? deepFeelingsGemini;
 
   @override
   State<LucilleChatAIPageWidget> createState() =>
@@ -208,8 +213,11 @@ class _LucilleChatAIPageWidgetState extends State<LucilleChatAIPageWidget> {
                                   children: [
                                     Builder(
                                       builder: (context) {
-                                        final question =
-                                            FFAppConstants.questions.toList();
+                                        final question = FFAppConstants
+                                            .questions
+                                            .toList()
+                                            .take(3)
+                                            .toList();
 
                                         return Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -230,19 +238,7 @@ class _LucilleChatAIPageWidgetState extends State<LucilleChatAIPageWidget> {
                                                     'Card_navigate_to');
 
                                                 context.pushNamed(
-                                                  'ThreadScreen',
-                                                  queryParameters: {
-                                                    'collectionId':
-                                                        serializeParam(
-                                                      getCurrentTimestamp
-                                                          .millisecondsSinceEpoch,
-                                                      ParamType.int,
-                                                    ),
-                                                    'question': serializeParam(
-                                                      questionIndex.toString(),
-                                                      ParamType.String,
-                                                    ),
-                                                  }.withoutNulls,
+                                                  'LucilleChatPage',
                                                   extra: <String, dynamic>{
                                                     kTransitionInfoKey:
                                                         TransitionInfo(
@@ -267,15 +263,7 @@ class _LucilleChatAIPageWidgetState extends State<LucilleChatAIPageWidget> {
                                                           8.0),
                                                 ),
                                                 child: Padding(
-                                                  padding: EdgeInsets.all(
-                                                      valueOrDefault<double>(
-                                                    functions.getVerticalSize(
-                                                        MediaQuery.sizeOf(
-                                                                context)
-                                                            .height,
-                                                        7.0),
-                                                    0.0,
-                                                  )),
+                                                  padding: EdgeInsets.all(8.0),
                                                   child: Text(
                                                     questionItem,
                                                     style: FlutterFlowTheme.of(
@@ -300,8 +288,11 @@ class _LucilleChatAIPageWidgetState extends State<LucilleChatAIPageWidget> {
                                     ),
                                     Builder(
                                       builder: (context) {
-                                        final question =
-                                            FFAppConstants.questions.toList();
+                                        final question = FFAppConstants
+                                            .questions2
+                                            .toList()
+                                            .take(3)
+                                            .toList();
 
                                         return Row(
                                           mainAxisSize: MainAxisSize.min,
@@ -322,19 +313,7 @@ class _LucilleChatAIPageWidgetState extends State<LucilleChatAIPageWidget> {
                                                     'Card_navigate_to');
 
                                                 context.pushNamed(
-                                                  'ThreadScreen',
-                                                  queryParameters: {
-                                                    'collectionId':
-                                                        serializeParam(
-                                                      getCurrentTimestamp
-                                                          .millisecondsSinceEpoch,
-                                                      ParamType.int,
-                                                    ),
-                                                    'question': serializeParam(
-                                                      questionIndex.toString(),
-                                                      ParamType.String,
-                                                    ),
-                                                  }.withoutNulls,
+                                                  'LucilleChatPage',
                                                   extra: <String, dynamic>{
                                                     kTransitionInfoKey:
                                                         TransitionInfo(
@@ -359,7 +338,7 @@ class _LucilleChatAIPageWidgetState extends State<LucilleChatAIPageWidget> {
                                                           8.0),
                                                 ),
                                                 child: Padding(
-                                                  padding: EdgeInsets.all(5.0),
+                                                  padding: EdgeInsets.all(8.0),
                                                   child: Text(
                                                     questionItem,
                                                     style: FlutterFlowTheme.of(
@@ -384,8 +363,11 @@ class _LucilleChatAIPageWidgetState extends State<LucilleChatAIPageWidget> {
                                     ),
                                     Builder(
                                       builder: (context) {
-                                        final question =
-                                            FFAppConstants.questions.toList();
+                                        final question = FFAppConstants
+                                            .questions3
+                                            .toList()
+                                            .take(3)
+                                            .toList();
 
                                         return Row(
                                           mainAxisSize: MainAxisSize.min,
@@ -406,19 +388,7 @@ class _LucilleChatAIPageWidgetState extends State<LucilleChatAIPageWidget> {
                                                     'Card_navigate_to');
 
                                                 context.pushNamed(
-                                                  'ThreadScreen',
-                                                  queryParameters: {
-                                                    'collectionId':
-                                                        serializeParam(
-                                                      getCurrentTimestamp
-                                                          .millisecondsSinceEpoch,
-                                                      ParamType.int,
-                                                    ),
-                                                    'question': serializeParam(
-                                                      questionIndex.toString(),
-                                                      ParamType.String,
-                                                    ),
-                                                  }.withoutNulls,
+                                                  'LucilleChatPage',
                                                   extra: <String, dynamic>{
                                                     kTransitionInfoKey:
                                                         TransitionInfo(
@@ -443,7 +413,7 @@ class _LucilleChatAIPageWidgetState extends State<LucilleChatAIPageWidget> {
                                                           8.0),
                                                 ),
                                                 child: Padding(
-                                                  padding: EdgeInsets.all(5.0),
+                                                  padding: EdgeInsets.all(8.0),
                                                   child: Text(
                                                     questionItem,
                                                     style: FlutterFlowTheme.of(
@@ -487,16 +457,18 @@ class _LucilleChatAIPageWidgetState extends State<LucilleChatAIPageWidget> {
                       onTap: () async {
                         logFirebaseEvent(
                             'LUCILLE_CHAT_A_I_Container_p2kl8deb_ON_T');
+                        logFirebaseEvent('Container_gemini');
+                        await geminiGenerateText(
+                          context,
+                          widget!.deepFeelingsGemini!,
+                        ).then((generatedText) {
+                          safeSetState(() => {});
+                        });
+
                         logFirebaseEvent('Container_navigate_to');
 
                         context.pushNamed(
-                          'ThreadScreen',
-                          queryParameters: {
-                            'collectionId': serializeParam(
-                              getCurrentTimestamp.millisecondsSinceEpoch,
-                              ParamType.int,
-                            ),
-                          }.withoutNulls,
+                          'LucilleChatPage',
                           extra: <String, dynamic>{
                             kTransitionInfoKey: TransitionInfo(
                               hasTransition: true,
@@ -517,23 +489,7 @@ class _LucilleChatAIPageWidgetState extends State<LucilleChatAIPageWidget> {
                           ),
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              valueOrDefault<double>(
-                                functions.getHorizontalSize(
-                                    MediaQuery.sizeOf(context).width, 22.0),
-                                0.0,
-                              ),
-                              valueOrDefault<double>(
-                                functions.getVerticalSize(
-                                    MediaQuery.sizeOf(context).height, 14.0),
-                                0.0,
-                              ),
-                              0.0,
-                              valueOrDefault<double>(
-                                functions.getVerticalSize(
-                                    MediaQuery.sizeOf(context).height, 14.0),
-                                0.0,
-                              )),
+                          padding: EdgeInsets.all(22.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
                               'c22qc0rt' /* Ask anything... */,

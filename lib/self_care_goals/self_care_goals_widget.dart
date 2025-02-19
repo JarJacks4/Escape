@@ -75,7 +75,7 @@ class _SelfCareGoalsWidgetState extends State<SelfCareGoalsWidget> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8.0),
                     child: Image.asset(
-                      'assets/images/Erica_Anderson.gif',
+                      'assets/images/Clean_and_organic_AI_interface_by_milkinside.gif',
                       width: double.infinity,
                       height: double.infinity,
                       fit: BoxFit.cover,
@@ -103,10 +103,7 @@ class _SelfCareGoalsWidgetState extends State<SelfCareGoalsWidget> {
                         )
                       ],
                       gradient: LinearGradient(
-                        colors: [
-                          Color(0x401D2428),
-                          FlutterFlowTheme.of(context).alternate
-                        ],
+                        colors: [Color(0xAFD0E3F7), Color(0x97F0831A)],
                         stops: [0.0, 1.0],
                         begin: AlignmentDirectional(0.0, -1.0),
                         end: AlignmentDirectional(0, 1.0),
@@ -154,7 +151,7 @@ class _SelfCareGoalsWidgetState extends State<SelfCareGoalsWidget> {
                                                 fontFamily: 'WorkSans',
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .primary,
+                                                        .secondaryBackground,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                                 useGoogleFonts: false,
@@ -175,7 +172,7 @@ class _SelfCareGoalsWidgetState extends State<SelfCareGoalsWidget> {
                                                 fontFamily: 'WorkSans',
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .secondary,
+                                                        .tertiary,
                                                 letterSpacing: 0.0,
                                                 useGoogleFonts: false,
                                               ),
@@ -229,7 +226,7 @@ class _SelfCareGoalsWidgetState extends State<SelfCareGoalsWidget> {
                                               fontFamily: 'WorkSans',
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .primary,
+                                                      .alternate,
                                               letterSpacing: 0.0,
                                               useGoogleFonts: false,
                                             ),
@@ -240,7 +237,7 @@ class _SelfCareGoalsWidgetState extends State<SelfCareGoalsWidget> {
                                                   fontFamily: 'WorkSans',
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .secondary,
+                                                      .alternate,
                                                   fontSize: 16.0,
                                                   letterSpacing: 0.0,
                                                   useGoogleFonts: false,
@@ -311,13 +308,14 @@ class _SelfCareGoalsWidgetState extends State<SelfCareGoalsWidget> {
                                         0.0, 0.0, 0.0, 0.0),
                                     iconPadding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
-                                    color: FlutterFlowTheme.of(context).accent3,
+                                    color:
+                                        FlutterFlowTheme.of(context).alternate,
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleMedium
                                         .override(
                                           fontFamily: 'WorkSans',
                                           color: FlutterFlowTheme.of(context)
-                                              .alternate,
+                                              .primary,
                                           letterSpacing: 0.0,
                                           useGoogleFonts: false,
                                         ),
@@ -327,8 +325,10 @@ class _SelfCareGoalsWidgetState extends State<SelfCareGoalsWidget> {
                                       width: 1.0,
                                     ),
                                     borderRadius: BorderRadius.circular(50.0),
-                                    hoverColor: FlutterFlowTheme.of(context)
-                                        .primaryText,
+                                    hoverColor:
+                                        FlutterFlowTheme.of(context).primary,
+                                    hoverTextColor:
+                                        FlutterFlowTheme.of(context).accent1,
                                   ),
                                 ),
                               ),
