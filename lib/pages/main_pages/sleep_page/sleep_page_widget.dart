@@ -243,81 +243,89 @@ class _SleepPageWidgetState extends State<SleepPageWidget>
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        Container(
-                          width: double.infinity,
-                          child: Stack(
-                            children: [
-                              Hero(
-                                tag: 'gifBackground',
-                                transitionOnUserGestures: true,
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.only(
-                                    bottomLeft: Radius.circular(15.0),
-                                    bottomRight: Radius.circular(15.0),
-                                    topLeft: Radius.circular(0.0),
-                                    topRight: Radius.circular(0.0),
-                                  ),
-                                  child: Image.asset(
-                                    'assets/images/download_(4).gif',
-                                    width: double.infinity,
-                                    height: 238.0,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                height: 200.0,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    15.0, 40.0, 15.0, 0.0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    FlutterFlowIconButton(
-                                      borderColor: Colors.transparent,
-                                      borderRadius: 30.0,
-                                      borderWidth: 1.0,
-                                      buttonSize: 50.0,
-                                      fillColor: Color(0xB5E7C8E7),
-                                      icon: Icon(
-                                        Icons.chevron_left,
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        size: 30.0,
-                                      ),
-                                      onPressed: () async {
-                                        logFirebaseEvent(
-                                            'SLEEP_PAGE_PAGE_chevron_left_ICN_ON_TAP');
-                                        logFirebaseEvent(
-                                            'IconButton_navigate_back');
-                                        context.safePop();
-                                      },
-                                    ),
-                                    Container(
-                                      width: MediaQuery.sizeOf(context).width *
-                                          0.2,
-                                      height: MediaQuery.sizeOf(context).width *
-                                          0.2,
-                                      clipBehavior: Clip.antiAlias,
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
+                        Flexible(
+                          flex: 1,
+                          child: Container(
+                            width: double.infinity,
+                            child: Stack(
+                              children: [
+                                Opacity(
+                                  opacity: 0.7,
+                                  child: Hero(
+                                    tag: 'gifBackground',
+                                    transitionOnUserGestures: true,
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.only(
+                                        bottomLeft: Radius.circular(15.0),
+                                        bottomRight: Radius.circular(15.0),
+                                        topLeft: Radius.circular(0.0),
+                                        topRight: Radius.circular(0.0),
                                       ),
                                       child: Image.asset(
-                                        'assets/images/Logo_ESCAPE_White.png',
-                                        fit: BoxFit.contain,
+                                        'assets/images/download_(16).gif',
+                                        width: double.infinity,
+                                        height: 238.0,
+                                        fit: BoxFit.cover,
                                       ),
                                     ),
-                                  ],
+                                  ),
                                 ),
-                              ),
-                            ],
+                                Container(
+                                  height: 200.0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      15.0, 40.0, 15.0, 0.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      FlutterFlowIconButton(
+                                        borderColor: Colors.transparent,
+                                        borderRadius: 30.0,
+                                        borderWidth: 1.0,
+                                        buttonSize: 50.0,
+                                        fillColor: Color(0xB5E7C8E7),
+                                        icon: Icon(
+                                          Icons.chevron_left,
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                          size: 30.0,
+                                        ),
+                                        onPressed: () async {
+                                          logFirebaseEvent(
+                                              'SLEEP_PAGE_PAGE_chevron_left_ICN_ON_TAP');
+                                          logFirebaseEvent(
+                                              'IconButton_navigate_back');
+                                          context.safePop();
+                                        },
+                                      ),
+                                      Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.2,
+                                        height:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.2,
+                                        clipBehavior: Clip.antiAlias,
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                        ),
+                                        child: Image.asset(
+                                          'assets/images/Logo_ESCAPE_White.png',
+                                          fit: BoxFit.contain,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                         Align(
@@ -550,7 +558,10 @@ class _SleepPageWidgetState extends State<SleepPageWidget>
                                                                             getJsonField(
                                                                               meditationsItem,
                                                                               r'''$.title''',
-                                                                            ).toString(),
+                                                                            ).toString().maybeHandleOverflow(
+                                                                                  maxChars: 50,
+                                                                                  replacement: '…',
+                                                                                ),
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'WorkSans',
                                                                                   color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -841,7 +852,7 @@ class _SleepPageWidgetState extends State<SleepPageWidget>
                                                                         .bodyMedium
                                                                         .override(
                                                                           fontFamily:
-                                                                              'WorkSans',
+                                                                              'The Seasons',
                                                                           letterSpacing:
                                                                               0.0,
                                                                           useGoogleFonts:
@@ -986,7 +997,7 @@ class _SleepPageWidgetState extends State<SleepPageWidget>
                                                                         .bodyMedium
                                                                         .override(
                                                                           fontFamily:
-                                                                              'WorkSans',
+                                                                              'The Seasons',
                                                                           letterSpacing:
                                                                               0.0,
                                                                           useGoogleFonts:
@@ -1135,7 +1146,7 @@ for Depression */
                                                                         .bodyMedium
                                                                         .override(
                                                                           fontFamily:
-                                                                              'WorkSans',
+                                                                              'The Seasons',
                                                                           letterSpacing:
                                                                               0.0,
                                                                           useGoogleFonts:

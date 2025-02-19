@@ -1,9 +1,11 @@
+import '/backend/gemini/gemini.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'mood_tracking_bottom_sheet_model.dart';
 export 'mood_tracking_bottom_sheet_model.dart';
@@ -30,6 +32,9 @@ class _MoodTrackingBottomSheetWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => MoodTrackingBottomSheetModel());
+
+    _model.textController ??= TextEditingController();
+    _model.textFieldFocusNode ??= FocusNode();
   }
 
   @override
@@ -45,7 +50,7 @@ class _MoodTrackingBottomSheetWidgetState
       padding: EdgeInsetsDirectional.fromSTEB(0.0, 60.0, 0.0, 0.0),
       child: Container(
         width: MediaQuery.sizeOf(context).width * 1.0,
-        height: 764.77,
+        height: 998.7,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).primary,
           borderRadius: BorderRadius.only(
@@ -60,20 +65,27 @@ class _MoodTrackingBottomSheetWidgetState
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
+              Divider(
+                thickness: 3.0,
+                indent: 50.0,
+                endIndent: 50.0,
+                color: FlutterFlowTheme.of(context).accent1,
+              ),
+              Lottie.asset(
+                'assets/jsons/Animation_-_1738955750147.json',
+                width: 250.5,
+                height: 175.23,
+                fit: BoxFit.contain,
+                animate: true,
+              ),
               Expanded(
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20.0, 8.0, 20.0, 0.0),
+                  padding: EdgeInsets.all(8.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Divider(
-                        thickness: 3.0,
-                        indent: 150.0,
-                        endIndent: 150.0,
-                        color: FlutterFlowTheme.of(context).accent1,
-                      ),
                       Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -81,17 +93,19 @@ class _MoodTrackingBottomSheetWidgetState
                           Expanded(
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 4.0, 0.0, 22.0),
+                                  0.0, 0.0, 0.0, 22.0),
                               child: Text(
                                 FFLocalizations.of(context).getText(
-                                  '342gr06s' /* Mood Tracker */,
+                                  '342gr06s' /* Lucille Would Like to Know: 
+H... */
+                                  ,
                                 ),
                                 textAlign: TextAlign.center,
                                 style: FlutterFlowTheme.of(context)
                                     .headlineMedium
                                     .override(
                                       fontFamily: 'The Seasons',
-                                      fontSize: 36.0,
+                                      fontSize: 28.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.bold,
                                       useGoogleFonts: false,
@@ -113,7 +127,7 @@ class _MoodTrackingBottomSheetWidgetState
                                     0.0, 8.0, 0.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
-                                    '3sedpdj1' /* Lucille does a daily Mood Chec... */,
+                                    '3sedpdj1' /* Simply type how you feel below... */,
                                   ),
                                   textAlign: TextAlign.center,
                                   style: FlutterFlowTheme.of(context)
@@ -134,136 +148,195 @@ class _MoodTrackingBottomSheetWidgetState
                         ),
                       ),
                       Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Container(
-                              width: 310.98,
-                              height: 310.98,
-                              decoration: BoxDecoration(
-                                color: Color(0xFFDBE2E7),
-                                image: DecorationImage(
-                                  fit: BoxFit.cover,
-                                  image: Image.asset(
-                                    'assets/images/addImage@2x.png',
-                                  ).image,
-                                ),
-                                shape: BoxShape.circle,
+                        padding: EdgeInsets.all(15.0),
+                        child: Container(
+                          width: double.infinity,
+                          child: TextFormField(
+                            controller: _model.textController,
+                            focusNode: _model.textFieldFocusNode,
+                            autofocus: false,
+                            obscureText: false,
+                            decoration: InputDecoration(
+                              isDense: true,
+                              labelText: FFLocalizations.of(context).getText(
+                                'g0jbwat0' /* Deep Feelings */,
                               ),
-                              child: Stack(
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsets.all(4.0),
-                                    child: Container(
-                                      width: 400.0,
-                                      height: 400.0,
-                                      clipBehavior: Clip.antiAlias,
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                      ),
-                                      child: Image.network(
-                                        'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDJ8fHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=900&q=60',
-                                      ),
-                                    ),
+                              labelStyle: FlutterFlowTheme.of(context)
+                                  .labelMedium
+                                  .override(
+                                    fontFamily: 'The Seasons',
+                                    letterSpacing: 0.0,
+                                    useGoogleFonts: false,
                                   ),
-                                  Padding(
-                                    padding: EdgeInsets.all(4.0),
-                                    child: Container(
-                                      width: 400.0,
-                                      height: 400.0,
-                                      clipBehavior: Clip.antiAlias,
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                      ),
-                                      child: Image.network(
-                                        'https://images.unsplash.com/photo-1535295972055-1c762f4483e5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHw1fHxBSSUyMG1vb2R8ZW58MHx8fHwxNzM3OTk0NzE0fDA&ixlib=rb-4.0.3&q=80&w=1080',
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
+                              hintText: FFLocalizations.of(context).getText(
+                                '96uol743' /* Input Your Deep Feelings Here.... */,
+                              ),
+                              hintStyle: FlutterFlowTheme.of(context)
+                                  .labelMedium
+                                  .override(
+                                    fontFamily: 'The Seasons',
+                                    letterSpacing: 0.0,
+                                    useGoogleFonts: false,
                                   ),
-                                ],
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color(0x00000000),
+                                  width: 1.0,
+                                ),
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color(0x00000000),
+                                  width: 1.0,
+                                ),
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                              errorBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: FlutterFlowTheme.of(context).error,
+                                  width: 1.0,
+                                ),
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                              focusedErrorBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: FlutterFlowTheme.of(context).error,
+                                  width: 1.0,
+                                ),
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                              filled: true,
+                              fillColor: Color(0xFFD0E3F7),
+                            ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'The Seasons',
+                                  letterSpacing: 0.0,
+                                  useGoogleFonts: false,
+                                ),
+                            maxLines: 5,
+                            cursorColor:
+                                FlutterFlowTheme.of(context).primaryText,
+                            validator: _model.textControllerValidator
+                                .asValidator(context),
+                          ),
+                        ),
+                      ),
+                      Align(
+                        alignment: AlignmentDirectional(0.0, 0.0),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 40.0, 0.0, 20.0),
+                          child: FFButtonWidget(
+                            onPressed: () async {
+                              logFirebaseEvent(
+                                  'MOOD_TRACKING_BOTTOM_SHEET_ANALYZE_FEELI');
+                              logFirebaseEvent('Button_gemini');
+                              await geminiGenerateText(
+                                context,
+                                _model.textController.text,
+                              ).then((generatedText) {
+                                safeSetState(() =>
+                                    _model.moodDeepFeelingsTextResponseBarCopy =
+                                        generatedText);
+                              });
+
+                              logFirebaseEvent('Button_update_app_state');
+                              FFAppState().moods =
+                                  _model.moodDeepFeelingsTextResponseBarCopy!;
+                              safeSetState(() {});
+                              logFirebaseEvent('Button_navigate_to');
+
+                              context.pushNamed(
+                                'AnalyzingMoodStatusPage',
+                                extra: <String, dynamic>{
+                                  kTransitionInfoKey: TransitionInfo(
+                                    hasTransition: true,
+                                    transitionType: PageTransitionType.fade,
+                                    duration: Duration(milliseconds: 2),
+                                  ),
+                                },
+                              );
+
+                              safeSetState(() {});
+                            },
+                            text: FFLocalizations.of(context).getText(
+                              'ptz96c8i' /* Analyze Feelings  */,
+                            ),
+                            icon: Icon(
+                              FFIcons.kheartCare2,
+                              size: 22.0,
+                            ),
+                            options: FFButtonOptions(
+                              width: 164.0,
+                              height: 50.0,
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  8.0, 0.0, 0.0, 0.0),
+                              color: FlutterFlowTheme.of(context).alternate,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleSmall
+                                  .override(
+                                    fontFamily: 'The Seasons',
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    fontSize: 16.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.bold,
+                                    useGoogleFonts: false,
+                                  ),
+                              elevation: 8.0,
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                                width: 1.0,
                               ),
                             ),
-                          ],
+                          ),
                         ),
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
-                            0.0, 90.0, 0.0, 44.0),
+                            0.0, 15.0, 0.0, 20.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            FFButtonWidget(
-                              onPressed: () async {
-                                logFirebaseEvent(
-                                    'MOOD_TRACKING_BOTTOM_SHEET_DISMISS_BTN_O');
-                                logFirebaseEvent('Button_bottom_sheet');
-                                Navigator.pop(context);
-                              },
-                              text: FFLocalizations.of(context).getText(
-                                'yfbzgn9m' /* Dismiss */,
-                              ),
-                              options: FFButtonOptions(
-                                width: 116.02,
-                                height: 50.0,
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                color: FlutterFlowTheme.of(context).accent3,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .labelMedium
-                                    .override(
-                                      fontFamily: 'The Seasons',
-                                      fontSize: 16.0,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.bold,
-                                      useGoogleFonts: false,
-                                    ),
-                                elevation: 2.0,
-                                borderSide: BorderSide(
-                                  color: Colors.transparent,
-                                  width: 1.0,
+                            Flexible(
+                              flex: 1,
+                              child: FFButtonWidget(
+                                onPressed: () async {
+                                  logFirebaseEvent(
+                                      'MOOD_TRACKING_BOTTOM_SHEET_DISMISS_BTN_O');
+                                  logFirebaseEvent('Button_bottom_sheet');
+                                  Navigator.pop(context);
+                                },
+                                text: FFLocalizations.of(context).getText(
+                                  'yfbzgn9m' /* Dismiss */,
                                 ),
-                              ),
-                            ),
-                            FFButtonWidget(
-                              onPressed: () async {
-                                logFirebaseEvent(
-                                    'MOOD_TRACKING_BOTTOM_SHEET_UPLOAD_BTN_ON');
-                                logFirebaseEvent('Button_bottom_sheet');
-                                Navigator.pop(context);
-                              },
-                              text: FFLocalizations.of(context).getText(
-                                'ptz96c8i' /* Upload */,
-                              ),
-                              options: FFButtonOptions(
-                                width: 150.0,
-                                height: 50.0,
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                color: FlutterFlowTheme.of(context).secondary,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .titleSmall
-                                    .override(
-                                      fontFamily: 'The Seasons',
-                                      color: FlutterFlowTheme.of(context)
-                                          .alternate,
-                                      fontSize: 16.0,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.bold,
-                                      useGoogleFonts: false,
-                                    ),
-                                elevation: 2.0,
-                                borderSide: BorderSide(
-                                  color: Colors.transparent,
-                                  width: 1.0,
+                                options: FFButtonOptions(
+                                  width: MediaQuery.sizeOf(context).width * 0.7,
+                                  height: 50.0,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  color: FlutterFlowTheme.of(context).accent3,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .override(
+                                        fontFamily: 'The Seasons',
+                                        fontSize: 16.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.bold,
+                                        useGoogleFonts: false,
+                                      ),
+                                  elevation: 8.0,
+                                  borderSide: BorderSide(
+                                    color: Colors.transparent,
+                                    width: 1.0,
+                                  ),
                                 ),
                               ),
                             ),

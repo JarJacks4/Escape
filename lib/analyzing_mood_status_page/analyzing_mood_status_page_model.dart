@@ -5,6 +5,7 @@ import 'dart:ui';
 import 'analyzing_mood_status_page_widget.dart'
     show AnalyzingMoodStatusPageWidget;
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 

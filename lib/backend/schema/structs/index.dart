@@ -1,10 +1,9 @@
 export '/backend/schema/util/schema_util.dart';
 
-export 'answer_model_struct.dart';
-export 'chat_model_struct.dart';
-export 'choices_model_struct.dart';
 export 'image_helper_struct.dart';
-export 'message_model_struct.dart';
+export 'message_struct.dart';
+export 'model_configuration_struct.dart';
+export 'user_profile_struct.dart';
 export 'you_tube_data_a_p_i_struct.dart';
 export 'default_thumbnails_struct.dart';
 export 'high_struct.dart';

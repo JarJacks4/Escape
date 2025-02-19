@@ -76,6 +76,16 @@ class UsersRecord extends FirestoreRecord {
   bool get isSubscribed => _isSubscribed ?? false;
   bool hasIsSubscribed() => _isSubscribed != null;
 
+  // "Title" field.
+  String? _title;
+  String get title => _title ?? '';
+  bool hasTitle() => _title != null;
+
+  // "RoleChat" field.
+  String? _roleChat;
+  String get roleChat => _roleChat ?? '';
+  bool hasRoleChat() => _roleChat != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _photoUrl = snapshotData['photo_url'] as String?;
@@ -90,6 +100,8 @@ class UsersRecord extends FirestoreRecord {
         snapshotData['favoriteTimeToMeditate'] as DateTime?;
     _isSubscriber = snapshotData['isSubscriber'] as DocumentReference?;
     _isSubscribed = snapshotData['isSubscribed'] as bool?;
+    _title = snapshotData['Title'] as String?;
+    _roleChat = snapshotData['RoleChat'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -138,6 +150,8 @@ Map<String, dynamic> createUsersRecordData({
   DateTime? favoriteTimeToMeditate,
   DocumentReference? isSubscriber,
   bool? isSubscribed,
+  String? title,
+  String? roleChat,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -153,6 +167,8 @@ Map<String, dynamic> createUsersRecordData({
       'favoriteTimeToMeditate': favoriteTimeToMeditate,
       'isSubscriber': isSubscriber,
       'isSubscribed': isSubscribed,
+      'Title': title,
+      'RoleChat': roleChat,
     }.withoutNulls,
   );
 
@@ -175,7 +191,9 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.freeUser == e2?.freeUser &&
         e1?.favoriteTimeToMeditate == e2?.favoriteTimeToMeditate &&
         e1?.isSubscriber == e2?.isSubscriber &&
-        e1?.isSubscribed == e2?.isSubscribed;
+        e1?.isSubscribed == e2?.isSubscribed &&
+        e1?.title == e2?.title &&
+        e1?.roleChat == e2?.roleChat;
   }
 
   @override
@@ -191,7 +209,9 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.freeUser,
         e?.favoriteTimeToMeditate,
         e?.isSubscriber,
-        e?.isSubscribed
+        e?.isSubscribed,
+        e?.title,
+        e?.roleChat
       ]);
 
   @override

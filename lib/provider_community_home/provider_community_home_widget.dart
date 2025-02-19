@@ -20,8 +20,8 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 import 'provider_community_home_model.dart';
 export 'provider_community_home_model.dart';
 
+/// ProviderCommunityHome
 class ProviderCommunityHomeWidget extends StatefulWidget {
-  /// ProviderCommunityHome
   const ProviderCommunityHomeWidget({super.key});
 
   @override
@@ -781,7 +781,7 @@ class _ProviderCommunityHomeWidgetState
                                                                                               r'''$.title''',
                                                                                             ).toString(),
                                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                  fontFamily: 'WorkSans',
+                                                                                                  fontFamily: 'The Seasons',
                                                                                                   color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                                   fontSize: 16.0,
                                                                                                   letterSpacing: 0.0,
@@ -1029,7 +1029,7 @@ class _ProviderCommunityHomeWidgetState
                                                                                     'nxzqkgsm' /* Meditation Help */,
                                                                                   ),
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'WorkSans',
+                                                                                        fontFamily: 'The Seasons',
                                                                                         color: FlutterFlowTheme.of(context).secondary,
                                                                                         letterSpacing: 0.0,
                                                                                         useGoogleFonts: false,
@@ -1126,7 +1126,7 @@ class _ProviderCommunityHomeWidgetState
                                                                                       'tz22yha1' /* Ambient Music */,
                                                                                     ),
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          fontFamily: 'WorkSans',
+                                                                                          fontFamily: 'The Seasons',
                                                                                           letterSpacing: 0.0,
                                                                                           useGoogleFonts: false,
                                                                                         ),
@@ -1223,7 +1223,7 @@ class _ProviderCommunityHomeWidgetState
                                                                                       'f0oj2n0x' /* Nature Sounds */,
                                                                                     ),
                                                                                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          fontFamily: 'WorkSans',
+                                                                                          fontFamily: 'The Seasons',
                                                                                           letterSpacing: 0.0,
                                                                                           useGoogleFonts: false,
                                                                                         ),
@@ -1276,7 +1276,7 @@ class _ProviderCommunityHomeWidgetState
                                                                                   '99katfjf' /* Fire Sounds */,
                                                                                 ),
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      fontFamily: 'WorkSans',
+                                                                                      fontFamily: 'The Seasons',
                                                                                       letterSpacing: 0.0,
                                                                                       useGoogleFonts: false,
                                                                                     ),
@@ -1329,7 +1329,7 @@ class _ProviderCommunityHomeWidgetState
                                                                                   'ycigns5g' /* Thunderstorms */,
                                                                                 ),
                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      fontFamily: 'WorkSans',
+                                                                                      fontFamily: 'The Seasons',
                                                                                       letterSpacing: 0.0,
                                                                                       useGoogleFonts: false,
                                                                                     ),
@@ -1570,7 +1570,7 @@ class _ProviderCommunityHomeWidgetState
                                                                                             ).toString(),
                                                                                             textAlign: TextAlign.center,
                                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                  fontFamily: 'WorkSans',
+                                                                                                  fontFamily: 'The Seasons',
                                                                                                   color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                                   fontSize: 12.0,
                                                                                                   letterSpacing: 0.0,
@@ -1781,9 +1781,9 @@ class _ProviderCommunityHomeWidgetState
                                                                                               r'''$.title''',
                                                                                             ).toString(),
                                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                  fontFamily: 'WorkSans',
+                                                                                                  fontFamily: 'The Seasons',
                                                                                                   color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                                  fontSize: 12.0,
+                                                                                                  fontSize: 14.0,
                                                                                                   letterSpacing: 0.0,
                                                                                                   fontWeight: FontWeight.normal,
                                                                                                   useGoogleFonts: false,
@@ -2127,7 +2127,7 @@ class _ProviderCommunityHomeWidgetState
                                                                       FFLocalizations.of(
                                                                               context)
                                                                           .getText(
-                                                                        'n3u50iey' /* Tai Chi */,
+                                                                        'n3u50iey' /* Pilates */,
                                                                       ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
@@ -2185,7 +2185,7 @@ class _ProviderCommunityHomeWidgetState
                                                                         child: FutureBuilder<
                                                                             ApiCallResponse>(
                                                                           future:
-                                                                              YouTubeDataTaiChiAPIFINALCall.call(),
+                                                                              YouTubeDataPilatesAPIFINALCall.call(),
                                                                           builder:
                                                                               (context, snapshot) {
                                                                             // Customize what your widget looks like when it's loading.
@@ -2202,13 +2202,13 @@ class _ProviderCommunityHomeWidgetState
                                                                                 ),
                                                                               );
                                                                             }
-                                                                            final listViewYouTubeDataTaiChiAPIFINALResponse =
+                                                                            final listViewYouTubeDataPilatesAPIFINALResponse =
                                                                                 snapshot.data!;
 
                                                                             return Builder(
                                                                               builder: (context) {
                                                                                 final meditations = getJsonField(
-                                                                                  listViewYouTubeDataTaiChiAPIFINALResponse.jsonBody,
+                                                                                  listViewYouTubeDataPilatesAPIFINALResponse.jsonBody,
                                                                                   r'''$.items[:].snippet''',
                                                                                 ).toList();
 
@@ -2304,19 +2304,19 @@ class _ProviderCommunityHomeWidgetState
                                                                                                               padding: MediaQuery.viewInsetsOf(context),
                                                                                                               child: VideoPlayerHighFidelityWidget(
                                                                                                                 parameter1: getJsonField(
-                                                                                                                  listViewYouTubeDataTaiChiAPIFINALResponse.jsonBody,
+                                                                                                                  listViewYouTubeDataPilatesAPIFINALResponse.jsonBody,
                                                                                                                   r'''$.resource.videoId''',
                                                                                                                 ).toString(),
                                                                                                                 videoTitle: getJsonField(
-                                                                                                                  listViewYouTubeDataTaiChiAPIFINALResponse.jsonBody,
+                                                                                                                  listViewYouTubeDataPilatesAPIFINALResponse.jsonBody,
                                                                                                                   r'''$.title''',
                                                                                                                 ).toString(),
                                                                                                                 channelTitle: getJsonField(
-                                                                                                                  listViewYouTubeDataTaiChiAPIFINALResponse.jsonBody,
+                                                                                                                  listViewYouTubeDataPilatesAPIFINALResponse.jsonBody,
                                                                                                                   r'''$''',
                                                                                                                 ).toString(),
                                                                                                                 description: getJsonField(
-                                                                                                                  listViewYouTubeDataTaiChiAPIFINALResponse.jsonBody,
+                                                                                                                  listViewYouTubeDataPilatesAPIFINALResponse.jsonBody,
                                                                                                                   r'''$.description''',
                                                                                                                 ).toString(),
                                                                                                               ),

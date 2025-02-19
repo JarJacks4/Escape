@@ -14,8 +14,6 @@ import 'flutter_flow/flutter_flow_util.dart';
 import 'flutter_flow/internationalization.dart';
 import 'package:flutter/foundation.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
-import 'flutter_flow/firebase_app_check_util.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'flutter_flow/nav/nav.dart';
 import 'index.dart';
@@ -24,6 +22,9 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   GoRouter.optionURLReflectsImperativeAPIs = true;
   usePathUrlStrategy();
+
+  final environmentValues = FFDevEnvironmentValues();
+  await environmentValues.initialize();
 
   await initFirebase();
 
@@ -35,8 +36,6 @@ void main() async {
   if (!kIsWeb) {
     FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
   }
-
-  await initializeFirebaseAppCheck();
 
   runApp(ChangeNotifierProvider(
     create: (context) => appState,
@@ -181,9 +180,9 @@ class _NavBarPageState extends State<NavBarPage> {
     final tabs = {
       'HomeVersion2': HomeVersion2Widget(),
       'MoodTrackHome': MoodTrackHomeWidget(),
-      'LucilleChatAIPage': LucilleChatAIPageWidget(),
+      'SelfCarePlanPage': SelfCarePlanPageWidget(),
       'ProviderCommunityHome': ProviderCommunityHomeWidget(),
-      'ProfilePage': ProfilePageWidget(),
+      'profileFINAL': ProfileFINALWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -204,7 +203,7 @@ class _NavBarPageState extends State<NavBarPage> {
           }),
           backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
           selectedItemColor: Color(0x84F0831A),
-          unselectedItemColor: Color(0x615A5C60),
+          unselectedItemColor: Color(0x535A5C60),
           showSelectedLabels: true,
           showUnselectedLabels: true,
           type: BottomNavigationBarType.fixed,
@@ -234,12 +233,11 @@ class _NavBarPageState extends State<NavBarPage> {
               tooltip: '',
             ),
             BottomNavigationBarItem(
-              icon: FaIcon(
-                FontAwesomeIcons.robot,
-                size: 24.0,
+              icon: Icon(
+                FFIcons.kplans,
               ),
               label: FFLocalizations.of(context).getText(
-                'ueplikou' /* Lucille */,
+                'py6c4427' /* Plan */,
               ),
               tooltip: '',
             ),
@@ -256,10 +254,10 @@ class _NavBarPageState extends State<NavBarPage> {
             BottomNavigationBarItem(
               icon: Icon(
                 FFIcons.kprofile,
-                size: 24.0,
+                size: 28.0,
               ),
               label: FFLocalizations.of(context).getText(
-                'ypq5pqtz' /* Profile */,
+                'fu6l3npq' /* Profile */,
               ),
               tooltip: '',
             )

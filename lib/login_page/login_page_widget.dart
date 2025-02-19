@@ -318,7 +318,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                           .of(context)
                                                       .titleMedium
                                                       .override(
-                                                        fontFamily: 'WorkSans',
+                                                        fontFamily:
+                                                            'The Seasons',
                                                         letterSpacing: 0.0,
                                                         useGoogleFonts: false,
                                                       ),
@@ -494,7 +495,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                     .bodyMedium
                                                                     .override(
                                                                       fontFamily:
-                                                                          'WorkSans',
+                                                                          'The Seasons',
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .primary,
@@ -664,7 +665,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                     .bodyMedium
                                                                     .override(
                                                                       fontFamily:
-                                                                          'WorkSans',
+                                                                          'The Seasons',
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .primary,
@@ -771,7 +772,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                       width:
                                                                           140.0,
                                                                       height:
-                                                                          40.0,
+                                                                          46.4,
                                                                       padding: EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -790,9 +791,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                           .bodySmall
                                                                           .override(
                                                                             fontFamily:
-                                                                                'WorkSans',
+                                                                                'The Seasons',
                                                                             fontSize:
-                                                                                12.0,
+                                                                                16.0,
                                                                             letterSpacing:
                                                                                 0.0,
                                                                             useGoogleFonts:
@@ -818,35 +819,11 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                       logFirebaseEvent(
                                                                           'LOGIN_PAGE_PAGE_Button-Login_ON_TAP');
                                                                       logFirebaseEvent(
-                                                                          'Button-Login_auth');
-                                                                      GoRouter.of(
-                                                                              context)
-                                                                          .prepareAuthEvent();
-
-                                                                      final user =
-                                                                          await authManager
-                                                                              .signInWithEmail(
-                                                                        context,
-                                                                        _model
-                                                                            .emailAddressTextController
-                                                                            .text,
-                                                                        _model
-                                                                            .passwordTextController
-                                                                            .text,
-                                                                      );
-                                                                      if (user ==
-                                                                          null) {
-                                                                        return;
-                                                                      }
-
-                                                                      logFirebaseEvent(
                                                                           'Button-Login_navigate_to');
 
                                                                       context
-                                                                          .pushNamedAuth(
+                                                                          .pushNamed(
                                                                         'HomeVersion2',
-                                                                        context
-                                                                            .mounted,
                                                                         extra: <String,
                                                                             dynamic>{
                                                                           kTransitionInfoKey:
@@ -871,7 +848,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                       width:
                                                                           130.0,
                                                                       height:
-                                                                          50.0,
+                                                                          46.41,
                                                                       padding: EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -890,7 +867,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                           .titleSmall
                                                                           .override(
                                                                             fontFamily:
-                                                                                'WorkSans',
+                                                                                'The Seasons',
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).alternate,
                                                                             letterSpacing:
@@ -952,7 +929,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                           .bodySmall
                                                                           .override(
                                                                             fontFamily:
-                                                                                'WorkSans',
+                                                                                'The Seasons',
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).secondary,
                                                                             letterSpacing:
@@ -1056,7 +1033,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                               iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               color: FlutterFlowTheme.of(context).error,
                                                                               textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    fontFamily: 'WorkSans',
+                                                                                    fontFamily: 'The Seasons',
                                                                                     letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.bold,
                                                                                     useGoogleFonts: false,
@@ -1101,7 +1078,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                                     iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                     color: Colors.black,
                                                                                     textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          fontFamily: 'WorkSans',
+                                                                                          fontFamily: 'The Seasons',
                                                                                           color: FlutterFlowTheme.of(context).primary,
                                                                                           letterSpacing: 0.0,
                                                                                           fontWeight: FontWeight.bold,
@@ -1750,7 +1727,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                     .titleSmall
                                                                     .override(
                                                                       fontFamily:
-                                                                          'WorkSans',
+                                                                          'The Seasons',
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
                                                                           .primary,
@@ -1807,7 +1784,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                         .bodySmall
                                                                         .override(
                                                                           fontFamily:
-                                                                              'WorkSans',
+                                                                              'The Seasons',
                                                                           color:
                                                                               FlutterFlowTheme.of(context).secondary,
                                                                           letterSpacing:
@@ -1911,7 +1888,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).error,
                                                                             textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'WorkSans',
+                                                                                  fontFamily: 'The Seasons',
                                                                                   letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.bold,
                                                                                   useGoogleFonts: false,
@@ -1960,7 +1937,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                                   iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                   color: Colors.black,
                                                                                   textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                        fontFamily: 'WorkSans',
+                                                                                        fontFamily: 'The Seasons',
                                                                                         color: FlutterFlowTheme.of(context).primary,
                                                                                         letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.bold,

@@ -13,41 +13,15 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import '/backend/schema/structs/index.dart';
 import '/auth/firebase_auth/auth_util.dart';
 
-int setLastIndex(
-  List<ChatModelStruct>? chatList,
-  int setIndex,
-) {
-  if (chatList != null && chatList.isNotEmpty && chatList.length >= setIndex) {
-    return chatList.length - setIndex;
-  } else {
-    return 0;
+String getListOfMessages(List<MessageStruct> messages) {
+  // iterate through list of messages datatype and returning final string value for user & bot response.
+  String finalString = '';
+  for (MessageStruct message in messages) {
+    if (message.userSent == true) {
+      finalString += 'User: ${message.text}\n';
+    } else {
+      finalString += 'Bot: ${message.text}\n';
+    }
   }
-}
-
-double getVerticalSize(
-  double screenHeight,
-  double px,
-) {
-  double designHeight = 852;
-
-  return ((px * screenHeight) / designHeight).floorToDouble();
-}
-
-double getHorizontalSize(
-  double screenWidth,
-  double px,
-) {
-  double designWidth = 390;
-
-  double value = ((px * screenWidth) / designWidth).floorToDouble();
-
-  return value;
-}
-
-bool checkValue(String? value) {
-  return value != null && value.isNotEmpty;
-}
-
-bool checkImageValue(FFUploadedFile? value) {
-  return value != null && value.bytes != null && value.bytes!.isNotEmpty;
+  return finalString;
 }

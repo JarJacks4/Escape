@@ -1,2 +1,1 @@
-export 'answer_view.dart' show AnswerView;
-export 'questionary_view.dart' show QuestionaryView;
+export 'confetti_bg_widget.dart' show ConfettiBgWidget;

@@ -118,7 +118,7 @@ let's Escape... */
                                               .secondaryBackground,
                                           fontSize: 28.0,
                                           letterSpacing: 0.0,
-                                          fontWeight: FontWeight.normal,
+                                          fontWeight: FontWeight.w300,
                                           useGoogleFonts: false,
                                           lineHeight: 1.5,
                                         ),

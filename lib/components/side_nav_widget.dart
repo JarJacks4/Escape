@@ -187,7 +187,7 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                         logFirebaseEvent('contentView_1_navigate_to');
 
                         context.pushNamed(
-                          'UserCommunityPageViewFINAL',
+                          'ProviderCommunityHome',
                           extra: <String, dynamic>{
                             kTransitionInfoKey: TransitionInfo(
                               hasTransition: true,
@@ -343,7 +343,7 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                         logFirebaseEvent('contentView_1_navigate_to');
 
                         context.pushNamed(
-                          'ProfilePage',
+                          'profileFINAL',
                           extra: <String, dynamic>{
                             kTransitionInfoKey: TransitionInfo(
                               hasTransition: true,

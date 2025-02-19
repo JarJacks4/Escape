@@ -1,4 +1,3 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/components/video_player_high_fidelity_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
@@ -228,70 +227,6 @@ class _EliminateDepressionWidgetState extends State<EliminateDepressionWidget>
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: Colors.white,
-        appBar: responsiveVisibility(
-          context: context,
-          tablet: false,
-          tabletLandscape: false,
-          desktop: false,
-        )
-            ? AppBar(
-                backgroundColor: FlutterFlowTheme.of(context).primary,
-                automaticallyImplyLeading: false,
-                actions: [],
-                flexibleSpace: FlexibleSpaceBar(
-                  background: Container(
-                    width: 100.0,
-                    height: 52.0,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).primaryBackground,
-                    ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Flexible(
-                          flex: 1,
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                15.0, 0.0, 0.0, 0.0),
-                            child: AuthUserStreamWidget(
-                              builder: (context) => Text(
-                                'Hello,${currentUserDisplayName}',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'The Seasons',
-                                      fontSize: 24.0,
-                                      letterSpacing: 0.0,
-                                      useGoogleFonts: false,
-                                    ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Align(
-                          alignment: AlignmentDirectional(1.0, 0.0),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                120.0, 0.0, 8.0, 0.0),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(8.0),
-                              child: Image.asset(
-                                'assets/images/Logo_ESCAPE_DarkBlue.png',
-                                width: MediaQuery.sizeOf(context).width * 0.352,
-                                height: 156.0,
-                                fit: BoxFit.contain,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                centerTitle: true,
-                elevation: 0.0,
-              )
-            : null,
         body: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
@@ -330,21 +265,21 @@ class _EliminateDepressionWidgetState extends State<EliminateDepressionWidget>
                           width: double.infinity,
                           child: Stack(
                             children: [
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(15.0),
-                                child: Image.asset(
-                                  'assets/images/download_(2).gif',
-                                  width: double.infinity,
-                                  height: 238.0,
-                                  fit: BoxFit.cover,
+                              Opacity(
+                                opacity: 0.4,
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(15.0),
+                                  child: Image.asset(
+                                    'assets/images/Black_Hole_Particle.gif',
+                                    width: double.infinity,
+                                    height: 238.0,
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
                               ),
                               Container(
                                 height: 200.0,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .primaryBackground,
-                                ),
+                                decoration: BoxDecoration(),
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(

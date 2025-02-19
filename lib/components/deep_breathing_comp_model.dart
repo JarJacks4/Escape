@@ -1,0 +1,17 @@
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:ui';
+import 'deep_breathing_comp_widget.dart' show DeepBreathingCompWidget;
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+
+class DeepBreathingCompModel extends FlutterFlowModel<DeepBreathingCompWidget> {
+  @override
+  void initState(BuildContext context) {}
+
+  @override
+  void dispose() {}
+}
