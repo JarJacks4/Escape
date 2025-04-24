@@ -1,8 +1,8 @@
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -120,7 +120,6 @@ class _BoxBreathingMeditationCardFINALWidgetState
                                   fontSize: 12.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w500,
-                                  useGoogleFonts: false,
                                 ),
                           ),
                         ),
@@ -147,7 +146,6 @@ class _BoxBreathingMeditationCardFINALWidgetState
                                     fontSize: 22.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
-                                    useGoogleFonts: false,
                                   ),
                         ),
                       ),
@@ -161,7 +159,6 @@ class _BoxBreathingMeditationCardFINALWidgetState
                               color: FlutterFlowTheme.of(context).primaryText,
                               fontSize: 14.0,
                               letterSpacing: 0.0,
-                              useGoogleFonts: false,
                               lineHeight: 1.5,
                             ),
                       ),
@@ -192,7 +189,6 @@ class _BoxBreathingMeditationCardFINALWidgetState
                                   fontSize: 14.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w500,
-                                  useGoogleFonts: false,
                                 ),
                             elevation: 3.0,
                             borderRadius: BorderRadius.circular(30.0),

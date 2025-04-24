@@ -1,10 +1,10 @@
 import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'dart:ui';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -84,7 +84,6 @@ class _JournalEntryCompWidgetState extends State<JournalEntryCompWidget> {
                           fontFamily: 'WorkSans',
                           color: FlutterFlowTheme.of(context).accent1,
                           letterSpacing: 0.0,
-                          useGoogleFonts: false,
                         ),
                   ),
                   Row(
@@ -123,7 +122,6 @@ class _JournalEntryCompWidgetState extends State<JournalEntryCompWidget> {
                         color: FlutterFlowTheme.of(context).secondary,
                         fontSize: 20.0,
                         letterSpacing: 0.0,
-                        useGoogleFonts: false,
                       ),
                 ),
               ),
@@ -139,7 +137,6 @@ class _JournalEntryCompWidgetState extends State<JournalEntryCompWidget> {
                   hintStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'WorkSans',
                         letterSpacing: 0.0,
-                        useGoogleFonts: false,
                       ),
                   enabledBorder: InputBorder.none,
                   focusedBorder: InputBorder.none,
@@ -151,7 +148,6 @@ class _JournalEntryCompWidgetState extends State<JournalEntryCompWidget> {
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'WorkSans',
                       letterSpacing: 0.0,
-                      useGoogleFonts: false,
                     ),
                 maxLines: 8,
                 minLines: 1,
@@ -169,7 +165,6 @@ class _JournalEntryCompWidgetState extends State<JournalEntryCompWidget> {
                           fontFamily: 'WorkSans',
                           color: FlutterFlowTheme.of(context).primary,
                           letterSpacing: 0.0,
-                          useGoogleFonts: false,
                         ),
                   ),
                   TextFormField(
@@ -185,7 +180,6 @@ class _JournalEntryCompWidgetState extends State<JournalEntryCompWidget> {
                           FlutterFlowTheme.of(context).bodyMedium.override(
                                 fontFamily: 'WorkSans',
                                 letterSpacing: 0.0,
-                                useGoogleFonts: false,
                               ),
                       enabledBorder: InputBorder.none,
                       focusedBorder: InputBorder.none,
@@ -197,7 +191,6 @@ class _JournalEntryCompWidgetState extends State<JournalEntryCompWidget> {
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'WorkSans',
                           letterSpacing: 0.0,
-                          useGoogleFonts: false,
                         ),
                     maxLines: 5,
                     minLines: 3,
@@ -224,7 +217,6 @@ class _JournalEntryCompWidgetState extends State<JournalEntryCompWidget> {
                     style: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'WorkSans',
                           letterSpacing: 0.0,
-                          useGoogleFonts: false,
                         ),
                   ),
                   Flexible(
@@ -259,7 +251,6 @@ class _JournalEntryCompWidgetState extends State<JournalEntryCompWidget> {
                                     fontFamily: 'WorkSans',
                                     color: FlutterFlowTheme.of(context).info,
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: false,
                                   ),
                           iconColor: FlutterFlowTheme.of(context).primaryText,
                           iconSize: 18.0,
@@ -276,7 +267,6 @@ class _JournalEntryCompWidgetState extends State<JournalEntryCompWidget> {
                                 color:
                                     FlutterFlowTheme.of(context).secondaryText,
                                 letterSpacing: 0.0,
-                                useGoogleFonts: false,
                               ),
                           iconColor: FlutterFlowTheme.of(context).primaryText,
                           iconSize: 18.0,
@@ -315,7 +305,6 @@ class _JournalEntryCompWidgetState extends State<JournalEntryCompWidget> {
                         fontFamily: 'WorkSans',
                         color: FlutterFlowTheme.of(context).info,
                         letterSpacing: 0.0,
-                        useGoogleFonts: false,
                       ),
                   elevation: 0.0,
                   borderSide: BorderSide(

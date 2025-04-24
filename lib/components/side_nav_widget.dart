@@ -1,8 +1,9 @@
 import '/auth/firebase_auth/auth_util.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
+import '/index.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -105,7 +106,7 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                         logFirebaseEvent('contentView_1_navigate_to');
 
                         context.pushNamed(
-                          'HomeVersion2',
+                          HomeVersion2Widget.routeName,
                           extra: <String, dynamic>{
                             kTransitionInfoKey: TransitionInfo(
                               hasTransition: true,
@@ -164,7 +165,6 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                                         color:
                                             FlutterFlowTheme.of(context).info,
                                         letterSpacing: 0.0,
-                                        useGoogleFonts: false,
                                       ),
                                 ),
                               ),
@@ -187,7 +187,7 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                         logFirebaseEvent('contentView_1_navigate_to');
 
                         context.pushNamed(
-                          'ProviderCommunityHome',
+                          CommunityHomeWidget.routeName,
                           extra: <String, dynamic>{
                             kTransitionInfoKey: TransitionInfo(
                               hasTransition: true,
@@ -242,7 +242,6 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .accent4,
                                         letterSpacing: 0.0,
-                                        useGoogleFonts: false,
                                       ),
                                 ),
                               ),
@@ -265,7 +264,7 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                         logFirebaseEvent('contentView_1_navigate_to');
 
                         context.pushNamed(
-                          'LucilleChatAIPage',
+                          LucilleChatAIPageWidget.routeName,
                           extra: <String, dynamic>{
                             kTransitionInfoKey: TransitionInfo(
                               hasTransition: true,
@@ -320,7 +319,6 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .accent4,
                                         letterSpacing: 0.0,
-                                        useGoogleFonts: false,
                                       ),
                                 ),
                               ),
@@ -343,7 +341,7 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                         logFirebaseEvent('contentView_1_navigate_to');
 
                         context.pushNamed(
-                          'profileFINAL',
+                          ProfileFINALWidget.routeName,
                           extra: <String, dynamic>{
                             kTransitionInfoKey: TransitionInfo(
                               hasTransition: true,
@@ -398,7 +396,6 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .accent4,
                                         letterSpacing: 0.0,
-                                        useGoogleFonts: false,
                                       ),
                                 ),
                               ),
@@ -423,7 +420,8 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                         await authManager.signOut();
                         GoRouter.of(context).clearRedirectLocation();
 
-                        context.goNamedAuth('splashScreen', context.mounted);
+                        context.goNamedAuth(
+                            SplashScreenWidget.routeName, context.mounted);
                       },
                       child: Container(
                         width: double.infinity,
@@ -471,7 +469,6 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .primaryText,
                                         letterSpacing: 0.0,
-                                        useGoogleFonts: false,
                                       ),
                                 ),
                               ),
@@ -549,7 +546,6 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                                                 .override(
                                                   fontFamily: 'WorkSans',
                                                   letterSpacing: 0.0,
-                                                  useGoogleFonts: false,
                                                 ),
                                           ),
                                         ),
@@ -567,7 +563,6 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                                                           context)
                                                       .accent4,
                                                   letterSpacing: 0.0,
-                                                  useGoogleFonts: false,
                                                 ),
                                           ),
                                         ),

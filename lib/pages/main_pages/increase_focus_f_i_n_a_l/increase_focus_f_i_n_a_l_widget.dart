@@ -2,11 +2,12 @@ import '/backend/api_requests/api_calls.dart';
 import '/components/video_player_high_fidelity_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:math';
 import 'dart:ui';
+import '/index.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -19,6 +20,9 @@ export 'increase_focus_f_i_n_a_l_model.dart';
 
 class IncreaseFocusFINALWidget extends StatefulWidget {
   const IncreaseFocusFINALWidget({super.key});
+
+  static String routeName = 'IncreaseFocusFINAL';
+  static String routePath = 'increaseFocusFINAL';
 
   @override
   State<IncreaseFocusFINALWidget> createState() =>
@@ -328,7 +332,7 @@ class _IncreaseFocusFINALWidgetState extends State<IncreaseFocusFINALWidget>
                                             'CircleImage_navigate_to');
 
                                         context.pushNamed(
-                                          'HomeVersion2',
+                                          HomeVersion2Widget.routeName,
                                           extra: <String, dynamic>{
                                             kTransitionInfoKey: TransitionInfo(
                                               hasTransition: true,
@@ -382,7 +386,6 @@ class _IncreaseFocusFINALWidgetState extends State<IncreaseFocusFINALWidget>
                                     fontSize: 28.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
-                                    useGoogleFonts: false,
                                   ),
                             ),
                           ),
@@ -428,7 +431,6 @@ class _IncreaseFocusFINALWidgetState extends State<IncreaseFocusFINALWidget>
                                                               .primaryBackground,
                                                           fontSize: 20.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: false,
                                                         ),
                                                 colors: [
                                                   FlutterFlowTheme.of(context)
@@ -580,14 +582,16 @@ class _IncreaseFocusFINALWidgetState extends State<IncreaseFocusFINALWidget>
                                                                             getJsonField(
                                                                               meditationsItem,
                                                                               r'''$.title''',
-                                                                            ).toString(),
+                                                                            ).toString().maybeHandleOverflow(
+                                                                                  maxChars: 50,
+                                                                                  replacement: '…',
+                                                                                ),
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'The Seasons',
                                                                                   color: FlutterFlowTheme.of(context).secondaryBackground,
                                                                                   fontSize: 16.0,
                                                                                   letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.normal,
-                                                                                  useGoogleFonts: false,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -701,7 +705,6 @@ class _IncreaseFocusFINALWidgetState extends State<IncreaseFocusFINALWidget>
                                                 fontSize: 20.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w300,
-                                                useGoogleFonts: false,
                                               ),
                                           colors: [
                                             FlutterFlowTheme.of(context)
@@ -766,7 +769,8 @@ class _IncreaseFocusFINALWidgetState extends State<IncreaseFocusFINALWidget>
                                                                 'Container_navigate_to');
 
                                                             context.pushNamed(
-                                                              'SoundsDetailsBinauralBeats',
+                                                              SoundsDetailsBinauralBeatsWidget
+                                                                  .routeName,
                                                               extra: <String,
                                                                   dynamic>{
                                                                 kTransitionInfoKey:
@@ -839,8 +843,6 @@ class _IncreaseFocusFINALWidgetState extends State<IncreaseFocusFINALWidget>
                                                                             'The Seasons',
                                                                         letterSpacing:
                                                                             0.0,
-                                                                        useGoogleFonts:
-                                                                            false,
                                                                       ),
                                                                 ),
                                                               ],
@@ -874,7 +876,8 @@ class _IncreaseFocusFINALWidgetState extends State<IncreaseFocusFINALWidget>
                                                                 'Container_navigate_to');
 
                                                             context.pushNamed(
-                                                              'SoundsDetailsAmbientMusic',
+                                                              SoundsDetailsAmbientMusicWidget
+                                                                  .routeName,
                                                               extra: <String,
                                                                   dynamic>{
                                                                 kTransitionInfoKey:
@@ -944,7 +947,8 @@ class _IncreaseFocusFINALWidgetState extends State<IncreaseFocusFINALWidget>
 
                                                                 context
                                                                     .pushNamed(
-                                                                  'SoundsDetailsAmbientMusic',
+                                                                  SoundsDetailsAmbientMusicWidget
+                                                                      .routeName,
                                                                   extra: <String,
                                                                       dynamic>{
                                                                     kTransitionInfoKey:
@@ -983,8 +987,6 @@ class _IncreaseFocusFINALWidgetState extends State<IncreaseFocusFINALWidget>
                                                                               'The Seasons',
                                                                           letterSpacing:
                                                                               0.0,
-                                                                          useGoogleFonts:
-                                                                              false,
                                                                         ),
                                                                   ),
                                                                 ],
@@ -1019,7 +1021,8 @@ class _IncreaseFocusFINALWidgetState extends State<IncreaseFocusFINALWidget>
                                                                 'Container_navigate_to');
 
                                                             context.pushNamed(
-                                                              'SoundsDetailsNatureSounds',
+                                                              SoundsDetailsNatureSoundsWidget
+                                                                  .routeName,
                                                               extra: <String,
                                                                   dynamic>{
                                                                 kTransitionInfoKey:
@@ -1088,7 +1091,8 @@ class _IncreaseFocusFINALWidgetState extends State<IncreaseFocusFINALWidget>
 
                                                                 context
                                                                     .pushNamed(
-                                                                  'SoundsDetailsNatureSounds',
+                                                                  SoundsDetailsNatureSoundsWidget
+                                                                      .routeName,
                                                                   extra: <String,
                                                                       dynamic>{
                                                                     kTransitionInfoKey:
@@ -1127,8 +1131,6 @@ class _IncreaseFocusFINALWidgetState extends State<IncreaseFocusFINALWidget>
                                                                               'The Seasons',
                                                                           letterSpacing:
                                                                               0.0,
-                                                                          useGoogleFonts:
-                                                                              false,
                                                                         ),
                                                                   ),
                                                                 ],
@@ -1197,8 +1199,6 @@ class _IncreaseFocusFINALWidgetState extends State<IncreaseFocusFINALWidget>
                                                                           'WorkSans',
                                                                       letterSpacing:
                                                                           0.0,
-                                                                      useGoogleFonts:
-                                                                          false,
                                                                     ),
                                                               ),
                                                             ],
@@ -1273,8 +1273,6 @@ class _IncreaseFocusFINALWidgetState extends State<IncreaseFocusFINALWidget>
                                                                           'WorkSans',
                                                                       letterSpacing:
                                                                           0.0,
-                                                                      useGoogleFonts:
-                                                                          false,
                                                                     ),
                                                               ),
                                                             ],
@@ -1314,7 +1312,6 @@ class _IncreaseFocusFINALWidgetState extends State<IncreaseFocusFINALWidget>
                                                 fontSize: 20.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w300,
-                                                useGoogleFonts: false,
                                               ),
                                           colors: [
                                             FlutterFlowTheme.of(context)
@@ -1545,7 +1542,6 @@ class _IncreaseFocusFINALWidgetState extends State<IncreaseFocusFINALWidget>
                                                                                   fontSize: 12.0,
                                                                                   letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.normal,
-                                                                                  useGoogleFonts: false,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -1584,10 +1580,29 @@ class _IncreaseFocusFINALWidgetState extends State<IncreaseFocusFINALWidget>
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Roboto',
+                                                font: GoogleFonts.roboto(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
                                                 color: Color(0xFF5B4090),
                                                 fontSize: 26.0,
                                                 letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
                                               ),
                                           colors: [
                                             FlutterFlowTheme.of(context)
@@ -1758,7 +1773,6 @@ class _IncreaseFocusFINALWidgetState extends State<IncreaseFocusFINALWidget>
                                                                                   fontSize: 12.0,
                                                                                   letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.normal,
-                                                                                  useGoogleFonts: false,
                                                                                 ),
                                                                           ),
                                                                         ),

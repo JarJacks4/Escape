@@ -1,11 +1,14 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:math';
 import 'dart:ui';
+import "package:tiktokfeed_wz8en7/backend/schema/structs/index.dart"
+    as tiktokfeed_wz8en7_data_schema;
+import '/index.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -17,6 +20,9 @@ export 'login_page_model.dart';
 
 class LoginPageWidget extends StatefulWidget {
   const LoginPageWidget({super.key});
+
+  static String routeName = 'loginPage';
+  static String routePath = 'loginPage';
 
   @override
   State<LoginPageWidget> createState() => _LoginPageWidgetState();
@@ -41,6 +47,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
       length: 2,
       initialIndex: 0,
     )..addListener(() => safeSetState(() {}));
+
     _model.emailAddressTextController ??= TextEditingController();
     _model.emailAddressFocusNode ??= FocusNode();
 
@@ -314,15 +321,15 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                       EdgeInsetsDirectional
                                                           .fromSTEB(24.0, 0.0,
                                                               24.0, 0.0),
-                                                  labelStyle: FlutterFlowTheme
-                                                          .of(context)
-                                                      .titleMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'The Seasons',
-                                                        letterSpacing: 0.0,
-                                                        useGoogleFonts: false,
-                                                      ),
+                                                  labelStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .titleMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'The Seasons',
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                   unselectedLabelStyle:
                                                       TextStyle(),
                                                   indicatorColor:
@@ -403,8 +410,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                             14.0,
                                                                         letterSpacing:
                                                                             0.0,
-                                                                        useGoogleFonts:
-                                                                            false,
                                                                       ),
                                                                   hintText: FFLocalizations.of(
                                                                           context)
@@ -423,8 +428,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                             14.0,
                                                                         letterSpacing:
                                                                             0.0,
-                                                                        useGoogleFonts:
-                                                                            false,
                                                                       ),
                                                                   enabledBorder:
                                                                       OutlineInputBorder(
@@ -501,8 +504,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                           .primary,
                                                                       letterSpacing:
                                                                           0.0,
-                                                                      useGoogleFonts:
-                                                                          false,
                                                                     ),
                                                                 validator: _model
                                                                     .emailAddressTextControllerValidator
@@ -548,8 +549,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                             14.0,
                                                                         letterSpacing:
                                                                             0.0,
-                                                                        useGoogleFonts:
-                                                                            false,
                                                                       ),
                                                                   hintText: FFLocalizations.of(
                                                                           context)
@@ -568,8 +567,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                             14.0,
                                                                         letterSpacing:
                                                                             0.0,
-                                                                        useGoogleFonts:
-                                                                            false,
                                                                       ),
                                                                   enabledBorder:
                                                                       OutlineInputBorder(
@@ -671,8 +668,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                           .primary,
                                                                       letterSpacing:
                                                                           0.0,
-                                                                      useGoogleFonts:
-                                                                          false,
                                                                     ),
                                                                 validator: _model
                                                                     .passwordTextControllerValidator
@@ -796,8 +791,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                                 16.0,
                                                                             letterSpacing:
                                                                                 0.0,
-                                                                            useGoogleFonts:
-                                                                                false,
                                                                           ),
                                                                       elevation:
                                                                           0.0,
@@ -819,11 +812,36 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                       logFirebaseEvent(
                                                                           'LOGIN_PAGE_PAGE_Button-Login_ON_TAP');
                                                                       logFirebaseEvent(
+                                                                          'Button-Login_auth');
+                                                                      GoRouter.of(
+                                                                              context)
+                                                                          .prepareAuthEvent();
+
+                                                                      final user =
+                                                                          await authManager
+                                                                              .signInWithEmail(
+                                                                        context,
+                                                                        _model
+                                                                            .emailAddressTextController
+                                                                            .text,
+                                                                        _model
+                                                                            .passwordTextController
+                                                                            .text,
+                                                                      );
+                                                                      if (user ==
+                                                                          null) {
+                                                                        return;
+                                                                      }
+
+                                                                      logFirebaseEvent(
                                                                           'Button-Login_navigate_to');
 
                                                                       context
-                                                                          .pushNamed(
-                                                                        'HomeVersion2',
+                                                                          .pushNamedAuth(
+                                                                        HomeVersion2Widget
+                                                                            .routeName,
+                                                                        context
+                                                                            .mounted,
                                                                         extra: <String,
                                                                             dynamic>{
                                                                           kTransitionInfoKey:
@@ -872,8 +890,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                                 FlutterFlowTheme.of(context).alternate,
                                                                             letterSpacing:
                                                                                 0.0,
-                                                                            useGoogleFonts:
-                                                                                false,
                                                                           ),
                                                                       elevation:
                                                                           3.0,
@@ -934,8 +950,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                                 FlutterFlowTheme.of(context).secondary,
                                                                             letterSpacing:
                                                                                 0.0,
-                                                                            useGoogleFonts:
-                                                                                false,
                                                                           ),
                                                                     ),
                                                                   ),
@@ -1005,7 +1019,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                               logFirebaseEvent('Button_navigate_to');
 
                                                                               context.pushNamedAuth(
-                                                                                'registrationSuccess',
+                                                                                RegistrationSuccessWidget.routeName,
                                                                                 context.mounted,
                                                                                 extra: <String, dynamic>{
                                                                                   kTransitionInfoKey: TransitionInfo(
@@ -1036,7 +1050,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                                     fontFamily: 'The Seasons',
                                                                                     letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.bold,
-                                                                                    useGoogleFonts: false,
                                                                                   ),
                                                                               elevation: 3.0,
                                                                               borderSide: BorderSide(
@@ -1061,7 +1074,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                                       return;
                                                                                     }
 
-                                                                                    context.goNamedAuth('HomeVersion2', context.mounted);
+                                                                                    context.goNamedAuth(HomeVersion2Widget.routeName, context.mounted);
                                                                                   },
                                                                                   text: FFLocalizations.of(context).getText(
                                                                                     'sn8vb8su' /* Continue with Apple */,
@@ -1082,7 +1095,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                                           color: FlutterFlowTheme.of(context).primary,
                                                                                           letterSpacing: 0.0,
                                                                                           fontWeight: FontWeight.bold,
-                                                                                          useGoogleFonts: false,
                                                                                         ),
                                                                                     elevation: 3.0,
                                                                                     borderSide: BorderSide(
@@ -1146,8 +1158,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                               14.0,
                                                                           letterSpacing:
                                                                               0.0,
-                                                                          useGoogleFonts:
-                                                                              false,
                                                                         ),
                                                                 hintText:
                                                                     FFLocalizations.of(
@@ -1168,8 +1178,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                           14.0,
                                                                       letterSpacing:
                                                                           0.0,
-                                                                      useGoogleFonts:
-                                                                          false,
                                                                     ),
                                                                 enabledBorder:
                                                                     OutlineInputBorder(
@@ -1247,8 +1255,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                         .primary,
                                                                     letterSpacing:
                                                                         0.0,
-                                                                    useGoogleFonts:
-                                                                        false,
                                                                   ),
                                                               validator: _model
                                                                   .emailAddressCreateTextControllerValidator
@@ -1293,8 +1299,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                               14.0,
                                                                           letterSpacing:
                                                                               0.0,
-                                                                          useGoogleFonts:
-                                                                              false,
                                                                         ),
                                                                 hintText:
                                                                     FFLocalizations.of(
@@ -1315,8 +1319,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                           14.0,
                                                                       letterSpacing:
                                                                           0.0,
-                                                                      useGoogleFonts:
-                                                                          false,
                                                                     ),
                                                                 enabledBorder:
                                                                     OutlineInputBorder(
@@ -1418,8 +1420,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                         .primary,
                                                                     letterSpacing:
                                                                         0.0,
-                                                                    useGoogleFonts:
-                                                                        false,
                                                                   ),
                                                               validator: _model
                                                                   .passwordCreateTextControllerValidator
@@ -1467,8 +1467,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                               14.0,
                                                                           letterSpacing:
                                                                               0.0,
-                                                                          useGoogleFonts:
-                                                                              false,
                                                                         ),
                                                                 hintText:
                                                                     FFLocalizations.of(
@@ -1489,8 +1487,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                           14.0,
                                                                       letterSpacing:
                                                                           0.0,
-                                                                      useGoogleFonts:
-                                                                          false,
                                                                     ),
                                                                 enabledBorder:
                                                                     OutlineInputBorder(
@@ -1592,8 +1588,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                         .primary,
                                                                     letterSpacing:
                                                                         0.0,
-                                                                    useGoogleFonts:
-                                                                        false,
                                                                   ),
                                                               validator: _model
                                                                   .confirmPasswordTextControllerValidator
@@ -1677,7 +1671,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
 
                                                                 context
                                                                     .pushNamedAuth(
-                                                                  'DisplayName',
+                                                                  DisplayNameWidget
+                                                                      .routeName,
                                                                   context
                                                                       .mounted,
                                                                   extra: <String,
@@ -1733,8 +1728,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                           .primary,
                                                                       letterSpacing:
                                                                           0.0,
-                                                                      useGoogleFonts:
-                                                                          false,
                                                                     ),
                                                                 elevation: 3.0,
                                                                 borderSide:
@@ -1789,8 +1782,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                               FlutterFlowTheme.of(context).secondary,
                                                                           letterSpacing:
                                                                               0.0,
-                                                                          useGoogleFonts:
-                                                                              false,
                                                                         ),
                                                                   ),
                                                                 ),
@@ -1856,7 +1847,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                               return;
                                                                             }
 
-                                                                            context.goNamedAuth('HomeVersion2',
+                                                                            context.goNamedAuth(HomeVersion2Widget.routeName,
                                                                                 context.mounted);
                                                                           },
                                                                           text:
@@ -1891,7 +1882,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                                   fontFamily: 'The Seasons',
                                                                                   letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.bold,
-                                                                                  useGoogleFonts: false,
                                                                                 ),
                                                                             elevation:
                                                                                 3.0,
@@ -1920,7 +1910,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                                     return;
                                                                                   }
 
-                                                                                  context.goNamedAuth('HomeVersion2', context.mounted);
+                                                                                  context.goNamedAuth(HomeVersion2Widget.routeName, context.mounted);
                                                                                 },
                                                                                 text: FFLocalizations.of(context).getText(
                                                                                   'tonqxhn0' /* Continue with Apple */,
@@ -1941,7 +1931,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                                         color: FlutterFlowTheme.of(context).primary,
                                                                                         letterSpacing: 0.0,
                                                                                         fontWeight: FontWeight.bold,
-                                                                                        useGoogleFonts: false,
                                                                                       ),
                                                                                   elevation: 3.0,
                                                                                   borderSide: BorderSide(

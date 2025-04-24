@@ -1,0 +1,46 @@
+import '/components/deep_sleep_meditation_widget.dart';
+import '/components/insomnia_meditation_comp_widget.dart';
+import '/components/nap_meditation_comp_widget.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:ui';
+import '/index.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'sleep_meditations_choice_widget.dart' show SleepMeditationsChoiceWidget;
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+
+class SleepMeditationsChoiceModel
+    extends FlutterFlowModel<SleepMeditationsChoiceWidget> {
+  ///  State fields for stateful widgets in this page.
+
+  // State field(s) for Carousel widget.
+  CarouselSliderController? carouselController;
+  int carouselCurrentIndex = 1;
+
+  // Model for DeepSleepMeditation component.
+  late DeepSleepMeditationModel deepSleepMeditationModel;
+  // Model for InsomniaMeditationComp component.
+  late InsomniaMeditationCompModel insomniaMeditationCompModel;
+  // Model for NapMeditationComp component.
+  late NapMeditationCompModel napMeditationCompModel;
+
+  @override
+  void initState(BuildContext context) {
+    deepSleepMeditationModel =
+        createModel(context, () => DeepSleepMeditationModel());
+    insomniaMeditationCompModel =
+        createModel(context, () => InsomniaMeditationCompModel());
+    napMeditationCompModel =
+        createModel(context, () => NapMeditationCompModel());
+  }
+
+  @override
+  void dispose() {
+    deepSleepMeditationModel.dispose();
+    insomniaMeditationCompModel.dispose();
+    napMeditationCompModel.dispose();
+  }
+}

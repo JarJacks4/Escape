@@ -1,7 +1,9 @@
 import '/auth/firebase_auth/auth_util.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
+import 'package:tiktokfeed_wz8en7/app_state.dart'
+    as tiktokfeed_wz8en7_app_state;
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -40,6 +42,7 @@ class _ProgressBarWidgetState extends State<ProgressBarWidget> {
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
+    context.watch<tiktokfeed_wz8en7_app_state.FFAppState>();
 
     return Container(
       width: double.infinity,
@@ -85,7 +88,6 @@ class _ProgressBarWidgetState extends State<ProgressBarWidget> {
                             fontSize: 16.0,
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.w500,
-                            useGoogleFonts: false,
                           ),
                     ),
                   ),
@@ -123,7 +125,6 @@ class _ProgressBarWidgetState extends State<ProgressBarWidget> {
                             fontSize: 10.0,
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.w500,
-                            useGoogleFonts: false,
                           ),
                     ),
                     Text(
@@ -138,7 +139,6 @@ class _ProgressBarWidgetState extends State<ProgressBarWidget> {
                             fontSize: 20.0,
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.w600,
-                            useGoogleFonts: false,
                           ),
                     ),
                   ],

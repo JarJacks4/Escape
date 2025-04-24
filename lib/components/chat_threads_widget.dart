@@ -4,11 +4,13 @@ import '/backend/gemini/gemini.dart';
 import '/backend/schema/structs/index.dart';
 import '/components/empty_list_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:async';
 import 'dart:ui';
+import "package:tiktokfeed_wz8en7/backend/schema/structs/index.dart"
+    as tiktokfeed_wz8en7_data_schema;
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -177,7 +179,6 @@ class _ChatThreadsWidgetState extends State<ChatThreadsWidget> {
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
-                                                        useGoogleFonts: false,
                                                       ),
                                             ),
                                           ),
@@ -194,7 +195,6 @@ class _ChatThreadsWidgetState extends State<ChatThreadsWidget> {
                                                 .override(
                                                   fontFamily: 'WorkSans',
                                                   letterSpacing: 0.0,
-                                                  useGoogleFonts: false,
                                                 ),
                                           ),
                                         ].divide(SizedBox(width: 12.0)),
@@ -206,7 +206,6 @@ class _ChatThreadsWidgetState extends State<ChatThreadsWidget> {
                                             .override(
                                               fontFamily: 'WorkSans',
                                               letterSpacing: 0.0,
-                                              useGoogleFonts: false,
                                             ),
                                       ),
                                     ].divide(SizedBox(height: 8.0)),
@@ -260,7 +259,6 @@ class _ChatThreadsWidgetState extends State<ChatThreadsWidget> {
                                                         fontFamily:
                                                             'The Seasons',
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: false,
                                                       ),
                                                 ),
                                               ),
@@ -280,7 +278,6 @@ class _ChatThreadsWidgetState extends State<ChatThreadsWidget> {
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.bold,
-                                                          useGoogleFonts: false,
                                                         ),
                                               ),
                                             ),
@@ -298,7 +295,6 @@ class _ChatThreadsWidgetState extends State<ChatThreadsWidget> {
                                                 .override(
                                                   fontFamily: 'WorkSans',
                                                   letterSpacing: 0.0,
-                                                  useGoogleFonts: false,
                                                 ),
                                           ),
                                         ].divide(SizedBox(width: 12.0)),
@@ -310,7 +306,6 @@ class _ChatThreadsWidgetState extends State<ChatThreadsWidget> {
                                             .override(
                                               fontFamily: 'WorkSans',
                                               letterSpacing: 0.0,
-                                              useGoogleFonts: false,
                                             ),
                                       ),
                                     ].divide(SizedBox(height: 8.0)),
@@ -359,14 +354,12 @@ class _ChatThreadsWidgetState extends State<ChatThreadsWidget> {
                             FlutterFlowTheme.of(context).labelMedium.override(
                                   fontFamily: 'WorkSans',
                                   letterSpacing: 0.0,
-                                  useGoogleFonts: false,
                                 ),
                         alignLabelWithHint: true,
                         hintStyle:
                             FlutterFlowTheme.of(context).labelMedium.override(
                                   fontFamily: 'WorkSans',
                                   letterSpacing: 0.0,
-                                  useGoogleFonts: false,
                                 ),
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
@@ -407,7 +400,6 @@ class _ChatThreadsWidgetState extends State<ChatThreadsWidget> {
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'WorkSans',
                             letterSpacing: 0.0,
-                            useGoogleFonts: false,
                           ),
                       maxLines: 8,
                       minLines: 2,
@@ -499,7 +491,6 @@ class _ChatThreadsWidgetState extends State<ChatThreadsWidget> {
                                     fontFamily: 'WorkSans',
                                     color: Colors.white,
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: false,
                                   ),
                           elevation: 3.0,
                           borderSide: BorderSide(

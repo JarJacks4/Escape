@@ -1,7 +1,8 @@
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+import '/index.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -11,6 +12,9 @@ export 'analyzing_mood_status_page_model.dart';
 
 class AnalyzingMoodStatusPageWidget extends StatefulWidget {
   const AnalyzingMoodStatusPageWidget({super.key});
+
+  static String routeName = 'AnalyzingMoodStatusPage';
+  static String routePath = 'analyzingMoodStatusPage';
 
   @override
   State<AnalyzingMoodStatusPageWidget> createState() =>
@@ -38,7 +42,7 @@ class _AnalyzingMoodStatusPageWidgetState
       logFirebaseEvent('AnalyzingMoodStatusPage_navigate_to');
 
       context.pushNamed(
-        'DeepFeelingsResponse',
+        DeepFeelingsResponseWidget.routeName,
         extra: <String, dynamic>{
           kTransitionInfoKey: TransitionInfo(
             hasTransition: true,
@@ -105,7 +109,6 @@ class _AnalyzingMoodStatusPageWidgetState
                             fontFamily: 'The Seasons',
                             fontSize: 28.0,
                             letterSpacing: 0.0,
-                            useGoogleFonts: false,
                           ),
                     ),
                   ],

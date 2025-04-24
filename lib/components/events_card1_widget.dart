@@ -1,7 +1,8 @@
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
+import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -78,18 +79,22 @@ class _EventsCard1WidgetState extends State<EventsCard1Widget> {
                 children: [
                   Align(
                     alignment: AlignmentDirectional(0.0, -1.0),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(0.0),
-                        bottomRight: Radius.circular(0.0),
-                        topLeft: Radius.circular(8.0),
-                        topRight: Radius.circular(8.0),
-                      ),
-                      child: Image.network(
-                        'https://images.unsplash.com/photo-1567850083672-65ae6c8a696b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDJ8fGNhbm5hYmlzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=900&q=60',
-                        width: double.infinity,
-                        height: 130.0,
-                        fit: BoxFit.cover,
+                    child: Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 34.0),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(0.0),
+                          bottomRight: Radius.circular(0.0),
+                          topLeft: Radius.circular(8.0),
+                          topRight: Radius.circular(8.0),
+                        ),
+                        child: Image.network(
+                          'https://images.unsplash.com/photo-1567850083672-65ae6c8a696b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDJ8fGNhbm5hYmlzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=900&q=60',
+                          width: double.infinity,
+                          height: 130.0,
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                   ),
@@ -103,41 +108,48 @@ class _EventsCard1WidgetState extends State<EventsCard1Widget> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Icon(
-                                Icons.grid_on_rounded,
-                                color: FlutterFlowTheme.of(context).secondary,
-                                size: 24.0,
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    8.0, 0.0, 0.0, 0.0),
-                                child: GradientText(
-                                  FFLocalizations.of(context).getText(
-                                    'p991gl1a' /* Classes & Events */,
+                          Flexible(
+                            flex: 1,
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 34.0, 0.0, 0.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Icon(
+                                    Icons.grid_on_rounded,
+                                    color:
+                                        FlutterFlowTheme.of(context).secondary,
+                                    size: 24.0,
                                   ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'WorkSans',
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryBackground,
-                                        fontSize: 22.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.normal,
-                                        useGoogleFonts: false,
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        8.0, 15.0, 0.0, 0.0),
+                                    child: GradientText(
+                                      FFLocalizations.of(context).getText(
+                                        'p991gl1a' /* Classes & Events */,
                                       ),
-                                  colors: [
-                                    FlutterFlowTheme.of(context).tertiary,
-                                    FlutterFlowTheme.of(context).secondary
-                                  ],
-                                  gradientDirection: GradientDirection.ltr,
-                                  gradientType: GradientType.linear,
-                                ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'WorkSans',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryBackground,
+                                            fontSize: 22.0,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.normal,
+                                          ),
+                                      colors: [
+                                        FlutterFlowTheme.of(context).tertiary,
+                                        FlutterFlowTheme.of(context).secondary
+                                      ],
+                                      gradientDirection: GradientDirection.ltr,
+                                      gradientType: GradientType.linear,
+                                    ),
+                                  ),
+                                ],
                               ),
-                            ],
+                            ),
                           ),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
@@ -179,7 +191,7 @@ class _EventsCard1WidgetState extends State<EventsCard1Widget> {
                                       logFirebaseEvent('Icon_navigate_to');
 
                                       context.pushNamed(
-                                        'EventsFINAL',
+                                        EventsFINALWidget.routeName,
                                         queryParameters: {
                                           'eventsName': serializeParam(
                                             widget!.eventName?.id,
@@ -227,19 +239,18 @@ class _EventsCard1WidgetState extends State<EventsCard1Widget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 0.0, 8.0),
+              padding: EdgeInsetsDirectional.fromSTEB(16.0, 15.0, 0.0, 8.0),
               child: Text(
                 valueOrDefault<String>(
                   widget!.eventName?.id,
                   'Name',
                 ),
                 style: FlutterFlowTheme.of(context).titleLarge.override(
-                      fontFamily: 'WorkSans',
+                      fontFamily: 'The Seasons',
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                       fontSize: 18.0,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.w300,
-                      useGoogleFonts: false,
                     ),
               ),
             ),
@@ -254,7 +265,6 @@ class _EventsCard1WidgetState extends State<EventsCard1Widget> {
                       fontFamily: 'WorkSans',
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                       letterSpacing: 0.0,
-                      useGoogleFonts: false,
                     ),
               ),
             ),
@@ -276,7 +286,6 @@ class _EventsCard1WidgetState extends State<EventsCard1Widget> {
                             color:
                                 FlutterFlowTheme.of(context).primaryBackground,
                             letterSpacing: 0.0,
-                            useGoogleFonts: false,
                           ),
                     ),
                   ),
@@ -292,7 +301,7 @@ class _EventsCard1WidgetState extends State<EventsCard1Widget> {
                         logFirebaseEvent('Text_navigate_to');
 
                         context.pushNamed(
-                          'EventsFINAL',
+                          EventsFINALWidget.routeName,
                           queryParameters: {
                             'eventsName': serializeParam(
                               widget!.eventName?.id,
@@ -333,7 +342,6 @@ class _EventsCard1WidgetState extends State<EventsCard1Widget> {
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.normal,
                               decoration: TextDecoration.underline,
-                              useGoogleFonts: false,
                             ),
                       ),
                     ),

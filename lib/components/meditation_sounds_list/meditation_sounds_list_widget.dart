@@ -1,10 +1,10 @@
 import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:math';
 import 'dart:ui';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -250,7 +250,6 @@ class _MeditationSoundsListWidgetState extends State<MeditationSoundsListWidget>
                                       .primaryBackground,
                                   fontSize: 20.0,
                                   letterSpacing: 0.0,
-                                  useGoogleFonts: false,
                                 ),
                           ),
                         ],
@@ -380,8 +379,6 @@ class _MeditationSoundsListWidgetState extends State<MeditationSoundsListWidget>
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
-                                                                  useGoogleFonts:
-                                                                      false,
                                                                 ),
                                                       ),
                                                     ),
@@ -453,7 +450,6 @@ class _MeditationSoundsListWidgetState extends State<MeditationSoundsListWidget>
                             fontSize: 20.0,
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.w300,
-                            useGoogleFonts: false,
                           ),
                     ),
                   ],
@@ -514,7 +510,6 @@ class _MeditationSoundsListWidgetState extends State<MeditationSoundsListWidget>
                                                 .override(
                                                   fontFamily: 'WorkSans',
                                                   letterSpacing: 0.0,
-                                                  useGoogleFonts: false,
                                                 ),
                                           ),
                                         ],
@@ -558,7 +553,6 @@ class _MeditationSoundsListWidgetState extends State<MeditationSoundsListWidget>
                                                 .override(
                                                   fontFamily: 'WorkSans',
                                                   letterSpacing: 0.0,
-                                                  useGoogleFonts: false,
                                                 ),
                                           ),
                                         ],
@@ -601,7 +595,6 @@ class _MeditationSoundsListWidgetState extends State<MeditationSoundsListWidget>
                                                 .override(
                                                   fontFamily: 'WorkSans',
                                                   letterSpacing: 0.0,
-                                                  useGoogleFonts: false,
                                                 ),
                                           ),
                                         ],
@@ -644,7 +637,6 @@ class _MeditationSoundsListWidgetState extends State<MeditationSoundsListWidget>
                                                 .override(
                                                   fontFamily: 'WorkSans',
                                                   letterSpacing: 0.0,
-                                                  useGoogleFonts: false,
                                                 ),
                                           ),
                                         ],
@@ -687,7 +679,6 @@ class _MeditationSoundsListWidgetState extends State<MeditationSoundsListWidget>
                                                 .override(
                                                   fontFamily: 'WorkSans',
                                                   letterSpacing: 0.0,
-                                                  useGoogleFonts: false,
                                                 ),
                                           ),
                                         ],
@@ -722,7 +713,6 @@ class _MeditationSoundsListWidgetState extends State<MeditationSoundsListWidget>
                             fontSize: 20.0,
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.w300,
-                            useGoogleFonts: false,
                           ),
                     ),
                   ],
@@ -848,8 +838,6 @@ class _MeditationSoundsListWidgetState extends State<MeditationSoundsListWidget>
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
-                                                                useGoogleFonts:
-                                                                    false,
                                                               ),
                                                     ),
                                                   ),
@@ -883,11 +871,24 @@ class _MeditationSoundsListWidgetState extends State<MeditationSoundsListWidget>
                         'zc4b4jmi' /* Guided Meditations */,
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Roboto',
+                            font: GoogleFonts.roboto(
+                              fontWeight: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontWeight,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontStyle,
+                            ),
                             color:
                                 FlutterFlowTheme.of(context).primaryBackground,
                             fontSize: 26.0,
                             letterSpacing: 0.0,
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontStyle,
                           ),
                     ),
                   ],
@@ -1027,8 +1028,6 @@ class _MeditationSoundsListWidgetState extends State<MeditationSoundsListWidget>
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
-                                                                useGoogleFonts:
-                                                                    false,
                                                               ),
                                                         ),
                                                       ),

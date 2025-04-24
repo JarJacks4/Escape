@@ -1,7 +1,7 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -124,7 +124,6 @@ class _MusicPlayerCompWidgetState extends State<MusicPlayerCompWidget> {
                                               .secondaryBackground,
                                           fontSize: 22.0,
                                           letterSpacing: 0.0,
-                                          useGoogleFonts: false,
                                         ),
                                   ),
                                 ),
@@ -212,7 +211,6 @@ class _MusicPlayerCompWidgetState extends State<MusicPlayerCompWidget> {
                                           .secondaryBackground,
                                       fontSize: 26.0,
                                       letterSpacing: 0.0,
-                                      useGoogleFonts: false,
                                     ),
                               ),
                             ),
@@ -249,7 +247,6 @@ class _MusicPlayerCompWidgetState extends State<MusicPlayerCompWidget> {
                                   fontSize: 16.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,
-                                  useGoogleFonts: false,
                                 ),
                           ),
                         ],
@@ -303,7 +300,6 @@ class _MusicPlayerCompWidgetState extends State<MusicPlayerCompWidget> {
                                   fontSize: 14.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,
-                                  useGoogleFonts: false,
                                 ),
                           ),
                           Text(
@@ -319,7 +315,6 @@ class _MusicPlayerCompWidgetState extends State<MusicPlayerCompWidget> {
                                   fontSize: 14.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,
-                                  useGoogleFonts: false,
                                 ),
                           ),
                         ],

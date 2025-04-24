@@ -1,14 +1,18 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import 'dart:math';
 import 'dart:ui';
+import "package:tiktokfeed_wz8en7/backend/schema/structs/index.dart"
+    as tiktokfeed_wz8en7_data_schema;
+import 'package:tiktokfeed_wz8en7/app_state.dart'
+    as tiktokfeed_wz8en7_app_state;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -131,10 +135,9 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                       ),
                       style:
                           FlutterFlowTheme.of(context).headlineMedium.override(
-                                fontFamily: 'WorkSans',
+                                fontFamily: 'The Seasons',
                                 color: FlutterFlowTheme.of(context).alternate,
                                 letterSpacing: 0.0,
-                                useGoogleFonts: false,
                               ),
                     ),
                   ),
@@ -149,7 +152,6 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                             fontFamily: 'WorkSans',
                             color: FlutterFlowTheme.of(context).alternate,
                             letterSpacing: 0.0,
-                            useGoogleFonts: false,
                           ),
                     ),
                   ),
@@ -278,7 +280,6 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                     .override(
                                       fontFamily: 'WorkSans',
                                       letterSpacing: 0.0,
-                                      useGoogleFonts: false,
                                     ),
                                 elevation: 0.0,
                                 borderSide: BorderSide(
@@ -315,14 +316,12 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
                                   letterSpacing: 0.0,
-                                  useGoogleFonts: false,
                                 ),
                             hintStyle: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
                                   fontFamily: 'WorkSans',
                                   letterSpacing: 0.0,
-                                  useGoogleFonts: false,
                                 ),
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
@@ -363,7 +362,6 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: false,
                                   ),
                           cursorColor: FlutterFlowTheme.of(context).primary,
                           validator: _model.yourNameTextController1Validator
@@ -389,14 +387,12 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
                                   letterSpacing: 0.0,
-                                  useGoogleFonts: false,
                                 ),
                             hintStyle: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
                                   fontFamily: 'WorkSans',
                                   letterSpacing: 0.0,
-                                  useGoogleFonts: false,
                                 ),
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
@@ -437,7 +433,6 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: false,
                                   ),
                           maxLines: 4,
                           minLines: 3,
@@ -465,14 +460,12 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
                                   letterSpacing: 0.0,
-                                  useGoogleFonts: false,
                                 ),
                             hintStyle: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
                                   fontFamily: 'WorkSans',
                                   letterSpacing: 0.0,
-                                  useGoogleFonts: false,
                                 ),
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
@@ -513,7 +506,6 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: false,
                                   ),
                           cursorColor: FlutterFlowTheme.of(context).primary,
                           validator: _model.yourNameTextController3Validator
@@ -547,7 +539,6 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                             color: FlutterFlowTheme.of(context)
                                                 .alternate,
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: false,
                                           ),
                                     )),
                                   ),
@@ -564,7 +555,6 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryBackground,
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: false,
                                           ),
                                     )),
                                   ),
@@ -590,7 +580,6 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                           .override(
                                             fontFamily: 'WorkSans',
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: false,
                                           ),
                                     )),
                                   ),
@@ -608,7 +597,6 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                             fontFamily: 'WorkSans',
                                             color: Colors.black,
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: false,
                                           ),
                                     )),
                                   ),
@@ -634,7 +622,6 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                           .override(
                                             fontFamily: 'WorkSans',
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: false,
                                           ),
                                     )),
                                   ),
@@ -652,7 +639,6 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                             fontFamily: 'WorkSans',
                                             color: Colors.black,
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: false,
                                           ),
                                     )),
                                   ),
@@ -698,7 +684,6 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: false,
                                   ),
                               elevation: 5.0,
                               borderSide: BorderSide(
@@ -742,7 +727,6 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                           fontFamily: 'WorkSans',
                                           color: Colors.white,
                                           letterSpacing: 0.0,
-                                          useGoogleFonts: false,
                                         ),
                                   ),
                                   duration: Duration(milliseconds: 4000),
@@ -766,7 +750,6 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                   .override(
                                     fontFamily: 'WorkSans',
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: false,
                                   ),
                               elevation: 3.0,
                               borderSide: BorderSide(

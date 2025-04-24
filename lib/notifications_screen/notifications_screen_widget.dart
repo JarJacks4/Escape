@@ -1,7 +1,7 @@
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -10,6 +10,9 @@ export 'notifications_screen_model.dart';
 
 class NotificationsScreenWidget extends StatefulWidget {
   const NotificationsScreenWidget({super.key});
+
+  static String routeName = 'notificationsScreen';
+  static String routePath = 'notificationsScreen';
 
   @override
   State<NotificationsScreenWidget> createState() =>
@@ -61,9 +64,8 @@ class _NotificationsScreenWidgetState extends State<NotificationsScreenWidget> {
                     'he1560nz' /* Notifications */,
                   ),
                   style: FlutterFlowTheme.of(context).headlineLarge.override(
-                        fontFamily: 'WorkSans',
+                        fontFamily: 'The Seasons',
                         letterSpacing: 0.0,
-                        useGoogleFonts: false,
                       ),
                 ),
                 actions: [],
@@ -107,7 +109,6 @@ class _NotificationsScreenWidgetState extends State<NotificationsScreenWidget> {
                                   .override(
                                     fontFamily: 'WorkSans',
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: false,
                                   ),
                             ),
                             Padding(
@@ -123,7 +124,6 @@ class _NotificationsScreenWidgetState extends State<NotificationsScreenWidget> {
                                     .override(
                                       fontFamily: 'WorkSans',
                                       letterSpacing: 0.0,
-                                      useGoogleFonts: false,
                                     ),
                               ),
                             ),
@@ -178,7 +178,6 @@ class _NotificationsScreenWidgetState extends State<NotificationsScreenWidget> {
                                               .override(
                                                 fontFamily: 'WorkSans',
                                                 letterSpacing: 0.0,
-                                                useGoogleFonts: false,
                                               ),
                                         ),
                                         Padding(
@@ -194,7 +193,6 @@ class _NotificationsScreenWidgetState extends State<NotificationsScreenWidget> {
                                                 .override(
                                                   fontFamily: 'WorkSans',
                                                   letterSpacing: 0.0,
-                                                  useGoogleFonts: false,
                                                 ),
                                           ),
                                         ),
@@ -218,7 +216,6 @@ class _NotificationsScreenWidgetState extends State<NotificationsScreenWidget> {
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryText,
                                       letterSpacing: 0.0,
-                                      useGoogleFonts: false,
                                     ),
                               ),
                             ),
@@ -278,7 +275,6 @@ class _NotificationsScreenWidgetState extends State<NotificationsScreenWidget> {
                                   .override(
                                     fontFamily: 'WorkSans',
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: false,
                                   ),
                             ),
                             Padding(
@@ -297,7 +293,6 @@ class _NotificationsScreenWidgetState extends State<NotificationsScreenWidget> {
                                           .primaryText,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
-                                      useGoogleFonts: false,
                                     ),
                               ),
                             ),
@@ -352,7 +347,6 @@ class _NotificationsScreenWidgetState extends State<NotificationsScreenWidget> {
                                               .override(
                                                 fontFamily: 'WorkSans',
                                                 letterSpacing: 0.0,
-                                                useGoogleFonts: false,
                                               ),
                                         ),
                                         Padding(
@@ -368,7 +362,6 @@ class _NotificationsScreenWidgetState extends State<NotificationsScreenWidget> {
                                                 .override(
                                                   fontFamily: 'WorkSans',
                                                   letterSpacing: 0.0,
-                                                  useGoogleFonts: false,
                                                 ),
                                           ),
                                         ),
@@ -392,7 +385,6 @@ class _NotificationsScreenWidgetState extends State<NotificationsScreenWidget> {
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryText,
                                       letterSpacing: 0.0,
-                                      useGoogleFonts: false,
                                     ),
                               ),
                             ),
@@ -452,7 +444,6 @@ class _NotificationsScreenWidgetState extends State<NotificationsScreenWidget> {
                                   .override(
                                     fontFamily: 'WorkSans',
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: false,
                                   ),
                             ),
                             Padding(
@@ -468,7 +459,6 @@ class _NotificationsScreenWidgetState extends State<NotificationsScreenWidget> {
                                     .override(
                                       fontFamily: 'WorkSans',
                                       letterSpacing: 0.0,
-                                      useGoogleFonts: false,
                                     ),
                               ),
                             ),
@@ -499,7 +489,6 @@ class _NotificationsScreenWidgetState extends State<NotificationsScreenWidget> {
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryText,
                                       letterSpacing: 0.0,
-                                      useGoogleFonts: false,
                                     ),
                               ),
                             ),
@@ -559,7 +548,6 @@ class _NotificationsScreenWidgetState extends State<NotificationsScreenWidget> {
                                   .override(
                                     fontFamily: 'WorkSans',
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: false,
                                   ),
                             ),
                             Padding(
@@ -575,7 +563,6 @@ class _NotificationsScreenWidgetState extends State<NotificationsScreenWidget> {
                                     .override(
                                       fontFamily: 'WorkSans',
                                       letterSpacing: 0.0,
-                                      useGoogleFonts: false,
                                     ),
                               ),
                             ),
@@ -591,7 +578,6 @@ class _NotificationsScreenWidgetState extends State<NotificationsScreenWidget> {
                                     .override(
                                       fontFamily: 'WorkSans',
                                       letterSpacing: 0.0,
-                                      useGoogleFonts: false,
                                     ),
                               ),
                             ),

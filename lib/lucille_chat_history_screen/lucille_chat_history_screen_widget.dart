@@ -1,8 +1,9 @@
 import '/auth/firebase_auth/auth_util.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+import '/index.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -11,6 +12,9 @@ export 'lucille_chat_history_screen_model.dart';
 
 class LucilleChatHistoryScreenWidget extends StatefulWidget {
   const LucilleChatHistoryScreenWidget({super.key});
+
+  static String routeName = 'LucilleChatHistoryScreen';
+  static String routePath = 'lucilleChatHistoryScreen';
 
   @override
   State<LucilleChatHistoryScreenWidget> createState() =>
@@ -83,7 +87,6 @@ class _LucilleChatHistoryScreenWidgetState
                                       fontFamily: 'The Seasons',
                                       fontSize: 24.0,
                                       letterSpacing: 0.0,
-                                      useGoogleFonts: false,
                                     ),
                               ),
                             ),
@@ -105,7 +108,7 @@ class _LucilleChatHistoryScreenWidgetState
                                 logFirebaseEvent('Image_navigate_to');
 
                                 context.pushNamed(
-                                  'HomeVersion2',
+                                  HomeVersion2Widget.routeName,
                                   extra: <String, dynamic>{
                                     kTransitionInfoKey: TransitionInfo(
                                       hasTransition: true,
@@ -170,13 +173,12 @@ class _LucilleChatHistoryScreenWidgetState
                             style: FlutterFlowTheme.of(context)
                                 .headlineMedium
                                 .override(
-                                  fontFamily: 'WorkSans',
+                                  fontFamily: 'The Seasons',
                                   color:
                                       FlutterFlowTheme.of(context).primaryText,
                                   fontSize: 20.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w600,
-                                  useGoogleFonts: false,
                                 ),
                           ),
                         ].divide(SizedBox(width: 16.0)),

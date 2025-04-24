@@ -1,6 +1,8 @@
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
+import 'package:tiktokfeed_wz8en7/app_state.dart'
+    as tiktokfeed_wz8en7_app_state;
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -41,6 +43,7 @@ class _TodaysSelfCareActivitiesCompWidgetState
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
+    context.watch<tiktokfeed_wz8en7_app_state.FFAppState>();
 
     return Container(
       decoration: BoxDecoration(
@@ -59,7 +62,6 @@ class _TodaysSelfCareActivitiesCompWidgetState
                     fontFamily: 'WorkSans',
                     fontSize: 28.0,
                     letterSpacing: 0.0,
-                    useGoogleFonts: false,
                   ),
             ),
             ListView(
@@ -106,7 +108,6 @@ class _TodaysSelfCareActivitiesCompWidgetState
                                               fontFamily: 'WorkSans',
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
-                                              useGoogleFonts: false,
                                             ),
                                       ),
                                       Padding(
@@ -137,7 +138,6 @@ class _TodaysSelfCareActivitiesCompWidgetState
                                                                 .primary,
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: false,
                                                       ),
                                             ),
                                           ),
@@ -156,7 +156,6 @@ class _TodaysSelfCareActivitiesCompWidgetState
                                           color: FlutterFlowTheme.of(context)
                                               .primary,
                                           letterSpacing: 0.0,
-                                          useGoogleFonts: false,
                                         ),
                                   ),
                                 ].divide(SizedBox(height: 4.0)),
@@ -243,7 +242,6 @@ class _TodaysSelfCareActivitiesCompWidgetState
                                                       .accent1,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.bold,
-                                              useGoogleFonts: false,
                                             ),
                                       ),
                                       Padding(
@@ -273,7 +271,6 @@ class _TodaysSelfCareActivitiesCompWidgetState
                                                                     context)
                                                                 .alternate,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: false,
                                                       ),
                                             ),
                                           ),
@@ -292,7 +289,6 @@ class _TodaysSelfCareActivitiesCompWidgetState
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryText,
                                           letterSpacing: 0.0,
-                                          useGoogleFonts: false,
                                         ),
                                   ),
                                 ].divide(SizedBox(height: 4.0)),
@@ -370,7 +366,6 @@ class _TodaysSelfCareActivitiesCompWidgetState
                                                 .accent1,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
-                                            useGoogleFonts: false,
                                           ),
                                     ),
                                     Padding(
@@ -397,7 +392,6 @@ class _TodaysSelfCareActivitiesCompWidgetState
                                                           context)
                                                       .info,
                                                   letterSpacing: 0.0,
-                                                  useGoogleFonts: false,
                                                 ),
                                           ),
                                         ),
@@ -416,7 +410,6 @@ class _TodaysSelfCareActivitiesCompWidgetState
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryText,
                                         letterSpacing: 0.0,
-                                        useGoogleFonts: false,
                                       ),
                                 ),
                               ].divide(SizedBox(height: 4.0)),

@@ -9,14 +9,18 @@ import 'auth/firebase_auth/firebase_user_provider.dart';
 import 'auth/firebase_auth/auth_util.dart';
 
 import 'backend/firebase/firebase_config.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 import 'flutter_flow/internationalization.dart';
 import 'package:flutter/foundation.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'flutter_flow/nav/nav.dart';
 import 'index.dart';
+
+import 'package:tiktokfeed_wz8en7/app_state.dart'
+    as tiktokfeed_wz8en7_app_state;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,12 +37,22 @@ void main() async {
   final appState = FFAppState(); // Initialize FFAppState
   await appState.initializePersistedState();
 
+  final tiktokfeed_wz8en7AppState = tiktokfeed_wz8en7_app_state.FFAppState();
+  await tiktokfeed_wz8en7AppState.initializePersistedState();
+
   if (!kIsWeb) {
     FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
   }
 
-  runApp(ChangeNotifierProvider(
-    create: (context) => appState,
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(
+        create: (context) => appState,
+      ),
+      ChangeNotifierProvider(
+        create: (context) => tiktokfeed_wz8en7AppState,
+      ),
+    ],
     child: MyApp(),
   ));
 }
@@ -67,6 +81,11 @@ class _MyAppState extends State<MyApp> {
         : _router.routerDelegate.currentConfiguration;
     return matchList.uri.toString();
   }
+
+  List<String> getRouteStack() =>
+      _router.routerDelegate.currentConfiguration.matches
+          .map((e) => getRoute(e))
+          .toList();
 
   late Stream<BaseAuthUser> userStream;
 
@@ -108,6 +127,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
       title: 'Escape',
       localizationsDelegates: [
         FFLocalizationsDelegate(),
@@ -179,9 +199,9 @@ class _NavBarPageState extends State<NavBarPage> {
   Widget build(BuildContext context) {
     final tabs = {
       'HomeVersion2': HomeVersion2Widget(),
-      'MoodTrackHome': MoodTrackHomeWidget(),
       'SelfCarePlanPage': SelfCarePlanPageWidget(),
-      'ProviderCommunityHome': ProviderCommunityHomeWidget(),
+      'LucilleHome': LucilleHomeWidget(),
+      'CommunityHome': CommunityHomeWidget(),
       'profileFINAL': ProfileFINALWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
@@ -201,9 +221,9 @@ class _NavBarPageState extends State<NavBarPage> {
             _currentPage = null;
             _currentPageName = tabs.keys.toList()[i];
           }),
-          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-          selectedItemColor: Color(0x84F0831A),
-          unselectedItemColor: Color(0x535A5C60),
+          backgroundColor: FlutterFlowTheme.of(context).alternate,
+          selectedItemColor: FlutterFlowTheme.of(context).accent1,
+          unselectedItemColor: Color(0xACD0E3F7),
           showSelectedLabels: true,
           showUnselectedLabels: true,
           type: BottomNavigationBarType.fixed,
@@ -224,20 +244,20 @@ class _NavBarPageState extends State<NavBarPage> {
             ),
             BottomNavigationBarItem(
               icon: Icon(
-                Icons.mood,
-                size: 24.0,
-              ),
-              label: FFLocalizations.of(context).getText(
-                'em3sbrpu' /* Mood */,
-              ),
-              tooltip: '',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
                 FFIcons.kplans,
               ),
               label: FFLocalizations.of(context).getText(
                 'py6c4427' /* Plan */,
+              ),
+              tooltip: '',
+            ),
+            BottomNavigationBarItem(
+              icon: FaIcon(
+                FontAwesomeIcons.robot,
+                size: 24.0,
+              ),
+              label: FFLocalizations.of(context).getText(
+                '6ozwyngp' /* Lucille */,
               ),
               tooltip: '',
             ),
@@ -247,7 +267,7 @@ class _NavBarPageState extends State<NavBarPage> {
                 size: 24.0,
               ),
               label: FFLocalizations.of(context).getText(
-                'wbli8gd4' /* Community */,
+                'wbli8gd4' /* Providers */,
               ),
               tooltip: '',
             ),

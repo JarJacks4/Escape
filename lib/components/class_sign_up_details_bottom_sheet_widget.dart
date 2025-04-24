@@ -1,9 +1,9 @@
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:math';
 import 'dart:ui';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -155,7 +155,6 @@ class _ClassSignUpDetailsBottomSheetWidgetState
                                       fontSize: 22.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
-                                      useGoogleFonts: false,
                                     ),
                               ),
                               Text(
@@ -169,7 +168,6 @@ class _ClassSignUpDetailsBottomSheetWidgetState
                                       fontSize: 22.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w300,
-                                      useGoogleFonts: false,
                                     ),
                               ),
                             ],
@@ -188,7 +186,6 @@ class _ClassSignUpDetailsBottomSheetWidgetState
                                       fontSize: 18.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
-                                      useGoogleFonts: false,
                                     ),
                               ),
                               Text(
@@ -202,7 +199,6 @@ class _ClassSignUpDetailsBottomSheetWidgetState
                                       fontSize: 18.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w300,
-                                      useGoogleFonts: false,
                                     ),
                               ),
                             ],
@@ -218,7 +214,6 @@ class _ClassSignUpDetailsBottomSheetWidgetState
                                   fontSize: 16.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w500,
-                                  useGoogleFonts: false,
                                 ),
                           ),
                         ],
@@ -249,7 +244,6 @@ class _ClassSignUpDetailsBottomSheetWidgetState
                                       fontFamily: 'WorkSans',
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
-                                      useGoogleFonts: false,
                                     ),
                               ),
                             ),
@@ -295,10 +289,18 @@ class _ClassSignUpDetailsBottomSheetWidgetState
                           'pr5ftgkz' /* Book Class */,
                         ),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Roboto',
+                              font: GoogleFonts.roboto(
+                                fontWeight: FontWeight.normal,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .fontStyle,
+                              ),
                               fontSize: 22.0,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.normal,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontStyle,
                             ),
                       ),
                     ],

@@ -1,7 +1,7 @@
 import '/components/subscription_comp2_widget.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -10,6 +10,9 @@ export 'subscription_comp_model.dart';
 
 class SubscriptionCompWidget extends StatefulWidget {
   const SubscriptionCompWidget({super.key});
+
+  static String routeName = 'SubscriptionComp';
+  static String routePath = 'subscriptionComp';
 
   @override
   State<SubscriptionCompWidget> createState() => _SubscriptionCompWidgetState();

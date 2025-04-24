@@ -1,8 +1,11 @@
 import '/backend/gemini/gemini.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+import '/index.dart';
+import 'package:tiktokfeed_wz8en7/app_state.dart'
+    as tiktokfeed_wz8en7_app_state;
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
@@ -108,7 +111,6 @@ H... */
                                       fontSize: 28.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.bold,
-                                      useGoogleFonts: false,
                                     ),
                               ),
                             ),
@@ -139,7 +141,6 @@ H... */
                                         fontSize: 18.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w200,
-                                        useGoogleFonts: false,
                                       ),
                                 ),
                               ),
@@ -166,7 +167,6 @@ H... */
                                   .override(
                                     fontFamily: 'The Seasons',
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: false,
                                   ),
                               hintText: FFLocalizations.of(context).getText(
                                 '96uol743' /* Input Your Deep Feelings Here.... */,
@@ -176,7 +176,6 @@ H... */
                                   .override(
                                     fontFamily: 'The Seasons',
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: false,
                                   ),
                               enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
@@ -214,7 +213,6 @@ H... */
                                 .override(
                                   fontFamily: 'The Seasons',
                                   letterSpacing: 0.0,
-                                  useGoogleFonts: false,
                                 ),
                             maxLines: 5,
                             cursorColor:
@@ -250,7 +248,7 @@ H... */
                               logFirebaseEvent('Button_navigate_to');
 
                               context.pushNamed(
-                                'AnalyzingMoodStatusPage',
+                                AnalyzingMoodStatusPageWidget.routeName,
                                 extra: <String, dynamic>{
                                   kTransitionInfoKey: TransitionInfo(
                                     hasTransition: true,
@@ -285,7 +283,6 @@ H... */
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
-                                    useGoogleFonts: false,
                                   ),
                               elevation: 8.0,
                               borderSide: BorderSide(
@@ -330,7 +327,6 @@ H... */
                                         fontSize: 16.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.bold,
-                                        useGoogleFonts: false,
                                       ),
                                   elevation: 8.0,
                                   borderSide: BorderSide(

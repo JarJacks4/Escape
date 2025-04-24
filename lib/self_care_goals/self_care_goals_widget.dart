@@ -1,10 +1,11 @@
 import '/flutter_flow/flutter_flow_checkbox_group.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'dart:async';
 import 'dart:ui';
+import '/index.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -14,6 +15,9 @@ export 'self_care_goals_model.dart';
 
 class SelfCareGoalsWidget extends StatefulWidget {
   const SelfCareGoalsWidget({super.key});
+
+  static String routeName = 'SelfCareGoals';
+  static String routePath = 'selfCareGoals';
 
   @override
   State<SelfCareGoalsWidget> createState() => _SelfCareGoalsWidgetState();
@@ -103,7 +107,10 @@ class _SelfCareGoalsWidgetState extends State<SelfCareGoalsWidget> {
                         )
                       ],
                       gradient: LinearGradient(
-                        colors: [Color(0xAFD0E3F7), Color(0x97F0831A)],
+                        colors: [
+                          Color(0xAFD0E3F7),
+                          FlutterFlowTheme.of(context).tertiary
+                        ],
                         stops: [0.0, 1.0],
                         begin: AlignmentDirectional(0.0, -1.0),
                         end: AlignmentDirectional(0, 1.0),
@@ -148,13 +155,12 @@ class _SelfCareGoalsWidgetState extends State<SelfCareGoalsWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .displayMedium
                                               .override(
-                                                fontFamily: 'WorkSans',
+                                                fontFamily: 'The Seasons',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryBackground,
                                                 letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w600,
-                                                useGoogleFonts: false,
+                                                fontWeight: FontWeight.bold,
                                               ),
                                         ),
                                       ),
@@ -174,7 +180,6 @@ class _SelfCareGoalsWidgetState extends State<SelfCareGoalsWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .tertiary,
                                                 letterSpacing: 0.0,
-                                                useGoogleFonts: false,
                                               ),
                                         ),
                                       ),
@@ -228,7 +233,6 @@ class _SelfCareGoalsWidgetState extends State<SelfCareGoalsWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .alternate,
                                               letterSpacing: 0.0,
-                                              useGoogleFonts: false,
                                             ),
                                         unselectedTextStyle:
                                             FlutterFlowTheme.of(context)
@@ -240,7 +244,6 @@ class _SelfCareGoalsWidgetState extends State<SelfCareGoalsWidget> {
                                                       .alternate,
                                                   fontSize: 16.0,
                                                   letterSpacing: 0.0,
-                                                  useGoogleFonts: false,
                                                   lineHeight: 1.5,
                                                 ),
                                         checkboxBorderRadius:
@@ -287,7 +290,7 @@ class _SelfCareGoalsWidgetState extends State<SelfCareGoalsWidget> {
                                     logFirebaseEvent('Button_navigate_to');
 
                                     context.pushNamed(
-                                      'EnableNotifications',
+                                      EnableNotificationsWidget.routeName,
                                       extra: <String, dynamic>{
                                         kTransitionInfoKey: TransitionInfo(
                                           hasTransition: true,
@@ -317,7 +320,6 @@ class _SelfCareGoalsWidgetState extends State<SelfCareGoalsWidget> {
                                           color: FlutterFlowTheme.of(context)
                                               .primary,
                                           letterSpacing: 0.0,
-                                          useGoogleFonts: false,
                                         ),
                                     elevation: 4.0,
                                     borderSide: BorderSide(

@@ -1,9 +1,10 @@
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:async';
 import 'dart:ui';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -12,6 +13,9 @@ export 'display_name_page_copy_model.dart';
 
 class DisplayNamePageCopyWidget extends StatefulWidget {
   const DisplayNamePageCopyWidget({super.key});
+
+  static String routeName = 'DisplayNamePageCopy';
+  static String routePath = 'displayNamePageCopy';
 
   @override
   State<DisplayNamePageCopyWidget> createState() =>
@@ -97,9 +101,8 @@ class _DisplayNamePageCopyWidgetState extends State<DisplayNamePageCopyWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .displayMedium
                                   .override(
-                                    fontFamily: 'WorkSans',
+                                    fontFamily: 'The Seasons',
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: false,
                                   ),
                             ),
                           ),
@@ -116,7 +119,6 @@ class _DisplayNamePageCopyWidgetState extends State<DisplayNamePageCopyWidget> {
                                   .override(
                                     fontFamily: 'WorkSans',
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: false,
                                   ),
                             ),
                           ),
@@ -138,7 +140,6 @@ class _DisplayNamePageCopyWidgetState extends State<DisplayNamePageCopyWidget> {
                                     .override(
                                       fontFamily: 'WorkSans',
                                       letterSpacing: 0.0,
-                                      useGoogleFonts: false,
                                     ),
                                 enabledBorder: UnderlineInputBorder(
                                   borderSide: BorderSide(
@@ -180,11 +181,21 @@ class _DisplayNamePageCopyWidgetState extends State<DisplayNamePageCopyWidget> {
                                   .override(
                                     fontFamily: 'WorkSans',
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: false,
                                     lineHeight: 3.0,
                                   ),
                               validator: _model.textControllerValidator
                                   .asValidator(context),
+                              inputFormatters: [
+                                if (!isAndroid && !isiOS)
+                                  TextInputFormatter.withFunction(
+                                      (oldValue, newValue) {
+                                    return TextEditingValue(
+                                      selection: newValue.selection,
+                                      text: newValue.text.toCapitalization(
+                                          TextCapitalization.words),
+                                    );
+                                  }),
+                              ],
                             ),
                           ),
                           Align(
@@ -237,7 +248,6 @@ class _DisplayNamePageCopyWidgetState extends State<DisplayNamePageCopyWidget> {
                                   fontFamily: 'WorkSans',
                                   color: FlutterFlowTheme.of(context).primary,
                                   letterSpacing: 0.0,
-                                  useGoogleFonts: false,
                                 ),
                         elevation: 4.0,
                         borderSide: BorderSide(

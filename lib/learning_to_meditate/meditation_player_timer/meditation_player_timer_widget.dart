@@ -1,10 +1,10 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -24,6 +24,9 @@ class MeditationPlayerTimerWidget extends StatefulWidget {
   final String? meditationPose;
   final String? meditationPlace;
   final String? meditationTime;
+
+  static String routeName = 'MeditationPlayerTimer';
+  static String routePath = 'meditationPlayerTimer';
 
   @override
   State<MeditationPlayerTimerWidget> createState() =>
@@ -148,7 +151,6 @@ class _MeditationPlayerTimerWidgetState
                                               fontSize: 28.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.bold,
-                                              useGoogleFonts: false,
                                             ),
                                       ),
                                     ),
@@ -215,13 +217,24 @@ class _MeditationPlayerTimerWidgetState
                                           style: FlutterFlowTheme.of(context)
                                               .headlineSmall
                                               .override(
-                                                fontFamily: 'Roboto',
+                                                font: GoogleFonts.roboto(
+                                                  fontWeight: FontWeight.w300,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .headlineSmall
+                                                          .fontStyle,
+                                                ),
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryBackground,
                                                 fontSize: 20.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w300,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .headlineSmall
+                                                        .fontStyle,
                                               ),
                                         ),
                                         FlutterFlowIconButton(
@@ -279,13 +292,24 @@ class _MeditationPlayerTimerWidgetState
                                           style: FlutterFlowTheme.of(context)
                                               .displaySmall
                                               .override(
-                                                fontFamily: 'Roboto',
+                                                font: GoogleFonts.roboto(
+                                                  fontWeight: FontWeight.w200,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .displaySmall
+                                                          .fontStyle,
+                                                ),
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryBackground,
                                                 fontSize: 64.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w200,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .displaySmall
+                                                        .fontStyle,
                                               ),
                                         ),
                                       ),
@@ -418,13 +442,30 @@ class _MeditationPlayerTimerWidgetState
                                                                     context)
                                                                 .headlineSmall
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
+                                                                  font: GoogleFonts
+                                                                      .roboto(
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .headlineSmall
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .headlineSmall
+                                                                        .fontStyle,
+                                                                  ),
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .secondaryBackground,
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .headlineSmall
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .headlineSmall
+                                                                      .fontStyle,
                                                                 ),
                                                       ),
                                                     ),
@@ -438,13 +479,31 @@ class _MeditationPlayerTimerWidgetState
                                                                   context)
                                                               .headlineSmall
                                                               .override(
-                                                                fontFamily:
-                                                                    'Roboto',
+                                                                font:
+                                                                    GoogleFonts
+                                                                        .roboto(
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .headlineSmall
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .headlineSmall
+                                                                      .fontStyle,
+                                                                ),
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .primary,
                                                                 letterSpacing:
                                                                     0.0,
+                                                                fontWeight: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .headlineSmall
+                                                                    .fontWeight,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .headlineSmall
+                                                                    .fontStyle,
                                                               ),
                                                     ),
                                                   ],
@@ -471,13 +530,30 @@ class _MeditationPlayerTimerWidgetState
                                                                     context)
                                                                 .headlineMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
+                                                                  font: GoogleFonts
+                                                                      .roboto(
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .headlineMedium
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .headlineMedium
+                                                                        .fontStyle,
+                                                                  ),
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .secondaryBackground,
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .headlineMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .headlineMedium
+                                                                      .fontStyle,
                                                                 ),
                                                       ),
                                                       Text(
@@ -491,8 +567,16 @@ class _MeditationPlayerTimerWidgetState
                                                                     context)
                                                                 .headlineMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'Roboto',
+                                                                  font: GoogleFonts
+                                                                      .roboto(
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w300,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .headlineMedium
+                                                                        .fontStyle,
+                                                                  ),
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .secondaryBackground,
@@ -501,6 +585,10 @@ class _MeditationPlayerTimerWidgetState
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .w300,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .headlineMedium
+                                                                      .fontStyle,
                                                                 ),
                                                       ),
                                                     ],
@@ -549,7 +637,6 @@ class _MeditationPlayerTimerWidgetState
                                                                   context)
                                                               .primaryText,
                                                       letterSpacing: 0.0,
-                                                      useGoogleFonts: false,
                                                     ),
                                                 elevation: 5.0,
                                                 borderSide: BorderSide(

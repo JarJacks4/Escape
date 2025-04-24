@@ -2,10 +2,11 @@ import '/backend/api_requests/api_calls.dart';
 import '/components/video_player_high_fidelity_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:math';
 import 'dart:ui';
+import '/index.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -250,7 +251,6 @@ class _EliminateDepressionCompSoundsWidgetState
                                     fontSize: 20.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w300,
-                                    useGoogleFonts: false,
                                   ),
                         ),
                       ],
@@ -376,8 +376,6 @@ class _EliminateDepressionCompSoundsWidgetState
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
-                                                                useGoogleFonts:
-                                                                    false,
                                                               ),
                                                     ),
                                                   ),
@@ -497,7 +495,6 @@ class _EliminateDepressionCompSoundsWidgetState
                           fontSize: 20.0,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w300,
-                          useGoogleFonts: false,
                         ),
                   ),
                   Icon(
@@ -542,7 +539,8 @@ class _EliminateDepressionCompSoundsWidgetState
                                       logFirebaseEvent('Container_navigate_to');
 
                                       context.pushNamed(
-                                        'SoundsDetailsBinauralBeats',
+                                        SoundsDetailsBinauralBeatsWidget
+                                            .routeName,
                                         extra: <String, dynamic>{
                                           kTransitionInfoKey: TransitionInfo(
                                             hasTransition: true,
@@ -582,7 +580,8 @@ class _EliminateDepressionCompSoundsWidgetState
                                           logFirebaseEvent('Row_navigate_to');
 
                                           context.pushNamed(
-                                            'SoundsDetailsBinauralBeats',
+                                            SoundsDetailsBinauralBeatsWidget
+                                                .routeName,
                                             extra: <String, dynamic>{
                                               kTransitionInfoKey:
                                                   TransitionInfo(
@@ -611,7 +610,6 @@ class _EliminateDepressionCompSoundsWidgetState
                                                       .override(
                                                         fontFamily: 'WorkSans',
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: false,
                                                       ),
                                             ),
                                           ],
@@ -635,7 +633,8 @@ class _EliminateDepressionCompSoundsWidgetState
                                       logFirebaseEvent('Container_navigate_to');
 
                                       context.pushNamed(
-                                        'SoundsDetailsAmbientMusic',
+                                        SoundsDetailsAmbientMusicWidget
+                                            .routeName,
                                         extra: <String, dynamic>{
                                           kTransitionInfoKey: TransitionInfo(
                                             hasTransition: true,
@@ -676,7 +675,8 @@ class _EliminateDepressionCompSoundsWidgetState
                                           logFirebaseEvent('Row_navigate_to');
 
                                           context.pushNamed(
-                                            'SoundsDetailsAmbientMusic',
+                                            SoundsDetailsAmbientMusicWidget
+                                                .routeName,
                                             extra: <String, dynamic>{
                                               kTransitionInfoKey:
                                                   TransitionInfo(
@@ -705,7 +705,6 @@ class _EliminateDepressionCompSoundsWidgetState
                                                       .override(
                                                         fontFamily: 'WorkSans',
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: false,
                                                       ),
                                             ),
                                           ],
@@ -729,7 +728,8 @@ class _EliminateDepressionCompSoundsWidgetState
                                       logFirebaseEvent('Container_navigate_to');
 
                                       context.pushNamed(
-                                        'SoundsDetailsNatureSounds',
+                                        SoundsDetailsNatureSoundsWidget
+                                            .routeName,
                                         extra: <String, dynamic>{
                                           kTransitionInfoKey: TransitionInfo(
                                             hasTransition: true,
@@ -769,7 +769,8 @@ class _EliminateDepressionCompSoundsWidgetState
                                           logFirebaseEvent('Row_navigate_to');
 
                                           context.pushNamed(
-                                            'SoundsDetailsNatureSounds',
+                                            SoundsDetailsNatureSoundsWidget
+                                                .routeName,
                                             extra: <String, dynamic>{
                                               kTransitionInfoKey:
                                                   TransitionInfo(
@@ -801,7 +802,6 @@ for Depression */
                                                       .override(
                                                         fontFamily: 'WorkSans',
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: false,
                                                       ),
                                             ),
                                           ],
@@ -846,7 +846,6 @@ for Depression */
                                               .override(
                                                 fontFamily: 'WorkSans',
                                                 letterSpacing: 0.0,
-                                                useGoogleFonts: false,
                                               ),
                                         ),
                                       ],
@@ -892,7 +891,6 @@ for D... */
                                               .override(
                                                 fontFamily: 'WorkSans',
                                                 letterSpacing: 0.0,
-                                                useGoogleFonts: false,
                                               ),
                                         ),
                                       ],
@@ -926,7 +924,6 @@ for D... */
                           fontSize: 20.0,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w300,
-                          useGoogleFonts: false,
                         ),
                   ),
                   Icon(
@@ -1118,8 +1115,6 @@ for D... */
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
-                                                                useGoogleFonts:
-                                                                    false,
                                                               ),
                                                     ),
                                                   ),
@@ -1154,11 +1149,18 @@ for D... */
                       'oi05ejqy' /* Channels */,
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Roboto',
+                          font: GoogleFonts.roboto(
+                            fontWeight: FontWeight.w300,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontStyle,
+                          ),
                           color: FlutterFlowTheme.of(context).primary,
                           fontSize: 26.0,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w300,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                         ),
                   ),
                   Icon(
@@ -1300,8 +1302,6 @@ for D... */
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
-                                                                  useGoogleFonts:
-                                                                      false,
                                                                 ),
                                                       ),
                                                     ),

@@ -1,8 +1,9 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+import '/index.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
@@ -12,6 +13,9 @@ export 'learning_to_meditate_page2_model.dart';
 
 class LearningToMeditatePage2Widget extends StatefulWidget {
   const LearningToMeditatePage2Widget({super.key});
+
+  static String routeName = 'LearningToMeditatePage2';
+  static String routePath = 'learningToMeditatePage2';
 
   @override
   State<LearningToMeditatePage2Widget> createState() =>
@@ -126,12 +130,20 @@ class _LearningToMeditatePage2WidgetState
                           textAlign: TextAlign.start,
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Roboto',
+                                    font: GoogleFonts.roboto(
+                                      fontWeight: FontWeight.normal,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
                                     fontSize: 36.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
                                   ),
                         ),
                       ),
@@ -159,12 +171,20 @@ class _LearningToMeditatePage2WidgetState
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'Roboto',
+                                  font: GoogleFonts.roboto(
+                                    fontWeight: FontWeight.w200,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                  ),
                                   color: FlutterFlowTheme.of(context)
                                       .primaryBackground,
                                   fontSize: 20.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w200,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontStyle,
                                   lineHeight: 4.0,
                                 ),
                           ),
@@ -191,7 +211,7 @@ class _LearningToMeditatePage2WidgetState
                             logFirebaseEvent('Button_navigate_to');
 
                             context.pushNamed(
-                              'TimedMeditations',
+                              TimedMeditationsWidget.routeName,
                               extra: <String, dynamic>{
                                 kTransitionInfoKey: TransitionInfo(
                                   hasTransition: true,
@@ -222,7 +242,6 @@ class _LearningToMeditatePage2WidgetState
                                   fontFamily: 'WorkSans',
                                   color: Colors.white,
                                   letterSpacing: 0.0,
-                                  useGoogleFonts: false,
                                 ),
                             elevation: 8.0,
                             borderSide: BorderSide(

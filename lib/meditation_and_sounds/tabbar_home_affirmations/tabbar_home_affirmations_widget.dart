@@ -1,10 +1,10 @@
 import '/components/staggered_view_affirmations/staggered_view_affirmations_widget.dart';
 import '/flutter_flow/flutter_flow_button_tabbar.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -70,7 +70,6 @@ class _TabbarHomeAffirmationsWidgetState
                       fontSize: 14.0,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.w500,
-                      useGoogleFonts: false,
                     ),
                 unselectedLabelStyle:
                     FlutterFlowTheme.of(context).labelMedium.override(
@@ -78,7 +77,6 @@ class _TabbarHomeAffirmationsWidgetState
                           fontSize: 14.0,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w500,
-                          useGoogleFonts: false,
                         ),
                 labelColor: Colors.white,
                 unselectedLabelColor: FlutterFlowTheme.of(context).primary,

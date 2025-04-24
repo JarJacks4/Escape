@@ -2,10 +2,11 @@ import '/backend/api_requests/api_calls.dart';
 import '/components/video_player_high_fidelity_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:math';
 import 'dart:ui';
+import '/index.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -231,7 +232,6 @@ Yoga Videos */
                                         .primaryBackground,
                                     fontSize: 32.0,
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: false,
                                   ),
                           colors: [
                             FlutterFlowTheme.of(context).alternate,
@@ -345,7 +345,6 @@ Yoga Videos */
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
-                                                          useGoogleFonts: false,
                                                         ),
                                                   ),
                                                 ),
@@ -454,7 +453,6 @@ Yoga Videos */
                           fontSize: 20.0,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w300,
-                          useGoogleFonts: false,
                         ),
                     colors: [
                       FlutterFlowTheme.of(context).alternate,
@@ -505,7 +503,8 @@ Yoga Videos */
                                       logFirebaseEvent('Container_navigate_to');
 
                                       context.pushNamed(
-                                        'SoundsDetailsBinauralBeats',
+                                        SoundsDetailsBinauralBeatsWidget
+                                            .routeName,
                                         extra: <String, dynamic>{
                                           kTransitionInfoKey: TransitionInfo(
                                             hasTransition: true,
@@ -548,7 +547,6 @@ Yoga Videos */
                                                 .override(
                                                   fontFamily: 'WorkSans',
                                                   letterSpacing: 0.0,
-                                                  useGoogleFonts: false,
                                                 ),
                                           ),
                                         ],
@@ -571,7 +569,8 @@ Yoga Videos */
                                       logFirebaseEvent('Container_navigate_to');
 
                                       context.pushNamed(
-                                        'SoundsDetailsAmbientMusic',
+                                        SoundsDetailsAmbientMusicWidget
+                                            .routeName,
                                         extra: <String, dynamic>{
                                           kTransitionInfoKey: TransitionInfo(
                                             hasTransition: true,
@@ -612,7 +611,8 @@ Yoga Videos */
                                           logFirebaseEvent('Row_navigate_to');
 
                                           context.pushNamed(
-                                            'SoundsDetailsAmbientMusic',
+                                            SoundsDetailsAmbientMusicWidget
+                                                .routeName,
                                             extra: <String, dynamic>{
                                               kTransitionInfoKey:
                                                   TransitionInfo(
@@ -641,7 +641,6 @@ Yoga Videos */
                                                       .override(
                                                         fontFamily: 'WorkSans',
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: false,
                                                       ),
                                             ),
                                           ],
@@ -665,7 +664,8 @@ Yoga Videos */
                                       logFirebaseEvent('Container_navigate_to');
 
                                       context.pushNamed(
-                                        'SoundsDetailsNatureSounds',
+                                        SoundsDetailsNatureSoundsWidget
+                                            .routeName,
                                         extra: <String, dynamic>{
                                           kTransitionInfoKey: TransitionInfo(
                                             hasTransition: true,
@@ -705,7 +705,8 @@ Yoga Videos */
                                           logFirebaseEvent('Row_navigate_to');
 
                                           context.pushNamed(
-                                            'SoundsDetailsNatureSounds',
+                                            SoundsDetailsNatureSoundsWidget
+                                                .routeName,
                                             extra: <String, dynamic>{
                                               kTransitionInfoKey:
                                                   TransitionInfo(
@@ -734,7 +735,6 @@ Yoga Videos */
                                                       .override(
                                                         fontFamily: 'WorkSans',
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: false,
                                                       ),
                                             ),
                                           ],
@@ -776,7 +776,6 @@ Yoga Videos */
                                               .override(
                                                 fontFamily: 'WorkSans',
                                                 letterSpacing: 0.0,
-                                                useGoogleFonts: false,
                                               ),
                                         ),
                                       ],
@@ -818,7 +817,6 @@ Yoga Videos */
                                               .override(
                                                 fontFamily: 'WorkSans',
                                                 letterSpacing: 0.0,
-                                                useGoogleFonts: false,
                                               ),
                                         ),
                                       ],
@@ -852,7 +850,6 @@ Yoga Videos */
                           fontSize: 20.0,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w300,
-                          useGoogleFonts: false,
                         ),
                     colors: [
                       FlutterFlowTheme.of(context).alternate,
@@ -1049,8 +1046,6 @@ Yoga Videos */
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
-                                                                useGoogleFonts:
-                                                                    false,
                                                               ),
                                                     ),
                                                   ),

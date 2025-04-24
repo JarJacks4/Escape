@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -11,6 +11,9 @@ export 'recommendations_page_model.dart';
 
 class RecommendationsPageWidget extends StatefulWidget {
   const RecommendationsPageWidget({super.key});
+
+  static String routeName = 'RecommendationsPage';
+  static String routePath = 'recommendationsPage';
 
   @override
   State<RecommendationsPageWidget> createState() =>
@@ -117,7 +120,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                             fontFamily: 'WorkSans',
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
-                                            useGoogleFonts: false,
                                           ),
                                     ),
                                     Text(
@@ -131,7 +133,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryText,
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: false,
                                           ),
                                     ),
                                   ],
@@ -173,7 +174,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                     fontFamily: 'WorkSans',
                                     color: FlutterFlowTheme.of(context).accent1,
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: false,
                                   ),
                             ),
                           ),
@@ -206,7 +206,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                 .override(
                                   fontFamily: 'WorkSans',
                                   letterSpacing: 0.0,
-                                  useGoogleFonts: false,
                                 ),
                           ),
                           Text(
@@ -219,7 +218,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                   fontFamily: 'WorkSans',
                                   color: FlutterFlowTheme.of(context).primary,
                                   letterSpacing: 0.0,
-                                  useGoogleFonts: false,
                                 ),
                           ),
                         ],
@@ -281,7 +279,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                             .override(
                                               fontFamily: 'WorkSans',
                                               letterSpacing: 0.0,
-                                              useGoogleFonts: false,
                                             ),
                                       ),
                                     ],
@@ -300,7 +297,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                             .override(
                                               fontFamily: 'WorkSans',
                                               letterSpacing: 0.0,
-                                              useGoogleFonts: false,
                                             ),
                                       ),
                                       Text(
@@ -315,7 +311,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryText,
                                               letterSpacing: 0.0,
-                                              useGoogleFonts: false,
                                             ),
                                       ),
                                     ].divide(SizedBox(height: 8.0)),
@@ -344,7 +339,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                             color: FlutterFlowTheme.of(context)
                                                 .info,
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: false,
                                           ),
                                       elevation: 0.0,
                                       borderRadius: BorderRadius.circular(20.0),
@@ -397,7 +391,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                             .override(
                                               fontFamily: 'WorkSans',
                                               letterSpacing: 0.0,
-                                              useGoogleFonts: false,
                                             ),
                                       ),
                                     ],
@@ -416,7 +409,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                             .override(
                                               fontFamily: 'WorkSans',
                                               letterSpacing: 0.0,
-                                              useGoogleFonts: false,
                                             ),
                                       ),
                                       Text(
@@ -431,7 +423,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryText,
                                               letterSpacing: 0.0,
-                                              useGoogleFonts: false,
                                             ),
                                       ),
                                     ].divide(SizedBox(height: 8.0)),
@@ -460,7 +451,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                             color: FlutterFlowTheme.of(context)
                                                 .info,
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: false,
                                           ),
                                       elevation: 0.0,
                                       borderRadius: BorderRadius.circular(20.0),
@@ -513,7 +503,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                             .override(
                                               fontFamily: 'WorkSans',
                                               letterSpacing: 0.0,
-                                              useGoogleFonts: false,
                                             ),
                                       ),
                                     ],
@@ -532,7 +521,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                             .override(
                                               fontFamily: 'WorkSans',
                                               letterSpacing: 0.0,
-                                              useGoogleFonts: false,
                                             ),
                                       ),
                                       Text(
@@ -547,7 +535,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryText,
                                               letterSpacing: 0.0,
-                                              useGoogleFonts: false,
                                             ),
                                       ),
                                     ].divide(SizedBox(height: 8.0)),
@@ -576,7 +563,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                             color: FlutterFlowTheme.of(context)
                                                 .info,
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: false,
                                           ),
                                       elevation: 0.0,
                                       borderRadius: BorderRadius.circular(20.0),
@@ -616,7 +602,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                 .override(
                                   fontFamily: 'WorkSans',
                                   letterSpacing: 0.0,
-                                  useGoogleFonts: false,
                                 ),
                           ),
                           Text(
@@ -629,7 +614,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                   fontFamily: 'WorkSans',
                                   color: FlutterFlowTheme.of(context).primary,
                                   letterSpacing: 0.0,
-                                  useGoogleFonts: false,
                                 ),
                           ),
                         ],
@@ -704,7 +688,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                                                     context)
                                                                 .info,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: false,
                                                       ),
                                             ),
                                           ),
@@ -747,7 +730,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                                                     context)
                                                                 .info,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: false,
                                                       ),
                                             ),
                                           ),
@@ -764,7 +746,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .primary,
                                                 letterSpacing: 0.0,
-                                                useGoogleFonts: false,
                                               ),
                                         ),
                                         Text(
@@ -779,7 +760,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryText,
                                                 letterSpacing: 0.0,
-                                                useGoogleFonts: false,
                                               ),
                                         ),
                                       ].divide(SizedBox(height: 4.0)),
@@ -845,7 +825,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                                                     context)
                                                                 .tertiary,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: false,
                                                       ),
                                             ),
                                           ),
@@ -888,7 +867,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                                                     context)
                                                                 .info,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: false,
                                                       ),
                                             ),
                                           ),
@@ -905,7 +883,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .secondary,
                                                 letterSpacing: 0.0,
-                                                useGoogleFonts: false,
                                               ),
                                         ),
                                         Text(
@@ -920,7 +897,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryText,
                                                 letterSpacing: 0.0,
-                                                useGoogleFonts: false,
                                               ),
                                         ),
                                       ].divide(SizedBox(height: 4.0)),
@@ -986,7 +962,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                                                     context)
                                                                 .info,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: false,
                                                       ),
                                             ),
                                           ),
@@ -1029,7 +1004,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                                                     context)
                                                                 .info,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: false,
                                                       ),
                                             ),
                                           ),
@@ -1046,7 +1020,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .secondary,
                                                 letterSpacing: 0.0,
-                                                useGoogleFonts: false,
                                               ),
                                         ),
                                         Text(
@@ -1061,7 +1034,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryText,
                                                 letterSpacing: 0.0,
-                                                useGoogleFonts: false,
                                               ),
                                         ),
                                       ].divide(SizedBox(height: 4.0)),
@@ -1094,7 +1066,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                             FlutterFlowTheme.of(context).headlineSmall.override(
                                   fontFamily: 'WorkSans',
                                   letterSpacing: 0.0,
-                                  useGoogleFonts: false,
                                 ),
                       ),
                       Expanded(
@@ -1150,7 +1121,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .info,
                                                 letterSpacing: 0.0,
-                                                useGoogleFonts: false,
                                               ),
                                         ),
                                       ].divide(SizedBox(height: 8.0)),
@@ -1195,7 +1165,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .info,
                                                 letterSpacing: 0.0,
-                                                useGoogleFonts: false,
                                               ),
                                         ),
                                       ].divide(SizedBox(height: 8.0)),
@@ -1240,7 +1209,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .info,
                                                 letterSpacing: 0.0,
-                                                useGoogleFonts: false,
                                               ),
                                         ),
                                       ].divide(SizedBox(height: 8.0)),
@@ -1285,7 +1253,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .info,
                                                 letterSpacing: 0.0,
-                                                useGoogleFonts: false,
                                               ),
                                         ),
                                       ].divide(SizedBox(height: 8.0)),
@@ -1345,7 +1312,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                       color:
                                           FlutterFlowTheme.of(context).accent1,
                                       letterSpacing: 0.0,
-                                      useGoogleFonts: false,
                                     ),
                               ),
                               Container(
@@ -1370,7 +1336,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                           color: FlutterFlowTheme.of(context)
                                               .accent1,
                                           letterSpacing: 0.0,
-                                          useGoogleFonts: false,
                                         ),
                                   ),
                                 ),
@@ -1440,7 +1405,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
-                                                        useGoogleFonts: false,
                                                       ),
                                                 ),
                                                 Text(
@@ -1458,7 +1422,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                                                     context)
                                                                 .secondary,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: false,
                                                       ),
                                                 ),
                                               ],
@@ -1478,7 +1441,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                                                     context)
                                                                 .secondaryText,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: false,
                                                       ),
                                             ),
                                           ],
@@ -1552,7 +1514,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
-                                                        useGoogleFonts: false,
                                                       ),
                                                 ),
                                                 Text(
@@ -1570,7 +1531,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                                                     context)
                                                                 .secondary,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: false,
                                                       ),
                                                 ),
                                               ],
@@ -1590,7 +1550,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                                                     context)
                                                                 .secondaryText,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: false,
                                                       ),
                                             ),
                                           ],
@@ -1663,7 +1622,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w600,
-                                                        useGoogleFonts: false,
                                                       ),
                                                 ),
                                                 Text(
@@ -1681,7 +1639,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                                                     context)
                                                                 .secondary,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: false,
                                                       ),
                                                 ),
                                               ],
@@ -1701,7 +1658,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                                                     context)
                                                                 .secondaryText,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: false,
                                                       ),
                                             ),
                                           ],
@@ -1741,7 +1697,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                     color: FlutterFlowTheme.of(context)
                                         .primaryBackground,
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: false,
                                   ),
                               elevation: 0.0,
                               borderSide: BorderSide(
@@ -1801,7 +1756,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                       color:
                                           FlutterFlowTheme.of(context).accent1,
                                       letterSpacing: 0.0,
-                                      useGoogleFonts: false,
                                     ),
                               ),
                               Padding(
@@ -1823,7 +1777,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                           color: FlutterFlowTheme.of(context)
                                               .alternate,
                                           letterSpacing: 0.0,
-                                          useGoogleFonts: false,
                                         ),
                                   ),
                                 ),
@@ -1887,7 +1840,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                                                     context)
                                                                 .secondary,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: false,
                                                       ),
                                             ),
                                             Row(
@@ -1911,7 +1863,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                                       .override(
                                                         fontFamily: 'WorkSans',
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: false,
                                                       ),
                                                 ),
                                               ].divide(SizedBox(width: 8.0)),
@@ -1974,7 +1925,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                                                     context)
                                                                 .secondary,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: false,
                                                       ),
                                             ),
                                             Row(
@@ -1998,7 +1948,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                                       .override(
                                                         fontFamily: 'WorkSans',
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: false,
                                                       ),
                                                 ),
                                               ].divide(SizedBox(width: 8.0)),
@@ -2061,7 +2010,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                                                     context)
                                                                 .secondary,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: false,
                                                       ),
                                             ),
                                             Row(
@@ -2085,7 +2033,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                                       .override(
                                                         fontFamily: 'WorkSans',
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: false,
                                                       ),
                                                 ),
                                               ].divide(SizedBox(width: 8.0)),
@@ -2120,7 +2067,6 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                     fontFamily: 'WorkSans',
                                     color: FlutterFlowTheme.of(context).info,
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: false,
                                   ),
                               elevation: 0.0,
                               borderRadius: BorderRadius.circular(22.0),

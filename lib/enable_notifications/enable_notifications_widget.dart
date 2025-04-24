@@ -1,8 +1,9 @@
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:async';
 import 'dart:ui';
+import '/index.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -12,6 +13,9 @@ export 'enable_notifications_model.dart';
 
 class EnableNotificationsWidget extends StatefulWidget {
   const EnableNotificationsWidget({super.key});
+
+  static String routeName = 'EnableNotifications';
+  static String routePath = 'enableNotifications';
 
   @override
   State<EnableNotificationsWidget> createState() =>
@@ -102,7 +106,10 @@ class _EnableNotificationsWidgetState extends State<EnableNotificationsWidget> {
                         )
                       ],
                       gradient: LinearGradient(
-                        colors: [Color(0xAFD0E3F7), Color(0x97F0831A)],
+                        colors: [
+                          Color(0xAFD0E3F7),
+                          FlutterFlowTheme.of(context).tertiary
+                        ],
                         stops: [0.0, 1.0],
                         begin: AlignmentDirectional(0.0, -1.0),
                         end: AlignmentDirectional(0, 1.0),
@@ -147,13 +154,12 @@ class _EnableNotificationsWidgetState extends State<EnableNotificationsWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .displayMedium
                                               .override(
-                                                fontFamily: 'WorkSans',
+                                                fontFamily: 'The Seasons',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .alternate,
                                                 letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w600,
-                                                useGoogleFonts: false,
+                                                fontWeight: FontWeight.bold,
                                               ),
                                         ),
                                       ),
@@ -173,7 +179,6 @@ class _EnableNotificationsWidgetState extends State<EnableNotificationsWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .tertiary,
                                                 letterSpacing: 0.0,
-                                                useGoogleFonts: false,
                                               ),
                                         ),
                                       ),
@@ -195,7 +200,6 @@ class _EnableNotificationsWidgetState extends State<EnableNotificationsWidget> {
                                                 fontSize: 24.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
-                                                useGoogleFonts: false,
                                               ),
                                         ),
                                       ),
@@ -215,7 +219,6 @@ class _EnableNotificationsWidgetState extends State<EnableNotificationsWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryBackground,
                                                 letterSpacing: 0.0,
-                                                useGoogleFonts: false,
                                               ),
                                         ),
                                       ),
@@ -237,7 +240,7 @@ class _EnableNotificationsWidgetState extends State<EnableNotificationsWidget> {
                                     logFirebaseEvent('Button_navigate_to');
 
                                     context.pushNamed(
-                                      'HomeVersion2',
+                                      HomeVersion2Widget.routeName,
                                       extra: <String, dynamic>{
                                         kTransitionInfoKey: TransitionInfo(
                                           hasTransition: true,
@@ -258,15 +261,14 @@ class _EnableNotificationsWidgetState extends State<EnableNotificationsWidget> {
                                         0.0, 0.0, 0.0, 0.0),
                                     iconPadding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
-                                    color: FlutterFlowTheme.of(context).accent3,
+                                    color: FlutterFlowTheme.of(context).accent1,
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleMedium
                                         .override(
                                           fontFamily: 'WorkSans',
                                           color: FlutterFlowTheme.of(context)
-                                              .alternate,
+                                              .primary,
                                           letterSpacing: 0.0,
-                                          useGoogleFonts: false,
                                         ),
                                     elevation: 4.0,
                                     borderSide: BorderSide(
@@ -274,8 +276,6 @@ class _EnableNotificationsWidgetState extends State<EnableNotificationsWidget> {
                                       width: 1.0,
                                     ),
                                     borderRadius: BorderRadius.circular(50.0),
-                                    hoverColor: FlutterFlowTheme.of(context)
-                                        .primaryText,
                                   ),
                                 ),
                               ),

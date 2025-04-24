@@ -1,12 +1,12 @@
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_button_tabbar.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:math';
 import 'dart:ui';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -20,6 +20,9 @@ export 'meditation_teaching_pages_model.dart';
 
 class MeditationTeachingPagesWidget extends StatefulWidget {
   const MeditationTeachingPagesWidget({super.key});
+
+  static String routeName = 'MeditationTeachingPages';
+  static String routePath = 'meditationTeachingPages';
 
   @override
   State<MeditationTeachingPagesWidget> createState() =>
@@ -46,6 +49,7 @@ class _MeditationTeachingPagesWidgetState
       length: 2,
       initialIndex: 0,
     )..addListener(() => safeSetState(() {}));
+
     animationsMap.addAll({
       'imageOnPageLoadAnimation': AnimationInfo(
         loop: true,
@@ -233,7 +237,6 @@ class _MeditationTeachingPagesWidgetState
                                       fontSize: 32.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.bold,
-                                      useGoogleFonts: false,
                                     ),
                               ),
                             ),
@@ -264,7 +267,6 @@ class _MeditationTeachingPagesWidgetState
                                       .override(
                                         fontFamily: 'WorkSans',
                                         letterSpacing: 0.0,
-                                        useGoogleFonts: false,
                                       ),
                                 ),
                               ),
@@ -298,7 +300,6 @@ class _MeditationTeachingPagesWidgetState
                                               fontSize: 12.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
-                                              useGoogleFonts: false,
                                             ),
                                       ),
                                     ),
@@ -357,7 +358,6 @@ class _MeditationTeachingPagesWidgetState
                                                 .secondaryText,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
-                                            useGoogleFonts: false,
                                             lineHeight: 1.3,
                                           ),
                                     ),
@@ -387,7 +387,6 @@ class _MeditationTeachingPagesWidgetState
                                           .override(
                                             fontFamily: 'WorkSans',
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: false,
                                           ),
                                       unselectedLabelStyle: TextStyle(),
                                       labelColor: Colors.white,
@@ -521,8 +520,6 @@ meditation */
                                                                             0.0,
                                                                         fontWeight:
                                                                             FontWeight.bold,
-                                                                        useGoogleFonts:
-                                                                            false,
                                                                       ),
                                                                 ),
                                                               ),
@@ -654,8 +651,6 @@ yourself */
                                                                             0.0,
                                                                         fontWeight:
                                                                             FontWeight.bold,
-                                                                        useGoogleFonts:
-                                                                            false,
                                                                       ),
                                                                 ),
                                                               ],
@@ -775,8 +770,6 @@ Stress */
                                                                             0.0,
                                                                         fontWeight:
                                                                             FontWeight.bold,
-                                                                        useGoogleFonts:
-                                                                            false,
                                                                       ),
                                                                 ),
                                                               ],
@@ -950,7 +943,6 @@ Meditation */
                                                                               fontSize: 18.0,
                                                                               letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.bold,
-                                                                              useGoogleFonts: false,
                                                                             ),
                                                                       ),
                                                                     ),
@@ -1060,7 +1052,6 @@ Meditation */
                                                                               fontSize: 18.0,
                                                                               letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.bold,
-                                                                              useGoogleFonts: false,
                                                                             ),
                                                                       ),
                                                                     ),
@@ -1170,7 +1161,6 @@ Time */
                                                                               fontSize: 18.0,
                                                                               letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.bold,
-                                                                              useGoogleFonts: false,
                                                                             ),
                                                                       ),
                                                                     ),

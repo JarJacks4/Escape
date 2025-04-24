@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -84,7 +84,6 @@ class _WellnessGoalsCompWidgetState extends State<WellnessGoalsCompWidget> {
                                 fontFamily: 'WorkSans',
                                 color: FlutterFlowTheme.of(context).accent1,
                                 letterSpacing: 0.0,
-                                useGoogleFonts: false,
                               ),
                     ),
                     FlutterFlowIconButton(
@@ -124,7 +123,6 @@ class _WellnessGoalsCompWidgetState extends State<WellnessGoalsCompWidget> {
                                     color:
                                         FlutterFlowTheme.of(context).secondary,
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: false,
                                   ),
                             ),
                             Text(
@@ -137,7 +135,6 @@ class _WellnessGoalsCompWidgetState extends State<WellnessGoalsCompWidget> {
                                     fontFamily: 'WorkSans',
                                     color: FlutterFlowTheme.of(context).primary,
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: false,
                                   ),
                             ),
                           ],
@@ -178,7 +175,6 @@ class _WellnessGoalsCompWidgetState extends State<WellnessGoalsCompWidget> {
                                     color:
                                         FlutterFlowTheme.of(context).secondary,
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: false,
                                   ),
                             ),
                             Text(
@@ -191,7 +187,6 @@ class _WellnessGoalsCompWidgetState extends State<WellnessGoalsCompWidget> {
                                     fontFamily: 'WorkSans',
                                     color: FlutterFlowTheme.of(context).primary,
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: false,
                                   ),
                             ),
                           ],
@@ -232,7 +227,6 @@ class _WellnessGoalsCompWidgetState extends State<WellnessGoalsCompWidget> {
                                     color:
                                         FlutterFlowTheme.of(context).secondary,
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: false,
                                   ),
                             ),
                             Text(
@@ -245,7 +239,6 @@ class _WellnessGoalsCompWidgetState extends State<WellnessGoalsCompWidget> {
                                     fontFamily: 'WorkSans',
                                     color: FlutterFlowTheme.of(context).primary,
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: false,
                                   ),
                             ),
                           ],
@@ -286,7 +279,6 @@ class _WellnessGoalsCompWidgetState extends State<WellnessGoalsCompWidget> {
                                     color:
                                         FlutterFlowTheme.of(context).secondary,
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: false,
                                   ),
                             ),
                             Text(
@@ -299,7 +291,6 @@ class _WellnessGoalsCompWidgetState extends State<WellnessGoalsCompWidget> {
                                     fontFamily: 'WorkSans',
                                     color: FlutterFlowTheme.of(context).primary,
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: false,
                                   ),
                             ),
                           ],
@@ -347,7 +338,6 @@ class _WellnessGoalsCompWidgetState extends State<WellnessGoalsCompWidget> {
                                   fontFamily: 'WorkSans',
                                   color: FlutterFlowTheme.of(context).alternate,
                                   letterSpacing: 0.0,
-                                  useGoogleFonts: false,
                                 ),
                         elevation: 0.0,
                         borderRadius: BorderRadius.circular(20.0),
@@ -371,7 +361,6 @@ class _WellnessGoalsCompWidgetState extends State<WellnessGoalsCompWidget> {
                             FlutterFlowTheme.of(context).bodyMedium.override(
                                   fontFamily: 'WorkSans',
                                   letterSpacing: 0.0,
-                                  useGoogleFonts: false,
                                 ),
                         elevation: 0.0,
                         borderSide: BorderSide(

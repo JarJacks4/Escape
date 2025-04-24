@@ -1,11 +1,12 @@
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:math';
 import 'dart:ui';
+import '/index.dart';
 import 'package:styled_divider/styled_divider.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -18,6 +19,9 @@ export 'learning_to_meditate_page1_model.dart';
 
 class LearningToMeditatePage1Widget extends StatefulWidget {
   const LearningToMeditatePage1Widget({super.key});
+
+  static String routeName = 'LearningToMeditatePage1';
+  static String routePath = 'learningToMeditatePage1';
 
   @override
   State<LearningToMeditatePage1Widget> createState() =>
@@ -202,7 +206,6 @@ class _LearningToMeditatePage1WidgetState
                                           fontSize: 32.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.bold,
-                                          useGoogleFonts: false,
                                         ),
                                   ),
                                 ),
@@ -241,7 +244,6 @@ class _LearningToMeditatePage1WidgetState
                                           .override(
                                             fontFamily: 'WorkSans',
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: false,
                                           ),
                                     ),
                                   ),
@@ -278,7 +280,6 @@ class _LearningToMeditatePage1WidgetState
                                                   fontSize: 12.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
-                                                  useGoogleFonts: false,
                                                 ),
                                           ),
                                         ),
@@ -346,7 +347,6 @@ class _LearningToMeditatePage1WidgetState
                                                         .secondaryBackground,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
-                                                useGoogleFonts: false,
                                                 lineHeight: 1.3,
                                               ),
                                         ),
@@ -365,7 +365,7 @@ class _LearningToMeditatePage1WidgetState
                                       logFirebaseEvent('Button_navigate_to');
 
                                       context.pushNamed(
-                                        'LearningToMeditatePage2',
+                                        LearningToMeditatePage2Widget.routeName,
                                         extra: <String, dynamic>{
                                           kTransitionInfoKey: TransitionInfo(
                                             hasTransition: true,
@@ -400,7 +400,6 @@ class _LearningToMeditatePage1WidgetState
                                             fontFamily: 'WorkSans',
                                             color: Colors.white,
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: false,
                                           ),
                                       elevation: 8.0,
                                       borderSide: BorderSide(

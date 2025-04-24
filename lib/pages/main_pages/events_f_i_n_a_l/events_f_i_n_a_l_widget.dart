@@ -1,9 +1,10 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+import '/index.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -23,6 +24,9 @@ class EventsFINALWidget extends StatefulWidget {
   final String? eventDate;
   final String? eventDescription;
   final String? eventLocation;
+
+  static String routeName = 'EventsFINAL';
+  static String routePath = 'eventsFINAL';
 
   @override
   State<EventsFINALWidget> createState() => _EventsFINALWidgetState();
@@ -67,123 +71,129 @@ class _EventsFINALWidgetState extends State<EventsFINALWidget> {
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    Container(
-                      width: double.infinity,
-                      child: Stack(
-                        children: [
-                          Image.network(
-                            'https://images.unsplash.com/photo-1486591978090-58e619d37fe7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHw5fHxldmVudHxlbnwwfHx8fDE3MjQ1MzMwODd8MA&ixlib=rb-4.0.3&q=80&w=1080',
-                            width: double.infinity,
-                            height: 250.0,
-                            fit: BoxFit.cover,
-                          ),
-                          Container(
-                            height: 251.0,
-                            decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                colors: [
-                                  Color(0x31562A83),
-                                  FlutterFlowTheme.of(context).tertiary
-                                ],
-                                stops: [0.0, 1.0],
-                                begin: AlignmentDirectional(0.0, -1.0),
-                                end: AlignmentDirectional(0, 1.0),
-                              ),
-                              borderRadius: BorderRadius.circular(25.0),
+                    Flexible(
+                      flex: 1,
+                      child: Container(
+                        width: double.infinity,
+                        child: Stack(
+                          children: [
+                            Image.network(
+                              'https://images.unsplash.com/photo-1486591978090-58e619d37fe7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHw5fHxldmVudHxlbnwwfHx8fDE3MjQ1MzMwODd8MA&ixlib=rb-4.0.3&q=80&w=1080',
+                              width: double.infinity,
+                              height: 250.0,
+                              fit: BoxFit.cover,
                             ),
-                            child: Container(
-                              width: 375.0,
-                              height: 230.0,
+                            Container(
+                              height: 251.0,
                               decoration: BoxDecoration(
-                                color: Color(0x80000220),
-                                borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(25.0),
-                                  bottomRight: Radius.circular(25.0),
-                                  topLeft: Radius.circular(0.0),
-                                  topRight: Radius.circular(0.0),
-                                ),
-                              ),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    15.0, 40.0, 15.0, 0.0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Align(
-                                      alignment:
-                                          AlignmentDirectional(-1.0, -1.0),
-                                      child: FlutterFlowIconButton(
-                                        borderColor: Colors.transparent,
-                                        borderRadius: 30.0,
-                                        borderWidth: 1.0,
-                                        buttonSize: 50.0,
-                                        fillColor: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        icon: Icon(
-                                          Icons.chevron_left,
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondary,
-                                          size: 30.0,
-                                        ),
-                                        onPressed: () async {
-                                          logFirebaseEvent(
-                                              'EVENTS_F_I_N_A_L_chevron_left_ICN_ON_TAP');
-                                          logFirebaseEvent(
-                                              'IconButton_navigate_back');
-                                          context.safePop();
-                                        },
-                                      ),
-                                    ),
-                                    InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        logFirebaseEvent(
-                                            'EVENTS_F_I_N_A_L_CircleImage_imqsn6cc_ON');
-                                        logFirebaseEvent(
-                                            'CircleImage_navigate_to');
-
-                                        context.pushNamed(
-                                          'HomeVersion2',
-                                          extra: <String, dynamic>{
-                                            kTransitionInfoKey: TransitionInfo(
-                                              hasTransition: true,
-                                              transitionType:
-                                                  PageTransitionType.fade,
-                                              duration:
-                                                  Duration(milliseconds: 2),
-                                            ),
-                                          },
-                                        );
-                                      },
-                                      child: Container(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                0.2,
-                                        height:
-                                            MediaQuery.sizeOf(context).width *
-                                                0.2,
-                                        clipBehavior: Clip.antiAlias,
-                                        decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                        ),
-                                        child: Image.asset(
-                                          'assets/images/Logo_ESCAPE_White.png',
-                                          fit: BoxFit.contain,
-                                        ),
-                                      ),
-                                    ),
+                                gradient: LinearGradient(
+                                  colors: [
+                                    Color(0x31562A83),
+                                    FlutterFlowTheme.of(context).tertiary
                                   ],
+                                  stops: [0.0, 1.0],
+                                  begin: AlignmentDirectional(0.0, -1.0),
+                                  end: AlignmentDirectional(0, 1.0),
+                                ),
+                                borderRadius: BorderRadius.circular(25.0),
+                              ),
+                              child: Container(
+                                width: 375.0,
+                                height: 230.0,
+                                decoration: BoxDecoration(
+                                  color: Color(0x80000220),
+                                  borderRadius: BorderRadius.only(
+                                    bottomLeft: Radius.circular(25.0),
+                                    bottomRight: Radius.circular(25.0),
+                                    topLeft: Radius.circular(0.0),
+                                    topRight: Radius.circular(0.0),
+                                  ),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      15.0, 40.0, 15.0, 0.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(-1.0, -1.0),
+                                        child: FlutterFlowIconButton(
+                                          borderColor: Colors.transparent,
+                                          borderRadius: 30.0,
+                                          borderWidth: 1.0,
+                                          buttonSize: 50.0,
+                                          fillColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .secondaryBackground,
+                                          icon: Icon(
+                                            Icons.chevron_left,
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondary,
+                                            size: 30.0,
+                                          ),
+                                          onPressed: () async {
+                                            logFirebaseEvent(
+                                                'EVENTS_F_I_N_A_L_chevron_left_ICN_ON_TAP');
+                                            logFirebaseEvent(
+                                                'IconButton_navigate_back');
+                                            context.safePop();
+                                          },
+                                        ),
+                                      ),
+                                      InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          logFirebaseEvent(
+                                              'EVENTS_F_I_N_A_L_CircleImage_imqsn6cc_ON');
+                                          logFirebaseEvent(
+                                              'CircleImage_navigate_to');
+
+                                          context.pushNamed(
+                                            HomeVersion2Widget.routeName,
+                                            extra: <String, dynamic>{
+                                              kTransitionInfoKey:
+                                                  TransitionInfo(
+                                                hasTransition: true,
+                                                transitionType:
+                                                    PageTransitionType.fade,
+                                                duration:
+                                                    Duration(milliseconds: 2),
+                                              ),
+                                            },
+                                          );
+                                        },
+                                        child: Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  0.2,
+                                          height:
+                                              MediaQuery.sizeOf(context).width *
+                                                  0.2,
+                                          clipBehavior: Clip.antiAlias,
+                                          decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                          ),
+                                          child: Image.asset(
+                                            'assets/images/Logo_ESCAPE_White.png',
+                                            fit: BoxFit.contain,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                     Padding(
@@ -231,7 +241,6 @@ class _EventsFINALWidgetState extends State<EventsFINALWidget> {
                                                 fontSize: 28.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
-                                                useGoogleFonts: false,
                                               ),
                                         )),
                                       ),
@@ -249,7 +258,6 @@ class _EventsFINALWidgetState extends State<EventsFINALWidget> {
                                               fontSize: 12.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
-                                              useGoogleFonts: false,
                                             ),
                                       )),
                                     ],
@@ -296,7 +304,6 @@ class _EventsFINALWidgetState extends State<EventsFINALWidget> {
                                               fontSize: 16.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w300,
-                                              useGoogleFonts: false,
                                             ),
                                       )),
                                     ],
@@ -330,7 +337,6 @@ class _EventsFINALWidgetState extends State<EventsFINALWidget> {
                                             fontSize: 16.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w300,
-                                            useGoogleFonts: false,
                                           ),
                                     )),
                                   ],
@@ -366,7 +372,6 @@ class _EventsFINALWidgetState extends State<EventsFINALWidget> {
                                             .secondaryBackground,
                                         fontSize: 22.0,
                                         letterSpacing: 0.0,
-                                        useGoogleFonts: false,
                                       ),
                                 )),
                               ),
@@ -386,7 +391,6 @@ class _EventsFINALWidgetState extends State<EventsFINALWidget> {
                                       .secondaryBackground,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w300,
-                                  useGoogleFonts: false,
                                 ),
                           )),
                         ],
@@ -438,7 +442,6 @@ class _EventsFINALWidgetState extends State<EventsFINALWidget> {
                                       .override(
                                         fontFamily: 'WorkSans',
                                         letterSpacing: 0.0,
-                                        useGoogleFonts: false,
                                       ),
                                 ),
                               ),

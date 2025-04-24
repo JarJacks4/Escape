@@ -1,6 +1,6 @@
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -59,7 +59,6 @@ class _EmptyChatsWidgetState extends State<EmptyChatsWidget> {
                       fontFamily: 'WorkSans',
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.w500,
-                      useGoogleFonts: false,
                     ),
               ),
               Icon(
@@ -76,7 +75,6 @@ class _EmptyChatsWidgetState extends State<EmptyChatsWidget> {
             style: FlutterFlowTheme.of(context).labelSmall.override(
                   fontFamily: 'WorkSans',
                   letterSpacing: 0.0,
-                  useGoogleFonts: false,
                 ),
           ),
           Padding(
@@ -93,7 +91,6 @@ class _EmptyChatsWidgetState extends State<EmptyChatsWidget> {
                     style: FlutterFlowTheme.of(context).labelSmall.override(
                           fontFamily: 'WorkSans',
                           letterSpacing: 0.0,
-                          useGoogleFonts: false,
                         ),
                   ),
                 ),

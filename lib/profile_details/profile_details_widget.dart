@@ -1,23 +1,25 @@
-import '/components/subscription_comp2_widget.dart';
-import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
 import 'dart:async';
 import 'dart:ui';
+import '/index.dart';
+import 'package:tiktokfeed_wz8en7/app_state.dart'
+    as tiktokfeed_wz8en7_app_state;
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:webviewx_plus/webviewx_plus.dart';
 import 'profile_details_model.dart';
 export 'profile_details_model.dart';
 
 class ProfileDetailsWidget extends StatefulWidget {
   const ProfileDetailsWidget({super.key});
+
+  static String routeName = 'ProfileDetails';
+  static String routePath = 'profileDetails';
 
   @override
   State<ProfileDetailsWidget> createState() => _ProfileDetailsWidgetState();
@@ -45,12 +47,6 @@ class _ProfileDetailsWidgetState extends State<ProfileDetailsWidget> {
         });
       });
     }
-
-    _model.textController1 ??= TextEditingController();
-    _model.textFieldFocusNode1 ??= FocusNode();
-
-    _model.textController2 ??= TextEditingController();
-    _model.textFieldFocusNode2 ??= FocusNode();
   }
 
   @override
@@ -113,7 +109,10 @@ class _ProfileDetailsWidgetState extends State<ProfileDetailsWidget> {
                         )
                       ],
                       gradient: LinearGradient(
-                        colors: [Color(0xAFD0E3F7), Color(0x97F0831A)],
+                        colors: [
+                          Color(0xAFD0E3F7),
+                          FlutterFlowTheme.of(context).accent4
+                        ],
                         stops: [0.0, 1.0],
                         begin: AlignmentDirectional(0.0, -1.0),
                         end: AlignmentDirectional(0, 1.0),
@@ -158,12 +157,11 @@ class _ProfileDetailsWidgetState extends State<ProfileDetailsWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .displayMedium
                                               .override(
-                                                fontFamily: 'WorkSans',
+                                                fontFamily: 'The Seasons',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .alternate,
                                                 letterSpacing: 0.0,
-                                                useGoogleFonts: false,
                                               ),
                                         ),
                                       ),
@@ -183,7 +181,6 @@ class _ProfileDetailsWidgetState extends State<ProfileDetailsWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .tertiary,
                                                 letterSpacing: 0.0,
-                                                useGoogleFonts: false,
                                               ),
                                         ),
                                       ),
@@ -198,8 +195,8 @@ class _ProfileDetailsWidgetState extends State<ProfileDetailsWidget> {
                                             Padding(
                                               padding: EdgeInsets.all(25.0),
                                               child: Container(
-                                                width: 158.0,
-                                                height: 135.0,
+                                                width: 164.66,
+                                                height: 190.0,
                                                 decoration: BoxDecoration(
                                                   color: Color(0x00000220),
                                                 ),
@@ -233,8 +230,8 @@ class _ProfileDetailsWidgetState extends State<ProfileDetailsWidget> {
                                                                 .update(() {});
                                                           },
                                                           child: Container(
-                                                            width: 120.0,
-                                                            height: 120.0,
+                                                            width: 150.0,
+                                                            height: 150.0,
                                                             clipBehavior:
                                                                 Clip.antiAlias,
                                                             decoration:
@@ -369,7 +366,6 @@ class _ProfileDetailsWidgetState extends State<ProfileDetailsWidget> {
                                                               'WorkSans',
                                                           color: Colors.white,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: false,
                                                         ),
                                                 elevation: 3.0,
                                                 borderSide: BorderSide(
@@ -397,7 +393,7 @@ class _ProfileDetailsWidgetState extends State<ProfileDetailsWidget> {
                                                         .titleLarge
                                                         .override(
                                                           fontFamily:
-                                                              'WorkSans',
+                                                              'The Seasons',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primary,
@@ -405,437 +401,37 @@ class _ProfileDetailsWidgetState extends State<ProfileDetailsWidget> {
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.bold,
-                                                          useGoogleFonts: false,
                                                           lineHeight: 1.5,
                                                         ),
                                                   ),
-                                                  Text(
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                      '3joiyli3' /* It will help us to know more a... */,
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 1.0,
+                                                                0.0, 0.0),
+                                                    child: Text(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        '3joiyli3' /* It will help us to know more a... */,
+                                                      ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'WorkSans',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .alternate,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                lineHeight: 1.5,
+                                                              ),
                                                     ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .labelMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'WorkSans',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .alternate,
-                                                          letterSpacing: 0.0,
-                                                          useGoogleFonts: false,
-                                                          lineHeight: 1.5,
-                                                        ),
                                                   ),
                                                 ],
-                                              ),
-                                            ),
-                                            Expanded(
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceEvenly,
-                                                children: [
-                                                  ClipRRect(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            14.0),
-                                                    child: Container(
-                                                      decoration: BoxDecoration(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .secondary,
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(14.0),
-                                                      ),
-                                                      child: Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        children: [
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        10.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            child: Icon(
-                                                              Icons
-                                                                  .settings_outlined,
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .accent1,
-                                                              size: 18.0,
-                                                            ),
-                                                          ),
-                                                          Expanded(
-                                                            child:
-                                                                FlutterFlowDropDown<
-                                                                    String>(
-                                                              controller: _model
-                                                                      .dropDownValueController ??=
-                                                                  FormFieldController<
-                                                                          String>(
-                                                                      null),
-                                                              options: [
-                                                                FFLocalizations.of(
-                                                                        context)
-                                                                    .getText(
-                                                                  '17f1d9dl' /* User */,
-                                                                ),
-                                                                FFLocalizations.of(
-                                                                        context)
-                                                                    .getText(
-                                                                  'd0qzq03q' /* Self-Care Provider */,
-                                                                )
-                                                              ],
-                                                              onChanged:
-                                                                  (val) async {
-                                                                safeSetState(() =>
-                                                                    _model.dropDownValue =
-                                                                        val);
-                                                                logFirebaseEvent(
-                                                                    'PROFILE_DETAILS_DropDown_atbfr6g6_ON_FOR');
-                                                                logFirebaseEvent(
-                                                                    'DropDown_bottom_sheet');
-                                                                await showModalBottomSheet(
-                                                                  isScrollControlled:
-                                                                      true,
-                                                                  backgroundColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  context:
-                                                                      context,
-                                                                  builder:
-                                                                      (context) {
-                                                                    return WebViewAware(
-                                                                      child:
-                                                                          GestureDetector(
-                                                                        onTap:
-                                                                            () {
-                                                                          FocusScope.of(context)
-                                                                              .unfocus();
-                                                                          FocusManager
-                                                                              .instance
-                                                                              .primaryFocus
-                                                                              ?.unfocus();
-                                                                        },
-                                                                        child:
-                                                                            Padding(
-                                                                          padding:
-                                                                              MediaQuery.viewInsetsOf(context),
-                                                                          child:
-                                                                              Container(
-                                                                            height:
-                                                                                double.infinity,
-                                                                            child:
-                                                                                SubscriptionComp2Widget(),
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                    );
-                                                                  },
-                                                                ).then((value) =>
-                                                                    safeSetState(
-                                                                        () {}));
-                                                              },
-                                                              width: 180.0,
-                                                              height: 50.0,
-                                                              textStyle:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .labelMedium
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'WorkSans',
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .alternate,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        useGoogleFonts:
-                                                                            false,
-                                                                      ),
-                                                              hintText:
-                                                                  FFLocalizations.of(
-                                                                          context)
-                                                                      .getText(
-                                                                'bbtwsoxm' /* User or Self-Care Provider? */,
-                                                              ),
-                                                              elevation: 2.0,
-                                                              borderColor: Colors
-                                                                  .transparent,
-                                                              borderWidth: 0.0,
-                                                              borderRadius: 0.0,
-                                                              margin:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          12.0,
-                                                                          4.0,
-                                                                          12.0,
-                                                                          4.0),
-                                                              hidesUnderline:
-                                                                  true,
-                                                              isSearchable:
-                                                                  false,
-                                                              isMultiSelect:
-                                                                  false,
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Expanded(
-                                                        child: TextFormField(
-                                                          controller: _model
-                                                              .textController1,
-                                                          focusNode: _model
-                                                              .textFieldFocusNode1,
-                                                          autofocus: true,
-                                                          obscureText: false,
-                                                          decoration:
-                                                              InputDecoration(
-                                                            hintText:
-                                                                FFLocalizations.of(
-                                                                        context)
-                                                                    .getText(
-                                                              'uwhnnoj0' /* Favorite Time to Meditate */,
-                                                            ),
-                                                            hintStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodySmall
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'WorkSans',
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .alternate,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      useGoogleFonts:
-                                                                          false,
-                                                                      lineHeight:
-                                                                          1.5,
-                                                                    ),
-                                                            enabledBorder:
-                                                                UnderlineInputBorder(
-                                                              borderSide:
-                                                                  BorderSide(
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryBackground,
-                                                                width: 1.0,
-                                                              ),
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          14.0),
-                                                            ),
-                                                            focusedBorder:
-                                                                UnderlineInputBorder(
-                                                              borderSide:
-                                                                  BorderSide(
-                                                                color: Color(
-                                                                    0x00000000),
-                                                                width: 1.0,
-                                                              ),
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          14.0),
-                                                            ),
-                                                            errorBorder:
-                                                                UnderlineInputBorder(
-                                                              borderSide:
-                                                                  BorderSide(
-                                                                color: Color(
-                                                                    0x00000000),
-                                                                width: 1.0,
-                                                              ),
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          14.0),
-                                                            ),
-                                                            focusedErrorBorder:
-                                                                UnderlineInputBorder(
-                                                              borderSide:
-                                                                  BorderSide(
-                                                                color: Color(
-                                                                    0x00000000),
-                                                                width: 1.0,
-                                                              ),
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          14.0),
-                                                            ),
-                                                            filled: true,
-                                                            prefixIcon: Icon(
-                                                              Icons.web,
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .accent1,
-                                                              size: 18.0,
-                                                            ),
-                                                          ),
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'WorkSans',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .alternate,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                useGoogleFonts:
-                                                                    false,
-                                                              ),
-                                                          validator: _model
-                                                              .textController1Validator
-                                                              .asValidator(
-                                                                  context),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Expanded(
-                                                        child: TextFormField(
-                                                          controller: _model
-                                                              .textController2,
-                                                          focusNode: _model
-                                                              .textFieldFocusNode2,
-                                                          autofocus: true,
-                                                          obscureText: false,
-                                                          decoration:
-                                                              InputDecoration(
-                                                            hintText:
-                                                                FFLocalizations.of(
-                                                                        context)
-                                                                    .getText(
-                                                              'cgt0zrwm' /* Username */,
-                                                            ),
-                                                            hintStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodySmall
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'WorkSans',
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .alternate,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      useGoogleFonts:
-                                                                          false,
-                                                                      lineHeight:
-                                                                          1.5,
-                                                                    ),
-                                                            enabledBorder:
-                                                                UnderlineInputBorder(
-                                                              borderSide:
-                                                                  BorderSide(
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryBackground,
-                                                                width: 1.0,
-                                                              ),
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          14.0),
-                                                            ),
-                                                            focusedBorder:
-                                                                UnderlineInputBorder(
-                                                              borderSide:
-                                                                  BorderSide(
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondary,
-                                                                width: 1.0,
-                                                              ),
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          14.0),
-                                                            ),
-                                                            errorBorder:
-                                                                UnderlineInputBorder(
-                                                              borderSide:
-                                                                  BorderSide(
-                                                                color: Color(
-                                                                    0x00000000),
-                                                                width: 1.0,
-                                                              ),
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          14.0),
-                                                            ),
-                                                            focusedErrorBorder:
-                                                                UnderlineInputBorder(
-                                                              borderSide:
-                                                                  BorderSide(
-                                                                color: Color(
-                                                                    0x00000000),
-                                                                width: 1.0,
-                                                              ),
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          14.0),
-                                                            ),
-                                                            filled: true,
-                                                            prefixIcon: Icon(
-                                                              Icons
-                                                                  .games_outlined,
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .accent1,
-                                                              size: 18.0,
-                                                            ),
-                                                          ),
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'WorkSans',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .alternate,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                useGoogleFonts:
-                                                                    false,
-                                                              ),
-                                                          validator: _model
-                                                              .textController2Validator
-                                                              .asValidator(
-                                                                  context),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ].divide(
-                                                    SizedBox(height: 12.0)),
                                               ),
                                             ),
                                           ],
@@ -854,8 +450,8 @@ class _ProfileDetailsWidgetState extends State<ProfileDetailsWidget> {
                                                   BorderRadius.circular(8.0),
                                               child: Image.asset(
                                                 'assets/images/Logo_ESCAPE_White.png',
-                                                width: 200.0,
-                                                height: 200.0,
+                                                width: 138.2,
+                                                height: 71.2,
                                                 fit: BoxFit.contain,
                                               ),
                                             ),
@@ -880,7 +476,7 @@ class _ProfileDetailsWidgetState extends State<ProfileDetailsWidget> {
                                     logFirebaseEvent('Button_navigate_to');
 
                                     context.pushNamed(
-                                      'InterestsPage',
+                                      InterestsPageWidget.routeName,
                                       extra: <String, dynamic>{
                                         kTransitionInfoKey: TransitionInfo(
                                           hasTransition: true,
@@ -910,7 +506,6 @@ class _ProfileDetailsWidgetState extends State<ProfileDetailsWidget> {
                                           color: FlutterFlowTheme.of(context)
                                               .accent1,
                                           letterSpacing: 0.0,
-                                          useGoogleFonts: false,
                                         ),
                                     elevation: 4.0,
                                     borderSide: BorderSide(

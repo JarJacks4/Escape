@@ -2,12 +2,15 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/components/progress_bar_widget.dart';
 import '/components/todays_self_care_activities_comp_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:math';
 import 'dart:ui';
+import '/index.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:tiktokfeed_wz8en7/app_state.dart'
+    as tiktokfeed_wz8en7_app_state;
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -18,6 +21,9 @@ export 'self_care_plan_page_model.dart';
 
 class SelfCarePlanPageWidget extends StatefulWidget {
   const SelfCarePlanPageWidget({super.key});
+
+  static String routeName = 'SelfCarePlanPage';
+  static String routePath = 'selfCarePlanPage';
 
   @override
   State<SelfCarePlanPageWidget> createState() => _SelfCarePlanPageWidgetState();
@@ -74,7 +80,7 @@ class _SelfCarePlanPageWidgetState extends State<SelfCarePlanPageWidget>
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primary,
+        backgroundColor: Color(0xFFEDF1F7),
         appBar: responsiveVisibility(
           context: context,
           tablet: false,
@@ -109,7 +115,6 @@ class _SelfCarePlanPageWidgetState extends State<SelfCarePlanPageWidget>
                                       fontFamily: 'The Seasons',
                                       fontSize: 24.0,
                                       letterSpacing: 0.0,
-                                      useGoogleFonts: false,
                                     ),
                               ),
                             ),
@@ -130,7 +135,7 @@ class _SelfCarePlanPageWidgetState extends State<SelfCarePlanPageWidget>
                                     'SELF_CARE_PLAN_Image_ekabdm1j_ON_TAP');
                                 logFirebaseEvent('Image_navigate_to');
 
-                                context.pushNamed('HomeVersion2');
+                                context.pushNamed(HomeVersion2Widget.routeName);
                               },
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(8.0),
@@ -231,7 +236,6 @@ class _SelfCarePlanPageWidgetState extends State<SelfCarePlanPageWidget>
                                                       .accent1,
                                               fontSize: 18.0,
                                               letterSpacing: 0.0,
-                                              useGoogleFonts: false,
                                             ),
                                       ),
                                       AuthUserStreamWidget(
@@ -240,12 +244,11 @@ class _SelfCarePlanPageWidgetState extends State<SelfCarePlanPageWidget>
                                           style: FlutterFlowTheme.of(context)
                                               .headlineMedium
                                               .override(
-                                                fontFamily: 'WorkSans',
+                                                fontFamily: 'The Seasons',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .alternate,
                                                 letterSpacing: 0.0,
-                                                useGoogleFonts: false,
                                               ),
                                         ),
                                       ),
@@ -310,7 +313,6 @@ class _SelfCarePlanPageWidgetState extends State<SelfCarePlanPageWidget>
                                                   fontSize: 18.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.bold,
-                                                  useGoogleFonts: false,
                                                 ),
                                           ),
                                         ),
@@ -365,7 +367,6 @@ class _SelfCarePlanPageWidgetState extends State<SelfCarePlanPageWidget>
                                                               'WorkSans',
                                                           color: Colors.black,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: false,
                                                         ),
                                                 hintText:
                                                     FFLocalizations.of(context)
@@ -380,7 +381,6 @@ class _SelfCarePlanPageWidgetState extends State<SelfCarePlanPageWidget>
                                                               'The Seasons',
                                                           color: Colors.black,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: false,
                                                         ),
                                                 enabledBorder:
                                                     OutlineInputBorder(
@@ -437,7 +437,6 @@ class _SelfCarePlanPageWidgetState extends State<SelfCarePlanPageWidget>
                                                         fontFamily: 'WorkSans',
                                                         color: Colors.black,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: false,
                                                       ),
                                               cursorColor:
                                                   FlutterFlowTheme.of(context)
@@ -482,7 +481,6 @@ class _SelfCarePlanPageWidgetState extends State<SelfCarePlanPageWidget>
                                           color: FlutterFlowTheme.of(context)
                                               .alternate,
                                           letterSpacing: 0.0,
-                                          useGoogleFonts: false,
                                         ),
                                   ),
                                 ],
@@ -511,7 +509,6 @@ class _SelfCarePlanPageWidgetState extends State<SelfCarePlanPageWidget>
                                 fontSize: 28.0,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.bold,
-                                useGoogleFonts: false,
                               ),
                     ),
                   ),
@@ -554,7 +551,6 @@ class _SelfCarePlanPageWidgetState extends State<SelfCarePlanPageWidget>
                                     fontSize: 28.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
-                                    useGoogleFonts: false,
                                   ),
                             ),
                             Text(
@@ -568,7 +564,6 @@ class _SelfCarePlanPageWidgetState extends State<SelfCarePlanPageWidget>
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryText,
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: false,
                                   ),
                             ),
                           ],
@@ -597,7 +592,7 @@ class _SelfCarePlanPageWidgetState extends State<SelfCarePlanPageWidget>
                                   logFirebaseEvent('Container_navigate_to');
 
                                   context.pushNamed(
-                                    'MeditationChoicePage',
+                                    MeditationChoicePageWidget.routeName,
                                     extra: <String, dynamic>{
                                       kTransitionInfoKey: TransitionInfo(
                                         hasTransition: true,
@@ -678,7 +673,6 @@ class _SelfCarePlanPageWidgetState extends State<SelfCarePlanPageWidget>
                                                                   context)
                                                               .accent1,
                                                       letterSpacing: 0.0,
-                                                      useGoogleFonts: false,
                                                     ),
                                               ),
                                             ],
@@ -708,7 +702,6 @@ class _SelfCarePlanPageWidgetState extends State<SelfCarePlanPageWidget>
                                                               'WorkSans',
                                                           fontSize: 22.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: false,
                                                         ),
                                                   ),
                                                 ),
@@ -734,7 +727,6 @@ Rest */
                                                                   .of(context)
                                                               .secondary,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: false,
                                                         ),
                                                   ),
                                                 ),
@@ -757,7 +749,7 @@ Rest */
                                       'SELF_CARE_PLAN_Container_1fj221ei_ON_TAP');
                                   logFirebaseEvent('Container_navigate_to');
 
-                                  context.pushNamed('BodyPage');
+                                  context.pushNamed(BodyPageWidget.routeName);
                                 },
                                 child: Material(
                                   color: Colors.transparent,
@@ -822,7 +814,6 @@ Rest */
                                                           fontFamily:
                                                               'WorkSans',
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: false,
                                                         ),
                                               ),
                                             ],
@@ -852,7 +843,6 @@ Rest */
                                                               'WorkSans',
                                                           fontSize: 22.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: false,
                                                         ),
                                                   ),
                                                 ),
@@ -879,7 +869,6 @@ Tai Chi */
                                                               .secondaryText,
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: false,
                                                         ),
                                                   ),
                                                 ),
@@ -961,7 +950,6 @@ Tai Chi */
                                                                     context)
                                                                 .accent1,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: false,
                                                       ),
                                             ),
                                           ],
@@ -990,7 +978,6 @@ Tai Chi */
                                                         fontFamily: 'WorkSans',
                                                         fontSize: 22.0,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: false,
                                                       ),
                                                 ),
                                               ),
@@ -1017,7 +1004,6 @@ Improvement */
                                                                 .secondary,
                                                         fontSize: 16.0,
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: false,
                                                       ),
                                                 ),
                                               ),
@@ -1089,7 +1075,6 @@ Improvement */
                                                       .override(
                                                         fontFamily: 'WorkSans',
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: false,
                                                       ),
                                             ),
                                           ],
@@ -1115,7 +1100,6 @@ Improvement */
                                                               'WorkSans',
                                                           fontSize: 22.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: false,
                                                         ),
                                               ),
                                             ),
@@ -1141,7 +1125,6 @@ Vol... */
                                                               .secondaryText,
                                                       fontSize: 16.0,
                                                       letterSpacing: 0.0,
-                                                      useGoogleFonts: false,
                                                     ),
                                               ),
                                             ),

@@ -1,9 +1,9 @@
 import '/flutter_flow/flutter_flow_animations.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:math';
 import 'dart:ui';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -14,6 +14,9 @@ export 'classes_page_model.dart';
 
 class ClassesPageWidget extends StatefulWidget {
   const ClassesPageWidget({super.key});
+
+  static String routeName = 'ClassesPage';
+  static String routePath = 'classesPage';
 
   @override
   State<ClassesPageWidget> createState() => _ClassesPageWidgetState();
@@ -115,7 +118,6 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                             FlutterFlowTheme.of(context).displaySmall.override(
                                   fontFamily: 'WorkSans',
                                   letterSpacing: 0.0,
-                                  useGoogleFonts: false,
                                 ),
                       ),
                     ),
@@ -131,7 +133,6 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                             FlutterFlowTheme.of(context).labelMedium.override(
                                   fontFamily: 'WorkSans',
                                   letterSpacing: 0.0,
-                                  useGoogleFonts: false,
                                 ),
                       ),
                     ),
@@ -151,9 +152,8 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                         style: FlutterFlowTheme.of(context)
                             .headlineMedium
                             .override(
-                              fontFamily: 'WorkSans',
+                              fontFamily: 'The Seasons',
                               letterSpacing: 0.0,
-                              useGoogleFonts: false,
                             ),
                       ),
                     ),
@@ -168,7 +168,6 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'WorkSans',
                               letterSpacing: 0.0,
-                              useGoogleFonts: false,
                             ),
                       ),
                     ),
@@ -184,7 +183,6 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                             FlutterFlowTheme.of(context).labelMedium.override(
                                   fontFamily: 'WorkSans',
                                   letterSpacing: 0.0,
-                                  useGoogleFonts: false,
                                 ),
                       ).animateOnPageLoad(
                           animationsMap['textOnPageLoadAnimation']!),
@@ -200,7 +198,6 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'WorkSans',
                               letterSpacing: 0.0,
-                              useGoogleFonts: false,
                             ),
                       ),
                     ),
@@ -260,7 +257,6 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                                       .override(
                                                         fontFamily: 'WorkSans',
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: false,
                                                       ),
                                             ),
                                             Padding(
@@ -278,7 +274,6 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                                           fontFamily:
                                                               'WorkSans',
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: false,
                                                         ),
                                               ),
                                             ),
@@ -296,7 +291,6 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                           .override(
                                             fontFamily: 'WorkSans',
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: false,
                                           ),
                                     ),
                                   ],
@@ -351,7 +345,6 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                                       .override(
                                                         fontFamily: 'WorkSans',
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: false,
                                                       ),
                                             ),
                                             Padding(
@@ -369,7 +362,6 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                                           fontFamily:
                                                               'WorkSans',
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: false,
                                                         ),
                                               ),
                                             ),
@@ -387,7 +379,6 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                           .override(
                                             fontFamily: 'WorkSans',
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: false,
                                           ),
                                     ),
                                   ],
@@ -442,7 +433,6 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                                       .override(
                                                         fontFamily: 'WorkSans',
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: false,
                                                       ),
                                             ),
                                             Padding(
@@ -460,7 +450,6 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                                           fontFamily:
                                                               'WorkSans',
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: false,
                                                         ),
                                               ),
                                             ),
@@ -478,7 +467,6 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                           .override(
                                             fontFamily: 'WorkSans',
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: false,
                                           ),
                                     ),
                                   ],
@@ -533,7 +521,6 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                                       .override(
                                                         fontFamily: 'WorkSans',
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: false,
                                                       ),
                                             ),
                                             Padding(
@@ -551,7 +538,6 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                                           fontFamily:
                                                               'WorkSans',
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: false,
                                                         ),
                                               ),
                                             ),
@@ -569,7 +555,6 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                           .override(
                                             fontFamily: 'WorkSans',
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: false,
                                           ),
                                     ),
                                   ],
@@ -604,7 +589,6 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                   textStyle: FlutterFlowTheme.of(context).titleMedium.override(
                         fontFamily: 'WorkSans',
                         letterSpacing: 0.0,
-                        useGoogleFonts: false,
                       ),
                   borderSide: BorderSide(
                     color: FlutterFlowTheme.of(context).primary,
@@ -635,10 +619,9 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                       EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                   color: FlutterFlowTheme.of(context).accent1,
                   textStyle: FlutterFlowTheme.of(context).titleLarge.override(
-                        fontFamily: 'WorkSans',
+                        fontFamily: 'The Seasons',
                         color: FlutterFlowTheme.of(context).primary,
                         letterSpacing: 0.0,
-                        useGoogleFonts: false,
                       ),
                   borderSide: BorderSide(
                     color: FlutterFlowTheme.of(context).primary,

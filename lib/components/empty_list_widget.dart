@@ -1,6 +1,6 @@
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -56,7 +56,6 @@ class _EmptyListWidgetState extends State<EmptyListWidget> {
                       fontFamily: 'The Seasons',
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.bold,
-                      useGoogleFonts: false,
                     ),
               ),
             ),
@@ -70,7 +69,6 @@ class _EmptyListWidgetState extends State<EmptyListWidget> {
                       fontFamily: 'WorkSans',
                       color: FlutterFlowTheme.of(context).accent1,
                       letterSpacing: 0.0,
-                      useGoogleFonts: false,
                     ),
               ),
             ),
@@ -127,7 +125,6 @@ class _EmptyListWidgetState extends State<EmptyListWidget> {
                                             .primary,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w300,
-                                        useGoogleFonts: false,
                                       ),
                                 ),
                                 Flexible(
@@ -146,7 +143,6 @@ class _EmptyListWidgetState extends State<EmptyListWidget> {
                                             color: FlutterFlowTheme.of(context)
                                                 .accent1,
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: false,
                                           ),
                                     ),
                                   ),
@@ -185,7 +181,6 @@ class _EmptyListWidgetState extends State<EmptyListWidget> {
                                             .primary,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w300,
-                                        useGoogleFonts: false,
                                       ),
                                 ),
                                 Flexible(
@@ -204,7 +199,6 @@ class _EmptyListWidgetState extends State<EmptyListWidget> {
                                             color: FlutterFlowTheme.of(context)
                                                 .accent1,
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: false,
                                           ),
                                     ),
                                   ),
@@ -243,7 +237,6 @@ class _EmptyListWidgetState extends State<EmptyListWidget> {
                                             .primary,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w300,
-                                        useGoogleFonts: false,
                                       ),
                                 ),
                                 Flexible(
@@ -262,7 +255,6 @@ class _EmptyListWidgetState extends State<EmptyListWidget> {
                                             color: FlutterFlowTheme.of(context)
                                                 .accent1,
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: false,
                                           ),
                                     ),
                                   ),
@@ -301,7 +293,6 @@ class _EmptyListWidgetState extends State<EmptyListWidget> {
                                             .primary,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w300,
-                                        useGoogleFonts: false,
                                       ),
                                 ),
                                 Flexible(
@@ -320,7 +311,6 @@ class _EmptyListWidgetState extends State<EmptyListWidget> {
                                             color: FlutterFlowTheme.of(context)
                                                 .accent1,
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: false,
                                           ),
                                     ),
                                   ),

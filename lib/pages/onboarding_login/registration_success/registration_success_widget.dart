@@ -1,8 +1,9 @@
 import '/components/primary_button/primary_button_widget.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+import '/index.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
@@ -12,6 +13,9 @@ export 'registration_success_model.dart';
 
 class RegistrationSuccessWidget extends StatefulWidget {
   const RegistrationSuccessWidget({super.key});
+
+  static String routeName = 'registrationSuccess';
+  static String routePath = 'registrationSuccess';
 
   @override
   State<RegistrationSuccessWidget> createState() =>
@@ -93,7 +97,6 @@ class _RegistrationSuccessWidgetState extends State<RegistrationSuccessWidget> {
                                         fontSize: 36.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.bold,
-                                        useGoogleFonts: false,
                                         lineHeight: 1.5,
                                       ),
                                 ),
@@ -119,7 +122,6 @@ let's Escape... */
                                           fontSize: 28.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w300,
-                                          useGoogleFonts: false,
                                           lineHeight: 1.5,
                                         ),
                                   ),
@@ -148,7 +150,7 @@ let's Escape... */
                           logFirebaseEvent('primaryButton_navigate_to');
 
                           context.pushNamed(
-                            'HomeVersion2',
+                            HomeVersion2Widget.routeName,
                             extra: <String, dynamic>{
                               kTransitionInfoKey: TransitionInfo(
                                 hasTransition: true,

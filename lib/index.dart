@@ -70,11 +70,10 @@ export '/pages/main_pages/nature_p_age_f_i_n_a_l/nature_p_age_f_i_n_a_l_widget.d
     show NaturePAgeFINALWidget;
 export '/pages/binaural_beats_page/binaural_beats_page_widget.dart'
     show BinauralBeatsPageWidget;
-export '/pages/main_pages/body_page/body_page_widget.dart' show BodyPageWidget;
+export '/pages/body_page/body_page_widget.dart' show BodyPageWidget;
 export '/pages/main_pages/meditation_page/meditation_page_widget.dart'
     show MeditationPageWidget;
-export '/provider_community_home/provider_community_home_widget.dart'
-    show ProviderCommunityHomeWidget;
+export '/community_home/community_home_widget.dart' show CommunityHomeWidget;
 export '/lucille_chat_a_i_page/lucille_chat_a_i_page_widget.dart'
     show LucilleChatAIPageWidget;
 export '/pages/main_pages/sleep_page/sleep_page_widget.dart'
@@ -117,3 +116,21 @@ export '/basic_breathing_goal_page/basic_breathing_goal_page_widget.dart'
 export '/calm_breathing/calm_breathing_widget.dart' show CalmBreathingWidget;
 export '/micrcosmic_meditation_goal_page/micrcosmic_meditation_goal_page_widget.dart'
     show MicrcosmicMeditationGoalPageWidget;
+export '/blank_sample/blank_sample_widget.dart' show BlankSampleWidget;
+export '/daily_mood_face_check_in_page/daily_mood_face_check_in_page_widget.dart'
+    show DailyMoodFaceCheckInPageWidget;
+export '/mood_track_home_copy/mood_track_home_copy_widget.dart'
+    show MoodTrackHomeCopyWidget;
+export '/lucille_home/lucille_home_widget.dart' show LucilleHomeWidget;
+export '/sample_music/sample_music_widget.dart' show SampleMusicWidget;
+export '/box_breathing_meditation_page/box_breathing_meditation_page_widget.dart'
+    show BoxBreathingMeditationPageWidget;
+export '/nature_mediation_choice/nature_mediation_choice_widget.dart'
+    show NatureMediationChoiceWidget;
+export '/binaural_beats_meditations/binaural_beats_meditations_widget.dart'
+    show BinauralBeatsMeditationsWidget;
+export '/sleep_meditations_choice/sleep_meditations_choice_widget.dart'
+    show SleepMeditationsChoiceWidget;
+export '/therapist_directory/therapist_directory_widget.dart'
+    show TherapistDirectoryWidget;
+export '/lucille_g_p_t/lucille_g_p_t_widget.dart' show LucilleGPTWidget;

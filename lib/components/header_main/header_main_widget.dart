@@ -1,7 +1,7 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -136,7 +136,6 @@ class _HeaderMainWidgetState extends State<HeaderMainWidget> {
                           fontFamily: 'WorkSans',
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.normal,
-                          useGoogleFonts: false,
                         ),
                   ),
                   Padding(
@@ -149,7 +148,6 @@ class _HeaderMainWidgetState extends State<HeaderMainWidget> {
                             fontFamily: 'WorkSans',
                             color: FlutterFlowTheme.of(context).primary,
                             letterSpacing: 0.0,
-                            useGoogleFonts: false,
                           ),
                     ),
                   ),
@@ -166,7 +164,6 @@ class _HeaderMainWidgetState extends State<HeaderMainWidget> {
                       fontFamily: 'WorkSans',
                       fontSize: 20.0,
                       letterSpacing: 0.0,
-                      useGoogleFonts: false,
                     ),
               ),
             ),

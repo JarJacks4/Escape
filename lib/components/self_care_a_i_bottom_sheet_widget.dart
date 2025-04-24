@@ -1,7 +1,7 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -146,7 +146,6 @@ class _SelfCareAIBottomSheetWidgetState
                                         fontFamily: 'WorkSans',
                                         fontSize: 28.0,
                                         letterSpacing: 0.0,
-                                        useGoogleFonts: false,
                                       ),
                                 ),
                               ),
@@ -167,7 +166,6 @@ class _SelfCareAIBottomSheetWidgetState
                                     fontFamily: 'WorkSans',
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: false,
                                   ),
                             ),
                           ),
@@ -208,7 +206,6 @@ Self-Care ... */
                                       fontSize: 22.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w300,
-                                      useGoogleFonts: false,
                                     ),
                                 colors: [],
                                 gradientDirection: GradientDirection.ltr,
@@ -252,7 +249,6 @@ for Subsc... */
                                       fontSize: 22.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w300,
-                                      useGoogleFonts: false,
                                     ),
                                 colors: [],
                                 gradientDirection: GradientDirection.ltr,
@@ -296,7 +292,6 @@ Self Care... */
                                       fontSize: 22.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w300,
-                                      useGoogleFonts: false,
                                     ),
                                 colors: [],
                                 gradientDirection: GradientDirection.ltr,
@@ -324,7 +319,6 @@ Self Care... */
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.bold,
                                         decoration: TextDecoration.underline,
-                                        useGoogleFonts: false,
                                       ),
                                 ),
                                 TextSpan(
@@ -338,7 +332,6 @@ Self Care... */
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
                                         letterSpacing: 0.0,
-                                        useGoogleFonts: false,
                                       ),
                                 ),
                                 TextSpan(
@@ -348,10 +341,19 @@ Self Care... */
                                   style: FlutterFlowTheme.of(context)
                                       .bodyLarge
                                       .override(
-                                        fontFamily: 'Roboto',
+                                        font: GoogleFonts.roboto(
+                                          fontWeight: FontWeight.normal,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyLarge
+                                                  .fontStyle,
+                                        ),
                                         color: Color(0xFF715E84),
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyLarge
+                                            .fontStyle,
                                         decoration: TextDecoration.underline,
                                       ),
                                 ),
@@ -366,18 +368,30 @@ Self Care... */
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryBackground,
                                         letterSpacing: 0.0,
-                                        useGoogleFonts: false,
                                       ),
                                 )
                               ],
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Roboto',
+                                    font: GoogleFonts.roboto(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
                                     color:
                                         FlutterFlowTheme.of(context).secondary,
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
                                     lineHeight: 1.2,
                                   ),
                             ),

@@ -1,8 +1,8 @@
 import '/components/side_nav_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -159,10 +159,18 @@ class _HeaderAffirmationsWidgetState extends State<HeaderAffirmationsWidget> {
                       '8za8q5qy' /* Affirmations */,
                     ),
                     style: FlutterFlowTheme.of(context).displaySmall.override(
-                          fontFamily: 'Roboto',
+                          font: GoogleFonts.roboto(
+                            fontWeight: FontWeight.normal,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .displaySmall
+                                .fontStyle,
+                          ),
                           color: FlutterFlowTheme.of(context).primaryBackground,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.normal,
+                          fontStyle: FlutterFlowTheme.of(context)
+                              .displaySmall
+                              .fontStyle,
                         ),
                   ),
                 ],
@@ -175,11 +183,17 @@ class _HeaderAffirmationsWidgetState extends State<HeaderAffirmationsWidget> {
                   'upgt1oky' /* Start or continue your journey... */,
                 ),
                 style: FlutterFlowTheme.of(context).labelMedium.override(
-                      fontFamily: 'Roboto',
+                      font: GoogleFonts.roboto(
+                        fontWeight: FontWeight.w300,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).labelMedium.fontStyle,
+                      ),
                       color: FlutterFlowTheme.of(context).secondary,
                       fontSize: 20.0,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.w300,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).labelMedium.fontStyle,
                     ),
               ),
             ),

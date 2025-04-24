@@ -1,9 +1,10 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/components/todays_reflection_comp_widget.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+import '/index.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -13,6 +14,9 @@ export 'journal_page_model.dart';
 
 class JournalPageWidget extends StatefulWidget {
   const JournalPageWidget({super.key});
+
+  static String routeName = 'JournalPage';
+  static String routePath = 'journalPage';
 
   @override
   State<JournalPageWidget> createState() => _JournalPageWidgetState();
@@ -67,6 +71,7 @@ class _JournalPageWidgetState extends State<JournalPageWidget> {
                     ),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Flexible(
                           flex: 1,
@@ -83,7 +88,6 @@ class _JournalPageWidgetState extends State<JournalPageWidget> {
                                     fontFamily: 'The Seasons',
                                     fontSize: 24.0,
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: false,
                                   ),
                             ),
                           ),
@@ -103,7 +107,7 @@ class _JournalPageWidgetState extends State<JournalPageWidget> {
                                     'JOURNAL_PAGE_PAGE_Image_y67vc5dh_ON_TAP');
                                 logFirebaseEvent('Image_navigate_to');
 
-                                context.pushNamed('HomeVersion2');
+                                context.pushNamed(HomeVersion2Widget.routeName);
                               },
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(8.0),
@@ -164,9 +168,8 @@ class _JournalPageWidgetState extends State<JournalPageWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .headlineMedium
                                         .override(
-                                          fontFamily: 'WorkSans',
+                                          fontFamily: 'The Seasons',
                                           letterSpacing: 0.0,
-                                          useGoogleFonts: false,
                                         ),
                                   ),
                                   AuthUserStreamWidget(
@@ -182,7 +185,6 @@ class _JournalPageWidgetState extends State<JournalPageWidget> {
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryText,
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: false,
                                           ),
                                     ),
                                   ),
@@ -246,7 +248,6 @@ class _JournalPageWidgetState extends State<JournalPageWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .primaryBackground,
                                               letterSpacing: 0.0,
-                                              useGoogleFonts: false,
                                             ),
                                       ),
                                       Icon(
@@ -268,7 +269,6 @@ class _JournalPageWidgetState extends State<JournalPageWidget> {
                                           color: FlutterFlowTheme.of(context)
                                               .accent1,
                                           letterSpacing: 0.0,
-                                          useGoogleFonts: false,
                                         ),
                                   ),
                                 ].divide(SizedBox(height: 12.0)),
