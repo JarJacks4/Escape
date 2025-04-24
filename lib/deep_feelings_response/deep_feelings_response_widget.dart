@@ -1,8 +1,11 @@
 import '/auth/firebase_auth/auth_util.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+import '/index.dart';
+import 'package:tiktokfeed_wz8en7/app_state.dart'
+    as tiktokfeed_wz8en7_app_state;
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -11,6 +14,9 @@ export 'deep_feelings_response_model.dart';
 
 class DeepFeelingsResponseWidget extends StatefulWidget {
   const DeepFeelingsResponseWidget({super.key});
+
+  static String routeName = 'DeepFeelingsResponse';
+  static String routePath = 'deepFeelingsResponse';
 
   @override
   State<DeepFeelingsResponseWidget> createState() =>
@@ -42,6 +48,7 @@ class _DeepFeelingsResponseWidgetState
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
+    context.watch<tiktokfeed_wz8en7_app_state.FFAppState>();
 
     return GestureDetector(
       onTap: () {
@@ -85,7 +92,6 @@ class _DeepFeelingsResponseWidgetState
                                       fontFamily: 'The Seasons',
                                       fontSize: 24.0,
                                       letterSpacing: 0.0,
-                                      useGoogleFonts: false,
                                     ),
                               ),
                             ),
@@ -107,7 +113,7 @@ class _DeepFeelingsResponseWidgetState
                                 logFirebaseEvent('Image_navigate_to');
 
                                 context.pushNamed(
-                                  'HomeVersion2',
+                                  HomeVersion2Widget.routeName,
                                   extra: <String, dynamic>{
                                     kTransitionInfoKey: TransitionInfo(
                                       hasTransition: true,
@@ -175,7 +181,6 @@ class _DeepFeelingsResponseWidgetState
                                     fontFamily: 'WorkSans',
                                     color: FlutterFlowTheme.of(context).accent1,
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: false,
                                   ),
                             ),
                             Text(
@@ -189,7 +194,6 @@ class _DeepFeelingsResponseWidgetState
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryText,
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: false,
                                   ),
                             ),
                           ],
@@ -209,7 +213,6 @@ class _DeepFeelingsResponseWidgetState
                                     color:
                                         FlutterFlowTheme.of(context).secondary,
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: false,
                                   ),
                             ),
                             Padding(
@@ -233,7 +236,6 @@ class _DeepFeelingsResponseWidgetState
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryText,
                                           letterSpacing: 0.0,
-                                          useGoogleFonts: false,
                                         ),
                                   ),
                                 ),
@@ -286,7 +288,6 @@ class _DeepFeelingsResponseWidgetState
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryText,
                                   letterSpacing: 0.0,
-                                  useGoogleFonts: false,
                                 ),
                           ),
                           Flexible(
@@ -303,7 +304,6 @@ class _DeepFeelingsResponseWidgetState
                                     color:
                                         FlutterFlowTheme.of(context).secondary,
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: false,
                                   ),
                             ),
                           ),

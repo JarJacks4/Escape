@@ -1,6 +1,6 @@
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -71,7 +71,6 @@ class _UsageCreditExcededWidgetState extends State<UsageCreditExcededWidget> {
                         style: FlutterFlowTheme.of(context).titleSmall.override(
                               fontFamily: 'WorkSans',
                               letterSpacing: 0.0,
-                              useGoogleFonts: false,
                             ),
                       ),
                     ].divide(SizedBox(width: 16.0)),
@@ -95,7 +94,6 @@ class _UsageCreditExcededWidgetState extends State<UsageCreditExcededWidget> {
                                       color: FlutterFlowTheme.of(context)
                                           .secondary,
                                       letterSpacing: 0.0,
-                                      useGoogleFonts: false,
                                     ),
                               ),
                               TextSpan(
@@ -146,7 +144,6 @@ class _UsageCreditExcededWidgetState extends State<UsageCreditExcededWidget> {
                                 .override(
                                   fontFamily: 'WorkSans',
                                   letterSpacing: 0.0,
-                                  useGoogleFonts: false,
                                 ),
                           ),
                         ),

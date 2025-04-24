@@ -8,6 +8,8 @@ import '../base_auth_user_provider.dart';
 import '../../flutter_flow/flutter_flow_util.dart';
 
 import '/backend/backend.dart';
+import "package:tiktokfeed_wz8en7/backend/schema/structs/index.dart"
+    as tiktokfeed_wz8en7_data_schema;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:stream_transform/stream_transform.dart';
 import 'firebase_auth_manager.dart';

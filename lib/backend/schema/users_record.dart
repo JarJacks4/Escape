@@ -5,6 +5,9 @@ import 'package:collection/collection.dart';
 import '/backend/schema/util/firestore_util.dart';
 import '/backend/schema/util/schema_util.dart';
 
+import "package:tiktokfeed_wz8en7/backend/schema/structs/index.dart"
+    as tiktokfeed_wz8en7_data_schema;
+
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
@@ -86,6 +89,36 @@ class UsersRecord extends FirestoreRecord {
   String get roleChat => _roleChat ?? '';
   bool hasRoleChat() => _roleChat != null;
 
+  // "isHome" field.
+  bool? _isHome;
+  bool get isHome => _isHome ?? false;
+  bool hasIsHome() => _isHome != null;
+
+  // "isAISoundscape" field.
+  bool? _isAISoundscape;
+  bool get isAISoundscape => _isAISoundscape ?? false;
+  bool hasIsAISoundscape() => _isAISoundscape != null;
+
+  // "isLucilleHome" field.
+  bool? _isLucilleHome;
+  bool get isLucilleHome => _isLucilleHome ?? false;
+  bool hasIsLucilleHome() => _isLucilleHome != null;
+
+  // "isProvidersCommunity" field.
+  bool? _isProvidersCommunity;
+  bool get isProvidersCommunity => _isProvidersCommunity ?? false;
+  bool hasIsProvidersCommunity() => _isProvidersCommunity != null;
+
+  // "isProfile" field.
+  bool? _isProfile;
+  bool get isProfile => _isProfile ?? false;
+  bool hasIsProfile() => _isProfile != null;
+
+  // "location" field.
+  LatLng? _location;
+  LatLng? get location => _location;
+  bool hasLocation() => _location != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _photoUrl = snapshotData['photo_url'] as String?;
@@ -102,6 +135,12 @@ class UsersRecord extends FirestoreRecord {
     _isSubscribed = snapshotData['isSubscribed'] as bool?;
     _title = snapshotData['Title'] as String?;
     _roleChat = snapshotData['RoleChat'] as String?;
+    _isHome = snapshotData['isHome'] as bool?;
+    _isAISoundscape = snapshotData['isAISoundscape'] as bool?;
+    _isLucilleHome = snapshotData['isLucilleHome'] as bool?;
+    _isProvidersCommunity = snapshotData['isProvidersCommunity'] as bool?;
+    _isProfile = snapshotData['isProfile'] as bool?;
+    _location = snapshotData['location'] as LatLng?;
   }
 
   static CollectionReference get collection =>
@@ -152,6 +191,12 @@ Map<String, dynamic> createUsersRecordData({
   bool? isSubscribed,
   String? title,
   String? roleChat,
+  bool? isHome,
+  bool? isAISoundscape,
+  bool? isLucilleHome,
+  bool? isProvidersCommunity,
+  bool? isProfile,
+  LatLng? location,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -169,6 +214,12 @@ Map<String, dynamic> createUsersRecordData({
       'isSubscribed': isSubscribed,
       'Title': title,
       'RoleChat': roleChat,
+      'isHome': isHome,
+      'isAISoundscape': isAISoundscape,
+      'isLucilleHome': isLucilleHome,
+      'isProvidersCommunity': isProvidersCommunity,
+      'isProfile': isProfile,
+      'location': location,
     }.withoutNulls,
   );
 
@@ -193,7 +244,13 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.isSubscriber == e2?.isSubscriber &&
         e1?.isSubscribed == e2?.isSubscribed &&
         e1?.title == e2?.title &&
-        e1?.roleChat == e2?.roleChat;
+        e1?.roleChat == e2?.roleChat &&
+        e1?.isHome == e2?.isHome &&
+        e1?.isAISoundscape == e2?.isAISoundscape &&
+        e1?.isLucilleHome == e2?.isLucilleHome &&
+        e1?.isProvidersCommunity == e2?.isProvidersCommunity &&
+        e1?.isProfile == e2?.isProfile &&
+        e1?.location == e2?.location;
   }
 
   @override
@@ -211,7 +268,13 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.isSubscriber,
         e?.isSubscribed,
         e?.title,
-        e?.roleChat
+        e?.roleChat,
+        e?.isHome,
+        e?.isAISoundscape,
+        e?.isLucilleHome,
+        e?.isProvidersCommunity,
+        e?.isProfile,
+        e?.location
       ]);
 
   @override

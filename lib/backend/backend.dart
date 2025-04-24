@@ -28,6 +28,8 @@ import 'schema/conversations_record.dart';
 import 'schema/journal_record.dart';
 import 'dart:async';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
+import "package:tiktokfeed_wz8en7/backend/schema/structs/index.dart"
+    as tiktokfeed_wz8en7_data_schema;
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart' hide Order;

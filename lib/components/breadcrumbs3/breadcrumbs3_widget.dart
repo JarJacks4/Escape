@@ -1,7 +1,7 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -91,7 +91,6 @@ class _Breadcrumbs3WidgetState extends State<Breadcrumbs3Widget> {
                             fontFamily: 'WorkSans',
                             color: FlutterFlowTheme.of(context).accent3,
                             letterSpacing: 0.0,
-                            useGoogleFonts: false,
                           ),
                     ),
                   ),
@@ -125,7 +124,6 @@ class _Breadcrumbs3WidgetState extends State<Breadcrumbs3Widget> {
                             color:
                                 FlutterFlowTheme.of(context).primaryBackground,
                             letterSpacing: 0.0,
-                            useGoogleFonts: false,
                           ),
                     ),
                   ),

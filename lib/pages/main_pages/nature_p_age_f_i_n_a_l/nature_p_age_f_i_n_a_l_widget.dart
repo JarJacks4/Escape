@@ -2,11 +2,12 @@ import '/backend/api_requests/api_calls.dart';
 import '/components/video_player_high_fidelity_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:math';
 import 'dart:ui';
+import '/index.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -19,6 +20,9 @@ export 'nature_p_age_f_i_n_a_l_model.dart';
 
 class NaturePAgeFINALWidget extends StatefulWidget {
   const NaturePAgeFINALWidget({super.key});
+
+  static String routeName = 'NaturePAgeFINAL';
+  static String routePath = 'naturePAgeFINAL';
 
   @override
   State<NaturePAgeFINALWidget> createState() => _NaturePAgeFINALWidgetState();
@@ -349,7 +353,6 @@ class _NaturePAgeFINALWidgetState extends State<NaturePAgeFINALWidget>
                                     fontSize: 28.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
-                                    useGoogleFonts: false,
                                   ),
                               colors: [
                                 FlutterFlowTheme.of(context).tertiary,
@@ -401,7 +404,6 @@ class _NaturePAgeFINALWidgetState extends State<NaturePAgeFINALWidget>
                                                               .primaryBackground,
                                                           fontSize: 20.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: false,
                                                         ),
                                                 colors: [
                                                   FlutterFlowTheme.of(context)
@@ -560,7 +562,6 @@ class _NaturePAgeFINALWidgetState extends State<NaturePAgeFINALWidget>
                                                                                   fontSize: 16.0,
                                                                                   letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.normal,
-                                                                                  useGoogleFonts: false,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -674,7 +675,6 @@ class _NaturePAgeFINALWidgetState extends State<NaturePAgeFINALWidget>
                                                 fontSize: 20.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w300,
-                                                useGoogleFonts: false,
                                               ),
                                           colors: [
                                             FlutterFlowTheme.of(context)
@@ -739,7 +739,8 @@ class _NaturePAgeFINALWidgetState extends State<NaturePAgeFINALWidget>
                                                                 'Container_navigate_to');
 
                                                             context.pushNamed(
-                                                              'SoundsDetailsBinauralBeats',
+                                                              SoundsDetailsBinauralBeatsWidget
+                                                                  .routeName,
                                                               extra: <String,
                                                                   dynamic>{
                                                                 kTransitionInfoKey:
@@ -812,8 +813,6 @@ class _NaturePAgeFINALWidgetState extends State<NaturePAgeFINALWidget>
                                                                             'WorkSans',
                                                                         letterSpacing:
                                                                             0.0,
-                                                                        useGoogleFonts:
-                                                                            false,
                                                                       ),
                                                                 ),
                                                               ],
@@ -847,7 +846,8 @@ class _NaturePAgeFINALWidgetState extends State<NaturePAgeFINALWidget>
                                                                 'Container_navigate_to');
 
                                                             context.pushNamed(
-                                                              'SoundsDetailsAmbientMusic',
+                                                              SoundsDetailsAmbientMusicWidget
+                                                                  .routeName,
                                                               extra: <String,
                                                                   dynamic>{
                                                                 kTransitionInfoKey:
@@ -917,7 +917,8 @@ class _NaturePAgeFINALWidgetState extends State<NaturePAgeFINALWidget>
 
                                                                 context
                                                                     .pushNamed(
-                                                                  'SoundsDetailsAmbientMusic',
+                                                                  SoundsDetailsAmbientMusicWidget
+                                                                      .routeName,
                                                                   extra: <String,
                                                                       dynamic>{
                                                                     kTransitionInfoKey:
@@ -956,8 +957,6 @@ class _NaturePAgeFINALWidgetState extends State<NaturePAgeFINALWidget>
                                                                               'WorkSans',
                                                                           letterSpacing:
                                                                               0.0,
-                                                                          useGoogleFonts:
-                                                                              false,
                                                                         ),
                                                                   ),
                                                                 ],
@@ -992,7 +991,8 @@ class _NaturePAgeFINALWidgetState extends State<NaturePAgeFINALWidget>
                                                                 'Container_navigate_to');
 
                                                             context.pushNamed(
-                                                              'SoundsDetailsNatureSounds',
+                                                              SoundsDetailsNatureSoundsWidget
+                                                                  .routeName,
                                                               extra: <String,
                                                                   dynamic>{
                                                                 kTransitionInfoKey:
@@ -1061,7 +1061,8 @@ class _NaturePAgeFINALWidgetState extends State<NaturePAgeFINALWidget>
 
                                                                 context
                                                                     .pushNamed(
-                                                                  'SoundsDetailsNatureSounds',
+                                                                  SoundsDetailsNatureSoundsWidget
+                                                                      .routeName,
                                                                   extra: <String,
                                                                       dynamic>{
                                                                     kTransitionInfoKey:
@@ -1100,8 +1101,6 @@ class _NaturePAgeFINALWidgetState extends State<NaturePAgeFINALWidget>
                                                                               'WorkSans',
                                                                           letterSpacing:
                                                                               0.0,
-                                                                          useGoogleFonts:
-                                                                              false,
                                                                         ),
                                                                   ),
                                                                 ],
@@ -1170,8 +1169,6 @@ class _NaturePAgeFINALWidgetState extends State<NaturePAgeFINALWidget>
                                                                           'WorkSans',
                                                                       letterSpacing:
                                                                           0.0,
-                                                                      useGoogleFonts:
-                                                                          false,
                                                                     ),
                                                               ),
                                                             ],
@@ -1246,8 +1243,6 @@ class _NaturePAgeFINALWidgetState extends State<NaturePAgeFINALWidget>
                                                                           'WorkSans',
                                                                       letterSpacing:
                                                                           0.0,
-                                                                      useGoogleFonts:
-                                                                          false,
                                                                     ),
                                                               ),
                                                             ],
@@ -1287,7 +1282,6 @@ class _NaturePAgeFINALWidgetState extends State<NaturePAgeFINALWidget>
                                                 fontSize: 20.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w300,
-                                                useGoogleFonts: false,
                                               ),
                                           colors: [
                                             FlutterFlowTheme.of(context)
@@ -1518,7 +1512,6 @@ class _NaturePAgeFINALWidgetState extends State<NaturePAgeFINALWidget>
                                                                                   fontSize: 12.0,
                                                                                   letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.normal,
-                                                                                  useGoogleFonts: false,
                                                                                 ),
                                                                           ),
                                                                         ),
@@ -1557,10 +1550,29 @@ class _NaturePAgeFINALWidgetState extends State<NaturePAgeFINALWidget>
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
-                                                fontFamily: 'Roboto',
+                                                font: GoogleFonts.roboto(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
                                                 color: Color(0xFF5B4090),
                                                 fontSize: 26.0,
                                                 letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
                                               ),
                                           colors: [
                                             FlutterFlowTheme.of(context)
@@ -1731,7 +1743,6 @@ class _NaturePAgeFINALWidgetState extends State<NaturePAgeFINALWidget>
                                                                                   fontSize: 12.0,
                                                                                   letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.normal,
-                                                                                  useGoogleFonts: false,
                                                                                 ),
                                                                           ),
                                                                         ),

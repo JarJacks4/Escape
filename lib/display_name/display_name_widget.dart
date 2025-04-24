@@ -1,12 +1,16 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:async';
 import 'dart:ui';
+import "package:tiktokfeed_wz8en7/backend/schema/structs/index.dart"
+    as tiktokfeed_wz8en7_data_schema;
+import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -15,6 +19,9 @@ export 'display_name_model.dart';
 
 class DisplayNameWidget extends StatefulWidget {
   const DisplayNameWidget({super.key});
+
+  static String routeName = 'DisplayName';
+  static String routePath = 'displayName';
 
   @override
   State<DisplayNameWidget> createState() => _DisplayNameWidgetState();
@@ -151,12 +158,11 @@ class _DisplayNameWidgetState extends State<DisplayNameWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .displayMedium
                                               .override(
-                                                fontFamily: 'WorkSans',
+                                                fontFamily: 'The Seasons',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .alternate,
                                                 letterSpacing: 0.0,
-                                                useGoogleFonts: false,
                                               ),
                                         ),
                                       ),
@@ -176,7 +182,6 @@ class _DisplayNameWidgetState extends State<DisplayNameWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .tertiary,
                                                 letterSpacing: 0.0,
-                                                useGoogleFonts: false,
                                               ),
                                         ),
                                       ),
@@ -202,7 +207,6 @@ class _DisplayNameWidgetState extends State<DisplayNameWidget> {
                                                     .override(
                                                       fontFamily: 'WorkSans',
                                                       letterSpacing: 0.0,
-                                                      useGoogleFonts: false,
                                                     ),
                                             enabledBorder: UnderlineInputBorder(
                                               borderSide: BorderSide(
@@ -258,12 +262,24 @@ class _DisplayNameWidgetState extends State<DisplayNameWidget> {
                                               .override(
                                                 fontFamily: 'WorkSans',
                                                 letterSpacing: 0.0,
-                                                useGoogleFonts: false,
                                                 lineHeight: 3.0,
                                               ),
                                           validator: _model
                                               .textControllerValidator
                                               .asValidator(context),
+                                          inputFormatters: [
+                                            if (!isAndroid && !isiOS)
+                                              TextInputFormatter.withFunction(
+                                                  (oldValue, newValue) {
+                                                return TextEditingValue(
+                                                  selection: newValue.selection,
+                                                  text: newValue.text
+                                                      .toCapitalization(
+                                                          TextCapitalization
+                                                              .words),
+                                                );
+                                              }),
+                                          ],
                                         ),
                                       ),
                                       Align(
@@ -311,7 +327,7 @@ class _DisplayNameWidgetState extends State<DisplayNameWidget> {
                                     logFirebaseEvent('Button_navigate_to');
 
                                     context.pushNamed(
-                                      'ProfileDetails',
+                                      ProfileDetailsWidget.routeName,
                                       extra: <String, dynamic>{
                                         kTransitionInfoKey: TransitionInfo(
                                           hasTransition: true,
@@ -341,7 +357,6 @@ class _DisplayNameWidgetState extends State<DisplayNameWidget> {
                                           color: FlutterFlowTheme.of(context)
                                               .accent1,
                                           letterSpacing: 0.0,
-                                          useGoogleFonts: false,
                                         ),
                                     elevation: 4.0,
                                     borderSide: BorderSide(

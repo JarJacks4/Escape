@@ -1,7 +1,8 @@
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+import '/index.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
@@ -61,7 +62,7 @@ class _BasicBreathingPageCompWidgetState
           alignment: AlignmentDirectional(0.0, 1.0),
           child: Container(
             width: double.infinity,
-            height: 184.9,
+            height: 231.3,
             decoration: BoxDecoration(
               boxShadow: [
                 BoxShadow(
@@ -119,7 +120,6 @@ class _BasicBreathingPageCompWidgetState
                                   fontSize: 12.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w500,
-                                  useGoogleFonts: false,
                                 ),
                           ),
                         ),
@@ -160,23 +160,31 @@ class _BasicBreathingPageCompWidgetState
                                     fontSize: 22.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
-                                    useGoogleFonts: false,
                                   ),
                         ),
                       ),
-                      Text(
-                        FFLocalizations.of(context).getText(
-                          'vaurq1e3' /* Help treat insomnia, Provide a... */,
-                        ),
-                        textAlign: TextAlign.center,
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'WorkSans',
-                              color: FlutterFlowTheme.of(context).primaryText,
-                              fontSize: 12.0,
-                              letterSpacing: 0.0,
-                              useGoogleFonts: false,
-                              lineHeight: 1.5,
+                      Flexible(
+                        flex: 1,
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 10.0),
+                          child: Text(
+                            FFLocalizations.of(context).getText(
+                              'vaurq1e3' /* Help treat insomnia, Provide a... */,
                             ),
+                            textAlign: TextAlign.center,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'WorkSans',
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  fontSize: 14.0,
+                                  letterSpacing: 0.0,
+                                  lineHeight: 1.5,
+                                ),
+                          ),
+                        ),
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
@@ -188,7 +196,7 @@ class _BasicBreathingPageCompWidgetState
                             logFirebaseEvent('Button_navigate_to');
 
                             context.pushNamed(
-                              'BasicBreathingGoalPage',
+                              BasicBreathingGoalPageWidget.routeName,
                               extra: <String, dynamic>{
                                 kTransitionInfoKey: TransitionInfo(
                                   hasTransition: true,
@@ -218,7 +226,6 @@ class _BasicBreathingPageCompWidgetState
                                   fontSize: 14.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w500,
-                                  useGoogleFonts: false,
                                 ),
                             elevation: 3.0,
                             borderRadius: BorderRadius.circular(30.0),

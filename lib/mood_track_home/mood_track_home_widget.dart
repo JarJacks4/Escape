@@ -1,20 +1,21 @@
 import '/backend/gemini/gemini.dart';
-import '/components/mood_track_result_component_widget.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import 'dart:ui';
+import '/index.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:webviewx_plus/webviewx_plus.dart';
 import 'mood_track_home_model.dart';
 export 'mood_track_home_model.dart';
 
 class MoodTrackHomeWidget extends StatefulWidget {
   const MoodTrackHomeWidget({super.key});
+
+  static String routeName = 'MoodTrackHome';
+  static String routePath = 'moodTrackHome';
 
   @override
   State<MoodTrackHomeWidget> createState() => _MoodTrackHomeWidgetState();
@@ -32,31 +33,6 @@ class _MoodTrackHomeWidgetState extends State<MoodTrackHomeWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'MoodTrackHome'});
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      logFirebaseEvent('MOOD_TRACK_HOME_MoodTrackHome_ON_INIT_ST');
-      logFirebaseEvent('MoodTrackHome_bottom_sheet');
-      await showModalBottomSheet(
-        isScrollControlled: true,
-        backgroundColor: Colors.transparent,
-        enableDrag: false,
-        context: context,
-        builder: (context) {
-          return WebViewAware(
-            child: GestureDetector(
-              onTap: () {
-                FocusScope.of(context).unfocus();
-                FocusManager.instance.primaryFocus?.unfocus();
-              },
-              child: Padding(
-                padding: MediaQuery.viewInsetsOf(context),
-                child: MoodTrackResultComponentWidget(),
-              ),
-            ),
-          );
-        },
-      ).then((value) => safeSetState(() {}));
-    });
   }
 
   @override
@@ -68,8 +44,6 @@ class _MoodTrackHomeWidgetState extends State<MoodTrackHomeWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -115,7 +89,6 @@ Analysis */
                                     fontFamily: 'The Seasons',
                                     fontSize: 22.0,
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: false,
                                   ),
                             ),
                           ),
@@ -135,7 +108,7 @@ Analysis */
                                     'MOOD_TRACK_HOME_Image_jvwlstww_ON_TAP');
                                 logFirebaseEvent('Image_navigate_to');
 
-                                context.pushNamed('HomeVersion2');
+                                context.pushNamed(HomeVersion2Widget.routeName);
                               },
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(8.0),
@@ -184,7 +157,6 @@ Analysis */
                                   fontFamily: 'WorkSans',
                                   fontSize: 28.0,
                                   letterSpacing: 0.0,
-                                  useGoogleFonts: false,
                                 ),
                           ),
                         ),
@@ -283,8 +255,6 @@ Analysis */
                                                               fontWeight:
                                                                   FontWeight
                                                                       .bold,
-                                                              useGoogleFonts:
-                                                                  false,
                                                             ),
                                                       ),
                                                     ),
@@ -337,47 +307,53 @@ Analysis */
                                                               ),
                                                             ),
                                                           ),
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsets.all(
-                                                                    4.0),
-                                                            child: InkWell(
-                                                              splashColor: Colors
-                                                                  .transparent,
-                                                              focusColor: Colors
-                                                                  .transparent,
-                                                              hoverColor: Colors
-                                                                  .transparent,
-                                                              highlightColor:
-                                                                  Colors
-                                                                      .transparent,
-                                                              onTap: () async {
-                                                                logFirebaseEvent(
-                                                                    'MOOD_TRACK_HOME_uploadedImage_ON_TAP');
-                                                                logFirebaseEvent(
-                                                                    'uploadedImage_update_page_state');
-                                                                _model.uploadedGeminiImage =
-                                                                    _model
-                                                                        .uploadedGeminiImage;
-                                                                safeSetState(
-                                                                    () {});
-                                                              },
-                                                              child: Container(
-                                                                width: 400.0,
-                                                                height: 400.0,
-                                                                clipBehavior: Clip
-                                                                    .antiAlias,
-                                                                decoration:
-                                                                    BoxDecoration(
-                                                                  shape: BoxShape
-                                                                      .circle,
-                                                                ),
-                                                                child: Image
-                                                                    .network(
-                                                                  FFAppState()
-                                                                      .moodPhoto,
-                                                                  fit: BoxFit
-                                                                      .cover,
+                                                          Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    0.0, 0.0),
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsets
+                                                                      .all(4.0),
+                                                              child: InkWell(
+                                                                splashColor: Colors
+                                                                    .transparent,
+                                                                focusColor: Colors
+                                                                    .transparent,
+                                                                hoverColor: Colors
+                                                                    .transparent,
+                                                                highlightColor:
+                                                                    Colors
+                                                                        .transparent,
+                                                                onTap:
+                                                                    () async {
+                                                                  logFirebaseEvent(
+                                                                      'MOOD_TRACK_HOME_uploadedImage_ON_TAP');
+                                                                  logFirebaseEvent(
+                                                                      'uploadedImage_update_page_state');
+                                                                  _model.uploadedGeminiImage =
+                                                                      _model
+                                                                          .uploadedGeminiImage;
+                                                                  safeSetState(
+                                                                      () {});
+                                                                },
+                                                                child:
+                                                                    Container(
+                                                                  width: 400.0,
+                                                                  height: 400.0,
+                                                                  clipBehavior:
+                                                                      Clip.antiAlias,
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    shape: BoxShape
+                                                                        .circle,
+                                                                  ),
+                                                                  child: Image
+                                                                      .network(
+                                                                    '',
+                                                                    fit: BoxFit
+                                                                        .cover,
+                                                                  ),
                                                                 ),
                                                               ),
                                                             ),
@@ -572,8 +548,6 @@ Analysis */
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .bold,
-                                                                    useGoogleFonts:
-                                                                        false,
                                                                   ),
                                                           elevation: 8.0,
                                                           borderSide:
@@ -644,8 +618,6 @@ Analysis */
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w200,
-                                                                useGoogleFonts:
-                                                                    false,
                                                               ),
                                                         ),
                                                       ),

@@ -1,9 +1,12 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/gemini/gemini.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+import '/index.dart';
+import 'package:tiktokfeed_wz8en7/app_state.dart'
+    as tiktokfeed_wz8en7_app_state;
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -49,6 +52,7 @@ class _MoodTrackResultComponentWidgetState
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
+    context.watch<tiktokfeed_wz8en7_app_state.FFAppState>();
 
     return Align(
       alignment: AlignmentDirectional(0.0, 0.0),
@@ -146,7 +150,6 @@ class _MoodTrackResultComponentWidgetState
                                           fontSize: 18.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.bold,
-                                          useGoogleFonts: false,
                                         ),
                                   ),
                                 ),
@@ -165,7 +168,6 @@ class _MoodTrackResultComponentWidgetState
                                             fontFamily: 'WorkSans',
                                             fontSize: 14.0,
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: false,
                                           ),
                                     ),
                                   ),
@@ -183,7 +185,6 @@ class _MoodTrackResultComponentWidgetState
                                               .alternate,
                                           fontSize: 14.0,
                                           letterSpacing: 0.0,
-                                          useGoogleFonts: false,
                                         ),
                                   ),
                                 ),
@@ -235,7 +236,6 @@ class _MoodTrackResultComponentWidgetState
                                     fontSize: 18.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
-                                    useGoogleFonts: false,
                                   ),
                         ),
                         Padding(
@@ -249,7 +249,6 @@ class _MoodTrackResultComponentWidgetState
                                   fontFamily: 'WorkSans',
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,
-                                  useGoogleFonts: false,
                                 ),
                           ),
                         ),
@@ -291,7 +290,6 @@ class _MoodTrackResultComponentWidgetState
                                   color:
                                       FlutterFlowTheme.of(context).primaryText,
                                   letterSpacing: 0.0,
-                                  useGoogleFonts: false,
                                 ),
                             elevation: 5.0,
                             borderSide: BorderSide(
@@ -319,7 +317,7 @@ class _MoodTrackResultComponentWidgetState
                           logFirebaseEvent('Button_navigate_to');
 
                           context.pushNamed(
-                            'LucilleChatAIPage',
+                            LucilleChatAIPageWidget.routeName,
                             queryParameters: {
                               'deepFeelingsGemini': serializeParam(
                                 '',
@@ -352,7 +350,6 @@ class _MoodTrackResultComponentWidgetState
                                 fontFamily: 'WorkSans',
                                 color: FlutterFlowTheme.of(context).alternate,
                                 letterSpacing: 0.0,
-                                useGoogleFonts: false,
                               ),
                           elevation: 5.0,
                           borderSide: BorderSide(

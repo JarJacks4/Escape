@@ -1,9 +1,11 @@
 import '/flutter_flow/flutter_flow_choice_chips.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'dart:ui';
+import 'package:tiktokfeed_wz8en7/app_state.dart'
+    as tiktokfeed_wz8en7_app_state;
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -85,7 +87,6 @@ class _TodaysReflectionCompWidgetState
                                 fontFamily: 'WorkSans',
                                 color: FlutterFlowTheme.of(context).primary,
                                 letterSpacing: 0.0,
-                                useGoogleFonts: false,
                               ),
                     ),
                     Icon(
@@ -117,7 +118,6 @@ class _TodaysReflectionCompWidgetState
                                     fontFamily: 'WorkSans',
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
-                                    useGoogleFonts: false,
                                   ),
                         ),
                         Expanded(
@@ -161,7 +161,6 @@ class _TodaysReflectionCompWidgetState
                                     fontFamily: 'WorkSans',
                                     color: FlutterFlowTheme.of(context).info,
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: false,
                                   ),
                               iconColor: FlutterFlowTheme.of(context).info,
                               iconSize: 18.0,
@@ -178,7 +177,6 @@ class _TodaysReflectionCompWidgetState
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryText,
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: false,
                                   ),
                               iconColor:
                                   FlutterFlowTheme.of(context).secondaryText,
@@ -219,7 +217,6 @@ class _TodaysReflectionCompWidgetState
                               color: FlutterFlowTheme.of(context).accent1,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.w600,
-                              useGoogleFonts: false,
                             ),
                       ),
                     ),
@@ -242,7 +239,6 @@ class _TodaysReflectionCompWidgetState
                                 .override(
                                   fontFamily: 'WorkSans',
                                   letterSpacing: 0.0,
-                                  useGoogleFonts: false,
                                 ),
                           ),
                         ),
@@ -280,7 +276,6 @@ class _TodaysReflectionCompWidgetState
                                     fontFamily: 'WorkSans',
                                     color: FlutterFlowTheme.of(context).accent1,
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: false,
                                   ),
                               hintText: FFLocalizations.of(context).getText(
                                 '1peyvr0z' /* Write... */,
@@ -290,7 +285,6 @@ class _TodaysReflectionCompWidgetState
                                   .override(
                                     fontFamily: 'WorkSans',
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: false,
                                   ),
                               enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
@@ -330,7 +324,6 @@ class _TodaysReflectionCompWidgetState
                                   fontFamily: 'WorkSans',
                                   color: FlutterFlowTheme.of(context).secondary,
                                   letterSpacing: 0.0,
-                                  useGoogleFonts: false,
                                 ),
                             maxLines: 50,
                             minLines: 10,
@@ -360,7 +353,6 @@ class _TodaysReflectionCompWidgetState
                             color: FlutterFlowTheme.of(context).accent1,
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.w600,
-                            useGoogleFonts: false,
                           ),
                     ),
                     Expanded(
@@ -400,7 +392,6 @@ class _TodaysReflectionCompWidgetState
                                             .override(
                                               fontFamily: 'WorkSans',
                                               letterSpacing: 0.0,
-                                              useGoogleFonts: false,
                                             ),
                                       ),
                                     ].divide(SizedBox(height: 8.0)),
@@ -437,7 +428,6 @@ class _TodaysReflectionCompWidgetState
                                             .override(
                                               fontFamily: 'WorkSans',
                                               letterSpacing: 0.0,
-                                              useGoogleFonts: false,
                                             ),
                                       ),
                                     ].divide(SizedBox(height: 8.0)),
@@ -490,7 +480,6 @@ class _TodaysReflectionCompWidgetState
                           fontFamily: 'WorkSans',
                           color: FlutterFlowTheme.of(context).alternate,
                           letterSpacing: 0.0,
-                          useGoogleFonts: false,
                         ),
                     elevation: 0.0,
                     borderRadius: BorderRadius.circular(25.0),

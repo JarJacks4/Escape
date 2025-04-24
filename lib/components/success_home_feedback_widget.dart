@@ -1,10 +1,10 @@
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+import '/index.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'success_home_feedback_model.dart';
 export 'success_home_feedback_model.dart';
@@ -43,7 +43,7 @@ class _SuccessHomeFeedbackWidgetState extends State<SuccessHomeFeedbackWidget> {
   Widget build(BuildContext context) {
     return Column(
       mainAxisSize: MainAxisSize.max,
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         Divider(
           thickness: 2.0,
@@ -59,16 +59,19 @@ class _SuccessHomeFeedbackWidgetState extends State<SuccessHomeFeedbackWidget> {
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Flexible(
-                  flex: 1,
-                  child: Lottie.asset(
-                    'assets/jsons/Animation_-_1739409804384.json',
-                    width: 400.0,
-                    height: 305.49,
-                    fit: BoxFit.contain,
-                    frameRate: FrameRate(60.0),
-                    repeat: false,
-                    animate: true,
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Container(
+                    width: 200.0,
+                    height: 200.0,
+                    clipBehavior: Clip.antiAlias,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                    ),
+                    child: Image.asset(
+                      'assets/images/Icon.png',
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ],
@@ -79,7 +82,7 @@ class _SuccessHomeFeedbackWidgetState extends State<SuccessHomeFeedbackWidget> {
           padding: EdgeInsets.all(3.0),
           child: Text(
             FFLocalizations.of(context).getText(
-              'r1zpzg96' /* Welcome */,
+              'r1zpzg96' /* Welcome! */,
             ),
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'The Seasons',
@@ -87,7 +90,6 @@ class _SuccessHomeFeedbackWidgetState extends State<SuccessHomeFeedbackWidget> {
                   fontSize: 50.0,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.bold,
-                  useGoogleFonts: false,
                 ),
           ),
         ),
@@ -95,9 +97,8 @@ class _SuccessHomeFeedbackWidgetState extends State<SuccessHomeFeedbackWidget> {
           padding: EdgeInsetsDirectional.fromSTEB(15.0, 12.0, 15.0, 0.0),
           child: Text(
             FFLocalizations.of(context).getText(
-              '18e5egl2' /* Welcome to Escape!
-
- I am Luci... */
+              '18e5egl2' /*  I am Lucille, 
+our Self Care ... */
               ,
             ),
             textAlign: TextAlign.center,
@@ -107,7 +108,6 @@ class _SuccessHomeFeedbackWidgetState extends State<SuccessHomeFeedbackWidget> {
                   fontSize: 22.0,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.w300,
-                  useGoogleFonts: false,
                 ),
           ),
         ),
@@ -119,7 +119,7 @@ class _SuccessHomeFeedbackWidgetState extends State<SuccessHomeFeedbackWidget> {
               logFirebaseEvent('Button_navigate_to');
 
               context.pushNamed(
-                'SelfCarePlanPage',
+                SelfCarePlanPageWidget.routeName,
                 extra: <String, dynamic>{
                   kTransitionInfoKey: TransitionInfo(
                     hasTransition: true,
@@ -143,7 +143,6 @@ class _SuccessHomeFeedbackWidgetState extends State<SuccessHomeFeedbackWidget> {
                     color: FlutterFlowTheme.of(context).primary,
                     letterSpacing: 0.0,
                     fontWeight: FontWeight.bold,
-                    useGoogleFonts: false,
                   ),
               elevation: 3.0,
               borderSide: BorderSide(
@@ -173,7 +172,6 @@ class _SuccessHomeFeedbackWidgetState extends State<SuccessHomeFeedbackWidget> {
                     fontFamily: 'WorkSans',
                     color: FlutterFlowTheme.of(context).alternate,
                     letterSpacing: 0.0,
-                    useGoogleFonts: false,
                   ),
               elevation: 0.0,
               borderRadius: BorderRadius.circular(8.0),
@@ -188,7 +186,7 @@ class _SuccessHomeFeedbackWidgetState extends State<SuccessHomeFeedbackWidget> {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(8.0),
               child: Image.asset(
-                'assets/images/Logo_ESCAPE_Black.png',
+                'assets/images/Logo_ESCAPE_White.png',
                 width: 100.0,
                 height: 50.0,
                 fit: BoxFit.contain,

@@ -1,8 +1,8 @@
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import 'package:expandable/expandable.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -11,6 +11,9 @@ export 'events_page_model.dart';
 
 class EventsPageWidget extends StatefulWidget {
   const EventsPageWidget({super.key});
+
+  static String routeName = 'EventsPage';
+  static String routePath = 'eventsPage';
 
   @override
   State<EventsPageWidget> createState() => _EventsPageWidgetState();
@@ -76,9 +79,8 @@ class _EventsPageWidgetState extends State<EventsPageWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .headlineMedium
                                     .override(
-                                      fontFamily: 'WorkSans',
+                                      fontFamily: 'The Seasons',
                                       letterSpacing: 0.0,
-                                      useGoogleFonts: false,
                                     ),
                               ),
                             ),
@@ -128,7 +130,6 @@ class _EventsPageWidgetState extends State<EventsPageWidget> {
                                     .override(
                                       fontFamily: 'WorkSans',
                                       letterSpacing: 0.0,
-                                      useGoogleFonts: false,
                                     ),
                               ),
                             ),
@@ -156,7 +157,6 @@ class _EventsPageWidgetState extends State<EventsPageWidget> {
                                       .override(
                                         fontFamily: 'WorkSans',
                                         letterSpacing: 0.0,
-                                        useGoogleFonts: false,
                                       ),
                                 ),
                               ),
@@ -179,7 +179,6 @@ class _EventsPageWidgetState extends State<EventsPageWidget> {
                                         .override(
                                           fontFamily: 'WorkSans',
                                           letterSpacing: 0.0,
-                                          useGoogleFonts: false,
                                         ),
                                   ),
                                 ),
@@ -199,7 +198,6 @@ class _EventsPageWidgetState extends State<EventsPageWidget> {
                                           .override(
                                             fontFamily: 'WorkSans',
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: false,
                                           ),
                                     ),
                                   ),
@@ -233,7 +231,6 @@ class _EventsPageWidgetState extends State<EventsPageWidget> {
                               FlutterFlowTheme.of(context).labelLarge.override(
                                     fontFamily: 'WorkSans',
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: false,
                                   ),
                         ),
                       ),
@@ -296,7 +293,6 @@ class _EventsPageWidgetState extends State<EventsPageWidget> {
                               FlutterFlowTheme.of(context).labelLarge.override(
                                     fontFamily: 'WorkSans',
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: false,
                                   ),
                         ),
                       ),
@@ -312,7 +308,6 @@ class _EventsPageWidgetState extends State<EventsPageWidget> {
                               .override(
                                 fontFamily: 'WorkSans',
                                 letterSpacing: 0.0,
-                                useGoogleFonts: false,
                               ),
                         ),
                       ),
@@ -327,7 +322,6 @@ class _EventsPageWidgetState extends State<EventsPageWidget> {
                               FlutterFlowTheme.of(context).labelLarge.override(
                                     fontFamily: 'WorkSans',
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: false,
                                   ),
                         ),
                       ),
@@ -370,7 +364,6 @@ class _EventsPageWidgetState extends State<EventsPageWidget> {
                     style: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'WorkSans',
                           letterSpacing: 0.0,
-                          useGoogleFonts: false,
                         ),
                   ),
                 ),
@@ -407,7 +400,6 @@ class _EventsPageWidgetState extends State<EventsPageWidget> {
                           fontFamily: 'WorkSans',
                           color: FlutterFlowTheme.of(context).secondary,
                           letterSpacing: 0.0,
-                          useGoogleFonts: false,
                         ),
                   ),
                 ),

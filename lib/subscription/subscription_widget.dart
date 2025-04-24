@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -11,6 +11,9 @@ export 'subscription_model.dart';
 
 class SubscriptionWidget extends StatefulWidget {
   const SubscriptionWidget({super.key});
+
+  static String routeName = 'subscription';
+  static String routePath = 'subscription';
 
   @override
   State<SubscriptionWidget> createState() => _SubscriptionWidgetState();
@@ -91,9 +94,8 @@ class _SubscriptionWidgetState extends State<SubscriptionWidget> {
                     'h9pjda3f' /* Subscription / Payment */,
                   ),
                   style: FlutterFlowTheme.of(context).headlineMedium.override(
-                        fontFamily: 'WorkSans',
+                        fontFamily: 'The Seasons',
                         letterSpacing: 0.0,
-                        useGoogleFonts: false,
                       ),
                 ),
               ),
@@ -106,7 +108,6 @@ class _SubscriptionWidgetState extends State<SubscriptionWidget> {
                   style: FlutterFlowTheme.of(context).labelMedium.override(
                         fontFamily: 'WorkSans',
                         letterSpacing: 0.0,
-                        useGoogleFonts: false,
                       ),
                 ),
               ),
@@ -161,7 +162,6 @@ class _SubscriptionWidgetState extends State<SubscriptionWidget> {
                                     .override(
                                       fontFamily: 'WorkSans',
                                       letterSpacing: 0.0,
-                                      useGoogleFonts: false,
                                     ),
                               ),
                               subtitle: Text(
@@ -171,9 +171,8 @@ class _SubscriptionWidgetState extends State<SubscriptionWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .headlineMedium
                                     .override(
-                                      fontFamily: 'WorkSans',
+                                      fontFamily: 'The Seasons',
                                       letterSpacing: 0.0,
-                                      useGoogleFonts: false,
                                     ),
                               ),
                               tileColor: FlutterFlowTheme.of(context)
@@ -199,7 +198,6 @@ class _SubscriptionWidgetState extends State<SubscriptionWidget> {
                                 .override(
                                   fontFamily: 'WorkSans',
                                   letterSpacing: 0.0,
-                                  useGoogleFonts: false,
                                 ),
                           ),
                         ),
@@ -217,7 +215,6 @@ class _SubscriptionWidgetState extends State<SubscriptionWidget> {
                   style: FlutterFlowTheme.of(context).labelMedium.override(
                         fontFamily: 'WorkSans',
                         letterSpacing: 0.0,
-                        useGoogleFonts: false,
                       ),
                 ),
               ),
@@ -273,7 +270,6 @@ class _SubscriptionWidgetState extends State<SubscriptionWidget> {
                                     .override(
                                       fontFamily: 'WorkSans',
                                       letterSpacing: 0.0,
-                                      useGoogleFonts: false,
                                     ),
                               ),
                               subtitle: Text(
@@ -283,9 +279,8 @@ class _SubscriptionWidgetState extends State<SubscriptionWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .headlineMedium
                                     .override(
-                                      fontFamily: 'WorkSans',
+                                      fontFamily: 'The Seasons',
                                       letterSpacing: 0.0,
-                                      useGoogleFonts: false,
                                     ),
                               ),
                               tileColor: FlutterFlowTheme.of(context)
@@ -311,7 +306,6 @@ class _SubscriptionWidgetState extends State<SubscriptionWidget> {
                                 .override(
                                   fontFamily: 'WorkSans',
                                   letterSpacing: 0.0,
-                                  useGoogleFonts: false,
                                 ),
                           ),
                         ),
@@ -366,7 +360,6 @@ class _SubscriptionWidgetState extends State<SubscriptionWidget> {
                                 .override(
                                   fontFamily: 'WorkSans',
                                   letterSpacing: 0.0,
-                                  useGoogleFonts: false,
                                   lineHeight: 1.5,
                                 ),
                           ),
@@ -378,7 +371,6 @@ class _SubscriptionWidgetState extends State<SubscriptionWidget> {
                                 FlutterFlowTheme.of(context).bodySmall.override(
                                       fontFamily: 'WorkSans',
                                       letterSpacing: 0.0,
-                                      useGoogleFonts: false,
                                     ),
                           ),
                           tileColor:
@@ -427,7 +419,6 @@ class _SubscriptionWidgetState extends State<SubscriptionWidget> {
                                   color: FlutterFlowTheme.of(context)
                                       .primaryBackground,
                                   letterSpacing: 0.0,
-                                  useGoogleFonts: false,
                                 ),
                             elevation: 2.0,
                             borderSide: BorderSide(

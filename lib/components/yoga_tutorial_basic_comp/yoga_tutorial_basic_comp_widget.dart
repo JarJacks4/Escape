@@ -1,6 +1,5 @@
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:math';
@@ -8,6 +7,7 @@ import 'dart:ui';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -380,7 +380,6 @@ class _YogaTutorialBasicCompWidgetState
                                               fontFamily: 'WorkSans',
                                               color: Colors.white,
                                               letterSpacing: 0.0,
-                                              useGoogleFonts: false,
                                             ),
                                         elevation: 3.0,
                                         borderSide: BorderSide(
@@ -487,8 +486,6 @@ class _YogaTutorialBasicCompWidgetState
                                                                 fontSize: 18.0,
                                                                 letterSpacing:
                                                                     0.0,
-                                                                useGoogleFonts:
-                                                                    false,
                                                               ),
                                                     ),
                                                   ),
@@ -514,7 +511,6 @@ class _YogaTutorialBasicCompWidgetState
                                               color: Colors.white,
                                               fontSize: 16.0,
                                               letterSpacing: 0.0,
-                                              useGoogleFonts: false,
                                             ),
                                       ).animateOnPageLoad(animationsMap[
                                           'textOnPageLoadAnimation1']!),
@@ -529,10 +525,20 @@ class _YogaTutorialBasicCompWidgetState
                                         style: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
-                                              fontFamily: 'Readex Pro',
+                                              font: GoogleFonts.readexPro(
+                                                fontWeight: FontWeight.w300,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmall
+                                                        .fontStyle,
+                                              ),
                                               color: Color(0x9AFFFFFF),
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w300,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmall
+                                                      .fontStyle,
                                             ),
                                       ).animateOnPageLoad(animationsMap[
                                           'textOnPageLoadAnimation2']!),
@@ -684,8 +690,6 @@ class _YogaTutorialBasicCompWidgetState
                                                                 fontSize: 18.0,
                                                                 letterSpacing:
                                                                     0.0,
-                                                                useGoogleFonts:
-                                                                    false,
                                                               ),
                                                     ),
                                                   ),
@@ -711,7 +715,6 @@ class _YogaTutorialBasicCompWidgetState
                                               color: Colors.white,
                                               fontSize: 16.0,
                                               letterSpacing: 0.0,
-                                              useGoogleFonts: false,
                                             ),
                                       ).animateOnPageLoad(animationsMap[
                                           'textOnPageLoadAnimation3']!),
@@ -726,9 +729,26 @@ class _YogaTutorialBasicCompWidgetState
                                         style: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
-                                              fontFamily: 'Readex Pro',
+                                              font: GoogleFonts.readexPro(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmall
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmall
+                                                        .fontStyle,
+                                              ),
                                               color: Color(0x9AFFFFFF),
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmall
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmall
+                                                      .fontStyle,
                                             ),
                                       ).animateOnPageLoad(animationsMap[
                                           'textOnPageLoadAnimation4']!),
@@ -880,8 +900,6 @@ class _YogaTutorialBasicCompWidgetState
                                                                 fontSize: 18.0,
                                                                 letterSpacing:
                                                                     0.0,
-                                                                useGoogleFonts:
-                                                                    false,
                                                               ),
                                                     ),
                                                   ),
@@ -907,7 +925,6 @@ class _YogaTutorialBasicCompWidgetState
                                               color: Colors.white,
                                               fontSize: 16.0,
                                               letterSpacing: 0.0,
-                                              useGoogleFonts: false,
                                             ),
                                       ).animateOnPageLoad(animationsMap[
                                           'textOnPageLoadAnimation5']!),
@@ -922,9 +939,26 @@ class _YogaTutorialBasicCompWidgetState
                                         style: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
-                                              fontFamily: 'Readex Pro',
+                                              font: GoogleFonts.readexPro(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmall
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmall
+                                                        .fontStyle,
+                                              ),
                                               color: Color(0x9AFFFFFF),
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmall
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmall
+                                                      .fontStyle,
                                             ),
                                       ).animateOnPageLoad(animationsMap[
                                           'textOnPageLoadAnimation6']!),

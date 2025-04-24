@@ -5,6 +5,9 @@ import 'package:collection/collection.dart';
 import '/backend/schema/util/firestore_util.dart';
 import '/backend/schema/util/schema_util.dart';
 
+import "package:tiktokfeed_wz8en7/backend/schema/structs/index.dart"
+    as tiktokfeed_wz8en7_data_schema;
+
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 

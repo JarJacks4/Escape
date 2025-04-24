@@ -1,13 +1,13 @@
 import '/components/confetti_page_comp_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:math';
 import 'dart:ui';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -19,6 +19,9 @@ export 'micrcosmic_meditation_goal_page_model.dart';
 
 class MicrcosmicMeditationGoalPageWidget extends StatefulWidget {
   const MicrcosmicMeditationGoalPageWidget({super.key});
+
+  static String routeName = 'MicrcosmicMeditationGoalPage';
+  static String routePath = 'micrcosmicMeditationGoalPage';
 
   @override
   State<MicrcosmicMeditationGoalPageWidget> createState() =>
@@ -81,7 +84,7 @@ class _MicrcosmicMeditationGoalPageWidgetState
         body: Stack(
           children: [
             Opacity(
-              opacity: 0.2,
+              opacity: 0.9,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(8.0),
                 child: Image.asset(
@@ -118,20 +121,18 @@ Meditation */
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'The Seasons',
-                                      color: FlutterFlowTheme.of(context)
-                                          .alternate,
+                                      color:
+                                          FlutterFlowTheme.of(context).accent1,
                                       fontSize: 22.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.bold,
-                                      useGoogleFonts: false,
                                     ),
                               ),
                             ),
                             Align(
                               alignment: AlignmentDirectional(0.0, 0.0),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 8.0, 0.0, 0.0),
+                                padding: EdgeInsets.all(8.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
                                     '9ie6qtz8' /* Inhale very slowly for 3 secon... */,
@@ -142,11 +143,10 @@ Meditation */
                                       .override(
                                         fontFamily: 'WorkSans',
                                         color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                        fontSize: 18.0,
+                                            .primary,
+                                        fontSize: 14.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w300,
-                                        useGoogleFonts: false,
                                         lineHeight: 1.5,
                                       ),
                                 ),
@@ -185,56 +185,59 @@ Meditation */
                         ),
                         child: Align(
                           alignment: AlignmentDirectional(0.0, 0.0),
-                          child: Stack(
-                            children: [
-                              Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
-                                child: Container(
-                                  width: 50.0,
-                                  height: 50.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
-                                    shape: BoxShape.circle,
-                                  ),
-                                ).animateOnPageLoad(animationsMap[
-                                    'containerOnPageLoadAnimation']!),
-                              ),
-                              Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
-                                child: FlutterFlowTimer(
-                                  initialTime: _model.timerInitialTimeMs,
-                                  getDisplayTime: (value) =>
-                                      StopWatchTimer.getDisplayTime(
-                                    value,
-                                    hours: false,
-                                    minute: false,
-                                    milliSecond: false,
-                                  ),
-                                  controller: _model.timerController,
-                                  updateStateInterval:
-                                      Duration(milliseconds: 3),
-                                  onChanged:
-                                      (value, displayTime, shouldUpdate) {
-                                    _model.timerMilliseconds = value;
-                                    _model.timerValue = displayTime;
-                                    if (shouldUpdate) safeSetState(() {});
-                                  },
-                                  textAlign: TextAlign.start,
-                                  style: FlutterFlowTheme.of(context)
-                                      .headlineSmall
-                                      .override(
-                                        fontFamily: 'WorkSans',
-                                        color: FlutterFlowTheme.of(context)
-                                            .accent1,
-                                        fontSize: 28.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                        useGoogleFonts: false,
-                                      ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 3.0),
+                            child: Stack(
+                              children: [
+                                Align(
+                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  child: Container(
+                                    width: 50.0,
+                                    height: 50.0,
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryBackground,
+                                      shape: BoxShape.circle,
+                                    ),
+                                  ).animateOnPageLoad(animationsMap[
+                                      'containerOnPageLoadAnimation']!),
                                 ),
-                              ),
-                            ],
+                                Align(
+                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  child: FlutterFlowTimer(
+                                    initialTime: _model.timerInitialTimeMs,
+                                    getDisplayTime: (value) =>
+                                        StopWatchTimer.getDisplayTime(
+                                      value,
+                                      hours: false,
+                                      minute: false,
+                                      milliSecond: false,
+                                    ),
+                                    controller: _model.timerController,
+                                    updateStateInterval:
+                                        Duration(milliseconds: 3),
+                                    onChanged:
+                                        (value, displayTime, shouldUpdate) {
+                                      _model.timerMilliseconds = value;
+                                      _model.timerValue = displayTime;
+                                      if (shouldUpdate) safeSetState(() {});
+                                    },
+                                    textAlign: TextAlign.start,
+                                    style: FlutterFlowTheme.of(context)
+                                        .headlineSmall
+                                        .override(
+                                          fontFamily: 'WorkSans',
+                                          color: FlutterFlowTheme.of(context)
+                                              .accent1,
+                                          fontSize: 28.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -282,7 +285,6 @@ Meditation */
                                   fontSize: 16.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w600,
-                                  useGoogleFonts: false,
                                 ),
                         elevation: 3.0,
                         borderRadius: BorderRadius.circular(15.0),

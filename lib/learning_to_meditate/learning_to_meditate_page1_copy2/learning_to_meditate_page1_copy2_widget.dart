@@ -1,6 +1,5 @@
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_button_tabbar.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:math';
@@ -8,6 +7,7 @@ import 'dart:ui';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:styled_divider/styled_divider.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -21,6 +21,9 @@ export 'learning_to_meditate_page1_copy2_model.dart';
 
 class LearningToMeditatePage1Copy2Widget extends StatefulWidget {
   const LearningToMeditatePage1Copy2Widget({super.key});
+
+  static String routeName = 'LearningToMeditatePage1Copy2';
+  static String routePath = 'learningToMeditatePage1Copy2';
 
   @override
   State<LearningToMeditatePage1Copy2Widget> createState() =>
@@ -48,6 +51,7 @@ class _LearningToMeditatePage1Copy2WidgetState
       length: 2,
       initialIndex: 0,
     )..addListener(() => safeSetState(() {}));
+
     animationsMap.addAll({
       'imageOnPageLoadAnimation': AnimationInfo(
         loop: true,
@@ -247,7 +251,6 @@ class _LearningToMeditatePage1Copy2WidgetState
                                           fontSize: 32.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.bold,
-                                          useGoogleFonts: false,
                                         ),
                                   ),
                                 ),
@@ -281,7 +284,6 @@ class _LearningToMeditatePage1Copy2WidgetState
                                           .override(
                                             fontFamily: 'WorkSans',
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: false,
                                           ),
                                     ),
                                   ),
@@ -318,7 +320,6 @@ class _LearningToMeditatePage1Copy2WidgetState
                                                   fontSize: 12.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
-                                                  useGoogleFonts: false,
                                                 ),
                                           ),
                                         ),
@@ -382,7 +383,6 @@ class _LearningToMeditatePage1Copy2WidgetState
                                                         .secondaryBackground,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
-                                                useGoogleFonts: false,
                                                 lineHeight: 1.3,
                                               ),
                                         ),
@@ -422,7 +422,6 @@ class _LearningToMeditatePage1Copy2WidgetState
                                             fontFamily: 'WorkSans',
                                             color: Colors.white,
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: false,
                                           ),
                                       elevation: 8.0,
                                       borderSide: BorderSide(
@@ -468,7 +467,6 @@ class _LearningToMeditatePage1Copy2WidgetState
                                                     .override(
                                                       fontFamily: 'WorkSans',
                                                       letterSpacing: 0.0,
-                                                      useGoogleFonts: false,
                                                     ),
                                             unselectedLabelStyle: TextStyle(),
                                             labelColor: Colors.white,
@@ -617,7 +615,6 @@ Meditation */
                                                                               fontSize: 18.0,
                                                                               letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.bold,
-                                                                              useGoogleFonts: false,
                                                                             ),
                                                                       ),
                                                                     ),
@@ -748,7 +745,6 @@ Meditation */
                                                                               fontSize: 18.0,
                                                                               letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.bold,
-                                                                              useGoogleFonts: false,
                                                                             ),
                                                                       ),
                                                                     ],
@@ -870,7 +866,6 @@ Stress */
                                                                               fontSize: 18.0,
                                                                               letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.bold,
-                                                                              useGoogleFonts: false,
                                                                             ),
                                                                       ),
                                                                     ],
@@ -1043,7 +1038,6 @@ Meditation */
                                                                                     fontSize: 18.0,
                                                                                     letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.bold,
-                                                                                    useGoogleFonts: false,
                                                                                   ),
                                                                             ),
                                                                           ),
@@ -1149,7 +1143,6 @@ Meditation */
                                                                                     fontSize: 18.0,
                                                                                     letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.bold,
-                                                                                    useGoogleFonts: false,
                                                                                   ),
                                                                             ),
                                                                           ),
@@ -1255,7 +1248,6 @@ Time */
                                                                                     fontSize: 18.0,
                                                                                     letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.bold,
-                                                                                    useGoogleFonts: false,
                                                                                   ),
                                                                             ),
                                                                           ),

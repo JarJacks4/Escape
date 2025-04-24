@@ -1,7 +1,7 @@
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -140,7 +140,6 @@ class _TopNav1WidgetState extends State<TopNav1Widget> {
                                                     FlutterFlowTheme.of(context)
                                                         .secondary,
                                                 letterSpacing: 0.0,
-                                                useGoogleFonts: false,
                                               ),
                                         ),
                                       ),
@@ -217,7 +216,6 @@ class _TopNav1WidgetState extends State<TopNav1Widget> {
                                           .override(
                                             fontFamily: 'WorkSans',
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: false,
                                           ),
                                     )),
                                     SelectionArea(
@@ -230,7 +228,6 @@ class _TopNav1WidgetState extends State<TopNav1Widget> {
                                           .override(
                                             fontFamily: 'WorkSans',
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: false,
                                           ),
                                     )),
                                   ],

@@ -1,11 +1,11 @@
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:math';
 import 'dart:ui';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -178,9 +178,9 @@ class _AddASoundWidgetState extends State<AddASoundWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .headlineMedium
                                                       .override(
-                                                        fontFamily: 'WorkSans',
+                                                        fontFamily:
+                                                            'The Seasons',
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: false,
                                                       ),
                                             ),
                                           ),
@@ -199,7 +199,6 @@ class _AddASoundWidgetState extends State<AddASoundWidget>
                                                       .override(
                                                         fontFamily: 'WorkSans',
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: false,
                                                       ),
                                             ),
                                           ),
@@ -275,9 +274,8 @@ class _AddASoundWidgetState extends State<AddASoundWidget>
                                                         .titleLarge
                                                         .override(
                                                           fontFamily:
-                                                              'WorkSans',
+                                                              'The Seasons',
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: false,
                                                         ),
                                                   ),
                                                 ),
@@ -297,7 +295,6 @@ class _AddASoundWidgetState extends State<AddASoundWidget>
                                                           fontFamily:
                                                               'WorkSans',
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: false,
                                                         ),
                                                   ),
                                                 ),
@@ -343,12 +340,11 @@ class _AddASoundWidgetState extends State<AddASoundWidget>
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .headlineMedium
                                         .override(
-                                          fontFamily: 'WorkSans',
+                                          fontFamily: 'The Seasons',
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryText,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
-                                          useGoogleFonts: false,
                                         ),
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
@@ -401,9 +397,8 @@ class _AddASoundWidgetState extends State<AddASoundWidget>
                                   style: FlutterFlowTheme.of(context)
                                       .headlineMedium
                                       .override(
-                                        fontFamily: 'WorkSans',
+                                        fontFamily: 'The Seasons',
                                         letterSpacing: 0.0,
-                                        useGoogleFonts: false,
                                       ),
                                   validator: _model
                                       .projectNameTextControllerValidator
@@ -424,7 +419,6 @@ class _AddASoundWidgetState extends State<AddASoundWidget>
                                         .override(
                                           fontFamily: 'WorkSans',
                                           letterSpacing: 0.0,
-                                          useGoogleFonts: false,
                                         ),
                                     hintText:
                                         FFLocalizations.of(context).getText(
@@ -435,7 +429,6 @@ class _AddASoundWidgetState extends State<AddASoundWidget>
                                         .override(
                                           fontFamily: 'WorkSans',
                                           letterSpacing: 0.0,
-                                          useGoogleFonts: false,
                                         ),
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
@@ -487,7 +480,6 @@ class _AddASoundWidgetState extends State<AddASoundWidget>
                                       .override(
                                         fontFamily: 'WorkSans',
                                         letterSpacing: 0.0,
-                                        useGoogleFonts: false,
                                       ),
                                   maxLines: 5,
                                   validator: _model
@@ -513,14 +505,12 @@ class _AddASoundWidgetState extends State<AddASoundWidget>
                                         .override(
                                           fontFamily: 'WorkSans',
                                           letterSpacing: 0.0,
-                                          useGoogleFonts: false,
                                         ),
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .labelLarge
                                         .override(
                                           fontFamily: 'WorkSans',
                                           letterSpacing: 0.0,
-                                          useGoogleFonts: false,
                                         ),
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
@@ -572,7 +562,6 @@ class _AddASoundWidgetState extends State<AddASoundWidget>
                                       .override(
                                         fontFamily: 'WorkSans',
                                         letterSpacing: 0.0,
-                                        useGoogleFonts: false,
                                       ),
                                   validator: _model
                                       .projectURLTextControllerValidator
@@ -597,14 +586,12 @@ class _AddASoundWidgetState extends State<AddASoundWidget>
                                         .override(
                                           fontFamily: 'WorkSans',
                                           letterSpacing: 0.0,
-                                          useGoogleFonts: false,
                                         ),
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .labelLarge
                                         .override(
                                           fontFamily: 'WorkSans',
                                           letterSpacing: 0.0,
-                                          useGoogleFonts: false,
                                         ),
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide: BorderSide(
@@ -656,7 +643,6 @@ class _AddASoundWidgetState extends State<AddASoundWidget>
                                       .override(
                                         fontFamily: 'WorkSans',
                                         letterSpacing: 0.0,
-                                        useGoogleFonts: false,
                                       ),
                                   validator: _model
                                       .clonableURLTextControllerValidator
@@ -700,7 +686,6 @@ class _AddASoundWidgetState extends State<AddASoundWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .alternate,
                                                 letterSpacing: 0.0,
-                                                useGoogleFonts: false,
                                               ),
                                           elevation: 2.0,
                                           borderSide: BorderSide(

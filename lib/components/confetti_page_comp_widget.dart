@@ -1,8 +1,11 @@
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import '/custom_code/widgets/index.dart' as custom_widgets;
+import '/index.dart';
+import 'package:tiktokfeed_wz8en7/app_state.dart'
+    as tiktokfeed_wz8en7_app_state;
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -109,7 +112,6 @@ class _ConfettiPageCompWidgetState extends State<ConfettiPageCompWidget> {
                                             fontSize: 18.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.bold,
-                                            useGoogleFonts: false,
                                           ),
                                     ),
                                     Padding(
@@ -129,7 +131,6 @@ class _ConfettiPageCompWidgetState extends State<ConfettiPageCompWidget> {
                                                       .accent1,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.bold,
-                                              useGoogleFonts: false,
                                             ),
                                       ),
                                     ),
@@ -160,7 +161,6 @@ class _ConfettiPageCompWidgetState extends State<ConfettiPageCompWidget> {
                                                         .secondary,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w300,
-                                                useGoogleFonts: false,
                                               ),
                                         ),
                                         Padding(
@@ -194,7 +194,7 @@ class _ConfettiPageCompWidgetState extends State<ConfettiPageCompWidget> {
                                   logFirebaseEvent('Button_navigate_to');
 
                                   context.pushNamed(
-                                    'HomeVersion2',
+                                    HomeVersion2Widget.routeName,
                                     extra: <String, dynamic>{
                                       kTransitionInfoKey: TransitionInfo(
                                         hasTransition: true,
@@ -224,7 +224,6 @@ class _ConfettiPageCompWidgetState extends State<ConfettiPageCompWidget> {
                                         fontSize: 18.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
-                                        useGoogleFonts: false,
                                       ),
                                   elevation: 3.0,
                                   borderSide: BorderSide(
@@ -261,7 +260,6 @@ class _ConfettiPageCompWidgetState extends State<ConfettiPageCompWidget> {
                                           fontSize: 18.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.bold,
-                                          useGoogleFonts: false,
                                         ),
                                     borderSide: BorderSide(
                                       color:

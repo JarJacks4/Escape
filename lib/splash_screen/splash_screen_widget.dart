@@ -1,9 +1,10 @@
 import '/flutter_flow/flutter_flow_animations.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:math';
 import 'dart:ui';
+import '/index.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -14,6 +15,9 @@ export 'splash_screen_model.dart';
 
 class SplashScreenWidget extends StatefulWidget {
   const SplashScreenWidget({super.key});
+
+  static String routeName = 'splashScreen';
+  static String routePath = 'splashScreen';
 
   @override
   State<SplashScreenWidget> createState() => _SplashScreenWidgetState();
@@ -87,7 +91,7 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget>
                       logFirebaseEvent('Image_navigate_to');
 
                       context.pushNamed(
-                        'loginPage',
+                        LoginPageWidget.routeName,
                         extra: <String, dynamic>{
                           kTransitionInfoKey: TransitionInfo(
                             hasTransition: true,
@@ -180,7 +184,6 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget>
                                 fontSize: 16.0,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.normal,
-                                useGoogleFonts: false,
                               ),
                         ),
                       ),

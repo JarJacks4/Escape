@@ -1,9 +1,9 @@
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
@@ -13,6 +13,9 @@ export 'timed_meditations_model.dart';
 
 class TimedMeditationsWidget extends StatefulWidget {
   const TimedMeditationsWidget({super.key});
+
+  static String routeName = 'TimedMeditations';
+  static String routePath = 'timedMeditations';
 
   @override
   State<TimedMeditationsWidget> createState() => _TimedMeditationsWidgetState();
@@ -129,7 +132,16 @@ class _TimedMeditationsWidgetState extends State<TimedMeditationsWidget> {
                                                             context)
                                                         .titleSmall
                                                         .override(
-                                                          fontFamily: 'Roboto',
+                                                          font: GoogleFonts
+                                                              .roboto(
+                                                            fontWeight:
+                                                                FontWeight.w200,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmall
+                                                                    .fontStyle,
+                                                          ),
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryBackground,
@@ -137,6 +149,11 @@ class _TimedMeditationsWidgetState extends State<TimedMeditationsWidget> {
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w200,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleSmall
+                                                                  .fontStyle,
                                                         ),
                                                   ),
                                                 ),
@@ -184,13 +201,26 @@ class _TimedMeditationsWidgetState extends State<TimedMeditationsWidget> {
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Roboto',
+                                                  font: GoogleFonts.roboto(
+                                                    fontWeight:
+                                                        FontWeight.normal,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontStyle,
+                                                  ),
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .primaryBackground,
                                                   fontSize: 22.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.normal,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
                                                 ),
                                           ),
                                         ),
@@ -226,7 +256,16 @@ Woul... */
                                                             context)
                                                         .titleSmall
                                                         .override(
-                                                          fontFamily: 'Roboto',
+                                                          font: GoogleFonts
+                                                              .roboto(
+                                                            fontWeight:
+                                                                FontWeight.w300,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmall
+                                                                    .fontStyle,
+                                                          ),
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .secondaryBackground,
@@ -234,6 +273,11 @@ Woul... */
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w300,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleSmall
+                                                                  .fontStyle,
                                                         ),
                                                   ),
                                                 ),
@@ -310,7 +354,16 @@ Woul... */
                                                           context)
                                                       .titleSmall
                                                       .override(
-                                                        fontFamily: 'Roboto',
+                                                        font:
+                                                            GoogleFonts.roboto(
+                                                          fontWeight:
+                                                              FontWeight.w200,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleSmall
+                                                                  .fontStyle,
+                                                        ),
                                                         color: FlutterFlowTheme
                                                                 .of(context)
                                                             .primaryBackground,
@@ -318,6 +371,11 @@ Woul... */
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w200,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleSmall
+                                                                .fontStyle,
                                                       ),
                                                 ),
                                               ),
@@ -364,13 +422,25 @@ Woul... */
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Roboto',
+                                                  font: GoogleFonts.roboto(
+                                                    fontWeight: FontWeight.w300,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontStyle,
+                                                  ),
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .primaryBackground,
                                                   fontSize: 22.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
                                                 ),
                                           ),
                                         ),
@@ -406,7 +476,16 @@ You Have to Med... */
                                                             context)
                                                         .titleSmall
                                                         .override(
-                                                          fontFamily: 'Roboto',
+                                                          font: GoogleFonts
+                                                              .roboto(
+                                                            fontWeight:
+                                                                FontWeight.w300,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmall
+                                                                    .fontStyle,
+                                                          ),
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .secondaryBackground,
@@ -414,6 +493,11 @@ You Have to Med... */
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w300,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleSmall
+                                                                  .fontStyle,
                                                         ),
                                                   ),
                                                 ),
@@ -490,7 +574,16 @@ You Have to Med... */
                                                           context)
                                                       .titleSmall
                                                       .override(
-                                                        fontFamily: 'Roboto',
+                                                        font:
+                                                            GoogleFonts.roboto(
+                                                          fontWeight:
+                                                              FontWeight.w200,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleSmall
+                                                                  .fontStyle,
+                                                        ),
                                                         color: FlutterFlowTheme
                                                                 .of(context)
                                                             .primaryBackground,
@@ -498,6 +591,11 @@ You Have to Med... */
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w200,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .titleSmall
+                                                                .fontStyle,
                                                       ),
                                                 ),
                                               ),
@@ -544,13 +642,25 @@ You Have to Med... */
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Roboto',
+                                                  font: GoogleFonts.roboto(
+                                                    fontWeight: FontWeight.w300,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontStyle,
+                                                  ),
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .primaryBackground,
                                                   fontSize: 22.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
                                                 ),
                                           ),
                                         ),
@@ -586,7 +696,16 @@ How... */
                                                             context)
                                                         .titleSmall
                                                         .override(
-                                                          fontFamily: 'Roboto',
+                                                          font: GoogleFonts
+                                                              .roboto(
+                                                            fontWeight:
+                                                                FontWeight.w300,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmall
+                                                                    .fontStyle,
+                                                          ),
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .secondaryBackground,
@@ -594,6 +713,11 @@ How... */
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w300,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleSmall
+                                                                  .fontStyle,
                                                         ),
                                                   ),
                                                 ),

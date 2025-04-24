@@ -1,6 +1,6 @@
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -63,12 +63,20 @@ class _HeaderProviderCommunityWidgetState
                     ),
                     textAlign: TextAlign.start,
                     style: FlutterFlowTheme.of(context).displaySmall.override(
-                          fontFamily: 'Roboto',
+                          font: GoogleFonts.roboto(
+                            fontWeight: FontWeight.w300,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .displaySmall
+                                .fontStyle,
+                          ),
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
                           fontSize: 36.0,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w300,
+                          fontStyle: FlutterFlowTheme.of(context)
+                              .displaySmall
+                              .fontStyle,
                         ),
                   ),
                 ],
@@ -84,11 +92,18 @@ class _HeaderProviderCommunityWidgetState
                   ),
                   textAlign: TextAlign.start,
                   style: FlutterFlowTheme.of(context).labelMedium.override(
-                        fontFamily: 'Roboto',
+                        font: GoogleFonts.roboto(
+                          fontWeight: FontWeight.w300,
+                          fontStyle: FlutterFlowTheme.of(context)
+                              .labelMedium
+                              .fontStyle,
+                        ),
                         color: FlutterFlowTheme.of(context).primary,
                         fontSize: 22.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.w300,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).labelMedium.fontStyle,
                       ),
                 ),
               ),

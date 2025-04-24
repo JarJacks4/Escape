@@ -1,11 +1,11 @@
 import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:math';
 import 'dart:ui';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -16,6 +16,9 @@ export 'sounds_details_sleep_model.dart';
 
 class SoundsDetailsSleepWidget extends StatefulWidget {
   const SoundsDetailsSleepWidget({super.key});
+
+  static String routeName = 'SoundsDetailsSleep';
+  static String routePath = 'soundsDetailsSleep';
 
   @override
   State<SoundsDetailsSleepWidget> createState() =>
@@ -185,7 +188,6 @@ class _SoundsDetailsSleepWidgetState extends State<SoundsDetailsSleepWidget>
                                           color: Color(0x7C6450A5),
                                           fontSize: 90.0,
                                           letterSpacing: 0.0,
-                                          useGoogleFonts: false,
                                           lineHeight: 0.6,
                                         ),
                                   ),
@@ -337,8 +339,6 @@ class _SoundsDetailsSleepWidgetState extends State<SoundsDetailsSleepWidget>
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
-                                                                useGoogleFonts:
-                                                                    false,
                                                               ),
                                                     ),
                                                   ),

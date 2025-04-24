@@ -1,11 +1,11 @@
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:math';
 import 'dart:ui';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -16,6 +16,9 @@ export 'details14_destination_model.dart';
 
 class Details14DestinationWidget extends StatefulWidget {
   const Details14DestinationWidget({super.key});
+
+  static String routeName = 'Details14Destination';
+  static String routePath = 'details14Destination';
 
   @override
   State<Details14DestinationWidget> createState() =>
@@ -241,7 +244,6 @@ class _Details14DestinationWidgetState extends State<Details14DestinationWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .primaryBackground,
                                               letterSpacing: 0.0,
-                                              useGoogleFonts: false,
                                             ),
                                       ),
                                     ),
@@ -265,7 +267,6 @@ class _Details14DestinationWidgetState extends State<Details14DestinationWidget>
                                     fontFamily: 'WorkSans',
                                     color: Colors.white,
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: false,
                                   ),
                         ).animateOnPageLoad(
                             animationsMap['textOnPageLoadAnimation1']!),
@@ -279,9 +280,22 @@ class _Details14DestinationWidgetState extends State<Details14DestinationWidget>
                           ),
                           style:
                               FlutterFlowTheme.of(context).titleSmall.override(
-                                    fontFamily: 'Readex Pro',
+                                    font: GoogleFonts.readexPro(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontStyle,
+                                    ),
                                     color: Color(0x9AFFFFFF),
                                     letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontStyle,
                                   ),
                         ).animateOnPageLoad(
                             animationsMap['textOnPageLoadAnimation2']!),

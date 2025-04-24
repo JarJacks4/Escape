@@ -1,10 +1,10 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -13,6 +13,9 @@ export 'details15_timer_model.dart';
 
 class Details15TimerWidget extends StatefulWidget {
   const Details15TimerWidget({super.key});
+
+  static String routeName = 'Details15Timer';
+  static String routePath = 'details15Timer';
 
   @override
   State<Details15TimerWidget> createState() => _Details15TimerWidgetState();
@@ -78,7 +81,6 @@ class _Details15TimerWidgetState extends State<Details15TimerWidget> {
                                 .override(
                                   fontFamily: 'WorkSans',
                                   letterSpacing: 0.0,
-                                  useGoogleFonts: false,
                                 ),
                           ),
                           FlutterFlowIconButton(
@@ -132,7 +134,6 @@ class _Details15TimerWidgetState extends State<Details15TimerWidget> {
                                   fontSize: 64.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,
-                                  useGoogleFonts: false,
                                 ),
                           ),
                         ),
@@ -242,7 +243,6 @@ class _Details15TimerWidgetState extends State<Details15TimerWidget> {
                                               .override(
                                                 fontFamily: 'WorkSans',
                                                 letterSpacing: 0.0,
-                                                useGoogleFonts: false,
                                               ),
                                         ),
                                       ),
@@ -258,7 +258,6 @@ class _Details15TimerWidgetState extends State<Details15TimerWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .primary,
                                               letterSpacing: 0.0,
-                                              useGoogleFonts: false,
                                             ),
                                       ),
                                     ],
@@ -278,9 +277,8 @@ class _Details15TimerWidgetState extends State<Details15TimerWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .headlineMedium
                                               .override(
-                                                fontFamily: 'WorkSans',
+                                                fontFamily: 'The Seasons',
                                                 letterSpacing: 0.0,
-                                                useGoogleFonts: false,
                                               ),
                                         ),
                                         Text(
@@ -290,10 +288,9 @@ class _Details15TimerWidgetState extends State<Details15TimerWidget> {
                                           style: FlutterFlowTheme.of(context)
                                               .headlineMedium
                                               .override(
-                                                fontFamily: 'WorkSans',
+                                                fontFamily: 'The Seasons',
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w300,
-                                                useGoogleFonts: false,
                                               ),
                                         ),
                                       ],
@@ -308,7 +305,6 @@ class _Details15TimerWidgetState extends State<Details15TimerWidget> {
                                         .override(
                                           fontFamily: 'WorkSans',
                                           letterSpacing: 0.0,
-                                          useGoogleFonts: false,
                                         ),
                                   ),
                                 ],
@@ -340,7 +336,6 @@ class _Details15TimerWidgetState extends State<Details15TimerWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .primaryBackground,
                                         letterSpacing: 0.0,
-                                        useGoogleFonts: false,
                                       ),
                                   elevation: 2.0,
                                   borderSide: BorderSide(

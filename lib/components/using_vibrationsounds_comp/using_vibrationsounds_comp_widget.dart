@@ -2,10 +2,11 @@ import '/backend/api_requests/api_calls.dart';
 import '/components/video_player_high_fidelity_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:math';
 import 'dart:ui';
+import '/index.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -251,7 +252,6 @@ class _UsingVibrationsoundsCompWidgetState
                                         .primaryBackground,
                                     fontSize: 20.0,
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: false,
                                   ),
                           colors: [
                             FlutterFlowTheme.of(context).primary,
@@ -383,8 +383,6 @@ class _UsingVibrationsoundsCompWidgetState
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
-                                                                useGoogleFonts:
-                                                                    false,
                                                               ),
                                                     ),
                                                   ),
@@ -500,7 +498,6 @@ class _UsingVibrationsoundsCompWidgetState
                           fontSize: 20.0,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w300,
-                          useGoogleFonts: false,
                         ),
                     colors: [
                       FlutterFlowTheme.of(context).primary,
@@ -551,7 +548,8 @@ class _UsingVibrationsoundsCompWidgetState
                                       logFirebaseEvent('Container_navigate_to');
 
                                       context.pushNamed(
-                                        'SoundsDetailsBinauralBeats',
+                                        SoundsDetailsBinauralBeatsWidget
+                                            .routeName,
                                         extra: <String, dynamic>{
                                           kTransitionInfoKey: TransitionInfo(
                                             hasTransition: true,
@@ -594,7 +592,6 @@ class _UsingVibrationsoundsCompWidgetState
                                                 .override(
                                                   fontFamily: 'WorkSans',
                                                   letterSpacing: 0.0,
-                                                  useGoogleFonts: false,
                                                 ),
                                           ),
                                         ],
@@ -617,7 +614,8 @@ class _UsingVibrationsoundsCompWidgetState
                                       logFirebaseEvent('Container_navigate_to');
 
                                       context.pushNamed(
-                                        'SoundsDetailsAmbientMusic',
+                                        SoundsDetailsAmbientMusicWidget
+                                            .routeName,
                                         extra: <String, dynamic>{
                                           kTransitionInfoKey: TransitionInfo(
                                             hasTransition: true,
@@ -658,7 +656,8 @@ class _UsingVibrationsoundsCompWidgetState
                                           logFirebaseEvent('Row_navigate_to');
 
                                           context.pushNamed(
-                                            'SoundsDetailsAmbientMusic',
+                                            SoundsDetailsAmbientMusicWidget
+                                                .routeName,
                                             extra: <String, dynamic>{
                                               kTransitionInfoKey:
                                                   TransitionInfo(
@@ -687,7 +686,6 @@ class _UsingVibrationsoundsCompWidgetState
                                                       .override(
                                                         fontFamily: 'WorkSans',
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: false,
                                                       ),
                                             ),
                                           ],
@@ -711,7 +709,8 @@ class _UsingVibrationsoundsCompWidgetState
                                       logFirebaseEvent('Container_navigate_to');
 
                                       context.pushNamed(
-                                        'SoundsDetailsNatureSounds',
+                                        SoundsDetailsNatureSoundsWidget
+                                            .routeName,
                                         extra: <String, dynamic>{
                                           kTransitionInfoKey: TransitionInfo(
                                             hasTransition: true,
@@ -751,7 +750,8 @@ class _UsingVibrationsoundsCompWidgetState
                                           logFirebaseEvent('Row_navigate_to');
 
                                           context.pushNamed(
-                                            'SoundsDetailsNatureSounds',
+                                            SoundsDetailsNatureSoundsWidget
+                                                .routeName,
                                             extra: <String, dynamic>{
                                               kTransitionInfoKey:
                                                   TransitionInfo(
@@ -780,7 +780,6 @@ class _UsingVibrationsoundsCompWidgetState
                                                       .override(
                                                         fontFamily: 'WorkSans',
                                                         letterSpacing: 0.0,
-                                                        useGoogleFonts: false,
                                                       ),
                                             ),
                                           ],
@@ -822,7 +821,6 @@ class _UsingVibrationsoundsCompWidgetState
                                               .override(
                                                 fontFamily: 'WorkSans',
                                                 letterSpacing: 0.0,
-                                                useGoogleFonts: false,
                                               ),
                                         ),
                                       ],
@@ -864,7 +862,6 @@ class _UsingVibrationsoundsCompWidgetState
                                               .override(
                                                 fontFamily: 'WorkSans',
                                                 letterSpacing: 0.0,
-                                                useGoogleFonts: false,
                                               ),
                                         ),
                                       ],
@@ -898,7 +895,6 @@ class _UsingVibrationsoundsCompWidgetState
                           fontSize: 20.0,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w300,
-                          useGoogleFonts: false,
                         ),
                     colors: [
                       FlutterFlowTheme.of(context).primary,
@@ -1092,8 +1088,6 @@ class _UsingVibrationsoundsCompWidgetState
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
-                                                                useGoogleFonts:
-                                                                    false,
                                                               ),
                                                     ),
                                                   ),
@@ -1128,10 +1122,22 @@ class _UsingVibrationsoundsCompWidgetState
                       's2o8emfk' /* Channels */,
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Roboto',
+                          font: GoogleFonts.roboto(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontStyle,
+                          ),
                           color: Color(0xFF5B4090),
                           fontSize: 26.0,
                           letterSpacing: 0.0,
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                         ),
                     colors: [
                       FlutterFlowTheme.of(context).primary,
@@ -1326,8 +1332,6 @@ class _UsingVibrationsoundsCompWidgetState
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
-                                                                  useGoogleFonts:
-                                                                      false,
                                                                 ),
                                                       ),
                                                     ),

@@ -3,11 +3,12 @@ import '/components/meditation_help_comp_widget.dart';
 import '/components/video_player_high_fidelity_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:math';
 import 'dart:ui';
+import '/index.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -20,6 +21,9 @@ export 'meditation_page_model.dart';
 
 class MeditationPageWidget extends StatefulWidget {
   const MeditationPageWidget({super.key});
+
+  static String routeName = 'MeditationPage';
+  static String routePath = 'meditationPage';
 
   @override
   State<MeditationPageWidget> createState() => _MeditationPageWidgetState();
@@ -350,7 +354,6 @@ class _MeditationPageWidgetState extends State<MeditationPageWidget>
                                     fontSize: 28.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
-                                    useGoogleFonts: false,
                                   ),
                               colors: [
                                 FlutterFlowTheme.of(context).tertiary,
@@ -402,7 +405,6 @@ class _MeditationPageWidgetState extends State<MeditationPageWidget>
                                                               .primaryBackground,
                                                           fontSize: 20.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: false,
                                                         ),
                                                 colors: [
                                                   FlutterFlowTheme.of(context)
@@ -418,237 +420,174 @@ class _MeditationPageWidgetState extends State<MeditationPageWidget>
                                             ],
                                           ),
                                         ),
-                                        Container(
-                                          width: double.infinity,
-                                          height: 236.0,
-                                          decoration: BoxDecoration(
-                                            color: Colors.transparent,
-                                          ),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Expanded(
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 8.0, 0.0, 8.0),
-                                                  child: FutureBuilder<
-                                                      ApiCallResponse>(
-                                                    future:
-                                                        YouTubeDataAPIGuidedMeditationsCall
-                                                            .call(),
-                                                    builder:
-                                                        (context, snapshot) {
-                                                      // Customize what your widget looks like when it's loading.
-                                                      if (!snapshot.hasData) {
-                                                        return Center(
-                                                          child: SizedBox(
-                                                            width: 50.0,
-                                                            height: 50.0,
-                                                            child:
-                                                                CircularProgressIndicator(
-                                                              valueColor:
-                                                                  AlwaysStoppedAnimation<
-                                                                      Color>(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primary,
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            width: double.infinity,
+                                            height: 236.0,
+                                            decoration: BoxDecoration(
+                                              color: Colors.transparent,
+                                            ),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Flexible(
+                                                  flex: 1,
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 8.0,
+                                                                0.0, 8.0),
+                                                    child: FutureBuilder<
+                                                        ApiCallResponse>(
+                                                      future:
+                                                          YouTubeDataAPIGuidedMeditationsCall
+                                                              .call(),
+                                                      builder:
+                                                          (context, snapshot) {
+                                                        // Customize what your widget looks like when it's loading.
+                                                        if (!snapshot.hasData) {
+                                                          return Center(
+                                                            child: SizedBox(
+                                                              width: 50.0,
+                                                              height: 50.0,
+                                                              child:
+                                                                  CircularProgressIndicator(
+                                                                valueColor:
+                                                                    AlwaysStoppedAnimation<
+                                                                        Color>(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primary,
+                                                                ),
                                                               ),
                                                             ),
-                                                          ),
-                                                        );
-                                                      }
-                                                      final listViewYouTubeDataAPIGuidedMeditationsResponse =
-                                                          snapshot.data!;
+                                                          );
+                                                        }
+                                                        final listViewYouTubeDataAPIGuidedMeditationsResponse =
+                                                            snapshot.data!;
 
-                                                      return Builder(
-                                                        builder: (context) {
-                                                          final meditations =
-                                                              getJsonField(
-                                                            listViewYouTubeDataAPIGuidedMeditationsResponse
-                                                                .jsonBody,
-                                                            r'''$.items[:].snippet''',
-                                                          ).toList();
+                                                        return Builder(
+                                                          builder: (context) {
+                                                            final meditations =
+                                                                getJsonField(
+                                                              listViewYouTubeDataAPIGuidedMeditationsResponse
+                                                                  .jsonBody,
+                                                              r'''$.items[:].snippet''',
+                                                            ).toList();
 
-                                                          return ListView
-                                                              .builder(
-                                                            padding:
-                                                                EdgeInsets.zero,
-                                                            scrollDirection:
-                                                                Axis.horizontal,
-                                                            itemCount:
-                                                                meditations
-                                                                    .length,
-                                                            itemBuilder: (context,
-                                                                meditationsIndex) {
-                                                              final meditationsItem =
-                                                                  meditations[
-                                                                      meditationsIndex];
-                                                              return Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            10.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                child:
-                                                                    Container(
-                                                                  width: 187.0,
-                                                                  height: 215.0,
-                                                                  decoration:
-                                                                      BoxDecoration(
-                                                                    color: Colors
-                                                                        .transparent,
-                                                                  ),
-                                                                  child: Column(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    crossAxisAlignment:
-                                                                        CrossAxisAlignment
-                                                                            .center,
-                                                                    children: [
-                                                                      Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            1.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            Hero(
-                                                                          tag:
-                                                                              getJsonField(
-                                                                            meditationsItem,
-                                                                            r'''$.thumbnails.default.url''',
-                                                                          ).toString(),
-                                                                          transitionOnUserGestures:
-                                                                              true,
+                                                            return ListView
+                                                                .builder(
+                                                              padding:
+                                                                  EdgeInsets
+                                                                      .zero,
+                                                              scrollDirection:
+                                                                  Axis.horizontal,
+                                                              itemCount:
+                                                                  meditations
+                                                                      .length,
+                                                              itemBuilder: (context,
+                                                                  meditationsIndex) {
+                                                                final meditationsItem =
+                                                                    meditations[
+                                                                        meditationsIndex];
+                                                                return Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          10.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                  child:
+                                                                      Container(
+                                                                    width:
+                                                                        187.0,
+                                                                    height:
+                                                                        215.0,
+                                                                    decoration:
+                                                                        BoxDecoration(
+                                                                      color: Colors
+                                                                          .transparent,
+                                                                    ),
+                                                                    child:
+                                                                        Column(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      crossAxisAlignment:
+                                                                          CrossAxisAlignment
+                                                                              .center,
+                                                                      children: [
+                                                                        Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              0.0,
+                                                                              1.0,
+                                                                              0.0),
                                                                           child:
-                                                                              ClipRRect(
-                                                                            borderRadius:
-                                                                                BorderRadius.circular(9.0),
+                                                                              Hero(
+                                                                            tag:
+                                                                                getJsonField(
+                                                                              meditationsItem,
+                                                                              r'''$.thumbnails.default.url''',
+                                                                            ).toString(),
+                                                                            transitionOnUserGestures:
+                                                                                true,
                                                                             child:
-                                                                                Image.network(
+                                                                                ClipRRect(
+                                                                              borderRadius: BorderRadius.circular(9.0),
+                                                                              child: Image.network(
+                                                                                getJsonField(
+                                                                                  meditationsItem,
+                                                                                  r'''$.thumbnails.default.url''',
+                                                                                ).toString(),
+                                                                                width: 245.0,
+                                                                                height: 100.0,
+                                                                                fit: BoxFit.cover,
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                        Align(
+                                                                          alignment: AlignmentDirectional(
+                                                                              -1.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              Padding(
+                                                                            padding:
+                                                                                EdgeInsets.all(15.0),
+                                                                            child:
+                                                                                Text(
                                                                               getJsonField(
                                                                                 meditationsItem,
-                                                                                r'''$.thumbnails.default.url''',
+                                                                                r'''$.title''',
                                                                               ).toString(),
-                                                                              width: 245.0,
-                                                                              height: 100.0,
-                                                                              fit: BoxFit.cover,
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'WorkSans',
+                                                                                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                    fontSize: 16.0,
+                                                                                    letterSpacing: 0.0,
+                                                                                    fontWeight: FontWeight.normal,
+                                                                                  ),
                                                                             ),
                                                                           ),
                                                                         ),
-                                                                      ),
-                                                                      Align(
-                                                                        alignment: AlignmentDirectional(
-                                                                            -1.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            Padding(
-                                                                          padding:
-                                                                              EdgeInsets.all(15.0),
-                                                                          child:
-                                                                              Text(
-                                                                            getJsonField(
-                                                                              meditationsItem,
-                                                                              r'''$.title''',
-                                                                            ).toString(),
-                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'WorkSans',
-                                                                                  color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                  fontSize: 16.0,
-                                                                                  letterSpacing: 0.0,
-                                                                                  fontWeight: FontWeight.normal,
-                                                                                  useGoogleFonts: false,
-                                                                                ),
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                      Align(
-                                                                        alignment: AlignmentDirectional(
-                                                                            1.0,
-                                                                            1.0),
-                                                                        child:
-                                                                            Padding(
-                                                                          padding:
-                                                                              EdgeInsets.all(8.0),
-                                                                          child:
-                                                                              FlutterFlowIconButton(
-                                                                            borderColor:
-                                                                                Colors.transparent,
-                                                                            borderRadius:
-                                                                                8.0,
-                                                                            buttonSize:
-                                                                                40.0,
-                                                                            fillColor:
-                                                                                FlutterFlowTheme.of(context).tertiary,
-                                                                            icon:
-                                                                                Icon(
-                                                                              Icons.play_circle,
-                                                                              color: FlutterFlowTheme.of(context).info,
-                                                                              size: 24.0,
-                                                                            ),
-                                                                            onPressed:
-                                                                                () async {
-                                                                              logFirebaseEvent('MEDITATION_play_circle_ICN_ON_TAP');
-                                                                              logFirebaseEvent('IconButton_bottom_sheet');
-                                                                              await showModalBottomSheet(
-                                                                                isScrollControlled: true,
-                                                                                backgroundColor: Colors.transparent,
-                                                                                context: context,
-                                                                                builder: (context) {
-                                                                                  return WebViewAware(
-                                                                                    child: GestureDetector(
-                                                                                      onTap: () {
-                                                                                        FocusScope.of(context).unfocus();
-                                                                                        FocusManager.instance.primaryFocus?.unfocus();
-                                                                                      },
-                                                                                      child: Padding(
-                                                                                        padding: MediaQuery.viewInsetsOf(context),
-                                                                                        child: VideoPlayerHighFidelityWidget(
-                                                                                          parameter1: getJsonField(
-                                                                                            listViewYouTubeDataAPIGuidedMeditationsResponse.jsonBody,
-                                                                                            r'''$.resource.videoId''',
-                                                                                          ).toString(),
-                                                                                          videoTitle: getJsonField(
-                                                                                            listViewYouTubeDataAPIGuidedMeditationsResponse.jsonBody,
-                                                                                            r'''$.title''',
-                                                                                          ).toString(),
-                                                                                          channelTitle: getJsonField(
-                                                                                            listViewYouTubeDataAPIGuidedMeditationsResponse.jsonBody,
-                                                                                            r'''$''',
-                                                                                          ).toString(),
-                                                                                          description: getJsonField(
-                                                                                            listViewYouTubeDataAPIGuidedMeditationsResponse.jsonBody,
-                                                                                            r'''$.description''',
-                                                                                          ).toString(),
-                                                                                        ),
-                                                                                      ),
-                                                                                    ),
-                                                                                  );
-                                                                                },
-                                                                              ).then((value) => safeSetState(() {}));
-                                                                            },
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                    ],
-                                                                  ),
-                                                                ).animateOnPageLoad(
-                                                                        animationsMap[
-                                                                            'containerOnPageLoadAnimation1']!),
-                                                              );
-                                                            },
-                                                          );
-                                                        },
-                                                      );
-                                                    },
+                                                                      ],
+                                                                    ),
+                                                                  ).animateOnPageLoad(
+                                                                          animationsMap[
+                                                                              'containerOnPageLoadAnimation1']!),
+                                                                );
+                                                              },
+                                                            );
+                                                          },
+                                                        );
+                                                      },
+                                                    ),
                                                   ),
                                                 ),
-                                              ),
-                                            ],
+                                              ],
+                                            ),
                                           ),
                                         ),
                                       ],
@@ -675,7 +614,6 @@ class _MeditationPageWidgetState extends State<MeditationPageWidget>
                                                 fontSize: 20.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w300,
-                                                useGoogleFonts: false,
                                               ),
                                           colors: [
                                             FlutterFlowTheme.of(context)
@@ -831,8 +769,6 @@ class _MeditationPageWidgetState extends State<MeditationPageWidget>
                                                                             .secondary,
                                                                         letterSpacing:
                                                                             0.0,
-                                                                        useGoogleFonts:
-                                                                            false,
                                                                       ),
                                                                 ),
                                                               ],
@@ -866,7 +802,8 @@ class _MeditationPageWidgetState extends State<MeditationPageWidget>
                                                                 'Container_navigate_to');
 
                                                             context.pushNamed(
-                                                              'SoundsDetailsAmbientMusic',
+                                                              SoundsDetailsAmbientMusicWidget
+                                                                  .routeName,
                                                               extra: <String,
                                                                   dynamic>{
                                                                 kTransitionInfoKey:
@@ -936,7 +873,8 @@ class _MeditationPageWidgetState extends State<MeditationPageWidget>
 
                                                                 context
                                                                     .pushNamed(
-                                                                  'SoundsDetailsAmbientMusic',
+                                                                  SoundsDetailsAmbientMusicWidget
+                                                                      .routeName,
                                                                   extra: <String,
                                                                       dynamic>{
                                                                     kTransitionInfoKey:
@@ -975,8 +913,6 @@ class _MeditationPageWidgetState extends State<MeditationPageWidget>
                                                                               'WorkSans',
                                                                           letterSpacing:
                                                                               0.0,
-                                                                          useGoogleFonts:
-                                                                              false,
                                                                         ),
                                                                   ),
                                                                 ],
@@ -1011,7 +947,8 @@ class _MeditationPageWidgetState extends State<MeditationPageWidget>
                                                                 'Container_navigate_to');
 
                                                             context.pushNamed(
-                                                              'SoundsDetailsNatureSounds',
+                                                              SoundsDetailsNatureSoundsWidget
+                                                                  .routeName,
                                                               extra: <String,
                                                                   dynamic>{
                                                                 kTransitionInfoKey:
@@ -1080,7 +1017,8 @@ class _MeditationPageWidgetState extends State<MeditationPageWidget>
 
                                                                 context
                                                                     .pushNamed(
-                                                                  'SoundsDetailsNatureSounds',
+                                                                  SoundsDetailsNatureSoundsWidget
+                                                                      .routeName,
                                                                   extra: <String,
                                                                       dynamic>{
                                                                     kTransitionInfoKey:
@@ -1119,8 +1057,6 @@ class _MeditationPageWidgetState extends State<MeditationPageWidget>
                                                                               'WorkSans',
                                                                           letterSpacing:
                                                                               0.0,
-                                                                          useGoogleFonts:
-                                                                              false,
                                                                         ),
                                                                   ),
                                                                 ],
@@ -1189,8 +1125,6 @@ class _MeditationPageWidgetState extends State<MeditationPageWidget>
                                                                           'WorkSans',
                                                                       letterSpacing:
                                                                           0.0,
-                                                                      useGoogleFonts:
-                                                                          false,
                                                                     ),
                                                               ),
                                                             ],
@@ -1265,8 +1199,6 @@ class _MeditationPageWidgetState extends State<MeditationPageWidget>
                                                                           'WorkSans',
                                                                       letterSpacing:
                                                                           0.0,
-                                                                      useGoogleFonts:
-                                                                          false,
                                                                     ),
                                                               ),
                                                             ],
@@ -1306,7 +1238,6 @@ class _MeditationPageWidgetState extends State<MeditationPageWidget>
                                                 fontSize: 20.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w300,
-                                                useGoogleFonts: false,
                                               ),
                                           colors: [
                                             FlutterFlowTheme.of(context)
@@ -1326,240 +1257,237 @@ class _MeditationPageWidgetState extends State<MeditationPageWidget>
                                       ],
                                     ),
                                   ),
-                                  Padding(
-                                    padding: EdgeInsets.all(10.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Expanded(
-                                          child: Container(
-                                            width: double.infinity,
-                                            height: 180.0,
-                                            decoration: BoxDecoration(
-                                              color: Colors.transparent,
-                                            ),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Expanded(
-                                                  child: FutureBuilder<
-                                                      ApiCallResponse>(
-                                                    future:
-                                                        YouTubeDataFireSoundsAPIFINALCall
-                                                            .call(),
-                                                    builder:
-                                                        (context, snapshot) {
-                                                      // Customize what your widget looks like when it's loading.
-                                                      if (!snapshot.hasData) {
-                                                        return Center(
-                                                          child: SizedBox(
-                                                            width: 50.0,
-                                                            height: 50.0,
-                                                            child:
-                                                                CircularProgressIndicator(
-                                                              valueColor:
-                                                                  AlwaysStoppedAnimation<
-                                                                      Color>(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primary,
+                                  Flexible(
+                                    flex: 1,
+                                    child: Padding(
+                                      padding: EdgeInsets.all(10.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Flexible(
+                                            flex: 1,
+                                            child: Container(
+                                              width: double.infinity,
+                                              height: 180.0,
+                                              decoration: BoxDecoration(
+                                                color: Colors.transparent,
+                                              ),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Expanded(
+                                                    child: FutureBuilder<
+                                                        ApiCallResponse>(
+                                                      future:
+                                                          YouTubeDataFireSoundsAPIFINALCall
+                                                              .call(),
+                                                      builder:
+                                                          (context, snapshot) {
+                                                        // Customize what your widget looks like when it's loading.
+                                                        if (!snapshot.hasData) {
+                                                          return Center(
+                                                            child: SizedBox(
+                                                              width: 50.0,
+                                                              height: 50.0,
+                                                              child:
+                                                                  CircularProgressIndicator(
+                                                                valueColor:
+                                                                    AlwaysStoppedAnimation<
+                                                                        Color>(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primary,
+                                                                ),
                                                               ),
                                                             ),
-                                                          ),
-                                                        );
-                                                      }
-                                                      final listViewYouTubeDataFireSoundsAPIFINALResponse =
-                                                          snapshot.data!;
-
-                                                      return Builder(
-                                                        builder: (context) {
-                                                          final recentItems =
-                                                              getJsonField(
-                                                            listViewYouTubeDataFireSoundsAPIFINALResponse
-                                                                .jsonBody,
-                                                            r'''$.items[:].snippet''',
-                                                          ).toList();
-
-                                                          return ListView
-                                                              .builder(
-                                                            padding:
-                                                                EdgeInsets.zero,
-                                                            scrollDirection:
-                                                                Axis.horizontal,
-                                                            itemCount:
-                                                                recentItems
-                                                                    .length,
-                                                            itemBuilder: (context,
-                                                                recentItemsIndex) {
-                                                              final recentItemsItem =
-                                                                  recentItems[
-                                                                      recentItemsIndex];
-                                                              return Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            10.0,
-                                                                            0.0),
-                                                                child:
-                                                                    Container(
-                                                                  width: 150.0,
-                                                                  height: 137.0,
-                                                                  decoration:
-                                                                      BoxDecoration(
-                                                                    color: Color(
-                                                                        0x50090F13),
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            9.0),
-                                                                  ),
-                                                                  child:
-                                                                      InkWell(
-                                                                    splashColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    focusColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    hoverColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    highlightColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    onTap:
-                                                                        () async {
-                                                                      logFirebaseEvent(
-                                                                          'MEDITATION_Column_gdg3e1r0_ON_TAP');
-                                                                      logFirebaseEvent(
-                                                                          'Column_bottom_sheet');
-                                                                      await showModalBottomSheet(
-                                                                        isScrollControlled:
-                                                                            true,
-                                                                        backgroundColor:
-                                                                            Colors.transparent,
-                                                                        context:
-                                                                            context,
-                                                                        builder:
-                                                                            (context) {
-                                                                          return WebViewAware(
-                                                                            child:
-                                                                                GestureDetector(
-                                                                              onTap: () {
-                                                                                FocusScope.of(context).unfocus();
-                                                                                FocusManager.instance.primaryFocus?.unfocus();
-                                                                              },
-                                                                              child: Padding(
-                                                                                padding: MediaQuery.viewInsetsOf(context),
-                                                                                child: VideoPlayerHighFidelityWidget(
-                                                                                  parameter1: getJsonField(
-                                                                                    listViewYouTubeDataFireSoundsAPIFINALResponse.jsonBody,
-                                                                                    r'''$.resource.videoId''',
-                                                                                  ).toString(),
-                                                                                  videoTitle: getJsonField(
-                                                                                    listViewYouTubeDataFireSoundsAPIFINALResponse.jsonBody,
-                                                                                    r'''$.title''',
-                                                                                  ).toString(),
-                                                                                  channelTitle: getJsonField(
-                                                                                    listViewYouTubeDataFireSoundsAPIFINALResponse.jsonBody,
-                                                                                    r'''$.channelTitle''',
-                                                                                  ).toString(),
-                                                                                  description: getJsonField(
-                                                                                    listViewYouTubeDataFireSoundsAPIFINALResponse.jsonBody,
-                                                                                    r'''$.description''',
-                                                                                  ).toString(),
-                                                                                ),
-                                                                              ),
-                                                                            ),
-                                                                          );
-                                                                        },
-                                                                      ).then((value) =>
-                                                                          safeSetState(
-                                                                              () {}));
-                                                                    },
-                                                                    child:
-                                                                        Column(
-                                                                      mainAxisSize:
-                                                                          MainAxisSize
-                                                                              .max,
-                                                                      crossAxisAlignment:
-                                                                          CrossAxisAlignment
-                                                                              .center,
-                                                                      children: [
-                                                                        Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0.0,
-                                                                              0.0,
-                                                                              1.0,
-                                                                              0.0),
-                                                                          child:
-                                                                              Hero(
-                                                                            tag:
-                                                                                getJsonField(
-                                                                              recentItemsItem,
-                                                                              r'''$.thumbnails.default.url''',
-                                                                            ).toString(),
-                                                                            transitionOnUserGestures:
-                                                                                true,
-                                                                            child:
-                                                                                ClipRRect(
-                                                                              borderRadius: BorderRadius.circular(9.0),
-                                                                              child: Image.network(
-                                                                                getJsonField(
-                                                                                  recentItemsItem,
-                                                                                  r'''$.thumbnails.default.url''',
-                                                                                ).toString(),
-                                                                                width: 100.0,
-                                                                                height: 100.0,
-                                                                                fit: BoxFit.cover,
-                                                                              ),
-                                                                            ),
-                                                                          ),
-                                                                        ),
-                                                                        Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              3.0,
-                                                                              15.0,
-                                                                              0.0,
-                                                                              0.0),
-                                                                          child:
-                                                                              Text(
-                                                                            getJsonField(
-                                                                              recentItemsItem,
-                                                                              r'''$.title''',
-                                                                            ).toString(),
-                                                                            textAlign:
-                                                                                TextAlign.center,
-                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'WorkSans',
-                                                                                  color: FlutterFlowTheme.of(context).primaryBackground,
-                                                                                  fontSize: 12.0,
-                                                                                  letterSpacing: 0.0,
-                                                                                  fontWeight: FontWeight.normal,
-                                                                                  useGoogleFonts: false,
-                                                                                ),
-                                                                          ),
-                                                                        ),
-                                                                      ],
-                                                                    ),
-                                                                  ),
-                                                                ).animateOnPageLoad(
-                                                                        animationsMap[
-                                                                            'containerOnPageLoadAnimation7']!),
-                                                              );
-                                                            },
                                                           );
-                                                        },
-                                                      );
-                                                    },
+                                                        }
+                                                        final listViewYouTubeDataFireSoundsAPIFINALResponse =
+                                                            snapshot.data!;
+
+                                                        return Builder(
+                                                          builder: (context) {
+                                                            final recentItems =
+                                                                getJsonField(
+                                                              listViewYouTubeDataFireSoundsAPIFINALResponse
+                                                                  .jsonBody,
+                                                              r'''$.items[:].snippet''',
+                                                            ).toList();
+
+                                                            return ListView
+                                                                .builder(
+                                                              padding:
+                                                                  EdgeInsets
+                                                                      .zero,
+                                                              scrollDirection:
+                                                                  Axis.horizontal,
+                                                              itemCount:
+                                                                  recentItems
+                                                                      .length,
+                                                              itemBuilder: (context,
+                                                                  recentItemsIndex) {
+                                                                final recentItemsItem =
+                                                                    recentItems[
+                                                                        recentItemsIndex];
+                                                                return Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          10.0,
+                                                                          0.0),
+                                                                  child:
+                                                                      Container(
+                                                                    width:
+                                                                        150.0,
+                                                                    height:
+                                                                        137.0,
+                                                                    decoration:
+                                                                        BoxDecoration(
+                                                                      color: Color(
+                                                                          0x50090F13),
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              9.0),
+                                                                    ),
+                                                                    child:
+                                                                        InkWell(
+                                                                      splashColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      focusColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      hoverColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      highlightColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      onTap:
+                                                                          () async {
+                                                                        logFirebaseEvent(
+                                                                            'MEDITATION_Column_gdg3e1r0_ON_TAP');
+                                                                        logFirebaseEvent(
+                                                                            'Column_bottom_sheet');
+                                                                        await showModalBottomSheet(
+                                                                          isScrollControlled:
+                                                                              true,
+                                                                          backgroundColor:
+                                                                              Colors.transparent,
+                                                                          context:
+                                                                              context,
+                                                                          builder:
+                                                                              (context) {
+                                                                            return WebViewAware(
+                                                                              child: GestureDetector(
+                                                                                onTap: () {
+                                                                                  FocusScope.of(context).unfocus();
+                                                                                  FocusManager.instance.primaryFocus?.unfocus();
+                                                                                },
+                                                                                child: Padding(
+                                                                                  padding: MediaQuery.viewInsetsOf(context),
+                                                                                  child: VideoPlayerHighFidelityWidget(
+                                                                                    parameter1: getJsonField(
+                                                                                      listViewYouTubeDataFireSoundsAPIFINALResponse.jsonBody,
+                                                                                      r'''$.resource.videoId''',
+                                                                                    ).toString(),
+                                                                                    videoTitle: getJsonField(
+                                                                                      listViewYouTubeDataFireSoundsAPIFINALResponse.jsonBody,
+                                                                                      r'''$.title''',
+                                                                                    ).toString(),
+                                                                                    channelTitle: getJsonField(
+                                                                                      listViewYouTubeDataFireSoundsAPIFINALResponse.jsonBody,
+                                                                                      r'''$.channelTitle''',
+                                                                                    ).toString(),
+                                                                                    description: getJsonField(
+                                                                                      listViewYouTubeDataFireSoundsAPIFINALResponse.jsonBody,
+                                                                                      r'''$.description''',
+                                                                                    ).toString(),
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                            );
+                                                                          },
+                                                                        ).then((value) =>
+                                                                            safeSetState(() {}));
+                                                                      },
+                                                                      child:
+                                                                          Column(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.max,
+                                                                        crossAxisAlignment:
+                                                                            CrossAxisAlignment.center,
+                                                                        children: [
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                0.0,
+                                                                                0.0,
+                                                                                1.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                Hero(
+                                                                              tag: getJsonField(
+                                                                                recentItemsItem,
+                                                                                r'''$.thumbnails.default.url''',
+                                                                              ).toString(),
+                                                                              transitionOnUserGestures: true,
+                                                                              child: ClipRRect(
+                                                                                borderRadius: BorderRadius.circular(9.0),
+                                                                                child: Image.network(
+                                                                                  getJsonField(
+                                                                                    recentItemsItem,
+                                                                                    r'''$.thumbnails.default.url''',
+                                                                                  ).toString(),
+                                                                                  width: 100.0,
+                                                                                  height: 100.0,
+                                                                                  fit: BoxFit.cover,
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                3.0,
+                                                                                15.0,
+                                                                                0.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                Text(
+                                                                              getJsonField(
+                                                                                recentItemsItem,
+                                                                                r'''$.title''',
+                                                                              ).toString(),
+                                                                              textAlign: TextAlign.center,
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'WorkSans',
+                                                                                    color: FlutterFlowTheme.of(context).primaryBackground,
+                                                                                    fontSize: 12.0,
+                                                                                    letterSpacing: 0.0,
+                                                                                    fontWeight: FontWeight.normal,
+                                                                                  ),
+                                                                            ),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    ),
+                                                                  ).animateOnPageLoad(
+                                                                          animationsMap[
+                                                                              'containerOnPageLoadAnimation7']!),
+                                                                );
+                                                              },
+                                                            );
+                                                          },
+                                                        );
+                                                      },
+                                                    ),
                                                   ),
-                                                ),
-                                              ],
+                                                ],
+                                              ),
                                             ),
                                           ),
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
                                   ),
                                   Padding(
@@ -1580,7 +1508,6 @@ class _MeditationPageWidgetState extends State<MeditationPageWidget>
                                                 color: Color(0xFF5B4090),
                                                 fontSize: 26.0,
                                                 letterSpacing: 0.0,
-                                                useGoogleFonts: false,
                                               ),
                                           colors: [
                                             FlutterFlowTheme.of(context)
@@ -1723,7 +1650,7 @@ class _MeditationPageWidgetState extends State<MeditationPageWidget>
                                                                                 meditationsItem,
                                                                                 r'''$.thumbnails.default.url''',
                                                                               ).toString(),
-                                                                              width: 245.0,
+                                                                              width: double.infinity,
                                                                               height: 100.0,
                                                                               fit: BoxFit.cover,
                                                                             ),
@@ -1737,7 +1664,7 @@ class _MeditationPageWidgetState extends State<MeditationPageWidget>
                                                                         child:
                                                                             Padding(
                                                                           padding:
-                                                                              EdgeInsets.all(15.0),
+                                                                              EdgeInsets.all(8.0),
                                                                           child:
                                                                               Text(
                                                                             getJsonField(
@@ -1747,10 +1674,9 @@ class _MeditationPageWidgetState extends State<MeditationPageWidget>
                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'WorkSans',
                                                                                   color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                  fontSize: 12.0,
+                                                                                  fontSize: 14.0,
                                                                                   letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.normal,
-                                                                                  useGoogleFonts: false,
                                                                                 ),
                                                                           ),
                                                                         ),

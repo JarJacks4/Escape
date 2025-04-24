@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -105,12 +105,20 @@ class _SubscriptionComp2WidgetState extends State<SubscriptionComp2Widget> {
                       padding: EdgeInsets.all(15.0),
                       child: AnimatedDefaultTextStyle(
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Roboto',
+                              font: GoogleFonts.roboto(
+                                fontWeight: FontWeight.normal,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .fontStyle,
+                              ),
                               color: FlutterFlowTheme.of(context)
                                   .primaryBackground,
                               fontSize: 32.0,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.normal,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontStyle,
                             ),
                         duration: Duration(milliseconds: 600),
                         curve: Curves.easeIn,
@@ -166,7 +174,6 @@ class _SubscriptionComp2WidgetState extends State<SubscriptionComp2Widget> {
                                   fontSize: 22.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w300,
-                                  useGoogleFonts: false,
                                 ),
                             colors: [],
                             gradientDirection: GradientDirection.ltr,
@@ -207,7 +214,6 @@ class _SubscriptionComp2WidgetState extends State<SubscriptionComp2Widget> {
                                   fontSize: 22.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w300,
-                                  useGoogleFonts: false,
                                 ),
                             colors: [],
                             gradientDirection: GradientDirection.ltr,
@@ -248,7 +254,6 @@ class _SubscriptionComp2WidgetState extends State<SubscriptionComp2Widget> {
                                   fontSize: 22.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w300,
-                                  useGoogleFonts: false,
                                 ),
                             colors: [],
                             gradientDirection: GradientDirection.ltr,
@@ -278,10 +283,18 @@ class _SubscriptionComp2WidgetState extends State<SubscriptionComp2Widget> {
                         ),
                         textAlign: TextAlign.center,
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Roboto',
+                              font: GoogleFonts.roboto(
+                                fontWeight: FontWeight.normal,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .fontStyle,
+                              ),
                               fontSize: 32.0,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.normal,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontStyle,
                               lineHeight: 1.5,
                             ),
                         colors: [Color(0xF7000220)],
@@ -326,7 +339,6 @@ class _SubscriptionComp2WidgetState extends State<SubscriptionComp2Widget> {
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w300,
                                     fontStyle: FontStyle.italic,
-                                    useGoogleFonts: false,
                                   ),
                           colors: [
                             FlutterFlowTheme.of(context).tertiary,
@@ -369,7 +381,6 @@ class _SubscriptionComp2WidgetState extends State<SubscriptionComp2Widget> {
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w300,
                                     fontStyle: FontStyle.italic,
-                                    useGoogleFonts: false,
                                   ),
                           colors: [
                             FlutterFlowTheme.of(context).tertiary,
@@ -410,7 +421,10 @@ Self Care AI */
                           textAlign: TextAlign.start,
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Roboto',
+                                    font: GoogleFonts.roboto(
+                                      fontWeight: FontWeight.w300,
+                                      fontStyle: FontStyle.italic,
+                                    ),
                                     fontSize: 22.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w300,
@@ -455,7 +469,10 @@ Self Care AI */
                       ),
                       textAlign: TextAlign.start,
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Roboto',
+                            font: GoogleFonts.roboto(
+                              fontWeight: FontWeight.w300,
+                              fontStyle: FontStyle.italic,
+                            ),
                             fontSize: 22.0,
                             letterSpacing: 0.0,
                             fontWeight: FontWeight.w300,
@@ -488,7 +505,6 @@ Self Care AI */
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.bold,
                               decoration: TextDecoration.underline,
-                              useGoogleFonts: false,
                             ),
                       ),
                       TextSpan(
@@ -500,7 +516,6 @@ Self Care AI */
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
                               letterSpacing: 0.0,
-                              useGoogleFonts: false,
                             ),
                       ),
                       TextSpan(
@@ -508,10 +523,18 @@ Self Care AI */
                           'mlqq6nrx' /* terms.  */,
                         ),
                         style: FlutterFlowTheme.of(context).bodyLarge.override(
-                              fontFamily: 'Roboto',
+                              font: GoogleFonts.roboto(
+                                fontWeight: FontWeight.normal,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .bodyLarge
+                                    .fontStyle,
+                              ),
                               color: Color(0xFF715E84),
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.normal,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyLarge
+                                  .fontStyle,
                               decoration: TextDecoration.underline,
                             ),
                       ),
@@ -524,16 +547,27 @@ Self Care AI */
                               color: FlutterFlowTheme.of(context)
                                   .secondaryBackground,
                               letterSpacing: 0.0,
-                              useGoogleFonts: false,
                             ),
                       )
                     ],
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Roboto',
+                          font: GoogleFonts.roboto(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontStyle,
+                          ),
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
                           fontSize: 16.0,
                           letterSpacing: 0.0,
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                           lineHeight: 1.2,
                         ),
                   ),
@@ -561,7 +595,6 @@ Self Care AI */
                           fontFamily: 'WorkSans',
                           color: Colors.white,
                           letterSpacing: 0.0,
-                          useGoogleFonts: false,
                         ),
                     elevation: 8.0,
                     borderRadius: BorderRadius.circular(16.0),

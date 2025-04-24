@@ -1,0 +1,23 @@
+name: ff_commons
+description: FlutterFlow Commons Package
+
+publish_to: 'none'
+
+version: 1.0.2+1
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  escape:
+    path: ../../
+  collection: 1.19.0
+  equatable: 2.0.5
+  http: 1.2.2
+  mime_type: 1.0.0
+
+flutter:

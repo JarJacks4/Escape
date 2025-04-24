@@ -1,16 +1,17 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/components/binuaral_beats_card_widget.dart';
-import '/components/body_card_widget.dart';
 import '/components/breathing_card_copy_widget.dart';
 import '/components/meditation_card_widget.dart';
-import '/components/nature_card_copy_widget.dart';
 import '/components/nature_card_widget.dart';
 import '/components/success_home_feedback_widget.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
+import '/components/therapist_directory_card_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+import '/index.dart';
 import 'home_version2_widget.dart' show HomeVersion2Widget;
+import 'package:auto_size_text/auto_size_text.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -29,10 +30,8 @@ class HomeVersion2Model extends FlutterFlowModel<HomeVersion2Widget> {
   late NatureCardModel natureCardModel;
   // Model for BinuaralBeatsCard component.
   late BinuaralBeatsCardModel binuaralBeatsCardModel;
-  // Model for BodyCard component.
-  late BodyCardModel bodyCardModel;
-  // Model for NatureCardCopy component.
-  late NatureCardCopyModel natureCardCopyModel;
+  // Model for therapistDirectoryCard component.
+  late TherapistDirectoryCardModel therapistDirectoryCardModel;
 
   @override
   void initState(BuildContext context) {
@@ -42,8 +41,8 @@ class HomeVersion2Model extends FlutterFlowModel<HomeVersion2Widget> {
     natureCardModel = createModel(context, () => NatureCardModel());
     binuaralBeatsCardModel =
         createModel(context, () => BinuaralBeatsCardModel());
-    bodyCardModel = createModel(context, () => BodyCardModel());
-    natureCardCopyModel = createModel(context, () => NatureCardCopyModel());
+    therapistDirectoryCardModel =
+        createModel(context, () => TherapistDirectoryCardModel());
   }
 
   @override
@@ -52,7 +51,6 @@ class HomeVersion2Model extends FlutterFlowModel<HomeVersion2Widget> {
     breathingCardCopyModel.dispose();
     natureCardModel.dispose();
     binuaralBeatsCardModel.dispose();
-    bodyCardModel.dispose();
-    natureCardCopyModel.dispose();
+    therapistDirectoryCardModel.dispose();
   }
 }

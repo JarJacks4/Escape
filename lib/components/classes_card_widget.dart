@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_animations.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:math';
 import 'dart:ui';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -150,7 +150,6 @@ class _ClassesCardWidgetState extends State<ClassesCardWidget>
                       style: FlutterFlowTheme.of(context).bodyLarge.override(
                             fontFamily: 'WorkSans',
                             letterSpacing: 0.0,
-                            useGoogleFonts: false,
                           ),
                     ),
                   ),
@@ -163,7 +162,6 @@ class _ClassesCardWidgetState extends State<ClassesCardWidget>
                       style: FlutterFlowTheme.of(context).labelSmall.override(
                             fontFamily: 'WorkSans',
                             letterSpacing: 0.0,
-                            useGoogleFonts: false,
                           ),
                     ),
                   ),
@@ -191,7 +189,6 @@ class _ClassesCardWidgetState extends State<ClassesCardWidget>
                                     fontFamily: 'WorkSans',
                                     color: FlutterFlowTheme.of(context).primary,
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: false,
                                   ),
                         ),
                       ),

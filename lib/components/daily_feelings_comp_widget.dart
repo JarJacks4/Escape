@@ -1,9 +1,9 @@
 import '/flutter_flow/flutter_flow_choice_chips.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'dart:ui';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -74,7 +74,6 @@ class _DailyFeelingsCompWidgetState extends State<DailyFeelingsCompWidget> {
                         fontFamily: 'WorkSans',
                         color: FlutterFlowTheme.of(context).accent1,
                         letterSpacing: 0.0,
-                        useGoogleFonts: false,
                       ),
                 ),
                 Expanded(
@@ -91,13 +90,11 @@ class _DailyFeelingsCompWidgetState extends State<DailyFeelingsCompWidget> {
                           FlutterFlowTheme.of(context).bodyMedium.override(
                                 fontFamily: 'WorkSans',
                                 letterSpacing: 0.0,
-                                useGoogleFonts: false,
                               ),
                       hintStyle:
                           FlutterFlowTheme.of(context).bodyMedium.override(
                                 fontFamily: 'WorkSans',
                                 letterSpacing: 0.0,
-                                useGoogleFonts: false,
                               ),
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
@@ -135,7 +132,6 @@ class _DailyFeelingsCompWidgetState extends State<DailyFeelingsCompWidget> {
                           fontFamily: 'WorkSans',
                           color: FlutterFlowTheme.of(context).primary,
                           letterSpacing: 0.0,
-                          useGoogleFonts: false,
                         ),
                     maxLines: 5,
                     minLines: 3,
@@ -150,7 +146,6 @@ class _DailyFeelingsCompWidgetState extends State<DailyFeelingsCompWidget> {
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'WorkSans',
                         letterSpacing: 0.0,
-                        useGoogleFonts: false,
                       ),
                 ),
                 FlutterFlowChoiceChips(
@@ -182,7 +177,6 @@ class _DailyFeelingsCompWidgetState extends State<DailyFeelingsCompWidget> {
                           fontFamily: 'WorkSans',
                           color: FlutterFlowTheme.of(context).info,
                           letterSpacing: 0.0,
-                          useGoogleFonts: false,
                         ),
                     iconColor: FlutterFlowTheme.of(context).secondary,
                     iconSize: 18.0,
@@ -196,7 +190,6 @@ class _DailyFeelingsCompWidgetState extends State<DailyFeelingsCompWidget> {
                           fontFamily: 'WorkSans',
                           color: FlutterFlowTheme.of(context).secondaryText,
                           letterSpacing: 0.0,
-                          useGoogleFonts: false,
                         ),
                     iconColor: FlutterFlowTheme.of(context).primaryText,
                     iconSize: 18.0,
@@ -241,7 +234,6 @@ class _DailyFeelingsCompWidgetState extends State<DailyFeelingsCompWidget> {
                                   fontFamily: 'WorkSans',
                                   color: FlutterFlowTheme.of(context).primary,
                                   letterSpacing: 0.0,
-                                  useGoogleFonts: false,
                                 ),
                         elevation: 0.0,
                         borderSide: BorderSide(
@@ -275,7 +267,6 @@ class _DailyFeelingsCompWidgetState extends State<DailyFeelingsCompWidget> {
                                   fontFamily: 'WorkSans',
                                   color: FlutterFlowTheme.of(context).primary,
                                   letterSpacing: 0.0,
-                                  useGoogleFonts: false,
                                 ),
                         elevation: 0.0,
                         borderSide: BorderSide(

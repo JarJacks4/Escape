@@ -1,13 +1,17 @@
 import 'dart:convert';
 import 'dart:typed_data';
 import '../schema/structs/index.dart';
+import "package:tiktokfeed_wz8en7/backend/schema/structs/index.dart"
+    as tiktokfeed_wz8en7_data_schema;
 
 import 'package:flutter/foundation.dart';
 
 import '/flutter_flow/flutter_flow_util.dart';
-import 'api_manager.dart';
+import 'package:ff_commons/api_requests/api_manager.dart';
 
-export 'api_manager.dart' show ApiCallResponse;
+import 'package:ff_commons/api_requests/api_paging_params.dart';
+
+export 'package:ff_commons/api_requests/api_manager.dart' show ApiCallResponse;
 
 const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 
@@ -18,8 +22,6 @@ class FastAPIGroup {
       'https://app.swaggerhub.com/apis/GAHOISIDDHANT/fast-api/1.0.0';
   static Map<String, String> headers = {
     'Content-Type': 'application/json',
-    'Authorization':
-        'Bearer sk-proj-t5GY3pUWUxjh4mZLGWUxT3BlbkFJmQ2aJzbx24KyMdvAnXjf',
   };
   static ChatChatPostCall chatChatPostCall = ChatChatPostCall();
   static RootGetCall rootGetCall = RootGetCall();
@@ -42,8 +44,6 @@ class ChatChatPostCall {
       callType: ApiCallType.POST,
       headers: {
         'Content-Type': 'application/json',
-        'Authorization':
-            'Bearer sk-proj-t5GY3pUWUxjh4mZLGWUxT3BlbkFJmQ2aJzbx24KyMdvAnXjf',
       },
       params: {},
       body: ffApiRequestBody,
@@ -68,8 +68,6 @@ class RootGetCall {
       callType: ApiCallType.GET,
       headers: {
         'Content-Type': 'application/json',
-        'Authorization':
-            'Bearer sk-proj-t5GY3pUWUxjh4mZLGWUxT3BlbkFJmQ2aJzbx24KyMdvAnXjf',
       },
       params: {},
       returnBody: true,
@@ -94,8 +92,6 @@ class GetChatHistoryChatSessionIdGetCall {
       callType: ApiCallType.GET,
       headers: {
         'Content-Type': 'application/json',
-        'Authorization':
-            'Bearer sk-proj-t5GY3pUWUxjh4mZLGWUxT3BlbkFJmQ2aJzbx24KyMdvAnXjf',
       },
       params: {},
       returnBody: true,
@@ -3028,20 +3024,63 @@ class YouTubeDataIncreaseFocusAPIFINALCall {
           .toList();
 }
 
-class ApiPagingParams {
-  int nextPageNumber = 0;
-  int numItems = 0;
-  dynamic lastResponse;
+class GetSessionIdCall {
+  static Future<ApiCallResponse> call() async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'GetSessionId',
+      apiUrl: 'https://lucillellm-334104837337.us-central1.run.app/',
+      callType: ApiCallType.GET,
+      headers: {},
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
 
-  ApiPagingParams({
-    required this.nextPageNumber,
-    required this.numItems,
-    required this.lastResponse,
-  });
+  static String? sessionid(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.session_id''',
+      ));
+}
 
-  @override
-  String toString() =>
-      'PagingParams(nextPageNumber: $nextPageNumber, numItems: $numItems, lastResponse: $lastResponse,)';
+class ChatWithLucilleCall {
+  static Future<ApiCallResponse> call({
+    String? message = '',
+    String? sessionId = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "message": "${escapeStringForJson(message)}",
+  "session_id":"${escapeStringForJson(sessionId)}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'ChatWithLucille ',
+      apiUrl: 'https://lucillellm-334104837337.us-central1.run.app/chat',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static String? lucilleResponse(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.response''',
+      ));
 }
 
 String _toEncodable(dynamic item) {

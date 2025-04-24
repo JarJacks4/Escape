@@ -2,11 +2,12 @@ import '/components/basic_breathing_page_comp_widget.dart';
 import '/components/before_bed_breathing_comp_widget.dart';
 import '/components/calm_breathing_comp_widget.dart';
 import '/components/deep_breathing_comp_widget.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+import '/index.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -15,6 +16,9 @@ export 'breathing_choice_page_model.dart';
 
 class BreathingChoicePageWidget extends StatefulWidget {
   const BreathingChoicePageWidget({super.key});
+
+  static String routeName = 'BreathingChoicePage';
+  static String routePath = 'breathingChoicePage';
 
   @override
   State<BreathingChoicePageWidget> createState() =>
@@ -87,7 +91,6 @@ class _BreathingChoicePageWidgetState extends State<BreathingChoicePageWidget> {
                                     fontFamily: 'The Seasons',
                                     fontSize: 22.0,
                                     letterSpacing: 0.0,
-                                    useGoogleFonts: false,
                                   ),
                             ),
                           ),
@@ -107,7 +110,7 @@ class _BreathingChoicePageWidgetState extends State<BreathingChoicePageWidget> {
                                     'BREATHING_CHOICE_Image_iw49a95u_ON_TAP');
                                 logFirebaseEvent('Image_navigate_to');
 
-                                context.pushNamed('HomeVersion2');
+                                context.pushNamed(HomeVersion2Widget.routeName);
                               },
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(8.0),

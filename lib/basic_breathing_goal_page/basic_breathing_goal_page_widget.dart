@@ -1,13 +1,13 @@
 import '/components/confetti_page_comp_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:math';
 import 'dart:ui';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -19,6 +19,9 @@ export 'basic_breathing_goal_page_model.dart';
 
 class BasicBreathingGoalPageWidget extends StatefulWidget {
   const BasicBreathingGoalPageWidget({super.key});
+
+  static String routeName = 'BasicBreathingGoalPage';
+  static String routePath = 'basicBreathingGoalPage';
 
   @override
   State<BasicBreathingGoalPageWidget> createState() =>
@@ -119,7 +122,6 @@ class _BasicBreathingGoalPageWidgetState
                                       fontSize: 22.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.bold,
-                                      useGoogleFonts: false,
                                     ),
                               ),
                             ),
@@ -142,7 +144,6 @@ class _BasicBreathingGoalPageWidgetState
                                         fontSize: 18.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w300,
-                                        useGoogleFonts: false,
                                         lineHeight: 1.5,
                                       ),
                                 ),
@@ -225,7 +226,6 @@ class _BasicBreathingGoalPageWidgetState
                                         fontSize: 28.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
-                                        useGoogleFonts: false,
                                       ),
                                 ),
                               ),
@@ -277,7 +277,6 @@ class _BasicBreathingGoalPageWidgetState
                                   fontSize: 16.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w600,
-                                  useGoogleFonts: false,
                                 ),
                         elevation: 3.0,
                         borderRadius: BorderRadius.circular(15.0),

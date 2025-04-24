@@ -1,16 +1,14 @@
 import '/backend/gemini/gemini.dart';
-import '/components/mood_track_result_component_widget.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import 'dart:ui';
+import '/index.dart';
 import 'mood_track_home_widget.dart' show MoodTrackHomeWidget;
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:webviewx_plus/webviewx_plus.dart';
 
 class MoodTrackHomeModel extends FlutterFlowModel<MoodTrackHomeWidget> {
   ///  Local state fields for this page.

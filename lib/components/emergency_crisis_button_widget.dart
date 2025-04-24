@@ -1,7 +1,7 @@
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -63,7 +63,6 @@ class _EmergencyCrisisButtonWidgetState
                       color: FlutterFlowTheme.of(context).alternate,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.w600,
-                      useGoogleFonts: false,
                     ),
               ),
               Text(
@@ -73,7 +72,6 @@ class _EmergencyCrisisButtonWidgetState
                 style: FlutterFlowTheme.of(context).bodySmall.override(
                       fontFamily: 'WorkSans',
                       letterSpacing: 0.0,
-                      useGoogleFonts: false,
                     ),
               ),
               FFButtonWidget(
@@ -94,7 +92,6 @@ class _EmergencyCrisisButtonWidgetState
                         fontFamily: 'WorkSans',
                         color: FlutterFlowTheme.of(context).info,
                         letterSpacing: 0.0,
-                        useGoogleFonts: false,
                       ),
                   elevation: 0.0,
                   borderSide: BorderSide(

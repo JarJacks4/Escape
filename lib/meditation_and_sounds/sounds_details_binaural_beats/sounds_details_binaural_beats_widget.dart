@@ -1,9 +1,9 @@
 import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -12,6 +12,9 @@ export 'sounds_details_binaural_beats_model.dart';
 
 class SoundsDetailsBinauralBeatsWidget extends StatefulWidget {
   const SoundsDetailsBinauralBeatsWidget({super.key});
+
+  static String routeName = 'SoundsDetailsBinauralBeats';
+  static String routePath = 'soundsDetailsBinauralBeats';
 
   @override
   State<SoundsDetailsBinauralBeatsWidget> createState() =>
@@ -153,7 +156,6 @@ class _SoundsDetailsBinauralBeatsWidgetState
                                               .primary,
                                           fontSize: 90.0,
                                           letterSpacing: 0.0,
-                                          useGoogleFonts: false,
                                           lineHeight: 0.6,
                                         ),
                                   ),
@@ -319,13 +321,27 @@ class _SoundsDetailsBinauralBeatsWidgetState
                                                             context)
                                                         .headlineMedium
                                                         .override(
-                                                          fontFamily: 'Outfit',
+                                                          font: GoogleFonts
+                                                              .outfit(
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .headlineMedium
+                                                                    .fontStyle,
+                                                          ),
                                                           color:
                                                               Color(0xFF101213),
                                                           fontSize: 16.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .headlineMedium
+                                                                  .fontStyle,
                                                         ),
                                                   ),
                                                   Padding(
@@ -345,8 +361,17 @@ class _SoundsDetailsBinauralBeatsWidgetState
                                                               .of(context)
                                                           .bodySmall
                                                           .override(
-                                                            fontFamily:
-                                                                'Outfit',
+                                                            font: GoogleFonts
+                                                                .outfit(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .normal,
+                                                              fontStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodySmall
+                                                                      .fontStyle,
+                                                            ),
                                                             color: Color(
                                                                 0xFF57636C),
                                                             fontSize: 14.0,
@@ -354,6 +379,11 @@ class _SoundsDetailsBinauralBeatsWidgetState
                                                             fontWeight:
                                                                 FontWeight
                                                                     .normal,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodySmall
+                                                                    .fontStyle,
                                                           ),
                                                     ),
                                                   ),
@@ -372,14 +402,28 @@ class _SoundsDetailsBinauralBeatsWidgetState
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            fontFamily:
-                                                                'Outfit',
+                                                            font: GoogleFonts
+                                                                .outfit(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
+                                                              fontStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                            ),
                                                             color: Color(
                                                                 0xFF4B39EF),
                                                             fontSize: 14.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w500,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
                                                           ),
                                                     ),
                                                   ),
