@@ -59,7 +59,7 @@ class _MicrocosmicOrbitMeditationWidgetState
           alignment: AlignmentDirectional(0.0, 1.0),
           child: Container(
             width: double.infinity,
-            height: 243.87,
+            height: 271.49,
             decoration: BoxDecoration(
               boxShadow: [
                 BoxShadow(
@@ -153,18 +153,24 @@ Meditation */
                           ),
                         ),
                       ),
-                      Text(
-                        FFLocalizations.of(context).getText(
-                          't57frqj6' /* Find yourself and the inner me... */,
+                      Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text(
+                          FFLocalizations.of(context).getText(
+                            't57frqj6' /* Find yourself and the inner me... */,
+                          ),
+                          textAlign: TextAlign.center,
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'WorkSans',
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                fontSize: 14.0,
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.w300,
+                                lineHeight: 1.5,
+                              ),
                         ),
-                        textAlign: TextAlign.center,
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'WorkSans',
-                              color: FlutterFlowTheme.of(context).primaryText,
-                              fontSize: 14.0,
-                              letterSpacing: 0.0,
-                              lineHeight: 1.5,
-                            ),
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
