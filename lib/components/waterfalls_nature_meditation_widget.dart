@@ -161,6 +161,7 @@ class _WaterfallsNatureMeditationWidgetState
                               color: FlutterFlowTheme.of(context).primaryText,
                               fontSize: 14.0,
                               letterSpacing: 0.0,
+                              fontWeight: FontWeight.w300,
                               lineHeight: 1.5,
                             ),
                       ),

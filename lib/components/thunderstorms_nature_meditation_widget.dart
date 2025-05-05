@@ -151,18 +151,24 @@ class _ThunderstormsNatureMeditationWidgetState
                           ),
                         ),
                       ),
-                      Text(
-                        FFLocalizations.of(context).getText(
-                          '4ugx8vc5' /* Take a relaxing nap with thund... */,
+                      Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text(
+                          FFLocalizations.of(context).getText(
+                            '4ugx8vc5' /* Take a relaxing nap with thund... */,
+                          ),
+                          textAlign: TextAlign.center,
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'WorkSans',
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                fontSize: 14.0,
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.w300,
+                                lineHeight: 1.5,
+                              ),
                         ),
-                        textAlign: TextAlign.center,
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'WorkSans',
-                              color: FlutterFlowTheme.of(context).primaryText,
-                              fontSize: 14.0,
-                              letterSpacing: 0.0,
-                              lineHeight: 1.5,
-                            ),
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(

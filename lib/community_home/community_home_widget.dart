@@ -262,36 +262,8 @@ class _CommunityHomeWidgetState extends State<CommunityHomeWidget>
                                                   .BreathingTikTok
                                                   .take(10)
                                                   .toList(),
-                                              likerebuidpage: () async {
-                                                logFirebaseEvent(
-                                                    'COMMUNITY_HOME_Container_zf6biwyo_CALLBA');
-                                                logFirebaseEvent(
-                                                    'ChewieWidget_update_app_state');
-                                                FFAppState()
-                                                    .updateListTikTokPagesAtIndex(
-                                                  FFAppState().videoId,
-                                                  (e) => e
-                                                    ..likes = FFAppState()
-                                                        .newListLike
-                                                        .toList(),
-                                                );
-                                                safeSetState(() {});
-                                              },
-                                              bookedrebuidpage: () async {
-                                                logFirebaseEvent(
-                                                    'COMMUNITY_HOME_Container_zf6biwyo_CALLBA');
-                                                logFirebaseEvent(
-                                                    'ChewieWidget_update_app_state');
-                                                FFAppState()
-                                                    .updateListTikTokPagesAtIndex(
-                                                  FFAppState().videoId,
-                                                  (e) => e
-                                                    ..bookmark = FFAppState()
-                                                        .newListBookmarks
-                                                        .toList(),
-                                                );
-                                                safeSetState(() {});
-                                              },
+                                              likerebuidpage: () async {},
+                                              bookedrebuidpage: () async {},
                                             ),
                                           ),
                                         ),

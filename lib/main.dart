@@ -235,7 +235,7 @@ class _NavBarPageState extends State<NavBarPage> {
               ),
               activeIcon: Icon(
                 Icons.home,
-                size: 36.0,
+                size: 28.0,
               ),
               label: FFLocalizations.of(context).getText(
                 '1fs38btr' /* Home */,

@@ -149,18 +149,24 @@ class _BoxBreathingMeditationCardFINALWidgetState
                                   ),
                         ),
                       ),
-                      Text(
-                        FFLocalizations.of(context).getText(
-                          'v9k2p0p4' /* Help treat insomnia, Provide a... */,
+                      Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text(
+                          FFLocalizations.of(context).getText(
+                            'v9k2p0p4' /* Help treat insomnia, Provide a... */,
+                          ),
+                          textAlign: TextAlign.center,
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'WorkSans',
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                fontSize: 14.0,
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.w300,
+                                lineHeight: 1.5,
+                              ),
                         ),
-                        textAlign: TextAlign.center,
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'WorkSans',
-                              color: FlutterFlowTheme.of(context).primaryText,
-                              fontSize: 14.0,
-                              letterSpacing: 0.0,
-                              lineHeight: 1.5,
-                            ),
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
