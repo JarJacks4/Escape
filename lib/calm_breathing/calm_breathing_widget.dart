@@ -1,4 +1,4 @@
-import '/components/confetti_page_comp_widget.dart';
+import '/components/confetti_page_basic_comp_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_timer.dart';
@@ -251,7 +251,7 @@ class _CalmBreathingWidgetState extends State<CalmBreathingWidget>
                                 },
                                 child: Padding(
                                   padding: MediaQuery.viewInsetsOf(context),
-                                  child: ConfettiPageCompWidget(),
+                                  child: ConfettiPageBasicCompWidget(),
                                 ),
                               ),
                             );

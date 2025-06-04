@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -107,7 +108,7 @@ class _FireNatureMeditationWidgetState
                               12.0, 6.0, 12.0, 6.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
-                              'zzots8fj' /* Fire Sounds */,
+                              'zzots8fj' /* Intermediate - 100 XP */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -155,7 +156,7 @@ class _FireNatureMeditationWidgetState
                         padding: EdgeInsets.all(8.0),
                         child: Text(
                           FFLocalizations.of(context).getText(
-                            '6s27vl3s' /* Release your inner worry and a... */,
+                            '6s27vl3s' /* Increase confidence and enthus... */,
                           ),
                           textAlign: TextAlign.center,
                           style: FlutterFlowTheme.of(context)
@@ -174,8 +175,21 @@ class _FireNatureMeditationWidgetState
                         padding: EdgeInsetsDirectional.fromSTEB(
                             0.0, 12.0, 0.0, 12.0),
                         child: FFButtonWidget(
-                          onPressed: () {
-                            print('Button pressed ...');
+                          onPressed: () async {
+                            logFirebaseEvent(
+                                'FIRE_NATURE_MEDITATION_START_NOW_BTN_ON_');
+                            logFirebaseEvent('Button_navigate_to');
+
+                            context.pushNamed(
+                              FireSoundsAndBreathingGoalWidget.routeName,
+                              extra: <String, dynamic>{
+                                kTransitionInfoKey: TransitionInfo(
+                                  hasTransition: true,
+                                  transitionType: PageTransitionType.fade,
+                                  duration: Duration(milliseconds: 2),
+                                ),
+                              },
+                            );
                           },
                           text: FFLocalizations.of(context).getText(
                             '1lhyv4yo' /* Start Now */,

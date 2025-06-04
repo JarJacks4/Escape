@@ -66,65 +66,7 @@ class _AISoundscapesWidgetState extends State<AISoundscapesWidget>
           ),
         ],
       ),
-      'columnOnActionTriggerAnimation1': AnimationInfo(
-        trigger: AnimationTrigger.onActionTrigger,
-        applyInitialState: true,
-        effectsBuilder: () => [
-          ScaleEffect(
-            curve: Curves.easeInOut,
-            delay: 30.0.ms,
-            duration: 400.0.ms,
-            begin: Offset(0.85, 0.85),
-            end: Offset(1.0, 1.0),
-          ),
-        ],
-      ),
-      'columnOnActionTriggerAnimation2': AnimationInfo(
-        trigger: AnimationTrigger.onActionTrigger,
-        applyInitialState: true,
-        effectsBuilder: () => [
-          ScaleEffect(
-            curve: Curves.easeInOut,
-            delay: 30.0.ms,
-            duration: 400.0.ms,
-            begin: Offset(0.85, 0.85),
-            end: Offset(1.0, 1.0),
-          ),
-        ],
-      ),
-      'columnOnActionTriggerAnimation3': AnimationInfo(
-        trigger: AnimationTrigger.onActionTrigger,
-        applyInitialState: true,
-        effectsBuilder: () => [
-          ScaleEffect(
-            curve: Curves.easeInOut,
-            delay: 30.0.ms,
-            duration: 400.0.ms,
-            begin: Offset(0.85, 0.85),
-            end: Offset(1.0, 1.0),
-          ),
-        ],
-      ),
-      'columnOnActionTriggerAnimation4': AnimationInfo(
-        trigger: AnimationTrigger.onActionTrigger,
-        applyInitialState: true,
-        effectsBuilder: () => [
-          ScaleEffect(
-            curve: Curves.easeInOut,
-            delay: 30.0.ms,
-            duration: 400.0.ms,
-            begin: Offset(0.85, 0.85),
-            end: Offset(1.0, 1.0),
-          ),
-        ],
-      ),
     });
-    setupAnimations(
-      animationsMap.values.where((anim) =>
-          anim.trigger == AnimationTrigger.onActionTrigger ||
-          !anim.applyInitialState),
-      this,
-    );
   }
 
   @override
@@ -442,114 +384,77 @@ Soundscapes */
                                                                             0.0,
                                                                             0.0,
                                                                             0.0),
-                                                                child: InkWell(
-                                                                  splashColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  focusColor: Colors
+                                                                child: Material(
+                                                                  color: Colors
                                                                       .transparent,
-                                                                  hoverColor: Colors
-                                                                      .transparent,
-                                                                  highlightColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  onTap:
-                                                                      () async {
-                                                                    logFirebaseEvent(
-                                                                        'A_I_SOUNDSCAPES_Container_5ecaga24_ON_TA');
-                                                                    logFirebaseEvent(
-                                                                        'Container_navigate_to');
-
-                                                                    context
-                                                                        .pushNamed(
-                                                                      LucilleChatPageWidget
-                                                                          .routeName,
-                                                                      extra: <String,
-                                                                          dynamic>{
-                                                                        kTransitionInfoKey:
-                                                                            TransitionInfo(
-                                                                          hasTransition:
-                                                                              true,
-                                                                          transitionType:
-                                                                              PageTransitionType.rightToLeft,
-                                                                          duration:
-                                                                              Duration(milliseconds: 2),
-                                                                        ),
-                                                                      },
-                                                                    );
-                                                                  },
+                                                                  elevation:
+                                                                      3.0,
+                                                                  shape:
+                                                                      RoundedRectangleBorder(
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            50.0),
+                                                                  ),
                                                                   child:
-                                                                      Material(
-                                                                    color: Colors
-                                                                        .transparent,
-                                                                    elevation:
-                                                                        3.0,
-                                                                    shape:
-                                                                        RoundedRectangleBorder(
+                                                                      Container(
+                                                                    width: 63.0,
+                                                                    height:
+                                                                        64.0,
+                                                                    decoration:
+                                                                        BoxDecoration(
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .alternate,
                                                                       borderRadius:
                                                                           BorderRadius.circular(
                                                                               50.0),
                                                                     ),
                                                                     child:
-                                                                        Container(
-                                                                      width:
-                                                                          63.0,
-                                                                      height:
-                                                                          64.0,
-                                                                      decoration:
-                                                                          BoxDecoration(
+                                                                        FlutterFlowIconButton(
+                                                                      borderRadius:
+                                                                          8.0,
+                                                                      buttonSize:
+                                                                          40.0,
+                                                                      icon:
+                                                                          FaIcon(
+                                                                        FontAwesomeIcons
+                                                                            .solidClock,
                                                                         color: FlutterFlowTheme.of(context)
-                                                                            .alternate,
-                                                                        borderRadius:
-                                                                            BorderRadius.circular(50.0),
+                                                                            .info,
+                                                                        size:
+                                                                            36.0,
                                                                       ),
-                                                                      child:
-                                                                          FlutterFlowIconButton(
-                                                                        borderRadius:
-                                                                            8.0,
-                                                                        buttonSize:
-                                                                            40.0,
-                                                                        icon:
-                                                                            FaIcon(
-                                                                          FontAwesomeIcons
-                                                                              .solidClock,
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).info,
-                                                                          size:
-                                                                              36.0,
-                                                                        ),
-                                                                        onPressed:
-                                                                            () async {
-                                                                          logFirebaseEvent(
-                                                                              'A_I_SOUNDSCAPES_solidClock_ICN_ON_TAP');
-                                                                          logFirebaseEvent(
-                                                                              'IconButton_bottom_sheet');
-                                                                          await showModalBottomSheet(
-                                                                            isScrollControlled:
-                                                                                true,
-                                                                            backgroundColor:
-                                                                                Colors.transparent,
-                                                                            context:
-                                                                                context,
-                                                                            builder:
-                                                                                (context) {
-                                                                              return WebViewAware(
-                                                                                child: GestureDetector(
-                                                                                  onTap: () {
-                                                                                    FocusScope.of(context).unfocus();
-                                                                                    FocusManager.instance.primaryFocus?.unfocus();
-                                                                                  },
-                                                                                  child: Padding(
-                                                                                    padding: MediaQuery.viewInsetsOf(context),
-                                                                                    child: SelectTimedScenarioCompWidget(),
-                                                                                  ),
+                                                                      onPressed:
+                                                                          () async {
+                                                                        logFirebaseEvent(
+                                                                            'A_I_SOUNDSCAPES_solidClock_ICN_ON_TAP');
+                                                                        logFirebaseEvent(
+                                                                            'IconButton_bottom_sheet');
+                                                                        await showModalBottomSheet(
+                                                                          isScrollControlled:
+                                                                              true,
+                                                                          backgroundColor:
+                                                                              Colors.transparent,
+                                                                          context:
+                                                                              context,
+                                                                          builder:
+                                                                              (context) {
+                                                                            return WebViewAware(
+                                                                              child: GestureDetector(
+                                                                                onTap: () {
+                                                                                  FocusScope.of(context).unfocus();
+                                                                                  FocusManager.instance.primaryFocus?.unfocus();
+                                                                                },
+                                                                                child: Padding(
+                                                                                  padding: MediaQuery.viewInsetsOf(context),
+                                                                                  child: SelectTimedScenarioCompWidget(),
                                                                                 ),
-                                                                              );
-                                                                            },
-                                                                          ).then((value) =>
-                                                                              safeSetState(() {}));
-                                                                        },
-                                                                      ),
+                                                                              ),
+                                                                            );
+                                                                          },
+                                                                        ).then((value) =>
+                                                                            safeSetState(() {}));
+                                                                      },
                                                                     ),
                                                                   ),
                                                                 ),
@@ -721,77 +626,39 @@ Soundscapes */
                                                                             0.0,
                                                                             0.0,
                                                                             0.0),
-                                                                child: InkWell(
-                                                                  splashColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  focusColor: Colors
-                                                                      .transparent,
-                                                                  hoverColor: Colors
-                                                                      .transparent,
-                                                                  highlightColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  onTap:
-                                                                      () async {
-                                                                    logFirebaseEvent(
-                                                                        'A_I_SOUNDSCAPES_Container_3j5dngi1_ON_TA');
-                                                                    logFirebaseEvent(
-                                                                        'Container_navigate_to');
-
-                                                                    context
-                                                                        .pushNamed(
-                                                                      IncreaseFocusFINALWidget
-                                                                          .routeName,
-                                                                      extra: <String,
-                                                                          dynamic>{
-                                                                        kTransitionInfoKey:
-                                                                            TransitionInfo(
-                                                                          hasTransition:
-                                                                              true,
-                                                                          transitionType:
-                                                                              PageTransitionType.rightToLeft,
-                                                                          duration:
-                                                                              Duration(milliseconds: 2),
-                                                                        ),
-                                                                      },
-                                                                    );
-                                                                  },
+                                                                child:
+                                                                    Container(
+                                                                  width: 63.0,
+                                                                  height: 64.0,
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .accent1,
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            50.0),
+                                                                  ),
                                                                   child:
-                                                                      Container(
-                                                                    width: 63.0,
-                                                                    height:
-                                                                        64.0,
-                                                                    decoration:
-                                                                        BoxDecoration(
+                                                                      FlutterFlowIconButton(
+                                                                    borderRadius:
+                                                                        8.0,
+                                                                    buttonSize:
+                                                                        40.0,
+                                                                    icon: Icon(
+                                                                      FFIcons
+                                                                          .kfocus,
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .accent1,
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              50.0),
+                                                                          .info,
+                                                                      size:
+                                                                          36.0,
                                                                     ),
-                                                                    child:
-                                                                        FlutterFlowIconButton(
-                                                                      borderRadius:
-                                                                          8.0,
-                                                                      buttonSize:
-                                                                          40.0,
-                                                                      icon:
-                                                                          Icon(
-                                                                        FFIcons
-                                                                            .kfocus,
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .info,
-                                                                        size:
-                                                                            36.0,
-                                                                      ),
-                                                                      onPressed:
-                                                                          () {
-                                                                        print(
-                                                                            'IconButton pressed ...');
-                                                                      },
-                                                                    ),
+                                                                    onPressed:
+                                                                        () {
+                                                                      print(
+                                                                          'IconButton pressed ...');
+                                                                    },
                                                                   ),
                                                                 ),
                                                               ),
@@ -1097,77 +964,40 @@ Soundscapes */
                                                                             0.0,
                                                                             0.0,
                                                                             0.0),
-                                                                child: InkWell(
-                                                                  splashColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  focusColor: Colors
-                                                                      .transparent,
-                                                                  hoverColor: Colors
-                                                                      .transparent,
-                                                                  highlightColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  onTap:
-                                                                      () async {
-                                                                    logFirebaseEvent(
-                                                                        'A_I_SOUNDSCAPES_Container_vzrbb9e9_ON_TA');
-                                                                    logFirebaseEvent(
-                                                                        'Container_navigate_to');
-
-                                                                    context
-                                                                        .pushNamed(
-                                                                      LucilleChatPageWidget
-                                                                          .routeName,
-                                                                      extra: <String,
-                                                                          dynamic>{
-                                                                        kTransitionInfoKey:
-                                                                            TransitionInfo(
-                                                                          hasTransition:
-                                                                              true,
-                                                                          transitionType:
-                                                                              PageTransitionType.rightToLeft,
-                                                                          duration:
-                                                                              Duration(milliseconds: 2),
-                                                                        ),
-                                                                      },
-                                                                    );
-                                                                  },
+                                                                child:
+                                                                    Container(
+                                                                  width: 63.0,
+                                                                  height: 64.0,
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .tertiary,
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            50.0),
+                                                                  ),
                                                                   child:
-                                                                      Container(
-                                                                    width: 63.0,
-                                                                    height:
-                                                                        64.0,
-                                                                    decoration:
-                                                                        BoxDecoration(
+                                                                      FlutterFlowIconButton(
+                                                                    borderRadius:
+                                                                        8.0,
+                                                                    buttonSize:
+                                                                        40.0,
+                                                                    icon:
+                                                                        FaIcon(
+                                                                      FontAwesomeIcons
+                                                                          .react,
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .tertiary,
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              50.0),
+                                                                          .info,
+                                                                      size:
+                                                                          36.0,
                                                                     ),
-                                                                    child:
-                                                                        FlutterFlowIconButton(
-                                                                      borderRadius:
-                                                                          8.0,
-                                                                      buttonSize:
-                                                                          40.0,
-                                                                      icon:
-                                                                          FaIcon(
-                                                                        FontAwesomeIcons
-                                                                            .react,
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .info,
-                                                                        size:
-                                                                            36.0,
-                                                                      ),
-                                                                      onPressed:
-                                                                          () {
-                                                                        print(
-                                                                            'IconButton pressed ...');
-                                                                      },
-                                                                    ),
+                                                                    onPressed:
+                                                                        () {
+                                                                      print(
+                                                                          'IconButton pressed ...');
+                                                                    },
                                                                   ),
                                                                 ),
                                                               ),
@@ -1221,77 +1051,39 @@ Soundscapes */
                                                                             0.0,
                                                                             0.0,
                                                                             0.0),
-                                                                child: InkWell(
-                                                                  splashColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  focusColor: Colors
-                                                                      .transparent,
-                                                                  hoverColor: Colors
-                                                                      .transparent,
-                                                                  highlightColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  onTap:
-                                                                      () async {
-                                                                    logFirebaseEvent(
-                                                                        'A_I_SOUNDSCAPES_Container_ndbb9090_ON_TA');
-                                                                    logFirebaseEvent(
-                                                                        'Container_navigate_to');
-
-                                                                    context
-                                                                        .pushNamed(
-                                                                      LucilleChatPageWidget
-                                                                          .routeName,
-                                                                      extra: <String,
-                                                                          dynamic>{
-                                                                        kTransitionInfoKey:
-                                                                            TransitionInfo(
-                                                                          hasTransition:
-                                                                              true,
-                                                                          transitionType:
-                                                                              PageTransitionType.rightToLeft,
-                                                                          duration:
-                                                                              Duration(milliseconds: 2),
-                                                                        ),
-                                                                      },
-                                                                    );
-                                                                  },
+                                                                child:
+                                                                    Container(
+                                                                  width: 63.0,
+                                                                  height: 64.0,
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryText,
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            50.0),
+                                                                  ),
                                                                   child:
-                                                                      Container(
-                                                                    width: 63.0,
-                                                                    height:
-                                                                        64.0,
-                                                                    decoration:
-                                                                        BoxDecoration(
+                                                                      FlutterFlowIconButton(
+                                                                    borderRadius:
+                                                                        8.0,
+                                                                    buttonSize:
+                                                                        40.0,
+                                                                    icon: Icon(
+                                                                      FFIcons
+                                                                          .krain1,
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .primaryText,
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              50.0),
+                                                                          .info,
+                                                                      size:
+                                                                          36.0,
                                                                     ),
-                                                                    child:
-                                                                        FlutterFlowIconButton(
-                                                                      borderRadius:
-                                                                          8.0,
-                                                                      buttonSize:
-                                                                          40.0,
-                                                                      icon:
-                                                                          Icon(
-                                                                        FFIcons
-                                                                            .krain1,
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .info,
-                                                                        size:
-                                                                            36.0,
-                                                                      ),
-                                                                      onPressed:
-                                                                          () {
-                                                                        print(
-                                                                            'IconButton pressed ...');
-                                                                      },
-                                                                    ),
+                                                                    onPressed:
+                                                                        () {
+                                                                      print(
+                                                                          'IconButton pressed ...');
+                                                                    },
                                                                   ),
                                                                 ),
                                                               ),
@@ -1345,77 +1137,39 @@ Soundscapes */
                                                                             0.0,
                                                                             0.0,
                                                                             0.0),
-                                                                child: InkWell(
-                                                                  splashColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  focusColor: Colors
-                                                                      .transparent,
-                                                                  hoverColor: Colors
-                                                                      .transparent,
-                                                                  highlightColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  onTap:
-                                                                      () async {
-                                                                    logFirebaseEvent(
-                                                                        'A_I_SOUNDSCAPES_Container_owduqo1h_ON_TA');
-                                                                    logFirebaseEvent(
-                                                                        'Container_navigate_to');
-
-                                                                    context
-                                                                        .pushNamed(
-                                                                      LucilleChatPageWidget
-                                                                          .routeName,
-                                                                      extra: <String,
-                                                                          dynamic>{
-                                                                        kTransitionInfoKey:
-                                                                            TransitionInfo(
-                                                                          hasTransition:
-                                                                              true,
-                                                                          transitionType:
-                                                                              PageTransitionType.rightToLeft,
-                                                                          duration:
-                                                                              Duration(milliseconds: 2),
-                                                                        ),
-                                                                      },
-                                                                    );
-                                                                  },
+                                                                child:
+                                                                    Container(
+                                                                  width: 63.0,
+                                                                  height: 64.0,
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondary,
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            50.0),
+                                                                  ),
                                                                   child:
-                                                                      Container(
-                                                                    width: 63.0,
-                                                                    height:
-                                                                        64.0,
-                                                                    decoration:
-                                                                        BoxDecoration(
+                                                                      FlutterFlowIconButton(
+                                                                    borderRadius:
+                                                                        8.0,
+                                                                    buttonSize:
+                                                                        40.0,
+                                                                    icon: Icon(
+                                                                      FFIcons
+                                                                          .kwind,
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .secondary,
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              50.0),
+                                                                          .info,
+                                                                      size:
+                                                                          36.0,
                                                                     ),
-                                                                    child:
-                                                                        FlutterFlowIconButton(
-                                                                      borderRadius:
-                                                                          8.0,
-                                                                      buttonSize:
-                                                                          40.0,
-                                                                      icon:
-                                                                          Icon(
-                                                                        FFIcons
-                                                                            .kwind,
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .info,
-                                                                        size:
-                                                                            36.0,
-                                                                      ),
-                                                                      onPressed:
-                                                                          () {
-                                                                        print(
-                                                                            'IconButton pressed ...');
-                                                                      },
-                                                                    ),
+                                                                    onPressed:
+                                                                        () {
+                                                                      print(
+                                                                          'IconButton pressed ...');
+                                                                    },
                                                                   ),
                                                                 ),
                                                               ),
@@ -1469,77 +1223,39 @@ Soundscapes */
                                                                             0.0,
                                                                             0.0,
                                                                             0.0),
-                                                                child: InkWell(
-                                                                  splashColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  focusColor: Colors
-                                                                      .transparent,
-                                                                  hoverColor: Colors
-                                                                      .transparent,
-                                                                  highlightColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  onTap:
-                                                                      () async {
-                                                                    logFirebaseEvent(
-                                                                        'A_I_SOUNDSCAPES_Container_dwhk94ty_ON_TA');
-                                                                    logFirebaseEvent(
-                                                                        'Container_navigate_to');
-
-                                                                    context
-                                                                        .pushNamed(
-                                                                      LucilleChatPageWidget
-                                                                          .routeName,
-                                                                      extra: <String,
-                                                                          dynamic>{
-                                                                        kTransitionInfoKey:
-                                                                            TransitionInfo(
-                                                                          hasTransition:
-                                                                              true,
-                                                                          transitionType:
-                                                                              PageTransitionType.rightToLeft,
-                                                                          duration:
-                                                                              Duration(milliseconds: 2),
-                                                                        ),
-                                                                      },
-                                                                    );
-                                                                  },
+                                                                child:
+                                                                    Container(
+                                                                  width: 63.0,
+                                                                  height: 64.0,
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .accent1,
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            50.0),
+                                                                  ),
                                                                   child:
-                                                                      Container(
-                                                                    width: 63.0,
-                                                                    height:
-                                                                        64.0,
-                                                                    decoration:
-                                                                        BoxDecoration(
+                                                                      FlutterFlowIconButton(
+                                                                    borderRadius:
+                                                                        8.0,
+                                                                    buttonSize:
+                                                                        40.0,
+                                                                    icon: Icon(
+                                                                      FFIcons
+                                                                          .katom,
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .accent1,
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              50.0),
+                                                                          .info,
+                                                                      size:
+                                                                          36.0,
                                                                     ),
-                                                                    child:
-                                                                        FlutterFlowIconButton(
-                                                                      borderRadius:
-                                                                          8.0,
-                                                                      buttonSize:
-                                                                          40.0,
-                                                                      icon:
-                                                                          Icon(
-                                                                        FFIcons
-                                                                            .katom,
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .info,
-                                                                        size:
-                                                                            36.0,
-                                                                      ),
-                                                                      onPressed:
-                                                                          () {
-                                                                        print(
-                                                                            'IconButton pressed ...');
-                                                                      },
-                                                                    ),
+                                                                    onPressed:
+                                                                        () {
+                                                                      print(
+                                                                          'IconButton pressed ...');
+                                                                    },
                                                                   ),
                                                                 ),
                                                               ),
@@ -1593,77 +1309,39 @@ Soundscapes */
                                                                             0.0,
                                                                             0.0,
                                                                             0.0),
-                                                                child: InkWell(
-                                                                  splashColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  focusColor: Colors
-                                                                      .transparent,
-                                                                  hoverColor: Colors
-                                                                      .transparent,
-                                                                  highlightColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  onTap:
-                                                                      () async {
-                                                                    logFirebaseEvent(
-                                                                        'A_I_SOUNDSCAPES_Container_ift73zed_ON_TA');
-                                                                    logFirebaseEvent(
-                                                                        'Container_navigate_to');
-
-                                                                    context
-                                                                        .pushNamed(
-                                                                      LucilleChatPageWidget
-                                                                          .routeName,
-                                                                      extra: <String,
-                                                                          dynamic>{
-                                                                        kTransitionInfoKey:
-                                                                            TransitionInfo(
-                                                                          hasTransition:
-                                                                              true,
-                                                                          transitionType:
-                                                                              PageTransitionType.rightToLeft,
-                                                                          duration:
-                                                                              Duration(milliseconds: 2),
-                                                                        ),
-                                                                      },
-                                                                    );
-                                                                  },
+                                                                child:
+                                                                    Container(
+                                                                  width: 63.0,
+                                                                  height: 64.0,
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .tertiary,
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            50.0),
+                                                                  ),
                                                                   child:
-                                                                      Container(
-                                                                    width: 63.0,
-                                                                    height:
-                                                                        64.0,
-                                                                    decoration:
-                                                                        BoxDecoration(
+                                                                      FlutterFlowIconButton(
+                                                                    borderRadius:
+                                                                        8.0,
+                                                                    buttonSize:
+                                                                        40.0,
+                                                                    icon: Icon(
+                                                                      FFIcons
+                                                                          .kbookOpen,
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .tertiary,
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              50.0),
+                                                                          .info,
+                                                                      size:
+                                                                          36.0,
                                                                     ),
-                                                                    child:
-                                                                        FlutterFlowIconButton(
-                                                                      borderRadius:
-                                                                          8.0,
-                                                                      buttonSize:
-                                                                          40.0,
-                                                                      icon:
-                                                                          Icon(
-                                                                        FFIcons
-                                                                            .kbookOpen,
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .info,
-                                                                        size:
-                                                                            36.0,
-                                                                      ),
-                                                                      onPressed:
-                                                                          () {
-                                                                        print(
-                                                                            'IconButton pressed ...');
-                                                                      },
-                                                                    ),
+                                                                    onPressed:
+                                                                        () {
+                                                                      print(
+                                                                          'IconButton pressed ...');
+                                                                    },
                                                                   ),
                                                                 ),
                                                               ),
@@ -1717,77 +1395,39 @@ Soundscapes */
                                                                             0.0,
                                                                             0.0,
                                                                             0.0),
-                                                                child: InkWell(
-                                                                  splashColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  focusColor: Colors
-                                                                      .transparent,
-                                                                  hoverColor: Colors
-                                                                      .transparent,
-                                                                  highlightColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  onTap:
-                                                                      () async {
-                                                                    logFirebaseEvent(
-                                                                        'A_I_SOUNDSCAPES_Container_z0qg6t0p_ON_TA');
-                                                                    logFirebaseEvent(
-                                                                        'Container_navigate_to');
-
-                                                                    context
-                                                                        .pushNamed(
-                                                                      LucilleChatPageWidget
-                                                                          .routeName,
-                                                                      extra: <String,
-                                                                          dynamic>{
-                                                                        kTransitionInfoKey:
-                                                                            TransitionInfo(
-                                                                          hasTransition:
-                                                                              true,
-                                                                          transitionType:
-                                                                              PageTransitionType.rightToLeft,
-                                                                          duration:
-                                                                              Duration(milliseconds: 2),
-                                                                        ),
-                                                                      },
-                                                                    );
-                                                                  },
+                                                                child:
+                                                                    Container(
+                                                                  width: 63.0,
+                                                                  height: 64.0,
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .alternate,
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            50.0),
+                                                                  ),
                                                                   child:
-                                                                      Container(
-                                                                    width: 63.0,
-                                                                    height:
-                                                                        64.0,
-                                                                    decoration:
-                                                                        BoxDecoration(
+                                                                      FlutterFlowIconButton(
+                                                                    borderRadius:
+                                                                        8.0,
+                                                                    buttonSize:
+                                                                        40.0,
+                                                                    icon: Icon(
+                                                                      Icons
+                                                                          .blind,
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .alternate,
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              50.0),
+                                                                          .info,
+                                                                      size:
+                                                                          36.0,
                                                                     ),
-                                                                    child:
-                                                                        FlutterFlowIconButton(
-                                                                      borderRadius:
-                                                                          8.0,
-                                                                      buttonSize:
-                                                                          40.0,
-                                                                      icon:
-                                                                          Icon(
-                                                                        Icons
-                                                                            .blind,
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .info,
-                                                                        size:
-                                                                            36.0,
-                                                                      ),
-                                                                      onPressed:
-                                                                          () {
-                                                                        print(
-                                                                            'IconButton pressed ...');
-                                                                      },
-                                                                    ),
+                                                                    onPressed:
+                                                                        () {
+                                                                      print(
+                                                                          'IconButton pressed ...');
+                                                                    },
                                                                   ),
                                                                 ),
                                                               ),
@@ -1841,77 +1481,39 @@ Soundscapes */
                                                                             0.0,
                                                                             0.0,
                                                                             0.0),
-                                                                child: InkWell(
-                                                                  splashColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  focusColor: Colors
-                                                                      .transparent,
-                                                                  hoverColor: Colors
-                                                                      .transparent,
-                                                                  highlightColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  onTap:
-                                                                      () async {
-                                                                    logFirebaseEvent(
-                                                                        'A_I_SOUNDSCAPES_Container_9jplzvfk_ON_TA');
-                                                                    logFirebaseEvent(
-                                                                        'Container_navigate_to');
-
-                                                                    context
-                                                                        .pushNamed(
-                                                                      LucilleChatPageWidget
-                                                                          .routeName,
-                                                                      extra: <String,
-                                                                          dynamic>{
-                                                                        kTransitionInfoKey:
-                                                                            TransitionInfo(
-                                                                          hasTransition:
-                                                                              true,
-                                                                          transitionType:
-                                                                              PageTransitionType.rightToLeft,
-                                                                          duration:
-                                                                              Duration(milliseconds: 2),
-                                                                        ),
-                                                                      },
-                                                                    );
-                                                                  },
+                                                                child:
+                                                                    Container(
+                                                                  width: 63.0,
+                                                                  height: 64.0,
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .accent3,
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            50.0),
+                                                                  ),
                                                                   child:
-                                                                      Container(
-                                                                    width: 63.0,
-                                                                    height:
-                                                                        64.0,
-                                                                    decoration:
-                                                                        BoxDecoration(
+                                                                      FlutterFlowIconButton(
+                                                                    borderRadius:
+                                                                        8.0,
+                                                                    buttonSize:
+                                                                        40.0,
+                                                                    icon: Icon(
+                                                                      Icons
+                                                                          .skateboarding,
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .accent3,
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              50.0),
+                                                                          .info,
+                                                                      size:
+                                                                          36.0,
                                                                     ),
-                                                                    child:
-                                                                        FlutterFlowIconButton(
-                                                                      borderRadius:
-                                                                          8.0,
-                                                                      buttonSize:
-                                                                          40.0,
-                                                                      icon:
-                                                                          Icon(
-                                                                        Icons
-                                                                            .skateboarding,
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .info,
-                                                                        size:
-                                                                            36.0,
-                                                                      ),
-                                                                      onPressed:
-                                                                          () {
-                                                                        print(
-                                                                            'IconButton pressed ...');
-                                                                      },
-                                                                    ),
+                                                                    onPressed:
+                                                                        () {
+                                                                      print(
+                                                                          'IconButton pressed ...');
+                                                                    },
                                                                   ),
                                                                 ),
                                                               ),
@@ -1965,77 +1567,39 @@ Soundscapes */
                                                                             0.0,
                                                                             0.0,
                                                                             0.0),
-                                                                child: InkWell(
-                                                                  splashColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  focusColor: Colors
-                                                                      .transparent,
-                                                                  hoverColor: Colors
-                                                                      .transparent,
-                                                                  highlightColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  onTap:
-                                                                      () async {
-                                                                    logFirebaseEvent(
-                                                                        'A_I_SOUNDSCAPES_Container_yoe3se99_ON_TA');
-                                                                    logFirebaseEvent(
-                                                                        'Container_navigate_to');
-
-                                                                    context
-                                                                        .pushNamed(
-                                                                      LucilleChatPageWidget
-                                                                          .routeName,
-                                                                      extra: <String,
-                                                                          dynamic>{
-                                                                        kTransitionInfoKey:
-                                                                            TransitionInfo(
-                                                                          hasTransition:
-                                                                              true,
-                                                                          transitionType:
-                                                                              PageTransitionType.rightToLeft,
-                                                                          duration:
-                                                                              Duration(milliseconds: 2),
-                                                                        ),
-                                                                      },
-                                                                    );
-                                                                  },
+                                                                child:
+                                                                    Container(
+                                                                  width: 63.0,
+                                                                  height: 64.0,
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .accent1,
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            50.0),
+                                                                  ),
                                                                   child:
-                                                                      Container(
-                                                                    width: 63.0,
-                                                                    height:
-                                                                        64.0,
-                                                                    decoration:
-                                                                        BoxDecoration(
+                                                                      FlutterFlowIconButton(
+                                                                    borderRadius:
+                                                                        8.0,
+                                                                    buttonSize:
+                                                                        40.0,
+                                                                    icon: Icon(
+                                                                      Icons
+                                                                          .auto_awesome_sharp,
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .accent1,
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              50.0),
+                                                                          .info,
+                                                                      size:
+                                                                          36.0,
                                                                     ),
-                                                                    child:
-                                                                        FlutterFlowIconButton(
-                                                                      borderRadius:
-                                                                          8.0,
-                                                                      buttonSize:
-                                                                          40.0,
-                                                                      icon:
-                                                                          Icon(
-                                                                        Icons
-                                                                            .auto_awesome_sharp,
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .info,
-                                                                        size:
-                                                                            36.0,
-                                                                      ),
-                                                                      onPressed:
-                                                                          () {
-                                                                        print(
-                                                                            'IconButton pressed ...');
-                                                                      },
-                                                                    ),
+                                                                    onPressed:
+                                                                        () {
+                                                                      print(
+                                                                          'IconButton pressed ...');
+                                                                    },
                                                                   ),
                                                                 ),
                                                               ),
@@ -2089,77 +1653,40 @@ Soundscapes */
                                                                             0.0,
                                                                             0.0,
                                                                             0.0),
-                                                                child: InkWell(
-                                                                  splashColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  focusColor: Colors
-                                                                      .transparent,
-                                                                  hoverColor: Colors
-                                                                      .transparent,
-                                                                  highlightColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  onTap:
-                                                                      () async {
-                                                                    logFirebaseEvent(
-                                                                        'A_I_SOUNDSCAPES_Container_zvupw7nf_ON_TA');
-                                                                    logFirebaseEvent(
-                                                                        'Container_navigate_to');
-
-                                                                    context
-                                                                        .pushNamed(
-                                                                      LucilleChatPageWidget
-                                                                          .routeName,
-                                                                      extra: <String,
-                                                                          dynamic>{
-                                                                        kTransitionInfoKey:
-                                                                            TransitionInfo(
-                                                                          hasTransition:
-                                                                              true,
-                                                                          transitionType:
-                                                                              PageTransitionType.rightToLeft,
-                                                                          duration:
-                                                                              Duration(milliseconds: 2),
-                                                                        ),
-                                                                      },
-                                                                    );
-                                                                  },
+                                                                child:
+                                                                    Container(
+                                                                  width: 63.0,
+                                                                  height: 64.0,
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondary,
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            50.0),
+                                                                  ),
                                                                   child:
-                                                                      Container(
-                                                                    width: 63.0,
-                                                                    height:
-                                                                        64.0,
-                                                                    decoration:
-                                                                        BoxDecoration(
+                                                                      FlutterFlowIconButton(
+                                                                    borderRadius:
+                                                                        8.0,
+                                                                    buttonSize:
+                                                                        40.0,
+                                                                    icon:
+                                                                        FaIcon(
+                                                                      FontAwesomeIcons
+                                                                          .react,
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .secondary,
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              50.0),
+                                                                          .info,
+                                                                      size:
+                                                                          36.0,
                                                                     ),
-                                                                    child:
-                                                                        FlutterFlowIconButton(
-                                                                      borderRadius:
-                                                                          8.0,
-                                                                      buttonSize:
-                                                                          40.0,
-                                                                      icon:
-                                                                          FaIcon(
-                                                                        FontAwesomeIcons
-                                                                            .react,
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .info,
-                                                                        size:
-                                                                            36.0,
-                                                                      ),
-                                                                      onPressed:
-                                                                          () {
-                                                                        print(
-                                                                            'IconButton pressed ...');
-                                                                      },
-                                                                    ),
+                                                                    onPressed:
+                                                                        () {
+                                                                      print(
+                                                                          'IconButton pressed ...');
+                                                                    },
                                                                   ),
                                                                 ),
                                                               ),
@@ -2268,358 +1795,6 @@ Soundscapes */
                     ),
                   ),
                 ],
-              ),
-            ),
-            Align(
-              alignment: AlignmentDirectional(0.0, 1.0),
-              child: Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).secondaryBackground,
-                  boxShadow: [
-                    BoxShadow(
-                      blurRadius: 15.0,
-                      color: Color(0x0F000000),
-                      offset: Offset(
-                        0.0,
-                        4.0,
-                      ),
-                    )
-                  ],
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-                child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(5.0, 14.0, 5.0, 14.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Expanded(
-                        child: InkWell(
-                          splashColor: Colors.transparent,
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () async {
-                            logFirebaseEvent(
-                                'A_I_SOUNDSCAPES_Column_vmlv4ewx_ON_TAP');
-                            logFirebaseEvent('Column_widget_animation');
-                            if (animationsMap[
-                                    'columnOnActionTriggerAnimation1'] !=
-                                null) {
-                              await animationsMap[
-                                      'columnOnActionTriggerAnimation1']!
-                                  .controller
-                                  .forward(from: 0.0);
-                            }
-                            logFirebaseEvent('Column_navigate_to');
-
-                            context.pushNamed(
-                              HomeVersion2Widget.routeName,
-                              extra: <String, dynamic>{
-                                kTransitionInfoKey: TransitionInfo(
-                                  hasTransition: true,
-                                  transitionType: PageTransitionType.fade,
-                                  duration: Duration(milliseconds: 7),
-                                ),
-                              },
-                            );
-                          },
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.home_sharp,
-                                color: FlutterFlowTheme.of(context).accent1,
-                                size: 28.0,
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 5.0, 0.0, 0.0),
-                                child: Text(
-                                  FFLocalizations.of(context).getText(
-                                    'vi8ji8yk' /* Home */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyLarge
-                                      .override(
-                                        fontFamily: 'The Seasons',
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        fontSize: 14.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.normal,
-                                      ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ).animateOnActionTrigger(
-                          animationsMap['columnOnActionTriggerAnimation1']!,
-                        ),
-                      ),
-                      Expanded(
-                        child: InkWell(
-                          splashColor: Colors.transparent,
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () async {
-                            logFirebaseEvent(
-                                'A_I_SOUNDSCAPES_Column_bo5j5a7l_ON_TAP');
-                            logFirebaseEvent('Column_widget_animation');
-                            if (animationsMap[
-                                    'columnOnActionTriggerAnimation2'] !=
-                                null) {
-                              await animationsMap[
-                                      'columnOnActionTriggerAnimation2']!
-                                  .controller
-                                  .forward(from: 0.0);
-                            }
-                            logFirebaseEvent('Column_navigate_to');
-
-                            context.pushNamed(
-                              AISoundscapesWidget.routeName,
-                              queryParameters: {
-                                'meditationaudio': serializeParam(
-                                  '',
-                                  ParamType.String,
-                                ),
-                              }.withoutNulls,
-                              extra: <String, dynamic>{
-                                kTransitionInfoKey: TransitionInfo(
-                                  hasTransition: true,
-                                  transitionType: PageTransitionType.fade,
-                                  duration: Duration(milliseconds: 7),
-                                ),
-                              },
-                            );
-                          },
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.surround_sound,
-                                color: FlutterFlowTheme.of(context).secondary,
-                                size: 28.0,
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 5.0, 0.0, 0.0),
-                                child: Text(
-                                  FFLocalizations.of(context).getText(
-                                    'lmuayp2c' /* Sounds */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyLarge
-                                      .override(
-                                        fontFamily: 'The Seasons',
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        fontSize: 14.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.normal,
-                                      ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ).animateOnActionTrigger(
-                          animationsMap['columnOnActionTriggerAnimation2']!,
-                        ),
-                      ),
-                      Expanded(
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Stack(
-                              alignment: AlignmentDirectional(0.0, 0.0),
-                              children: [
-                                Container(
-                                  width: 50.0,
-                                  height: 50.0,
-                                  decoration: BoxDecoration(
-                                    gradient: LinearGradient(
-                                      colors: [
-                                        FlutterFlowTheme.of(context).secondary,
-                                        FlutterFlowTheme.of(context).accent1
-                                      ],
-                                      stops: [0.0, 1.0],
-                                      begin: AlignmentDirectional(1.0, 0.87),
-                                      end: AlignmentDirectional(-1.0, -0.87),
-                                    ),
-                                    shape: BoxShape.circle,
-                                  ),
-                                ),
-                                Container(
-                                  width: 47.0,
-                                  height: 47.0,
-                                  decoration: BoxDecoration(
-                                    color:
-                                        FlutterFlowTheme.of(context).alternate,
-                                    shape: BoxShape.circle,
-                                    border: Border.all(
-                                      color: FlutterFlowTheme.of(context).info,
-                                    ),
-                                  ),
-                                  child: Container(
-                                    width: 200.0,
-                                    height: 200.0,
-                                    clipBehavior: Clip.antiAlias,
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                    ),
-                                    child: Image.asset(
-                                      'assets/images/Icon.png',
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                      Expanded(
-                        child: InkWell(
-                          splashColor: Colors.transparent,
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () async {
-                            logFirebaseEvent(
-                                'A_I_SOUNDSCAPES_Column_brg6i70l_ON_TAP');
-                            logFirebaseEvent('Column_widget_animation');
-                            if (animationsMap[
-                                    'columnOnActionTriggerAnimation3'] !=
-                                null) {
-                              await animationsMap[
-                                      'columnOnActionTriggerAnimation3']!
-                                  .controller
-                                  .forward(from: 0.0);
-                            }
-                            logFirebaseEvent('Column_navigate_to');
-
-                            context.pushNamed(
-                              CommunityHomeWidget.routeName,
-                              extra: <String, dynamic>{
-                                kTransitionInfoKey: TransitionInfo(
-                                  hasTransition: true,
-                                  transitionType: PageTransitionType.fade,
-                                  duration: Duration(milliseconds: 7),
-                                ),
-                              },
-                            );
-                          },
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.people_alt_sharp,
-                                color: FlutterFlowTheme.of(context).secondary,
-                                size: 28.0,
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 5.0, 0.0, 0.0),
-                                child: Text(
-                                  FFLocalizations.of(context).getText(
-                                    'pdynszpk' /* Providers */,
-                                  ),
-                                  textAlign: TextAlign.center,
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyLarge
-                                      .override(
-                                        fontFamily: 'The Seasons',
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondary,
-                                        fontSize: 14.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.normal,
-                                      ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ).animateOnActionTrigger(
-                          animationsMap['columnOnActionTriggerAnimation3']!,
-                        ),
-                      ),
-                      Expanded(
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              8.0, 0.0, 0.0, 0.0),
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              logFirebaseEvent(
-                                  'A_I_SOUNDSCAPES_Column_rzwl7p9w_ON_TAP');
-                              logFirebaseEvent('Column_widget_animation');
-                              if (animationsMap[
-                                      'columnOnActionTriggerAnimation4'] !=
-                                  null) {
-                                await animationsMap[
-                                        'columnOnActionTriggerAnimation4']!
-                                    .controller
-                                    .forward(from: 0.0);
-                              }
-                              logFirebaseEvent('Column_navigate_to');
-
-                              context.pushNamed(
-                                ProfileFINALWidget.routeName,
-                                extra: <String, dynamic>{
-                                  kTransitionInfoKey: TransitionInfo(
-                                    hasTransition: true,
-                                    transitionType: PageTransitionType.fade,
-                                    duration: Duration(milliseconds: 7),
-                                  ),
-                                },
-                              );
-                            },
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(
-                                  Icons.person,
-                                  color: FlutterFlowTheme.of(context).secondary,
-                                  size: 28.0,
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 5.0, 0.0, 0.0),
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      'bm9g27bp' /* Profile */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyLarge
-                                        .override(
-                                          fontFamily: 'The Seasons',
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
-                                          fontSize: 14.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.normal,
-                                        ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ).animateOnActionTrigger(
-                            animationsMap['columnOnActionTriggerAnimation4']!,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
               ),
             ),
           ],

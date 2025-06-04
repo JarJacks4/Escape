@@ -1,7 +1,6 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
-import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -39,18 +38,6 @@ class _AnalyzingMoodStatusPageWidgetState
       logFirebaseEvent('ANALYZING_MOOD_STATUS_AnalyzingMoodStatu');
       logFirebaseEvent('AnalyzingMoodStatusPage_wait__delay');
       await Future.delayed(const Duration(milliseconds: 1000));
-      logFirebaseEvent('AnalyzingMoodStatusPage_navigate_to');
-
-      context.pushNamed(
-        DeepFeelingsResponseWidget.routeName,
-        extra: <String, dynamic>{
-          kTransitionInfoKey: TransitionInfo(
-            hasTransition: true,
-            transitionType: PageTransitionType.fade,
-            duration: Duration(milliseconds: 7),
-          ),
-        },
-      );
     });
   }
 

@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
+import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -93,8 +94,13 @@ class _EarnPointsWithAvatarCardWidgetState
                         color: FlutterFlowTheme.of(context).alternate,
                         size: 36.0,
                       ),
-                      onPressed: () {
-                        print('IconButton pressed ...');
+                      onPressed: () async {
+                        logFirebaseEvent(
+                            'EARN_POINTS_WITH_AVATAR_CARD_arrow_outwa');
+                        logFirebaseEvent('IconButton_navigate_to');
+
+                        context.pushNamed(
+                            EscapeMetaverseUnrealEngineWidget.routeName);
                       },
                     ),
                   ],
@@ -109,7 +115,7 @@ class _EarnPointsWithAvatarCardWidgetState
                             EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                         child: Text(
                           FFLocalizations.of(context).getText(
-                            'tsjs6ccc' /* Earn Points with Your Avatar! */,
+                            'tsjs6ccc' /* Escape Metaverse */,
                           ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(

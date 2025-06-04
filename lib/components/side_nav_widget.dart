@@ -106,7 +106,7 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                         logFirebaseEvent('contentView_1_navigate_to');
 
                         context.pushNamed(
-                          HomeVersion2Widget.routeName,
+                          HomeVersion4Widget.routeName,
                           extra: <String, dynamic>{
                             kTransitionInfoKey: TransitionInfo(
                               hasTransition: true,
@@ -187,7 +187,7 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                         logFirebaseEvent('contentView_1_navigate_to');
 
                         context.pushNamed(
-                          CommunityHomeWidget.routeName,
+                          CommunityHomeFINALWidget.routeName,
                           extra: <String, dynamic>{
                             kTransitionInfoKey: TransitionInfo(
                               hasTransition: true,
@@ -264,7 +264,7 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                         logFirebaseEvent('contentView_1_navigate_to');
 
                         context.pushNamed(
-                          LucilleChatAIPageWidget.routeName,
+                          LucilleHomeWidget.routeName,
                           extra: <String, dynamic>{
                             kTransitionInfoKey: TransitionInfo(
                               hasTransition: true,
@@ -421,7 +421,8 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                         GoRouter.of(context).clearRedirectLocation();
 
                         context.goNamedAuth(
-                            SplashScreenWidget.routeName, context.mounted);
+                            SplashScreenVersion4Widget.routeName,
+                            context.mounted);
                       },
                       child: Container(
                         width: double.infinity,

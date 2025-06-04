@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -107,7 +108,7 @@ class _ThunderstormsNatureMeditationWidgetState
                               12.0, 6.0, 12.0, 6.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
-                              'hergb63e' /* Slow 7 - Another Slow 7 */,
+                              'hergb63e' /* Expert - 150 XP */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -174,8 +175,22 @@ class _ThunderstormsNatureMeditationWidgetState
                         padding: EdgeInsetsDirectional.fromSTEB(
                             0.0, 12.0, 0.0, 12.0),
                         child: FFButtonWidget(
-                          onPressed: () {
-                            print('Button pressed ...');
+                          onPressed: () async {
+                            logFirebaseEvent(
+                                'THUNDERSTORMS_NATURE_MEDITATION_START_NO');
+                            logFirebaseEvent('Button_navigate_to');
+
+                            context.pushNamed(
+                              ThunderstromsAndTransformationGoalWidget
+                                  .routeName,
+                              extra: <String, dynamic>{
+                                kTransitionInfoKey: TransitionInfo(
+                                  hasTransition: true,
+                                  transitionType: PageTransitionType.fade,
+                                  duration: Duration(milliseconds: 2),
+                                ),
+                              },
+                            );
                           },
                           text: FFLocalizations.of(context).getText(
                             '5hehrj6a' /* Start Now */,

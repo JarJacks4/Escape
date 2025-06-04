@@ -1,2 +1,4 @@
 NSCameraUsageDescription = "Tailor your permissions message";
 NSPhotoLibraryUsageDescription = "Tailor your permissions message";
+NSMicrophoneUsageDescription = "Escape requires access to your Microphone in order to use parts of our app.";
+PermissionGroupNotification = "Escape requires access to send you Notifications in order to use parts of our app.";

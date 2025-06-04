@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+import '/index.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
@@ -61,7 +62,7 @@ class _DeepBreathingCompWidgetState extends State<DeepBreathingCompWidget> {
           alignment: AlignmentDirectional(0.0, 1.0),
           child: Container(
             width: double.infinity,
-            height: 184.97,
+            height: 231.9,
             decoration: BoxDecoration(
               boxShadow: [
                 BoxShadow(
@@ -109,7 +110,7 @@ class _DeepBreathingCompWidgetState extends State<DeepBreathingCompWidget> {
                               12.0, 6.0, 12.0, 6.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
-                              'gqohjyvt' /* 7 seconds - 14 seconds */,
+                              'gqohjyvt' /* Intermediate - 100 XP */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -150,7 +151,7 @@ class _DeepBreathingCompWidgetState extends State<DeepBreathingCompWidget> {
                       ),
                       Text(
                         FFLocalizations.of(context).getText(
-                          '5pflfk75' /* Help treat insomnia, Provide a... */,
+                          '5pflfk75' /* Follow the slow winds of breat... */,
                         ),
                         textAlign: TextAlign.center,
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -158,6 +159,7 @@ class _DeepBreathingCompWidgetState extends State<DeepBreathingCompWidget> {
                               color: FlutterFlowTheme.of(context).primaryText,
                               fontSize: 12.0,
                               letterSpacing: 0.0,
+                              fontWeight: FontWeight.w300,
                               lineHeight: 1.5,
                             ),
                       ),
@@ -165,8 +167,21 @@ class _DeepBreathingCompWidgetState extends State<DeepBreathingCompWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(
                             0.0, 12.0, 0.0, 12.0),
                         child: FFButtonWidget(
-                          onPressed: () {
-                            print('Button pressed ...');
+                          onPressed: () async {
+                            logFirebaseEvent(
+                                'DEEP_BREATHING_START_NOW_BTN_ON_TAP');
+                            logFirebaseEvent('Button_navigate_to');
+
+                            context.pushNamed(
+                              DeepBreathingWidget.routeName,
+                              extra: <String, dynamic>{
+                                kTransitionInfoKey: TransitionInfo(
+                                  hasTransition: true,
+                                  transitionType: PageTransitionType.fade,
+                                  duration: Duration(milliseconds: 2),
+                                ),
+                              },
+                            );
                           },
                           text: FFLocalizations.of(context).getText(
                             'a00wquow' /* Start Now */,

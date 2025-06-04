@@ -47,9 +47,9 @@ class _ProgressBarFinalWidgetState extends State<ProgressBarFinalWidget> {
 
     return Container(
       width: double.infinity,
-      height: 51.0,
+      height: 54.7,
       decoration: BoxDecoration(
-        color: FlutterFlowTheme.of(context).secondaryBackground,
+        color: FlutterFlowTheme.of(context).accent4,
         boxShadow: [
           BoxShadow(
             blurRadius: 1.0,
@@ -71,50 +71,62 @@ class _ProgressBarFinalWidgetState extends State<ProgressBarFinalWidget> {
             child: Row(
               mainAxisSize: MainAxisSize.max,
               children: [
-                AuthUserStreamWidget(
-                  builder: (context) => InkWell(
-                    splashColor: Colors.transparent,
-                    focusColor: Colors.transparent,
-                    hoverColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    onTap: () async {
-                      logFirebaseEvent(
-                          'PROGRESS_BAR_FINAL_Image_yzyz94b6_ON_TAP');
-                      logFirebaseEvent('Image_update_app_state');
-                      FFAppState().ProfilePicture = currentUserPhoto;
-                      safeSetState(() {});
-                    },
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(24.0),
-                      child: Image.network(
-                        currentUserPhoto,
-                        width: 40.0,
-                        height: 40.0,
-                        fit: BoxFit.scaleDown,
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
+                  child: AuthUserStreamWidget(
+                    builder: (context) => InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        logFirebaseEvent(
+                            'PROGRESS_BAR_FINAL_Image_yzyz94b6_ON_TAP');
+                        logFirebaseEvent('Image_update_app_state');
+                        FFAppState().ProfilePicture = currentUserPhoto;
+                        safeSetState(() {});
+                      },
+                      child: Hero(
+                        tag: currentUserPhoto,
+                        transitionOnUserGestures: true,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(24.0),
+                          child: Image.network(
+                            currentUserPhoto,
+                            width: 46.37,
+                            height: 46.0,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
                       ),
                     ),
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
-                  child: AuthUserStreamWidget(
-                    builder: (context) => Text(
-                      valueOrDefault<String>(
-                        currentUserDisplayName,
-                        'Jane Doe',
-                      ),
-                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'The Seasons',
-                            color:
-                                FlutterFlowTheme.of(context).primaryBackground,
-                            fontSize: 16.0,
-                            letterSpacing: 0.0,
-                            fontWeight: FontWeight.w300,
-                          ),
+                AuthUserStreamWidget(
+                  builder: (context) => Text(
+                    valueOrDefault<String>(
+                      currentUserDisplayName,
+                      'Jane Doe',
                     ),
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'The Seasons',
+                          color: FlutterFlowTheme.of(context).primaryBackground,
+                          fontSize: 16.0,
+                          letterSpacing: 0.0,
+                          fontWeight: FontWeight.normal,
+                        ),
                   ),
                 ),
               ],
+            ),
+          ),
+          SizedBox(
+            height: 100.0,
+            child: VerticalDivider(
+              thickness: 1.0,
+              indent: 8.0,
+              endIndent: 8.0,
+              color: FlutterFlowTheme.of(context).primaryBackground,
             ),
           ),
           Padding(
@@ -123,88 +135,49 @@ class _ProgressBarFinalWidgetState extends State<ProgressBarFinalWidget> {
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Container(
-                  width: 190.6,
-                  child: Align(
-                    alignment: AlignmentDirectional(-1.0, 0.0),
-                    child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 20.0, 0.0),
-                      child: LinearPercentIndicator(
-                        percent: FFAppState().pointsEarned.toDouble(),
-                        width: MediaQuery.sizeOf(context).width * 0.45,
-                        lineHeight: 25.0,
-                        animation: true,
-                        animateFromLastPercent: true,
-                        progressColor: FlutterFlowTheme.of(context).accent1,
-                        backgroundColor:
-                            FlutterFlowTheme.of(context).primaryBackground,
-                        center: Text(
-                          valueOrDefault<String>(
-                            FFAppState().pointsEarned.toString(),
-                            '0',
-                          ).maybeHandleOverflow(
-                            maxChars: 50,
-                            replacement: '…',
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
+                  child: Container(
+                    width: 185.88,
+                    child: Align(
+                      alignment: AlignmentDirectional(-1.0, 0.0),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            15.0, 0.0, 20.0, 0.0),
+                        child: LinearPercentIndicator(
+                          percent: FFAppState().pointsEarned.toDouble(),
+                          width: MediaQuery.sizeOf(context).width * 0.45,
+                          lineHeight: 25.0,
+                          animation: true,
+                          animateFromLastPercent: true,
+                          progressColor: FlutterFlowTheme.of(context).accent1,
+                          backgroundColor:
+                              FlutterFlowTheme.of(context).primaryBackground,
+                          center: Text(
+                            valueOrDefault<String>(
+                              FFAppState().pointsEarned.toString(),
+                              '0 Points',
+                            ).maybeHandleOverflow(
+                              maxChars: 50,
+                              replacement: '…',
+                            ),
+                            textAlign: TextAlign.start,
+                            style: FlutterFlowTheme.of(context)
+                                .headlineSmall
+                                .override(
+                                  fontFamily: 'WorkSans',
+                                  color: FlutterFlowTheme.of(context).alternate,
+                                  fontSize: 16.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w300,
+                                ),
                           ),
-                          textAlign: TextAlign.start,
-                          style: FlutterFlowTheme.of(context)
-                              .headlineSmall
-                              .override(
-                                fontFamily: 'WorkSans',
-                                color: FlutterFlowTheme.of(context).alternate,
-                                fontSize: 16.0,
-                                letterSpacing: 0.0,
-                                fontWeight: FontWeight.bold,
-                              ),
+                          barRadius: Radius.circular(80.0),
+                          padding: EdgeInsets.zero,
                         ),
-                        barRadius: Radius.circular(80.0),
-                        padding: EdgeInsets.zero,
                       ),
                     ),
                   ),
-                ),
-                SizedBox(
-                  height: 100.0,
-                  child: VerticalDivider(
-                    thickness: 1.0,
-                    indent: 8.0,
-                    endIndent: 8.0,
-                    color: FlutterFlowTheme.of(context).primaryBackground,
-                  ),
-                ),
-                Column(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      FFLocalizations.of(context).getText(
-                        '7yop5jem' /* Points */,
-                      ),
-                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'The Seasons',
-                            color: FlutterFlowTheme.of(context).accent1,
-                            fontSize: 11.0,
-                            letterSpacing: 0.0,
-                            fontWeight: FontWeight.normal,
-                          ),
-                    ),
-                    Text(
-                      valueOrDefault<String>(
-                        FFAppState().pointsEarned.toString(),
-                        '0',
-                      ),
-                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'WorkSans',
-                            color:
-                                FlutterFlowTheme.of(context).primaryBackground,
-                            fontSize: 20.0,
-                            letterSpacing: 0.0,
-                            fontWeight: FontWeight.w600,
-                          ),
-                    ),
-                  ],
                 ),
               ],
             ),

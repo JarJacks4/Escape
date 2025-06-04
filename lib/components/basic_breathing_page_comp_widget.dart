@@ -62,7 +62,7 @@ class _BasicBreathingPageCompWidgetState
           alignment: AlignmentDirectional(0.0, 1.0),
           child: Container(
             width: double.infinity,
-            height: 231.3,
+            height: 222.43,
             decoration: BoxDecoration(
               boxShadow: [
                 BoxShadow(
@@ -110,7 +110,7 @@ class _BasicBreathingPageCompWidgetState
                               12.0, 6.0, 12.0, 6.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
-                              'fs2ia5ho' /* In 3 - Out 7 */,
+                              'fs2ia5ho' /* Tutorial - 50 XP */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -163,28 +163,23 @@ class _BasicBreathingPageCompWidgetState
                                   ),
                         ),
                       ),
-                      Flexible(
-                        flex: 1,
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 10.0),
-                          child: Text(
-                            FFLocalizations.of(context).getText(
-                              'vaurq1e3' /* Help treat insomnia, Provide a... */,
-                            ),
-                            textAlign: TextAlign.center,
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'WorkSans',
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryText,
-                                  fontSize: 14.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.w300,
-                                  lineHeight: 1.5,
-                                ),
+                      Padding(
+                        padding: EdgeInsets.all(15.0),
+                        child: Text(
+                          FFLocalizations.of(context).getText(
+                            'vaurq1e3' /* Try our Basic methods to learn... */,
                           ),
+                          textAlign: TextAlign.center,
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'WorkSans',
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                fontSize: 14.0,
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.w300,
+                                lineHeight: 1.5,
+                              ),
                         ),
                       ),
                       Padding(

@@ -1,3 +1,5 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -210,42 +212,47 @@ class _ProfileDetailsWidgetState extends State<ProfileDetailsWidget> {
                                                         alignment:
                                                             AlignmentDirectional(
                                                                 -0.16, 0.26),
-                                                        child: InkWell(
-                                                          splashColor: Colors
-                                                              .transparent,
-                                                          focusColor: Colors
-                                                              .transparent,
-                                                          hoverColor: Colors
-                                                              .transparent,
-                                                          highlightColor: Colors
-                                                              .transparent,
-                                                          onTap: () async {
-                                                            logFirebaseEvent(
-                                                                'PROFILE_DETAILS_CircleImage_so7td191_ON_');
-                                                            logFirebaseEvent(
-                                                                'CircleImage_update_app_state');
-                                                            FFAppState()
-                                                                .ProfilePicture = '';
-                                                            FFAppState()
-                                                                .update(() {});
-                                                          },
-                                                          child: Container(
-                                                            width: 150.0,
-                                                            height: 150.0,
-                                                            clipBehavior:
-                                                                Clip.antiAlias,
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              shape: BoxShape
-                                                                  .circle,
-                                                            ),
-                                                            child: Image.memory(
-                                                              _model.uploadedLocalFile
-                                                                      .bytes ??
-                                                                  Uint8List
-                                                                      .fromList(
-                                                                          []),
-                                                              fit: BoxFit.cover,
+                                                        child:
+                                                            AuthUserStreamWidget(
+                                                          builder: (context) =>
+                                                              InkWell(
+                                                            splashColor: Colors
+                                                                .transparent,
+                                                            focusColor: Colors
+                                                                .transparent,
+                                                            hoverColor: Colors
+                                                                .transparent,
+                                                            highlightColor:
+                                                                Colors
+                                                                    .transparent,
+                                                            onTap: () async {
+                                                              logFirebaseEvent(
+                                                                  'PROFILE_DETAILS_CircleImage_so7td191_ON_');
+                                                              logFirebaseEvent(
+                                                                  'CircleImage_update_app_state');
+                                                              FFAppState()
+                                                                      .ProfilePicture =
+                                                                  currentUserPhoto;
+                                                              FFAppState()
+                                                                  .update(
+                                                                      () {});
+                                                            },
+                                                            child: Container(
+                                                              width: 150.0,
+                                                              height: 150.0,
+                                                              clipBehavior: Clip
+                                                                  .antiAlias,
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                shape: BoxShape
+                                                                    .circle,
+                                                              ),
+                                                              child:
+                                                                  Image.network(
+                                                                currentUserPhoto,
+                                                                fit: BoxFit
+                                                                    .cover,
+                                                              ),
                                                             ),
                                                           ),
                                                         ),
@@ -288,11 +295,19 @@ class _ProfileDetailsWidgetState extends State<ProfileDetailsWidget> {
                                                 logFirebaseEvent(
                                                     'PROFILE_DETAILS_UPLOAD_PROFILE_PHOTO_BTN');
                                                 logFirebaseEvent(
-                                                    'Button_store_media_for_upload');
+                                                    'Button_upload_media_to_firebase');
                                                 final selectedMedia =
                                                     await selectMediaWithSourceBottomSheet(
                                                   context: context,
                                                   allowPhoto: true,
+                                                  backgroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .alternate,
+                                                  textColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .primary,
                                                 );
                                                 if (selectedMedia != null &&
                                                     selectedMedia.every((m) =>
@@ -300,11 +315,18 @@ class _ProfileDetailsWidgetState extends State<ProfileDetailsWidget> {
                                                             m.storagePath,
                                                             context))) {
                                                   safeSetState(() => _model
-                                                      .isDataUploading = true);
+                                                          .isDataUploading_uploadPhoto =
+                                                      true);
                                                   var selectedUploadedFiles =
                                                       <FFUploadedFile>[];
 
+                                                  var downloadUrls = <String>[];
                                                   try {
+                                                    showUploadMessage(
+                                                      context,
+                                                      'Uploading file...',
+                                                      showLoading: true,
+                                                    );
                                                     selectedUploadedFiles =
                                                         selectedMedia
                                                             .map((m) =>
@@ -326,20 +348,46 @@ class _ProfileDetailsWidgetState extends State<ProfileDetailsWidget> {
                                                                       .blurHash,
                                                                 ))
                                                             .toList();
+
+                                                    downloadUrls = (await Future
+                                                            .wait(
+                                                      selectedMedia.map(
+                                                        (m) async =>
+                                                            await uploadData(
+                                                                m.storagePath,
+                                                                m.bytes),
+                                                      ),
+                                                    ))
+                                                        .where((u) => u != null)
+                                                        .map((u) => u!)
+                                                        .toList();
                                                   } finally {
-                                                    _model.isDataUploading =
+                                                    ScaffoldMessenger.of(
+                                                            context)
+                                                        .hideCurrentSnackBar();
+                                                    _model.isDataUploading_uploadPhoto =
                                                         false;
                                                   }
                                                   if (selectedUploadedFiles
-                                                          .length ==
-                                                      selectedMedia.length) {
+                                                              .length ==
+                                                          selectedMedia
+                                                              .length &&
+                                                      downloadUrls.length ==
+                                                          selectedMedia
+                                                              .length) {
                                                     safeSetState(() {
-                                                      _model.uploadedLocalFile =
+                                                      _model.uploadedLocalFile_uploadPhoto =
                                                           selectedUploadedFiles
                                                               .first;
+                                                      _model.uploadedFileUrl_uploadPhoto =
+                                                          downloadUrls.first;
                                                     });
+                                                    showUploadMessage(
+                                                        context, 'Success!');
                                                   } else {
                                                     safeSetState(() {});
+                                                    showUploadMessage(context,
+                                                        'Failed to upload data');
                                                     return;
                                                   }
                                                 }
@@ -441,7 +489,7 @@ class _ProfileDetailsWidgetState extends State<ProfileDetailsWidget> {
                                         alignment:
                                             AlignmentDirectional(0.0, 1.0),
                                         child: Padding(
-                                          padding: EdgeInsets.all(40.0),
+                                          padding: EdgeInsets.all(20.0),
                                           child: Hero(
                                             tag: 'onboarding',
                                             transitionOnUserGestures: true,

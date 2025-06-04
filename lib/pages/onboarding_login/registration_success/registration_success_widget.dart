@@ -150,7 +150,7 @@ let's Escape... */
                           logFirebaseEvent('primaryButton_navigate_to');
 
                           context.pushNamed(
-                            HomeVersion2Widget.routeName,
+                            HomeVersion4Widget.routeName,
                             extra: <String, dynamic>{
                               kTransitionInfoKey: TransitionInfo(
                                 hasTransition: true,

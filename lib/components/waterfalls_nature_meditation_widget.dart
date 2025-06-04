@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -107,7 +108,7 @@ class _WaterfallsNatureMeditationWidgetState
                               12.0, 6.0, 12.0, 6.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
-                              'q0rfzy3d' /* Waterfalls Sounds */,
+                              'q0rfzy3d' /* Beginner - 50 XP */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -137,7 +138,7 @@ class _WaterfallsNatureMeditationWidgetState
                               0.0, 0.0, 0.0, 20.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
-                              '61ndfzpm' /* Waterfalls */,
+                              '61ndfzpm' /* Water */,
                             ),
                             textAlign: TextAlign.center,
                             style: FlutterFlowTheme.of(context)
@@ -169,8 +170,21 @@ class _WaterfallsNatureMeditationWidgetState
                         padding: EdgeInsetsDirectional.fromSTEB(
                             0.0, 12.0, 0.0, 12.0),
                         child: FFButtonWidget(
-                          onPressed: () {
-                            print('Button pressed ...');
+                          onPressed: () async {
+                            logFirebaseEvent(
+                                'WATERFALLS_NATURE_MEDITATION_START_NOW_B');
+                            logFirebaseEvent('Button_navigate_to');
+
+                            context.pushNamed(
+                              EscapingWithNatureSoundsGoalWidget.routeName,
+                              extra: <String, dynamic>{
+                                kTransitionInfoKey: TransitionInfo(
+                                  hasTransition: true,
+                                  transitionType: PageTransitionType.fade,
+                                  duration: Duration(milliseconds: 2),
+                                ),
+                              },
+                            );
                           },
                           text: FFLocalizations.of(context).getText(
                             '519ckh7q' /* Start Now */,

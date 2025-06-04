@@ -153,7 +153,7 @@ class _NavButtonCenterNEWWidgetState extends State<NavButtonCenterNEWWidget>
                     logFirebaseEvent('Column_navigate_to');
 
                     context.pushNamed(
-                      HomeVersion2Widget.routeName,
+                      HomeVersion4Widget.routeName,
                       extra: <String, dynamic>{
                         kTransitionInfoKey: TransitionInfo(
                           hasTransition: true,
@@ -346,18 +346,6 @@ class _NavButtonCenterNEWWidgetState extends State<NavButtonCenterNEWWidget>
                           .controller
                           .forward(from: 0.0);
                     }
-                    logFirebaseEvent('Column_navigate_to');
-
-                    context.pushNamed(
-                      CommunityHomeWidget.routeName,
-                      extra: <String, dynamic>{
-                        kTransitionInfoKey: TransitionInfo(
-                          hasTransition: true,
-                          transitionType: PageTransitionType.fade,
-                          duration: Duration(milliseconds: 7),
-                        ),
-                      },
-                    );
                   },
                   child: Column(
                     mainAxisSize: MainAxisSize.min,

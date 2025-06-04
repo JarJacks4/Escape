@@ -481,4 +481,10 @@ class FFAppState extends ChangeNotifier {
   set currentSongtitle(String value) {
     _currentSongtitle = value;
   }
+
+  DocumentReference? _numberOfGoalsCompleted;
+  DocumentReference? get numberOfGoalsCompleted => _numberOfGoalsCompleted;
+  set numberOfGoalsCompleted(DocumentReference? value) {
+    _numberOfGoalsCompleted = value;
+  }
 }

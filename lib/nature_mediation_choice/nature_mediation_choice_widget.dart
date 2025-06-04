@@ -110,7 +110,7 @@ class _NatureMediationChoiceWidgetState
                                     'NATURE_MEDIATION_CHOICE_Image_r4rik1zy_O');
                                 logFirebaseEvent('Image_navigate_to');
 
-                                context.pushNamed(HomeVersion2Widget.routeName);
+                                context.pushNamed(HomeVersion4Widget.routeName);
                               },
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(8.0),
@@ -157,14 +157,14 @@ class _NatureMediationChoiceWidgetState
                               child: FireNatureMeditationWidget(),
                             ),
                             wrapWithModel(
-                              model: _model.thunderstormsNatureMeditationModel,
-                              updateCallback: () => safeSetState(() {}),
-                              child: ThunderstormsNatureMeditationWidget(),
-                            ),
-                            wrapWithModel(
                               model: _model.waterfallsNatureMeditationModel,
                               updateCallback: () => safeSetState(() {}),
                               child: WaterfallsNatureMeditationWidget(),
+                            ),
+                            wrapWithModel(
+                              model: _model.thunderstormsNatureMeditationModel,
+                              updateCallback: () => safeSetState(() {}),
+                              child: ThunderstormsNatureMeditationWidget(),
                             ),
                           ],
                           carouselController: _model.carouselController ??=

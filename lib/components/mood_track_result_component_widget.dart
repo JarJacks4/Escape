@@ -1,9 +1,7 @@
 import '/auth/firebase_auth/auth_util.dart';
-import '/backend/gemini/gemini.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
-import '/index.dart';
 import 'package:tiktokfeed_wz8en7/app_state.dart'
     as tiktokfeed_wz8en7_app_state;
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
@@ -302,37 +300,8 @@ class _MoodTrackResultComponentWidgetState
                         ),
                       ),
                       FFButtonWidget(
-                        onPressed: () async {
-                          logFirebaseEvent(
-                              'MOOD_TRACK_RESULT_COMPONENT_HELP_FROM_LU');
-                          logFirebaseEvent('Button_gemini');
-                          await geminiGenerateText(
-                            context,
-                            'Your name is Lucille, a helpful self care AI Agent. Our user is feeling, \"${widget!.moodTrackingResults}\" and needs help making change.',
-                          ).then((generatedText) {
-                            safeSetState(() =>
-                                _model.moodTrackingLucilleHelp = generatedText);
-                          });
-
-                          logFirebaseEvent('Button_navigate_to');
-
-                          context.pushNamed(
-                            LucilleChatAIPageWidget.routeName,
-                            queryParameters: {
-                              'deepFeelingsGemini': serializeParam(
-                                '',
-                                ParamType.String,
-                              ),
-                            }.withoutNulls,
-                            extra: <String, dynamic>{
-                              kTransitionInfoKey: TransitionInfo(
-                                hasTransition: true,
-                                transitionType: PageTransitionType.fade,
-                              ),
-                            },
-                          );
-
-                          safeSetState(() {});
+                        onPressed: () {
+                          print('Button pressed ...');
                         },
                         text: FFLocalizations.of(context).getText(
                           '08xdyd2e' /* Help From Lucille */,

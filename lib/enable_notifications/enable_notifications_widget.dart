@@ -184,7 +184,7 @@ class _EnableNotificationsWidgetState extends State<EnableNotificationsWidget> {
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            12.0, 80.0, 0.0, 12.0),
+                                            0.0, 80.0, 0.0, 12.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
                                             'sc7ukpt8' /* Notifications are highly advis... */,
@@ -203,23 +203,30 @@ class _EnableNotificationsWidgetState extends State<EnableNotificationsWidget> {
                                               ),
                                         ),
                                       ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            12.0, 40.0, 0.0, 12.0),
-                                        child: Text(
-                                          FFLocalizations.of(context).getText(
-                                            'hezgvgbm' /* Would you like personalized no... */,
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 40.0, 0.0, 12.0),
+                                          child: Text(
+                                            FFLocalizations.of(context).getText(
+                                              'hezgvgbm' /* Would you like 
+personalized n... */
+                                              ,
+                                            ),
+                                            textAlign: TextAlign.center,
+                                            style: FlutterFlowTheme.of(context)
+                                                .labelLarge
+                                                .override(
+                                                  fontFamily: 'WorkSans',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                  letterSpacing: 0.0,
+                                                ),
                                           ),
-                                          textAlign: TextAlign.center,
-                                          style: FlutterFlowTheme.of(context)
-                                              .labelLarge
-                                              .override(
-                                                fontFamily: 'WorkSans',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
-                                                letterSpacing: 0.0,
-                                              ),
                                         ),
                                       ),
                                     ],
@@ -236,11 +243,11 @@ class _EnableNotificationsWidgetState extends State<EnableNotificationsWidget> {
                                 child: FFButtonWidget(
                                   onPressed: () async {
                                     logFirebaseEvent(
-                                        'ENABLE_NOTIFICATIONS_FINISH_ONBOARDING_B');
+                                        'ENABLE_NOTIFICATIONS_CREATE_AVATAR_BTN_O');
                                     logFirebaseEvent('Button_navigate_to');
 
                                     context.pushNamed(
-                                      HomeVersion2Widget.routeName,
+                                      AvatarCreationUnrealPageWidget.routeName,
                                       extra: <String, dynamic>{
                                         kTransitionInfoKey: TransitionInfo(
                                           hasTransition: true,
@@ -252,7 +259,7 @@ class _EnableNotificationsWidgetState extends State<EnableNotificationsWidget> {
                                     );
                                   },
                                   text: FFLocalizations.of(context).getText(
-                                    '70btugcu' /* Finish Onboarding */,
+                                    '70btugcu' /* Create Avatar */,
                                   ),
                                   options: FFButtonOptions(
                                     width: double.infinity,
@@ -261,14 +268,16 @@ class _EnableNotificationsWidgetState extends State<EnableNotificationsWidget> {
                                         0.0, 0.0, 0.0, 0.0),
                                     iconPadding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
-                                    color: FlutterFlowTheme.of(context).accent1,
+                                    color:
+                                        FlutterFlowTheme.of(context).alternate,
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleMedium
                                         .override(
-                                          fontFamily: 'WorkSans',
+                                          fontFamily: 'The Seasons',
                                           color: FlutterFlowTheme.of(context)
                                               .primary,
                                           letterSpacing: 0.0,
+                                          fontWeight: FontWeight.bold,
                                         ),
                                     elevation: 4.0,
                                     borderSide: BorderSide(
@@ -276,6 +285,10 @@ class _EnableNotificationsWidgetState extends State<EnableNotificationsWidget> {
                                       width: 1.0,
                                     ),
                                     borderRadius: BorderRadius.circular(50.0),
+                                    hoverColor:
+                                        FlutterFlowTheme.of(context).accent1,
+                                    hoverTextColor:
+                                        FlutterFlowTheme.of(context).primary,
                                   ),
                                 ),
                               ),

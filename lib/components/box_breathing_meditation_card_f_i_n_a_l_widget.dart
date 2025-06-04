@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+import '/index.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
@@ -110,7 +111,7 @@ class _BoxBreathingMeditationCardFINALWidgetState
                               12.0, 6.0, 12.0, 6.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
-                              'l9yryzfh' /* 4 seconds - 4 seconds */,
+                              'l9yryzfh' /* Intermediate - 100 XP */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -153,7 +154,7 @@ class _BoxBreathingMeditationCardFINALWidgetState
                         padding: EdgeInsets.all(8.0),
                         child: Text(
                           FFLocalizations.of(context).getText(
-                            'v9k2p0p4' /* Help treat insomnia, Provide a... */,
+                            'v9k2p0p4' /* Create a sense of peace and re... */,
                           ),
                           textAlign: TextAlign.center,
                           style: FlutterFlowTheme.of(context)
@@ -172,8 +173,21 @@ class _BoxBreathingMeditationCardFINALWidgetState
                         padding: EdgeInsetsDirectional.fromSTEB(
                             0.0, 12.0, 0.0, 12.0),
                         child: FFButtonWidget(
-                          onPressed: () {
-                            print('Button pressed ...');
+                          onPressed: () async {
+                            logFirebaseEvent(
+                                'BOX_BREATHING_MEDITATION_CARD_F_I_N_A_L_');
+                            logFirebaseEvent('Button_navigate_to');
+
+                            context.pushNamed(
+                              BoxBreathingGoalPageWidget.routeName,
+                              extra: <String, dynamic>{
+                                kTransitionInfoKey: TransitionInfo(
+                                  hasTransition: true,
+                                  transitionType: PageTransitionType.fade,
+                                  duration: Duration(milliseconds: 2),
+                                ),
+                              },
+                            );
                           },
                           text: FFLocalizations.of(context).getText(
                             'jnqqurjw' /* Start Now */,

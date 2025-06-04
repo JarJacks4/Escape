@@ -26,6 +26,7 @@ import 'schema/playlists_record.dart';
 import 'schema/history_record.dart';
 import 'schema/conversations_record.dart';
 import 'schema/journal_record.dart';
+import 'schema/user_created_videos_record.dart';
 import 'dart:async';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import "package:tiktokfeed_wz8en7/backend/schema/structs/index.dart"
@@ -59,6 +60,7 @@ export 'schema/playlists_record.dart';
 export 'schema/history_record.dart';
 export 'schema/conversations_record.dart';
 export 'schema/journal_record.dart';
+export 'schema/user_created_videos_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -1742,6 +1744,86 @@ Future<FFFirestorePage<JournalRecord>> queryJournalRecordPage({
       }
       return page;
     });
+
+/// Functions to query UserCreatedVideosRecords (as a Stream and as a Future).
+Future<int> queryUserCreatedVideosRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      UserCreatedVideosRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<UserCreatedVideosRecord>> queryUserCreatedVideosRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      UserCreatedVideosRecord.collection,
+      UserCreatedVideosRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<UserCreatedVideosRecord>> queryUserCreatedVideosRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      UserCreatedVideosRecord.collection,
+      UserCreatedVideosRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+Future<FFFirestorePage<UserCreatedVideosRecord>>
+    queryUserCreatedVideosRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+  required PagingController<DocumentSnapshot?, UserCreatedVideosRecord>
+      controller,
+  List<StreamSubscription?>? streamSubscriptions,
+}) =>
+        queryCollectionPage(
+          UserCreatedVideosRecord.collection,
+          UserCreatedVideosRecord.fromSnapshot,
+          queryBuilder: queryBuilder,
+          nextPageMarker: nextPageMarker,
+          pageSize: pageSize,
+          isStream: isStream,
+        ).then((page) {
+          controller.appendPage(
+            page.data,
+            page.nextPageMarker,
+          );
+          if (isStream) {
+            final streamSubscription =
+                (page.dataStream)?.listen((List<UserCreatedVideosRecord> data) {
+              data.forEach((item) {
+                final itemIndexes = controller.itemList!
+                    .asMap()
+                    .map((k, v) => MapEntry(v.reference.id, k));
+                final index = itemIndexes[item.reference.id];
+                final items = controller.itemList!;
+                if (index != null) {
+                  items.replaceRange(index, index + 1, [item]);
+                  controller.itemList = {
+                    for (var item in items) item.reference: item
+                  }.values.toList();
+                }
+              });
+            });
+            streamSubscriptions?.add(streamSubscription);
+          }
+          return page;
+        });
 
 Future<int> queryCollectionCount(
   Query collection, {

@@ -2,6 +2,7 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:math';
 import 'dart:ui';
+import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -97,59 +98,71 @@ class _TherapistDirectoryCardWidgetState
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              Container(
-                width: double.infinity,
-                height: 194.0,
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      FlutterFlowTheme.of(context).accent1,
-                      Color(0xFFD6E364)
-                    ],
-                    stops: [0.0, 1.0],
-                    begin: AlignmentDirectional(0.0, -1.0),
-                    end: AlignmentDirectional(0, 1.0),
+              InkWell(
+                splashColor: Colors.transparent,
+                focusColor: Colors.transparent,
+                hoverColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                onTap: () async {
+                  logFirebaseEvent('THERAPIST_DIRECTORY_CARD_Container_wenlu');
+                  logFirebaseEvent('Container_navigate_to');
+
+                  context.pushNamed(TherapistDirectoryWidget.routeName);
+                },
+                child: Container(
+                  width: double.infinity,
+                  height: 194.0,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [
+                        FlutterFlowTheme.of(context).accent1,
+                        Color(0xFFD6E364)
+                      ],
+                      stops: [0.0, 1.0],
+                      begin: AlignmentDirectional(0.0, -1.0),
+                      end: AlignmentDirectional(0, 1.0),
+                    ),
+                    borderRadius: BorderRadius.circular(12.0),
                   ),
-                  borderRadius: BorderRadius.circular(12.0),
-                ),
-                child: Padding(
-                  padding: EdgeInsets.all(12.0),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Align(
-                        alignment: AlignmentDirectional(1.0, -1.0),
-                        child: Container(
-                          width: 41.0,
-                          height: 43.0,
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              fit: BoxFit.contain,
-                              image: Image.asset(
-                                'assets/images/ESCAPE_Logo_Clear.png',
-                              ).image,
+                  child: Padding(
+                    padding: EdgeInsets.all(12.0),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Align(
+                          alignment: AlignmentDirectional(1.0, -1.0),
+                          child: Container(
+                            width: 41.0,
+                            height: 43.0,
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                fit: BoxFit.contain,
+                                image: Image.asset(
+                                  'assets/images/ESCAPE_Logo_Clear.png',
+                                ).image,
+                              ),
+                              borderRadius: BorderRadius.circular(12.0),
                             ),
-                            borderRadius: BorderRadius.circular(12.0),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                           ),
-                          alignment: AlignmentDirectional(0.0, 0.0),
                         ),
-                      ),
-                      Text(
-                        FFLocalizations.of(context).getText(
-                          'i1pz834t' /* Therapist Directory */,
+                        Text(
+                          FFLocalizations.of(context).getText(
+                            'i1pz834t' /* Therapist Directory */,
+                          ),
+                          style:
+                              FlutterFlowTheme.of(context).titleMedium.override(
+                                    fontFamily: 'WorkSans',
+                                    color: Colors.white,
+                                    fontSize: 28.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w300,
+                                  ),
                         ),
-                        style:
-                            FlutterFlowTheme.of(context).titleMedium.override(
-                                  fontFamily: 'WorkSans',
-                                  color: Colors.white,
-                                  fontSize: 28.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.w300,
-                                ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),

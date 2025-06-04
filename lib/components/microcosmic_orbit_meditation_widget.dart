@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -59,7 +60,7 @@ class _MicrocosmicOrbitMeditationWidgetState
           alignment: AlignmentDirectional(0.0, 1.0),
           child: Container(
             width: double.infinity,
-            height: 271.49,
+            height: 308.77,
             decoration: BoxDecoration(
               boxShadow: [
                 BoxShadow(
@@ -107,7 +108,7 @@ class _MicrocosmicOrbitMeditationWidgetState
                               12.0, 6.0, 12.0, 6.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
-                              '8yap8fpy' /* Slow 7 - Another Slow 7 */,
+                              '8yap8fpy' /* Expert- 150 XP */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -176,8 +177,21 @@ Meditation */
                         padding: EdgeInsetsDirectional.fromSTEB(
                             0.0, 12.0, 0.0, 12.0),
                         child: FFButtonWidget(
-                          onPressed: () {
-                            print('Button pressed ...');
+                          onPressed: () async {
+                            logFirebaseEvent(
+                                'MICROCOSMIC_ORBIT_MEDITATION_START_NOW_B');
+                            logFirebaseEvent('Button_navigate_to');
+
+                            context.pushNamed(
+                              MicrcosmicMeditationGoalPageWidget.routeName,
+                              extra: <String, dynamic>{
+                                kTransitionInfoKey: TransitionInfo(
+                                  hasTransition: true,
+                                  transitionType: PageTransitionType.fade,
+                                  duration: Duration(milliseconds: 2),
+                                ),
+                              },
+                            );
                           },
                           text: FFLocalizations.of(context).getText(
                             '1m1h17oc' /* Start Now */,

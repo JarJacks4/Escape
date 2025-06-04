@@ -229,8 +229,8 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                     selectedMedia.every((m) =>
                                         validateFileFormat(
                                             m.storagePath, context))) {
-                                  safeSetState(
-                                      () => _model.isDataUploading = true);
+                                  safeSetState(() => _model
+                                      .isDataUploading_uploadDataPch = true);
                                   var selectedUploadedFiles =
                                       <FFUploadedFile>[];
 
@@ -246,12 +246,13 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                             ))
                                         .toList();
                                   } finally {
-                                    _model.isDataUploading = false;
+                                    _model.isDataUploading_uploadDataPch =
+                                        false;
                                   }
                                   if (selectedUploadedFiles.length ==
                                       selectedMedia.length) {
                                     safeSetState(() {
-                                      _model.uploadedLocalFile =
+                                      _model.uploadedLocalFile_uploadDataPch =
                                           selectedUploadedFiles.first;
                                     });
                                   } else {

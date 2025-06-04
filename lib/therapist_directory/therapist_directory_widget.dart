@@ -65,43 +65,49 @@ class _TherapistDirectoryWidgetState extends State<TherapistDirectoryWidget> {
           tabletLandscape: false,
           desktop: false,
         )
-            ? AppBar(
-                backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-                automaticallyImplyLeading: false,
-                leading: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
-                  child: FlutterFlowIconButton(
-                    borderColor: FlutterFlowTheme.of(context).alternate,
-                    borderRadius: 12.0,
-                    borderWidth: 1.0,
-                    buttonSize: 85.0,
-                    fillColor: FlutterFlowTheme.of(context).secondaryBackground,
-                    icon: Icon(
-                      Icons.arrow_back_sharp,
-                      color: FlutterFlowTheme.of(context).accent1,
-                      size: 28.0,
-                    ),
-                    onPressed: () async {
-                      logFirebaseEvent(
-                          'THERAPIST_DIRECTORY_arrow_back_sharp_ICN');
-                      logFirebaseEvent('IconButton_navigate_back');
-                      context.safePop();
-                    },
-                  ),
-                ),
-                title: Text(
-                  FFLocalizations.of(context).getText(
-                    '78zq08uv' /* Find a Therapist */,
-                  ),
-                  style: FlutterFlowTheme.of(context).headlineMedium.override(
-                        fontFamily: 'The Seasons',
-                        letterSpacing: 0.0,
-                        fontWeight: FontWeight.bold,
+            ? PreferredSize(
+                preferredSize: Size.fromHeight(100.0),
+                child: AppBar(
+                  backgroundColor:
+                      FlutterFlowTheme.of(context).primaryBackground,
+                  automaticallyImplyLeading: false,
+                  leading: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(8.0, 15.0, 0.0, 0.0),
+                    child: FlutterFlowIconButton(
+                      borderColor: FlutterFlowTheme.of(context).alternate,
+                      borderRadius: 12.0,
+                      borderWidth: 1.0,
+                      buttonSize: 85.0,
+                      fillColor:
+                          FlutterFlowTheme.of(context).secondaryBackground,
+                      icon: Icon(
+                        Icons.arrow_back_sharp,
+                        color: FlutterFlowTheme.of(context).accent1,
+                        size: 28.0,
                       ),
+                      onPressed: () async {
+                        logFirebaseEvent(
+                            'THERAPIST_DIRECTORY_arrow_back_sharp_ICN');
+                        logFirebaseEvent('IconButton_navigate_back');
+                        context.safePop();
+                      },
+                    ),
+                  ),
+                  title: Text(
+                    FFLocalizations.of(context).getText(
+                      '78zq08uv' /* Find a Therapist */,
+                    ),
+                    style: FlutterFlowTheme.of(context).headlineMedium.override(
+                          fontFamily: 'The Seasons',
+                          letterSpacing: 0.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                  ),
+                  actions: [],
+                  centerTitle: false,
+                  elevation: 0.0,
                 ),
-                actions: [],
-                centerTitle: false,
-                elevation: 0.0,
               )
             : null,
         body: Column(

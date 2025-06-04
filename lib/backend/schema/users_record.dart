@@ -119,6 +119,21 @@ class UsersRecord extends FirestoreRecord {
   LatLng? get location => _location;
   bool hasLocation() => _location != null;
 
+  // "hasSeenWalkthrough" field.
+  bool? _hasSeenWalkthrough;
+  bool get hasSeenWalkthrough => _hasSeenWalkthrough ?? false;
+  bool hasHasSeenWalkthrough() => _hasSeenWalkthrough != null;
+
+  // "hasGainedPoints" field.
+  bool? _hasGainedPoints;
+  bool get hasGainedPoints => _hasGainedPoints ?? false;
+  bool hasHasGainedPoints() => _hasGainedPoints != null;
+
+  // "numberOfGoalsCompleted" field.
+  int? _numberOfGoalsCompleted;
+  int get numberOfGoalsCompleted => _numberOfGoalsCompleted ?? 0;
+  bool hasNumberOfGoalsCompleted() => _numberOfGoalsCompleted != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _photoUrl = snapshotData['photo_url'] as String?;
@@ -141,6 +156,10 @@ class UsersRecord extends FirestoreRecord {
     _isProvidersCommunity = snapshotData['isProvidersCommunity'] as bool?;
     _isProfile = snapshotData['isProfile'] as bool?;
     _location = snapshotData['location'] as LatLng?;
+    _hasSeenWalkthrough = snapshotData['hasSeenWalkthrough'] as bool?;
+    _hasGainedPoints = snapshotData['hasGainedPoints'] as bool?;
+    _numberOfGoalsCompleted =
+        castToType<int>(snapshotData['numberOfGoalsCompleted']);
   }
 
   static CollectionReference get collection =>
@@ -197,6 +216,9 @@ Map<String, dynamic> createUsersRecordData({
   bool? isProvidersCommunity,
   bool? isProfile,
   LatLng? location,
+  bool? hasSeenWalkthrough,
+  bool? hasGainedPoints,
+  int? numberOfGoalsCompleted,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -220,6 +242,9 @@ Map<String, dynamic> createUsersRecordData({
       'isProvidersCommunity': isProvidersCommunity,
       'isProfile': isProfile,
       'location': location,
+      'hasSeenWalkthrough': hasSeenWalkthrough,
+      'hasGainedPoints': hasGainedPoints,
+      'numberOfGoalsCompleted': numberOfGoalsCompleted,
     }.withoutNulls,
   );
 
@@ -250,7 +275,10 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.isLucilleHome == e2?.isLucilleHome &&
         e1?.isProvidersCommunity == e2?.isProvidersCommunity &&
         e1?.isProfile == e2?.isProfile &&
-        e1?.location == e2?.location;
+        e1?.location == e2?.location &&
+        e1?.hasSeenWalkthrough == e2?.hasSeenWalkthrough &&
+        e1?.hasGainedPoints == e2?.hasGainedPoints &&
+        e1?.numberOfGoalsCompleted == e2?.numberOfGoalsCompleted;
   }
 
   @override
@@ -274,7 +302,10 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.isLucilleHome,
         e?.isProvidersCommunity,
         e?.isProfile,
-        e?.location
+        e?.location,
+        e?.hasSeenWalkthrough,
+        e?.hasGainedPoints,
+        e?.numberOfGoalsCompleted
       ]);
 
   @override

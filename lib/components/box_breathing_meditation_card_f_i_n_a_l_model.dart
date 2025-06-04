@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+import '/index.dart';
 import 'box_breathing_meditation_card_f_i_n_a_l_widget.dart'
     show BoxBreathingMeditationCardFINALWidget;
 import 'package:flutter_animate/flutter_animate.dart';

@@ -1,11 +1,7 @@
-import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'dart:convert';
 import 'dart:ui';
 import '/index.dart';
-import 'package:tiktokfeed_wz8en7/app_state.dart'
-    as tiktokfeed_wz8en7_app_state;
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -59,7 +55,7 @@ class _ChatWithLucilleCardWidgetState extends State<ChatWithLucilleCardWidget> {
           image: DecorationImage(
             fit: BoxFit.cover,
             image: Image.asset(
-              'assets/images/Clean_and_organic_AI_interface_by_milkinside.gif',
+              'assets/images/Icon.png',
             ).image,
           ),
           borderRadius: BorderRadius.circular(20.0),
@@ -100,31 +96,10 @@ class _ChatWithLucilleCardWidgetState extends State<ChatWithLucilleCardWidget> {
                         onPressed: () async {
                           logFirebaseEvent(
                               'CHAT_WITH_LUCILLE_CARD_arrow_outward_ICN');
-                          logFirebaseEvent('IconButton_backend_call');
-                          _model.apiResult2tjCopy =
-                              await GetSessionIdCall.call();
-
-                          if ((_model.apiResult2tjCopy?.succeeded ?? true)) {
-                            logFirebaseEvent('IconButton_update_app_state');
-                            FFAppState().chatSessionId =
-                                (_model.apiResult2tjCopy?.succeeded ?? true)
-                                    .toString();
-                            FFAppState().update(() {});
-                          }
                           logFirebaseEvent('IconButton_navigate_to');
 
                           context.pushNamed(
-                            LucilleGPTWidget.routeName,
-                            extra: <String, dynamic>{
-                              kTransitionInfoKey: TransitionInfo(
-                                hasTransition: true,
-                                transitionType: PageTransitionType.fade,
-                                duration: Duration(milliseconds: 2),
-                              ),
-                            },
-                          );
-
-                          safeSetState(() {});
+                              ChatWithLucilleUnrealPageWidget.routeName);
                         },
                       ),
                     ),
@@ -144,13 +119,15 @@ class _ChatWithLucilleCardWidgetState extends State<ChatWithLucilleCardWidget> {
 Lucille */
                             ,
                           ),
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'The Seasons',
-                                    fontSize: 16.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'The Seasons',
+                                color: FlutterFlowTheme.of(context).secondary,
+                                fontSize: 16.0,
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.bold,
+                              ),
                         ),
                       ),
                       Flexible(

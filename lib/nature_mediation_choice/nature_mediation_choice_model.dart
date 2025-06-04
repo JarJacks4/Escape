@@ -22,25 +22,25 @@ class NatureMediationChoiceModel
 
   // Model for FireNatureMeditation component.
   late FireNatureMeditationModel fireNatureMeditationModel;
-  // Model for ThunderstormsNatureMeditation component.
-  late ThunderstormsNatureMeditationModel thunderstormsNatureMeditationModel;
   // Model for WaterfallsNatureMeditation component.
   late WaterfallsNatureMeditationModel waterfallsNatureMeditationModel;
+  // Model for ThunderstormsNatureMeditation component.
+  late ThunderstormsNatureMeditationModel thunderstormsNatureMeditationModel;
 
   @override
   void initState(BuildContext context) {
     fireNatureMeditationModel =
         createModel(context, () => FireNatureMeditationModel());
-    thunderstormsNatureMeditationModel =
-        createModel(context, () => ThunderstormsNatureMeditationModel());
     waterfallsNatureMeditationModel =
         createModel(context, () => WaterfallsNatureMeditationModel());
+    thunderstormsNatureMeditationModel =
+        createModel(context, () => ThunderstormsNatureMeditationModel());
   }
 
   @override
   void dispose() {
     fireNatureMeditationModel.dispose();
-    thunderstormsNatureMeditationModel.dispose();
     waterfallsNatureMeditationModel.dispose();
+    thunderstormsNatureMeditationModel.dispose();
   }
 }
