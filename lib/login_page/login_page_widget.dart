@@ -8,6 +8,7 @@ import 'dart:ui';
 import "package:tiktokfeed_wz8en7/backend/schema/structs/index.dart"
     as tiktokfeed_wz8en7_data_schema;
 import '/index.dart';
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -162,7 +163,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                   width: 500.0,
                   height: 500.0,
                   decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).tertiary,
+                    color: FlutterFlowTheme.of(context).alternate,
                     image: DecorationImage(
                       fit: BoxFit.cover,
                       image: Image.asset(
@@ -251,7 +252,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                         width: double.infinity,
                         height: double.infinity,
                         decoration: BoxDecoration(
-                          color: Color(0x2BD0E3F7),
+                          color: Color(0xC2D0E3F7),
                         ),
                         alignment: AlignmentDirectional(0.0, 1.0),
                         child: Align(
@@ -389,6 +390,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                     .emailAddressTextController,
                                                                 focusNode: _model
                                                                     .emailAddressFocusNode,
+                                                                textInputAction:
+                                                                    TextInputAction
+                                                                        .done,
                                                                 obscureText:
                                                                     false,
                                                                 decoration:
@@ -405,7 +409,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                         fontFamily:
                                                                             'WorkSans',
                                                                         color: FlutterFlowTheme.of(context)
-                                                                            .primary,
+                                                                            .alternate,
                                                                         fontSize:
                                                                             14.0,
                                                                         letterSpacing:
@@ -423,7 +427,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                         fontFamily:
                                                                             'WorkSans',
                                                                         color: FlutterFlowTheme.of(context)
-                                                                            .primary,
+                                                                            .alternate,
                                                                         fontSize:
                                                                             14.0,
                                                                         letterSpacing:
@@ -501,10 +505,14 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                           'The Seasons',
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .primary,
+                                                                          .alternate,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
+                                                                cursorColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .alternate,
                                                                 validator: _model
                                                                     .emailAddressTextControllerValidator
                                                                     .asValidator(
@@ -528,6 +536,20 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                     .passwordTextController,
                                                                 focusNode: _model
                                                                     .passwordFocusNode,
+                                                                onChanged: (_) =>
+                                                                    EasyDebounce
+                                                                        .debounce(
+                                                                  '_model.passwordTextController',
+                                                                  Duration(
+                                                                      milliseconds:
+                                                                          2000),
+                                                                  () =>
+                                                                      safeSetState(
+                                                                          () {}),
+                                                                ),
+                                                                textInputAction:
+                                                                    TextInputAction
+                                                                        .done,
                                                                 obscureText: !_model
                                                                     .passwordVisibility,
                                                                 decoration:
@@ -544,7 +566,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                         fontFamily:
                                                                             'WorkSans',
                                                                         color: FlutterFlowTheme.of(context)
-                                                                            .primary,
+                                                                            .alternate,
                                                                         fontSize:
                                                                             14.0,
                                                                         letterSpacing:
@@ -562,7 +584,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                         fontFamily:
                                                                             'WorkSans',
                                                                         color: FlutterFlowTheme.of(context)
-                                                                            .primary,
+                                                                            .alternate,
                                                                         fontSize:
                                                                             14.0,
                                                                         letterSpacing:
@@ -665,10 +687,14 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                           'The Seasons',
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .primary,
+                                                                          .alternate,
                                                                       letterSpacing:
                                                                           0.0,
                                                                     ),
+                                                                cursorColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .alternate,
                                                                 validator: _model
                                                                     .passwordTextControllerValidator
                                                                     .asValidator(
@@ -787,13 +813,15 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                           .override(
                                                                             fontFamily:
                                                                                 'The Seasons',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).primary,
                                                                             fontSize:
-                                                                                16.0,
+                                                                                14.0,
                                                                             letterSpacing:
                                                                                 0.0,
                                                                           ),
                                                                       elevation:
-                                                                          0.0,
+                                                                          3.0,
                                                                       borderSide:
                                                                           BorderSide(
                                                                         color: Colors
@@ -838,7 +866,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
 
                                                                       context
                                                                           .pushNamedAuth(
-                                                                        HomeVersion2Widget
+                                                                        HomeVersion4Widget
                                                                             .routeName,
                                                                         context
                                                                             .mounted,
@@ -879,7 +907,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                           0.0),
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .secondary,
+                                                                          .primary,
                                                                       textStyle: FlutterFlowTheme.of(
                                                                               context)
                                                                           .titleSmall
@@ -890,6 +918,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                                 FlutterFlowTheme.of(context).alternate,
                                                                             letterSpacing:
                                                                                 0.0,
+                                                                            fontWeight:
+                                                                                FontWeight.bold,
                                                                           ),
                                                                       elevation:
                                                                           3.0,
@@ -947,7 +977,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                             fontFamily:
                                                                                 'The Seasons',
                                                                             color:
-                                                                                FlutterFlowTheme.of(context).secondary,
+                                                                                FlutterFlowTheme.of(context).tertiary,
                                                                             letterSpacing:
                                                                                 0.0,
                                                                           ),
@@ -1045,9 +1075,11 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                               height: 44.0,
                                                                               padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                               iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                              color: FlutterFlowTheme.of(context).error,
+                                                                              iconColor: FlutterFlowTheme.of(context).error,
+                                                                              color: FlutterFlowTheme.of(context).tertiary,
                                                                               textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: 'The Seasons',
+                                                                                    color: FlutterFlowTheme.of(context).primary,
                                                                                     letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.bold,
                                                                                   ),
@@ -1074,14 +1106,13 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                                       return;
                                                                                     }
 
-                                                                                    context.goNamedAuth(HomeVersion2Widget.routeName, context.mounted);
+                                                                                    context.goNamedAuth(HomeVersion4Widget.routeName, context.mounted);
                                                                                   },
                                                                                   text: FFLocalizations.of(context).getText(
                                                                                     'sn8vb8su' /* Continue with Apple */,
                                                                                   ),
                                                                                   icon: FaIcon(
                                                                                     FontAwesomeIcons.apple,
-                                                                                    color: FlutterFlowTheme.of(context).primary,
                                                                                     size: 20.0,
                                                                                   ),
                                                                                   options: FFButtonOptions(
@@ -1089,7 +1120,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                                     height: 44.0,
                                                                                     padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                     iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                    color: Colors.black,
+                                                                                    iconColor: FlutterFlowTheme.of(context).primary,
+                                                                                    color: FlutterFlowTheme.of(context).alternate,
                                                                                     textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                           fontFamily: 'The Seasons',
                                                                                           color: FlutterFlowTheme.of(context).primary,
@@ -1153,7 +1185,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                           fontFamily:
                                                                               'WorkSans',
                                                                           color:
-                                                                              FlutterFlowTheme.of(context).primary,
+                                                                              FlutterFlowTheme.of(context).alternate,
                                                                           fontSize:
                                                                               14.0,
                                                                           letterSpacing:
@@ -1173,7 +1205,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                           'WorkSans',
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .primary,
+                                                                          .alternate,
                                                                       fontSize:
                                                                           14.0,
                                                                       letterSpacing:
@@ -1252,7 +1284,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                         'WorkSans',
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .primary,
+                                                                        .alternate,
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -1294,7 +1326,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                           fontFamily:
                                                                               'WorkSans',
                                                                           color:
-                                                                              FlutterFlowTheme.of(context).primary,
+                                                                              FlutterFlowTheme.of(context).alternate,
                                                                           fontSize:
                                                                               14.0,
                                                                           letterSpacing:
@@ -1314,7 +1346,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                           'WorkSans',
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .primary,
+                                                                          .alternate,
                                                                       fontSize:
                                                                           14.0,
                                                                       letterSpacing:
@@ -1417,7 +1449,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                         'WorkSans',
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .primary,
+                                                                        .alternate,
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -1462,7 +1494,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                           fontFamily:
                                                                               'WorkSans',
                                                                           color:
-                                                                              FlutterFlowTheme.of(context).primary,
+                                                                              FlutterFlowTheme.of(context).alternate,
                                                                           fontSize:
                                                                               14.0,
                                                                           letterSpacing:
@@ -1482,7 +1514,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                           'WorkSans',
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .primary,
+                                                                          .alternate,
                                                                       fontSize:
                                                                           14.0,
                                                                       letterSpacing:
@@ -1585,7 +1617,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                         'WorkSans',
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .primary,
+                                                                        .alternate,
                                                                     letterSpacing:
                                                                         0.0,
                                                                   ),
@@ -1667,11 +1699,34 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                 await authManager
                                                                     .sendEmailVerification();
                                                                 logFirebaseEvent(
+                                                                    'Button-Login_show_snack_bar');
+                                                                ScaffoldMessenger.of(
+                                                                        context)
+                                                                    .showSnackBar(
+                                                                  SnackBar(
+                                                                    content:
+                                                                        Text(
+                                                                      'Account Created!',
+                                                                      style:
+                                                                          TextStyle(
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .primaryText,
+                                                                      ),
+                                                                    ),
+                                                                    duration: Duration(
+                                                                        milliseconds:
+                                                                            4000),
+                                                                    backgroundColor:
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .secondary,
+                                                                  ),
+                                                                );
+                                                                logFirebaseEvent(
                                                                     'Button-Login_navigate_to');
 
                                                                 context
                                                                     .pushNamedAuth(
-                                                                  DisplayNameWidget
+                                                                  DisplayNameFINALWidget
                                                                       .routeName,
                                                                   context
                                                                       .mounted,
@@ -1779,7 +1834,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                           fontFamily:
                                                                               'The Seasons',
                                                                           color:
-                                                                              FlutterFlowTheme.of(context).secondary,
+                                                                              FlutterFlowTheme.of(context).tertiary,
                                                                           letterSpacing:
                                                                               0.0,
                                                                         ),
@@ -1846,9 +1901,32 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                                 null) {
                                                                               return;
                                                                             }
+                                                                            logFirebaseEvent('Button_show_snack_bar');
+                                                                            ScaffoldMessenger.of(context).showSnackBar(
+                                                                              SnackBar(
+                                                                                content: Text(
+                                                                                  'Account Created!',
+                                                                                  style: TextStyle(
+                                                                                    color: FlutterFlowTheme.of(context).primaryText,
+                                                                                  ),
+                                                                                ),
+                                                                                duration: Duration(milliseconds: 4000),
+                                                                                backgroundColor: FlutterFlowTheme.of(context).secondary,
+                                                                              ),
+                                                                            );
+                                                                            logFirebaseEvent('Button_navigate_to');
 
-                                                                            context.goNamedAuth(HomeVersion2Widget.routeName,
-                                                                                context.mounted);
+                                                                            context.pushNamedAuth(
+                                                                              DisplayNameFINALWidget.routeName,
+                                                                              context.mounted,
+                                                                              extra: <String, dynamic>{
+                                                                                kTransitionInfoKey: TransitionInfo(
+                                                                                  hasTransition: true,
+                                                                                  transitionType: PageTransitionType.fade,
+                                                                                  duration: Duration(milliseconds: 2),
+                                                                                ),
+                                                                              },
+                                                                            );
                                                                           },
                                                                           text:
                                                                               FFLocalizations.of(context).getText(
@@ -1876,10 +1954,13 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                                 0.0,
                                                                                 0.0,
                                                                                 0.0),
-                                                                            color:
+                                                                            iconColor:
                                                                                 FlutterFlowTheme.of(context).error,
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).tertiary,
                                                                             textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                   fontFamily: 'The Seasons',
+                                                                                  color: FlutterFlowTheme.of(context).primary,
                                                                                   letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.bold,
                                                                                 ),
@@ -1909,15 +1990,38 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                                   if (user == null) {
                                                                                     return;
                                                                                   }
+                                                                                  logFirebaseEvent('Button_show_snack_bar');
+                                                                                  ScaffoldMessenger.of(context).showSnackBar(
+                                                                                    SnackBar(
+                                                                                      content: Text(
+                                                                                        'Account Created!',
+                                                                                        style: TextStyle(
+                                                                                          color: FlutterFlowTheme.of(context).primaryText,
+                                                                                        ),
+                                                                                      ),
+                                                                                      duration: Duration(milliseconds: 4000),
+                                                                                      backgroundColor: FlutterFlowTheme.of(context).secondary,
+                                                                                    ),
+                                                                                  );
+                                                                                  logFirebaseEvent('Button_navigate_to');
 
-                                                                                  context.goNamedAuth(HomeVersion2Widget.routeName, context.mounted);
+                                                                                  context.pushNamedAuth(
+                                                                                    DisplayNameFINALWidget.routeName,
+                                                                                    context.mounted,
+                                                                                    extra: <String, dynamic>{
+                                                                                      kTransitionInfoKey: TransitionInfo(
+                                                                                        hasTransition: true,
+                                                                                        transitionType: PageTransitionType.fade,
+                                                                                        duration: Duration(milliseconds: 2),
+                                                                                      ),
+                                                                                    },
+                                                                                  );
                                                                                 },
                                                                                 text: FFLocalizations.of(context).getText(
                                                                                   'tonqxhn0' /* Continue with Apple */,
                                                                                 ),
                                                                                 icon: FaIcon(
                                                                                   FontAwesomeIcons.apple,
-                                                                                  color: FlutterFlowTheme.of(context).primary,
                                                                                   size: 20.0,
                                                                                 ),
                                                                                 options: FFButtonOptions(
@@ -1925,7 +2029,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                                   height: 44.0,
                                                                                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                                                                   iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                                                                  color: Colors.black,
+                                                                                  iconColor: FlutterFlowTheme.of(context).primary,
+                                                                                  color: FlutterFlowTheme.of(context).alternate,
                                                                                   textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'The Seasons',
                                                                                         color: FlutterFlowTheme.of(context).primary,

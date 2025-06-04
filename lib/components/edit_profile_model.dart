@@ -23,8 +23,8 @@ import 'package:provider/provider.dart';
 class EditProfileModel extends FlutterFlowModel<EditProfileWidget> {
   ///  State fields for stateful widgets in this component.
 
-  bool isDataUploading = false;
-  FFUploadedFile uploadedLocalFile =
+  bool isDataUploading_uploadDataPch = false;
+  FFUploadedFile uploadedLocalFile_uploadDataPch =
       FFUploadedFile(bytes: Uint8List.fromList([]));
 
   // State field(s) for yourName widget.

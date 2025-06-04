@@ -70,14 +70,18 @@ class _CalmBreathingCompWidgetState extends State<CalmBreathingCompWidget>
           opacity: 0.5,
           duration: 740.0.ms,
           curve: Curves.easeInOut,
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(16.0),
-            child: Image.asset(
-              'assets/images/Clean_and_organic_AI_interface_by_milkinside.gif',
-              width: double.infinity,
-              height: double.infinity,
-              fit: BoxFit.cover,
-              alignment: Alignment(0.0, 0.0),
+          child: Hero(
+            tag: 'BackgroundPicture',
+            transitionOnUserGestures: true,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(16.0),
+              child: Image.asset(
+                'assets/images/Erica_Anderson_(5).gif',
+                width: double.infinity,
+                height: double.infinity,
+                fit: BoxFit.cover,
+                alignment: Alignment(0.0, 0.0),
+              ),
             ),
           ),
         ),
@@ -85,7 +89,7 @@ class _CalmBreathingCompWidgetState extends State<CalmBreathingCompWidget>
           alignment: AlignmentDirectional(0.0, 1.0),
           child: Container(
             width: double.infinity,
-            height: 216.3,
+            height: 302.3,
             decoration: BoxDecoration(
               boxShadow: [
                 BoxShadow(
@@ -133,7 +137,7 @@ class _CalmBreathingCompWidgetState extends State<CalmBreathingCompWidget>
                               12.0, 6.0, 12.0, 6.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
-                              '0pf5aoxc' /* 4 seconds - 8 seconds */,
+                              '0pf5aoxc' /* Beginner - 50 XP */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -175,7 +179,7 @@ class _CalmBreathingCompWidgetState extends State<CalmBreathingCompWidget>
                       ),
                       Text(
                         FFLocalizations.of(context).getText(
-                          'psu4cwex' /* Help treat insomnia, Provide a... */,
+                          'psu4cwex' /* Use a breathing method to help... */,
                         ),
                         textAlign: TextAlign.center,
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -183,6 +187,7 @@ class _CalmBreathingCompWidgetState extends State<CalmBreathingCompWidget>
                               color: FlutterFlowTheme.of(context).primaryText,
                               fontSize: 14.0,
                               letterSpacing: 0.0,
+                              fontWeight: FontWeight.w300,
                               lineHeight: 1.5,
                             ),
                       ),

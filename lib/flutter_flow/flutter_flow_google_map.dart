@@ -3,6 +3,7 @@ import 'dart:math';
 import 'dart:ui';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -83,6 +84,10 @@ class FlutterFlowGoogleMap extends StatefulWidget {
     this.showMapToolbar = false,
     this.showTraffic = false,
     this.centerMapOnMarkerTap = false,
+    // Whether the map takes gesture preference over the surrounding page.
+    // This is useful when the map is inside a scrolling Widget, and you want
+    // the gestures within the map to not affect the surrounding page.
+    this.mapTakesGesturePreference = false,
     super.key,
   });
 
@@ -103,6 +108,7 @@ class FlutterFlowGoogleMap extends StatefulWidget {
   final bool showMapToolbar;
   final bool showTraffic;
   final bool centerMapOnMarkerTap;
+  final bool mapTakesGesturePreference;
 
   @override
   State<StatefulWidget> createState() => _FlutterFlowGoogleMapState();
@@ -183,7 +189,12 @@ class _FlutterFlowGoogleMapState extends State<FlutterFlowGoogleMap> {
   }
 
   @override
-  Widget build(BuildContext context) => AbsorbPointer(
+  Widget build(BuildContext context) {
+    final mapHasGesturePreference = widget.mapTakesGesturePreference &&
+        widget.allowInteraction &&
+        widget.allowZoom;
+
+    final googleMapWidget = AbsorbPointer(
       absorbing: !widget.allowInteraction,
       child: GoogleMap(
         onMapCreated: (controller) async {
@@ -223,7 +234,25 @@ class _FlutterFlowGoogleMapState extends State<FlutterFlowGoogleMap> {
               ),
             )
             .toSet(),
-      ));
+        gestureRecognizers: {
+          if (mapHasGesturePreference)
+            const Factory<OneSequenceGestureRecognizer>(
+              EagerGestureRecognizer.new,
+            ),
+        },
+        webGestureHandling:
+            mapHasGesturePreference ? WebGestureHandling.cooperative : null,
+      ),
+    );
+
+    return mapHasGesturePreference
+        ? GestureDetector(
+            onVerticalDragStart: (_) {},
+            behavior: HitTestBehavior.opaque,
+            child: googleMapWidget,
+          )
+        : googleMapWidget;
+  }
 }
 
 extension ToGoogleMapsLatLng on latlng.LatLng {

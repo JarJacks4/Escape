@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:math';
 import 'dart:ui';
-import '/index.dart';
 import 'splash_screen_widget.dart' show SplashScreenWidget;
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';

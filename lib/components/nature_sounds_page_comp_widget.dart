@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -107,7 +108,7 @@ class _NatureSoundsPageCompWidgetState
                               12.0, 6.0, 12.0, 6.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
-                              'jibu7okf' /* 15 XP Points */,
+                              'jibu7okf' /* Expert - 150 XP */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -175,8 +176,21 @@ class _NatureSoundsPageCompWidgetState
                         padding: EdgeInsetsDirectional.fromSTEB(
                             0.0, 12.0, 0.0, 12.0),
                         child: FFButtonWidget(
-                          onPressed: () {
-                            print('Button pressed ...');
+                          onPressed: () async {
+                            logFirebaseEvent(
+                                'NATURE_SOUNDS_START_NOW_BTN_ON_TAP');
+                            logFirebaseEvent('Button_navigate_to');
+
+                            context.pushNamed(
+                              IncreaseFocusGoalWidget.routeName,
+                              extra: <String, dynamic>{
+                                kTransitionInfoKey: TransitionInfo(
+                                  hasTransition: true,
+                                  transitionType: PageTransitionType.fade,
+                                  duration: Duration(milliseconds: 2),
+                                ),
+                              },
+                            );
                           },
                           text: FFLocalizations.of(context).getText(
                             '01sl57h6' /* Start Now */,

@@ -3,6 +3,7 @@ import '/components/chat_with_lucille_card_widget.dart';
 import '/components/earn_points_with_avatar_card_widget.dart';
 import '/components/generate_soundscapes_card_widget.dart';
 import '/components/mood_tracking_card_widget.dart';
+import '/components/progress_bar_final_widget.dart';
 import '/components/self_care_routine_card_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -31,6 +32,8 @@ class LucilleHomeModel extends FlutterFlowModel<LucilleHomeWidget> {
   late SelfCareRoutineCardModel selfCareRoutineCardModel;
   // Model for ChangeYourAvatar component.
   late ChangeYourAvatarModel changeYourAvatarModel;
+  // Model for progressBarFinal component.
+  late ProgressBarFinalModel progressBarFinalModel;
 
   @override
   void initState(BuildContext context) {
@@ -44,6 +47,7 @@ class LucilleHomeModel extends FlutterFlowModel<LucilleHomeWidget> {
     selfCareRoutineCardModel =
         createModel(context, () => SelfCareRoutineCardModel());
     changeYourAvatarModel = createModel(context, () => ChangeYourAvatarModel());
+    progressBarFinalModel = createModel(context, () => ProgressBarFinalModel());
   }
 
   @override
@@ -54,5 +58,6 @@ class LucilleHomeModel extends FlutterFlowModel<LucilleHomeWidget> {
     earnPointsWithAvatarCardModel.dispose();
     selfCareRoutineCardModel.dispose();
     changeYourAvatarModel.dispose();
+    progressBarFinalModel.dispose();
   }
 }

@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
+import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -53,7 +54,7 @@ class _MoodTrackingCardWidgetState extends State<MoodTrackingCardWidget> {
           image: DecorationImage(
             fit: BoxFit.cover,
             image: Image.asset(
-              'assets/images/download_(17).gif',
+              'assets/images/download_(23).gif',
             ).image,
           ),
           borderRadius: BorderRadius.circular(20.0),
@@ -63,7 +64,7 @@ class _MoodTrackingCardWidgetState extends State<MoodTrackingCardWidget> {
           height: 100.0,
           decoration: BoxDecoration(
             gradient: LinearGradient(
-              colors: [Color(0xC139519F), FlutterFlowTheme.of(context).accent3],
+              colors: [Color(0x8839519F), FlutterFlowTheme.of(context).accent3],
               stops: [0.0, 1.0],
               begin: AlignmentDirectional(0.0, -1.0),
               end: AlignmentDirectional(0, 1.0),
@@ -90,8 +91,21 @@ class _MoodTrackingCardWidgetState extends State<MoodTrackingCardWidget> {
                           color: FlutterFlowTheme.of(context).primary,
                           size: 24.0,
                         ),
-                        onPressed: () {
-                          print('IconButton pressed ...');
+                        onPressed: () async {
+                          logFirebaseEvent(
+                              'MOOD_TRACKING_CARD_arrow_outward_ICN_ON_');
+                          logFirebaseEvent('IconButton_navigate_to');
+
+                          context.pushNamed(
+                            MoodAnalyzerUnrealPageWidget.routeName,
+                            extra: <String, dynamic>{
+                              kTransitionInfoKey: TransitionInfo(
+                                hasTransition: true,
+                                transitionType: PageTransitionType.fade,
+                                duration: Duration(milliseconds: 0),
+                              ),
+                            },
+                          );
                         },
                       ),
                     ),

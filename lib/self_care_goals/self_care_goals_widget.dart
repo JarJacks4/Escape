@@ -186,16 +186,13 @@ class _SelfCareGoalsWidgetState extends State<SelfCareGoalsWidget> {
                                       FlutterFlowCheckboxGroup(
                                         options: [
                                           FFLocalizations.of(context).getText(
-                                            'yy3sj2ln' /* Gaming */,
+                                            'yy3sj2ln' /* Calmness */,
                                           ),
                                           FFLocalizations.of(context).getText(
-                                            '3ovgrruc' /* Yoga */,
+                                            '3ovgrruc' /* Stretching */,
                                           ),
                                           FFLocalizations.of(context).getText(
-                                            'pmjo6mfc' /* Calmness */,
-                                          ),
-                                          FFLocalizations.of(context).getText(
-                                            'z8kzs3b8' /* Peace */,
+                                            'pmjo6mfc' /* Increase Focus */,
                                           ),
                                           FFLocalizations.of(context).getText(
                                             '1h0zwb09' /* Tai Chi */,
@@ -207,7 +204,10 @@ class _SelfCareGoalsWidgetState extends State<SelfCareGoalsWidget> {
                                             'sud14z9k' /* Mental Health */,
                                           ),
                                           FFLocalizations.of(context).getText(
-                                            'vxwupga2' /* Binaural Beats */,
+                                            'vxwupga2' /* Sleep */,
+                                          ),
+                                          FFLocalizations.of(context).getText(
+                                            'wd2x5wti' /* Gaming/Immersive Experience */,
                                           )
                                         ],
                                         onChanged: (val) => safeSetState(() =>
@@ -224,7 +224,7 @@ class _SelfCareGoalsWidgetState extends State<SelfCareGoalsWidget> {
                                             .accent1,
                                         checkboxBorderColor:
                                             FlutterFlowTheme.of(context)
-                                                .accent1,
+                                                .alternate,
                                         textStyle: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -316,10 +316,11 @@ class _SelfCareGoalsWidgetState extends State<SelfCareGoalsWidget> {
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleMedium
                                         .override(
-                                          fontFamily: 'WorkSans',
+                                          fontFamily: 'The Seasons',
                                           color: FlutterFlowTheme.of(context)
                                               .primary,
                                           letterSpacing: 0.0,
+                                          fontWeight: FontWeight.bold,
                                         ),
                                     elevation: 4.0,
                                     borderSide: BorderSide(
@@ -328,9 +329,9 @@ class _SelfCareGoalsWidgetState extends State<SelfCareGoalsWidget> {
                                     ),
                                     borderRadius: BorderRadius.circular(50.0),
                                     hoverColor:
-                                        FlutterFlowTheme.of(context).primary,
-                                    hoverTextColor:
                                         FlutterFlowTheme.of(context).accent1,
+                                    hoverTextColor:
+                                        FlutterFlowTheme.of(context).primary,
                                   ),
                                 ),
                               ),

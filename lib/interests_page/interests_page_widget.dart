@@ -225,14 +225,14 @@ class _InterestsPageWidgetState extends State<InterestsPageWidget> {
                                             .accent1,
                                         checkboxBorderColor:
                                             FlutterFlowTheme.of(context)
-                                                .accent1,
+                                                .alternate,
                                         textStyle: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'WorkSans',
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .alternate,
+                                                      .tertiary,
                                               letterSpacing: 0.0,
                                             ),
                                         unselectedTextStyle:
@@ -323,10 +323,11 @@ class _InterestsPageWidgetState extends State<InterestsPageWidget> {
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleMedium
                                         .override(
-                                          fontFamily: 'WorkSans',
+                                          fontFamily: 'The Seasons',
                                           color: FlutterFlowTheme.of(context)
-                                              .accent1,
+                                              .primary,
                                           letterSpacing: 0.0,
+                                          fontWeight: FontWeight.bold,
                                         ),
                                     elevation: 4.0,
                                     borderSide: BorderSide(

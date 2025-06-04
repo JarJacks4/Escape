@@ -219,7 +219,6 @@ class _DailyFeelingsCompWidgetState extends State<DailyFeelingsCompWidget> {
                       ),
                       icon: Icon(
                         Icons.photo_camera,
-                        color: FlutterFlowTheme.of(context).primary,
                         size: 15.0,
                       ),
                       options: FFButtonOptions(
@@ -228,6 +227,7 @@ class _DailyFeelingsCompWidgetState extends State<DailyFeelingsCompWidget> {
                         padding: EdgeInsets.all(8.0),
                         iconPadding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        iconColor: FlutterFlowTheme.of(context).primary,
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                         textStyle:
                             FlutterFlowTheme.of(context).bodyMedium.override(
@@ -252,7 +252,6 @@ class _DailyFeelingsCompWidgetState extends State<DailyFeelingsCompWidget> {
                       ),
                       icon: Icon(
                         Icons.mic,
-                        color: FlutterFlowTheme.of(context).primary,
                         size: 15.0,
                       ),
                       options: FFButtonOptions(
@@ -261,6 +260,7 @@ class _DailyFeelingsCompWidgetState extends State<DailyFeelingsCompWidget> {
                         padding: EdgeInsets.all(8.0),
                         iconPadding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        iconColor: FlutterFlowTheme.of(context).primary,
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                         textStyle:
                             FlutterFlowTheme.of(context).bodyMedium.override(

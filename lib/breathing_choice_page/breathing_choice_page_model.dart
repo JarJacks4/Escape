@@ -1,7 +1,8 @@
-import '/components/basic_breathing_page_comp_widget.dart';
 import '/components/before_bed_breathing_comp_widget.dart';
 import '/components/calm_breathing_comp_widget.dart';
 import '/components/deep_breathing_comp_widget.dart';
+import '/components/long_breathe_meditation_f_i_n_a_l_widget.dart';
+import '/components/short_breathe_meditation_f_i_n_a_l_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
@@ -25,10 +26,12 @@ class BreathingChoicePageModel
   late DeepBreathingCompModel deepBreathingCompModel;
   // Model for CalmBreathingComp component.
   late CalmBreathingCompModel calmBreathingCompModel;
-  // Model for BasicBreathingPageComp component.
-  late BasicBreathingPageCompModel basicBreathingPageCompModel;
+  // Model for LongBreatheMeditationFINAL component.
+  late LongBreatheMeditationFINALModel longBreatheMeditationFINALModel;
   // Model for BeforeBedBreathingComp component.
   late BeforeBedBreathingCompModel beforeBedBreathingCompModel;
+  // Model for ShortBreatheMeditationFINAL component.
+  late ShortBreatheMeditationFINALModel shortBreatheMeditationFINALModel;
 
   @override
   void initState(BuildContext context) {
@@ -36,17 +39,20 @@ class BreathingChoicePageModel
         createModel(context, () => DeepBreathingCompModel());
     calmBreathingCompModel =
         createModel(context, () => CalmBreathingCompModel());
-    basicBreathingPageCompModel =
-        createModel(context, () => BasicBreathingPageCompModel());
+    longBreatheMeditationFINALModel =
+        createModel(context, () => LongBreatheMeditationFINALModel());
     beforeBedBreathingCompModel =
         createModel(context, () => BeforeBedBreathingCompModel());
+    shortBreatheMeditationFINALModel =
+        createModel(context, () => ShortBreatheMeditationFINALModel());
   }
 
   @override
   void dispose() {
     deepBreathingCompModel.dispose();
     calmBreathingCompModel.dispose();
-    basicBreathingPageCompModel.dispose();
+    longBreatheMeditationFINALModel.dispose();
     beforeBedBreathingCompModel.dispose();
+    shortBreatheMeditationFINALModel.dispose();
   }
 }

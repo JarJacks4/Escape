@@ -1,7 +1,8 @@
-import '/components/basic_breathing_page_comp_widget.dart';
 import '/components/before_bed_breathing_comp_widget.dart';
 import '/components/calm_breathing_comp_widget.dart';
 import '/components/deep_breathing_comp_widget.dart';
+import '/components/long_breathe_meditation_f_i_n_a_l_widget.dart';
+import '/components/short_breathe_meditation_f_i_n_a_l_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
@@ -110,7 +111,7 @@ class _BreathingChoicePageWidgetState extends State<BreathingChoicePageWidget> {
                                     'BREATHING_CHOICE_Image_iw49a95u_ON_TAP');
                                 logFirebaseEvent('Image_navigate_to');
 
-                                context.pushNamed(HomeVersion2Widget.routeName);
+                                context.pushNamed(HomeVersion4Widget.routeName);
                               },
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(8.0),
@@ -156,14 +157,19 @@ class _BreathingChoicePageWidgetState extends State<BreathingChoicePageWidget> {
                         child: CalmBreathingCompWidget(),
                       ),
                       wrapWithModel(
-                        model: _model.basicBreathingPageCompModel,
+                        model: _model.longBreatheMeditationFINALModel,
                         updateCallback: () => safeSetState(() {}),
-                        child: BasicBreathingPageCompWidget(),
+                        child: LongBreatheMeditationFINALWidget(),
                       ),
                       wrapWithModel(
                         model: _model.beforeBedBreathingCompModel,
                         updateCallback: () => safeSetState(() {}),
                         child: BeforeBedBreathingCompWidget(),
+                      ),
+                      wrapWithModel(
+                        model: _model.shortBreatheMeditationFINALModel,
+                        updateCallback: () => safeSetState(() {}),
+                        child: ShortBreatheMeditationFINALWidget(),
                       ),
                     ],
                     carouselController: _model.carouselController ??=

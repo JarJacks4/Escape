@@ -197,16 +197,20 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
-                            FFLocalizations.of(context).getText(
-                              'v2rrxvy2' /* Recommended For You */,
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                15.0, 0.0, 0.0, 0.0),
+                            child: Text(
+                              FFLocalizations.of(context).getText(
+                                'v2rrxvy2' /* Recommended For You */,
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .headlineSmall
+                                  .override(
+                                    fontFamily: 'WorkSans',
+                                    letterSpacing: 0.0,
+                                  ),
                             ),
-                            style: FlutterFlowTheme.of(context)
-                                .headlineSmall
-                                .override(
-                                  fontFamily: 'WorkSans',
-                                  letterSpacing: 0.0,
-                                ),
                           ),
                           Text(
                             FFLocalizations.of(context).getText(
@@ -224,7 +228,7 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                       ),
                     ),
                     Container(
-                      height: 220.0,
+                      height: 269.23,
                       child: ListView(
                         padding: EdgeInsets.fromLTRB(
                           12.0,
@@ -248,6 +252,8 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                   16.0, 16.0, 16.0, 16.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -266,7 +272,7 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                         child: Icon(
                                           Icons.self_improvement,
                                           color: FlutterFlowTheme.of(context)
-                                              .primary,
+                                              .alternate,
                                           size: 24.0,
                                         ),
                                       ),
@@ -278,6 +284,9 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                             .labelMedium
                                             .override(
                                               fontFamily: 'WorkSans',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .accent1,
                                               letterSpacing: 0.0,
                                             ),
                                       ),
@@ -309,7 +318,7 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                               fontFamily: 'WorkSans',
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .secondaryText,
+                                                      .secondary,
                                               letterSpacing: 0.0,
                                             ),
                                       ),
@@ -337,7 +346,7 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                           .override(
                                             fontFamily: 'WorkSans',
                                             color: FlutterFlowTheme.of(context)
-                                                .info,
+                                                .alternate,
                                             letterSpacing: 0.0,
                                           ),
                                       elevation: 0.0,
@@ -360,6 +369,8 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                   16.0, 16.0, 16.0, 16.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -390,6 +401,9 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                             .labelMedium
                                             .override(
                                               fontFamily: 'WorkSans',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .accent1,
                                               letterSpacing: 0.0,
                                             ),
                                       ),
@@ -421,7 +435,7 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                               fontFamily: 'WorkSans',
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .secondaryText,
+                                                      .secondary,
                                               letterSpacing: 0.0,
                                             ),
                                       ),
@@ -449,7 +463,7 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                           .override(
                                             fontFamily: 'WorkSans',
                                             color: FlutterFlowTheme.of(context)
-                                                .info,
+                                                .alternate,
                                             letterSpacing: 0.0,
                                           ),
                                       elevation: 0.0,
@@ -472,6 +486,8 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                   16.0, 16.0, 16.0, 16.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -502,6 +518,9 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                             .labelMedium
                                             .override(
                                               fontFamily: 'WorkSans',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .accent1,
                                               letterSpacing: 0.0,
                                             ),
                                       ),
@@ -533,7 +552,7 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                               fontFamily: 'WorkSans',
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .secondaryText,
+                                                      .secondary,
                                               letterSpacing: 0.0,
                                             ),
                                       ),
@@ -561,7 +580,7 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                           .override(
                                             fontFamily: 'WorkSans',
                                             color: FlutterFlowTheme.of(context)
-                                                .info,
+                                                .alternate,
                                             letterSpacing: 0.0,
                                           ),
                                       elevation: 0.0,
@@ -593,16 +612,20 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
-                            FFLocalizations.of(context).getText(
-                              'lrjal42d' /* Recommended Resources */,
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                15.0, 0.0, 0.0, 0.0),
+                            child: Text(
+                              FFLocalizations.of(context).getText(
+                                'lrjal42d' /* Recommended Resources */,
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .headlineSmall
+                                  .override(
+                                    fontFamily: 'WorkSans',
+                                    letterSpacing: 0.0,
+                                  ),
                             ),
-                            style: FlutterFlowTheme.of(context)
-                                .headlineSmall
-                                .override(
-                                  fontFamily: 'WorkSans',
-                                  letterSpacing: 0.0,
-                                ),
                           ),
                           Text(
                             FFLocalizations.of(context).getText(
@@ -620,7 +643,7 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                       ),
                     ),
                     Container(
-                      height: 220.0,
+                      height: 231.77,
                       child: ListView(
                         padding: EdgeInsets.fromLTRB(
                           16.0,
@@ -644,6 +667,8 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
                                   12.0, 12.0, 12.0, 12.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Stack(

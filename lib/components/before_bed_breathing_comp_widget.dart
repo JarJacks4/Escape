@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+import '/index.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
@@ -51,7 +52,7 @@ class _BeforeBedBreathingCompWidgetState
           child: ClipRRect(
             borderRadius: BorderRadius.circular(16.0),
             child: Image.asset(
-              'assets/images/download_(16).gif',
+              'assets/images/Erica_Anderson_(4).gif',
               width: double.infinity,
               height: double.infinity,
               fit: BoxFit.cover,
@@ -63,7 +64,7 @@ class _BeforeBedBreathingCompWidgetState
           alignment: AlignmentDirectional(0.0, 1.0),
           child: Container(
             width: double.infinity,
-            height: 210.62,
+            height: 243.8,
             decoration: BoxDecoration(
               boxShadow: [
                 BoxShadow(
@@ -111,7 +112,7 @@ class _BeforeBedBreathingCompWidgetState
                               12.0, 6.0, 12.0, 6.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
-                              'h8248oih' /* 4 seconds - 4 seconds */,
+                              'h8248oih' /* Intermediate - 100 XP */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -150,25 +151,45 @@ class _BeforeBedBreathingCompWidgetState
                                   ),
                         ),
                       ),
-                      Text(
-                        FFLocalizations.of(context).getText(
-                          'rkxftouj' /* Help treat insomnia, Provide a... */,
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                        child: Text(
+                          FFLocalizations.of(context).getText(
+                            'rkxftouj' /* Help treat insomnia, Provide a... */,
+                          ),
+                          textAlign: TextAlign.center,
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'WorkSans',
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                fontSize: 14.0,
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.w300,
+                                lineHeight: 1.5,
+                              ),
                         ),
-                        textAlign: TextAlign.center,
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'WorkSans',
-                              color: FlutterFlowTheme.of(context).primaryText,
-                              fontSize: 14.0,
-                              letterSpacing: 0.0,
-                              lineHeight: 1.5,
-                            ),
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
                             0.0, 12.0, 0.0, 12.0),
                         child: FFButtonWidget(
-                          onPressed: () {
-                            print('Button pressed ...');
+                          onPressed: () async {
+                            logFirebaseEvent(
+                                'BEFORE_BED_BREATHING_START_NOW_BTN_ON_TA');
+                            logFirebaseEvent('Button_navigate_to');
+
+                            context.pushNamed(
+                              InsomniaGoalWidget.routeName,
+                              extra: <String, dynamic>{
+                                kTransitionInfoKey: TransitionInfo(
+                                  hasTransition: true,
+                                  transitionType: PageTransitionType.fade,
+                                  duration: Duration(milliseconds: 2),
+                                ),
+                              },
+                            );
                           },
                           text: FFLocalizations.of(context).getText(
                             'lognkyrl' /* Start Now */,

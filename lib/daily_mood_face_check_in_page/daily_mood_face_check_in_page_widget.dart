@@ -173,12 +173,12 @@ class _DailyMoodFaceCheckInPageWidgetState
                                     child: Container(
                                       decoration: BoxDecoration(
                                         color: FlutterFlowTheme.of(context)
-                                            .accent1,
+                                            .tertiary,
                                         borderRadius:
                                             BorderRadius.circular(20.0),
                                       ),
                                       child: Padding(
-                                        padding: EdgeInsets.all(8.0),
+                                        padding: EdgeInsets.all(15.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
                                             'pm625uzf' /* 😊 Feeling Great */,
@@ -190,7 +190,7 @@ class _DailyMoodFaceCheckInPageWidgetState
                                                 fontFamily: 'WorkSans',
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .info,
+                                                        .secondary,
                                                 letterSpacing: 0.0,
                                               ),
                                         ),

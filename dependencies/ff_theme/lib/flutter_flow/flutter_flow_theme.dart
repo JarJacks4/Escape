@@ -32,6 +32,8 @@ abstract class FlutterFlowTheme {
   late Color error;
   late Color info;
 
+  late Color black;
+
   @Deprecated('Use displaySmallFamily instead')
   String get title1Family => displaySmallFamily;
   @Deprecated('Use displaySmall instead')
@@ -62,34 +64,49 @@ abstract class FlutterFlowTheme {
   TextStyle get bodyText2 => typography.bodySmall;
 
   String get displayLargeFamily => typography.displayLargeFamily;
+  bool get displayLargeIsCustom => typography.displayLargeIsCustom;
   TextStyle get displayLarge => typography.displayLarge;
   String get displayMediumFamily => typography.displayMediumFamily;
+  bool get displayMediumIsCustom => typography.displayMediumIsCustom;
   TextStyle get displayMedium => typography.displayMedium;
   String get displaySmallFamily => typography.displaySmallFamily;
+  bool get displaySmallIsCustom => typography.displaySmallIsCustom;
   TextStyle get displaySmall => typography.displaySmall;
   String get headlineLargeFamily => typography.headlineLargeFamily;
+  bool get headlineLargeIsCustom => typography.headlineLargeIsCustom;
   TextStyle get headlineLarge => typography.headlineLarge;
   String get headlineMediumFamily => typography.headlineMediumFamily;
+  bool get headlineMediumIsCustom => typography.headlineMediumIsCustom;
   TextStyle get headlineMedium => typography.headlineMedium;
   String get headlineSmallFamily => typography.headlineSmallFamily;
+  bool get headlineSmallIsCustom => typography.headlineSmallIsCustom;
   TextStyle get headlineSmall => typography.headlineSmall;
   String get titleLargeFamily => typography.titleLargeFamily;
+  bool get titleLargeIsCustom => typography.titleLargeIsCustom;
   TextStyle get titleLarge => typography.titleLarge;
   String get titleMediumFamily => typography.titleMediumFamily;
+  bool get titleMediumIsCustom => typography.titleMediumIsCustom;
   TextStyle get titleMedium => typography.titleMedium;
   String get titleSmallFamily => typography.titleSmallFamily;
+  bool get titleSmallIsCustom => typography.titleSmallIsCustom;
   TextStyle get titleSmall => typography.titleSmall;
   String get labelLargeFamily => typography.labelLargeFamily;
+  bool get labelLargeIsCustom => typography.labelLargeIsCustom;
   TextStyle get labelLarge => typography.labelLarge;
   String get labelMediumFamily => typography.labelMediumFamily;
+  bool get labelMediumIsCustom => typography.labelMediumIsCustom;
   TextStyle get labelMedium => typography.labelMedium;
   String get labelSmallFamily => typography.labelSmallFamily;
+  bool get labelSmallIsCustom => typography.labelSmallIsCustom;
   TextStyle get labelSmall => typography.labelSmall;
   String get bodyLargeFamily => typography.bodyLargeFamily;
+  bool get bodyLargeIsCustom => typography.bodyLargeIsCustom;
   TextStyle get bodyLarge => typography.bodyLarge;
   String get bodyMediumFamily => typography.bodyMediumFamily;
+  bool get bodyMediumIsCustom => typography.bodyMediumIsCustom;
   TextStyle get bodyMedium => typography.bodyMedium;
   String get bodySmallFamily => typography.bodySmallFamily;
+  bool get bodySmallIsCustom => typography.bodySmallIsCustom;
   TextStyle get bodySmall => typography.bodySmall;
 
   Typography get typography => ThemeTypography(this);
@@ -119,38 +136,55 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color warning = const Color(0xFFEBEF11);
   late Color error = const Color(0xFFE65454);
   late Color info = const Color(0xFFFFFFFF);
+
+  late Color black = const Color(0xFF000000);
 }
 
 abstract class Typography {
   String get displayLargeFamily;
+  bool get displayLargeIsCustom;
   TextStyle get displayLarge;
   String get displayMediumFamily;
+  bool get displayMediumIsCustom;
   TextStyle get displayMedium;
   String get displaySmallFamily;
+  bool get displaySmallIsCustom;
   TextStyle get displaySmall;
   String get headlineLargeFamily;
+  bool get headlineLargeIsCustom;
   TextStyle get headlineLarge;
   String get headlineMediumFamily;
+  bool get headlineMediumIsCustom;
   TextStyle get headlineMedium;
   String get headlineSmallFamily;
+  bool get headlineSmallIsCustom;
   TextStyle get headlineSmall;
   String get titleLargeFamily;
+  bool get titleLargeIsCustom;
   TextStyle get titleLarge;
   String get titleMediumFamily;
+  bool get titleMediumIsCustom;
   TextStyle get titleMedium;
   String get titleSmallFamily;
+  bool get titleSmallIsCustom;
   TextStyle get titleSmall;
   String get labelLargeFamily;
+  bool get labelLargeIsCustom;
   TextStyle get labelLarge;
   String get labelMediumFamily;
+  bool get labelMediumIsCustom;
   TextStyle get labelMedium;
   String get labelSmallFamily;
+  bool get labelSmallIsCustom;
   TextStyle get labelSmall;
   String get bodyLargeFamily;
+  bool get bodyLargeIsCustom;
   TextStyle get bodyLarge;
   String get bodyMediumFamily;
+  bool get bodyMediumIsCustom;
   TextStyle get bodyMedium;
   String get bodySmallFamily;
+  bool get bodySmallIsCustom;
   TextStyle get bodySmall;
 }
 
@@ -160,6 +194,7 @@ class ThemeTypography extends Typography {
   final FlutterFlowTheme theme;
 
   String get displayLargeFamily => 'The Seasons';
+  bool get displayLargeIsCustom => true;
   TextStyle get displayLarge => TextStyle(
         fontFamily: 'The Seasons',
         color: theme.primaryText,
@@ -167,6 +202,7 @@ class ThemeTypography extends Typography {
         fontSize: 60.0,
       );
   String get displayMediumFamily => 'The Seasons';
+  bool get displayMediumIsCustom => true;
   TextStyle get displayMedium => TextStyle(
         fontFamily: 'The Seasons',
         color: theme.primaryText,
@@ -174,6 +210,7 @@ class ThemeTypography extends Typography {
         fontSize: 45.0,
       );
   String get displaySmallFamily => 'WorkSans';
+  bool get displaySmallIsCustom => true;
   TextStyle get displaySmall => TextStyle(
         fontFamily: 'WorkSans',
         color: theme.primaryText,
@@ -181,6 +218,7 @@ class ThemeTypography extends Typography {
         fontSize: 32.0,
       );
   String get headlineLargeFamily => 'The Seasons';
+  bool get headlineLargeIsCustom => true;
   TextStyle get headlineLarge => TextStyle(
         fontFamily: 'The Seasons',
         color: theme.primaryText,
@@ -188,6 +226,7 @@ class ThemeTypography extends Typography {
         fontSize: 32.0,
       );
   String get headlineMediumFamily => 'The Seasons';
+  bool get headlineMediumIsCustom => true;
   TextStyle get headlineMedium => TextStyle(
         fontFamily: 'The Seasons',
         color: theme.primaryText,
@@ -195,6 +234,7 @@ class ThemeTypography extends Typography {
         fontSize: 22.0,
       );
   String get headlineSmallFamily => 'WorkSans';
+  bool get headlineSmallIsCustom => true;
   TextStyle get headlineSmall => TextStyle(
         fontFamily: 'WorkSans',
         color: theme.primaryText,
@@ -202,6 +242,7 @@ class ThemeTypography extends Typography {
         fontSize: 20.0,
       );
   String get titleLargeFamily => 'The Seasons';
+  bool get titleLargeIsCustom => true;
   TextStyle get titleLarge => TextStyle(
         fontFamily: 'The Seasons',
         color: theme.primaryText,
@@ -209,6 +250,7 @@ class ThemeTypography extends Typography {
         fontSize: 22.0,
       );
   String get titleMediumFamily => 'WorkSans';
+  bool get titleMediumIsCustom => true;
   TextStyle get titleMedium => TextStyle(
         fontFamily: 'WorkSans',
         color: theme.info,
@@ -216,6 +258,7 @@ class ThemeTypography extends Typography {
         fontSize: 18.0,
       );
   String get titleSmallFamily => 'WorkSans';
+  bool get titleSmallIsCustom => true;
   TextStyle get titleSmall => TextStyle(
         fontFamily: 'WorkSans',
         color: theme.info,
@@ -223,6 +266,7 @@ class ThemeTypography extends Typography {
         fontSize: 16.0,
       );
   String get labelLargeFamily => 'WorkSans';
+  bool get labelLargeIsCustom => true;
   TextStyle get labelLarge => TextStyle(
         fontFamily: 'WorkSans',
         color: theme.secondaryText,
@@ -230,6 +274,7 @@ class ThemeTypography extends Typography {
         fontSize: 16.0,
       );
   String get labelMediumFamily => 'WorkSans';
+  bool get labelMediumIsCustom => true;
   TextStyle get labelMedium => TextStyle(
         fontFamily: 'WorkSans',
         color: theme.secondaryText,
@@ -237,6 +282,7 @@ class ThemeTypography extends Typography {
         fontSize: 14.0,
       );
   String get labelSmallFamily => 'WorkSans';
+  bool get labelSmallIsCustom => true;
   TextStyle get labelSmall => TextStyle(
         fontFamily: 'WorkSans',
         color: theme.secondaryText,
@@ -244,12 +290,14 @@ class ThemeTypography extends Typography {
         fontSize: 12.0,
       );
   String get bodyLargeFamily => 'WorkSans';
+  bool get bodyLargeIsCustom => true;
   TextStyle get bodyLarge => TextStyle(
         fontFamily: 'WorkSans',
         color: theme.primaryText,
         fontSize: 16.0,
       );
   String get bodyMediumFamily => 'WorkSans';
+  bool get bodyMediumIsCustom => true;
   TextStyle get bodyMedium => TextStyle(
         fontFamily: 'WorkSans',
         color: theme.primaryText,
@@ -257,6 +305,7 @@ class ThemeTypography extends Typography {
         fontSize: 14.0,
       );
   String get bodySmallFamily => 'WorkSans';
+  bool get bodySmallIsCustom => true;
   TextStyle get bodySmall => TextStyle(
         fontFamily: 'WorkSans',
         color: theme.primaryText,
@@ -278,6 +327,7 @@ extension TextStyleHelper on TextStyle {
     TextDecoration? decoration,
     double? lineHeight,
     List<Shadow>? shadows,
+    String? package,
   }) {
     if (useGoogleFonts && fontFamily != null) {
       font = GoogleFonts.getFont(fontFamily,
@@ -298,6 +348,7 @@ extension TextStyleHelper on TextStyle {
           )
         : copyWith(
             fontFamily: fontFamily,
+            package: package,
             color: color,
             fontSize: fontSize,
             letterSpacing: letterSpacing,

@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -50,7 +51,7 @@ class _DeepSleepMeditationWidgetState extends State<DeepSleepMeditationWidget> {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(16.0),
               child: Image.asset(
-                'assets/images/download_(36).gif',
+                'assets/images/Erica_Anderson_(4).gif',
                 width: double.infinity,
                 height: double.infinity,
                 fit: BoxFit.cover,
@@ -110,7 +111,7 @@ class _DeepSleepMeditationWidgetState extends State<DeepSleepMeditationWidget> {
                               12.0, 6.0, 12.0, 6.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
-                              'k73y9z7c' /* 10 XP Points */,
+                              'k73y9z7c' /* Intermediate - 100 XP */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
@@ -178,8 +179,12 @@ class _DeepSleepMeditationWidgetState extends State<DeepSleepMeditationWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(
                             0.0, 12.0, 0.0, 12.0),
                         child: FFButtonWidget(
-                          onPressed: () {
-                            print('Button pressed ...');
+                          onPressed: () async {
+                            logFirebaseEvent(
+                                'DEEP_SLEEP_MEDITATION_START_NOW_BTN_ON_T');
+                            logFirebaseEvent('Button_navigate_to');
+
+                            context.pushNamed(DeepSleepGoalWidget.routeName);
                           },
                           text: FFLocalizations.of(context).getText(
                             '2v0vbeug' /* Start Now */,

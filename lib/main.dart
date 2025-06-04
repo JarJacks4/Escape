@@ -174,10 +174,16 @@ class _MyAppState extends State<MyApp> {
 }
 
 class NavBarPage extends StatefulWidget {
-  NavBarPage({Key? key, this.initialPage, this.page}) : super(key: key);
+  NavBarPage({
+    Key? key,
+    this.initialPage,
+    this.page,
+    this.disableResizeToAvoidBottomInset = false,
+  }) : super(key: key);
 
   final String? initialPage;
   final Widget? page;
+  final bool disableResizeToAvoidBottomInset;
 
   @override
   _NavBarPageState createState() => _NavBarPageState();
@@ -185,7 +191,7 @@ class NavBarPage extends StatefulWidget {
 
 /// This is the private State class that goes with NavBarPage.
 class _NavBarPageState extends State<NavBarPage> {
-  String _currentPageName = 'HomeVersion2';
+  String _currentPageName = 'HomeVersion4';
   late Widget? _currentPage;
 
   @override
@@ -198,15 +204,16 @@ class _NavBarPageState extends State<NavBarPage> {
   @override
   Widget build(BuildContext context) {
     final tabs = {
-      'HomeVersion2': HomeVersion2Widget(),
+      'HomeVersion4': HomeVersion4Widget(),
       'SelfCarePlanPage': SelfCarePlanPageWidget(),
       'LucilleHome': LucilleHomeWidget(),
-      'CommunityHome': CommunityHomeWidget(),
+      'CommunityHomeFINAL': CommunityHomeFINALWidget(),
       'profileFINAL': ProfileFINALWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
     return Scaffold(
+      resizeToAvoidBottomInset: !widget.disableResizeToAvoidBottomInset,
       body: _currentPage ?? tabs[_currentPageName],
       bottomNavigationBar: Visibility(
         visible: responsiveVisibility(
@@ -221,7 +228,7 @@ class _NavBarPageState extends State<NavBarPage> {
             _currentPage = null;
             _currentPageName = tabs.keys.toList()[i];
           }),
-          backgroundColor: FlutterFlowTheme.of(context).alternate,
+          backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
           selectedItemColor: FlutterFlowTheme.of(context).accent1,
           unselectedItemColor: Color(0xACD0E3F7),
           showSelectedLabels: true,
@@ -267,7 +274,7 @@ class _NavBarPageState extends State<NavBarPage> {
                 size: 24.0,
               ),
               label: FFLocalizations.of(context).getText(
-                'wbli8gd4' /* Providers */,
+                '9h261j1i' /* Community */,
               ),
               tooltip: '',
             ),
