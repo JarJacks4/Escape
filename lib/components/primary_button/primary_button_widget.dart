@@ -1,7 +1,9 @@
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:ui';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'primary_button_model.dart';
 export 'primary_button_model.dart';
 
@@ -9,7 +11,7 @@ class PrimaryButtonWidget extends StatefulWidget {
   const PrimaryButtonWidget({
     super.key,
     String? buttonText,
-  }) : buttonText = buttonText ?? 'Primary';
+  }) : this.buttonText = buttonText ?? 'Primary';
 
   final String buttonText;
 
@@ -42,11 +44,11 @@ class _PrimaryButtonWidgetState extends State<PrimaryButtonWidget> {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: const AlignmentDirectional(0.0, 0.0),
+      alignment: AlignmentDirectional(0.0, 0.0),
       child: Container(
         decoration: BoxDecoration(
-          color: FlutterFlowTheme.of(context).tertiary,
-          boxShadow: const [
+          color: FlutterFlowTheme.of(context).accent1,
+          boxShadow: [
             BoxShadow(
               blurRadius: 22.0,
               color: Color(0xB2405F90),
@@ -63,17 +65,15 @@ class _PrimaryButtonWidgetState extends State<PrimaryButtonWidget> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 18.0, 0.0, 18.0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 18.0, 0.0, 18.0),
               child: Text(
-                widget.buttonText,
+                widget!.buttonText,
                 textAlign: TextAlign.center,
                 style: FlutterFlowTheme.of(context).bodyLarge.override(
-                      fontFamily: FlutterFlowTheme.of(context).bodyLargeFamily,
+                      fontFamily: 'The Seasons',
                       color: Colors.white,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.bold,
-                      useGoogleFonts: GoogleFonts.asMap().containsKey(
-                          FlutterFlowTheme.of(context).bodyLargeFamily),
                       lineHeight: 1.5,
                     ),
               ),

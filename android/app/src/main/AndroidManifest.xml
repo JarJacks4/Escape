@@ -9,13 +9,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="32"/>
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
     <uses-permission android:name="android.permission.READ_MEDIA_VIDEO"/>
-    <uses-permission android:name="android.permission.PRODUCT_INTERACTION"/>
-    <uses-permission android:name="android.permission.CONTACT_INFO"/>
-    <uses-permission android:name="android.permission.USER_ID"/>
-    <uses-permission android:name="android.permission.USER_CONTENT"/>
-    <uses-permission android:name="android.permission.CRASH_DATA"/>
-    <uses-permission android:name="android.permission.PERFORMANCE_DATA"/>
-    <uses-permission android:name="android.permission.APP_TRANSPORT_SECURITY"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
     <application
         android:label="Escape "
         tools:replace="android:label"
@@ -67,6 +61,7 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyB7aTJq3vp0n_4k4ct5d4Z0jOjjAeqSQis"/>
 
 
 

@@ -1,1 +1,1 @@
-export 'custom_vid_player.dart' show CustomVidPlayer;
+export 'confetti_bg_widget.dart' show ConfettiBgWidget;

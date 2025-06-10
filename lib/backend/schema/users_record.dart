@@ -3,15 +3,19 @@ import 'dart:async';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
+import '/backend/schema/util/schema_util.dart';
+
+import "package:tiktokfeed_wz8en7/backend/schema/structs/index.dart"
+    as tiktokfeed_wz8en7_data_schema;
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 class UsersRecord extends FirestoreRecord {
   UsersRecord._(
-    super.reference,
-    super.data,
-  ) {
+    DocumentReference reference,
+    Map<String, dynamic> data,
+  ) : super(reference, data) {
     _initializeFields();
   }
 
@@ -60,45 +64,75 @@ class UsersRecord extends FirestoreRecord {
   bool get freeUser => _freeUser ?? false;
   bool hasFreeUser() => _freeUser != null;
 
-  // "isSubscriber" field.
-  bool? _isSubscriber;
-  bool get isSubscriber => _isSubscriber ?? false;
-  bool hasIsSubscriber() => _isSubscriber != null;
-
-  // "gender" field.
-  String? _gender;
-  String get gender => _gender ?? '';
-  bool hasGender() => _gender != null;
-
-  // "dateOfBirth" field.
-  DateTime? _dateOfBirth;
-  DateTime? get dateOfBirth => _dateOfBirth;
-  bool hasDateOfBirth() => _dateOfBirth != null;
-
-  // "FavoriteTimeToMeditate" field.
+  // "favoriteTimeToMeditate" field.
   DateTime? _favoriteTimeToMeditate;
   DateTime? get favoriteTimeToMeditate => _favoriteTimeToMeditate;
   bool hasFavoriteTimeToMeditate() => _favoriteTimeToMeditate != null;
 
-  // "uploadedMusicFiles" field.
-  String? _uploadedMusicFiles;
-  String get uploadedMusicFiles => _uploadedMusicFiles ?? '';
-  bool hasUploadedMusicFiles() => _uploadedMusicFiles != null;
+  // "isSubscriber" field.
+  DocumentReference? _isSubscriber;
+  DocumentReference? get isSubscriber => _isSubscriber;
+  bool hasIsSubscriber() => _isSubscriber != null;
 
-  // "password" field.
-  String? _password;
-  String get password => _password ?? '';
-  bool hasPassword() => _password != null;
+  // "isSubscribed" field.
+  bool? _isSubscribed;
+  bool get isSubscribed => _isSubscribed ?? false;
+  bool hasIsSubscribed() => _isSubscribed != null;
 
-  // "uploadedVideos" field.
-  DocumentReference? _uploadedVideos;
-  DocumentReference? get uploadedVideos => _uploadedVideos;
-  bool hasUploadedVideos() => _uploadedVideos != null;
+  // "Title" field.
+  String? _title;
+  String get title => _title ?? '';
+  bool hasTitle() => _title != null;
 
-  // "uploadedMusic" field.
-  DocumentReference? _uploadedMusic;
-  DocumentReference? get uploadedMusic => _uploadedMusic;
-  bool hasUploadedMusic() => _uploadedMusic != null;
+  // "RoleChat" field.
+  String? _roleChat;
+  String get roleChat => _roleChat ?? '';
+  bool hasRoleChat() => _roleChat != null;
+
+  // "isHome" field.
+  bool? _isHome;
+  bool get isHome => _isHome ?? false;
+  bool hasIsHome() => _isHome != null;
+
+  // "isAISoundscape" field.
+  bool? _isAISoundscape;
+  bool get isAISoundscape => _isAISoundscape ?? false;
+  bool hasIsAISoundscape() => _isAISoundscape != null;
+
+  // "isLucilleHome" field.
+  bool? _isLucilleHome;
+  bool get isLucilleHome => _isLucilleHome ?? false;
+  bool hasIsLucilleHome() => _isLucilleHome != null;
+
+  // "isProvidersCommunity" field.
+  bool? _isProvidersCommunity;
+  bool get isProvidersCommunity => _isProvidersCommunity ?? false;
+  bool hasIsProvidersCommunity() => _isProvidersCommunity != null;
+
+  // "isProfile" field.
+  bool? _isProfile;
+  bool get isProfile => _isProfile ?? false;
+  bool hasIsProfile() => _isProfile != null;
+
+  // "location" field.
+  LatLng? _location;
+  LatLng? get location => _location;
+  bool hasLocation() => _location != null;
+
+  // "hasSeenWalkthrough" field.
+  bool? _hasSeenWalkthrough;
+  bool get hasSeenWalkthrough => _hasSeenWalkthrough ?? false;
+  bool hasHasSeenWalkthrough() => _hasSeenWalkthrough != null;
+
+  // "hasGainedPoints" field.
+  bool? _hasGainedPoints;
+  bool get hasGainedPoints => _hasGainedPoints ?? false;
+  bool hasHasGainedPoints() => _hasGainedPoints != null;
+
+  // "numberOfGoalsCompleted" field.
+  int? _numberOfGoalsCompleted;
+  int get numberOfGoalsCompleted => _numberOfGoalsCompleted ?? 0;
+  bool hasNumberOfGoalsCompleted() => _numberOfGoalsCompleted != null;
 
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
@@ -110,15 +144,22 @@ class UsersRecord extends FirestoreRecord {
     _displayName = snapshotData['display_name'] as String?;
     _phoneNumber = snapshotData['phone_number'] as String?;
     _freeUser = snapshotData['freeUser'] as bool?;
-    _isSubscriber = snapshotData['isSubscriber'] as bool?;
-    _gender = snapshotData['gender'] as String?;
-    _dateOfBirth = snapshotData['dateOfBirth'] as DateTime?;
     _favoriteTimeToMeditate =
-        snapshotData['FavoriteTimeToMeditate'] as DateTime?;
-    _uploadedMusicFiles = snapshotData['uploadedMusicFiles'] as String?;
-    _password = snapshotData['password'] as String?;
-    _uploadedVideos = snapshotData['uploadedVideos'] as DocumentReference?;
-    _uploadedMusic = snapshotData['uploadedMusic'] as DocumentReference?;
+        snapshotData['favoriteTimeToMeditate'] as DateTime?;
+    _isSubscriber = snapshotData['isSubscriber'] as DocumentReference?;
+    _isSubscribed = snapshotData['isSubscribed'] as bool?;
+    _title = snapshotData['Title'] as String?;
+    _roleChat = snapshotData['RoleChat'] as String?;
+    _isHome = snapshotData['isHome'] as bool?;
+    _isAISoundscape = snapshotData['isAISoundscape'] as bool?;
+    _isLucilleHome = snapshotData['isLucilleHome'] as bool?;
+    _isProvidersCommunity = snapshotData['isProvidersCommunity'] as bool?;
+    _isProfile = snapshotData['isProfile'] as bool?;
+    _location = snapshotData['location'] as LatLng?;
+    _hasSeenWalkthrough = snapshotData['hasSeenWalkthrough'] as bool?;
+    _hasGainedPoints = snapshotData['hasGainedPoints'] as bool?;
+    _numberOfGoalsCompleted =
+        castToType<int>(snapshotData['numberOfGoalsCompleted']);
   }
 
   static CollectionReference get collection =>
@@ -164,14 +205,20 @@ Map<String, dynamic> createUsersRecordData({
   String? displayName,
   String? phoneNumber,
   bool? freeUser,
-  bool? isSubscriber,
-  String? gender,
-  DateTime? dateOfBirth,
   DateTime? favoriteTimeToMeditate,
-  String? uploadedMusicFiles,
-  String? password,
-  DocumentReference? uploadedVideos,
-  DocumentReference? uploadedMusic,
+  DocumentReference? isSubscriber,
+  bool? isSubscribed,
+  String? title,
+  String? roleChat,
+  bool? isHome,
+  bool? isAISoundscape,
+  bool? isLucilleHome,
+  bool? isProvidersCommunity,
+  bool? isProfile,
+  LatLng? location,
+  bool? hasSeenWalkthrough,
+  bool? hasGainedPoints,
+  int? numberOfGoalsCompleted,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -184,14 +231,20 @@ Map<String, dynamic> createUsersRecordData({
       'display_name': displayName,
       'phone_number': phoneNumber,
       'freeUser': freeUser,
+      'favoriteTimeToMeditate': favoriteTimeToMeditate,
       'isSubscriber': isSubscriber,
-      'gender': gender,
-      'dateOfBirth': dateOfBirth,
-      'FavoriteTimeToMeditate': favoriteTimeToMeditate,
-      'uploadedMusicFiles': uploadedMusicFiles,
-      'password': password,
-      'uploadedVideos': uploadedVideos,
-      'uploadedMusic': uploadedMusic,
+      'isSubscribed': isSubscribed,
+      'Title': title,
+      'RoleChat': roleChat,
+      'isHome': isHome,
+      'isAISoundscape': isAISoundscape,
+      'isLucilleHome': isLucilleHome,
+      'isProvidersCommunity': isProvidersCommunity,
+      'isProfile': isProfile,
+      'location': location,
+      'hasSeenWalkthrough': hasSeenWalkthrough,
+      'hasGainedPoints': hasGainedPoints,
+      'numberOfGoalsCompleted': numberOfGoalsCompleted,
     }.withoutNulls,
   );
 
@@ -212,14 +265,20 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.displayName == e2?.displayName &&
         e1?.phoneNumber == e2?.phoneNumber &&
         e1?.freeUser == e2?.freeUser &&
-        e1?.isSubscriber == e2?.isSubscriber &&
-        e1?.gender == e2?.gender &&
-        e1?.dateOfBirth == e2?.dateOfBirth &&
         e1?.favoriteTimeToMeditate == e2?.favoriteTimeToMeditate &&
-        e1?.uploadedMusicFiles == e2?.uploadedMusicFiles &&
-        e1?.password == e2?.password &&
-        e1?.uploadedVideos == e2?.uploadedVideos &&
-        e1?.uploadedMusic == e2?.uploadedMusic;
+        e1?.isSubscriber == e2?.isSubscriber &&
+        e1?.isSubscribed == e2?.isSubscribed &&
+        e1?.title == e2?.title &&
+        e1?.roleChat == e2?.roleChat &&
+        e1?.isHome == e2?.isHome &&
+        e1?.isAISoundscape == e2?.isAISoundscape &&
+        e1?.isLucilleHome == e2?.isLucilleHome &&
+        e1?.isProvidersCommunity == e2?.isProvidersCommunity &&
+        e1?.isProfile == e2?.isProfile &&
+        e1?.location == e2?.location &&
+        e1?.hasSeenWalkthrough == e2?.hasSeenWalkthrough &&
+        e1?.hasGainedPoints == e2?.hasGainedPoints &&
+        e1?.numberOfGoalsCompleted == e2?.numberOfGoalsCompleted;
   }
 
   @override
@@ -233,14 +292,20 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.displayName,
         e?.phoneNumber,
         e?.freeUser,
-        e?.isSubscriber,
-        e?.gender,
-        e?.dateOfBirth,
         e?.favoriteTimeToMeditate,
-        e?.uploadedMusicFiles,
-        e?.password,
-        e?.uploadedVideos,
-        e?.uploadedMusic
+        e?.isSubscriber,
+        e?.isSubscribed,
+        e?.title,
+        e?.roleChat,
+        e?.isHome,
+        e?.isAISoundscape,
+        e?.isLucilleHome,
+        e?.isProvidersCommunity,
+        e?.isProfile,
+        e?.location,
+        e?.hasSeenWalkthrough,
+        e?.hasGainedPoints,
+        e?.numberOfGoalsCompleted
       ]);
 
   @override

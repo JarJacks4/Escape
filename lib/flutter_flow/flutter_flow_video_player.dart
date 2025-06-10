@@ -5,7 +5,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:video_player/video_player.dart';
 
-import '/flutter_flow/flutter_flow_theme.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart' show routeObserver;
 
 const kDefaultAspectRatio = 16 / 9;
@@ -15,7 +15,7 @@ enum VideoType {
   network,
 }
 
-Set<VideoPlayerController> _videoPlayers = {};
+Set<VideoPlayerController> _videoPlayers = Set();
 
 class FlutterFlowVideoPlayer extends StatefulWidget {
   const FlutterFlowVideoPlayer({
@@ -120,7 +120,7 @@ class _FlutterFlowVideoPlayerState extends State<FlutterFlowVideoPlayer>
 
   Future _initializePlayer() async {
     _videoPlayerController = widget.videoType == VideoType.network
-        ? VideoPlayerController.networkUrl(Uri.parse(widget.path))
+        ? VideoPlayerController.networkUrl(Uri.parse(widget.path!))
         : VideoPlayerController.asset(widget.path);
     if (kIsWeb && widget.autoPlay) {
       // Browsers generally don't allow autoplay unless it's muted.
@@ -156,7 +156,7 @@ class _FlutterFlowVideoPlayerState extends State<FlutterFlowVideoPlayer>
       }
       // Stop all other players when one video is playing.
       if (_videoPlayerController!.value.isPlaying) {
-        for (var otherPlayer in _videoPlayers) {
+        _videoPlayers.forEach((otherPlayer) {
           if (otherPlayer != _videoPlayerController &&
               otherPlayer.value.isPlaying &&
               mounted) {
@@ -164,7 +164,7 @@ class _FlutterFlowVideoPlayerState extends State<FlutterFlowVideoPlayer>
               otherPlayer.pause();
             });
           }
-        }
+        });
       }
     });
 
@@ -190,7 +190,7 @@ class _FlutterFlowVideoPlayerState extends State<FlutterFlowVideoPlayer>
   @override
   Widget build(BuildContext context) => FittedBox(
         fit: BoxFit.cover,
-        child: SizedBox(
+        child: Container(
           height: height,
           width: width,
           child: _chewieController != null &&
@@ -200,7 +200,7 @@ class _FlutterFlowVideoPlayerState extends State<FlutterFlowVideoPlayer>
               ? Chewie(controller: _chewieController!)
               : (_chewieController != null &&
                       _chewieController!.videoPlayerController.value.hasError)
-                  ? const Text('Error playing video')
+                  ? Text('Error playing video')
                   : Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [

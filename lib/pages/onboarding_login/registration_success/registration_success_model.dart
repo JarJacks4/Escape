@@ -1,7 +1,15 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/components/primary_button/primary_button_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:ui';
+import '/index.dart';
 import 'registration_success_widget.dart' show RegistrationSuccessWidget;
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
+import 'package:provider/provider.dart';
 
 class RegistrationSuccessModel
     extends FlutterFlowModel<RegistrationSuccessWidget> {

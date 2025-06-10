@@ -1,29 +1,32 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/components/primary_button/primary_button_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:ui';
+import '/index.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
+import 'package:provider/provider.dart';
 import 'registration_success_model.dart';
 export 'registration_success_model.dart';
 
 class RegistrationSuccessWidget extends StatefulWidget {
   const RegistrationSuccessWidget({super.key});
 
+  static String routeName = 'registrationSuccess';
+  static String routePath = 'registrationSuccess';
+
   @override
   State<RegistrationSuccessWidget> createState() =>
       _RegistrationSuccessWidgetState();
 }
 
-class _RegistrationSuccessWidgetState extends State<RegistrationSuccessWidget>
-    with TickerProviderStateMixin {
+class _RegistrationSuccessWidgetState extends State<RegistrationSuccessWidget> {
   late RegistrationSuccessModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -32,84 +35,6 @@ class _RegistrationSuccessWidgetState extends State<RegistrationSuccessWidget>
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'registrationSuccess'});
-    animationsMap.addAll({
-      'lottieAnimationOnPageLoadAnimation': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          FadeEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          MoveEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: const Offset(100.0, 0.0),
-            end: const Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-      'textOnPageLoadAnimation1': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          FadeEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          MoveEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: const Offset(100.0, 0.0),
-            end: const Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-      'textOnPageLoadAnimation2': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          FadeEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          MoveEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: const Offset(100.0, 0.0),
-            end: const Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-      'primaryButtonOnPageLoadAnimation': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          FadeEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          MoveEffect(
-            curve: Curves.linear,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: const Offset(100.0, 0.0),
-            end: const Offset(0.0, 0.0),
-          ),
-        ],
-      ),
-    });
   }
 
   @override
@@ -122,14 +47,17 @@ class _RegistrationSuccessWidgetState extends State<RegistrationSuccessWidget>
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => FocusScope.of(context).unfocus(),
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: Align(
-          alignment: const AlignmentDirectional(0.0, 0.0),
+          alignment: AlignmentDirectional(0.0, 0.0),
           child: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(30.0, 0.0, 30.0, 30.0),
+            padding: EdgeInsetsDirectional.fromSTEB(30.0, 0.0, 30.0, 30.0),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -140,72 +68,65 @@ class _RegistrationSuccessWidgetState extends State<RegistrationSuccessWidget>
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Lottie.asset(
-                        'assets/jsons/Animation_-_1708887204153.json',
+                        'assets/jsons/Animation_-_1708892458656.json',
                         width: 383.0,
                         height: 315.0,
                         fit: BoxFit.contain,
                         animate: true,
-                      ).animateOnPageLoad(
-                          animationsMap['lottieAnimationOnPageLoadAnimation']!),
+                      ),
                       Align(
-                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        alignment: AlignmentDirectional(0.0, 0.0),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 80.0, 0.0, 30.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 8.0),
-                                child: Text(
-                                  FFLocalizations.of(context).getText(
-                                    'awk4ovqu' /* Welcome, User */,
+                                child: AuthUserStreamWidget(
+                                  builder: (context) => Text(
+                                    valueOrDefault<String>(
+                                      'Welcome,${currentUserDisplayName}',
+                                      'Welcome, Jane Doe!',
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleLarge
+                                        .override(
+                                          fontFamily: 'WorkSans',
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                          fontSize: 36.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.bold,
+                                          lineHeight: 1.5,
+                                        ),
                                   ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .titleLarge
-                                      .override(
-                                        fontFamily: FlutterFlowTheme.of(context)
-                                            .titleLargeFamily,
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        fontSize: 32.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.bold,
-                                        useGoogleFonts: GoogleFonts.asMap()
-                                            .containsKey(
-                                                FlutterFlowTheme.of(context)
-                                                    .titleLargeFamily),
-                                        lineHeight: 1.5,
-                                      ),
-                                ).animateOnPageLoad(
-                                    animationsMap['textOnPageLoadAnimation1']!),
+                                ),
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(0.0, 1.0),
+                                alignment: AlignmentDirectional(0.0, 1.0),
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      24.0, 0.0, 24.0, 0.0),
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      24.0, 22.0, 24.0, 0.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
-                                      'daxpmpxp' /* You are all set now, let’s rea... */,
+                                      'daxpmpxp' /* You are all set to create a ne... */,
                                     ),
                                     textAlign: TextAlign.center,
                                     style: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
-                                          fontFamily: 'Roboto',
+                                          fontFamily: 'WorkSans',
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
-                                          fontSize: 20.0,
+                                          fontSize: 28.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w300,
-                                          useGoogleFonts: GoogleFonts.asMap()
-                                              .containsKey('Roboto'),
                                           lineHeight: 1.5,
                                         ),
-                                  ).animateOnPageLoad(animationsMap[
-                                      'textOnPageLoadAnimation2']!),
+                                  ),
                                 ),
                               ),
                             ],
@@ -230,17 +151,25 @@ class _RegistrationSuccessWidgetState extends State<RegistrationSuccessWidget>
                               'REGISTRATION_SUCCESS_Container_cefms4om_');
                           logFirebaseEvent('primaryButton_navigate_to');
 
-                          context.pushNamed('UserCommunityOnboarding');
+                          context.pushNamed(
+                            HomeVersion4Widget.routeName,
+                            extra: <String, dynamic>{
+                              kTransitionInfoKey: TransitionInfo(
+                                hasTransition: true,
+                                transitionType: PageTransitionType.fade,
+                                duration: Duration(milliseconds: 2),
+                              ),
+                            },
+                          );
                         },
                         child: wrapWithModel(
                           model: _model.primaryButtonModel,
                           updateCallback: () => safeSetState(() {}),
-                          child: const PrimaryButtonWidget(
+                          child: PrimaryButtonWidget(
                             buttonText: 'Go To Home',
                           ),
                         ),
-                      ).animateOnPageLoad(
-                          animationsMap['primaryButtonOnPageLoadAnimation']!),
+                      ),
                     ),
                   ],
                 ),

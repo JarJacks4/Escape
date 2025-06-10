@@ -1,5 +1,9 @@
 export '/backend/schema/util/schema_util.dart';
 
+export 'image_helper_struct.dart';
+export 'message_struct.dart';
+export 'model_configuration_struct.dart';
+export 'user_profile_struct.dart';
 export 'you_tube_data_a_p_i_struct.dart';
 export 'default_thumbnails_struct.dart';
 export 'high_struct.dart';
@@ -11,3 +15,4 @@ export 'resource_id_struct.dart';
 export 'snippet_struct.dart';
 export 'standard_struct.dart';
 export 'thumbnails_all_struct.dart';
+export 'tiktok_page_struct.dart';
