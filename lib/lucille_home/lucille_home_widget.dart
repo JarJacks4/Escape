@@ -65,7 +65,7 @@ class _LucilleHomeWidgetState extends State<LucilleHomeWidget> {
           desktop: false,
         )
             ? PreferredSize(
-                preferredSize: Size.fromHeight(100.0),
+                preferredSize: Size.fromHeight(140.0),
                 child: AppBar(
                   backgroundColor: FlutterFlowTheme.of(context).primary,
                   automaticallyImplyLeading: false,
@@ -75,72 +75,69 @@ class _LucilleHomeWidgetState extends State<LucilleHomeWidget> {
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Flexible(
-                          flex: 1,
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                8.0, 35.0, 8.0, 0.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Flexible(
-                                  flex: 1,
-                                  child: AnimatedDefaultTextStyle(
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'The Seasons',
-                                          color: Colors.black,
-                                          fontSize: 30.0,
-                                          letterSpacing: 0.0,
-                                        ),
-                                    duration: Duration(milliseconds: 600),
-                                    curve: Curves.easeIn,
-                                    child: Text(
-                                      FFLocalizations.of(context).getText(
-                                        'y261kaek' /* Self Care AI */,
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              8.0, 35.0, 8.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Flexible(
+                                flex: 1,
+                                child: AnimatedDefaultTextStyle(
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'The Seasons',
+                                        color: Colors.black,
+                                        fontSize: 30.0,
+                                        letterSpacing: 0.0,
                                       ),
+                                  duration: Duration(milliseconds: 600),
+                                  curve: Curves.easeIn,
+                                  child: Text(
+                                    FFLocalizations.of(context).getText(
+                                      'y261kaek' /* Self Care AI */,
                                     ),
                                   ),
                                 ),
-                                Flexible(
-                                  flex: 1,
-                                  child: Align(
-                                    alignment: AlignmentDirectional(1.0, 0.0),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 8.0, 0.0),
-                                      child: InkWell(
-                                        splashColor: Colors.transparent,
-                                        focusColor: Colors.transparent,
-                                        hoverColor: Colors.transparent,
-                                        highlightColor: Colors.transparent,
-                                        onTap: () async {
-                                          logFirebaseEvent(
-                                              'LUCILLE_HOME_PAGE_Image_wmbu3h7i_ON_TAP');
-                                          logFirebaseEvent('Image_navigate_to');
+                              ),
+                              Flexible(
+                                flex: 1,
+                                child: Align(
+                                  alignment: AlignmentDirectional(1.0, 0.0),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 8.0, 0.0),
+                                    child: InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        logFirebaseEvent(
+                                            'LUCILLE_HOME_PAGE_Image_wmbu3h7i_ON_TAP');
+                                        logFirebaseEvent('Image_navigate_to');
 
-                                          context.pushNamed(
-                                              HomeVersion4Widget.routeName);
-                                        },
-                                        child: ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                          child: Image.asset(
-                                            'assets/images/Rectangle_1.png',
-                                            width: MediaQuery.sizeOf(context)
-                                                    .width *
-                                                0.3,
-                                            fit: BoxFit.contain,
-                                          ),
+                                        context.pushNamed(
+                                            HomeVersion4Widget.routeName);
+                                      },
+                                      child: ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        child: Image.asset(
+                                          'assets/images/Rectangle_1.png',
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  0.3,
+                                          fit: BoxFit.contain,
                                         ),
                                       ),
                                     ),
                                   ),
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
                         ),
                         Flexible(
@@ -149,7 +146,7 @@ class _LucilleHomeWidgetState extends State<LucilleHomeWidget> {
                             alignment: AlignmentDirectional(0.0, 0.0),
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 8.0, 0.0, 0.0),
+                                  0.0, 8.0, 8.0, 0.0),
                               child: wrapWithModel(
                                 model: _model.progressBarFinalModel,
                                 updateCallback: () => safeSetState(() {}),

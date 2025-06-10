@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/components/primary_button/primary_button_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -67,7 +68,7 @@ class _RegistrationSuccessWidgetState extends State<RegistrationSuccessWidget> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Lottie.asset(
-                        'assets/jsons/Animation_-_1708887204153.json',
+                        'assets/jsons/Animation_-_1708892458656.json',
                         width: 383.0,
                         height: 315.0,
                         fit: BoxFit.contain,
@@ -84,21 +85,24 @@ class _RegistrationSuccessWidgetState extends State<RegistrationSuccessWidget> {
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 8.0),
-                                child: Text(
-                                  FFLocalizations.of(context).getText(
-                                    'awk4ovqu' /* Welcome, User */,
+                                child: AuthUserStreamWidget(
+                                  builder: (context) => Text(
+                                    valueOrDefault<String>(
+                                      'Welcome,${currentUserDisplayName}',
+                                      'Welcome, Jane Doe!',
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleLarge
+                                        .override(
+                                          fontFamily: 'WorkSans',
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                          fontSize: 36.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.bold,
+                                          lineHeight: 1.5,
+                                        ),
                                   ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .titleLarge
-                                      .override(
-                                        fontFamily: 'The Seasons',
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        fontSize: 36.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.bold,
-                                        lineHeight: 1.5,
-                                      ),
                                 ),
                               ),
                               Align(
@@ -108,9 +112,7 @@ class _RegistrationSuccessWidgetState extends State<RegistrationSuccessWidget> {
                                       24.0, 22.0, 24.0, 0.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
-                                      'daxpmpxp' /* You are all set, 
-let's Escape... */
-                                      ,
+                                      'daxpmpxp' /* You are all set to create a ne... */,
                                     ),
                                     textAlign: TextAlign.center,
                                     style: FlutterFlowTheme.of(context)

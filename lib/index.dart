@@ -1,57 +1,15 @@
 // Export pages
 export '/pages/onboarding_login/registration_success/registration_success_widget.dart'
     show RegistrationSuccessWidget;
-export '/meditation_and_sounds/sounds_details_artist/sounds_details_artist_widget.dart'
-    show SoundsDetailsArtistWidget;
-export '/meditation_and_sounds/music_player/music_player_widget.dart'
-    show MusicPlayerWidget;
-export '/meditation_and_sounds/sounds_details_albums/sounds_details_albums_widget.dart'
-    show SoundsDetailsAlbumsWidget;
-export '/meditation_and_sounds/sounds_details_metaphysics/sounds_details_metaphysics_widget.dart'
-    show SoundsDetailsMetaphysicsWidget;
-export '/meditation_and_sounds/sounds_details_sleep/sounds_details_sleep_widget.dart'
-    show SoundsDetailsSleepWidget;
-export '/meditation_and_sounds/sounds_details_kids/sounds_details_kids_widget.dart'
-    show SoundsDetailsKidsWidget;
-export '/meditation_and_sounds/sounds_details_playlists/sounds_details_playlists_widget.dart'
-    show SoundsDetailsPlaylistsWidget;
-export '/meditation_and_sounds/sounds_details_binaural_beats/sounds_details_binaural_beats_widget.dart'
-    show SoundsDetailsBinauralBeatsWidget;
 export '/meditation_tutorial/meditation_tutorial_widget.dart'
     show MeditationTutorialWidget;
-export '/provider_community/classes_page/classes_page_widget.dart'
-    show ClassesPageWidget;
-export '/provider_community/events_page/events_page_widget.dart'
-    show EventsPageWidget;
-export '/pages/main_pages/events_f_i_n_a_l/events_f_i_n_a_l_widget.dart'
-    show EventsFINALWidget;
-export '/meditation_and_sounds/sounds_details_ambient_music/sounds_details_ambient_music_widget.dart'
-    show SoundsDetailsAmbientMusicWidget;
-export '/meditation_and_sounds/sounds_details_nature_sounds/sounds_details_nature_sounds_widget.dart'
-    show SoundsDetailsNatureSoundsWidget;
-export '/meditation_and_sounds/sounds_details_tai_chi/sounds_details_tai_chi_widget.dart'
-    show SoundsDetailsTaiChiWidget;
+export '/classes_page/classes_page_widget.dart' show ClassesPageWidget;
+export '/events_page/events_page_widget.dart' show EventsPageWidget;
 export '/notifications_screen/notifications_screen_widget.dart'
     show NotificationsScreenWidget;
-export '/meditation_and_sounds/sounds_details_albums_copy/sounds_details_albums_copy_widget.dart'
-    show SoundsDetailsAlbumsCopyWidget;
-export '/pages/main_pages/events_first_page/events_first_page_widget.dart'
-    show EventsFirstPageWidget;
-export '/meditation_and_sounds/sounds_details_body/sounds_details_body_widget.dart'
-    show SoundsDetailsBodyWidget;
-export '/pages/main_pages/eliminate_depression/eliminate_depression_widget.dart'
-    show EliminateDepressionWidget;
 export '/subscription/subscription_widget.dart' show SubscriptionWidget;
-export '/pages/main_pages/subscription_comp/subscription_comp_widget.dart'
-    show SubscriptionCompWidget;
 export '/pages/main_pages/home_version4/home_version4_widget.dart'
     show HomeVersion4Widget;
-export '/pages/main_pages/nature_p_age_f_i_n_a_l/nature_p_age_f_i_n_a_l_widget.dart'
-    show NaturePAgeFINALWidget;
-export '/pages/main_pages/meditation_page/meditation_page_widget.dart'
-    show MeditationPageWidget;
-export '/pages/main_pages/sleep_page/sleep_page_widget.dart'
-    show SleepPageWidget;
 export '/splash_screen/splash_screen_widget.dart' show SplashScreenWidget;
 export '/login_page/login_page_widget.dart' show LoginPageWidget;
 export '/interests_page/interests_page_widget.dart' show InterestsPageWidget;
@@ -93,7 +51,6 @@ export '/meditation_and_breathing_games/sleep_meditations_choice/sleep_meditatio
     show SleepMeditationsChoiceWidget;
 export '/therapist_directory/therapist_directory_widget.dart'
     show TherapistDirectoryWidget;
-export '/lucille_g_p_t/lucille_g_p_t_widget.dart' show LucilleGPTWidget;
 export '/community_home_copy/community_home_copy_widget.dart'
     show CommunityHomeCopyWidget;
 export '/community_home_version5/community_home_version5_widget.dart'
@@ -106,8 +63,8 @@ export '/pages/main_pages/depression_videos_f_i_n_a_l/depression_videos_f_i_n_a_
     show DepressionVideosFINALWidget;
 export '/pages/main_pages/focus_videos_f_i_n_a_l/focus_videos_f_i_n_a_l_widget.dart'
     show FocusVideosFINALWidget;
-export '/video_player_page/video_player_page_widget.dart'
-    show VideoPlayerPageWidget;
+export '/video_player_meditation_page/video_player_meditation_page_widget.dart'
+    show VideoPlayerMeditationPageWidget;
 export '/meditation_and_breathing_games/box_breathing_goal_page/box_breathing_goal_page_widget.dart'
     show BoxBreathingGoalPageWidget;
 export '/meditation_and_breathing_games/fire_sounds_and_breathing_goal/fire_sounds_and_breathing_goal_widget.dart'
@@ -145,3 +102,17 @@ export '/meditation_and_breathing_games/long_breathing_goal/long_breathing_goal_
     show LongBreathingGoalWidget;
 export '/community_home_f_i_n_a_l/community_home_f_i_n_a_l_widget.dart'
     show CommunityHomeFINALWidget;
+export '/facial_mood_analyzer_choice/facial_mood_analyzer_choice_widget.dart'
+    show FacialMoodAnalyzerChoiceWidget;
+export '/facial_mood_analyzer_page/facial_mood_analyzer_page_widget.dart'
+    show FacialMoodAnalyzerPageWidget;
+export '/mood_analyzer_success/mood_analyzer_success_widget.dart'
+    show MoodAnalyzerSuccessWidget;
+export '/video_player_sleep_page/video_player_sleep_page_widget.dart'
+    show VideoPlayerSleepPageWidget;
+export '/video_player_increase_focus/video_player_increase_focus_widget.dart'
+    show VideoPlayerIncreaseFocusWidget;
+export '/video_player_body/video_player_body_widget.dart'
+    show VideoPlayerBodyWidget;
+export '/video_player_depression/video_player_depression_widget.dart'
+    show VideoPlayerDepressionWidget;

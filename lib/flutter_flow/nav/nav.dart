@@ -110,46 +110,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             builder: (context, params) => RegistrationSuccessWidget(),
           ),
           FFRoute(
-            name: SoundsDetailsArtistWidget.routeName,
-            path: SoundsDetailsArtistWidget.routePath,
-            builder: (context, params) => SoundsDetailsArtistWidget(),
-          ),
-          FFRoute(
-            name: MusicPlayerWidget.routeName,
-            path: MusicPlayerWidget.routePath,
-            builder: (context, params) => MusicPlayerWidget(),
-          ),
-          FFRoute(
-            name: SoundsDetailsAlbumsWidget.routeName,
-            path: SoundsDetailsAlbumsWidget.routePath,
-            builder: (context, params) => SoundsDetailsAlbumsWidget(),
-          ),
-          FFRoute(
-            name: SoundsDetailsMetaphysicsWidget.routeName,
-            path: SoundsDetailsMetaphysicsWidget.routePath,
-            builder: (context, params) => SoundsDetailsMetaphysicsWidget(),
-          ),
-          FFRoute(
-            name: SoundsDetailsSleepWidget.routeName,
-            path: SoundsDetailsSleepWidget.routePath,
-            builder: (context, params) => SoundsDetailsSleepWidget(),
-          ),
-          FFRoute(
-            name: SoundsDetailsKidsWidget.routeName,
-            path: SoundsDetailsKidsWidget.routePath,
-            builder: (context, params) => SoundsDetailsKidsWidget(),
-          ),
-          FFRoute(
-            name: SoundsDetailsPlaylistsWidget.routeName,
-            path: SoundsDetailsPlaylistsWidget.routePath,
-            builder: (context, params) => SoundsDetailsPlaylistsWidget(),
-          ),
-          FFRoute(
-            name: SoundsDetailsBinauralBeatsWidget.routeName,
-            path: SoundsDetailsBinauralBeatsWidget.routePath,
-            builder: (context, params) => SoundsDetailsBinauralBeatsWidget(),
-          ),
-          FFRoute(
             name: MeditationTutorialWidget.routeName,
             path: MeditationTutorialWidget.routePath,
             builder: (context, params) => MeditationTutorialWidget(),
@@ -165,66 +125,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             builder: (context, params) => EventsPageWidget(),
           ),
           FFRoute(
-            name: EventsFINALWidget.routeName,
-            path: EventsFINALWidget.routePath,
-            builder: (context, params) => EventsFINALWidget(
-              eventsName: params.getParam(
-                'eventsName',
-                ParamType.String,
-              ),
-              eventDate: params.getParam(
-                'eventDate',
-                ParamType.String,
-              ),
-              eventDescription: params.getParam(
-                'eventDescription',
-                ParamType.String,
-              ),
-              eventLocation: params.getParam(
-                'eventLocation',
-                ParamType.String,
-              ),
-            ),
-          ),
-          FFRoute(
-            name: SoundsDetailsAmbientMusicWidget.routeName,
-            path: SoundsDetailsAmbientMusicWidget.routePath,
-            builder: (context, params) => SoundsDetailsAmbientMusicWidget(),
-          ),
-          FFRoute(
-            name: SoundsDetailsNatureSoundsWidget.routeName,
-            path: SoundsDetailsNatureSoundsWidget.routePath,
-            builder: (context, params) => SoundsDetailsNatureSoundsWidget(),
-          ),
-          FFRoute(
-            name: SoundsDetailsTaiChiWidget.routeName,
-            path: SoundsDetailsTaiChiWidget.routePath,
-            builder: (context, params) => SoundsDetailsTaiChiWidget(),
-          ),
-          FFRoute(
             name: NotificationsScreenWidget.routeName,
             path: NotificationsScreenWidget.routePath,
             builder: (context, params) => NotificationsScreenWidget(),
-          ),
-          FFRoute(
-            name: SoundsDetailsAlbumsCopyWidget.routeName,
-            path: SoundsDetailsAlbumsCopyWidget.routePath,
-            builder: (context, params) => SoundsDetailsAlbumsCopyWidget(),
-          ),
-          FFRoute(
-            name: EventsFirstPageWidget.routeName,
-            path: EventsFirstPageWidget.routePath,
-            builder: (context, params) => EventsFirstPageWidget(),
-          ),
-          FFRoute(
-            name: SoundsDetailsBodyWidget.routeName,
-            path: SoundsDetailsBodyWidget.routePath,
-            builder: (context, params) => SoundsDetailsBodyWidget(),
-          ),
-          FFRoute(
-            name: EliminateDepressionWidget.routeName,
-            path: EliminateDepressionWidget.routePath,
-            builder: (context, params) => EliminateDepressionWidget(),
           ),
           FFRoute(
             name: SubscriptionWidget.routeName,
@@ -232,31 +135,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             builder: (context, params) => SubscriptionWidget(),
           ),
           FFRoute(
-            name: SubscriptionCompWidget.routeName,
-            path: SubscriptionCompWidget.routePath,
-            builder: (context, params) => SubscriptionCompWidget(),
-          ),
-          FFRoute(
             name: HomeVersion4Widget.routeName,
             path: HomeVersion4Widget.routePath,
             builder: (context, params) => params.isEmpty
                 ? NavBarPage(initialPage: 'HomeVersion4')
                 : HomeVersion4Widget(),
-          ),
-          FFRoute(
-            name: NaturePAgeFINALWidget.routeName,
-            path: NaturePAgeFINALWidget.routePath,
-            builder: (context, params) => NaturePAgeFINALWidget(),
-          ),
-          FFRoute(
-            name: MeditationPageWidget.routeName,
-            path: MeditationPageWidget.routePath,
-            builder: (context, params) => MeditationPageWidget(),
-          ),
-          FFRoute(
-            name: SleepPageWidget.routeName,
-            path: SleepPageWidget.routePath,
-            builder: (context, params) => SleepPageWidget(),
           ),
           FFRoute(
             name: SplashScreenWidget.routeName,
@@ -399,11 +282,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             builder: (context, params) => TherapistDirectoryWidget(),
           ),
           FFRoute(
-            name: LucilleGPTWidget.routeName,
-            path: LucilleGPTWidget.routePath,
-            builder: (context, params) => LucilleGPTWidget(),
-          ),
-          FFRoute(
             name: CommunityHomeCopyWidget.routeName,
             path: CommunityHomeCopyWidget.routePath,
             builder: (context, params) => CommunityHomeCopyWidget(),
@@ -434,9 +312,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             builder: (context, params) => FocusVideosFINALWidget(),
           ),
           FFRoute(
-            name: VideoPlayerPageWidget.routeName,
-            path: VideoPlayerPageWidget.routePath,
-            builder: (context, params) => VideoPlayerPageWidget(
+            name: VideoPlayerMeditationPageWidget.routeName,
+            path: VideoPlayerMeditationPageWidget.routePath,
+            builder: (context, params) => VideoPlayerMeditationPageWidget(
               urlVideo: params.getParam(
                 'urlVideo',
                 ParamType.String,
@@ -553,6 +431,66 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
                       ParamType.int,
                     ),
                   ),
+          ),
+          FFRoute(
+            name: FacialMoodAnalyzerChoiceWidget.routeName,
+            path: FacialMoodAnalyzerChoiceWidget.routePath,
+            builder: (context, params) => FacialMoodAnalyzerChoiceWidget(),
+          ),
+          FFRoute(
+            name: FacialMoodAnalyzerPageWidget.routeName,
+            path: FacialMoodAnalyzerPageWidget.routePath,
+            builder: (context, params) => FacialMoodAnalyzerPageWidget(
+              moodResult: params.getParam(
+                'moodResult',
+                ParamType.String,
+              ),
+            ),
+          ),
+          FFRoute(
+            name: MoodAnalyzerSuccessWidget.routeName,
+            path: MoodAnalyzerSuccessWidget.routePath,
+            builder: (context, params) => MoodAnalyzerSuccessWidget(),
+          ),
+          FFRoute(
+            name: VideoPlayerSleepPageWidget.routeName,
+            path: VideoPlayerSleepPageWidget.routePath,
+            builder: (context, params) => VideoPlayerSleepPageWidget(
+              urlVideo: params.getParam(
+                'urlVideo',
+                ParamType.String,
+              ),
+            ),
+          ),
+          FFRoute(
+            name: VideoPlayerIncreaseFocusWidget.routeName,
+            path: VideoPlayerIncreaseFocusWidget.routePath,
+            builder: (context, params) => VideoPlayerIncreaseFocusWidget(
+              urlVideo: params.getParam(
+                'urlVideo',
+                ParamType.String,
+              ),
+            ),
+          ),
+          FFRoute(
+            name: VideoPlayerBodyWidget.routeName,
+            path: VideoPlayerBodyWidget.routePath,
+            builder: (context, params) => VideoPlayerBodyWidget(
+              urlVideo: params.getParam(
+                'urlVideo',
+                ParamType.String,
+              ),
+            ),
+          ),
+          FFRoute(
+            name: VideoPlayerDepressionWidget.routeName,
+            path: VideoPlayerDepressionWidget.routePath,
+            builder: (context, params) => VideoPlayerDepressionWidget(
+              urlVideo: params.getParam(
+                'urlVideo',
+                ParamType.String,
+              ),
+            ),
           ),
           FFRoute(
             name: $tiktokfeed_wz8en7.HomePageWidget.routeName,

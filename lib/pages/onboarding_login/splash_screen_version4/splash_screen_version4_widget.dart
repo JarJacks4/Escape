@@ -106,7 +106,7 @@ class _SplashScreenVersion4WidgetState
                       boxShadow: [
                         BoxShadow(
                           blurRadius: 50.0,
-                          color: FlutterFlowTheme.of(context).tertiary,
+                          color: FlutterFlowTheme.of(context).secondary,
                           offset: Offset(
                             0.0,
                             2.0,
