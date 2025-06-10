@@ -3,6 +3,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '/backend/schema/util/firestore_util.dart';
+import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -81,12 +82,21 @@ class ThumbnailsAllStruct extends FFFirebaseStruct {
 
   static ThumbnailsAllStruct fromMap(Map<String, dynamic> data) =>
       ThumbnailsAllStruct(
-        defaultThumbnails:
-            DefaultThumbnailsStruct.maybeFromMap(data['defaultThumbnails']),
-        medium: MediumStruct.maybeFromMap(data['medium']),
-        high: HighStruct.maybeFromMap(data['high']),
-        standard: StandardStruct.maybeFromMap(data['standard']),
-        maxres: MaxresStruct.maybeFromMap(data['maxres']),
+        defaultThumbnails: data['defaultThumbnails'] is DefaultThumbnailsStruct
+            ? data['defaultThumbnails']
+            : DefaultThumbnailsStruct.maybeFromMap(data['defaultThumbnails']),
+        medium: data['medium'] is MediumStruct
+            ? data['medium']
+            : MediumStruct.maybeFromMap(data['medium']),
+        high: data['high'] is HighStruct
+            ? data['high']
+            : HighStruct.maybeFromMap(data['high']),
+        standard: data['standard'] is StandardStruct
+            ? data['standard']
+            : StandardStruct.maybeFromMap(data['standard']),
+        maxres: data['maxres'] is MaxresStruct
+            ? data['maxres']
+            : MaxresStruct.maybeFromMap(data['maxres']),
       );
 
   static ThumbnailsAllStruct? maybeFromMap(dynamic data) => data is Map

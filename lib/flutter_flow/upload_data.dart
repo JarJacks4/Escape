@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:blurhash_dart/blurhash_dart.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
@@ -8,43 +7,14 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:mime_type/mime_type.dart';
 import 'package:video_player/video_player.dart';
-import 'package:image/image.dart' as img;
 
 import '../auth/firebase_auth/auth_util.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow_util.dart';
+import 'package:ff_commons/flutter_flow/upload_data_class.dart';
+export 'package:ff_commons/flutter_flow/upload_data_class.dart';
 
 const allowedFormats = {'image/png', 'image/jpeg', 'video/mp4', 'image/gif'};
-
-class SelectedFile {
-  const SelectedFile({
-    this.storagePath = '',
-    this.filePath,
-    required this.bytes,
-    this.dimensions,
-    this.blurHash,
-  });
-  final String storagePath;
-  final String? filePath;
-  final Uint8List bytes;
-  final MediaDimensions? dimensions;
-  final String? blurHash;
-}
-
-class MediaDimensions {
-  const MediaDimensions({
-    this.height,
-    this.width,
-  });
-  final double? height;
-  final double? width;
-}
-
-enum MediaSource {
-  photoGallery,
-  videoGallery,
-  camera,
-}
 
 Future<List<SelectedFile>?> selectMediaWithSourceBottomSheet({
   required BuildContext context,
@@ -60,7 +30,8 @@ Future<List<SelectedFile>?> selectMediaWithSourceBottomSheet({
   bool includeDimensions = false,
   bool includeBlurHash = false,
 }) async {
-  createUploadMediaListTile(String label, MediaSource mediaSource) => ListTile(
+  final createUploadMediaListTile =
+      (String label, MediaSource mediaSource) => ListTile(
             title: Text(
               label,
               textAlign: TextAlign.center,
@@ -87,14 +58,14 @@ Future<List<SelectedFile>?> selectMediaWithSourceBottomSheet({
           children: [
             if (!kIsWeb) ...[
               Padding(
-                padding: const EdgeInsets.fromLTRB(0, 8, 0, 0),
+                padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
                 child: ListTile(
                   title: Text(
                     'Choose Source',
                     textAlign: TextAlign.center,
                     style: GoogleFonts.getFont(
                       pickerFontFamily,
-                      color: textColor.withOpacity(0.65),
+                      color: textColor.applyAlpha(0.65),
                       fontWeight: FontWeight.w500,
                       fontSize: 20,
                     ),
@@ -183,17 +154,12 @@ Future<List<SelectedFile>?> selectMedia({
               ? _getVideoDimensions(media.path)
               : _getImageDimensions(mediaBytes)
           : null;
-      final blurHash = includeBlurHash
-          ? isVideo
-              ? null
-              : await _getImageBlurHash(mediaBytes)
-          : null;
+
       return SelectedFile(
         storagePath: path,
         filePath: media.path,
         bytes: mediaBytes,
         dimensions: await dimensions,
-        blurHash: blurHash,
       );
     }));
   }
@@ -220,18 +186,13 @@ Future<List<SelectedFile>?> selectMedia({
           ? _getVideoDimensions(pickedMedia.path)
           : _getImageDimensions(mediaBytes)
       : null;
-  final blurHash = includeBlurHash
-      ? isVideo
-          ? null
-          : await _getImageBlurHash(mediaBytes)
-      : null;
+
   return [
     SelectedFile(
       storagePath: path,
       filePath: pickedMedia.path,
       bytes: mediaBytes,
       dimensions: await dimensions,
-      blurHash: blurHash,
     ),
   ];
 }
@@ -310,7 +271,7 @@ List<SelectedFile> selectedFilesFromUploadedFiles(
         final file = entry.value;
         return SelectedFile(
             storagePath: _getStoragePath(
-              storageFolderPath,
+              storageFolderPath != null ? storageFolderPath : null,
               file.name!,
               false,
               isMultiData ? index : null,
@@ -334,19 +295,6 @@ Future<MediaDimensions> _getVideoDimensions(String path) async {
   final size = videoPlayerController.value.size;
   return MediaDimensions(width: size.width, height: size.height);
 }
-
-String? _generateBlurHash(Uint8List mediaBytes) {
-  final image = img.decodeImage(mediaBytes);
-  if (image != null) {
-    final resizedImg = img.copyResize(image, width: 64);
-    final blurHash = BlurHash.encode(resizedImg);
-    return blurHash.hash;
-  }
-  return null;
-}
-
-Future<String?> _getImageBlurHash(Uint8List mediaBytes) async =>
-    await compute(_generateBlurHash, mediaBytes);
 
 String _getStoragePath(
   String? pathPrefix,
@@ -384,7 +332,7 @@ void showUploadMessage(
           children: [
             if (showLoading)
               Padding(
-                padding: const EdgeInsetsDirectional.only(end: 10.0),
+                padding: EdgeInsetsDirectional.only(end: 10.0),
                 child: CircularProgressIndicator(
                   valueColor: Theme.of(context).brightness == Brightness.dark
                       ? AlwaysStoppedAnimation<Color>(
@@ -395,7 +343,7 @@ void showUploadMessage(
             Text(message),
           ],
         ),
-        duration: showLoading ? const Duration(days: 1) : const Duration(seconds: 4),
+        duration: showLoading ? Duration(days: 1) : Duration(seconds: 4),
       ),
     );
 }

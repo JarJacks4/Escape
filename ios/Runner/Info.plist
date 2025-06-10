@@ -69,29 +69,18 @@
 	<true/>
 
 	<key>NSCameraUsageDescription</key>
-    <string>In order to take a picture or video, this app requires permission to access the camera.</string>
+    <string>Escape requires access to your Camera in order to use parts of our app.</string>
 	<key>NSMicrophoneUsageDescription</key>
     <string>In order to record audio for video, this app requires permission to access the microphone.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-    <string>In order to upload data, this app requires permission to access the photo library.</string>
-	<key>NSProductInteraction</key>
-    <string>In order to make a better user experience for Escape, this app requires permission to collect Product Interaction data.</string>
-	<key>NSContactInfo</key>
-    <string>In order to make a better user experience for Escape, this app requires permission to collect Contact Info data.</string>
-	<key>NSIIdentifiersUserID</key>
-    <string>In order to certify user membership, this app requires permission to collect User ID data.</string>
-	<key>NSUserContent</key>
-    <string>In order to upload User Content, this app requires permission to access any photo or video libraries on your device.</string>
-	<key>NSCrashData</key>
-    <string>In order to track bugs with Escape, this app requires permission to track Crash data.</string>
-	<key>NSPerformanceData</key>
-    <string>In order to track app performance for Escape, this app requires permission to track Performance Data.</string>
-	<key>NSAppTransportSecurity</key>
-    <string>In order to track app security, this app requires permission to track App Transport Security data.</string>
+    <string>Escape requires access to your Photo Library in order to use parts of our app.</string>
+	<key>PermissionGroupNotification</key>
+    <string>Escape requires access to send you Notifications in order to use parts of our app.</string>
     <key>UIBackgroundModes</key>
     <array>
         <string>audio</string>
     </array>
+
 
 
 	<key>UILaunchStoryboardName</key>

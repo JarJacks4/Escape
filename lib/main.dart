@@ -1,26 +1,34 @@
 import 'package:provider/provider.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'auth/firebase_auth/firebase_user_provider.dart';
 import 'auth/firebase_auth/auth_util.dart';
 
 import 'backend/firebase/firebase_config.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 import 'flutter_flow/internationalization.dart';
 import 'package:flutter/foundation.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
-import 'flutter_flow/firebase_app_check_util.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'flutter_flow/nav/nav.dart';
 import 'index.dart';
-import 'flutter_flow/revenue_cat_util.dart' as revenue_cat;
+
+import 'package:tiktokfeed_wz8en7/app_state.dart'
+    as tiktokfeed_wz8en7_app_state;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   GoRouter.optionURLReflectsImperativeAPIs = true;
   usePathUrlStrategy();
+
+  final environmentValues = FFDevEnvironmentValues();
+  await environmentValues.initialize();
 
   await initFirebase();
 
@@ -29,27 +37,27 @@ void main() async {
   final appState = FFAppState(); // Initialize FFAppState
   await appState.initializePersistedState();
 
-  await revenue_cat.initialize(
-    "appl_DmOdmFfHvXLKVCiHDehBvGvUeSa",
-    "goog_XgwMZPSUnrCtyrnBvCAcadOIyjB",
-    loadDataAfterLaunch: true,
-  );
+  final tiktokfeed_wz8en7AppState = tiktokfeed_wz8en7_app_state.FFAppState();
+  await tiktokfeed_wz8en7AppState.initializePersistedState();
 
   if (!kIsWeb) {
     FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
   }
 
-  await initializeFirebaseAppCheck();
-
-  runApp(ChangeNotifierProvider(
-    create: (context) => appState,
-    child: const MyApp(),
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(
+        create: (context) => appState,
+      ),
+      ChangeNotifierProvider(
+        create: (context) => tiktokfeed_wz8en7AppState,
+      ),
+    ],
+    child: MyApp(),
   ));
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({super.key});
-
   // This widget is the root of your application.
   @override
   State<MyApp> createState() => _MyAppState();
@@ -65,12 +73,23 @@ class _MyAppState extends State<MyApp> {
 
   late AppStateNotifier _appStateNotifier;
   late GoRouter _router;
+  String getRoute([RouteMatch? routeMatch]) {
+    final RouteMatch lastMatch =
+        routeMatch ?? _router.routerDelegate.currentConfiguration.last;
+    final RouteMatchList matchList = lastMatch is ImperativeRouteMatch
+        ? lastMatch.matches
+        : _router.routerDelegate.currentConfiguration;
+    return matchList.uri.toString();
+  }
+
+  List<String> getRouteStack() =>
+      _router.routerDelegate.currentConfiguration.matches
+          .map((e) => getRoute(e))
+          .toList();
 
   late Stream<BaseAuthUser> userStream;
 
-  final authUserSub = authenticatedUserStream.listen((user) {
-    revenue_cat.login(user?.uid);
-  });
+  final authUserSub = authenticatedUserStream.listen((_) {});
 
   @override
   void initState() {
@@ -84,7 +103,7 @@ class _MyAppState extends State<MyApp> {
       });
     jwtTokenStream.listen((_) {});
     Future.delayed(
-      const Duration(milliseconds: 5),
+      Duration(milliseconds: 5),
       () => _appStateNotifier.stopShowingSplashImage(),
     );
   }
@@ -108,12 +127,15 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
       title: 'Escape',
-      localizationsDelegates: const [
+      localizationsDelegates: [
         FFLocalizationsDelegate(),
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
+        FallbackMaterialLocalizationDelegate(),
+        FallbackCupertinoLocalizationDelegate(),
       ],
       locale: _locale,
       supportedLocales: const [
@@ -132,7 +154,18 @@ class _MyAppState extends State<MyApp> {
       ],
       theme: ThemeData(
         brightness: Brightness.light,
-        useMaterial3: false,
+        scrollbarTheme: ScrollbarThemeData(
+          interactive: true,
+          thumbColor: MaterialStateProperty.resolveWith((states) {
+            if (states.contains(MaterialState.dragged)) {
+              return Color(4280034372);
+            }
+            if (states.contains(MaterialState.hovered)) {
+              return Color(4280034372);
+            }
+            return Color(4280034372);
+          }),
+        ),
       ),
       themeMode: _themeMode,
       routerConfig: _router,
@@ -141,10 +174,16 @@ class _MyAppState extends State<MyApp> {
 }
 
 class NavBarPage extends StatefulWidget {
-  const NavBarPage({super.key, this.initialPage, this.page});
+  NavBarPage({
+    Key? key,
+    this.initialPage,
+    this.page,
+    this.disableResizeToAvoidBottomInset = false,
+  }) : super(key: key);
 
   final String? initialPage;
   final Widget? page;
+  final bool disableResizeToAvoidBottomInset;
 
   @override
   _NavBarPageState createState() => _NavBarPageState();
@@ -152,7 +191,7 @@ class NavBarPage extends StatefulWidget {
 
 /// This is the private State class that goes with NavBarPage.
 class _NavBarPageState extends State<NavBarPage> {
-  String _currentPageName = 'NewHome';
+  String _currentPageName = 'HomeVersion4';
   late Widget? _currentPage;
 
   @override
@@ -165,19 +204,22 @@ class _NavBarPageState extends State<NavBarPage> {
   @override
   Widget build(BuildContext context) {
     final tabs = {
-      'NewHome': const NewHomeWidget(),
-      'SoundsPageMain': const SoundsPageMainWidget(),
-      'UserCommunityPageViewFINALCopy': const UserCommunityPageViewFINALCopyWidget(),
-      'BodyHome': const BodyHomeWidget(),
-      'MeditationPageMain': const MeditationPageMainWidget(),
+      'HomeVersion4': HomeVersion4Widget(),
+      'SelfCarePlanPage': SelfCarePlanPageWidget(),
+      'LucilleHome': LucilleHomeWidget(),
+      'CommunityHomeFINAL': CommunityHomeFINALWidget(),
+      'profileFINAL': ProfileFINALWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
     return Scaffold(
+      resizeToAvoidBottomInset: !widget.disableResizeToAvoidBottomInset,
       body: _currentPage ?? tabs[_currentPageName],
       bottomNavigationBar: Visibility(
         visible: responsiveVisibility(
           context: context,
+          tablet: false,
+          tabletLandscape: false,
           desktop: false,
         ),
         child: BottomNavigationBar(
@@ -186,68 +228,63 @@ class _NavBarPageState extends State<NavBarPage> {
             _currentPage = null;
             _currentPageName = tabs.keys.toList()[i];
           }),
-          backgroundColor: const Color(0xFD000220),
-          selectedItemColor: FlutterFlowTheme.of(context).secondary,
-          unselectedItemColor: FlutterFlowTheme.of(context).secondaryText,
+          backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+          selectedItemColor: FlutterFlowTheme.of(context).accent1,
+          unselectedItemColor: Color(0xACD0E3F7),
           showSelectedLabels: true,
           showUnselectedLabels: true,
           type: BottomNavigationBarType.fixed,
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: const Icon(
+              icon: Icon(
                 Icons.home_outlined,
                 size: 28.0,
               ),
-              activeIcon: const Icon(
+              activeIcon: Icon(
                 Icons.home,
-                size: 36.0,
-              ),
-              label: FFLocalizations.of(context).getText(
-                'gcv93qhs' /* Home */,
-              ),
-              tooltip: '',
-            ),
-            BottomNavigationBarItem(
-              icon: const Icon(
-                Icons.surround_sound,
                 size: 28.0,
               ),
               label: FFLocalizations.of(context).getText(
-                'z460edtc' /* Sounds */,
+                '1fs38btr' /* Home */,
               ),
               tooltip: '',
             ),
             BottomNavigationBarItem(
-              icon: const Icon(
-                Icons.handshake_sharp,
+              icon: Icon(
+                FFIcons.kplans,
+              ),
+              label: FFLocalizations.of(context).getText(
+                'py6c4427' /* Plan */,
+              ),
+              tooltip: '',
+            ),
+            BottomNavigationBarItem(
+              icon: FaIcon(
+                FontAwesomeIcons.robot,
                 size: 24.0,
               ),
               label: FFLocalizations.of(context).getText(
-                'j4d1zpoh' /* Community */,
+                '6ozwyngp' /* Lucille */,
               ),
               tooltip: '',
             ),
             BottomNavigationBarItem(
-              icon: const FaIcon(
-                FontAwesomeIcons.yinYang,
-                size: 28.0,
+              icon: Icon(
+                FFIcons.kgroupPeopleAccountsUserPersonProfile,
+                size: 24.0,
               ),
               label: FFLocalizations.of(context).getText(
-                'csjrxrct' /* Body */,
+                '9h261j1i' /* Community */,
               ),
               tooltip: '',
             ),
             BottomNavigationBarItem(
-              icon: const Icon(
-                Icons.air,
+              icon: Icon(
+                FFIcons.kprofile,
                 size: 28.0,
               ),
-              activeIcon: const Icon(
-                Icons.air_rounded,
-                size: 36.0,
-              ),
               label: FFLocalizations.of(context).getText(
-                '024qxadr' /* Meditate */,
+                'fu6l3npq' /* Profile */,
               ),
               tooltip: '',
             )

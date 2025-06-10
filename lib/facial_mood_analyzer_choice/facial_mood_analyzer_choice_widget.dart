@@ -1,0 +1,404 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/upload_data.dart';
+import 'dart:ui';
+import '/index.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
+import 'package:provider/provider.dart';
+import 'facial_mood_analyzer_choice_model.dart';
+export 'facial_mood_analyzer_choice_model.dart';
+
+class FacialMoodAnalyzerChoiceWidget extends StatefulWidget {
+  const FacialMoodAnalyzerChoiceWidget({super.key});
+
+  static String routeName = 'FacialMoodAnalyzerChoice';
+  static String routePath = 'facialMoodAnalyzerChoice';
+
+  @override
+  State<FacialMoodAnalyzerChoiceWidget> createState() =>
+      _FacialMoodAnalyzerChoiceWidgetState();
+}
+
+class _FacialMoodAnalyzerChoiceWidgetState
+    extends State<FacialMoodAnalyzerChoiceWidget> {
+  late FacialMoodAnalyzerChoiceModel _model;
+
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => FacialMoodAnalyzerChoiceModel());
+
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'FacialMoodAnalyzerChoice'});
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        body: Stack(
+          children: [
+            Align(
+              alignment: AlignmentDirectional(0.0, 1.0),
+              child: Container(
+                width: double.infinity,
+                height: 302.89,
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: 100.0,
+                      color: FlutterFlowTheme.of(context).primary,
+                      offset: Offset(
+                        0.0,
+                        1.0,
+                      ),
+                    )
+                  ],
+                  gradient: LinearGradient(
+                    colors: [
+                      FlutterFlowTheme.of(context).primary,
+                      FlutterFlowTheme.of(context).secondary
+                    ],
+                    stops: [0.0, 1.0],
+                    begin: AlignmentDirectional(0.0, -1.0),
+                    end: AlignmentDirectional(0, 1.0),
+                  ),
+                ),
+              ),
+            ),
+            Align(
+              alignment: AlignmentDirectional(0.0, 0.0),
+              child: Padding(
+                padding: EdgeInsets.all(12.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Align(
+                          alignment: AlignmentDirectional(-1.0, -1.0),
+                          child: Container(
+                            width: MediaQuery.sizeOf(context).width * 0.214,
+                            height: MediaQuery.sizeOf(context).height * 0.093,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20.0),
+                            ),
+                            child: AuthUserStreamWidget(
+                              builder: (context) => Container(
+                                width: 200.0,
+                                height: 200.0,
+                                clipBehavior: Clip.antiAlias,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                ),
+                                child: Image.network(
+                                  currentUserPhoto,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Flexible(
+                      flex: 1,
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 8.0, 0.0, 0.0),
+                            child: Text(
+                              FFLocalizations.of(context).getText(
+                                'wlag196m' /* Daily Mood Scan */,
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'The Seasons',
+                                    fontSize: 22.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                            ),
+                          ),
+                          Flexible(
+                            flex: 1,
+                            child: Padding(
+                              padding: EdgeInsets.all(15.0),
+                              child: Text(
+                                FFLocalizations.of(context).getText(
+                                  '9r3t2uk9' /* Tap the Scan Mood Button below... */,
+                                ),
+                                textAlign: TextAlign.center,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'WorkSans',
+                                      color: FlutterFlowTheme.of(context)
+                                          .alternate,
+                                      fontSize: 14.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w300,
+                                      lineHeight: 1.5,
+                                    ),
+                              ),
+                            ),
+                          ),
+                          Flexible(
+                            flex: 1,
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 25.0, 0.0, 25.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Container(
+                                    width: 154.99,
+                                    height: 47.5,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(15.0),
+                                    ),
+                                    child: FFButtonWidget(
+                                      onPressed: () async {
+                                        logFirebaseEvent(
+                                            'FACIAL_MOOD_ANALYZER_CHOICE_GO_HOME_BTN_');
+                                        logFirebaseEvent('Button_navigate_to');
+
+                                        context.pushNamed(
+                                          HomeVersion4Widget.routeName,
+                                          extra: <String, dynamic>{
+                                            kTransitionInfoKey: TransitionInfo(
+                                              hasTransition: true,
+                                              transitionType: PageTransitionType
+                                                  .rightToLeft,
+                                              duration:
+                                                  Duration(milliseconds: 1),
+                                            ),
+                                          },
+                                        );
+                                      },
+                                      text: FFLocalizations.of(context).getText(
+                                        '8g9f8voi' /* Go Home */,
+                                      ),
+                                      options: FFButtonOptions(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                0.1,
+                                        height: 40.0,
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            16.0, 0.0, 16.0, 0.0),
+                                        iconPadding:
+                                            EdgeInsetsDirectional.fromSTEB(
+                                                0.0, 0.0, 0.0, 0.0),
+                                        color: Color(0xA639519F),
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .override(
+                                              fontFamily: 'WorkSans',
+                                              color: Colors.white,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w300,
+                                            ),
+                                        elevation: 1.0,
+                                        borderRadius:
+                                            BorderRadius.circular(15.0),
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                    width: 161.01,
+                                    height: 47.5,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(15.0),
+                                    ),
+                                    child: FFButtonWidget(
+                                      onPressed: () async {
+                                        logFirebaseEvent(
+                                            'FACIAL_MOOD_ANALYZER_CHOICE_SCAN_MOOD_BT');
+                                        logFirebaseEvent('Button_wait__delay');
+                                        await Future.delayed(
+                                            const Duration(milliseconds: 2000));
+                                        logFirebaseEvent(
+                                            'Button_store_media_for_upload');
+                                        final selectedMedia =
+                                            await selectMediaWithSourceBottomSheet(
+                                          context: context,
+                                          maxWidth: 1080.00,
+                                          maxHeight: 1080.00,
+                                          allowPhoto: true,
+                                          backgroundColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .alternate,
+                                          textColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .secondary,
+                                          pickerFontFamily: 'The Seasons',
+                                        );
+                                        if (selectedMedia != null &&
+                                            selectedMedia.every((m) =>
+                                                validateFileFormat(
+                                                    m.storagePath, context))) {
+                                          safeSetState(() => _model
+                                                  .isDataUploading_uploadMoodAction1 =
+                                              true);
+                                          var selectedUploadedFiles =
+                                              <FFUploadedFile>[];
+
+                                          try {
+                                            selectedUploadedFiles =
+                                                selectedMedia
+                                                    .map((m) => FFUploadedFile(
+                                                          name: m.storagePath
+                                                              .split('/')
+                                                              .last,
+                                                          bytes: m.bytes,
+                                                          height: m.dimensions
+                                                              ?.height,
+                                                          width: m.dimensions
+                                                              ?.width,
+                                                          blurHash: m.blurHash,
+                                                        ))
+                                                    .toList();
+                                          } finally {
+                                            _model.isDataUploading_uploadMoodAction1 =
+                                                false;
+                                          }
+                                          if (selectedUploadedFiles.length ==
+                                              selectedMedia.length) {
+                                            safeSetState(() {
+                                              _model.uploadedLocalFile_uploadMoodAction1 =
+                                                  selectedUploadedFiles.first;
+                                            });
+                                          } else {
+                                            safeSetState(() {});
+                                            return;
+                                          }
+                                        }
+
+                                        logFirebaseEvent(
+                                            'Button_show_snack_bar');
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          SnackBar(
+                                            content: Text(
+                                              'Mood has been saved!',
+                                              style: TextStyle(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                              ),
+                                            ),
+                                            duration:
+                                                Duration(milliseconds: 4000),
+                                            backgroundColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .secondary,
+                                          ),
+                                        );
+                                        logFirebaseEvent('Button_navigate_to');
+
+                                        context.pushNamed(
+                                          FacialMoodAnalyzerPageWidget
+                                              .routeName,
+                                          extra: <String, dynamic>{
+                                            kTransitionInfoKey: TransitionInfo(
+                                              hasTransition: true,
+                                              transitionType: PageTransitionType
+                                                  .rightToLeft,
+                                              duration:
+                                                  Duration(milliseconds: 1),
+                                            ),
+                                          },
+                                        );
+                                      },
+                                      text: FFLocalizations.of(context).getText(
+                                        'gq8nilf4' /* Scan Mood */,
+                                      ),
+                                      options: FFButtonOptions(
+                                        height: 40.0,
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            16.0, 0.0, 16.0, 0.0),
+                                        iconPadding:
+                                            EdgeInsetsDirectional.fromSTEB(
+                                                0.0, 0.0, 0.0, 0.0),
+                                        color: FlutterFlowTheme.of(context)
+                                            .accent1,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .override(
+                                              fontFamily: 'WorkSans',
+                                              color: Colors.white,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.normal,
+                                            ),
+                                        elevation: 3.0,
+                                        borderRadius:
+                                            BorderRadius.circular(15.0),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 15.0),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(8.0),
+                              child: Image.asset(
+                                'assets/images/Logo_ESCAPE_DarkBlue.png',
+                                width: 115.9,
+                                height: 32.3,
+                                fit: BoxFit.contain,
+                                alignment: Alignment(0.0, 0.0),
+                              ),
+                            ),
+                          ),
+                        ].divide(SizedBox(height: 6.0)),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Lottie.asset(
+              'assets/jsons/Animation_-_1749422191934.json',
+              width: 419.46,
+              height: 467.2,
+              fit: BoxFit.contain,
+              animate: true,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

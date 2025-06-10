@@ -13,10 +13,10 @@ class FlutterFlowCheckboxGroup extends StatefulWidget {
     required this.textStyle,
     this.labelPadding,
     this.itemPadding,
-    required this.activeColor,
-    required this.checkColor,
+    this.activeColor,
+    this.checkColor,
     this.checkboxBorderRadius,
-    required this.checkboxBorderColor,
+    this.checkboxBorderColor,
     this.initialized = true,
     this.unselectedTextStyle,
   });
@@ -27,10 +27,10 @@ class FlutterFlowCheckboxGroup extends StatefulWidget {
   final TextStyle textStyle;
   final EdgeInsetsGeometry? labelPadding;
   final EdgeInsetsGeometry? itemPadding;
-  final Color activeColor;
-  final Color checkColor;
+  final Color? activeColor;
+  final Color? checkColor;
   final BorderRadius? checkboxBorderRadius;
-  final Color checkboxBorderColor;
+  final Color? checkboxBorderColor;
   final bool initialized;
   final TextStyle? unselectedTextStyle;
 
@@ -89,7 +89,16 @@ class _FlutterFlowCheckboxGroupState extends State<FlutterFlowCheckboxGroup> {
           final unselectedTextStyle =
               widget.unselectedTextStyle ?? widget.textStyle;
           return Theme(
-            data: ThemeData(unselectedWidgetColor: widget.checkboxBorderColor),
+            data: ThemeData(
+              checkboxTheme: widget.checkboxBorderColor != null
+                  ? CheckboxThemeData(
+                      side: BorderSide(
+                        color: widget.checkboxBorderColor!,
+                        width: 2.0,
+                      ),
+                    )
+                  : null,
+            ),
             child: Padding(
               padding: widget.itemPadding ?? EdgeInsets.zero,
               child: Row(

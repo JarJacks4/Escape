@@ -10,17 +10,19 @@ import 'dart:math' show pow, pi, sin;
 import 'package:intl/intl.dart';
 import 'package:json_path/json_path.dart';
 import 'package:timeago/timeago.dart' as timeago;
-import 'package:tutorial_coach_mark/tutorial_coach_mark.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../main.dart';
 
+import 'package:ff_commons/flutter_flow/lat_lng.dart';
 
 export 'keep_alive_wrapper.dart';
-export 'lat_lng.dart';
-export 'place.dart';
-export 'uploaded_file.dart';
+export 'package:ff_commons/flutter_flow/lat_lng.dart';
+export 'package:ff_commons/flutter_flow/place.dart';
+export 'package:ff_commons/flutter_flow/uploaded_file.dart';
 export '../app_state.dart';
+export '../app_constants.dart';
+export '../environment_values.dart';
 export 'flutter_flow_model.dart';
 export 'dart:math' show min, max;
 export 'dart:typed_data' show Uint8List;
@@ -29,11 +31,12 @@ export 'package:intl/intl.dart';
 export 'package:cloud_firestore/cloud_firestore.dart'
     show DocumentReference, FirebaseFirestore;
 export 'package:page_transition/page_transition.dart';
+export 'custom_icons.dart' show FFIcons;
 export 'internationalization.dart' show FFLocalizations;
 export '/backend/firebase_analytics/analytics.dart';
 export 'nav/nav.dart';
 
-final RouteObserver<ModalRoute> routeObserver = RouteObserver<PageRoute>();
+final RouteObserver<ModalRoute> routeObserver = RouteObserver<ModalRoute>();
 
 T valueOrDefault<T>(T? value, T defaultValue) =>
     (value is String && value.isEmpty) || value == null ? defaultValue : value;
@@ -70,151 +73,6 @@ String dateTimeFormat(String format, DateTime? dateTime, {String? locale}) {
     return timeago.format(dateTime, locale: locale, allowFromNow: true);
   }
   return DateFormat(format, locale).format(dateTime);
-}
-
-Theme wrapInMaterialDatePickerTheme(
-  BuildContext context,
-  Widget child, {
-  required Color headerBackgroundColor,
-  required Color headerForegroundColor,
-  required TextStyle headerTextStyle,
-  required Color pickerBackgroundColor,
-  required Color pickerForegroundColor,
-  required Color selectedDateTimeBackgroundColor,
-  required Color selectedDateTimeForegroundColor,
-  required Color actionButtonForegroundColor,
-  required double iconSize,
-}) {
-  final baseTheme = Theme.of(context);
-  final dateTimeMaterialStateForegroundColor =
-      WidgetStateProperty.resolveWith((states) {
-    if (states.contains(WidgetState.disabled)) {
-      return pickerForegroundColor.withOpacity(0.60);
-    }
-    if (states.contains(WidgetState.selected)) {
-      return selectedDateTimeForegroundColor;
-    }
-    if (states.isEmpty) {
-      return pickerForegroundColor;
-    }
-    return null;
-  });
-
-  final dateTimeMaterialStateBackgroundColor =
-      WidgetStateProperty.resolveWith((states) {
-    if (states.contains(WidgetState.selected)) {
-      return selectedDateTimeBackgroundColor;
-    }
-    return null;
-  });
-
-  return Theme(
-    data: baseTheme.copyWith(
-      colorScheme: baseTheme.colorScheme.copyWith(
-        onSurface: pickerForegroundColor,
-      ),
-      disabledColor: pickerForegroundColor.withOpacity(0.3),
-      textTheme: baseTheme.textTheme.copyWith(
-        headlineSmall: headerTextStyle,
-        headlineMedium: headerTextStyle,
-      ),
-      iconTheme: baseTheme.iconTheme.copyWith(
-        size: iconSize,
-      ),
-      textButtonTheme: TextButtonThemeData(
-        style: ButtonStyle(
-            foregroundColor: WidgetStatePropertyAll(
-              actionButtonForegroundColor,
-            ),
-            overlayColor: WidgetStateProperty.resolveWith((states) {
-              if (states.contains(WidgetState.hovered)) {
-                return actionButtonForegroundColor.withOpacity(0.04);
-              }
-              if (states.contains(WidgetState.focused) ||
-                  states.contains(WidgetState.pressed)) {
-                return actionButtonForegroundColor.withOpacity(0.12);
-              }
-              return null;
-            })),
-      ),
-      datePickerTheme: DatePickerThemeData(
-        backgroundColor: pickerBackgroundColor,
-        headerBackgroundColor: headerBackgroundColor,
-        headerForegroundColor: headerForegroundColor,
-        weekdayStyle: baseTheme.textTheme.labelMedium!.copyWith(
-          color: pickerForegroundColor,
-        ),
-        dayBackgroundColor: dateTimeMaterialStateBackgroundColor,
-        todayBackgroundColor: dateTimeMaterialStateBackgroundColor,
-        yearBackgroundColor: dateTimeMaterialStateBackgroundColor,
-        dayForegroundColor: dateTimeMaterialStateForegroundColor,
-        todayForegroundColor: dateTimeMaterialStateForegroundColor,
-        yearForegroundColor: dateTimeMaterialStateForegroundColor,
-      ),
-    ),
-    child: child,
-  );
-}
-
-Theme wrapInMaterialTimePickerTheme(
-  BuildContext context,
-  Widget child, {
-  required Color headerBackgroundColor,
-  required Color headerForegroundColor,
-  required TextStyle headerTextStyle,
-  required Color pickerBackgroundColor,
-  required Color pickerForegroundColor,
-  required Color selectedDateTimeBackgroundColor,
-  required Color selectedDateTimeForegroundColor,
-  required Color actionButtonForegroundColor,
-  required double iconSize,
-}) {
-  final baseTheme = Theme.of(context);
-  return Theme(
-    data: baseTheme.copyWith(
-      iconTheme: baseTheme.iconTheme.copyWith(
-        size: iconSize,
-      ),
-      textButtonTheme: TextButtonThemeData(
-        style: ButtonStyle(
-            foregroundColor: WidgetStatePropertyAll(
-              actionButtonForegroundColor,
-            ),
-            overlayColor: WidgetStateProperty.resolveWith((states) {
-              if (states.contains(WidgetState.hovered)) {
-                return actionButtonForegroundColor.withOpacity(0.04);
-              }
-              if (states.contains(WidgetState.focused) ||
-                  states.contains(WidgetState.pressed)) {
-                return actionButtonForegroundColor.withOpacity(0.12);
-              }
-              return null;
-            })),
-      ),
-      timePickerTheme: baseTheme.timePickerTheme.copyWith(
-        backgroundColor: pickerBackgroundColor,
-        hourMinuteTextColor: pickerForegroundColor,
-        dialHandColor: selectedDateTimeBackgroundColor,
-        dialTextColor: WidgetStateColor.resolveWith((states) =>
-            states.contains(WidgetState.selected)
-                ? selectedDateTimeForegroundColor
-                : pickerForegroundColor),
-        dayPeriodBorderSide: BorderSide(
-          color: pickerForegroundColor,
-        ),
-        dayPeriodTextColor: WidgetStateColor.resolveWith((states) =>
-            states.contains(WidgetState.selected)
-                ? selectedDateTimeForegroundColor
-                : pickerForegroundColor),
-        dayPeriodColor: WidgetStateColor.resolveWith((states) =>
-            states.contains(WidgetState.selected)
-                ? selectedDateTimeBackgroundColor
-                : Colors.transparent),
-        entryModeIconColor: pickerForegroundColor,
-      ),
-    ),
-    child: child,
-  );
 }
 
 Future launchURL(String url) async {
@@ -465,12 +323,12 @@ void showSnackbar(
       content: Row(
         children: [
           if (loading)
-            const Padding(
+            Padding(
               padding: EdgeInsetsDirectional.only(end: 10.0),
-              child: SizedBox(
+              child: Container(
                 height: 20,
                 width: 20,
-                child: CircularProgressIndicator(
+                child: const CircularProgressIndicator(
                   color: Colors.white,
                 ),
               ),
@@ -488,6 +346,19 @@ extension FFStringExt on String {
       maxChars != null && length > maxChars
           ? replaceRange(maxChars, null, replacement)
           : this;
+
+  String toCapitalization(TextCapitalization textCapitalization) {
+    switch (textCapitalization) {
+      case TextCapitalization.none:
+        return this;
+      case TextCapitalization.words:
+        return split(' ').map(toBeginningOfSentenceCase).join(' ');
+      case TextCapitalization.sentences:
+        return toBeginningOfSentenceCase(this);
+      case TextCapitalization.characters:
+        return toUpperCase();
+    }
+  }
 }
 
 extension ListFilterExt<T> on Iterable<T?> {
@@ -542,24 +413,6 @@ extension StatefulWidgetExtensions on State<StatefulWidget> {
   }
 }
 
-extension WalkthroughWrapperExtension on Widget {
-  Widget addWalkthrough(
-    GlobalKey walkthroughKey,
-    TutorialCoachMark? controller, {
-    int? listIndex,
-  }) {
-    if (listIndex != null && listIndex != 0) {
-      return this;
-    }
-    return controller != null
-        ? KeyedSubtree(
-            key: walkthroughKey,
-            child: this,
-          )
-        : this;
-  }
-}
-
 // For iOS 16 and below, set the status bar color to match the app's theme.
 // https://github.com/flutter/flutter/issues/41067
 Brightness? _lastBrightness;
@@ -579,17 +432,8 @@ void fixStatusBarOniOS16AndBelow(BuildContext context) {
   }
 }
 
-extension ListUniqueExt<T> on Iterable<T> {
-  List<T> unique(dynamic Function(T) getKey) {
-    var distinctSet = <dynamic>{};
-    var distinctList = <T>[];
-    for (var item in this) {
-      if (distinctSet.add(getKey(item))) {
-        distinctList.add(item);
-      }
-    }
-    return distinctList;
-  }
+extension ColorOpacityExt on Color {
+  Color applyAlpha(double val) => withValues(alpha: val);
 }
 
 String roundTo(double value, int decimalPoints) {
@@ -628,3 +472,21 @@ double computeGradientAlignmentY(double evaluatedAngle) {
   }
   return double.parse(roundTo(y, 2));
 }
+
+extension ListUniqueExt<T> on Iterable<T> {
+  List<T> unique(dynamic Function(T) getKey) {
+    var distinctSet = <dynamic>{};
+    var distinctList = <T>[];
+    for (var item in this) {
+      if (distinctSet.add(getKey(item))) {
+        distinctList.add(item);
+      }
+    }
+    return distinctList;
+  }
+}
+
+String getCurrentRoute(BuildContext context) =>
+    context.mounted ? MyApp.of(context).getRoute() : '';
+List<String> getCurrentRouteStack(BuildContext context) =>
+    context.mounted ? MyApp.of(context).getRouteStack() : [];

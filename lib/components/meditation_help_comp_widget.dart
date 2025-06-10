@@ -1,14 +1,19 @@
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
+import 'dart:ui';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'meditation_help_comp_model.dart';
 export 'meditation_help_comp_model.dart';
 
@@ -52,8 +57,8 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 300.0.ms,
-            begin: const Offset(0.5, 0.0),
-            end: const Offset(0.0, 1.0),
+            begin: Offset(0.5, 0.0),
+            end: Offset(0.0, 1.0),
           ),
         ],
       ),
@@ -71,8 +76,8 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, 80.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 80.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -90,8 +95,8 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, 100.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 100.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -109,8 +114,8 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, 120.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 120.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -128,8 +133,8 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 300.0.ms,
-            begin: const Offset(0.5, 0.0),
-            end: const Offset(0.0, 1.0),
+            begin: Offset(0.5, 0.0),
+            end: Offset(0.0, 1.0),
           ),
         ],
       ),
@@ -147,8 +152,8 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, 80.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 80.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -166,8 +171,8 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, 100.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 100.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -185,8 +190,8 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, 120.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 120.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -204,8 +209,8 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 300.0.ms,
-            begin: const Offset(0.5, 0.0),
-            end: const Offset(0.0, 1.0),
+            begin: Offset(0.5, 0.0),
+            end: Offset(0.0, 1.0),
           ),
         ],
       ),
@@ -223,8 +228,8 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, 80.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 80.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -242,8 +247,8 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, 100.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 100.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -261,8 +266,8 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, 120.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 120.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -288,7 +293,7 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
       mainAxisSize: MainAxisSize.max,
       children: [
         Expanded(
-          child: SizedBox(
+          child: Container(
             width: double.infinity,
             height: MediaQuery.sizeOf(context).height * 1.0,
             child: Stack(
@@ -303,7 +308,7 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                       height: double.infinity,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).primaryBackground,
-                        image: const DecorationImage(
+                        image: DecorationImage(
                           fit: BoxFit.cover,
                           image: CachedNetworkImageProvider(
                             'https://images.unsplash.com/photo-1617720197345-5e5235ec6220?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwxNXx8cGVhY2V8ZW58MHx8fHwxNzA5Njc1NzAxfDA&ixlib=rb-4.0.3&q=80&w=1080',
@@ -315,7 +320,7 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 16.0, 44.0, 16.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -326,7 +331,7 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                                   borderRadius: 30.0,
                                   borderWidth: 1.0,
                                   buttonSize: 40.0,
-                                  fillColor: const Color(0x33090F13),
+                                  fillColor: Color(0x33090F13),
                                   icon: Icon(
                                     Icons.arrow_back_rounded,
                                     color: FlutterFlowTheme.of(context)
@@ -348,7 +353,7 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                           Container(
                             width: double.infinity,
                             height: 500.0,
-                            decoration: const BoxDecoration(
+                            decoration: BoxDecoration(
                               gradient: LinearGradient(
                                 colors: [Color(0x00090F13), Color(0xF8000B17)],
                                 stops: [0.0, 0.8],
@@ -357,14 +362,14 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                               ),
                             ),
                             child: Padding(
-                              padding: const EdgeInsets.all(16.0),
+                              padding: EdgeInsets.all(16.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 12.0, 0.0, 12.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -390,25 +395,25 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                                                     colors: [
                                                       FlutterFlowTheme.of(
                                                               context)
-                                                          .primary,
+                                                          .accent1,
                                                       FlutterFlowTheme.of(
                                                               context)
-                                                          .secondary
+                                                          .alternate
                                                     ],
-                                                    stops: const [0.0, 1.0],
-                                                    begin: const AlignmentDirectional(
+                                                    stops: [0.0, 1.0],
+                                                    begin: AlignmentDirectional(
                                                         0.0, -1.0),
-                                                    end: const AlignmentDirectional(
+                                                    end: AlignmentDirectional(
                                                         0, 1.0),
                                                   ),
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           12.0),
                                                 ),
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           8.0, 0.0, 8.0, 0.0),
                                                   child: Text(
@@ -421,20 +426,12 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
+                                                              'WorkSans',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryBackground,
                                                           fontSize: 22.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily),
                                                         ),
                                                   ),
                                                 ),
@@ -447,7 +444,7 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                                         'rowOnPageLoadAnimation1']!),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 4.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
@@ -456,22 +453,16 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .bodySmall
                                           .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodySmallFamily,
+                                            fontFamily: 'WorkSans',
                                             color: Colors.white,
                                             fontSize: 18.0,
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey(
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodySmallFamily),
                                           ),
                                     ).animateOnPageLoad(animationsMap[
                                         'textOnPageLoadAnimation1']!),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 24.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
@@ -480,12 +471,21 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .titleSmall
                                           .override(
-                                            fontFamily: 'Roboto',
-                                            color: const Color(0x9AFFFFFF),
+                                            font: GoogleFonts.roboto(
+                                              fontWeight: FontWeight.w300,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmall
+                                                      .fontStyle,
+                                            ),
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondary,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w300,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey('Roboto'),
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleSmall
+                                                    .fontStyle,
                                           ),
                                     ).animateOnPageLoad(animationsMap[
                                         'textOnPageLoadAnimation2']!),
@@ -502,7 +502,7 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                       height: double.infinity,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).primaryBackground,
-                        image: const DecorationImage(
+                        image: DecorationImage(
                           fit: BoxFit.cover,
                           image: CachedNetworkImageProvider(
                             'https://images.unsplash.com/photo-1571510811967-ad6b78c86ffe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwxfHxpbmhhbGV8ZW58MHx8fHwxNzA5Njc1NDIzfDA&ixlib=rb-4.0.3&q=80&w=1080',
@@ -514,7 +514,7 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 16.0, 44.0, 16.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -525,7 +525,7 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                                   borderRadius: 30.0,
                                   borderWidth: 1.0,
                                   buttonSize: 40.0,
-                                  fillColor: const Color(0x33090F13),
+                                  fillColor: Color(0x33090F13),
                                   icon: Icon(
                                     Icons.arrow_back_rounded,
                                     color: FlutterFlowTheme.of(context)
@@ -547,7 +547,7 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                           Container(
                             width: double.infinity,
                             height: 500.0,
-                            decoration: const BoxDecoration(
+                            decoration: BoxDecoration(
                               gradient: LinearGradient(
                                 colors: [Color(0x00090F13), Color(0xF8000B17)],
                                 stops: [0.0, 0.8],
@@ -556,14 +556,14 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                               ),
                             ),
                             child: Padding(
-                              padding: const EdgeInsets.all(16.0),
+                              padding: EdgeInsets.all(16.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 12.0, 0.0, 12.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -589,25 +589,25 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                                                     colors: [
                                                       FlutterFlowTheme.of(
                                                               context)
-                                                          .primary,
+                                                          .accent1,
                                                       FlutterFlowTheme.of(
                                                               context)
-                                                          .secondary
+                                                          .alternate
                                                     ],
-                                                    stops: const [0.0, 1.0],
-                                                    begin: const AlignmentDirectional(
+                                                    stops: [0.0, 1.0],
+                                                    begin: AlignmentDirectional(
                                                         0.0, -1.0),
-                                                    end: const AlignmentDirectional(
+                                                    end: AlignmentDirectional(
                                                         0, 1.0),
                                                   ),
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           12.0),
                                                 ),
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           8.0, 0.0, 8.0, 0.0),
                                                   child: Text(
@@ -620,20 +620,12 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
+                                                              'WorkSans',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryBackground,
                                                           fontSize: 22.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily),
                                                         ),
                                                   ),
                                                 ),
@@ -646,7 +638,7 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                                         'rowOnPageLoadAnimation2']!),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 4.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
@@ -655,18 +647,33 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .bodySmall
                                           .override(
-                                            fontFamily: 'Roboto',
+                                            font: GoogleFonts.roboto(
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodySmall
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodySmall
+                                                      .fontStyle,
+                                            ),
                                             color: Colors.white,
                                             fontSize: 18.0,
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey('Roboto'),
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodySmall
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodySmall
+                                                    .fontStyle,
                                           ),
                                     ).animateOnPageLoad(animationsMap[
                                         'textOnPageLoadAnimation3']!),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 24.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
@@ -675,12 +682,21 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .titleSmall
                                           .override(
-                                            fontFamily: 'Roboto',
-                                            color: const Color(0x9AFFFFFF),
+                                            font: GoogleFonts.roboto(
+                                              fontWeight: FontWeight.w300,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmall
+                                                      .fontStyle,
+                                            ),
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondary,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w300,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey('Roboto'),
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleSmall
+                                                    .fontStyle,
                                           ),
                                     ).animateOnPageLoad(animationsMap[
                                         'textOnPageLoadAnimation4']!),
@@ -697,7 +713,7 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                       height: double.infinity,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).primaryBackground,
-                        image: const DecorationImage(
+                        image: DecorationImage(
                           fit: BoxFit.cover,
                           image: CachedNetworkImageProvider(
                             'https://images.unsplash.com/uploads/1413395496082cbc91228/43e39040?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwyMnx8cGVhY2V8ZW58MHx8fHwxNzA5Njc1NzAxfDA&ixlib=rb-4.0.3&q=80&w=1080',
@@ -709,7 +725,7 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 16.0, 44.0, 16.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -720,7 +736,7 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                                   borderRadius: 30.0,
                                   borderWidth: 1.0,
                                   buttonSize: 40.0,
-                                  fillColor: const Color(0xAD00152B),
+                                  fillColor: Color(0xAD00152B),
                                   icon: FaIcon(
                                     FontAwesomeIcons.angleDown,
                                     color: FlutterFlowTheme.of(context)
@@ -741,7 +757,7 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                           Container(
                             width: double.infinity,
                             height: 500.0,
-                            decoration: const BoxDecoration(
+                            decoration: BoxDecoration(
                               gradient: LinearGradient(
                                 colors: [Color(0x00090F13), Color(0xF8000B17)],
                                 stops: [0.0, 0.8],
@@ -750,14 +766,14 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                               ),
                             ),
                             child: Padding(
-                              padding: const EdgeInsets.all(16.0),
+                              padding: EdgeInsets.all(16.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 12.0, 0.0, 12.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -783,25 +799,25 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                                                     colors: [
                                                       FlutterFlowTheme.of(
                                                               context)
-                                                          .primary,
+                                                          .accent1,
                                                       FlutterFlowTheme.of(
                                                               context)
-                                                          .secondary
+                                                          .alternate
                                                     ],
-                                                    stops: const [0.0, 1.0],
-                                                    begin: const AlignmentDirectional(
+                                                    stops: [0.0, 1.0],
+                                                    begin: AlignmentDirectional(
                                                         0.0, -1.0),
-                                                    end: const AlignmentDirectional(
+                                                    end: AlignmentDirectional(
                                                         0, 1.0),
                                                   ),
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           12.0),
                                                 ),
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           8.0, 0.0, 8.0, 0.0),
                                                   child: Text(
@@ -813,17 +829,34 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Roboto',
+                                                          font: GoogleFonts
+                                                              .roboto(
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                          ),
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .primaryBackground,
                                                           fontSize: 22.0,
                                                           letterSpacing: 0.0,
-                                                          useGoogleFonts:
-                                                              GoogleFonts
-                                                                      .asMap()
-                                                                  .containsKey(
-                                                                      'Roboto'),
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
                                                         ),
                                                   ),
                                                 ),
@@ -836,7 +869,7 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                                         'rowOnPageLoadAnimation3']!),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 4.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
@@ -845,18 +878,33 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .bodySmall
                                           .override(
-                                            fontFamily: 'Roboto',
+                                            font: GoogleFonts.roboto(
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodySmall
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodySmall
+                                                      .fontStyle,
+                                            ),
                                             color: Colors.white,
                                             fontSize: 18.0,
                                             letterSpacing: 0.0,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey('Roboto'),
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodySmall
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodySmall
+                                                    .fontStyle,
                                           ),
                                     ).animateOnPageLoad(animationsMap[
                                         'textOnPageLoadAnimation5']!),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 24.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
@@ -865,15 +913,57 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                                       style: FlutterFlowTheme.of(context)
                                           .titleSmall
                                           .override(
-                                            fontFamily: 'Roboto',
-                                            color: const Color(0x9AFFFFFF),
+                                            font: GoogleFonts.roboto(
+                                              fontWeight: FontWeight.w300,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmall
+                                                      .fontStyle,
+                                            ),
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondary,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w300,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey('Roboto'),
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleSmall
+                                                    .fontStyle,
                                           ),
                                     ).animateOnPageLoad(animationsMap[
                                         'textOnPageLoadAnimation6']!),
+                                  ),
+                                  Align(
+                                    alignment: AlignmentDirectional(1.0, 1.0),
+                                    child: FFButtonWidget(
+                                      onPressed: () async {
+                                        logFirebaseEvent(
+                                            'MEDITATION_HELP_END_TUTORIAL_BTN_ON_TAP');
+                                        logFirebaseEvent('Button_bottom_sheet');
+                                        Navigator.pop(context);
+                                      },
+                                      text: FFLocalizations.of(context).getText(
+                                        'riodezdh' /* End Tutorial */,
+                                      ),
+                                      options: FFButtonOptions(
+                                        height: 40.0,
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            16.0, 0.0, 16.0, 0.0),
+                                        iconPadding:
+                                            EdgeInsetsDirectional.fromSTEB(
+                                                0.0, 0.0, 0.0, 0.0),
+                                        color: Color(0xE5F0831A),
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .override(
+                                              fontFamily: 'WorkSans',
+                                              color: Colors.white,
+                                              letterSpacing: 0.0,
+                                            ),
+                                        elevation: 0.0,
+                                        borderRadius:
+                                            BorderRadius.circular(25.0),
+                                      ),
+                                    ),
                                   ),
                                 ],
                               ),
@@ -885,9 +975,9 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                   ],
                 ),
                 Align(
-                  alignment: const AlignmentDirectional(-1.0, 1.0),
+                  alignment: AlignmentDirectional(-1.0, 1.0),
                   child: Padding(
-                    padding: const EdgeInsets.all(15.0),
+                    padding: EdgeInsets.all(15.0),
                     child: smooth_page_indicator.SmoothPageIndicator(
                       controller: _model.pageViewController ??=
                           PageController(initialPage: 0),
@@ -896,7 +986,7 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                       onDotClicked: (i) async {
                         await _model.pageViewController!.animateToPage(
                           i,
-                          duration: const Duration(milliseconds: 500),
+                          duration: Duration(milliseconds: 500),
                           curve: Curves.ease,
                         );
                         safeSetState(() {});
@@ -907,7 +997,7 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                         radius: 40.0,
                         dotWidth: 10.0,
                         dotHeight: 10.0,
-                        dotColor: const Color(0xFFD9D9D9),
+                        dotColor: FlutterFlowTheme.of(context).tertiary,
                         activeDotColor: FlutterFlowTheme.of(context).secondary,
                         paintStyle: PaintingStyle.fill,
                       ),
