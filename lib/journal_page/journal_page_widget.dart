@@ -16,7 +16,6 @@ import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:webviewx_plus/webviewx_plus.dart';
 import 'journal_page_model.dart';
 export 'journal_page_model.dart';
 
@@ -326,6 +325,46 @@ class _JournalPageWidgetState extends State<JournalPageWidget> {
                     mainAxisSize: MainAxisSize.max,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Flexible(
+                            flex: 1,
+                            child: Padding(
+                              padding: EdgeInsets.all(15.0),
+                              child: FFButtonWidget(
+                                onPressed: () {
+                                  print('Button pressed ...');
+                                },
+                                text: FFLocalizations.of(context).getText(
+                                  'i6cc1phz' /* Back */,
+                                ),
+                                icon: Icon(
+                                  Icons.arrow_back,
+                                  size: 22.0,
+                                ),
+                                options: FFButtonOptions(
+                                  height: 40.0,
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      16.0, 0.0, 16.0, 0.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 0.0),
+                                  color: FlutterFlowTheme.of(context).accent1,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .override(
+                                        fontFamily: 'WorkSans',
+                                        color: Colors.white,
+                                        letterSpacing: 0.0,
+                                      ),
+                                  elevation: 0.0,
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
                             16.0, 10.0, 16.0, 0.0),
@@ -1059,22 +1098,17 @@ class _JournalPageWidgetState extends State<JournalPageWidget> {
                                         enableDrag: false,
                                         context: context,
                                         builder: (context) {
-                                          return WebViewAware(
-                                            child: GestureDetector(
-                                              onTap: () {
-                                                FocusScope.of(context)
-                                                    .unfocus();
-                                                FocusManager
-                                                    .instance.primaryFocus
-                                                    ?.unfocus();
-                                              },
-                                              child: Padding(
-                                                padding:
-                                                    MediaQuery.viewInsetsOf(
-                                                        context),
-                                                child:
-                                                    ConfettiPageBasicCompWidget(),
-                                              ),
+                                          return GestureDetector(
+                                            onTap: () {
+                                              FocusScope.of(context).unfocus();
+                                              FocusManager.instance.primaryFocus
+                                                  ?.unfocus();
+                                            },
+                                            child: Padding(
+                                              padding: MediaQuery.viewInsetsOf(
+                                                  context),
+                                              child:
+                                                  ConfettiPageBasicCompWidget(),
                                             ),
                                           );
                                         },

@@ -866,7 +866,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
 
                                                                       context
                                                                           .pushNamedAuth(
-                                                                        HomeVersion4Widget
+                                                                        FacialMoodAnalyzerChoiceWidget
                                                                             .routeName,
                                                                         context
                                                                             .mounted,
@@ -877,9 +877,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                             hasTransition:
                                                                                 true,
                                                                             transitionType:
-                                                                                PageTransitionType.fade,
+                                                                                PageTransitionType.rightToLeft,
                                                                             duration:
-                                                                                Duration(milliseconds: 3),
+                                                                                Duration(milliseconds: 1),
                                                                           ),
                                                                         },
                                                                       );

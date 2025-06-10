@@ -13,7 +13,6 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:webviewx_plus/webviewx_plus.dart';
 import 'short_breathing_goal_model.dart';
 export 'short_breathing_goal_model.dart';
 
@@ -237,17 +236,14 @@ class _ShortBreathingGoalWidgetState extends State<ShortBreathingGoalWidget>
                             backgroundColor: Colors.transparent,
                             context: context,
                             builder: (context) {
-                              return WebViewAware(
-                                child: GestureDetector(
-                                  onTap: () {
-                                    FocusScope.of(context).unfocus();
-                                    FocusManager.instance.primaryFocus
-                                        ?.unfocus();
-                                  },
-                                  child: Padding(
-                                    padding: MediaQuery.viewInsetsOf(context),
-                                    child: ConfettiPageIntermediateCompWidget(),
-                                  ),
+                              return GestureDetector(
+                                onTap: () {
+                                  FocusScope.of(context).unfocus();
+                                  FocusManager.instance.primaryFocus?.unfocus();
+                                },
+                                child: Padding(
+                                  padding: MediaQuery.viewInsetsOf(context),
+                                  child: ConfettiPageIntermediateCompWidget(),
                                 ),
                               );
                             },

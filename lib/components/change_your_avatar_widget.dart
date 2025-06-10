@@ -121,7 +121,7 @@ class _ChangeYourAvatarWidgetState extends State<ChangeYourAvatarWidget> {
                             EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                         child: Text(
                           FFLocalizations.of(context).getText(
-                            'fvbo40qz' /* Change Your Avatar */,
+                            'fvbo40qz' /* Edit Avatar */,
                           ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(

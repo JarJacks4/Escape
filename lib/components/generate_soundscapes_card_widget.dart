@@ -120,8 +120,8 @@ class _GenerateSoundscapesCardWidgetState
                             EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                         child: Text(
                           FFLocalizations.of(context).getText(
-                            'nppdaile' /* Generate 
-Soundscapes */
+                            'nppdaile' /* Edit Your 
+Self-Care AI */
                             ,
                           ),
                           style:

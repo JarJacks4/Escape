@@ -50,33 +50,36 @@ class _JournalWidgetState extends State<JournalWidget> {
           mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  FFLocalizations.of(context).getText(
-                    '7hxk3rkr' /* Journal */,
+            Flexible(
+              flex: 1,
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    FFLocalizations.of(context).getText(
+                      '7hxk3rkr' /* Journal */,
+                    ),
+                    style: FlutterFlowTheme.of(context).headlineLarge.override(
+                          fontFamily: 'The Seasons',
+                          color: FlutterFlowTheme.of(context).primaryText,
+                          letterSpacing: 0.0,
+                          fontWeight: FontWeight.bold,
+                        ),
                   ),
-                  style: FlutterFlowTheme.of(context).headlineLarge.override(
-                        fontFamily: 'The Seasons',
-                        color: FlutterFlowTheme.of(context).primaryText,
-                        letterSpacing: 0.0,
-                        fontWeight: FontWeight.w600,
-                      ),
-                ),
-                Text(
-                  FFLocalizations.of(context).getText(
-                    '5bgp3plb' /* ESCAPE */,
+                  Text(
+                    FFLocalizations.of(context).getText(
+                      '5bgp3plb' /* ESCAPE */,
+                    ),
+                    style: FlutterFlowTheme.of(context).headlineLarge.override(
+                          fontFamily: 'The Seasons',
+                          color: FlutterFlowTheme.of(context).primaryText,
+                          letterSpacing: 0.0,
+                          fontWeight: FontWeight.w300,
+                        ),
                   ),
-                  style: FlutterFlowTheme.of(context).headlineLarge.override(
-                        fontFamily: 'The Seasons',
-                        color: FlutterFlowTheme.of(context).primaryText,
-                        letterSpacing: 0.0,
-                        fontWeight: FontWeight.w300,
-                      ),
-                ),
-              ],
+                ],
+              ),
             ),
             Row(
               mainAxisSize: MainAxisSize.max,

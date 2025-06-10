@@ -23,7 +23,6 @@ import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:provider/provider.dart';
-import 'package:webviewx_plus/webviewx_plus.dart';
 import 'home_version4_model.dart';
 export 'home_version4_model.dart';
 
@@ -63,16 +62,14 @@ class _HomeVersion4WidgetState extends State<HomeVersion4Widget> {
           backgroundColor: FlutterFlowTheme.of(context).tertiary,
           context: context,
           builder: (context) {
-            return WebViewAware(
-              child: GestureDetector(
-                onTap: () {
-                  FocusScope.of(context).unfocus();
-                  FocusManager.instance.primaryFocus?.unfocus();
-                },
-                child: Padding(
-                  padding: MediaQuery.viewInsetsOf(context),
-                  child: SuccessHomeFeedbackWidget(),
-                ),
+            return GestureDetector(
+              onTap: () {
+                FocusScope.of(context).unfocus();
+                FocusManager.instance.primaryFocus?.unfocus();
+              },
+              child: Padding(
+                padding: MediaQuery.viewInsetsOf(context),
+                child: SuccessHomeFeedbackWidget(),
               ),
             );
           },
@@ -147,7 +144,7 @@ class _HomeVersion4WidgetState extends State<HomeVersion4Widget> {
               desktop: false,
             )
                 ? PreferredSize(
-                    preferredSize: Size.fromHeight(80.0),
+                    preferredSize: Size.fromHeight(60.0),
                     child: AppBar(
                       backgroundColor: FlutterFlowTheme.of(context).primary,
                       automaticallyImplyLeading: false,
@@ -161,7 +158,7 @@ class _HomeVersion4WidgetState extends State<HomeVersion4Widget> {
                               flex: 1,
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    8.0, 45.0, 8.0, 0.0),
+                                    8.0, 40.0, 8.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment:
@@ -272,6 +269,7 @@ class _HomeVersion4WidgetState extends State<HomeVersion4Widget> {
                                       flex: 1,
                                       child: ListView(
                                         padding: EdgeInsets.zero,
+                                        primary: false,
                                         shrinkWrap: true,
                                         scrollDirection: Axis.horizontal,
                                         children: [
@@ -394,15 +392,8 @@ class _HomeVersion4WidgetState extends State<HomeVersion4Widget> {
                                                         context.pop();
                                                       }
                                                       context.pushNamed(
-                                                        CommunityHomeFINALWidget
+                                                        VideoPlayerMeditationPageWidget
                                                             .routeName,
-                                                        queryParameters: {
-                                                          'breathingIndex':
-                                                              serializeParam(
-                                                            2,
-                                                            ParamType.int,
-                                                          ),
-                                                        }.withoutNulls,
                                                         extra: <String,
                                                             dynamic>{
                                                           kTransitionInfoKey:
@@ -505,7 +496,7 @@ class _HomeVersion4WidgetState extends State<HomeVersion4Widget> {
                                                         context.pop();
                                                       }
                                                       context.pushNamed(
-                                                        IncreaseFocusGoalWidget
+                                                        VideoPlayerIncreaseFocusWidget
                                                             .routeName,
                                                         extra: <String,
                                                             dynamic>{
@@ -586,15 +577,8 @@ class _HomeVersion4WidgetState extends State<HomeVersion4Widget> {
                                                         context.pop();
                                                       }
                                                       context.pushNamed(
-                                                        CommunityHomeFINALWidget
+                                                        VideoPlayerDepressionWidget
                                                             .routeName,
-                                                        queryParameters: {
-                                                          'forYouIndex':
-                                                              serializeParam(
-                                                            1,
-                                                            ParamType.int,
-                                                          ),
-                                                        }.withoutNulls,
                                                         extra: <String,
                                                             dynamic>{
                                                           kTransitionInfoKey:
@@ -679,15 +663,8 @@ class _HomeVersion4WidgetState extends State<HomeVersion4Widget> {
                                                         context.pop();
                                                       }
                                                       context.pushNamed(
-                                                        CommunityHomeFINALWidget
+                                                        VideoPlayerSleepPageWidget
                                                             .routeName,
-                                                        queryParameters: {
-                                                          'forYouIndex':
-                                                              serializeParam(
-                                                            1,
-                                                            ParamType.int,
-                                                          ),
-                                                        }.withoutNulls,
                                                         extra: <String,
                                                             dynamic>{
                                                           kTransitionInfoKey:
@@ -729,6 +706,113 @@ class _HomeVersion4WidgetState extends State<HomeVersion4Widget> {
                                                     FFLocalizations.of(context)
                                                         .getText(
                                                       'xbed4lpz' /* Sleep */,
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'WorkSans',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Flexible(
+                                                flex: 1,
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          15.0, 0.0, 0.0, 0.0),
+                                                  child: InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      logFirebaseEvent(
+                                                          'HOME_VERSION4_Container_mx94mtyx_ON_TAP');
+                                                      logFirebaseEvent(
+                                                          'Container_navigate_to');
+                                                      if (Navigator.of(context)
+                                                          .canPop()) {
+                                                        context.pop();
+                                                      }
+                                                      context.pushNamed(
+                                                        VideoPlayerBodyWidget
+                                                            .routeName,
+                                                        extra: <String,
+                                                            dynamic>{
+                                                          kTransitionInfoKey:
+                                                              TransitionInfo(
+                                                            hasTransition: true,
+                                                            transitionType:
+                                                                PageTransitionType
+                                                                    .fade,
+                                                            duration: Duration(
+                                                                milliseconds:
+                                                                    2),
+                                                          ),
+                                                        },
+                                                      );
+                                                    },
+                                                    child: Container(
+                                                      width: 63.0,
+                                                      height: 64.0,
+                                                      decoration: BoxDecoration(
+                                                        gradient:
+                                                            LinearGradient(
+                                                          colors: [
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .accent1,
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .tertiary
+                                                          ],
+                                                          stops: [
+                                                            0.0,
+                                                            0.5,
+                                                            1.0
+                                                          ],
+                                                          begin:
+                                                              AlignmentDirectional(
+                                                                  0.87, -1.0),
+                                                          end:
+                                                              AlignmentDirectional(
+                                                                  -0.87, 1.0),
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(50.0),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                              Align(
+                                                alignment: AlignmentDirectional(
+                                                    0.0, 0.0),
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          15.0, 8.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                      'l7ajvafk' /* Body */,
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -977,6 +1061,7 @@ class _HomeVersion4WidgetState extends State<HomeVersion4Widget> {
                                       0.0, 8.0, 0.0, 0.0),
                                   child: ListView(
                                     padding: EdgeInsets.zero,
+                                    primary: false,
                                     shrinkWrap: true,
                                     scrollDirection: Axis.horizontal,
                                     children: [

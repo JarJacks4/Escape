@@ -303,16 +303,20 @@ class _CommunityHomeFINALWidgetState extends State<CommunityHomeFINALWidget>
                       flex: 1,
                       child: Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
                         child: Column(
                           children: [
                             Align(
                               alignment: Alignment(0.0, 0),
                               child: TabBar(
+                                isScrollable: true,
+                                tabAlignment: TabAlignment.center,
                                 labelColor:
-                                    FlutterFlowTheme.of(context).accent1,
+                                    FlutterFlowTheme.of(context).secondary,
                                 unselectedLabelColor:
                                     FlutterFlowTheme.of(context).secondaryText,
+                                labelPadding: EdgeInsetsDirectional.fromSTEB(
+                                    25.0, 0.0, 25.0, 0.0),
                                 labelStyle: FlutterFlowTheme.of(context)
                                     .titleMedium
                                     .override(
@@ -328,7 +332,7 @@ class _CommunityHomeFINALWidgetState extends State<CommunityHomeFINALWidget>
                                           letterSpacing: 0.0,
                                         ),
                                 indicatorColor:
-                                    FlutterFlowTheme.of(context).primary,
+                                    FlutterFlowTheme.of(context).accent1,
                                 tabs: [
                                   Tab(
                                     text: FFLocalizations.of(context).getText(
@@ -383,6 +387,7 @@ class _CommunityHomeFINALWidgetState extends State<CommunityHomeFINALWidget>
                                                   return ReorderableListView
                                                       .builder(
                                                     padding: EdgeInsets.zero,
+                                                    primary: false,
                                                     proxyDecorator: (Widget
                                                                 child,
                                                             int index,
@@ -549,6 +554,7 @@ class _CommunityHomeFINALWidgetState extends State<CommunityHomeFINALWidget>
                                                   return ReorderableListView
                                                       .builder(
                                                     padding: EdgeInsets.zero,
+                                                    primary: false,
                                                     proxyDecorator: (Widget
                                                                 child,
                                                             int index,
@@ -715,6 +721,8 @@ class _CommunityHomeFINALWidgetState extends State<CommunityHomeFINALWidget>
                                                   return ReorderableListView
                                                       .builder(
                                                     padding: EdgeInsets.zero,
+                                                    reverse: true,
+                                                    primary: false,
                                                     proxyDecorator: (Widget
                                                                 child,
                                                             int index,

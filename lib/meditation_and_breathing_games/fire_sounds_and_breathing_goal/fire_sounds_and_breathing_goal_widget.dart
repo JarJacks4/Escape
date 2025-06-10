@@ -8,7 +8,6 @@ import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:webviewx_plus/webviewx_plus.dart';
 import 'fire_sounds_and_breathing_goal_model.dart';
 export 'fire_sounds_and_breathing_goal_model.dart';
 
@@ -181,17 +180,14 @@ class _FireSoundsAndBreathingGoalWidgetState
                             backgroundColor: Colors.transparent,
                             context: context,
                             builder: (context) {
-                              return WebViewAware(
-                                child: GestureDetector(
-                                  onTap: () {
-                                    FocusScope.of(context).unfocus();
-                                    FocusManager.instance.primaryFocus
-                                        ?.unfocus();
-                                  },
-                                  child: Padding(
-                                    padding: MediaQuery.viewInsetsOf(context),
-                                    child: ConfettiPageIntermediateCompWidget(),
-                                  ),
+                              return GestureDetector(
+                                onTap: () {
+                                  FocusScope.of(context).unfocus();
+                                  FocusManager.instance.primaryFocus?.unfocus();
+                                },
+                                child: Padding(
+                                  padding: MediaQuery.viewInsetsOf(context),
+                                  child: ConfettiPageIntermediateCompWidget(),
                                 ),
                               );
                             },

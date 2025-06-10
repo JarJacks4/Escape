@@ -74,29 +74,16 @@ class _ProgressBarFinalWidgetState extends State<ProgressBarFinalWidget> {
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
                   child: AuthUserStreamWidget(
-                    builder: (context) => InkWell(
-                      splashColor: Colors.transparent,
-                      focusColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () async {
-                        logFirebaseEvent(
-                            'PROGRESS_BAR_FINAL_Image_yzyz94b6_ON_TAP');
-                        logFirebaseEvent('Image_update_app_state');
-                        FFAppState().ProfilePicture = currentUserPhoto;
-                        safeSetState(() {});
-                      },
-                      child: Hero(
-                        tag: currentUserPhoto,
-                        transitionOnUserGestures: true,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(24.0),
-                          child: Image.network(
-                            currentUserPhoto,
-                            width: 46.37,
-                            height: 46.0,
-                            fit: BoxFit.cover,
-                          ),
+                    builder: (context) => Hero(
+                      tag: currentUserPhoto,
+                      transitionOnUserGestures: true,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(24.0),
+                        child: Image.network(
+                          currentUserPhoto,
+                          width: 46.37,
+                          height: 46.0,
+                          fit: BoxFit.cover,
                         ),
                       ),
                     ),

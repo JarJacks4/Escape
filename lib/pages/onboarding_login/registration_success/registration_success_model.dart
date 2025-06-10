@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/components/primary_button/primary_button_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';

@@ -239,13 +239,7 @@ class _TodaysSelfCareActivitiesCompWidgetState
                     logFirebaseEvent('Container_navigate_to');
 
                     context.pushNamed(
-                      CommunityHomeFINALWidget.routeName,
-                      queryParameters: {
-                        'bodyIndex': serializeParam(
-                          3,
-                          ParamType.int,
-                        ),
-                      }.withoutNulls,
+                      VideoPlayerBodyWidget.routeName,
                       extra: <String, dynamic>{
                         kTransitionInfoKey: TransitionInfo(
                           hasTransition: true,

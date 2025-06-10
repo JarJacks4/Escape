@@ -17,7 +17,6 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:webviewx_plus/webviewx_plus.dart';
 import 'a_i_soundscapes_model.dart';
 export 'a_i_soundscapes_model.dart';
 
@@ -314,16 +313,14 @@ Soundscapes */
                                                                               context,
                                                                           builder:
                                                                               (context) {
-                                                                            return WebViewAware(
-                                                                              child: GestureDetector(
-                                                                                onTap: () {
-                                                                                  FocusScope.of(context).unfocus();
-                                                                                  FocusManager.instance.primaryFocus?.unfocus();
-                                                                                },
-                                                                                child: Padding(
-                                                                                  padding: MediaQuery.viewInsetsOf(context),
-                                                                                  child: SelectTimedScenarioCompWidget(),
-                                                                                ),
+                                                                            return GestureDetector(
+                                                                              onTap: () {
+                                                                                FocusScope.of(context).unfocus();
+                                                                                FocusManager.instance.primaryFocus?.unfocus();
+                                                                              },
+                                                                              child: Padding(
+                                                                                padding: MediaQuery.viewInsetsOf(context),
+                                                                                child: SelectTimedScenarioCompWidget(),
                                                                               ),
                                                                             );
                                                                           },
@@ -439,16 +436,14 @@ Soundscapes */
                                                                               context,
                                                                           builder:
                                                                               (context) {
-                                                                            return WebViewAware(
-                                                                              child: GestureDetector(
-                                                                                onTap: () {
-                                                                                  FocusScope.of(context).unfocus();
-                                                                                  FocusManager.instance.primaryFocus?.unfocus();
-                                                                                },
-                                                                                child: Padding(
-                                                                                  padding: MediaQuery.viewInsetsOf(context),
-                                                                                  child: SelectTimedScenarioCompWidget(),
-                                                                                ),
+                                                                            return GestureDetector(
+                                                                              onTap: () {
+                                                                                FocusScope.of(context).unfocus();
+                                                                                FocusManager.instance.primaryFocus?.unfocus();
+                                                                              },
+                                                                              child: Padding(
+                                                                                padding: MediaQuery.viewInsetsOf(context),
+                                                                                child: SelectTimedScenarioCompWidget(),
                                                                               ),
                                                                             );
                                                                           },
@@ -732,7 +727,7 @@ Soundscapes */
 
                                                                     context
                                                                         .pushNamed(
-                                                                      EliminateDepressionWidget
+                                                                      VideoPlayerDepressionWidget
                                                                           .routeName,
                                                                       extra: <String,
                                                                           dynamic>{
@@ -858,7 +853,7 @@ Soundscapes */
 
                                                                     context
                                                                         .pushNamed(
-                                                                      SleepPageWidget
+                                                                      VideoPlayerSleepPageWidget
                                                                           .routeName,
                                                                       extra: <String,
                                                                           dynamic>{

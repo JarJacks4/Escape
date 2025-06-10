@@ -372,8 +372,10 @@ class _YogaTutorialBasicCompWidgetState
                                         iconPadding:
                                             EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
+                                        iconColor: FlutterFlowTheme.of(context)
+                                            .alternate,
                                         color: FlutterFlowTheme.of(context)
-                                            .accent2,
+                                            .accent1,
                                         textStyle: FlutterFlowTheme.of(context)
                                             .titleSmall
                                             .override(
@@ -439,22 +441,7 @@ class _YogaTutorialBasicCompWidgetState
                                                 child: Container(
                                                   height: 32.0,
                                                   decoration: BoxDecoration(
-                                                    gradient: LinearGradient(
-                                                      colors: [
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .primary,
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .secondary
-                                                      ],
-                                                      stops: [0.0, 1.0],
-                                                      begin:
-                                                          AlignmentDirectional(
-                                                              0.0, -1.0),
-                                                      end: AlignmentDirectional(
-                                                          0, 1.0),
-                                                    ),
+                                                    color: Color(0xAD00152B),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             12.0),

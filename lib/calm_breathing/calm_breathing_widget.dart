@@ -13,7 +13,6 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:webviewx_plus/webviewx_plus.dart';
 import 'calm_breathing_model.dart';
 export 'calm_breathing_model.dart';
 
@@ -243,16 +242,14 @@ class _CalmBreathingWidgetState extends State<CalmBreathingWidget>
                           backgroundColor: Colors.transparent,
                           context: context,
                           builder: (context) {
-                            return WebViewAware(
-                              child: GestureDetector(
-                                onTap: () {
-                                  FocusScope.of(context).unfocus();
-                                  FocusManager.instance.primaryFocus?.unfocus();
-                                },
-                                child: Padding(
-                                  padding: MediaQuery.viewInsetsOf(context),
-                                  child: ConfettiPageBasicCompWidget(),
-                                ),
+                            return GestureDetector(
+                              onTap: () {
+                                FocusScope.of(context).unfocus();
+                                FocusManager.instance.primaryFocus?.unfocus();
+                              },
+                              child: Padding(
+                                padding: MediaQuery.viewInsetsOf(context),
+                                child: ConfettiPageBasicCompWidget(),
                               ),
                             );
                           },
