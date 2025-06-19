@@ -5,12 +5,17 @@ import '/components/generate_soundscapes_card_widget.dart';
 import '/components/mood_tracking_card_widget.dart';
 import '/components/progress_bar_final_widget.dart';
 import '/components/self_care_routine_card_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
 import 'dart:ui';
 import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -28,10 +33,13 @@ class LucilleHomeWidget extends StatefulWidget {
   State<LucilleHomeWidget> createState() => _LucilleHomeWidgetState();
 }
 
-class _LucilleHomeWidgetState extends State<LucilleHomeWidget> {
+class _LucilleHomeWidgetState extends State<LucilleHomeWidget>
+    with TickerProviderStateMixin {
   late LucilleHomeModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -39,6 +47,96 @@ class _LucilleHomeWidgetState extends State<LucilleHomeWidget> {
     _model = createModel(context, () => LucilleHomeModel());
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'LucilleHome'});
+    animationsMap.addAll({
+      'chatWithLucilleCardOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(25.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 600.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          ShimmerEffect(
+            curve: Curves.easeInOut,
+            delay: 1800.0.ms,
+            duration: 600.0.ms,
+            color: Color(0x80FFFFFF),
+            angle: 0.524,
+          ),
+        ],
+      ),
+      'moodTrackingCardOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'generateSoundscapesCardOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'earnPointsWithAvatarCardOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          ScaleEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(2.0, 2.0),
+            end: Offset(1.0, 1.0),
+          ),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 600.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          ShimmerEffect(
+            curve: Curves.easeInOut,
+            delay: 1800.0.ms,
+            duration: 600.0.ms,
+            color: Color(0x80FFFFFF),
+            angle: 0.524,
+          ),
+        ],
+      ),
+      'imageOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 3600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -133,7 +231,8 @@ class _LucilleHomeWidgetState extends State<LucilleHomeWidget> {
                                           fit: BoxFit.contain,
                                         ),
                                       ),
-                                    ),
+                                    ).animateOnPageLoad(animationsMap[
+                                        'imageOnPageLoadAnimation']!),
                                   ),
                                 ),
                               ),
@@ -252,13 +351,15 @@ class _LucilleHomeWidgetState extends State<LucilleHomeWidget> {
                                             updateCallback: () =>
                                                 safeSetState(() {}),
                                             child: ChatWithLucilleCardWidget(),
-                                          ),
+                                          ).animateOnPageLoad(animationsMap[
+                                              'chatWithLucilleCardOnPageLoadAnimation']!),
                                       () => wrapWithModel(
                                             model: _model.moodTrackingCardModel,
                                             updateCallback: () =>
                                                 safeSetState(() {}),
                                             child: MoodTrackingCardWidget(),
-                                          ),
+                                          ).animateOnPageLoad(animationsMap[
+                                              'moodTrackingCardOnPageLoadAnimation']!),
                                       () => wrapWithModel(
                                             model: _model
                                                 .generateSoundscapesCardModel,
@@ -266,7 +367,8 @@ class _LucilleHomeWidgetState extends State<LucilleHomeWidget> {
                                                 safeSetState(() {}),
                                             child:
                                                 GenerateSoundscapesCardWidget(),
-                                          ),
+                                          ).animateOnPageLoad(animationsMap[
+                                              'generateSoundscapesCardOnPageLoadAnimation']!),
                                     ][index]();
                                   },
                                 ),
@@ -306,7 +408,8 @@ class _LucilleHomeWidgetState extends State<LucilleHomeWidget> {
                                     model: _model.earnPointsWithAvatarCardModel,
                                     updateCallback: () => safeSetState(() {}),
                                     child: EarnPointsWithAvatarCardWidget(),
-                                  ),
+                                  ).animateOnPageLoad(animationsMap[
+                                      'earnPointsWithAvatarCardOnPageLoadAnimation']!),
                                 ),
                                 Padding(
                                   padding: EdgeInsets.all(15.0),

@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:video_player/video_player.dart';
 
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
@@ -205,12 +206,11 @@ class _FlutterFlowVideoPlayerState extends State<FlutterFlowVideoPlayer>
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         SizedBox(
-                          width: 50.0,
-                          height: 50.0,
-                          child: CircularProgressIndicator(
-                            valueColor: AlwaysStoppedAnimation<Color>(
-                              FlutterFlowTheme.of(context).primary,
-                            ),
+                          width: 100.0,
+                          height: 100.0,
+                          child: SpinKitRipple(
+                            color: FlutterFlowTheme.of(context).primary,
+                            size: 100.0,
                           ),
                         ),
                         const SizedBox(height: 20),

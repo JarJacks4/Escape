@@ -1,12 +1,17 @@
 import '/backend/gemini/gemini.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
 import 'dart:ui';
 import '/index.dart';
 import 'package:tiktokfeed_wz8en7/app_state.dart'
     as tiktokfeed_wz8en7_app_state;
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
@@ -22,8 +27,10 @@ class MoodTrackingBottomSheetWidget extends StatefulWidget {
 }
 
 class _MoodTrackingBottomSheetWidgetState
-    extends State<MoodTrackingBottomSheetWidget> {
+    extends State<MoodTrackingBottomSheetWidget> with TickerProviderStateMixin {
   late MoodTrackingBottomSheetModel _model;
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void setState(VoidCallback callback) {
@@ -38,6 +45,45 @@ class _MoodTrackingBottomSheetWidgetState
 
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
+
+    animationsMap.addAll({
+      'lottieAnimationOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          ScaleEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(5.0, 5.0),
+            end: Offset(1.0, 1.0),
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 2400.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -80,7 +126,8 @@ class _MoodTrackingBottomSheetWidgetState
                 height: 175.23,
                 fit: BoxFit.contain,
                 animate: true,
-              ),
+              ).animateOnPageLoad(
+                  animationsMap['lottieAnimationOnPageLoadAnimation']!),
               Expanded(
                 child: Padding(
                   padding: EdgeInsets.all(8.0),
@@ -112,7 +159,8 @@ H... */
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.bold,
                                     ),
-                              ),
+                              ).animateOnPageLoad(
+                                  animationsMap['textOnPageLoadAnimation']!),
                             ),
                           ),
                         ],
@@ -290,7 +338,8 @@ H... */
                                 width: 1.0,
                               ),
                             ),
-                          ),
+                          ).animateOnPageLoad(
+                              animationsMap['buttonOnPageLoadAnimation']!),
                         ),
                       ),
                       Padding(

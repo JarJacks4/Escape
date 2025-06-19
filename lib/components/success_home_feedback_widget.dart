@@ -1,9 +1,14 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
 import 'dart:ui';
 import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'success_home_feedback_model.dart';
@@ -17,8 +22,11 @@ class SuccessHomeFeedbackWidget extends StatefulWidget {
       _SuccessHomeFeedbackWidgetState();
 }
 
-class _SuccessHomeFeedbackWidgetState extends State<SuccessHomeFeedbackWidget> {
+class _SuccessHomeFeedbackWidgetState extends State<SuccessHomeFeedbackWidget>
+    with TickerProviderStateMixin {
   late SuccessHomeFeedbackModel _model;
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void setState(VoidCallback callback) {
@@ -30,6 +38,95 @@ class _SuccessHomeFeedbackWidgetState extends State<SuccessHomeFeedbackWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => SuccessHomeFeedbackModel());
+
+    animationsMap.addAll({
+      'circleImageOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          ShimmerEffect(
+            curve: Curves.easeInOut,
+            delay: 1500.0.ms,
+            duration: 600.0.ms,
+            color: Color(0x80FFFFFF),
+            angle: 0.524,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 2000.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          ShimmerEffect(
+            curve: Curves.easeInOut,
+            delay: 3000.0.ms,
+            duration: 600.0.ms,
+            color: Color(0x80FFFFFF),
+            angle: 0.524,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'imageOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 3600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -72,7 +169,8 @@ class _SuccessHomeFeedbackWidgetState extends State<SuccessHomeFeedbackWidget> {
                       'assets/images/Icon.png',
                       fit: BoxFit.cover,
                     ),
-                  ),
+                  ).animateOnPageLoad(
+                      animationsMap['circleImageOnPageLoadAnimation']!),
                 ),
               ],
             ),
@@ -91,7 +189,7 @@ class _SuccessHomeFeedbackWidgetState extends State<SuccessHomeFeedbackWidget> {
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.bold,
                 ),
-          ),
+          ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation1']!),
         ),
         Padding(
           padding: EdgeInsetsDirectional.fromSTEB(15.0, 12.0, 15.0, 0.0),
@@ -109,7 +207,7 @@ our Self Care ... */
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.w300,
                 ),
-          ),
+          ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation2']!),
         ),
         Padding(
           padding: EdgeInsetsDirectional.fromSTEB(0.0, 44.0, 0.0, 0.0),
@@ -150,7 +248,7 @@ our Self Care ... */
                 width: 1.0,
               ),
             ),
-          ),
+          ).animateOnPageLoad(animationsMap['buttonOnPageLoadAnimation1']!),
         ),
         Padding(
           padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
@@ -176,7 +274,7 @@ our Self Care ... */
               elevation: 0.0,
               borderRadius: BorderRadius.circular(8.0),
             ),
-          ),
+          ).animateOnPageLoad(animationsMap['buttonOnPageLoadAnimation2']!),
         ),
         Padding(
           padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
@@ -192,7 +290,7 @@ our Self Care ... */
                 fit: BoxFit.contain,
               ),
             ),
-          ),
+          ).animateOnPageLoad(animationsMap['imageOnPageLoadAnimation']!),
         ),
       ],
     );

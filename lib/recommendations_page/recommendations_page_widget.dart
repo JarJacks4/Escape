@@ -1,9 +1,14 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
 import 'dart:ui';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'recommendations_page_model.dart';
@@ -20,10 +25,13 @@ class RecommendationsPageWidget extends StatefulWidget {
       _RecommendationsPageWidgetState();
 }
 
-class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
+class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget>
+    with TickerProviderStateMixin {
   late RecommendationsPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -32,6 +40,20 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'RecommendationsPage'});
+    animationsMap.addAll({
+      'columnOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -2105,7 +2127,7 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget> {
               ),
             ].divide(SizedBox(height: 24.0)),
           ),
-        ),
+        ).animateOnPageLoad(animationsMap['columnOnPageLoadAnimation']!),
       ),
     );
   }

@@ -1,5 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -16,6 +17,7 @@ import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'edit_profile_model.dart';
@@ -75,13 +77,19 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
           ),
         ],
       ),
+      'circleImageOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 2400.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
     });
-    setupAnimations(
-      animationsMap.values.where((anim) =>
-          anim.trigger == AnimationTrigger.onActionTrigger ||
-          !anim.applyInitialState),
-      this,
-    );
   }
 
   @override
@@ -210,7 +218,8 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                         fit: BoxFit.fitWidth,
                                       ),
                                     ),
-                                  ),
+                                  ).animateOnPageLoad(animationsMap[
+                                      'circleImageOnPageLoadAnimation']!),
                                 ),
                               ),
                             ),
@@ -219,7 +228,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                 logFirebaseEvent(
                                     'EDIT_PROFILE_CHANGE_PHOTO_BTN_ON_TAP');
                                 logFirebaseEvent(
-                                    'Button_store_media_for_upload');
+                                    'Button_upload_media_to_firebase');
                                 final selectedMedia =
                                     await selectMediaWithSourceBottomSheet(
                                   context: context,
@@ -236,6 +245,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                   var selectedUploadedFiles =
                                       <FFUploadedFile>[];
 
+                                  var downloadUrls = <String>[];
                                   try {
                                     selectedUploadedFiles = selectedMedia
                                         .map((m) => FFUploadedFile(
@@ -247,15 +257,29 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                               blurHash: m.blurHash,
                                             ))
                                         .toList();
+
+                                    downloadUrls = (await Future.wait(
+                                      selectedMedia.map(
+                                        (m) async => await uploadData(
+                                            m.storagePath, m.bytes),
+                                      ),
+                                    ))
+                                        .where((u) => u != null)
+                                        .map((u) => u!)
+                                        .toList();
                                   } finally {
                                     _model.isDataUploading_uploadDataPch =
                                         false;
                                   }
                                   if (selectedUploadedFiles.length ==
-                                      selectedMedia.length) {
+                                          selectedMedia.length &&
+                                      downloadUrls.length ==
+                                          selectedMedia.length) {
                                     safeSetState(() {
                                       _model.uploadedLocalFile_uploadDataPch =
                                           selectedUploadedFiles.first;
+                                      _model.uploadedFileUrl_uploadDataPch =
+                                          downloadUrls.first;
                                     });
                                   } else {
                                     safeSetState(() {});
@@ -728,7 +752,8 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'WorkSans',
-                                          color: Colors.white,
+                                          color: FlutterFlowTheme.of(context)
+                                              .alternate,
                                           letterSpacing: 0.0,
                                         ),
                                   ),

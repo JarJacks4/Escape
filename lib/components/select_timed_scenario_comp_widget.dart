@@ -1,13 +1,18 @@
 import '/components/select_soundscape_duration_comp_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import 'dart:math';
 import 'dart:ui';
 import 'package:tiktokfeed_wz8en7/app_state.dart'
     as tiktokfeed_wz8en7_app_state;
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
@@ -23,8 +28,10 @@ class SelectTimedScenarioCompWidget extends StatefulWidget {
 }
 
 class _SelectTimedScenarioCompWidgetState
-    extends State<SelectTimedScenarioCompWidget> {
+    extends State<SelectTimedScenarioCompWidget> with TickerProviderStateMixin {
   late SelectTimedScenarioCompModel _model;
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void setState(VoidCallback callback) {
@@ -36,6 +43,21 @@ class _SelectTimedScenarioCompWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => SelectTimedScenarioCompModel());
+
+    animationsMap.addAll({
+      'choiceChipsOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -201,7 +223,8 @@ class _SelectTimedScenarioCompWidgetState
                       [],
                     ),
                     wrapped: true,
-                  ),
+                  ).animateOnPageLoad(
+                      animationsMap['choiceChipsOnPageLoadAnimation']!),
                 ),
                 Flexible(
                   flex: 1,

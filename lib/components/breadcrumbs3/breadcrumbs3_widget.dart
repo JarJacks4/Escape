@@ -1,8 +1,13 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:math';
 import 'dart:ui';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'breadcrumbs3_model.dart';
@@ -15,8 +20,11 @@ class Breadcrumbs3Widget extends StatefulWidget {
   State<Breadcrumbs3Widget> createState() => _Breadcrumbs3WidgetState();
 }
 
-class _Breadcrumbs3WidgetState extends State<Breadcrumbs3Widget> {
+class _Breadcrumbs3WidgetState extends State<Breadcrumbs3Widget>
+    with TickerProviderStateMixin {
   late Breadcrumbs3Model _model;
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void setState(VoidCallback callback) {
@@ -28,6 +36,21 @@ class _Breadcrumbs3WidgetState extends State<Breadcrumbs3Widget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => Breadcrumbs3Model());
+
+    animationsMap.addAll({
+      'rowOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -131,7 +154,7 @@ class _Breadcrumbs3WidgetState extends State<Breadcrumbs3Widget> {
               ),
             ],
           ),
-        ),
+        ).animateOnPageLoad(animationsMap['rowOnPageLoadAnimation']!),
       ),
     );
   }

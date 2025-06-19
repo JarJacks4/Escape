@@ -1,13 +1,18 @@
 import '/components/mood_analyzer_success_comp_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
+import 'dart:math';
 import 'dart:ui';
 import '/index.dart';
 import 'package:tiktokfeed_wz8en7/app_state.dart'
     as tiktokfeed_wz8en7_app_state;
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'facial_mood_analyzer_page_model.dart';
@@ -30,10 +35,12 @@ class FacialMoodAnalyzerPageWidget extends StatefulWidget {
 }
 
 class _FacialMoodAnalyzerPageWidgetState
-    extends State<FacialMoodAnalyzerPageWidget> {
+    extends State<FacialMoodAnalyzerPageWidget> with TickerProviderStateMixin {
   late FacialMoodAnalyzerPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -42,6 +49,80 @@ class _FacialMoodAnalyzerPageWidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'FacialMoodAnalyzerPage'});
+    animationsMap.addAll({
+      'textOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'imageOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -120,7 +201,8 @@ class _FacialMoodAnalyzerPageWidgetState
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
                                   ),
-                            ),
+                            ).animateOnPageLoad(
+                                animationsMap['textOnPageLoadAnimation1']!),
                           ),
                           Flexible(
                             flex: 1,
@@ -142,7 +224,8 @@ class _FacialMoodAnalyzerPageWidgetState
                                       fontWeight: FontWeight.w300,
                                       lineHeight: 1.5,
                                     ),
-                              ),
+                              ).animateOnPageLoad(
+                                  animationsMap['textOnPageLoadAnimation2']!),
                             ),
                           ),
                           Flexible(
@@ -294,7 +377,8 @@ class _FacialMoodAnalyzerPageWidgetState
                                         borderRadius:
                                             BorderRadius.circular(15.0),
                                       ),
-                                    ),
+                                    ).animateOnPageLoad(animationsMap[
+                                        'buttonOnPageLoadAnimation1']!),
                                   ),
                                   Container(
                                     width: 161.01,
@@ -306,9 +390,6 @@ class _FacialMoodAnalyzerPageWidgetState
                                       onPressed: () async {
                                         logFirebaseEvent(
                                             'FACIAL_MOOD_ANALYZER_SAVE_MOOD_BTN_ON_TA');
-                                        logFirebaseEvent('Button_wait__delay');
-                                        await Future.delayed(
-                                            const Duration(milliseconds: 2000));
                                         logFirebaseEvent(
                                             'Button_update_app_state');
                                         FFAppState().moods =
@@ -402,7 +483,8 @@ class _FacialMoodAnalyzerPageWidgetState
                                         borderRadius:
                                             BorderRadius.circular(15.0),
                                       ),
-                                    ),
+                                    ).animateOnPageLoad(animationsMap[
+                                        'buttonOnPageLoadAnimation2']!),
                                   ),
                                 ],
                               ),
@@ -420,7 +502,8 @@ class _FacialMoodAnalyzerPageWidgetState
                                 fit: BoxFit.contain,
                                 alignment: Alignment(0.0, 0.0),
                               ),
-                            ),
+                            ).animateOnPageLoad(
+                                animationsMap['imageOnPageLoadAnimation']!),
                           ),
                         ].divide(SizedBox(height: 6.0)),
                       ),
@@ -431,7 +514,7 @@ class _FacialMoodAnalyzerPageWidgetState
             ),
             Container(
               width: double.infinity,
-              height: 428.2,
+              height: 516.79,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   fit: BoxFit.cover,
@@ -446,7 +529,7 @@ class _FacialMoodAnalyzerPageWidgetState
                   topRight: Radius.circular(0.0),
                 ),
               ),
-            ),
+            ).animateOnPageLoad(animationsMap['containerOnPageLoadAnimation']!),
           ],
         ),
       ),

@@ -1,10 +1,15 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
 import 'dart:ui';
 import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
@@ -20,8 +25,10 @@ class MoodAnalyzerSuccessCompWidget extends StatefulWidget {
 }
 
 class _MoodAnalyzerSuccessCompWidgetState
-    extends State<MoodAnalyzerSuccessCompWidget> {
+    extends State<MoodAnalyzerSuccessCompWidget> with TickerProviderStateMixin {
   late MoodAnalyzerSuccessCompModel _model;
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void setState(VoidCallback callback) {
@@ -33,6 +40,81 @@ class _MoodAnalyzerSuccessCompWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => MoodAnalyzerSuccessCompModel());
+
+    animationsMap.addAll({
+      'textOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'imageOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 3600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'lottieAnimationOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          ScaleEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(5.0, 5.0),
+            end: Offset(1.0, 1.0),
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -48,34 +130,46 @@ class _MoodAnalyzerSuccessCompWidgetState
       children: [
         Align(
           alignment: AlignmentDirectional(0.0, 1.0),
-          child: Container(
-            width: double.infinity,
-            height: 580.0,
-            decoration: BoxDecoration(
-              boxShadow: [
-                BoxShadow(
-                  blurRadius: 100.0,
-                  color: FlutterFlowTheme.of(context).primary,
-                  offset: Offset(
-                    0.0,
-                    1.0,
-                  ),
-                )
-              ],
-              gradient: LinearGradient(
-                colors: [
-                  FlutterFlowTheme.of(context).primary,
-                  FlutterFlowTheme.of(context).secondary
-                ],
-                stops: [0.0, 1.0],
-                begin: AlignmentDirectional(0.0, -1.0),
-                end: AlignmentDirectional(0, 1.0),
-              ),
+          child: Material(
+            color: Colors.transparent,
+            elevation: 15.0,
+            shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(0.0),
                 bottomRight: Radius.circular(0.0),
                 topLeft: Radius.circular(25.0),
                 topRight: Radius.circular(25.0),
+              ),
+            ),
+            child: Container(
+              width: double.infinity,
+              height: 560.0,
+              decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    blurRadius: 100.0,
+                    color: Color(0x7FD0E3F7),
+                    offset: Offset(
+                      0.0,
+                      1.0,
+                    ),
+                  )
+                ],
+                gradient: LinearGradient(
+                  colors: [
+                    FlutterFlowTheme.of(context).primary,
+                    FlutterFlowTheme.of(context).secondary
+                  ],
+                  stops: [0.0, 1.0],
+                  begin: AlignmentDirectional(0.0, -1.0),
+                  end: AlignmentDirectional(0, 1.0),
+                ),
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(0.0),
+                  bottomRight: Radius.circular(0.0),
+                  topLeft: Radius.circular(25.0),
+                  topRight: Radius.circular(25.0),
+                ),
               ),
             ),
           ),
@@ -124,20 +218,25 @@ class _MoodAnalyzerSuccessCompWidgetState
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 15.0),
-                        child: Text(
-                          FFLocalizations.of(context).getText(
-                            '70wv9bhh' /* Success! */,
-                          ),
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'The Seasons',
-                                    fontSize: 36.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                      Flexible(
+                        flex: 1,
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 15.0),
+                          child: Text(
+                            FFLocalizations.of(context).getText(
+                              '70wv9bhh' /* Success! */,
+                            ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'WorkSans',
+                                  fontSize: 36.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                          ).animateOnPageLoad(
+                              animationsMap['textOnPageLoadAnimation1']!),
                         ),
                       ),
                       Flexible(
@@ -157,7 +256,8 @@ class _MoodAnalyzerSuccessCompWidgetState
                                 fontWeight: FontWeight.w300,
                                 lineHeight: 1.5,
                               ),
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['textOnPageLoadAnimation2']!),
                       ),
                       Flexible(
                         flex: 1,
@@ -179,7 +279,7 @@ class _MoodAnalyzerSuccessCompWidgetState
                                     logFirebaseEvent(
                                         'MOOD_ANALYZER_SUCCESS_BACK_BTN_ON_TAP');
                                     logFirebaseEvent('Button_navigate_back');
-                                    context.safePop();
+                                    context.pop();
                                   },
                                   text: FFLocalizations.of(context).getText(
                                     '8zuuz72j' /* Back */,
@@ -211,7 +311,8 @@ class _MoodAnalyzerSuccessCompWidgetState
                                     elevation: 1.0,
                                     borderRadius: BorderRadius.circular(15.0),
                                   ),
-                                ),
+                                ).animateOnPageLoad(animationsMap[
+                                    'buttonOnPageLoadAnimation1']!),
                               ),
                               Container(
                                 width: 161.01,
@@ -265,7 +366,8 @@ class _MoodAnalyzerSuccessCompWidgetState
                                     elevation: 3.0,
                                     borderRadius: BorderRadius.circular(15.0),
                                   ),
-                                ),
+                                ).animateOnPageLoad(animationsMap[
+                                    'buttonOnPageLoadAnimation2']!),
                               ),
                             ],
                           ),
@@ -283,7 +385,8 @@ class _MoodAnalyzerSuccessCompWidgetState
                             fit: BoxFit.contain,
                             alignment: Alignment(0.0, 0.0),
                           ),
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['imageOnPageLoadAnimation']!),
                       ),
                     ].divide(SizedBox(height: 6.0)),
                   ),
@@ -294,11 +397,12 @@ class _MoodAnalyzerSuccessCompWidgetState
         ),
         Lottie.asset(
           'assets/jsons/Animation_-_1738955750147.json',
-          width: 391.0,
-          height: 246.11,
+          width: 435.2,
+          height: 304.42,
           fit: BoxFit.contain,
           animate: true,
-        ),
+        ).animateOnPageLoad(
+            animationsMap['lottieAnimationOnPageLoadAnimation']!),
       ],
     );
   }

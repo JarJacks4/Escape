@@ -14,6 +14,7 @@ import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -48,6 +49,37 @@ class _CommunityHomeVersion5WidgetState
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'CommunityHomeVersion5'});
     animationsMap.addAll({
+      'containerOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 1200.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          ShimmerEffect(
+            curve: Curves.easeInOut,
+            delay: 1200.0.ms,
+            duration: 600.0.ms,
+            color: Color(0x80FFFFFF),
+            angle: 0.524,
+          ),
+        ],
+      ),
+      'iconOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          RotateEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
       'circleImageOnPageLoadAnimation': AnimationInfo(
         loop: true,
         trigger: AnimationTrigger.onPageLoad,
@@ -290,7 +322,8 @@ class _CommunityHomeVersion5WidgetState
                                                   width: 2.0,
                                                 ),
                                               ),
-                                            ),
+                                            ).animateOnPageLoad(animationsMap[
+                                                'containerOnPageLoadAnimation']!),
                                             Align(
                                               alignment: AlignmentDirectional(
                                                   0.0, 1.0),
@@ -336,7 +369,8 @@ class _CommunityHomeVersion5WidgetState
                                             color: FlutterFlowTheme.of(context)
                                                 .info,
                                             size: 32.0,
-                                          ),
+                                          ).animateOnPageLoad(animationsMap[
+                                              'iconOnPageLoadAnimation']!),
                                           Text(
                                             FFLocalizations.of(context).getText(
                                               '66ng94fz' /* 2 */,

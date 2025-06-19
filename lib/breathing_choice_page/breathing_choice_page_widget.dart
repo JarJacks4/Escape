@@ -3,13 +3,18 @@ import '/components/calm_breathing_comp_widget.dart';
 import '/components/deep_breathing_comp_widget.dart';
 import '/components/long_breathe_meditation_f_i_n_a_l_widget.dart';
 import '/components/short_breathe_meditation_f_i_n_a_l_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
 import 'dart:ui';
 import '/index.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'breathing_choice_page_model.dart';
@@ -26,10 +31,13 @@ class BreathingChoicePageWidget extends StatefulWidget {
       _BreathingChoicePageWidgetState();
 }
 
-class _BreathingChoicePageWidgetState extends State<BreathingChoicePageWidget> {
+class _BreathingChoicePageWidgetState extends State<BreathingChoicePageWidget>
+    with TickerProviderStateMixin {
   late BreathingChoicePageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -38,6 +46,20 @@ class _BreathingChoicePageWidgetState extends State<BreathingChoicePageWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'BreathingChoicePage'});
+    animationsMap.addAll({
+      'carouselOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -196,7 +218,8 @@ class _BreathingChoicePageWidgetState extends State<BreathingChoicePageWidget> {
                           _model.carouselCurrentIndex = index,
                     ),
                   ),
-                ),
+                ).animateOnPageLoad(
+                    animationsMap['carouselOnPageLoadAnimation']!),
               ),
             ],
           ),

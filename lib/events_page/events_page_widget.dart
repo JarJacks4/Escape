@@ -1,9 +1,14 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
 import 'dart:ui';
 import 'package:expandable/expandable.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'events_page_model.dart';
@@ -19,10 +24,13 @@ class EventsPageWidget extends StatefulWidget {
   State<EventsPageWidget> createState() => _EventsPageWidgetState();
 }
 
-class _EventsPageWidgetState extends State<EventsPageWidget> {
+class _EventsPageWidgetState extends State<EventsPageWidget>
+    with TickerProviderStateMixin {
   late EventsPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -32,6 +40,20 @@ class _EventsPageWidgetState extends State<EventsPageWidget> {
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'EventsPage'});
     _model.expandableExpandableController =
         ExpandableController(initialExpanded: false);
+    animationsMap.addAll({
+      'imageOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -114,7 +136,8 @@ class _EventsPageWidgetState extends State<EventsPageWidget> {
                                       height: 230.0,
                                       fit: BoxFit.cover,
                                     ),
-                                  ),
+                                  ).animateOnPageLoad(animationsMap[
+                                      'imageOnPageLoadAnimation']!),
                                 ),
                               ),
                             ),

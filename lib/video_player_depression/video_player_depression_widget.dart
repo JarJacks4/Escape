@@ -1,10 +1,12 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/schema/structs/index.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
 import 'dart:ui';
 import "package:tiktokfeed_wz8en7/backend/schema/structs/index.dart"
     as tiktokfeed_wz8en7_data_schema;
-import '/custom_code/actions/index.dart' as actions;
 import '/index.dart';
 import 'package:tiktokfeed_wz8en7/app_state.dart'
     as tiktokfeed_wz8en7_app_state;
@@ -12,6 +14,9 @@ import 'package:tiktokfeed_wz8en7/custom_code/widgets/index.dart'
     as tiktokfeed_wz8en7_custom_widgets;
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'video_player_depression_model.dart';
@@ -35,10 +40,12 @@ class VideoPlayerDepressionWidget extends StatefulWidget {
 }
 
 class _VideoPlayerDepressionWidgetState
-    extends State<VideoPlayerDepressionWidget> {
+    extends State<VideoPlayerDepressionWidget> with TickerProviderStateMixin {
   late VideoPlayerDepressionModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -47,6 +54,20 @@ class _VideoPlayerDepressionWidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'VideoPlayerDepression'});
+    animationsMap.addAll({
+      'listViewOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -264,109 +285,82 @@ class _VideoPlayerDepressionWidgetState
                   decoration: BoxDecoration(),
                   child: Align(
                     alignment: AlignmentDirectional(0.0, 0.0),
-                    child: Builder(
-                      builder: (context) {
-                        final forYouVideos =
-                            tiktokfeed_wz8en7_app_state.FFAppState()
-                                .meditationTikToks
-                                .toList();
-
-                        return ReorderableListView.builder(
-                          padding: EdgeInsets.zero,
-                          proxyDecorator: (Widget child, int index,
-                                  Animation<double> animation) =>
-                              Material(color: Colors.transparent, child: child),
-                          shrinkWrap: true,
-                          scrollDirection: Axis.vertical,
-                          itemCount: forYouVideos.length,
-                          itemBuilder: (context, forYouVideosIndex) {
-                            final forYouVideosItem =
-                                forYouVideos[forYouVideosIndex];
-                            return Container(
-                              key: ValueKey("ListView_yri8piox" +
-                                  '_' +
-                                  forYouVideosIndex.toString()),
-                              child: Align(
-                                alignment: AlignmentDirectional(0.0, -1.0),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 1.0, 0.0, 0.0),
-                                  child: AuthUserStreamWidget(
-                                    builder: (context) => Container(
-                                      width: MediaQuery.sizeOf(context).width *
-                                          1.0,
-                                      height:
-                                          MediaQuery.sizeOf(context).height *
-                                              0.88,
-                                      child: tiktokfeed_wz8en7_custom_widgets
-                                          .ChewieWidget(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                1.0,
-                                        height:
-                                            MediaQuery.sizeOf(context).height *
-                                                0.88,
-                                        userID: currentUserDisplayName,
-                                        data: tiktokfeed_wz8en7_app_state
-                                                .FFAppState()
-                                            .meditationTikToks,
-                                        likerebuidpage: () async {
-                                          logFirebaseEvent(
-                                              'VIDEO_PLAYER_DEPRESSION_Container_beteyq');
-                                          logFirebaseEvent(
-                                              'ChewieWidget_update_app_state');
-                                          FFAppState()
-                                              .updateListTikTokPagesAtIndex(
-                                            FFAppState().videoId,
-                                            (e) => e
-                                              ..likes = FFAppState()
-                                                  .newListLike
-                                                  .toList(),
-                                          );
-                                          safeSetState(() {});
-                                        },
-                                        bookedrebuidpage: () async {
-                                          logFirebaseEvent(
-                                              'VIDEO_PLAYER_DEPRESSION_Container_beteyq');
-                                          logFirebaseEvent(
-                                              'ChewieWidget_update_app_state');
-                                          FFAppState()
-                                              .updateListTikTokPagesAtIndex(
-                                            FFAppState().videoId,
-                                            (e) => e
-                                              ..bookmark = FFAppState()
-                                                  .newListBookmarks
-                                                  .toList(),
-                                          );
-                                          safeSetState(() {});
-                                        },
-                                      ),
-                                    ),
-                                  ),
+                    child: ListView(
+                      padding: EdgeInsets.zero,
+                      reverse: true,
+                      shrinkWrap: true,
+                      scrollDirection: Axis.vertical,
+                      children: [
+                        Align(
+                          alignment: AlignmentDirectional(0.0, -1.0),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 1.0, 0.0, 0.0),
+                            child: AuthUserStreamWidget(
+                              builder: (context) => Container(
+                                width: MediaQuery.sizeOf(context).width * 1.0,
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.88,
+                                child: tiktokfeed_wz8en7_custom_widgets
+                                    .ChewieWidget(
+                                  width: MediaQuery.sizeOf(context).width * 1.0,
+                                  height:
+                                      MediaQuery.sizeOf(context).height * 0.88,
+                                  userID: currentUserDisplayName,
+                                  data: tiktokfeed_wz8en7_app_state.FFAppState()
+                                      .meditationTikToks
+                                      .take(100)
+                                      .toList()
+                                      .sortedList(
+                                          keyOf: (e) => widget!.urlVideo!,
+                                          desc: false)
+                                      .where((e) =>
+                                          FFAppState().moods != null &&
+                                          FFAppState().moods != '')
+                                      .toList()
+                                      .unique((e) => tiktokfeed_wz8en7_app_state
+                                              .FFAppState()
+                                          .BodyTikToks
+                                          .contains(
+                                              tiktokfeed_wz8en7_data_schema
+                                                  .TiktokPageStruct(
+                                            likes: ['1'],
+                                          ))),
+                                  likerebuidpage: () async {
+                                    logFirebaseEvent(
+                                        'VIDEO_PLAYER_DEPRESSION_Container_beteyq');
+                                    logFirebaseEvent(
+                                        'ChewieWidget_update_app_state');
+                                    FFAppState().updateListTikTokPagesAtIndex(
+                                      FFAppState().videoId,
+                                      (e) => e
+                                        ..likes =
+                                            FFAppState().newListLike.toList(),
+                                    );
+                                    safeSetState(() {});
+                                  },
+                                  bookedrebuidpage: () async {
+                                    logFirebaseEvent(
+                                        'VIDEO_PLAYER_DEPRESSION_Container_beteyq');
+                                    logFirebaseEvent(
+                                        'ChewieWidget_update_app_state');
+                                    FFAppState().updateListTikTokPagesAtIndex(
+                                      FFAppState().videoId,
+                                      (e) => e
+                                        ..bookmark = FFAppState()
+                                            .newListBookmarks
+                                            .toList(),
+                                    );
+                                    safeSetState(() {});
+                                  },
                                 ),
                               ),
-                            );
-                          },
-                          onReorder: (int reorderableOldIndex,
-                              int reorderableNewIndex) async {
-                            logFirebaseEvent(
-                                'VIDEO_PLAYER_DEPRESSION_ListView_yri8pio');
-                            logFirebaseEvent('ListView_custom_action');
-                            _model.updateDepression =
-                                await actions.reorderItems(
-                              tiktokfeed_wz8en7_app_state.FFAppState()
-                                  .meditationTikToks
-                                  .map((e) => e.urlvideo)
-                                  .toList(),
-                              reorderableOldIndex,
-                              reorderableNewIndex,
-                            );
-
-                            safeSetState(() {});
-                          },
-                        );
-                      },
-                    ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ).animateOnPageLoad(
+                        animationsMap['listViewOnPageLoadAnimation']!),
                   ),
                 ),
               ),

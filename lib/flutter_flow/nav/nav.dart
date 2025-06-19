@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:go_router/go_router.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
@@ -381,26 +382,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             name: SplashScreenVersion4Widget.routeName,
             path: SplashScreenVersion4Widget.routePath,
             builder: (context, params) => SplashScreenVersion4Widget(),
-          ),
-          FFRoute(
-            name: AvatarCreationUnrealPageWidget.routeName,
-            path: AvatarCreationUnrealPageWidget.routePath,
-            builder: (context, params) => AvatarCreationUnrealPageWidget(),
-          ),
-          FFRoute(
-            name: ChatWithLucilleUnrealPageWidget.routeName,
-            path: ChatWithLucilleUnrealPageWidget.routePath,
-            builder: (context, params) => ChatWithLucilleUnrealPageWidget(),
-          ),
-          FFRoute(
-            name: MoodAnalyzerUnrealPageWidget.routeName,
-            path: MoodAnalyzerUnrealPageWidget.routePath,
-            builder: (context, params) => MoodAnalyzerUnrealPageWidget(),
-          ),
-          FFRoute(
-            name: EscapeMetaverseUnrealEngineWidget.routeName,
-            path: EscapeMetaverseUnrealEngineWidget.routePath,
-            builder: (context, params) => EscapeMetaverseUnrealEngineWidget(),
           ),
           FFRoute(
             name: ShortBreathingGoalWidget.routeName,

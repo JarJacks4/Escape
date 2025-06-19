@@ -1,10 +1,15 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
 import 'dart:ui';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'daily_mood_face_check_in_page_model.dart';
@@ -22,10 +27,13 @@ class DailyMoodFaceCheckInPageWidget extends StatefulWidget {
 }
 
 class _DailyMoodFaceCheckInPageWidgetState
-    extends State<DailyMoodFaceCheckInPageWidget> {
+    extends State<DailyMoodFaceCheckInPageWidget>
+    with TickerProviderStateMixin {
   late DailyMoodFaceCheckInPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -34,6 +42,32 @@ class _DailyMoodFaceCheckInPageWidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'DailyMoodFaceCheckInPage'});
+    animationsMap.addAll({
+      'textOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -193,7 +227,8 @@ class _DailyMoodFaceCheckInPageWidgetState
                                                         .secondary,
                                                 letterSpacing: 0.0,
                                               ),
-                                        ),
+                                        ).animateOnPageLoad(animationsMap[
+                                            'textOnPageLoadAnimation']!),
                                       ),
                                     ),
                                   ),
@@ -651,7 +686,8 @@ class _DailyMoodFaceCheckInPageWidgetState
                       ),
                     ),
                   ),
-                ),
+                ).animateOnPageLoad(
+                    animationsMap['containerOnPageLoadAnimation']!),
               ),
             ].divide(SizedBox(height: 24.0)),
           ),

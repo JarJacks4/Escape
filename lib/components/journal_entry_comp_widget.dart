@@ -1,11 +1,16 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import 'dart:math';
 import 'dart:ui';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'journal_entry_comp_model.dart';
@@ -18,8 +23,11 @@ class JournalEntryCompWidget extends StatefulWidget {
   State<JournalEntryCompWidget> createState() => _JournalEntryCompWidgetState();
 }
 
-class _JournalEntryCompWidgetState extends State<JournalEntryCompWidget> {
+class _JournalEntryCompWidgetState extends State<JournalEntryCompWidget>
+    with TickerProviderStateMixin {
   late JournalEntryCompModel _model;
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void setState(VoidCallback callback) {
@@ -37,6 +45,33 @@ class _JournalEntryCompWidgetState extends State<JournalEntryCompWidget> {
 
     _model.textController2 ??= TextEditingController();
     _model.textFieldFocusNode2 ??= FocusNode();
+
+    animationsMap.addAll({
+      'textFieldOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 1200.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textFieldOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -152,7 +187,8 @@ class _JournalEntryCompWidgetState extends State<JournalEntryCompWidget> {
                 maxLines: 8,
                 minLines: 1,
                 validator: _model.textController1Validator.asValidator(context),
-              ),
+              ).animateOnPageLoad(
+                  animationsMap['textFieldOnPageLoadAnimation1']!),
               Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -196,7 +232,8 @@ class _JournalEntryCompWidgetState extends State<JournalEntryCompWidget> {
                     minLines: 3,
                     validator:
                         _model.textController2Validator.asValidator(context),
-                  ),
+                  ).animateOnPageLoad(
+                      animationsMap['textFieldOnPageLoadAnimation2']!),
                 ].divide(SizedBox(height: 12.0)),
               ),
               Container(

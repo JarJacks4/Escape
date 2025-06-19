@@ -1,13 +1,20 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_google_map.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
 import 'dart:ui';
+import '/flutter_flow/permissions_util.dart';
+import 'package:map_launcher/map_launcher.dart' as $ml;
 import 'package:tiktokfeed_wz8en7/app_state.dart'
     as tiktokfeed_wz8en7_app_state;
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'therapist_directory_model.dart';
@@ -24,10 +31,13 @@ class TherapistDirectoryWidget extends StatefulWidget {
       _TherapistDirectoryWidgetState();
 }
 
-class _TherapistDirectoryWidgetState extends State<TherapistDirectoryWidget> {
+class _TherapistDirectoryWidgetState extends State<TherapistDirectoryWidget>
+    with TickerProviderStateMixin {
   late TherapistDirectoryModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -36,6 +46,33 @@ class _TherapistDirectoryWidgetState extends State<TherapistDirectoryWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'TherapistDirectory'});
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('THERAPIST_DIRECTORY_TherapistDirectory_O');
+      logFirebaseEvent('TherapistDirectory_request_permissions');
+      await requestPermission(locationPermission);
+      logFirebaseEvent('TherapistDirectory_launch_map');
+      await launchMap(
+        mapType: $ml.MapType.google,
+        location: _model.googleMapsCenter,
+        title: 'Nearby Therapists',
+      );
+    });
+
+    animationsMap.addAll({
+      'textOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -148,7 +185,7 @@ class _TherapistDirectoryWidgetState extends State<TherapistDirectoryWidget> {
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.w600,
                       ),
-                ),
+                ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation']!),
               ),
             ),
             Flexible(
@@ -181,6 +218,7 @@ class _TherapistDirectoryWidgetState extends State<TherapistDirectoryWidget> {
                   showMapToolbar: true,
                   showTraffic: true,
                   centerMapOnMarkerTap: true,
+                  mapTakesGesturePreference: true,
                 ),
               ),
             ),

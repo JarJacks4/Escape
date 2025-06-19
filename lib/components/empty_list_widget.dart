@@ -1,7 +1,12 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:math';
 import 'dart:ui';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'empty_list_model.dart';
@@ -14,8 +19,11 @@ class EmptyListWidget extends StatefulWidget {
   State<EmptyListWidget> createState() => _EmptyListWidgetState();
 }
 
-class _EmptyListWidgetState extends State<EmptyListWidget> {
+class _EmptyListWidgetState extends State<EmptyListWidget>
+    with TickerProviderStateMixin {
   late EmptyListModel _model;
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void setState(VoidCallback callback) {
@@ -27,6 +35,21 @@ class _EmptyListWidgetState extends State<EmptyListWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => EmptyListModel());
+
+    animationsMap.addAll({
+      'textOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -70,7 +93,7 @@ class _EmptyListWidgetState extends State<EmptyListWidget> {
                       color: FlutterFlowTheme.of(context).accent1,
                       letterSpacing: 0.0,
                     ),
-              ),
+              ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation']!),
             ),
             Flexible(
               flex: 1,

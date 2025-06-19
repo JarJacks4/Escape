@@ -1,10 +1,15 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:math';
 import 'dart:ui';
 import '/index.dart';
 import 'package:tiktokfeed_wz8en7/app_state.dart'
     as tiktokfeed_wz8en7_app_state;
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'todays_self_care_activities_comp_model.dart';
@@ -19,8 +24,11 @@ class TodaysSelfCareActivitiesCompWidget extends StatefulWidget {
 }
 
 class _TodaysSelfCareActivitiesCompWidgetState
-    extends State<TodaysSelfCareActivitiesCompWidget> {
+    extends State<TodaysSelfCareActivitiesCompWidget>
+    with TickerProviderStateMixin {
   late TodaysSelfCareActivitiesCompModel _model;
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void setState(VoidCallback callback) {
@@ -32,6 +40,57 @@ class _TodaysSelfCareActivitiesCompWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => TodaysSelfCareActivitiesCompModel());
+
+    animationsMap.addAll({
+      'textOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation4': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -64,7 +123,7 @@ class _TodaysSelfCareActivitiesCompWidgetState
                     fontSize: 28.0,
                     letterSpacing: 0.0,
                   ),
-            ),
+            ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation1']!),
             ListView(
               padding: EdgeInsets.zero,
               primary: false,
@@ -135,7 +194,8 @@ class _TodaysSelfCareActivitiesCompWidgetState
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w600,
                                                 ),
-                                          ),
+                                          ).animateOnPageLoad(animationsMap[
+                                              'textOnPageLoadAnimation2']!),
                                         ),
                                         Padding(
                                           padding:
@@ -303,7 +363,8 @@ class _TodaysSelfCareActivitiesCompWidgetState
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.bold,
                                               ),
-                                        ),
+                                        ).animateOnPageLoad(animationsMap[
+                                            'textOnPageLoadAnimation3']!),
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
@@ -458,7 +519,8 @@ class _TodaysSelfCareActivitiesCompWidgetState
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w600,
                                               ),
-                                        ),
+                                        ).animateOnPageLoad(animationsMap[
+                                            'textOnPageLoadAnimation4']!),
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(

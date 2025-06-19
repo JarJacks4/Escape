@@ -15,7 +15,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.0.4+10
+version: 1.0.4+12
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
@@ -30,7 +30,7 @@ dependencies:
   assets_audio_player: 
     git:
       url: https://github.com/florent37/Flutter-AssetsAudioPlayer
-      ref: 28a7f52db65fd8b8ac0bdc39013d3de978c8a375
+      ref: 4998f22f4f1621c79aa170c09dedde1d25fc23ee
   assets_audio_player_web: 3.1.1
   auto_size_text: 3.0.0
   cached_network_image: 3.4.1
@@ -51,9 +51,9 @@ dependencies:
   expandable: 5.0.1
   faker:
   ff_commons:
-    path: ./dependencies/ff_commons # 1.0.4+10
+    path: ./dependencies/ff_commons # 1.0.4+12
   ff_theme:
-    path: ./dependencies/ff_theme # 1.0.4+10
+    path: ./dependencies/ff_theme # 1.0.4+12
   file_picker: 8.1.2
   firebase_analytics: 11.3.5
   firebase_analytics_platform_interface: 4.2.7
@@ -83,6 +83,7 @@ dependencies:
   flutter_keyboard_visibility_windows: 1.0.0
   flutter_native_splash: 2.4.1
   flutter_plugin_android_lifecycle: 2.0.20
+  flutter_spinkit: 5.2.0
   flutter_staggered_grid_view: 0.7.0
   font_awesome_flutter: 10.7.0
   from_css_color: 2.0.0
@@ -114,6 +115,7 @@ dependencies:
   json_path: 0.7.2
   just_audio:
   lottie: 2.7.0
+  map_launcher: 3.5.0
   mime_type: 1.0.0
   octo_image: 2.1.0
   page_transition: 2.1.0

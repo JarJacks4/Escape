@@ -1,9 +1,14 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
 import 'dart:ui';
 import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'insomnia_meditation_comp_model.dart';
@@ -18,8 +23,10 @@ class InsomniaMeditationCompWidget extends StatefulWidget {
 }
 
 class _InsomniaMeditationCompWidgetState
-    extends State<InsomniaMeditationCompWidget> {
+    extends State<InsomniaMeditationCompWidget> with TickerProviderStateMixin {
   late InsomniaMeditationCompModel _model;
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void setState(VoidCallback callback) {
@@ -31,6 +38,57 @@ class _InsomniaMeditationCompWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => InsomniaMeditationCompModel());
+
+    animationsMap.addAll({
+      'imageOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -54,7 +112,7 @@ class _InsomniaMeditationCompWidgetState
               height: double.infinity,
               fit: BoxFit.cover,
             ),
-          ),
+          ).animateOnPageLoad(animationsMap['imageOnPageLoadAnimation']!),
         ),
         Align(
           alignment: AlignmentDirectional(0.0, 1.0),
@@ -145,11 +203,12 @@ class _InsomniaMeditationCompWidgetState
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'The Seasons',
-                                  fontSize: 18.0,
+                                  fontSize: 22.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.bold,
                                 ),
-                          ),
+                          ).animateOnPageLoad(
+                              animationsMap['textOnPageLoadAnimation1']!),
                         ),
                       ),
                       Padding(
@@ -170,7 +229,8 @@ class _InsomniaMeditationCompWidgetState
                                 fontWeight: FontWeight.w300,
                                 lineHeight: 1.5,
                               ),
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['textOnPageLoadAnimation2']!),
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
@@ -216,7 +276,8 @@ class _InsomniaMeditationCompWidgetState
                             elevation: 3.0,
                             borderRadius: BorderRadius.circular(30.0),
                           ),
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['buttonOnPageLoadAnimation']!),
                       ),
                     ].divide(SizedBox(height: 6.0)),
                   ),
