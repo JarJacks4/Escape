@@ -1,16 +1,11 @@
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'dart:math';
-import 'dart:ui';
 import '/index.dart';
 import 'package:tiktokfeed_wz8en7/app_state.dart'
     as tiktokfeed_wz8en7_app_state;
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'todays_self_care_activities_comp_model.dart';
 export 'todays_self_care_activities_comp_model.dart';
@@ -274,7 +269,7 @@ class _TodaysSelfCareActivitiesCompWidgetState
                                     ? BorderSide(
                                         width: 2,
                                         color:
-                                            FlutterFlowTheme.of(context).info!,
+                                            FlutterFlowTheme.of(context).info,
                                       )
                                     : null,
                                 activeColor: Color(0xFFEDF1F7),
@@ -441,7 +436,7 @@ class _TodaysSelfCareActivitiesCompWidgetState
                                     ? BorderSide(
                                         width: 2,
                                         color: FlutterFlowTheme.of(context)
-                                            .alternate!,
+                                            .alternate,
                                       )
                                     : null,
                                 activeColor:
@@ -597,7 +592,7 @@ class _TodaysSelfCareActivitiesCompWidgetState
                                     ? BorderSide(
                                         width: 2,
                                         color: FlutterFlowTheme.of(context)
-                                            .accent2!,
+                                            .accent2,
                                       )
                                     : null,
                                 activeColor:

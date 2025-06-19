@@ -27,8 +27,6 @@ import 'schema/history_record.dart';
 import 'schema/conversations_record.dart';
 import 'schema/journal_record.dart';
 import 'schema/user_created_videos_record.dart';
-import "package:tiktokfeed_wz8en7/backend/schema/structs/index.dart"
-    as tiktokfeed_wz8en7_data_schema;
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart' hide Order;

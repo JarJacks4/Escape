@@ -2,15 +2,10 @@ import '/components/deep_sleep_meditation_widget.dart';
 import '/components/insomnia_meditation_comp_widget.dart';
 import '/components/nap_meditation_comp_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import '/index.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'sleep_meditations_choice_model.dart';
 export 'sleep_meditations_choice_model.dart';
 

@@ -1,14 +1,8 @@
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'dart:math';
-import 'dart:ui';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'primary_button_model.dart';
 export 'primary_button_model.dart';
 
@@ -90,7 +84,7 @@ class _PrimaryButtonWidgetState extends State<PrimaryButtonWidget>
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0.0, 18.0, 0.0, 18.0),
               child: Text(
-                widget!.buttonText,
+                widget.buttonText,
                 textAlign: TextAlign.center,
                 style: FlutterFlowTheme.of(context).bodyLarge.override(
                       fontFamily: 'The Seasons',
