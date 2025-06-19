@@ -1,11 +1,17 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/firebase_storage/storage.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
+import 'dart:math';
 import 'dart:ui';
 import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
@@ -24,10 +30,13 @@ class FacialMoodAnalyzerChoiceWidget extends StatefulWidget {
 }
 
 class _FacialMoodAnalyzerChoiceWidgetState
-    extends State<FacialMoodAnalyzerChoiceWidget> {
+    extends State<FacialMoodAnalyzerChoiceWidget>
+    with TickerProviderStateMixin {
   late FacialMoodAnalyzerChoiceModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -36,6 +45,80 @@ class _FacialMoodAnalyzerChoiceWidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'FacialMoodAnalyzerChoice'});
+    animationsMap.addAll({
+      'textOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'imageOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 3600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'lottieAnimationOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -144,7 +227,8 @@ class _FacialMoodAnalyzerChoiceWidgetState
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
                                   ),
-                            ),
+                            ).animateOnPageLoad(
+                                animationsMap['textOnPageLoadAnimation1']!),
                           ),
                           Flexible(
                             flex: 1,
@@ -166,7 +250,8 @@ class _FacialMoodAnalyzerChoiceWidgetState
                                       fontWeight: FontWeight.w300,
                                       lineHeight: 1.5,
                                     ),
-                              ),
+                              ).animateOnPageLoad(
+                                  animationsMap['textOnPageLoadAnimation2']!),
                             ),
                           ),
                           Flexible(
@@ -230,7 +315,8 @@ class _FacialMoodAnalyzerChoiceWidgetState
                                         borderRadius:
                                             BorderRadius.circular(15.0),
                                       ),
-                                    ),
+                                    ).animateOnPageLoad(animationsMap[
+                                        'buttonOnPageLoadAnimation1']!),
                                   ),
                                   Container(
                                     width: 161.01,
@@ -246,7 +332,7 @@ class _FacialMoodAnalyzerChoiceWidgetState
                                         await Future.delayed(
                                             const Duration(milliseconds: 2000));
                                         logFirebaseEvent(
-                                            'Button_store_media_for_upload');
+                                            'Button_upload_media_to_firebase');
                                         final selectedMedia =
                                             await selectMediaWithSourceBottomSheet(
                                           context: context,
@@ -271,6 +357,7 @@ class _FacialMoodAnalyzerChoiceWidgetState
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
 
+                                          var downloadUrls = <String>[];
                                           try {
                                             selectedUploadedFiles =
                                                 selectedMedia
@@ -286,15 +373,29 @@ class _FacialMoodAnalyzerChoiceWidgetState
                                                           blurHash: m.blurHash,
                                                         ))
                                                     .toList();
+
+                                            downloadUrls = (await Future.wait(
+                                              selectedMedia.map(
+                                                (m) async => await uploadData(
+                                                    m.storagePath, m.bytes),
+                                              ),
+                                            ))
+                                                .where((u) => u != null)
+                                                .map((u) => u!)
+                                                .toList();
                                           } finally {
                                             _model.isDataUploading_uploadMoodAction1 =
                                                 false;
                                           }
                                           if (selectedUploadedFiles.length ==
-                                              selectedMedia.length) {
+                                                  selectedMedia.length &&
+                                              downloadUrls.length ==
+                                                  selectedMedia.length) {
                                             safeSetState(() {
                                               _model.uploadedLocalFile_uploadMoodAction1 =
                                                   selectedUploadedFiles.first;
+                                              _model.uploadedFileUrl_uploadMoodAction1 =
+                                                  downloadUrls.first;
                                             });
                                           } else {
                                             safeSetState(() {});
@@ -362,7 +463,8 @@ class _FacialMoodAnalyzerChoiceWidgetState
                                         borderRadius:
                                             BorderRadius.circular(15.0),
                                       ),
-                                    ),
+                                    ).animateOnPageLoad(animationsMap[
+                                        'buttonOnPageLoadAnimation2']!),
                                   ),
                                 ],
                               ),
@@ -380,7 +482,8 @@ class _FacialMoodAnalyzerChoiceWidgetState
                                 fit: BoxFit.contain,
                                 alignment: Alignment(0.0, 0.0),
                               ),
-                            ),
+                            ).animateOnPageLoad(
+                                animationsMap['imageOnPageLoadAnimation']!),
                           ),
                         ].divide(SizedBox(height: 6.0)),
                       ),
@@ -395,7 +498,8 @@ class _FacialMoodAnalyzerChoiceWidgetState
               height: 467.2,
               fit: BoxFit.contain,
               animate: true,
-            ),
+            ).animateOnPageLoad(
+                animationsMap['lottieAnimationOnPageLoadAnimation']!),
           ],
         ),
       ),

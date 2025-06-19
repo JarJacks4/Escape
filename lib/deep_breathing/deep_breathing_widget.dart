@@ -11,6 +11,7 @@ import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'deep_breathing_model.dart';
@@ -42,6 +43,30 @@ class _DeepBreathingWidgetState extends State<DeepBreathingWidget>
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'DeepBreathing'});
     animationsMap.addAll({
+      'textOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'stackOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
       'containerOnPageLoadAnimation': AnimationInfo(
         loop: true,
         reverse: true,
@@ -95,7 +120,7 @@ class _DeepBreathingWidgetState extends State<DeepBreathingWidget>
             Align(
               alignment: AlignmentDirectional(0.0, 0.0),
               child: Padding(
-                padding: EdgeInsets.all(24.0),
+                padding: EdgeInsets.all(50.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -105,22 +130,30 @@ class _DeepBreathingWidgetState extends State<DeepBreathingWidget>
                         Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
-                              child: Text(
-                                FFLocalizations.of(context).getText(
-                                  'xdia36hh' /* Deep Breathing */,
-                                ),
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'The Seasons',
-                                      color: FlutterFlowTheme.of(context)
-                                          .alternate,
-                                      fontSize: 22.0,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.bold,
+                            Expanded(
+                              flex: 1,
+                              child: Align(
+                                alignment: AlignmentDirectional(0.0, 0.0),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 40.0, 0.0, 0.0),
+                                  child: Text(
+                                    FFLocalizations.of(context).getText(
+                                      'xdia36hh' /* Deep Breathing */,
                                     ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'The Seasons',
+                                          color: FlutterFlowTheme.of(context)
+                                              .alternate,
+                                          fontSize: 22.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                  ).animateOnPageLoad(animationsMap[
+                                      'textOnPageLoadAnimation']!),
+                                ),
                               ),
                             ),
                             Align(
@@ -151,20 +184,25 @@ class _DeepBreathingWidgetState extends State<DeepBreathingWidget>
                         ),
                         Align(
                           alignment: AlignmentDirectional(-1.0, 0.0),
-                          child: FlutterFlowIconButton(
-                            borderRadius: 8.0,
-                            buttonSize: 40.0,
-                            icon: Icon(
-                              Icons.arrow_back,
-                              color: FlutterFlowTheme.of(context).info,
-                              size: 24.0,
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 35.0, 0.0, 0.0),
+                            child: FlutterFlowIconButton(
+                              borderRadius: 8.0,
+                              buttonSize: 40.0,
+                              fillColor: FlutterFlowTheme.of(context).alternate,
+                              icon: Icon(
+                                Icons.arrow_back,
+                                color: FlutterFlowTheme.of(context).info,
+                                size: 24.0,
+                              ),
+                              onPressed: () async {
+                                logFirebaseEvent(
+                                    'DEEP_BREATHING_arrow_back_ICN_ON_TAP');
+                                logFirebaseEvent('IconButton_navigate_back');
+                                context.safePop();
+                              },
                             ),
-                            onPressed: () async {
-                              logFirebaseEvent(
-                                  'DEEP_BREATHING_arrow_back_ICN_ON_TAP');
-                              logFirebaseEvent('IconButton_navigate_back');
-                              context.safePop();
-                            },
                           ),
                         ),
                       ],
@@ -228,7 +266,8 @@ class _DeepBreathingWidgetState extends State<DeepBreathingWidget>
                                 ),
                               ),
                             ],
-                          ),
+                          ).animateOnPageLoad(
+                              animationsMap['stackOnPageLoadAnimation']!),
                         ),
                       ),
                     ),

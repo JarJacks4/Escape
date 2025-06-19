@@ -7,6 +7,7 @@ import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'nav_button_center_n_e_w_model.dart';
@@ -61,6 +62,25 @@ class _NavButtonCenterNEWWidgetState extends State<NavButtonCenterNEWWidget>
             duration: 400.0.ms,
             begin: Offset(0.85, 0.85),
             end: Offset(1.0, 1.0),
+          ),
+        ],
+      ),
+      'circleImageOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          ShimmerEffect(
+            curve: Curves.easeInOut,
+            delay: 1500.0.ms,
+            duration: 600.0.ms,
+            color: Color(0x80FFFFFF),
+            angle: 0.524,
           ),
         ],
       ),
@@ -320,7 +340,8 @@ class _NavButtonCenterNEWWidgetState extends State<NavButtonCenterNEWWidget>
                               'assets/images/Icon.png',
                               fit: BoxFit.cover,
                             ),
-                          ),
+                          ).animateOnPageLoad(
+                              animationsMap['circleImageOnPageLoadAnimation']!),
                         ),
                       ],
                     ),

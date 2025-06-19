@@ -7,6 +7,7 @@ import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'classes_page_model.dart';
@@ -37,7 +38,19 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'ClassesPage'});
     animationsMap.addAll({
-      'textOnPageLoadAnimation': AnimationInfo(
+      'textOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation2': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           VisibilityEffect(duration: 100.ms),
@@ -74,6 +87,18 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
             duration: 600.0.ms,
             begin: Offset(0.0, 170.0),
             end: Offset(0.0, 0.0),
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
           ),
         ],
       ),
@@ -119,7 +144,8 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                   fontFamily: 'WorkSans',
                                   letterSpacing: 0.0,
                                 ),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['textOnPageLoadAnimation1']!),
                     ),
                     Padding(
                       padding:
@@ -185,7 +211,7 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                   letterSpacing: 0.0,
                                 ),
                       ).animateOnPageLoad(
-                          animationsMap['textOnPageLoadAnimation']!),
+                          animationsMap['textOnPageLoadAnimation2']!),
                     ),
                     Padding(
                       padding:
@@ -472,7 +498,8 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                                   ],
                                 ),
                               ),
-                            ),
+                            ).animateOnPageLoad(
+                                animationsMap['containerOnPageLoadAnimation']!),
                           ),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(

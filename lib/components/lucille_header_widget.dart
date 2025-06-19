@@ -1,8 +1,13 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:math';
 import 'dart:ui';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'lucille_header_model.dart';
@@ -15,8 +20,11 @@ class LucilleHeaderWidget extends StatefulWidget {
   State<LucilleHeaderWidget> createState() => _LucilleHeaderWidgetState();
 }
 
-class _LucilleHeaderWidgetState extends State<LucilleHeaderWidget> {
+class _LucilleHeaderWidgetState extends State<LucilleHeaderWidget>
+    with TickerProviderStateMixin {
   late LucilleHeaderModel _model;
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void setState(VoidCallback callback) {
@@ -28,6 +36,52 @@ class _LucilleHeaderWidgetState extends State<LucilleHeaderWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => LucilleHeaderModel());
+
+    animationsMap.addAll({
+      'circleImageOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          ShimmerEffect(
+            curve: Curves.easeInOut,
+            delay: 1500.0.ms,
+            duration: 600.0.ms,
+            color: Color(0x80FFFFFF),
+            angle: 0.524,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 1200.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -66,7 +120,8 @@ class _LucilleHeaderWidgetState extends State<LucilleHeaderWidget> {
                     fit: BoxFit.cover,
                   ),
                 ),
-              ),
+              ).animateOnPageLoad(
+                  animationsMap['circleImageOnPageLoadAnimation']!),
             ),
           ),
           Flexible(
@@ -86,7 +141,8 @@ class _LucilleHeaderWidgetState extends State<LucilleHeaderWidget> {
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.normal,
                         ),
-                  ),
+                  ).animateOnPageLoad(
+                      animationsMap['textOnPageLoadAnimation1']!),
                 ],
               ),
             ),
@@ -115,7 +171,8 @@ class _LucilleHeaderWidgetState extends State<LucilleHeaderWidget> {
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,
                                 ),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['textOnPageLoadAnimation2']!),
                     ),
                   ),
                 ],

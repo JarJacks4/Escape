@@ -11,6 +11,7 @@ import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'profile_f_i_n_a_l_model.dart';
@@ -42,6 +43,49 @@ class _ProfileFINALWidgetState extends State<ProfileFINALWidget>
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'profileFINAL'});
     animationsMap.addAll({
+      'containerOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'imageOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          ShimmerEffect(
+            curve: Curves.easeInOut,
+            delay: 1200.0.ms,
+            duration: 600.0.ms,
+            color: Color(0x80FFFFFF),
+            angle: 0.524,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
       'buttonOnPageLoadAnimation1': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
@@ -83,12 +127,6 @@ class _ProfileFINALWidgetState extends State<ProfileFINALWidget>
         ],
       ),
     });
-    setupAnimations(
-      animationsMap.values.where((anim) =>
-          anim.trigger == AnimationTrigger.onActionTrigger ||
-          !anim.applyInitialState),
-      this,
-    );
   }
 
   @override
@@ -134,7 +172,8 @@ class _ProfileFINALWidgetState extends State<ProfileFINALWidget>
                                 ).image,
                               ),
                             ),
-                          ),
+                          ).animateOnPageLoad(
+                              animationsMap['containerOnPageLoadAnimation']!),
                           Align(
                             alignment: AlignmentDirectional(-1.0, 1.0),
                             child: Padding(
@@ -155,19 +194,25 @@ class _ProfileFINALWidgetState extends State<ProfileFINALWidget>
                                 child: Padding(
                                   padding: EdgeInsets.all(4.0),
                                   child: AuthUserStreamWidget(
-                                    builder: (context) => ClipRRect(
-                                      borderRadius: BorderRadius.circular(50.0),
-                                      child: CachedNetworkImage(
-                                        fadeInDuration:
-                                            Duration(milliseconds: 500),
-                                        fadeOutDuration:
-                                            Duration(milliseconds: 500),
-                                        imageUrl: currentUserPhoto,
-                                        width: 100.0,
-                                        height: 100.0,
-                                        fit: BoxFit.cover,
+                                    builder: (context) => Hero(
+                                      tag: currentUserPhoto,
+                                      transitionOnUserGestures: true,
+                                      child: ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(50.0),
+                                        child: CachedNetworkImage(
+                                          fadeInDuration:
+                                              Duration(milliseconds: 500),
+                                          fadeOutDuration:
+                                              Duration(milliseconds: 500),
+                                          imageUrl: currentUserPhoto,
+                                          width: 100.0,
+                                          height: 100.0,
+                                          fit: BoxFit.cover,
+                                        ),
                                       ),
-                                    ),
+                                    ).animateOnPageLoad(animationsMap[
+                                        'imageOnPageLoadAnimation']!),
                                   ),
                                 ),
                               ),
@@ -191,7 +236,8 @@ class _ProfileFINALWidgetState extends State<ProfileFINALWidget>
                                 fontFamily: 'The Seasons',
                                 letterSpacing: 0.0,
                               ),
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['textOnPageLoadAnimation']!),
                       ),
                     ),
                   ),
@@ -420,7 +466,7 @@ class _ProfileFINALWidgetState extends State<ProfileFINALWidget>
                                       ),
                                 ),
                               ),
-                              Expanded(
+                              Flexible(
                                 flex: 1,
                                 child: Align(
                                   alignment: AlignmentDirectional(1.0, 0.0),
@@ -476,7 +522,7 @@ class _ProfileFINALWidgetState extends State<ProfileFINALWidget>
                                       ),
                                 ),
                               ),
-                              Expanded(
+                              Flexible(
                                 flex: 1,
                                 child: Align(
                                   alignment: AlignmentDirectional(1.0, 0.0),

@@ -1,7 +1,9 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
 import 'dart:ui';
 import "package:tiktokfeed_wz8en7/backend/schema/structs/index.dart"
     as tiktokfeed_wz8en7_data_schema;
@@ -12,6 +14,9 @@ import 'package:tiktokfeed_wz8en7/app_state.dart'
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'confetti_page_intermediate_comp_model.dart';
@@ -26,8 +31,11 @@ class ConfettiPageIntermediateCompWidget extends StatefulWidget {
 }
 
 class _ConfettiPageIntermediateCompWidgetState
-    extends State<ConfettiPageIntermediateCompWidget> {
+    extends State<ConfettiPageIntermediateCompWidget>
+    with TickerProviderStateMixin {
   late ConfettiPageIntermediateCompModel _model;
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void setState(VoidCallback callback) {
@@ -39,6 +47,57 @@ class _ConfettiPageIntermediateCompWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => ConfettiPageIntermediateCompModel());
+
+    animationsMap.addAll({
+      'textOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          ShimmerEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            color: Color(0x80FFFFFF),
+            angle: 0.524,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          ScaleEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(5.0, 5.0),
+            end: Offset(1.0, 1.0),
+          ),
+        ],
+      ),
+      'imageOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          RotateEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'imageOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          RotateEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -139,7 +198,8 @@ class _ConfettiPageIntermediateCompWidgetState
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.bold,
                                             ),
-                                      ),
+                                      ).animateOnPageLoad(animationsMap[
+                                          'textOnPageLoadAnimation1']!),
                                     ),
                                   ],
                                 ),
@@ -169,7 +229,8 @@ class _ConfettiPageIntermediateCompWidgetState
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w300,
                                               ),
-                                        ),
+                                        ).animateOnPageLoad(animationsMap[
+                                            'textOnPageLoadAnimation2']!),
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -183,7 +244,8 @@ class _ConfettiPageIntermediateCompWidgetState
                                               height: 25.0,
                                               fit: BoxFit.cover,
                                             ),
-                                          ),
+                                          ).animateOnPageLoad(animationsMap[
+                                              'imageOnPageLoadAnimation1']!),
                                         ),
                                       ],
                                     ),
@@ -324,7 +386,8 @@ class _ConfettiPageIntermediateCompWidgetState
                       fit: BoxFit.scaleDown,
                       alignment: Alignment(0.0, -1.0),
                     ),
-                  ),
+                  ).animateOnPageLoad(
+                      animationsMap['imageOnPageLoadAnimation2']!),
                 ),
               ],
             ),

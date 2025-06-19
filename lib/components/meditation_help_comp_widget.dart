@@ -11,6 +11,7 @@ import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -43,6 +44,18 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
     _model = createModel(context, () => MeditationHelpCompModel());
 
     animationsMap.addAll({
+      'columnOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
       'iconButtonOnPageLoadAnimation1': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
@@ -91,6 +104,18 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
             begin: 0.0,
             end: 1.0,
           ),
+        ],
+      ),
+      'textOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
           MoveEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
@@ -100,7 +125,7 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
           ),
         ],
       ),
-      'textOnPageLoadAnimation2': AnimationInfo(
+      'textOnPageLoadAnimation3': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           FadeEffect(
@@ -157,7 +182,7 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
           ),
         ],
       ),
-      'textOnPageLoadAnimation3': AnimationInfo(
+      'textOnPageLoadAnimation4': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           FadeEffect(
@@ -176,7 +201,7 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
           ),
         ],
       ),
-      'textOnPageLoadAnimation4': AnimationInfo(
+      'textOnPageLoadAnimation5': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           FadeEffect(
@@ -233,7 +258,7 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
           ),
         ],
       ),
-      'textOnPageLoadAnimation5': AnimationInfo(
+      'textOnPageLoadAnimation6': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           FadeEffect(
@@ -252,7 +277,7 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
           ),
         ],
       ),
-      'textOnPageLoadAnimation6': AnimationInfo(
+      'textOnPageLoadAnimation7': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           FadeEffect(
@@ -272,12 +297,6 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
         ],
       ),
     });
-    setupAnimations(
-      animationsMap.values.where((anim) =>
-          anim.trigger == AnimationTrigger.onActionTrigger ||
-          !anim.applyInitialState),
-      this,
-    );
   }
 
   @override
@@ -433,7 +452,8 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                                                           fontSize: 22.0,
                                                           letterSpacing: 0.0,
                                                         ),
-                                                  ),
+                                                  ).animateOnPageLoad(animationsMap[
+                                                      'textOnPageLoadAnimation1']!),
                                                 ),
                                               ),
                                             ),
@@ -459,7 +479,7 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                                             letterSpacing: 0.0,
                                           ),
                                     ).animateOnPageLoad(animationsMap[
-                                        'textOnPageLoadAnimation1']!),
+                                        'textOnPageLoadAnimation2']!),
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
@@ -488,14 +508,15 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                                                     .fontStyle,
                                           ),
                                     ).animateOnPageLoad(animationsMap[
-                                        'textOnPageLoadAnimation2']!),
+                                        'textOnPageLoadAnimation3']!),
                                   ),
                                 ],
                               ),
                             ),
                           ),
                         ],
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['columnOnPageLoadAnimation']!),
                     ),
                     Container(
                       width: double.infinity,
@@ -670,7 +691,7 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                                                     .fontStyle,
                                           ),
                                     ).animateOnPageLoad(animationsMap[
-                                        'textOnPageLoadAnimation3']!),
+                                        'textOnPageLoadAnimation4']!),
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
@@ -699,7 +720,7 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                                                     .fontStyle,
                                           ),
                                     ).animateOnPageLoad(animationsMap[
-                                        'textOnPageLoadAnimation4']!),
+                                        'textOnPageLoadAnimation5']!),
                                   ),
                                 ],
                               ),
@@ -901,7 +922,7 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                                                     .fontStyle,
                                           ),
                                     ).animateOnPageLoad(animationsMap[
-                                        'textOnPageLoadAnimation5']!),
+                                        'textOnPageLoadAnimation6']!),
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
@@ -930,7 +951,7 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
                                                     .fontStyle,
                                           ),
                                     ).animateOnPageLoad(animationsMap[
-                                        'textOnPageLoadAnimation6']!),
+                                        'textOnPageLoadAnimation7']!),
                                   ),
                                   Align(
                                     alignment: AlignmentDirectional(1.0, 1.0),

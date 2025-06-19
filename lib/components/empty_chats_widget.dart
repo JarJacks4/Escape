@@ -1,7 +1,12 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:math';
 import 'dart:ui';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'empty_chats_model.dart';
@@ -14,8 +19,11 @@ class EmptyChatsWidget extends StatefulWidget {
   State<EmptyChatsWidget> createState() => _EmptyChatsWidgetState();
 }
 
-class _EmptyChatsWidgetState extends State<EmptyChatsWidget> {
+class _EmptyChatsWidgetState extends State<EmptyChatsWidget>
+    with TickerProviderStateMixin {
   late EmptyChatsModel _model;
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void setState(VoidCallback callback) {
@@ -27,6 +35,21 @@ class _EmptyChatsWidgetState extends State<EmptyChatsWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => EmptyChatsModel());
+
+    animationsMap.addAll({
+      'imageOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 2400.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -100,7 +123,8 @@ class _EmptyChatsWidgetState extends State<EmptyChatsWidget> {
                     'assets/images/Logo_ESCAPE_Black.png',
                     height: 26.67,
                     fit: BoxFit.contain,
-                  ),
+                  ).animateOnPageLoad(
+                      animationsMap['imageOnPageLoadAnimation']!),
                 ),
               ],
             ),

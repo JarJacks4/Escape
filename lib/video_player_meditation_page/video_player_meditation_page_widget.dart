@@ -1,6 +1,9 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/schema/structs/index.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
 import 'dart:ui';
 import "package:tiktokfeed_wz8en7/backend/schema/structs/index.dart"
     as tiktokfeed_wz8en7_data_schema;
@@ -12,6 +15,9 @@ import 'package:tiktokfeed_wz8en7/custom_code/widgets/index.dart'
     as tiktokfeed_wz8en7_custom_widgets;
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'video_player_meditation_page_model.dart';
@@ -35,10 +41,13 @@ class VideoPlayerMeditationPageWidget extends StatefulWidget {
 }
 
 class _VideoPlayerMeditationPageWidgetState
-    extends State<VideoPlayerMeditationPageWidget> {
+    extends State<VideoPlayerMeditationPageWidget>
+    with TickerProviderStateMixin {
   late VideoPlayerMeditationPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -47,6 +56,20 @@ class _VideoPlayerMeditationPageWidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'VideoPlayerMeditationPage'});
+    animationsMap.addAll({
+      'listViewOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -164,7 +187,7 @@ class _VideoPlayerMeditationPageWidgetState
                                                         FFLocalizations.of(
                                                                 context)
                                                             .getText(
-                                                          'tnls7cww' /* Depression */,
+                                                          'tnls7cww' /* Meditation */,
                                                         ),
                                                         style:
                                                             FlutterFlowTheme.of(
@@ -310,7 +333,25 @@ class _VideoPlayerMeditationPageWidgetState
                                         userID: currentUserDisplayName,
                                         data: tiktokfeed_wz8en7_app_state
                                                 .FFAppState()
-                                            .ListTikTokPages,
+                                            .meditationTikToks
+                                            .take(100)
+                                            .toList()
+                                            .sortedList(
+                                                keyOf: (e) => widget!.urlVideo!,
+                                                desc: false)
+                                            .where((e) =>
+                                                FFAppState().moods != null &&
+                                                FFAppState().moods != '')
+                                            .toList()
+                                            .unique((e) =>
+                                                tiktokfeed_wz8en7_app_state
+                                                        .FFAppState()
+                                                    .BodyTikToks
+                                                    .contains(
+                                                        tiktokfeed_wz8en7_data_schema
+                                                            .TiktokPageStruct(
+                                                      likes: ['1'],
+                                                    ))),
                                         likerebuidpage: () async {
                                           logFirebaseEvent(
                                               'VIDEO_PLAYER_MEDITATION_Container_3t3j5d');
@@ -365,7 +406,8 @@ class _VideoPlayerMeditationPageWidgetState
 
                             safeSetState(() {});
                           },
-                        );
+                        ).animateOnPageLoad(
+                            animationsMap['listViewOnPageLoadAnimation']!);
                       },
                     ),
                   ),

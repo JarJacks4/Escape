@@ -1,10 +1,15 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
 import 'dart:ui';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -20,8 +25,11 @@ class SubscriptionComp2Widget extends StatefulWidget {
       _SubscriptionComp2WidgetState();
 }
 
-class _SubscriptionComp2WidgetState extends State<SubscriptionComp2Widget> {
+class _SubscriptionComp2WidgetState extends State<SubscriptionComp2Widget>
+    with TickerProviderStateMixin {
   late SubscriptionComp2Model _model;
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void setState(VoidCallback callback) {
@@ -33,6 +41,124 @@ class _SubscriptionComp2WidgetState extends State<SubscriptionComp2Widget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => SubscriptionComp2Model());
+
+    animationsMap.addAll({
+      'imageOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 3600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 3000.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'iconButtonOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 2400.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'iconButtonOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 1200.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 1800.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'iconButtonOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 2400.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation4': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 1200.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation5': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 5400.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          ShimmerEffect(
+            curve: Curves.easeInOut,
+            delay: 2500.0.ms,
+            duration: 600.0.ms,
+            color: Color(0x80FFFFFF),
+            angle: 0.524,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -90,7 +216,8 @@ class _SubscriptionComp2WidgetState extends State<SubscriptionComp2Widget> {
                       height: 200.0,
                       fit: BoxFit.contain,
                     ),
-                  ),
+                  ).animateOnPageLoad(
+                      animationsMap['imageOnPageLoadAnimation']!),
                 ),
               ),
               Container(
@@ -130,7 +257,8 @@ class _SubscriptionComp2WidgetState extends State<SubscriptionComp2Widget> {
                           ),
                           textAlign: TextAlign.center,
                         ),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['textOnPageLoadAnimation1']!),
                     ),
                   ],
                 ),
@@ -158,7 +286,8 @@ class _SubscriptionComp2WidgetState extends State<SubscriptionComp2Widget> {
                           onPressed: () {
                             print('IconButton pressed ...');
                           },
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['iconButtonOnPageLoadAnimation1']!),
                         Padding(
                           padding: EdgeInsets.all(22.0),
                           child: GradientText(
@@ -178,7 +307,8 @@ class _SubscriptionComp2WidgetState extends State<SubscriptionComp2Widget> {
                             colors: [],
                             gradientDirection: GradientDirection.ltr,
                             gradientType: GradientType.linear,
-                          ),
+                          ).animateOnPageLoad(
+                              animationsMap['textOnPageLoadAnimation2']!),
                         ),
                       ],
                     ),
@@ -198,7 +328,8 @@ class _SubscriptionComp2WidgetState extends State<SubscriptionComp2Widget> {
                           onPressed: () {
                             print('IconButton pressed ...');
                           },
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['iconButtonOnPageLoadAnimation2']!),
                         Padding(
                           padding: EdgeInsets.all(22.0),
                           child: GradientText(
@@ -218,7 +349,8 @@ class _SubscriptionComp2WidgetState extends State<SubscriptionComp2Widget> {
                             colors: [],
                             gradientDirection: GradientDirection.ltr,
                             gradientType: GradientType.linear,
-                          ),
+                          ).animateOnPageLoad(
+                              animationsMap['textOnPageLoadAnimation3']!),
                         ),
                       ],
                     ),
@@ -238,7 +370,8 @@ class _SubscriptionComp2WidgetState extends State<SubscriptionComp2Widget> {
                           onPressed: () {
                             print('IconButton pressed ...');
                           },
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['iconButtonOnPageLoadAnimation3']!),
                         Padding(
                           padding: EdgeInsets.all(22.0),
                           child: GradientText(
@@ -258,7 +391,8 @@ class _SubscriptionComp2WidgetState extends State<SubscriptionComp2Widget> {
                             colors: [],
                             gradientDirection: GradientDirection.ltr,
                             gradientType: GradientType.linear,
-                          ),
+                          ).animateOnPageLoad(
+                              animationsMap['textOnPageLoadAnimation4']!),
                         ),
                       ],
                     ),
@@ -300,7 +434,8 @@ class _SubscriptionComp2WidgetState extends State<SubscriptionComp2Widget> {
                         colors: [Color(0xF7000220)],
                         gradientDirection: GradientDirection.ltr,
                         gradientType: GradientType.linear,
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['textOnPageLoadAnimation5']!),
                     ),
                   ],
                 ),

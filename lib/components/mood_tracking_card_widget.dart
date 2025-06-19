@@ -1,9 +1,9 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
-import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'mood_tracking_card_model.dart';
@@ -91,21 +91,8 @@ class _MoodTrackingCardWidgetState extends State<MoodTrackingCardWidget> {
                           color: FlutterFlowTheme.of(context).primary,
                           size: 24.0,
                         ),
-                        onPressed: () async {
-                          logFirebaseEvent(
-                              'MOOD_TRACKING_CARD_arrow_outward_ICN_ON_');
-                          logFirebaseEvent('IconButton_navigate_to');
-
-                          context.pushNamed(
-                            MoodAnalyzerUnrealPageWidget.routeName,
-                            extra: <String, dynamic>{
-                              kTransitionInfoKey: TransitionInfo(
-                                hasTransition: true,
-                                transitionType: PageTransitionType.fade,
-                                duration: Duration(milliseconds: 0),
-                              ),
-                            },
-                          );
+                        onPressed: () {
+                          print('IconButton pressed ...');
                         },
                       ),
                     ),

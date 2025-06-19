@@ -1,10 +1,15 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:math';
 import 'dart:ui';
 import 'package:tiktokfeed_wz8en7/app_state.dart'
     as tiktokfeed_wz8en7_app_state;
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:provider/provider.dart';
@@ -18,8 +23,11 @@ class ProgressBarFinalWidget extends StatefulWidget {
   State<ProgressBarFinalWidget> createState() => _ProgressBarFinalWidgetState();
 }
 
-class _ProgressBarFinalWidgetState extends State<ProgressBarFinalWidget> {
+class _ProgressBarFinalWidgetState extends State<ProgressBarFinalWidget>
+    with TickerProviderStateMixin {
   late ProgressBarFinalModel _model;
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void setState(VoidCallback callback) {
@@ -31,6 +39,33 @@ class _ProgressBarFinalWidgetState extends State<ProgressBarFinalWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ProgressBarFinalModel());
+
+    animationsMap.addAll({
+      'textOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'progressBarOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -74,16 +109,29 @@ class _ProgressBarFinalWidgetState extends State<ProgressBarFinalWidget> {
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
                   child: AuthUserStreamWidget(
-                    builder: (context) => Hero(
-                      tag: currentUserPhoto,
-                      transitionOnUserGestures: true,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(24.0),
-                        child: Image.network(
-                          currentUserPhoto,
-                          width: 46.37,
-                          height: 46.0,
-                          fit: BoxFit.cover,
+                    builder: (context) => InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        logFirebaseEvent(
+                            'PROGRESS_BAR_FINAL_Image_yzyz94b6_ON_TAP');
+                        logFirebaseEvent('Image_update_app_state');
+                        FFAppState().ProfilePicture = currentUserPhoto;
+                        _model.updatePage(() {});
+                      },
+                      child: Hero(
+                        tag: currentUserPhoto,
+                        transitionOnUserGestures: true,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(24.0),
+                          child: Image.network(
+                            currentUserPhoto,
+                            width: 46.37,
+                            height: 46.0,
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
                     ),
@@ -102,7 +150,8 @@ class _ProgressBarFinalWidgetState extends State<ProgressBarFinalWidget> {
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.normal,
                         ),
-                  ),
+                  ).animateOnPageLoad(
+                      animationsMap['textOnPageLoadAnimation']!),
                 ),
               ],
             ),
@@ -161,7 +210,8 @@ class _ProgressBarFinalWidgetState extends State<ProgressBarFinalWidget> {
                           ),
                           barRadius: Radius.circular(80.0),
                           padding: EdgeInsets.zero,
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['progressBarOnPageLoadAnimation']!),
                       ),
                     ),
                   ),

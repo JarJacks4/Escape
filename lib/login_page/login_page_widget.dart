@@ -13,6 +13,7 @@ import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -85,6 +86,25 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
           ),
         ],
       ),
+      'imageOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 3600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          ShimmerEffect(
+            curve: Curves.easeInOut,
+            delay: 3600.0.ms,
+            duration: 600.0.ms,
+            color: Color(0x80FFFFFF),
+            angle: 0.524,
+          ),
+        ],
+      ),
       'containerOnPageLoadAnimation': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
@@ -126,12 +146,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
         ],
       ),
     });
-    setupAnimations(
-      animationsMap.values.where((anim) =>
-          anim.trigger == AnimationTrigger.onActionTrigger ||
-          !anim.applyInitialState),
-      this,
-    );
   }
 
   @override
@@ -279,7 +293,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                             height: 222.9,
                                             fit: BoxFit.contain,
                                           ),
-                                        ),
+                                        ).animateOnPageLoad(animationsMap[
+                                            'imageOnPageLoadAnimation']!),
                                       ],
                                     ),
                                   ],
@@ -748,7 +763,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                           SnackBar(
                                                                             content:
                                                                                 Text(
-                                                                              'Email required!',
+                                                                              FFLocalizations.of(context).getText(
+                                                                                '5swz4x86' /* Email is required to reset pas... */,
+                                                                              ),
                                                                             ),
                                                                           ),
                                                                         );
@@ -1658,7 +1675,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                                     SnackBar(
                                                                       content:
                                                                           Text(
-                                                                        'Passwords don\'t match!',
+                                                                        FFLocalizations.of(context)
+                                                                            .getText(
+                                                                          'eni3v0ol' /* Passwords do not match. Try ag... */,
+                                                                        ),
                                                                       ),
                                                                     ),
                                                                   );

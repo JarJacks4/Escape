@@ -7,8 +7,10 @@ import '/components/nature_card_widget.dart';
 import '/components/success_home_feedback_widget.dart';
 import '/components/therapist_directory_card_widget.dart';
 import '/components/todays_self_care_activities_comp_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
 import 'dart:ui';
 import "package:tiktokfeed_wz8en7/backend/schema/structs/index.dart"
     as tiktokfeed_wz8en7_data_schema;
@@ -20,6 +22,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:provider/provider.dart';
@@ -36,10 +40,13 @@ class HomeVersion4Widget extends StatefulWidget {
   State<HomeVersion4Widget> createState() => _HomeVersion4WidgetState();
 }
 
-class _HomeVersion4WidgetState extends State<HomeVersion4Widget> {
+class _HomeVersion4WidgetState extends State<HomeVersion4Widget>
+    with TickerProviderStateMixin {
   late HomeVersion4Model _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -84,6 +91,129 @@ class _HomeVersion4WidgetState extends State<HomeVersion4Widget> {
         hasSeenWalkthrough: true,
       ));
     });
+
+    animationsMap.addAll({
+      'circleImageOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 1200.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 1800.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 2400.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 1200.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 3800.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation4': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 1000.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'imageOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 2000.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -109,12 +239,11 @@ class _HomeVersion4WidgetState extends State<HomeVersion4Widget> {
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
             body: Center(
               child: SizedBox(
-                width: 50.0,
-                height: 50.0,
-                child: CircularProgressIndicator(
-                  valueColor: AlwaysStoppedAnimation<Color>(
-                    FlutterFlowTheme.of(context).primary,
-                  ),
+                width: 100.0,
+                height: 100.0,
+                child: SpinKitRipple(
+                  color: FlutterFlowTheme.of(context).primary,
+                  size: 100.0,
                 ),
               ),
             ),
@@ -158,65 +287,58 @@ class _HomeVersion4WidgetState extends State<HomeVersion4Widget> {
                               flex: 1,
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    8.0, 40.0, 8.0, 0.0),
+                                    8.0, 20.0, 8.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Flexible(
-                                      flex: 1,
-                                      child: Text(
-                                        FFLocalizations.of(context).getText(
-                                          'py71tdxs' /* Home */,
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'The Seasons',
-                                              color: Colors.black,
-                                              fontSize: 32.0,
-                                              letterSpacing: 0.0,
-                                            ),
+                                    Text(
+                                      FFLocalizations.of(context).getText(
+                                        'py71tdxs' /* Home */,
                                       ),
-                                    ),
-                                    Flexible(
-                                      flex: 1,
-                                      child: Align(
-                                        alignment:
-                                            AlignmentDirectional(1.0, 0.0),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 8.0, 0.0),
-                                          child: InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              logFirebaseEvent(
-                                                  'HOME_VERSION4_PAGE_Image_xqg2miyi_ON_TAP');
-                                              logFirebaseEvent(
-                                                  'Image_navigate_to');
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'The Seasons',
+                                            color: Colors.black,
+                                            fontSize: 32.0,
+                                            letterSpacing: 0.0,
+                                          ),
+                                    ).animateOnPageLoad(animationsMap[
+                                        'textOnPageLoadAnimation4']!),
+                                    Align(
+                                      alignment: AlignmentDirectional(1.0, 0.0),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 8.0, 0.0),
+                                        child: InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            logFirebaseEvent(
+                                                'HOME_VERSION4_PAGE_Image_xqg2miyi_ON_TAP');
+                                            logFirebaseEvent(
+                                                'Image_navigate_to');
 
-                                              context.pushNamed(
-                                                  HomeVersion4Widget.routeName);
-                                            },
-                                            child: ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                              child: Image.asset(
-                                                'assets/images/Rectangle_1.png',
-                                                width:
-                                                    MediaQuery.sizeOf(context)
-                                                            .width *
-                                                        0.3,
-                                                fit: BoxFit.contain,
-                                              ),
+                                            context.pushNamed(
+                                                HomeVersion4Widget.routeName);
+                                          },
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            child: Image.asset(
+                                              'assets/images/Rectangle_1.png',
+                                              width: MediaQuery.sizeOf(context)
+                                                      .width *
+                                                  0.3,
+                                              fit: BoxFit.contain,
                                             ),
                                           ),
-                                        ),
+                                        ).animateOnPageLoad(animationsMap[
+                                            'imageOnPageLoadAnimation']!),
                                       ),
                                     ),
                                   ],
@@ -254,7 +376,7 @@ class _HomeVersion4WidgetState extends State<HomeVersion4Widget> {
                           children: [
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 15.0, 0.0, 0.0),
+                                  0.0, 0.0, 0.0, 20.0),
                               child: Container(
                                 width: double.infinity,
                                 height: 105.0,
@@ -265,362 +387,212 @@ class _HomeVersion4WidgetState extends State<HomeVersion4Widget> {
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
-                                    Expanded(
+                                    Flexible(
                                       flex: 1,
-                                      child: ListView(
-                                        padding: EdgeInsets.zero,
-                                        primary: false,
-                                        shrinkWrap: true,
-                                        scrollDirection: Axis.horizontal,
-                                        children: [
-                                          Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Flexible(
-                                                flex: 1,
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          15.0, 0.0, 0.0, 0.0),
-                                                  child: InkWell(
-                                                    splashColor:
-                                                        Colors.transparent,
-                                                    focusColor:
-                                                        Colors.transparent,
-                                                    hoverColor:
-                                                        Colors.transparent,
-                                                    highlightColor:
-                                                        Colors.transparent,
-                                                    onTap: () async {
-                                                      logFirebaseEvent(
-                                                          'HOME_VERSION4_Container_yg4rhyh0_ON_TAP');
-                                                      logFirebaseEvent(
-                                                          'Container_navigate_to');
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 0.0, 2.0),
+                                        child: ListView(
+                                          padding: EdgeInsets.zero,
+                                          primary: false,
+                                          shrinkWrap: true,
+                                          scrollDirection: Axis.horizontal,
+                                          children: [
+                                            Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Flexible(
+                                                  flex: 1,
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(15.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        logFirebaseEvent(
+                                                            'HOME_VERSION4_Container_yg4rhyh0_ON_TAP');
+                                                        logFirebaseEvent(
+                                                            'Container_navigate_to');
 
-                                                      context.pushNamed(
-                                                        LucilleHomeWidget
-                                                            .routeName,
-                                                        extra: <String,
-                                                            dynamic>{
-                                                          kTransitionInfoKey:
-                                                              TransitionInfo(
-                                                            hasTransition: true,
-                                                            transitionType:
-                                                                PageTransitionType
-                                                                    .rightToLeft,
-                                                            duration: Duration(
-                                                                milliseconds:
-                                                                    2),
-                                                          ),
-                                                        },
-                                                      );
-                                                    },
-                                                    child: Container(
-                                                      width: 63.0,
-                                                      height: 63.0,
-                                                      decoration: BoxDecoration(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .tertiary,
-                                                        shape: BoxShape.circle,
-                                                      ),
+                                                        context.pushNamed(
+                                                          LucilleHomeWidget
+                                                              .routeName,
+                                                          extra: <String,
+                                                              dynamic>{
+                                                            kTransitionInfoKey:
+                                                                TransitionInfo(
+                                                              hasTransition:
+                                                                  true,
+                                                              transitionType:
+                                                                  PageTransitionType
+                                                                      .rightToLeft,
+                                                              duration: Duration(
+                                                                  milliseconds:
+                                                                      2),
+                                                            ),
+                                                          },
+                                                        );
+                                                      },
                                                       child: Container(
-                                                        width: 100.0,
-                                                        height: 100.0,
-                                                        clipBehavior:
-                                                            Clip.antiAlias,
+                                                        width: 63.0,
+                                                        height: 63.0,
                                                         decoration:
                                                             BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .tertiary,
                                                           shape:
                                                               BoxShape.circle,
                                                         ),
-                                                        child: Image.asset(
-                                                          'assets/images/Icon.png',
-                                                          fit: BoxFit.cover,
+                                                        child: Container(
+                                                          width: 100.0,
+                                                          height: 100.0,
+                                                          clipBehavior:
+                                                              Clip.antiAlias,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            shape:
+                                                                BoxShape.circle,
+                                                          ),
+                                                          child: Image.asset(
+                                                            'assets/images/Icon.png',
+                                                            fit: BoxFit.cover,
+                                                          ),
+                                                        ).animateOnPageLoad(
+                                                            animationsMap[
+                                                                'circleImageOnPageLoadAnimation']!),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          15.0, 8.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                      'y9iy2ett' /* Lucille */,
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'WorkSans',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                            Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Flexible(
+                                                  flex: 1,
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(15.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        logFirebaseEvent(
+                                                            'HOME_VERSION4_Container_90jai8vq_ON_TAP');
+                                                        logFirebaseEvent(
+                                                            'Container_navigate_to');
+                                                        if (Navigator.of(
+                                                                context)
+                                                            .canPop()) {
+                                                          context.pop();
+                                                        }
+                                                        context.pushNamed(
+                                                          VideoPlayerMeditationPageWidget
+                                                              .routeName,
+                                                          extra: <String,
+                                                              dynamic>{
+                                                            kTransitionInfoKey:
+                                                                TransitionInfo(
+                                                              hasTransition:
+                                                                  true,
+                                                              transitionType:
+                                                                  PageTransitionType
+                                                                      .fade,
+                                                              duration: Duration(
+                                                                  milliseconds:
+                                                                      2),
+                                                            ),
+                                                          },
+                                                        );
+
+                                                        logFirebaseEvent(
+                                                            'Container_custom_action');
+                                                        _model.reorderMeditationPages =
+                                                            await actions
+                                                                .reorderItems(
+                                                          tiktokfeed_wz8en7_app_state
+                                                                  .FFAppState()
+                                                              .BreathingTikTok
+                                                              .map((e) =>
+                                                                  e.urlvideo)
+                                                              .toList(),
+                                                          tiktokfeed_wz8en7_app_state
+                                                                  .FFAppState()
+                                                              .ListTikTokPages
+                                                              .length,
+                                                          tiktokfeed_wz8en7_app_state
+                                                                  .FFAppState()
+                                                              .BreathingTikTok
+                                                              .length,
+                                                        );
+
+                                                        safeSetState(() {});
+                                                      },
+                                                      child: Container(
+                                                        width: 63.0,
+                                                        height: 64.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .accent3,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      50.0),
                                                         ),
                                                       ),
-                                                    ),
+                                                    ).animateOnPageLoad(
+                                                        animationsMap[
+                                                            'containerOnPageLoadAnimation1']!),
                                                   ),
                                                 ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        15.0, 8.0, 0.0, 0.0),
-                                                child: Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'y9iy2ett' /* Lucille */,
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'WorkSans',
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                          Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Flexible(
-                                                flex: 1,
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          15.0, 0.0, 0.0, 0.0),
-                                                  child: InkWell(
-                                                    splashColor:
-                                                        Colors.transparent,
-                                                    focusColor:
-                                                        Colors.transparent,
-                                                    hoverColor:
-                                                        Colors.transparent,
-                                                    highlightColor:
-                                                        Colors.transparent,
-                                                    onTap: () async {
-                                                      logFirebaseEvent(
-                                                          'HOME_VERSION4_Container_90jai8vq_ON_TAP');
-                                                      logFirebaseEvent(
-                                                          'Container_navigate_to');
-                                                      if (Navigator.of(context)
-                                                          .canPop()) {
-                                                        context.pop();
-                                                      }
-                                                      context.pushNamed(
-                                                        VideoPlayerMeditationPageWidget
-                                                            .routeName,
-                                                        extra: <String,
-                                                            dynamic>{
-                                                          kTransitionInfoKey:
-                                                              TransitionInfo(
-                                                            hasTransition: true,
-                                                            transitionType:
-                                                                PageTransitionType
-                                                                    .fade,
-                                                            duration: Duration(
-                                                                milliseconds:
-                                                                    2),
-                                                          ),
-                                                        },
-                                                      );
-
-                                                      logFirebaseEvent(
-                                                          'Container_custom_action');
-                                                      _model.reorderMeditationPages =
-                                                          await actions
-                                                              .reorderItems(
-                                                        tiktokfeed_wz8en7_app_state
-                                                                .FFAppState()
-                                                            .BreathingTikTok
-                                                            .map((e) =>
-                                                                e.urlvideo)
-                                                            .toList(),
-                                                        tiktokfeed_wz8en7_app_state
-                                                                .FFAppState()
-                                                            .ListTikTokPages
-                                                            .length,
-                                                        tiktokfeed_wz8en7_app_state
-                                                                .FFAppState()
-                                                            .BreathingTikTok
-                                                            .length,
-                                                      );
-
-                                                      safeSetState(() {});
-                                                    },
-                                                    child: Container(
-                                                      width: 63.0,
-                                                      height: 64.0,
-                                                      decoration: BoxDecoration(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .accent3,
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(50.0),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        18.0, 8.0, 0.0, 0.0),
-                                                child: Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'noxxif5h' /* Meditation */,
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'WorkSans',
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                          Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Flexible(
-                                                flex: 1,
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          15.0, 0.0, 0.0, 0.0),
-                                                  child: InkWell(
-                                                    splashColor:
-                                                        Colors.transparent,
-                                                    focusColor:
-                                                        Colors.transparent,
-                                                    hoverColor:
-                                                        Colors.transparent,
-                                                    highlightColor:
-                                                        Colors.transparent,
-                                                    onTap: () async {
-                                                      logFirebaseEvent(
-                                                          'HOME_VERSION4_Container_y8c8k88h_ON_TAP');
-                                                      logFirebaseEvent(
-                                                          'Container_navigate_to');
-                                                      if (Navigator.of(context)
-                                                          .canPop()) {
-                                                        context.pop();
-                                                      }
-                                                      context.pushNamed(
-                                                        VideoPlayerIncreaseFocusWidget
-                                                            .routeName,
-                                                        extra: <String,
-                                                            dynamic>{
-                                                          kTransitionInfoKey:
-                                                              TransitionInfo(
-                                                            hasTransition: true,
-                                                            transitionType:
-                                                                PageTransitionType
-                                                                    .rightToLeft,
-                                                            duration: Duration(
-                                                                milliseconds:
-                                                                    2),
-                                                          ),
-                                                        },
-                                                      );
-                                                    },
-                                                    child: Container(
-                                                      width: 63.0,
-                                                      height: 64.0,
-                                                      decoration: BoxDecoration(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .accent1,
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(50.0),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        15.0, 8.0, 0.0, 0.0),
-                                                child: Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'zwzevfjc' /* Focus */,
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'WorkSans',
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                          Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Flexible(
-                                                flex: 1,
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          15.0, 0.0, 0.0, 0.0),
-                                                  child: InkWell(
-                                                    splashColor:
-                                                        Colors.transparent,
-                                                    focusColor:
-                                                        Colors.transparent,
-                                                    hoverColor:
-                                                        Colors.transparent,
-                                                    highlightColor:
-                                                        Colors.transparent,
-                                                    onTap: () async {
-                                                      logFirebaseEvent(
-                                                          'HOME_VERSION4_Container_m6eyi5c2_ON_TAP');
-                                                      logFirebaseEvent(
-                                                          'Container_navigate_to');
-                                                      if (Navigator.of(context)
-                                                          .canPop()) {
-                                                        context.pop();
-                                                      }
-                                                      context.pushNamed(
-                                                        VideoPlayerDepressionWidget
-                                                            .routeName,
-                                                        extra: <String,
-                                                            dynamic>{
-                                                          kTransitionInfoKey:
-                                                              TransitionInfo(
-                                                            hasTransition: true,
-                                                            transitionType:
-                                                                PageTransitionType
-                                                                    .rightToLeft,
-                                                            duration: Duration(
-                                                                milliseconds:
-                                                                    2),
-                                                          ),
-                                                        },
-                                                      );
-                                                    },
-                                                    child: Container(
-                                                      width: 63.0,
-                                                      height: 64.0,
-                                                      decoration: BoxDecoration(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .secondary,
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(50.0),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                              Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
-                                                child: Padding(
+                                                Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           18.0, 8.0, 0.0, 0.0),
                                                   child: Text(
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                      'hn6k5q1i' /* Depression */,
+                                                      'noxxif5h' /* Meditation */,
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -632,294 +604,401 @@ class _HomeVersion4WidgetState extends State<HomeVersion4Widget> {
                                                         ),
                                                   ),
                                                 ),
-                                              ),
-                                            ],
-                                          ),
-                                          Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Flexible(
-                                                flex: 1,
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          15.0, 0.0, 0.0, 0.0),
-                                                  child: InkWell(
-                                                    splashColor:
-                                                        Colors.transparent,
-                                                    focusColor:
-                                                        Colors.transparent,
-                                                    hoverColor:
-                                                        Colors.transparent,
-                                                    highlightColor:
-                                                        Colors.transparent,
-                                                    onTap: () async {
-                                                      logFirebaseEvent(
-                                                          'HOME_VERSION4_Container_tfa7w5ed_ON_TAP');
-                                                      logFirebaseEvent(
-                                                          'Container_navigate_to');
-                                                      if (Navigator.of(context)
-                                                          .canPop()) {
-                                                        context.pop();
-                                                      }
-                                                      context.pushNamed(
-                                                        VideoPlayerSleepPageWidget
-                                                            .routeName,
-                                                        extra: <String,
-                                                            dynamic>{
-                                                          kTransitionInfoKey:
-                                                              TransitionInfo(
-                                                            hasTransition: true,
-                                                            transitionType:
-                                                                PageTransitionType
-                                                                    .fade,
-                                                            duration: Duration(
-                                                                milliseconds:
-                                                                    2),
-                                                          ),
-                                                        },
-                                                      );
-                                                    },
-                                                    child: Container(
-                                                      width: 63.0,
-                                                      height: 64.0,
-                                                      decoration: BoxDecoration(
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .secondaryBackground,
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(50.0),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                              Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          15.0, 8.0, 0.0, 0.0),
-                                                  child: Text(
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                      'xbed4lpz' /* Sleep */,
-                                                    ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'WorkSans',
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                          Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Flexible(
-                                                flex: 1,
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          15.0, 0.0, 0.0, 0.0),
-                                                  child: InkWell(
-                                                    splashColor:
-                                                        Colors.transparent,
-                                                    focusColor:
-                                                        Colors.transparent,
-                                                    hoverColor:
-                                                        Colors.transparent,
-                                                    highlightColor:
-                                                        Colors.transparent,
-                                                    onTap: () async {
-                                                      logFirebaseEvent(
-                                                          'HOME_VERSION4_Container_mx94mtyx_ON_TAP');
-                                                      logFirebaseEvent(
-                                                          'Container_navigate_to');
-                                                      if (Navigator.of(context)
-                                                          .canPop()) {
-                                                        context.pop();
-                                                      }
-                                                      context.pushNamed(
-                                                        VideoPlayerBodyWidget
-                                                            .routeName,
-                                                        extra: <String,
-                                                            dynamic>{
-                                                          kTransitionInfoKey:
-                                                              TransitionInfo(
-                                                            hasTransition: true,
-                                                            transitionType:
-                                                                PageTransitionType
-                                                                    .fade,
-                                                            duration: Duration(
-                                                                milliseconds:
-                                                                    2),
-                                                          ),
-                                                        },
-                                                      );
-                                                    },
-                                                    child: Container(
-                                                      width: 63.0,
-                                                      height: 64.0,
-                                                      decoration: BoxDecoration(
-                                                        gradient:
-                                                            LinearGradient(
-                                                          colors: [
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primary,
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .accent1,
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .tertiary
-                                                          ],
-                                                          stops: [
-                                                            0.0,
-                                                            0.5,
-                                                            1.0
-                                                          ],
-                                                          begin:
-                                                              AlignmentDirectional(
-                                                                  0.87, -1.0),
-                                                          end:
-                                                              AlignmentDirectional(
-                                                                  -0.87, 1.0),
-                                                        ),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(50.0),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                              Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          15.0, 8.0, 0.0, 0.0),
-                                                  child: Text(
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                      'l7ajvafk' /* Body */,
-                                                    ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'WorkSans',
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ].divide(SizedBox(width: 5.0)),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Align(
-                              alignment: AlignmentDirectional(-1.0, 0.0),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    25.0, 50.0, 0.0, 0.0),
-                                child: Text(
-                                  FFLocalizations.of(context).getText(
-                                    '1wkkv8k9' /* Quote of the Day */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'The Seasons',
-                                        fontSize: 28.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.all(8.0),
-                              child: Container(
-                                width: 338.0,
-                                height: 210.0,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context).alternate,
-                                  borderRadius: BorderRadius.circular(10.0),
-                                ),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Align(
-                                      alignment:
-                                          AlignmentDirectional(-1.0, -1.0),
-                                      child: Padding(
-                                        padding: EdgeInsets.all(20.0),
-                                        child: Text(
-                                          FFLocalizations.of(context).getText(
-                                            'q8yuxtty' /* "Our Deepest fear is not that ... */,
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'The Seasons',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
-                                                fontSize: 22.0,
-                                                letterSpacing: 0.0,
-                                              ),
-                                        ),
-                                      ),
-                                    ),
-                                    Align(
-                                      alignment: AlignmentDirectional(0.0, 1.0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.end,
-                                        children: [
-                                          Align(
-                                            alignment:
-                                                AlignmentDirectional(1.0, -1.0),
-                                            child: Padding(
-                                              padding: EdgeInsets.all(15.0),
-                                              child: Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  '46vogh7w' /* -Marianne Williamson */,
-                                                ),
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      fontFamily: 'The Seasons',
-                                                      color: Color(0xA9D0E3F7),
-                                                      fontSize: 16.0,
-                                                      letterSpacing: 0.0,
-                                                    ),
-                                              ),
+                                              ],
                                             ),
-                                          ),
-                                        ],
+                                            Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Flexible(
+                                                  flex: 1,
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(15.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        logFirebaseEvent(
+                                                            'HOME_VERSION4_Container_y8c8k88h_ON_TAP');
+                                                        logFirebaseEvent(
+                                                            'Container_navigate_to');
+                                                        if (Navigator.of(
+                                                                context)
+                                                            .canPop()) {
+                                                          context.pop();
+                                                        }
+                                                        context.pushNamed(
+                                                          VideoPlayerIncreaseFocusWidget
+                                                              .routeName,
+                                                          extra: <String,
+                                                              dynamic>{
+                                                            kTransitionInfoKey:
+                                                                TransitionInfo(
+                                                              hasTransition:
+                                                                  true,
+                                                              transitionType:
+                                                                  PageTransitionType
+                                                                      .rightToLeft,
+                                                              duration: Duration(
+                                                                  milliseconds:
+                                                                      2),
+                                                            ),
+                                                          },
+                                                        );
+                                                      },
+                                                      child: Container(
+                                                        width: 63.0,
+                                                        height: 64.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .accent1,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      50.0),
+                                                        ),
+                                                      ),
+                                                    ).animateOnPageLoad(
+                                                        animationsMap[
+                                                            'containerOnPageLoadAnimation2']!),
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          15.0, 8.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                      'zwzevfjc' /* Focus */,
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'WorkSans',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                            Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Flexible(
+                                                  flex: 1,
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(15.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        logFirebaseEvent(
+                                                            'HOME_VERSION4_Container_m6eyi5c2_ON_TAP');
+                                                        logFirebaseEvent(
+                                                            'Container_navigate_to');
+                                                        if (Navigator.of(
+                                                                context)
+                                                            .canPop()) {
+                                                          context.pop();
+                                                        }
+                                                        context.pushNamed(
+                                                          VideoPlayerDepressionWidget
+                                                              .routeName,
+                                                          extra: <String,
+                                                              dynamic>{
+                                                            kTransitionInfoKey:
+                                                                TransitionInfo(
+                                                              hasTransition:
+                                                                  true,
+                                                              transitionType:
+                                                                  PageTransitionType
+                                                                      .rightToLeft,
+                                                              duration: Duration(
+                                                                  milliseconds:
+                                                                      2),
+                                                            ),
+                                                          },
+                                                        );
+                                                      },
+                                                      child: Container(
+                                                        width: 63.0,
+                                                        height: 64.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondary,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      50.0),
+                                                        ),
+                                                      ),
+                                                    ).animateOnPageLoad(
+                                                        animationsMap[
+                                                            'containerOnPageLoadAnimation3']!),
+                                                  ),
+                                                ),
+                                                Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          0.0, 0.0),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(18.0, 8.0,
+                                                                0.0, 0.0),
+                                                    child: Text(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'hn6k5q1i' /* Depression */,
+                                                      ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'WorkSans',
+                                                            letterSpacing: 0.0,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                            Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Flexible(
+                                                  flex: 1,
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(15.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        logFirebaseEvent(
+                                                            'HOME_VERSION4_Container_tfa7w5ed_ON_TAP');
+                                                        logFirebaseEvent(
+                                                            'Container_navigate_to');
+                                                        if (Navigator.of(
+                                                                context)
+                                                            .canPop()) {
+                                                          context.pop();
+                                                        }
+                                                        context.pushNamed(
+                                                          VideoPlayerSleepPageWidget
+                                                              .routeName,
+                                                          extra: <String,
+                                                              dynamic>{
+                                                            kTransitionInfoKey:
+                                                                TransitionInfo(
+                                                              hasTransition:
+                                                                  true,
+                                                              transitionType:
+                                                                  PageTransitionType
+                                                                      .fade,
+                                                              duration: Duration(
+                                                                  milliseconds:
+                                                                      2),
+                                                            ),
+                                                          },
+                                                        );
+                                                      },
+                                                      child: Container(
+                                                        width: 63.0,
+                                                        height: 64.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryBackground,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      50.0),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          0.0, 0.0),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(15.0, 8.0,
+                                                                0.0, 0.0),
+                                                    child: Text(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'xbed4lpz' /* Sleep */,
+                                                      ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'WorkSans',
+                                                            letterSpacing: 0.0,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                            Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Flexible(
+                                                  flex: 1,
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(15.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        logFirebaseEvent(
+                                                            'HOME_VERSION4_Container_mx94mtyx_ON_TAP');
+                                                        logFirebaseEvent(
+                                                            'Container_navigate_to');
+                                                        if (Navigator.of(
+                                                                context)
+                                                            .canPop()) {
+                                                          context.pop();
+                                                        }
+                                                        context.pushNamed(
+                                                          VideoPlayerBodyWidget
+                                                              .routeName,
+                                                          extra: <String,
+                                                              dynamic>{
+                                                            kTransitionInfoKey:
+                                                                TransitionInfo(
+                                                              hasTransition:
+                                                                  true,
+                                                              transitionType:
+                                                                  PageTransitionType
+                                                                      .fade,
+                                                              duration: Duration(
+                                                                  milliseconds:
+                                                                      2),
+                                                            ),
+                                                          },
+                                                        );
+                                                      },
+                                                      child: Container(
+                                                        width: 63.0,
+                                                        height: 64.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          gradient:
+                                                              LinearGradient(
+                                                            colors: [
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .primary,
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .accent1,
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .tertiary
+                                                            ],
+                                                            stops: [
+                                                              0.0,
+                                                              0.5,
+                                                              1.0
+                                                            ],
+                                                            begin:
+                                                                AlignmentDirectional(
+                                                                    0.87, -1.0),
+                                                            end:
+                                                                AlignmentDirectional(
+                                                                    -0.87, 1.0),
+                                                          ),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      50.0),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          0.0, 0.0),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(15.0, 8.0,
+                                                                0.0, 0.0),
+                                                    child: Text(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'l7ajvafk' /* Body */,
+                                                      ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'WorkSans',
+                                                            letterSpacing: 0.0,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ].divide(SizedBox(width: 5.0)),
+                                        ),
                                       ),
                                     ),
                                   ],
@@ -928,12 +1007,125 @@ class _HomeVersion4WidgetState extends State<HomeVersion4Widget> {
                             ),
                             Flexible(
                               flex: 1,
+                              child: Align(
+                                alignment: AlignmentDirectional(-1.0, 0.0),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      25.0, 50.0, 0.0, 0.0),
+                                  child: Text(
+                                    FFLocalizations.of(context).getText(
+                                      '1wkkv8k9' /* Quote of the Day */,
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'The Seasons',
+                                          fontSize: 28.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                  ).animateOnPageLoad(animationsMap[
+                                      'textOnPageLoadAnimation1']!),
+                                ),
+                              ),
+                            ),
+                            Expanded(
+                              flex: 1,
+                              child: Padding(
+                                padding: EdgeInsets.all(8.0),
+                                child: Container(
+                                  width: 338.0,
+                                  height: 221.99,
+                                  decoration: BoxDecoration(
+                                    color:
+                                        FlutterFlowTheme.of(context).alternate,
+                                    borderRadius: BorderRadius.circular(10.0),
+                                  ),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(-1.0, -1.0),
+                                        child: Padding(
+                                          padding: EdgeInsets.all(20.0),
+                                          child: Text(
+                                            FFLocalizations.of(context).getText(
+                                              'q8yuxtty' /* "Our Deepest fear is not that ... */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'WorkSans',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primary,
+                                                  fontSize: 22.0,
+                                                  letterSpacing: 0.0,
+                                                ),
+                                          ).animateOnPageLoad(animationsMap[
+                                              'textOnPageLoadAnimation2']!),
+                                        ),
+                                      ),
+                                      Flexible(
+                                        flex: 1,
+                                        child: Align(
+                                          alignment:
+                                              AlignmentDirectional(0.0, 1.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.end,
+                                            children: [
+                                              Flexible(
+                                                flex: 1,
+                                                child: Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          1.0, -1.0),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsets.all(15.0),
+                                                    child: Text(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        '46vogh7w' /* -Marianne Williamson */,
+                                                      ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'WorkSans',
+                                                            color: Color(
+                                                                0xA9D0E3F7),
+                                                            fontSize: 16.0,
+                                                            letterSpacing: 0.0,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Flexible(
+                              flex: 1,
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 15.0, 0.0, 8.0),
+                                    0.0, 8.0, 0.0, 8.0),
                                 child: Container(
                                   width: double.infinity,
-                                  height: 120.0,
+                                  height: 150.0,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context).info,
                                   ),
@@ -963,7 +1155,8 @@ class _HomeVersion4WidgetState extends State<HomeVersion4Widget> {
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.bold,
                                                   ),
-                                            ),
+                                            ).animateOnPageLoad(animationsMap[
+                                                'textOnPageLoadAnimation3']!),
                                           ),
                                         ),
                                         Padding(
@@ -1020,7 +1213,8 @@ class _HomeVersion4WidgetState extends State<HomeVersion4Widget> {
                                               borderRadius:
                                                   BorderRadius.circular(15.0),
                                             ),
-                                          ),
+                                          ).animateOnPageLoad(animationsMap[
+                                              'buttonOnPageLoadAnimation']!),
                                         ),
                                       ],
                                     ),

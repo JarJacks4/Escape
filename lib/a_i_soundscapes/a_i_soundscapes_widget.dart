@@ -14,6 +14,7 @@ import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -52,6 +53,18 @@ class _AISoundscapesWidgetState extends State<AISoundscapesWidget>
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'AISoundscapes'});
     animationsMap.addAll({
+      'columnOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
       'containerOnPageLoadAnimation': AnimationInfo(
         loop: true,
         trigger: AnimationTrigger.onPageLoad,
@@ -59,9 +72,16 @@ class _AISoundscapesWidgetState extends State<AISoundscapesWidget>
           SaturateEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
-            duration: 600.0.ms,
+            duration: 3600.0.ms,
             begin: 0.0,
             end: 1.0,
+          ),
+          ShimmerEffect(
+            curve: Curves.easeInOut,
+            delay: 3600.0.ms,
+            duration: 600.0.ms,
+            color: Color(0x80FFFFFF),
+            angle: 0.524,
           ),
         ],
       ),
@@ -1781,7 +1801,8 @@ Soundscapes */
                                       ),
                                     ),
                                   ],
-                                ),
+                                ).animateOnPageLoad(animationsMap[
+                                    'columnOnPageLoadAnimation']!),
                               ),
                             ),
                           ),

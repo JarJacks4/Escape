@@ -2,13 +2,20 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/components/earn_points_with_avatar_card_widget.dart';
 import '/components/progress_bar_final_widget.dart';
 import '/components/todays_self_care_activities_comp_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
 import 'dart:ui';
 import '/index.dart';
+import 'package:tiktokfeed_wz8en7/app_state.dart'
+    as tiktokfeed_wz8en7_app_state;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -25,10 +32,13 @@ class SelfCarePlanPageWidget extends StatefulWidget {
   State<SelfCarePlanPageWidget> createState() => _SelfCarePlanPageWidgetState();
 }
 
-class _SelfCarePlanPageWidgetState extends State<SelfCarePlanPageWidget> {
+class _SelfCarePlanPageWidgetState extends State<SelfCarePlanPageWidget>
+    with TickerProviderStateMixin {
   late SelfCarePlanPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -37,6 +47,146 @@ class _SelfCarePlanPageWidgetState extends State<SelfCarePlanPageWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'SelfCarePlanPage'});
+    animationsMap.addAll({
+      'stackOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 2400.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          ShimmerEffect(
+            curve: Curves.easeInOut,
+            delay: 2400.0.ms,
+            duration: 600.0.ms,
+            color: Color(0x80FFFFFF),
+            angle: 0.524,
+          ),
+        ],
+      ),
+      'rowOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          ShimmerEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            color: Color(0x80FFFFFF),
+            angle: 0.524,
+          ),
+        ],
+      ),
+      'imageOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 3600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          ShimmerEffect(
+            curve: Curves.easeInOut,
+            delay: 3600.0.ms,
+            duration: 600.0.ms,
+            color: Color(0x80FFFFFF),
+            angle: 0.524,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          ShimmerEffect(
+            curve: Curves.easeInOut,
+            delay: 600.0.ms,
+            duration: 600.0.ms,
+            color: Color(0x80FFFFFF),
+            angle: 0.524,
+          ),
+        ],
+      ),
+      'earnPointsWithAvatarCardOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 2400.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          ScaleEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: Offset(5.0, 5.0),
+            end: Offset(1.0, 1.0),
+          ),
+          ShimmerEffect(
+            curve: Curves.easeInOut,
+            delay: 3000.0.ms,
+            duration: 600.0.ms,
+            color: Color(0x80FFFFFF),
+            angle: 0.524,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'imageOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 3600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          ShimmerEffect(
+            curve: Curves.easeInOut,
+            delay: 3600.0.ms,
+            duration: 600.0.ms,
+            color: Color(0x80FFFFFF),
+            angle: 0.524,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -79,7 +229,7 @@ class _SelfCarePlanPageWidgetState extends State<SelfCarePlanPageWidget> {
                             alignment: AlignmentDirectional(0.0, 0.0),
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  8.0, 35.0, 8.0, 0.0),
+                                  0.0, 40.0, 0.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment:
@@ -101,7 +251,8 @@ class _SelfCarePlanPageWidgetState extends State<SelfCarePlanPageWidget> {
                                               fontSize: 28.0,
                                               letterSpacing: 0.0,
                                             ),
-                                      ),
+                                      ).animateOnPageLoad(animationsMap[
+                                          'textOnPageLoadAnimation3']!),
                                     ),
                                   ),
                                   Flexible(
@@ -136,7 +287,8 @@ class _SelfCarePlanPageWidgetState extends State<SelfCarePlanPageWidget> {
                                               fit: BoxFit.contain,
                                             ),
                                           ),
-                                        ),
+                                        ).animateOnPageLoad(animationsMap[
+                                            'imageOnPageLoadAnimation2']!),
                                       ),
                                     ),
                                   ),
@@ -183,7 +335,7 @@ class _SelfCarePlanPageWidgetState extends State<SelfCarePlanPageWidget> {
           child: Stack(
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                padding: EdgeInsetsDirectional.fromSTEB(8.0, 10.0, 8.0, 10.0),
                 child: SingleChildScrollView(
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
@@ -323,20 +475,40 @@ class _SelfCarePlanPageWidgetState extends State<SelfCarePlanPageWidget> {
                                               child: Padding(
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
-                                                        0.0, 80.0, 0.0, 0.0),
+                                                        0.0, 120.0, 8.0, 0.0),
                                                 child: AuthUserStreamWidget(
-                                                  builder: (context) =>
-                                                      Container(
-                                                    width: 70.0,
-                                                    height: 70.0,
-                                                    clipBehavior:
-                                                        Clip.antiAlias,
-                                                    decoration: BoxDecoration(
-                                                      shape: BoxShape.circle,
-                                                    ),
-                                                    child: Image.network(
-                                                      currentUserPhoto,
-                                                      fit: BoxFit.cover,
+                                                  builder: (context) => InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      logFirebaseEvent(
+                                                          'SELF_CARE_PLAN_CircleImage_y8x2or7f_ON_T');
+                                                      logFirebaseEvent(
+                                                          'CircleImage_update_app_state');
+                                                      FFAppState()
+                                                              .ProfilePicture =
+                                                          currentUserPhoto;
+                                                      FFAppState()
+                                                          .update(() {});
+                                                    },
+                                                    child: Container(
+                                                      width: 70.0,
+                                                      height: 70.0,
+                                                      clipBehavior:
+                                                          Clip.antiAlias,
+                                                      decoration: BoxDecoration(
+                                                        shape: BoxShape.circle,
+                                                      ),
+                                                      child: Image.network(
+                                                        currentUserPhoto,
+                                                        fit: BoxFit.cover,
+                                                      ),
                                                     ),
                                                   ),
                                                 ),
@@ -344,7 +516,8 @@ class _SelfCarePlanPageWidgetState extends State<SelfCarePlanPageWidget> {
                                             ),
                                           ),
                                         ],
-                                      ),
+                                      ).animateOnPageLoad(animationsMap[
+                                          'rowOnPageLoadAnimation']!),
                                     ].divide(SizedBox(height: 15.0)),
                                   ),
                                 ),
@@ -362,10 +535,12 @@ class _SelfCarePlanPageWidgetState extends State<SelfCarePlanPageWidget> {
                                         fit: BoxFit.cover,
                                       ),
                                     ),
-                                  ),
+                                  ).animateOnPageLoad(animationsMap[
+                                      'imageOnPageLoadAnimation1']!),
                                 ),
                               ],
-                            ),
+                            ).animateOnPageLoad(
+                                animationsMap['stackOnPageLoadAnimation']!),
                           ),
                         ),
                       ),
@@ -384,7 +559,8 @@ class _SelfCarePlanPageWidgetState extends State<SelfCarePlanPageWidget> {
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
                                   ),
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['textOnPageLoadAnimation1']!),
                       ),
                       Padding(
                         padding:
@@ -399,7 +575,8 @@ class _SelfCarePlanPageWidgetState extends State<SelfCarePlanPageWidget> {
                             model: _model.earnPointsWithAvatarCardModel,
                             updateCallback: () => safeSetState(() {}),
                             child: EarnPointsWithAvatarCardWidget(),
-                          ),
+                          ).animateOnPageLoad(animationsMap[
+                              'earnPointsWithAvatarCardOnPageLoadAnimation']!),
                         ),
                       ),
                       Padding(
@@ -417,7 +594,8 @@ class _SelfCarePlanPageWidgetState extends State<SelfCarePlanPageWidget> {
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
                                   ),
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['textOnPageLoadAnimation2']!),
                       ),
                       Padding(
                         padding:
@@ -483,120 +661,201 @@ class _SelfCarePlanPageWidgetState extends State<SelfCarePlanPageWidget> {
                                               ),
                                             ],
                                           ),
-                                          Text(
-                                            FFLocalizations.of(context).getText(
-                                              'uwi7xjwm' /* Meditation */,
+                                          Flexible(
+                                            flex: 1,
+                                            child: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'uwi7xjwm' /* Meditation */,
+                                              ),
+                                              textAlign: TextAlign.start,
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'The Seasons',
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .info,
+                                                    fontSize: 20.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
                                             ),
-                                            textAlign: TextAlign.start,
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'The Seasons',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .info,
-                                                  fontSize: 20.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
                                           ),
                                         ].divide(SizedBox(height: 5.0)),
                                       ),
                                     ),
                                   ),
-                              () => Container(
-                                    height: 178.53,
-                                    decoration: BoxDecoration(
-                                      color: Color(0xFFD0E3F7),
-                                      borderRadius: BorderRadius.circular(15.0),
-                                    ),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 0.0, 10.0, 0.0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Expanded(
-                                            flex: 2,
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                AutoSizeText(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'ocz0wsml' /* Body */,
-                                                  ),
-                                                  textAlign: TextAlign.start,
-                                                  maxLines: 1,
-                                                  minFontSize: 14.0,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'The Seasons',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .black,
-                                                        fontSize: 22.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.bold,
+                              () => InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      logFirebaseEvent(
+                                          'SELF_CARE_PLAN_Container_qmxcxfhi_ON_TAP');
+                                      logFirebaseEvent('Container_navigate_to');
+
+                                      context.pushNamed(
+                                          VideoPlayerBodyWidget.routeName);
+                                    },
+                                    child: Container(
+                                      height: 178.5,
+                                      decoration: BoxDecoration(
+                                        color: Color(0xC3F0831A),
+                                        borderRadius:
+                                            BorderRadius.circular(15.0),
+                                      ),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            10.0, 0.0, 10.0, 0.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Expanded(
+                                              flex: 2,
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Flexible(
+                                                    flex: 1,
+                                                    child: AutoSizeText(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'ocz0wsml' /* Body */,
                                                       ),
-                                                ),
-                                                AutoSizeText(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'woec7ek6' /* Stretching
-Yoga
-Pilates
-Tai Ch... */
-                                                    ,
+                                                      textAlign:
+                                                          TextAlign.start,
+                                                      maxLines: 1,
+                                                      minFontSize: 14.0,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'The Seasons',
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primary,
+                                                            fontSize: 22.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                          ),
+                                                    ),
                                                   ),
-                                                  textAlign: TextAlign.start,
-                                                  maxLines: 1,
-                                                  minFontSize: 10.0,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'The Seasons',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .black,
-                                                        fontSize: 18.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w300,
+                                                  Flexible(
+                                                    flex: 1,
+                                                    child: AutoSizeText(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'woec7ek6' /* Pilates */,
                                                       ),
+                                                      textAlign:
+                                                          TextAlign.start,
+                                                      maxLines: 1,
+                                                      minFontSize: 10.0,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'WorkSans',
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .alternate,
+                                                            fontSize: 18.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w300,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                  Flexible(
+                                                    flex: 1,
+                                                    child: AutoSizeText(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'xdatlwfc' /* Tai Chi */,
+                                                      ),
+                                                      textAlign:
+                                                          TextAlign.start,
+                                                      maxLines: 1,
+                                                      minFontSize: 10.0,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'WorkSans',
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .alternate,
+                                                            fontSize: 18.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w300,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                  Flexible(
+                                                    flex: 1,
+                                                    child: AutoSizeText(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'batcuo8o' /* Yoga */,
+                                                      ),
+                                                      textAlign:
+                                                          TextAlign.start,
+                                                      maxLines: 1,
+                                                      minFontSize: 10.0,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'WorkSans',
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .alternate,
+                                                            fontSize: 18.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.w300,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                ].divide(
+                                                    SizedBox(height: 15.0)),
+                                              ),
+                                            ),
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  0.0, 0.0),
+                                              child: Container(
+                                                width: 80.0,
+                                                height: 80.0,
+                                                clipBehavior: Clip.antiAlias,
+                                                decoration: BoxDecoration(
+                                                  shape: BoxShape.circle,
                                                 ),
-                                              ].divide(SizedBox(height: 15.0)),
-                                            ),
-                                          ),
-                                          Align(
-                                            alignment:
-                                                AlignmentDirectional(0.0, 0.0),
-                                            child: Container(
-                                              width: 80.0,
-                                              height: 80.0,
-                                              clipBehavior: Clip.antiAlias,
-                                              decoration: BoxDecoration(
-                                                shape: BoxShape.circle,
-                                              ),
-                                              child: Image.asset(
-                                                'assets/images/Ellipse_2.png',
-                                                fit: BoxFit.cover,
+                                                child: Image.asset(
+                                                  'assets/images/Ellipse_2.png',
+                                                  fit: BoxFit.cover,
+                                                ),
                                               ),
                                             ),
-                                          ),
-                                        ],
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -694,30 +953,44 @@ Tai Ch... */
                                                         ),
                                                       ),
                                                     ),
-                                                    AutoSizeText(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        'yqvofdtb' /* Journaling */,
-                                                      ),
-                                                      textAlign:
-                                                          TextAlign.start,
-                                                      maxLines: 1,
-                                                      minFontSize: 12.0,
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'The Seasons',
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .black,
-                                                            fontSize: 22.0,
-                                                            letterSpacing: 0.0,
-                                                            fontWeight:
-                                                                FontWeight.bold,
+                                                    Flexible(
+                                                      flex: 1,
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    8.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        child: AutoSizeText(
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            'yqvofdtb' /* Journaling */,
                                                           ),
+                                                          textAlign:
+                                                              TextAlign.start,
+                                                          maxLines: 1,
+                                                          minFontSize: 12.0,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'The Seasons',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .black,
+                                                                fontSize: 22.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                              ),
+                                                        ),
+                                                      ),
                                                     ),
                                                     Padding(
                                                       padding:
@@ -741,7 +1014,7 @@ Improvement */
                                                                 .bodyMedium
                                                                 .override(
                                                                   fontFamily:
-                                                                      'The Seasons',
+                                                                      'WorkSans',
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .black,
@@ -864,7 +1137,7 @@ Improvement */
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0.0,
+                                                                  8.0,
                                                                   8.0,
                                                                   0.0,
                                                                   0.0),
@@ -917,7 +1190,7 @@ Improvement */
                                                                 .bodyMedium
                                                                 .override(
                                                                   fontFamily:
-                                                                      'The Seasons',
+                                                                      'WorkSans',
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .info,

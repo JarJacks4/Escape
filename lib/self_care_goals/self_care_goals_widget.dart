@@ -1,13 +1,18 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_checkbox_group.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'dart:async';
+import 'dart:math';
 import 'dart:ui';
 import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'self_care_goals_model.dart';
@@ -23,12 +28,15 @@ class SelfCareGoalsWidget extends StatefulWidget {
   State<SelfCareGoalsWidget> createState() => _SelfCareGoalsWidgetState();
 }
 
-class _SelfCareGoalsWidgetState extends State<SelfCareGoalsWidget> {
+class _SelfCareGoalsWidgetState extends State<SelfCareGoalsWidget>
+    with TickerProviderStateMixin {
   late SelfCareGoalsModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
   late StreamSubscription<bool> _keyboardVisibilitySubscription;
   bool _isKeyboardVisible = false;
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -45,6 +53,40 @@ class _SelfCareGoalsWidgetState extends State<SelfCareGoalsWidget> {
         });
       });
     }
+
+    animationsMap.addAll({
+      'textOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'imageOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 3600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          ShimmerEffect(
+            curve: Curves.easeInOut,
+            delay: 3600.0.ms,
+            duration: 600.0.ms,
+            color: Color(0x80FFFFFF),
+            angle: 0.524,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -93,7 +135,7 @@ class _SelfCareGoalsWidgetState extends State<SelfCareGoalsWidget> {
                   alignment: AlignmentDirectional(0.0, -0.98),
                   child: Container(
                     width: double.infinity,
-                    height: 825.1,
+                    height: 938.59,
                     decoration: BoxDecoration(
                       boxShadow: [
                         BoxShadow(
@@ -134,10 +176,11 @@ class _SelfCareGoalsWidgetState extends State<SelfCareGoalsWidget> {
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Expanded(
+                            Flexible(
+                              flex: 1,
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    12.0, 0.0, 12.0, 0.0),
+                                    12.0, 20.0, 12.0, 0.0),
                                 child: SingleChildScrollView(
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
@@ -146,7 +189,7 @@ class _SelfCareGoalsWidgetState extends State<SelfCareGoalsWidget> {
                                     children: [
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            12.0, 32.0, 0.0, 8.0),
+                                            12.0, 50.0, 0.0, 8.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
                                             't3to8iov' /* Pick Your Self Care Goals */,
@@ -162,7 +205,8 @@ class _SelfCareGoalsWidgetState extends State<SelfCareGoalsWidget> {
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.bold,
                                               ),
-                                        ),
+                                        ).animateOnPageLoad(animationsMap[
+                                            'textOnPageLoadAnimation']!),
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
@@ -255,7 +299,9 @@ class _SelfCareGoalsWidgetState extends State<SelfCareGoalsWidget> {
                                         alignment:
                                             AlignmentDirectional(0.0, 1.0),
                                         child: Padding(
-                                          padding: EdgeInsets.all(40.0),
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 230.0, 0.0, 0.0),
                                           child: Hero(
                                             tag: 'onboarding',
                                             transitionOnUserGestures: true,
@@ -265,11 +311,12 @@ class _SelfCareGoalsWidgetState extends State<SelfCareGoalsWidget> {
                                               child: Image.asset(
                                                 'assets/images/Logo_ESCAPE_White.png',
                                                 width: 200.0,
-                                                height: 200.0,
+                                                height: 81.72,
                                                 fit: BoxFit.contain,
                                               ),
                                             ),
-                                          ),
+                                          ).animateOnPageLoad(animationsMap[
+                                              'imageOnPageLoadAnimation']!),
                                         ),
                                       ),
                                     ],

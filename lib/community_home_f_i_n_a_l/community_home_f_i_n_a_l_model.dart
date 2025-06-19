@@ -17,6 +17,7 @@ import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -43,12 +44,6 @@ class CommunityHomeFINALModel
   List<String>? bodyReOrder2;
   // Stores action output result for [Custom Action - reorderItems] action in TabBar widget.
   List<String>? forYouReOrder3;
-  // Stores action output result for [Custom Action - reorderItems] action in ListView widget.
-  List<String>? updateForYou;
-  // Stores action output result for [Custom Action - reorderItems] action in ListView widget.
-  List<String>? updateBreathing;
-  // Stores action output result for [Custom Action - reorderItems] action in ListView widget.
-  List<String>? updateBody;
 
   @override
   void initState(BuildContext context) {}

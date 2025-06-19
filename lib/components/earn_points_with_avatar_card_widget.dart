@@ -1,9 +1,13 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:math';
 import 'dart:ui';
-import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'earn_points_with_avatar_card_model.dart';
@@ -18,8 +22,11 @@ class EarnPointsWithAvatarCardWidget extends StatefulWidget {
 }
 
 class _EarnPointsWithAvatarCardWidgetState
-    extends State<EarnPointsWithAvatarCardWidget> {
+    extends State<EarnPointsWithAvatarCardWidget>
+    with TickerProviderStateMixin {
   late EarnPointsWithAvatarCardModel _model;
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void setState(VoidCallback callback) {
@@ -31,6 +38,28 @@ class _EarnPointsWithAvatarCardWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => EarnPointsWithAvatarCardModel());
+
+    animationsMap.addAll({
+      'columnOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          ShimmerEffect(
+            curve: Curves.easeInOut,
+            delay: 600.0.ms,
+            duration: 600.0.ms,
+            color: Color(0x80FFFFFF),
+            angle: 0.524,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -94,13 +123,8 @@ class _EarnPointsWithAvatarCardWidgetState
                         color: FlutterFlowTheme.of(context).alternate,
                         size: 36.0,
                       ),
-                      onPressed: () async {
-                        logFirebaseEvent(
-                            'EARN_POINTS_WITH_AVATAR_CARD_arrow_outwa');
-                        logFirebaseEvent('IconButton_navigate_to');
-
-                        context.pushNamed(
-                            EscapeMetaverseUnrealEngineWidget.routeName);
+                      onPressed: () {
+                        print('IconButton pressed ...');
                       },
                     ),
                   ],
@@ -150,7 +174,7 @@ class _EarnPointsWithAvatarCardWidgetState
                   ),
                 ),
               ],
-            ),
+            ).animateOnPageLoad(animationsMap['columnOnPageLoadAnimation']!),
           ),
         ),
       ),
