@@ -113,7 +113,7 @@ Future launchMap({
     );
   }
   return MapLauncher.showMarker(
-    mapType: mapType!,
+    mapType: mapType,
     coords: coords,
     title: title,
     extraParams: extraParams,

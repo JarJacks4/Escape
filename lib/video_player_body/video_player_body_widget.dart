@@ -1,10 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
-import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:math';
-import 'dart:ui';
 import "package:tiktokfeed_wz8en7/backend/schema/structs/index.dart"
     as tiktokfeed_wz8en7_data_schema;
 import '/custom_code/actions/index.dart' as actions;
@@ -15,10 +11,7 @@ import 'package:tiktokfeed_wz8en7/custom_code/widgets/index.dart'
     as tiktokfeed_wz8en7_custom_widgets;
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'video_player_body_model.dart';
 export 'video_player_body_model.dart';
@@ -335,10 +328,9 @@ class _VideoPlayerBodyWidgetState extends State<VideoPlayerBodyWidget>
                                             .take(100)
                                             .toList()
                                             .sortedList(
-                                                keyOf: (e) => widget!.urlVideo!,
+                                                keyOf: (e) => widget.urlVideo!,
                                                 desc: false)
                                             .where((e) =>
-                                                FFAppState().moods != null &&
                                                 FFAppState().moods != '')
                                             .toList()
                                             .unique((e) =>

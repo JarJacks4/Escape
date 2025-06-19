@@ -1,14 +1,7 @@
 import 'package:flutter/material.dart';
-import '/backend/backend.dart';
 import "package:tiktokfeed_wz8en7/backend/schema/structs/index.dart"
     as tiktokfeed_wz8en7_data_schema;
-import '/backend/schema/structs/index.dart';
-import "package:tiktokfeed_wz8en7/backend/schema/structs/index.dart"
-    as tiktokfeed_wz8en7_data_schema;
-import 'package:ff_commons/api_requests/api_manager.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'flutter_flow/flutter_flow_util.dart';
-import 'dart:convert';
 
 class FFAppState extends ChangeNotifier {
   static FFAppState _instance = FFAppState._internal();

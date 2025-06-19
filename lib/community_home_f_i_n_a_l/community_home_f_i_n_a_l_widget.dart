@@ -1,11 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:math';
-import 'dart:ui';
-import "package:tiktokfeed_wz8en7/backend/schema/structs/index.dart"
-    as tiktokfeed_wz8en7_data_schema;
 import '/custom_code/actions/index.dart' as actions;
 import '/index.dart';
 import 'package:tiktokfeed_wz8en7/app_state.dart'
@@ -16,8 +11,6 @@ import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'community_home_f_i_n_a_l_model.dart';
 export 'community_home_f_i_n_a_l_model.dart';
@@ -68,8 +61,8 @@ class _CommunityHomeFINALWidgetState extends State<CommunityHomeFINALWidget>
             .map((e) => e.urlvideo)
             .toList()
             .toList(),
-        widget!.forYouIndex!,
-        widget!.breathingIndex!,
+        widget.forYouIndex!,
+        widget.breathingIndex!,
       );
       logFirebaseEvent('CommunityHomeFINAL_custom_action');
       _model.bodyReOrder = await actions.reorderItems(
@@ -78,8 +71,8 @@ class _CommunityHomeFINALWidgetState extends State<CommunityHomeFINALWidget>
             .map((e) => e.urlvideo)
             .toList()
             .toList(),
-        widget!.forYouIndex!,
-        widget!.bodyIndex!,
+        widget.forYouIndex!,
+        widget.bodyIndex!,
       );
       logFirebaseEvent('CommunityHomeFINAL_custom_action');
       _model.forYouReOrder = await actions.reorderItems(
@@ -88,8 +81,8 @@ class _CommunityHomeFINALWidgetState extends State<CommunityHomeFINALWidget>
             .map((e) => e.urlvideo)
             .toList()
             .toList(),
-        widget!.forYouIndex!,
-        widget!.forYouIndex!,
+        widget.forYouIndex!,
+        widget.forYouIndex!,
       );
     });
 
@@ -98,7 +91,7 @@ class _CommunityHomeFINALWidgetState extends State<CommunityHomeFINALWidget>
       length: 3,
       initialIndex: min(
           valueOrDefault<int>(
-            widget!.forYouIndex,
+            widget.forYouIndex,
             0,
           ),
           2),
@@ -117,8 +110,8 @@ class _CommunityHomeFINALWidgetState extends State<CommunityHomeFINALWidget>
               .map((e) => e.urlvideo)
               .toList()
               .toList(),
-          widget!.forYouIndex!,
-          widget!.breathingIndex!,
+          widget.forYouIndex!,
+          widget.breathingIndex!,
         );
         logFirebaseEvent('TabBar_custom_action');
         _model.bodyReOrder2 = await actions.reorderItems(
@@ -127,8 +120,8 @@ class _CommunityHomeFINALWidgetState extends State<CommunityHomeFINALWidget>
               .map((e) => e.urlvideo)
               .toList()
               .toList(),
-          widget!.forYouIndex!,
-          widget!.bodyIndex!,
+          widget.forYouIndex!,
+          widget.bodyIndex!,
         );
         logFirebaseEvent('TabBar_custom_action');
         _model.forYouReOrder3 = await actions.reorderItems(
@@ -137,8 +130,8 @@ class _CommunityHomeFINALWidgetState extends State<CommunityHomeFINALWidget>
               .map((e) => e.urlvideo)
               .toList()
               .toList(),
-          widget!.forYouIndex!,
-          widget!.forYouIndex!,
+          widget.forYouIndex!,
+          widget.forYouIndex!,
         );
 
         safeSetState(() {});
