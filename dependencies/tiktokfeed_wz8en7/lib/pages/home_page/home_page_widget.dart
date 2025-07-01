@@ -14,7 +14,7 @@ class HomePageWidget extends StatefulWidget {
   const HomePageWidget({super.key});
 
   static String routeName = 'HomePage';
-  static String routePath = '/homePage';
+  static String routePath = 'homePage';
   static void maybeSetRouteName(String? updatedRouteName) =>
       routeName = updatedRouteName ?? routeName;
   static void maybeSetRoutePath(String? updatedRoutePath) =>
