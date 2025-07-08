@@ -606,20 +606,9 @@ class _SideNavWidgetState extends State<SideNavWidget>
                                     child: Padding(
                                       padding: EdgeInsets.all(2.0),
                                       child: AuthUserStreamWidget(
-                                        builder: (context) => InkWell(
-                                          splashColor: Colors.transparent,
-                                          focusColor: Colors.transparent,
-                                          hoverColor: Colors.transparent,
-                                          highlightColor: Colors.transparent,
-                                          onTap: () async {
-                                            logFirebaseEvent(
-                                                'SIDE_NAV_COMP_Image_u53ah6id_ON_TAP');
-                                            logFirebaseEvent(
-                                                'Image_update_app_state');
-                                            FFAppState().ProfilePicture =
-                                                currentUserPhoto;
-                                            safeSetState(() {});
-                                          },
+                                        builder: (context) => Hero(
+                                          tag: currentUserPhoto,
+                                          transitionOnUserGestures: true,
                                           child: ClipRRect(
                                             borderRadius:
                                                 BorderRadius.circular(8.0),

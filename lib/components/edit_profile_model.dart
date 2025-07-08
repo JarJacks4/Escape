@@ -1,8 +1,13 @@
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'edit_profile_widget.dart' show EditProfileWidget;
 import 'package:flutter/material.dart';
 
 class EditProfileModel extends FlutterFlowModel<EditProfileWidget> {
+  ///  Local state fields for this component.
+
+  UsersRecord? profilePicture;
+
   ///  State fields for stateful widgets in this component.
 
   bool isDataUploading_uploadDataPch = false;

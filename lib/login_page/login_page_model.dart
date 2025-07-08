@@ -14,8 +14,10 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
       tabBarController != null ? tabBarController!.previousIndex : 0;
 
   // State field(s) for emailAddress widget.
+  final emailAddressKey = GlobalKey();
   FocusNode? emailAddressFocusNode;
   TextEditingController? emailAddressTextController;
+  String? emailAddressSelectedOption;
   String? Function(BuildContext, String?)? emailAddressTextControllerValidator;
   // State field(s) for password widget.
   FocusNode? passwordFocusNode;
@@ -51,7 +53,6 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
   void dispose() {
     tabBarController?.dispose();
     emailAddressFocusNode?.dispose();
-    emailAddressTextController?.dispose();
 
     passwordFocusNode?.dispose();
     passwordTextController?.dispose();

@@ -113,7 +113,7 @@ class _ProgressBarFinalWidgetState extends State<ProgressBarFinalWidget>
                         logFirebaseEvent(
                             'PROGRESS_BAR_FINAL_Image_yzyz94b6_ON_TAP');
                         logFirebaseEvent('Image_update_app_state');
-                        FFAppState().ProfilePicture = currentUserPhoto;
+
                         _model.updatePage(() {});
                       },
                       child: Hero(

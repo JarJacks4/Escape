@@ -1203,7 +1203,21 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // HomeVersion4
   {
-    'y9iy2ett': {
+    'py71tdxs': {
+      'en': 'Home',
+      'ar': 'بيت',
+      'de': 'Heim',
+      'es': 'Hogar',
+      'fr': 'Maison',
+      'it': 'Casa',
+      'ja': '家',
+      'ko': '집',
+      'ru': 'Дом',
+      'uk': 'Дім',
+      'zh_Hans': '家',
+      'zh_Hant': '家',
+    },
+    '3mtk8jiz': {
       'en': 'Lucille',
       'ar': 'لوسيل',
       'de': 'Lucille',
@@ -1217,7 +1231,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '露西尔',
       'zh_Hant': '露西爾',
     },
-    'noxxif5h': {
+    'm5xb660u': {
       'en': 'Meditation',
       'ar': 'تأمل',
       'de': 'Meditation',
@@ -1231,7 +1245,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '冥想',
       'zh_Hant': '冥想',
     },
-    'zwzevfjc': {
+    '7ajs4s8p': {
       'en': 'Focus',
       'ar': 'ركز',
       'de': 'Fokus',
@@ -1245,7 +1259,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '重点',
       'zh_Hant': '重點',
     },
-    'hn6k5q1i': {
+    'dwdbx1r7': {
       'en': 'Depression',
       'ar': 'اكتئاب',
       'de': 'Depression',
@@ -1259,7 +1273,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '沮丧',
       'zh_Hant': '沮喪',
     },
-    'xbed4lpz': {
+    'mhd2dxvs': {
       'en': 'Sleep',
       'ar': 'ينام',
       'de': 'Schlafen',
@@ -1273,7 +1287,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '睡觉',
       'zh_Hant': '睡覺',
     },
-    'l7ajvafk': {
+    'r59ptagb': {
       'en': 'Body',
       'ar': 'جسم',
       'de': 'Körper',
@@ -1287,7 +1301,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '身体',
       'zh_Hant': '身體',
     },
-    '1wkkv8k9': {
+    'ju19530h': {
       'en': 'Quote of the Day',
       'ar': 'اقتباس اليوم',
       'de': 'Zitat des Tages',
@@ -1301,7 +1315,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '每日一句',
       'zh_Hant': '每日一句',
     },
-    'q8yuxtty': {
+    'ul7lcije': {
       'en':
           '\"Our Deepest fear is not that we are inadequate, but that we are powerful beyond measure.\"',
       'ar':
@@ -1323,7 +1337,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '“我们最深的恐惧不是我们的不足，而是我们拥有难以估量的力量。”',
       'zh_Hant': '“我們最深的恐懼不是我們的不足，而是我們擁有難以估量的力量。”',
     },
-    '46vogh7w': {
+    'cv1sokcw': {
       'en': '-Marianne Williamson',
       'ar': '-ماريان ويليامسون',
       'de': '-Marianne Williamson',
@@ -1337,7 +1351,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '-玛丽安·威廉森',
       'zh_Hant': '-瑪麗安威廉森',
     },
-    'uqvs76mr': {
+    'o6ac7yl6': {
       'en': 'What are you grateful for today?',
       'ar': 'ما الذي أنت ممتن له اليوم؟',
       'de': 'Wofür sind Sie heute dankbar?',
@@ -1351,7 +1365,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '今天你感恩什么？',
       'zh_Hant': '今天你感恩什麼？',
     },
-    'nc5z7bt4': {
+    'qxzso9uh': {
       'en': 'Let\'s Journal!',
       'ar': 'دعونا نكتب يومياتنا!',
       'de': 'Lass uns Tagebuch führen!',
@@ -1365,7 +1379,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '让我们写日记吧！',
       'zh_Hant': '讓我們寫日記吧！',
     },
-    'wdjg0d1d': {
+    'ach3t01b': {
       'en': 'My Self Care Packs',
       'ar': 'مجموعات العناية الذاتية',
       'de': 'Meine Selbstpflegepakete',
@@ -1379,7 +1393,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '我的自我护理包',
       'zh_Hant': '我的自我照顧包',
     },
-    'obfzkbck': {
+    '15l40gts': {
       'en': 'My Progress',
       'ar': 'تقدمي',
       'de': 'Mein Fortschritt',
@@ -1393,7 +1407,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '我的进度',
       'zh_Hant': '我的進度',
     },
-    'nllj5sgv': {
+    'vti1o3u0': {
       'en': 'Your Self Care Progress:',
       'ar': 'تقدمك في العناية الذاتية:',
       'de': 'Ihr Fortschritt bei der Selbstpflege:',
@@ -1407,7 +1421,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '您的自我护理进展：',
       'zh_Hant': '您的自我照護進展：',
     },
-    'apct0ugi': {
+    'prgnekiu': {
       'en': 'of',
       'ar': 'ل',
       'de': 'von',
@@ -1421,7 +1435,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '的',
       'zh_Hant': '的',
     },
-    '5a1ej6s2': {
+    '0tcz3pdf': {
       'en': '10',
       'ar': '10',
       'de': '10',
@@ -1435,52 +1449,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '10',
       'zh_Hant': '10',
     },
-    'py71tdxs': {
-      'en': 'Home',
-      'ar': 'بيت',
-      'de': 'Heim',
-      'es': 'Hogar',
-      'fr': 'Maison',
-      'it': 'Casa',
-      'ja': '家',
-      'ko': '집',
-      'ru': 'Дом',
-      'uk': 'Дім',
-      'zh_Hans': '家',
-      'zh_Hant': '家',
-    },
     '1fs38btr': {
-      'en': 'Home',
-      'ar': 'بيت',
-      'de': 'Heim',
-      'es': 'Hogar',
-      'fr': 'Maison',
-      'it': 'Casa',
-      'ja': '家',
-      'ko': '집',
-      'ru': 'Дом',
-      'uk': 'Дім',
-      'zh_Hans': '家',
-      'zh_Hant': '家',
-    },
-  },
-  // splashScreen
-  {
-    'kb6n1o7w': {
-      'en': 'Tap the Portal Above to Proceed.',
-      'ar': 'اضغط على البوابة أعلاه للمتابعة.',
-      'de': 'Tippen Sie auf das Portal oben, um fortzufahren.',
-      'es': 'Toque el portal de arriba para continuar.',
-      'fr': 'Appuyez sur le portail ci-dessus pour continuer.',
-      'it': 'Tocca il portale qui sopra per procedere.',
-      'ja': '続行するには、上のポータルをタップしてください。',
-      'ko': '계속하려면 위의 포털을 탭하세요.',
-      'ru': 'Нажмите на портал выше, чтобы продолжить.',
-      'uk': 'Натисніть на портал вище, щоб продовжити.',
-      'zh_Hans': '点击上面的门户继续。',
-      'zh_Hant': '點擊上面的門戶繼續。',
-    },
-    '6usod8dj': {
       'en': 'Home',
       'ar': 'بيت',
       'de': 'Heim',
@@ -2429,7 +2398,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '您想要個人化通知嗎？',
     },
     '70btugcu': {
-      'en': 'Create Avatar',
+      'en': 'Complete Tutorial',
       'ar': 'إنشاء الصورة الرمزية',
       'de': 'Avatar erstellen',
       'es': 'Crear avatar',
@@ -2875,7 +2844,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '歡迎回來，',
     },
     'yws4gl3j': {
-      'en': 'Enter the Metaverse',
+      'en': 'Enter the Innerverse',
       'ar': 'ادخل إلى Metaverse',
       'de': 'Betreten Sie das Metaversum',
       'es': 'Entra al Metaverso',
@@ -4776,7 +4745,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '集中註意力',
     },
     'y261kaek': {
-      'en': 'Self Care AI',
+      'en': 'Lucille, Self Care AI',
       'ar': 'الرعاية الذاتية الذكاء الاصطناعي',
       'de': 'Selbstpflege-KI',
       'es': 'IA de autocuidado',
@@ -5757,37 +5726,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'uk': 'Дім',
       'zh_Hans': '家',
       'zh_Hant': '家',
-    },
-  },
-  // VideoPlayerMeditationPage
-  {
-    'tnls7cww': {
-      'en': 'Meditation',
-      'ar': 'اكتئاب',
-      'de': 'Depression',
-      'es': 'Depresión',
-      'fr': 'Dépression',
-      'it': 'Depressione',
-      'ja': 'うつ',
-      'ko': '우울증',
-      'ru': 'депрессия',
-      'uk': 'Депресія',
-      'zh_Hans': '沮丧',
-      'zh_Hant': '沮喪',
-    },
-    '6e9fkhdn': {
-      'en': 'Providers',
-      'ar': 'مقدمي الخدمات',
-      'de': 'Anbieter',
-      'es': 'Proveedores',
-      'fr': 'Fournisseurs',
-      'it': 'Fornitori',
-      'ja': 'プロバイダー',
-      'ko': '제공자',
-      'ru': 'Поставщики',
-      'uk': 'Постачальники',
-      'zh_Hans': '提供商',
-      'zh_Hant': '提供者',
     },
   },
   // BoxBreathingGoalPage
@@ -6864,20 +6802,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // FacialMoodAnalyzerPage
   {
-    'zdktvncl': {
-      'en': 'Mood Result Here',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
     'vwdywqtl': {
       'en':
           'Once your mood is generated above, tap Save Mood below to save your mood for the day!\n\nTap Retry if you feel that there is an error and would like to re-scan.',
@@ -6908,7 +6832,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'd2tlln3o': {
-      'en': 'Save Mood',
+      'en': 'Scan Mood',
       'ar': '',
       'de': '',
       'es': '',
@@ -6953,10 +6877,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
   },
-  // VideoPlayerSleepPage
+  // blankSample
   {
-    'rnvrpt5r': {
-      'en': 'Sleep',
+    'el97pq70': {
+      'en': 'Home Page Sample',
       'ar': '',
       'de': '',
       'es': '',
@@ -6969,25 +6893,25 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '5x2pero0': {
-      'en': 'Providers',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
+    'mqt2x8w2': {
+      'en': 'Home',
+      'ar': 'بيت',
+      'de': 'Heim',
+      'es': 'Hogar',
+      'fr': 'Maison',
+      'it': 'Casa',
+      'ja': '家',
+      'ko': '집',
+      'ru': 'Дом',
+      'uk': 'Дім',
+      'zh_Hans': '家',
+      'zh_Hant': '家',
     },
   },
-  // VideoPlayerIncreaseFocus
+  // reels
   {
-    's0fplsdw': {
-      'en': 'Increase Focus',
+    'd63pbol2': {
+      'en': 'Back',
       'ar': '',
       'de': '',
       'es': '',
@@ -7000,56 +6924,70 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '0kadvtv6': {
-      'en': 'Providers',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
+    'q1hgmmtz': {
+      'en': 'Home',
+      'ar': 'بيت',
+      'de': 'Heim',
+      'es': 'Hogar',
+      'fr': 'Maison',
+      'it': 'Casa',
+      'ja': '家',
+      'ko': '집',
+      'ru': 'Дом',
+      'uk': 'Дім',
+      'zh_Hans': '家',
+      'zh_Hant': '家',
     },
   },
-  // VideoPlayerBody
+  // ChatWithLucille
   {
-    'wi75wk0m': {
-      'en': 'Body',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
+    'd53pwu3l': {
+      'en': 'Chat With \nLucille',
+      'ar': 'بيت',
+      'de': 'Heim',
+      'es': 'Hogar',
+      'fr': 'Maison',
+      'it': 'Casa',
+      'ja': '家',
+      'ko': '집',
+      'ru': 'Дом',
+      'uk': 'Дім',
+      'zh_Hans': '家',
+      'zh_Hant': '家',
     },
-    'mxci0c9q': {
-      'en': 'Providers',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
+    '04umfzwe': {
+      'en': 'Home',
+      'ar': 'بيت',
+      'de': 'Heim',
+      'es': 'Hogar',
+      'fr': 'Maison',
+      'it': 'Casa',
+      'ja': '家',
+      'ko': '집',
+      'ru': 'Дом',
+      'uk': 'Дім',
+      'zh_Hans': '家',
+      'zh_Hant': '家',
     },
   },
-  // VideoPlayerDepression
+  // ChatWithLucilleCopy
   {
-    '0bhxax83': {
-      'en': 'Depression',
+    'rldq9i7n': {
+      'en': 'Chat With \nLucille',
+      'ar': 'بيت',
+      'de': 'Heim',
+      'es': 'Hogar',
+      'fr': 'Maison',
+      'it': 'Casa',
+      'ja': '家',
+      'ko': '집',
+      'ru': 'Дом',
+      'uk': 'Дім',
+      'zh_Hans': '家',
+      'zh_Hant': '家',
+    },
+    'q670qxqm': {
+      'en': 'Home',
       'ar': '',
       'de': '',
       'es': '',
@@ -7062,8 +7000,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'mrhusbi7': {
-      'en': 'Providers',
+    '7iwjknk4': {
+      'en': 'Plan',
       'ar': '',
       'de': '',
       'es': '',
@@ -7075,6 +7013,48 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'uk': '',
       'zh_Hans': '',
       'zh_Hant': '',
+    },
+    '4n8lh47u': {
+      'en': 'Creators',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+    'pu2f9y21': {
+      'en': 'Profile',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+    'kyf0msmf': {
+      'en': 'Home',
+      'ar': 'بيت',
+      'de': 'Heim',
+      'es': 'Hogar',
+      'fr': 'Maison',
+      'it': 'Casa',
+      'ja': '家',
+      'ko': '집',
+      'ru': 'Дом',
+      'uk': 'Дім',
+      'zh_Hans': '家',
+      'zh_Hant': '家',
     },
   },
   // TopNav1
@@ -11625,7 +11605,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // GenerateSoundscapesCard
   {
     'nppdaile': {
-      'en': 'Edit Your \nSelf-Care AI',
+      'en': 'AI Soundscapes',
       'ar': 'عدّل ذكاءك الاصطناعي للعناية الذاتية',
       'de': 'Bearbeiten Sie Ihre\nSelbstpflege-KI',
       'es': 'Edita tu IA de autocuidado',
@@ -11642,7 +11622,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // EarnPointsWithAvatarCard
   {
     'tsjs6ccc': {
-      'en': 'Escape Metaverse',
+      'en': 'Escape Innerverse',
       'ar': 'الهروب من ميتافيرس',
       'de': 'Entkomme dem Metaversum',
       'es': 'Escape del metaverso',

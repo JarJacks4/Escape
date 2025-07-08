@@ -294,7 +294,7 @@ class _TodaysSelfCareActivitiesCompWidgetState
                     logFirebaseEvent('Container_navigate_to');
 
                     context.pushNamed(
-                      VideoPlayerBodyWidget.routeName,
+                      CommunityHomeFINALWidget.routeName,
                       extra: <String, dynamic>{
                         kTransitionInfoKey: TransitionInfo(
                           hasTransition: true,

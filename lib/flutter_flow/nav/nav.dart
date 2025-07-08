@@ -7,6 +7,8 @@ import '/backend/schema/structs/index.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
+import '/backend/push_notifications/push_notifications_handler.dart'
+    show PushNotificationsHandler;
 import '/main.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -77,7 +79,9 @@ class AppStateNotifier extends ChangeNotifier {
 GoRouter createRouter(AppStateNotifier appStateNotifier) {
   $tiktokfeed_wz8en7.initializeRoutes(
     homePageWidgetName: 'tiktokfeed_wz8en7.HomePage',
+    homePageWidgetPath: 'homePage',
     page2WidgetName: 'tiktokfeed_wz8en7.page2',
+    page2WidgetPath: 'page2',
   );
 
   return GoRouter(
@@ -131,11 +135,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             builder: (context, params) => params.isEmpty
                 ? NavBarPage(initialPage: 'HomeVersion4')
                 : HomeVersion4Widget(),
-          ),
-          FFRoute(
-            name: SplashScreenWidget.routeName,
-            path: SplashScreenWidget.routePath,
-            builder: (context, params) => SplashScreenWidget(),
           ),
           FFRoute(
             name: LoginPageWidget.routeName,
@@ -303,16 +302,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             builder: (context, params) => FocusVideosFINALWidget(),
           ),
           FFRoute(
-            name: VideoPlayerMeditationPageWidget.routeName,
-            path: VideoPlayerMeditationPageWidget.routePath,
-            builder: (context, params) => VideoPlayerMeditationPageWidget(
-              urlVideo: params.getParam(
-                'urlVideo',
-                ParamType.String,
-              ),
-            ),
-          ),
-          FFRoute(
             name: BoxBreathingGoalPageWidget.routeName,
             path: BoxBreathingGoalPageWidget.routePath,
             builder: (context, params) => BoxBreathingGoalPageWidget(),
@@ -411,12 +400,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
           FFRoute(
             name: FacialMoodAnalyzerPageWidget.routeName,
             path: FacialMoodAnalyzerPageWidget.routePath,
-            builder: (context, params) => FacialMoodAnalyzerPageWidget(
-              moodResult: params.getParam(
-                'moodResult',
-                ParamType.String,
-              ),
-            ),
+            builder: (context, params) => FacialMoodAnalyzerPageWidget(),
           ),
           FFRoute(
             name: MoodAnalyzerSuccessWidget.routeName,
@@ -424,44 +408,24 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             builder: (context, params) => MoodAnalyzerSuccessWidget(),
           ),
           FFRoute(
-            name: VideoPlayerSleepPageWidget.routeName,
-            path: VideoPlayerSleepPageWidget.routePath,
-            builder: (context, params) => VideoPlayerSleepPageWidget(
-              urlVideo: params.getParam(
-                'urlVideo',
-                ParamType.String,
-              ),
-            ),
+            name: BlankSampleWidget.routeName,
+            path: BlankSampleWidget.routePath,
+            builder: (context, params) => BlankSampleWidget(),
           ),
           FFRoute(
-            name: VideoPlayerIncreaseFocusWidget.routeName,
-            path: VideoPlayerIncreaseFocusWidget.routePath,
-            builder: (context, params) => VideoPlayerIncreaseFocusWidget(
-              urlVideo: params.getParam(
-                'urlVideo',
-                ParamType.String,
-              ),
-            ),
+            name: ReelsWidget.routeName,
+            path: ReelsWidget.routePath,
+            builder: (context, params) => ReelsWidget(),
           ),
           FFRoute(
-            name: VideoPlayerBodyWidget.routeName,
-            path: VideoPlayerBodyWidget.routePath,
-            builder: (context, params) => VideoPlayerBodyWidget(
-              urlVideo: params.getParam(
-                'urlVideo',
-                ParamType.String,
-              ),
-            ),
+            name: ChatWithLucilleWidget.routeName,
+            path: ChatWithLucilleWidget.routePath,
+            builder: (context, params) => ChatWithLucilleWidget(),
           ),
           FFRoute(
-            name: VideoPlayerDepressionWidget.routeName,
-            path: VideoPlayerDepressionWidget.routePath,
-            builder: (context, params) => VideoPlayerDepressionWidget(
-              urlVideo: params.getParam(
-                'urlVideo',
-                ParamType.String,
-              ),
-            ),
+            name: ChatWithLucilleCopyWidget.routeName,
+            path: ChatWithLucilleCopyWidget.routePath,
+            builder: (context, params) => ChatWithLucilleCopyWidget(),
           ),
           FFRoute(
             name: $tiktokfeed_wz8en7.HomePageWidget.routeName,
@@ -669,7 +633,7 @@ class FFRoute {
                     fit: BoxFit.contain,
                   ),
                 )
-              : page;
+              : PushNotificationsHandler(child: page);
 
           final transitionInfo = state.transitionInfo;
           return transitionInfo.hasTransition

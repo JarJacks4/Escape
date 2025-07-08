@@ -163,47 +163,41 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Container(
-                              width: 100.0,
-                              height: 100.0,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context).accent1,
-                                shape: BoxShape.circle,
-                                border: Border.all(
-                                  color: FlutterFlowTheme.of(context).primary,
-                                  width: 2.0,
+                            Flexible(
+                              flex: 1,
+                              child: Container(
+                                width: 100.0,
+                                height: 100.0,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  border: Border.all(
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    width: 2.0,
+                                  ),
                                 ),
-                              ),
-                              child: Padding(
-                                padding: EdgeInsets.all(2.0),
-                                child: AuthUserStreamWidget(
-                                  builder: (context) => InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      logFirebaseEvent(
-                                          'EDIT_PROFILE_CircleImage_fxugtfo0_ON_TAP');
-                                      logFirebaseEvent(
-                                          'CircleImage_update_app_state');
-                                      FFAppState().ProfilePicture =
-                                          currentUserPhoto;
-                                      FFAppState().update(() {});
-                                    },
-                                    child: Container(
-                                      width: 90.0,
-                                      height: 90.0,
-                                      clipBehavior: Clip.antiAlias,
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
+                                child: Padding(
+                                  padding: EdgeInsets.all(2.0),
+                                  child: Container(
+                                    width: 90.0,
+                                    height: 90.0,
+                                    clipBehavior: Clip.antiAlias,
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: CachedNetworkImage(
+                                      fadeInDuration:
+                                          Duration(milliseconds: 500),
+                                      fadeOutDuration:
+                                          Duration(milliseconds: 500),
+                                      imageUrl: valueOrDefault<String>(
+                                        _model.profilePicture?.photoUrl,
+                                        'https://res.cloudinary.com/dbyduwpud/image/upload/v1751860346/AICircleLucilleChat_uo87av.gif',
                                       ),
-                                      child: CachedNetworkImage(
-                                        fadeInDuration:
-                                            Duration(milliseconds: 500),
-                                        fadeOutDuration:
-                                            Duration(milliseconds: 500),
-                                        imageUrl: currentUserPhoto,
+                                      fit: BoxFit.fitWidth,
+                                      errorWidget:
+                                          (context, error, stackTrace) =>
+                                              Image.asset(
+                                        'assets/images/error_image.jpg',
                                         fit: BoxFit.fitWidth,
                                       ),
                                     ),
@@ -277,7 +271,11 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                 }
 
                                 logFirebaseEvent('Button_update_app_state');
-                                FFAppState().ProfilePicture = currentUserPhoto;
+                                FFAppState().ProfilePicture =
+                                    valueOrDefault<String>(
+                                  _model.profilePicture?.photoUrl,
+                                  'https://res.cloudinary.com/dbyduwpud/image/upload/v1751860346/AICircleLucilleChat_uo87av.gif',
+                                );
                                 FFAppState().update(() {});
                               },
                               text: FFLocalizations.of(context).getText(
@@ -289,15 +287,15 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                     24.0, 0.0, 24.0, 0.0),
                                 iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
-                                color: FlutterFlowTheme.of(context)
-                                    .primaryBackground,
+                                color: FlutterFlowTheme.of(context).tertiary,
                                 textStyle: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'WorkSans',
+                                      color:
+                                          FlutterFlowTheme.of(context).accent1,
                                       letterSpacing: 0.0,
                                     ),
-                                elevation: 0.0,
                                 borderSide: BorderSide(
                                   color: FlutterFlowTheme.of(context).alternate,
                                   width: 2.0,

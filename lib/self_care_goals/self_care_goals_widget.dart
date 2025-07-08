@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'dart:async';
+import 'dart:ui';
 import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
@@ -175,145 +176,182 @@ class _SelfCareGoalsWidgetState extends State<SelfCareGoalsWidget>
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     12.0, 20.0, 12.0, 0.0),
-                                child: SingleChildScrollView(
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            12.0, 50.0, 0.0, 8.0),
-                                        child: Text(
-                                          FFLocalizations.of(context).getText(
-                                            't3to8iov' /* Pick Your Self Care Goals */,
-                                          ),
-                                          textAlign: TextAlign.start,
-                                          style: FlutterFlowTheme.of(context)
-                                              .displayMedium
-                                              .override(
-                                                fontFamily: 'The Seasons',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
+                                child: ScrollConfiguration(
+                                  behavior:
+                                      ScrollConfiguration.of(context).copyWith(
+                                    scrollbars: false,
+                                    dragDevices: {
+                                      PointerDeviceKind.mouse,
+                                      PointerDeviceKind.touch,
+                                      PointerDeviceKind.stylus,
+                                      PointerDeviceKind.unknown,
+                                    },
+                                  ),
+                                  child: Scrollbar(
+                                    child: SingleChildScrollView(
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 50.0, 0.0, 8.0),
+                                            child: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                't3to8iov' /* Pick Your Self Care Goals */,
+                                              ),
+                                              textAlign: TextAlign.start,
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .displayMedium
+                                                  .override(
+                                                    fontFamily: 'The Seasons',
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
                                                         .secondaryBackground,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.bold,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
+                                            ).animateOnPageLoad(animationsMap[
+                                                'textOnPageLoadAnimation']!),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 0.0, 0.0, 12.0),
+                                            child: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'xy4wyjte' /* Your self care goals will be u... */,
                                               ),
-                                        ).animateOnPageLoad(animationsMap[
-                                            'textOnPageLoadAnimation']!),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            12.0, 0.0, 0.0, 12.0),
-                                        child: Text(
-                                          FFLocalizations.of(context).getText(
-                                            'xy4wyjte' /* Your self care goals will be u... */,
-                                          ),
-                                          textAlign: TextAlign.start,
-                                          style: FlutterFlowTheme.of(context)
-                                              .labelLarge
-                                              .override(
-                                                fontFamily: 'WorkSans',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .tertiary,
-                                                letterSpacing: 0.0,
-                                              ),
-                                        ),
-                                      ),
-                                      FlutterFlowCheckboxGroup(
-                                        options: [
-                                          FFLocalizations.of(context).getText(
-                                            'yy3sj2ln' /* Calmness */,
-                                          ),
-                                          FFLocalizations.of(context).getText(
-                                            '3ovgrruc' /* Stretching */,
-                                          ),
-                                          FFLocalizations.of(context).getText(
-                                            'pmjo6mfc' /* Increase Focus */,
-                                          ),
-                                          FFLocalizations.of(context).getText(
-                                            '1h0zwb09' /* Tai Chi */,
-                                          ),
-                                          FFLocalizations.of(context).getText(
-                                            'k4cd72xv' /* Meditation */,
-                                          ),
-                                          FFLocalizations.of(context).getText(
-                                            'sud14z9k' /* Mental Health */,
-                                          ),
-                                          FFLocalizations.of(context).getText(
-                                            'vxwupga2' /* Sleep */,
-                                          ),
-                                          FFLocalizations.of(context).getText(
-                                            'wd2x5wti' /* Gaming/Immersive Experience */,
-                                          )
-                                        ],
-                                        onChanged: (val) => safeSetState(() =>
-                                            _model.checkboxGroupValues = val),
-                                        controller: _model
-                                                .checkboxGroupValueController ??=
-                                            FormFieldController<List<String>>(
-                                          [],
-                                        ),
-                                        activeColor:
-                                            FlutterFlowTheme.of(context)
-                                                .alternate,
-                                        checkColor: FlutterFlowTheme.of(context)
-                                            .accent1,
-                                        checkboxBorderColor:
-                                            FlutterFlowTheme.of(context)
-                                                .alternate,
-                                        textStyle: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'WorkSans',
-                                              color:
+                                              textAlign: TextAlign.start,
+                                              style:
                                                   FlutterFlowTheme.of(context)
-                                                      .alternate,
-                                              letterSpacing: 0.0,
+                                                      .labelLarge
+                                                      .override(
+                                                        fontFamily: 'WorkSans',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .tertiary,
+                                                        letterSpacing: 0.0,
+                                                      ),
                                             ),
-                                        unselectedTextStyle:
-                                            FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'WorkSans',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .alternate,
-                                                  fontSize: 16.0,
-                                                  letterSpacing: 0.0,
-                                                  lineHeight: 1.5,
-                                                ),
-                                        checkboxBorderRadius:
-                                            BorderRadius.circular(4.0),
-                                        initialized:
-                                            _model.checkboxGroupValues != null,
-                                      ),
-                                      Align(
-                                        alignment:
-                                            AlignmentDirectional(0.0, 1.0),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 230.0, 0.0, 0.0),
-                                          child: Hero(
-                                            tag: 'onboarding',
-                                            transitionOnUserGestures: true,
-                                            child: ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(8.0),
-                                              child: Image.asset(
-                                                'assets/images/Logo_ESCAPE_White.png',
-                                                width: 200.0,
-                                                height: 81.72,
-                                                fit: BoxFit.contain,
+                                          ),
+                                          FlutterFlowCheckboxGroup(
+                                            options: [
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'yy3sj2ln' /* Calmness */,
                                               ),
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                '3ovgrruc' /* Stretching */,
+                                              ),
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'pmjo6mfc' /* Increase Focus */,
+                                              ),
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                '1h0zwb09' /* Tai Chi */,
+                                              ),
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'k4cd72xv' /* Meditation */,
+                                              ),
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'sud14z9k' /* Mental Health */,
+                                              ),
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'vxwupga2' /* Sleep */,
+                                              ),
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'wd2x5wti' /* Gaming/Immersive Experience */,
+                                              )
+                                            ],
+                                            onChanged: (val) => safeSetState(
+                                                () => _model
+                                                    .checkboxGroupValues = val),
+                                            controller: _model
+                                                    .checkboxGroupValueController ??=
+                                                FormFieldController<
+                                                    List<String>>(
+                                              [],
                                             ),
-                                          ).animateOnPageLoad(animationsMap[
-                                              'imageOnPageLoadAnimation']!),
-                                        ),
+                                            activeColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .alternate,
+                                            checkColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .accent1,
+                                            checkboxBorderColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .alternate,
+                                            textStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      fontFamily: 'WorkSans',
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .alternate,
+                                                      letterSpacing: 0.0,
+                                                    ),
+                                            unselectedTextStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      fontFamily: 'WorkSans',
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .alternate,
+                                                      fontSize: 16.0,
+                                                      letterSpacing: 0.0,
+                                                      lineHeight: 1.5,
+                                                    ),
+                                            checkboxBorderRadius:
+                                                BorderRadius.circular(4.0),
+                                            initialized:
+                                                _model.checkboxGroupValues !=
+                                                    null,
+                                          ),
+                                          Align(
+                                            alignment:
+                                                AlignmentDirectional(0.0, 1.0),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 230.0, 0.0, 0.0),
+                                              child: Hero(
+                                                tag: 'onboarding',
+                                                transitionOnUserGestures: true,
+                                                child: ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                  child: Image.asset(
+                                                    'assets/images/Logo_ESCAPE_White.png',
+                                                    width: 200.0,
+                                                    height: 81.72,
+                                                    fit: BoxFit.contain,
+                                                  ),
+                                                ),
+                                              ).animateOnPageLoad(animationsMap[
+                                                  'imageOnPageLoadAnimation']!),
+                                            ),
+                                          ),
+                                        ],
                                       ),
-                                    ],
+                                    ),
                                   ),
                                 ),
                               ),
@@ -357,7 +395,7 @@ class _SelfCareGoalsWidgetState extends State<SelfCareGoalsWidget>
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleMedium
                                         .override(
-                                          fontFamily: 'The Seasons',
+                                          fontFamily: 'WorkSans',
                                           color: FlutterFlowTheme.of(context)
                                               .primary,
                                           letterSpacing: 0.0,

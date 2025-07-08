@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'splash_screen_widget.dart' show SplashScreenWidget;
+import 'reels_widget.dart' show ReelsWidget;
 import 'package:flutter/material.dart';
 
-class SplashScreenModel extends FlutterFlowModel<SplashScreenWidget> {
+class ReelsModel extends FlutterFlowModel<ReelsWidget> {
   @override
   void initState(BuildContext context) {}
 

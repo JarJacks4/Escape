@@ -117,9 +117,7 @@ class _GenerateSoundscapesCardWidgetState
                             EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                         child: Text(
                           FFLocalizations.of(context).getText(
-                            'nppdaile' /* Edit Your 
-Self-Care AI */
-                            ,
+                            'nppdaile' /* AI Soundscapes */,
                           ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
