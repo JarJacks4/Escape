@@ -10,7 +10,6 @@ export '/notifications_screen/notifications_screen_widget.dart'
 export '/subscription/subscription_widget.dart' show SubscriptionWidget;
 export '/pages/main_pages/home_version4/home_version4_widget.dart'
     show HomeVersion4Widget;
-export '/splash_screen/splash_screen_widget.dart' show SplashScreenWidget;
 export '/login_page/login_page_widget.dart' show LoginPageWidget;
 export '/interests_page/interests_page_widget.dart' show InterestsPageWidget;
 export '/profile_details/profile_details_widget.dart' show ProfileDetailsWidget;
@@ -63,8 +62,6 @@ export '/pages/main_pages/depression_videos_f_i_n_a_l/depression_videos_f_i_n_a_
     show DepressionVideosFINALWidget;
 export '/pages/main_pages/focus_videos_f_i_n_a_l/focus_videos_f_i_n_a_l_widget.dart'
     show FocusVideosFINALWidget;
-export '/video_player_meditation_page/video_player_meditation_page_widget.dart'
-    show VideoPlayerMeditationPageWidget;
 export '/meditation_and_breathing_games/box_breathing_goal_page/box_breathing_goal_page_widget.dart'
     show BoxBreathingGoalPageWidget;
 export '/meditation_and_breathing_games/fire_sounds_and_breathing_goal/fire_sounds_and_breathing_goal_widget.dart'
@@ -100,11 +97,9 @@ export '/facial_mood_analyzer_page/facial_mood_analyzer_page_widget.dart'
     show FacialMoodAnalyzerPageWidget;
 export '/mood_analyzer_success/mood_analyzer_success_widget.dart'
     show MoodAnalyzerSuccessWidget;
-export '/video_player_sleep_page/video_player_sleep_page_widget.dart'
-    show VideoPlayerSleepPageWidget;
-export '/video_player_increase_focus/video_player_increase_focus_widget.dart'
-    show VideoPlayerIncreaseFocusWidget;
-export '/video_player_body/video_player_body_widget.dart'
-    show VideoPlayerBodyWidget;
-export '/video_player_depression/video_player_depression_widget.dart'
-    show VideoPlayerDepressionWidget;
+export '/blank_sample/blank_sample_widget.dart' show BlankSampleWidget;
+export '/pages/reels/reels_widget.dart' show ReelsWidget;
+export '/chat_with_lucille/chat_with_lucille_widget.dart'
+    show ChatWithLucilleWidget;
+export '/chat_with_lucille_copy/chat_with_lucille_copy_widget.dart'
+    show ChatWithLucilleCopyWidget;

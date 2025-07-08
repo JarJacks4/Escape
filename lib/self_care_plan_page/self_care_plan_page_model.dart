@@ -1,5 +1,4 @@
 import '/components/earn_points_with_avatar_card_widget.dart';
-import '/components/progress_bar_final_widget.dart';
 import '/components/todays_self_care_activities_comp_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
@@ -13,8 +12,6 @@ class SelfCarePlanPageModel extends FlutterFlowModel<SelfCarePlanPageWidget> {
   late EarnPointsWithAvatarCardModel earnPointsWithAvatarCardModel;
   // Model for TodaysSelfCareActivitiesComp component.
   late TodaysSelfCareActivitiesCompModel todaysSelfCareActivitiesCompModel;
-  // Model for progressBarFinal component.
-  late ProgressBarFinalModel progressBarFinalModel;
 
   @override
   void initState(BuildContext context) {
@@ -22,13 +19,11 @@ class SelfCarePlanPageModel extends FlutterFlowModel<SelfCarePlanPageWidget> {
         createModel(context, () => EarnPointsWithAvatarCardModel());
     todaysSelfCareActivitiesCompModel =
         createModel(context, () => TodaysSelfCareActivitiesCompModel());
-    progressBarFinalModel = createModel(context, () => ProgressBarFinalModel());
   }
 
   @override
   void dispose() {
     earnPointsWithAvatarCardModel.dispose();
     todaysSelfCareActivitiesCompModel.dispose();
-    progressBarFinalModel.dispose();
   }
 }

@@ -1,8 +1,9 @@
-import '/components/success_home_feedback_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:async';
+import 'dart:ui';
+import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -188,92 +189,115 @@ class _EnableNotificationsWidgetState extends State<EnableNotificationsWidget>
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       12.0, 0.0, 12.0, 0.0),
-                                  child: SingleChildScrollView(
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 50.0, 0.0, 8.0),
-                                          child: Text(
-                                            FFLocalizations.of(context).getText(
-                                              'rymf4v3x' /* Enable Notifications */,
-                                            ),
-                                            textAlign: TextAlign.start,
-                                            style: FlutterFlowTheme.of(context)
-                                                .displayMedium
-                                                .override(
-                                                  fontFamily: 'The Seasons',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .alternate,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.bold,
+                                  child: ScrollConfiguration(
+                                    behavior: ScrollConfiguration.of(context)
+                                        .copyWith(
+                                      scrollbars: false,
+                                      dragDevices: {
+                                        PointerDeviceKind.mouse,
+                                        PointerDeviceKind.touch,
+                                        PointerDeviceKind.stylus,
+                                        PointerDeviceKind.unknown,
+                                      },
+                                    ),
+                                    child: Scrollbar(
+                                      child: SingleChildScrollView(
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      12.0, 50.0, 0.0, 8.0),
+                                              child: Text(
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'rymf4v3x' /* Enable Notifications */,
                                                 ),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 0.0, 0.0, 12.0),
-                                          child: Text(
-                                            FFLocalizations.of(context).getText(
-                                              '0px64yc6' /* Notifications are highly advis... */,
-                                            ),
-                                            textAlign: TextAlign.start,
-                                            style: FlutterFlowTheme.of(context)
-                                                .labelLarge
-                                                .override(
-                                                  fontFamily: 'WorkSans',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .tertiary,
-                                                  letterSpacing: 0.0,
-                                                ),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 80.0, 0.0, 12.0),
-                                          child: Text(
-                                            FFLocalizations.of(context).getText(
-                                              'sc7ukpt8' /* Notifications are highly advis... */,
-                                            ),
-                                            textAlign: TextAlign.center,
-                                            style: FlutterFlowTheme.of(context)
-                                                .labelLarge
-                                                .override(
-                                                  fontFamily: 'WorkSans',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryBackground,
-                                                  fontSize: 24.0,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.normal,
-                                                ),
-                                          ),
-                                        ),
-                                        Align(
-                                          alignment:
-                                              AlignmentDirectional(0.0, 0.0),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 40.0, 0.0, 12.0),
-                                            child: Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                'hezgvgbm' /* Would you like 
-personalized n... */
-                                                ,
+                                                textAlign: TextAlign.start,
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .displayMedium
+                                                    .override(
+                                                      fontFamily: 'The Seasons',
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .alternate,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                    ),
                                               ),
-                                              textAlign: TextAlign.center,
-                                              style:
-                                                  FlutterFlowTheme.of(context)
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      12.0, 0.0, 0.0, 12.0),
+                                              child: Text(
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  '0px64yc6' /* Notifications are highly advis... */,
+                                                ),
+                                                textAlign: TextAlign.start,
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .labelLarge
+                                                    .override(
+                                                      fontFamily: 'WorkSans',
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .tertiary,
+                                                      letterSpacing: 0.0,
+                                                    ),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 80.0, 0.0, 12.0),
+                                              child: Text(
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'sc7ukpt8' /* Notifications are highly advis... */,
+                                                ),
+                                                textAlign: TextAlign.center,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelLarge
+                                                        .override(
+                                                          fontFamily:
+                                                              'WorkSans',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryBackground,
+                                                          fontSize: 24.0,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                        ),
+                                              ),
+                                            ),
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  0.0, 0.0),
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 40.0, 0.0, 12.0),
+                                                child: Text(
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'hezgvgbm' /* Would you like 
+personalized n... */
+                                                    ,
+                                                  ),
+                                                  textAlign: TextAlign.center,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
                                                       .labelLarge
                                                       .override(
                                                         fontFamily: 'WorkSans',
@@ -282,34 +306,38 @@ personalized n... */
                                                             .secondaryBackground,
                                                         letterSpacing: 0.0,
                                                       ),
-                                            ),
-                                          ),
-                                        ),
-                                        Align(
-                                          alignment:
-                                              AlignmentDirectional(0.0, 1.0),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 180.0, 0.0, 0.0),
-                                            child: Hero(
-                                              tag: 'onboarding',
-                                              transitionOnUserGestures: true,
-                                              child: ClipRRect(
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                                child: Image.asset(
-                                                  'assets/images/Logo_ESCAPE_White.png',
-                                                  width: 200.0,
-                                                  height: 90.11,
-                                                  fit: BoxFit.contain,
                                                 ),
                                               ),
-                                            ).animateOnPageLoad(animationsMap[
-                                                'imageOnPageLoadAnimation']!),
-                                          ),
+                                            ),
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  0.0, 1.0),
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 180.0, 0.0, 0.0),
+                                                child: Hero(
+                                                  tag: 'onboarding',
+                                                  transitionOnUserGestures:
+                                                      true,
+                                                  child: ClipRRect(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8.0),
+                                                    child: Image.asset(
+                                                      'assets/images/Logo_ESCAPE_White.png',
+                                                      width: 200.0,
+                                                      height: 90.11,
+                                                      fit: BoxFit.contain,
+                                                    ),
+                                                  ),
+                                                ).animateOnPageLoad(animationsMap[
+                                                    'imageOnPageLoadAnimation']!),
+                                              ),
+                                            ),
+                                          ],
                                         ),
-                                      ],
+                                      ),
                                     ),
                                   ).animateOnPageLoad(animationsMap[
                                       'columnOnPageLoadAnimation']!),
@@ -324,32 +352,24 @@ personalized n... */
                                   child: FFButtonWidget(
                                     onPressed: () async {
                                       logFirebaseEvent(
-                                          'ENABLE_NOTIFICATIONS_CREATE_AVATAR_BTN_O');
-                                      logFirebaseEvent('Button_bottom_sheet');
-                                      await showModalBottomSheet(
-                                        isScrollControlled: true,
-                                        backgroundColor: Colors.transparent,
-                                        enableDrag: false,
-                                        context: context,
-                                        builder: (context) {
-                                          return GestureDetector(
-                                            onTap: () {
-                                              FocusScope.of(context).unfocus();
-                                              FocusManager.instance.primaryFocus
-                                                  ?.unfocus();
-                                            },
-                                            child: Padding(
-                                              padding: MediaQuery.viewInsetsOf(
-                                                  context),
-                                              child:
-                                                  SuccessHomeFeedbackWidget(),
-                                            ),
-                                          );
+                                          'ENABLE_NOTIFICATIONS_COMPLETE_TUTORIAL_B');
+                                      logFirebaseEvent('Button_navigate_to');
+
+                                      context.pushNamed(
+                                        FacialMoodAnalyzerChoiceWidget
+                                            .routeName,
+                                        extra: <String, dynamic>{
+                                          kTransitionInfoKey: TransitionInfo(
+                                            hasTransition: true,
+                                            transitionType:
+                                                PageTransitionType.fade,
+                                            duration: Duration(milliseconds: 0),
+                                          ),
                                         },
-                                      ).then((value) => safeSetState(() {}));
+                                      );
                                     },
                                     text: FFLocalizations.of(context).getText(
-                                      '70btugcu' /* Create Avatar */,
+                                      '70btugcu' /* Complete Tutorial */,
                                     ),
                                     options: FFButtonOptions(
                                       width: double.infinity,
@@ -366,7 +386,7 @@ personalized n... */
                                           .override(
                                             fontFamily: 'The Seasons',
                                             color: FlutterFlowTheme.of(context)
-                                                .primary,
+                                                .accent1,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.bold,
                                           ),

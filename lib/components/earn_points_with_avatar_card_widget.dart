@@ -133,7 +133,7 @@ class _EarnPointsWithAvatarCardWidgetState
                             EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                         child: Text(
                           FFLocalizations.of(context).getText(
-                            'tsjs6ccc' /* Escape Metaverse */,
+                            'tsjs6ccc' /* Escape Innerverse */,
                           ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(

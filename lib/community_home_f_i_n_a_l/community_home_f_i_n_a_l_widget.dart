@@ -15,7 +15,7 @@ import 'package:provider/provider.dart';
 import 'community_home_f_i_n_a_l_model.dart';
 export 'community_home_f_i_n_a_l_model.dart';
 
-/// ProviderCommunityHome
+/// CommunityHomeFINAL
 class CommunityHomeFINALWidget extends StatefulWidget {
   const CommunityHomeFINALWidget({
     super.key,

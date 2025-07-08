@@ -1,10 +1,10 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
-import 'video_player_depression_widget.dart' show VideoPlayerDepressionWidget;
+import 'chat_with_lucille_copy_widget.dart' show ChatWithLucilleCopyWidget;
 import 'package:flutter/material.dart';
 
-class VideoPlayerDepressionModel
-    extends FlutterFlowModel<VideoPlayerDepressionWidget> {
+class ChatWithLucilleCopyModel
+    extends FlutterFlowModel<ChatWithLucilleCopyWidget> {
   @override
   void initState(BuildContext context) {}
 

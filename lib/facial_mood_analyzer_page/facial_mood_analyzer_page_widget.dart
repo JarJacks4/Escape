@@ -1,3 +1,7 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/ai_agents/ai_agent.dart';
+import '/backend/backend.dart';
+import '/backend/firebase_storage/storage.dart';
 import '/components/mood_analyzer_success_comp_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -11,12 +15,7 @@ import 'facial_mood_analyzer_page_model.dart';
 export 'facial_mood_analyzer_page_model.dart';
 
 class FacialMoodAnalyzerPageWidget extends StatefulWidget {
-  const FacialMoodAnalyzerPageWidget({
-    super.key,
-    this.moodResult,
-  });
-
-  final String? moodResult;
+  const FacialMoodAnalyzerPageWidget({super.key});
 
   static String routeName = 'FacialMoodAnalyzerPage';
   static String routePath = 'facialMoodAnalyzerPage';
@@ -178,24 +177,30 @@ class _FacialMoodAnalyzerPageWidgetState
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 15.0),
-                            child: Text(
-                              FFLocalizations.of(context).getText(
-                                'zdktvncl' /* Mood Result Here */,
-                              ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'The Seasons',
-                                    fontSize: 28.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.bold,
+                          if (_model.aIMoodAnalyzeAction == '')
+                            Flexible(
+                              flex: 1,
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 8.0, 0.0, 15.0),
+                                child: Text(
+                                  valueOrDefault<String>(
+                                    _model.aIMoodAnalyzeAction,
+                                    'Tap Scan Mood',
                                   ),
-                            ).animateOnPageLoad(
-                                animationsMap['textOnPageLoadAnimation1']!),
-                          ),
+                                  textAlign: TextAlign.center,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'The Seasons',
+                                        fontSize: 28.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                ).animateOnPageLoad(
+                                    animationsMap['textOnPageLoadAnimation1']!),
+                              ),
+                            ),
                           Flexible(
                             flex: 1,
                             child: Padding(
@@ -240,11 +245,8 @@ class _FacialMoodAnalyzerPageWidgetState
                                       onPressed: () async {
                                         logFirebaseEvent(
                                             'FACIAL_MOOD_ANALYZER_RETRY_BTN_ON_TAP');
-                                        logFirebaseEvent('Button_wait__delay');
-                                        await Future.delayed(
-                                            const Duration(milliseconds: 2000));
                                         logFirebaseEvent(
-                                            'Button_store_media_for_upload');
+                                            'Button_upload_media_to_firebase');
                                         final selectedMedia =
                                             await selectMediaWithSourceBottomSheet(
                                           context: context,
@@ -269,6 +271,7 @@ class _FacialMoodAnalyzerPageWidgetState
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
 
+                                          var downloadUrls = <String>[];
                                           try {
                                             selectedUploadedFiles =
                                                 selectedMedia
@@ -284,15 +287,29 @@ class _FacialMoodAnalyzerPageWidgetState
                                                           blurHash: m.blurHash,
                                                         ))
                                                     .toList();
+
+                                            downloadUrls = (await Future.wait(
+                                              selectedMedia.map(
+                                                (m) async => await uploadData(
+                                                    m.storagePath, m.bytes),
+                                              ),
+                                            ))
+                                                .where((u) => u != null)
+                                                .map((u) => u!)
+                                                .toList();
                                           } finally {
                                             _model.isDataUploading_reUploadData8rj =
                                                 false;
                                           }
                                           if (selectedUploadedFiles.length ==
-                                              selectedMedia.length) {
+                                                  selectedMedia.length &&
+                                              downloadUrls.length ==
+                                                  selectedMedia.length) {
                                             safeSetState(() {
                                               _model.uploadedLocalFile_reUploadData8rj =
                                                   selectedUploadedFiles.first;
+                                              _model.uploadedFileUrl_reUploadData8rj =
+                                                  downloadUrls.first;
                                             });
                                           } else {
                                             safeSetState(() {});
@@ -381,19 +398,114 @@ class _FacialMoodAnalyzerPageWidgetState
                                     child: FFButtonWidget(
                                       onPressed: () async {
                                         logFirebaseEvent(
-                                            'FACIAL_MOOD_ANALYZER_SAVE_MOOD_BTN_ON_TA');
+                                            'FACIAL_MOOD_ANALYZER_SCAN_MOOD_BTN_ON_TA');
+                                        logFirebaseEvent(
+                                            'Button_upload_media_to_firebase');
+                                        final selectedMedia = await selectMedia(
+                                          includeDimensions: true,
+                                          mediaSource: MediaSource.photoGallery,
+                                          multiImage: false,
+                                        );
+                                        if (selectedMedia != null &&
+                                            selectedMedia.every((m) =>
+                                                validateFileFormat(
+                                                    m.storagePath, context))) {
+                                          safeSetState(() => _model
+                                                  .isDataUploading_aIUploadMoodPhoto =
+                                              true);
+                                          var selectedUploadedFiles =
+                                              <FFUploadedFile>[];
+
+                                          var downloadUrls = <String>[];
+                                          try {
+                                            selectedUploadedFiles =
+                                                selectedMedia
+                                                    .map((m) => FFUploadedFile(
+                                                          name: m.storagePath
+                                                              .split('/')
+                                                              .last,
+                                                          bytes: m.bytes,
+                                                          height: m.dimensions
+                                                              ?.height,
+                                                          width: m.dimensions
+                                                              ?.width,
+                                                          blurHash: m.blurHash,
+                                                        ))
+                                                    .toList();
+
+                                            downloadUrls = (await Future.wait(
+                                              selectedMedia.map(
+                                                (m) async => await uploadData(
+                                                    m.storagePath, m.bytes),
+                                              ),
+                                            ))
+                                                .where((u) => u != null)
+                                                .map((u) => u!)
+                                                .toList();
+                                          } finally {
+                                            _model.isDataUploading_aIUploadMoodPhoto =
+                                                false;
+                                          }
+                                          if (selectedUploadedFiles.length ==
+                                                  selectedMedia.length &&
+                                              downloadUrls.length ==
+                                                  selectedMedia.length) {
+                                            safeSetState(() {
+                                              _model.uploadedLocalFile_aIUploadMoodPhoto =
+                                                  selectedUploadedFiles.first;
+                                              _model.uploadedFileUrl_aIUploadMoodPhoto =
+                                                  downloadUrls.first;
+                                            });
+                                          } else {
+                                            safeSetState(() {});
+                                            return;
+                                          }
+                                        }
+
+                                        logFirebaseEvent('Button_a_i_agent');
+                                        await callAiAgent(
+                                          context: context,
+                                          prompt:
+                                              'Analyze the users picture to generate a single text word that describes the mood analyzed in the photo.',
+                                          imageAsset: _model
+                                              .uploadedLocalFile_aIUploadMoodPhoto,
+                                          threadId: '1',
+                                          agentCloudFunctionName:
+                                              'lucilleMoodAnalyzerAgent',
+                                          provider: 'GOOGLE',
+                                          agentJson:
+                                              "{\"status\":\"LIVE\",\"identifier\":{\"name\":\"lucilleMoodAnalyzerAgent\",\"key\":\"qs0vq\"},\"name\":\"LucilleMoodAnalyzerAgent\",\"description\":\"This Self-Care agent is for primarily giving a one word response to \\\"What is the user's mood, according to their uploaded photo?\\\"\",\"aiModel\":{\"provider\":\"GOOGLE\",\"model\":\"gemini-2.0-flash\",\"parameters\":{\"temperature\":{\"inputValue\":0.35},\"maxTokens\":{\"inputValue\":4385},\"topP\":{\"inputValue\":0.5}},\"messages\":[{\"role\":\"SYSTEM\",\"text\":\"You are a Self-Care agent for the AI Self Care company Escapeapp.ai and you are here to give a one word response to their uploaded photo. The response should be the mood that you analyze from the photo, as a completely one word response.\"},{\"role\":\"USER\",\"text\":\"What is the my mood today, in one word, according to the photo they just uploaded for text-to-image mood analyzation?\"}]},\"requestOptions\":{\"requestTypes\":[\"PLAINTEXT\",\"IMAGE\"]},\"responseOptions\":{\"responseType\":\"PLAINTEXT\"}}",
+                                          responseType: 'PLAINTEXT',
+                                        ).then((generatedText) {
+                                          safeSetState(() =>
+                                              _model.aIMoodAnalyzeAction =
+                                                  generatedText);
+                                        });
+
                                         logFirebaseEvent(
                                             'Button_update_app_state');
                                         FFAppState().moods =
-                                            widget.moodResult!;
-                                        safeSetState(() {});
+                                            _model.aIMoodAnalyzeAction!;
+                                        FFAppState().moodPhoto =
+                                            _model.moodPhoto!;
+                                        FFAppState().update(() {});
+                                        logFirebaseEvent('Button_backend_call');
+
+                                        await currentUserReference!
+                                            .update(createUsersRecordData(
+                                          currentMood:
+                                              _model.aIMoodAnalyzeAction,
+                                          currentMoodPhoto: _model
+                                              .uploadedFileUrl_reUploadData8rj,
+                                          timeStamp: getCurrentTimestamp,
+                                        ));
                                         logFirebaseEvent(
                                             'Button_show_snack_bar');
                                         ScaffoldMessenger.of(context)
                                             .showSnackBar(
                                           SnackBar(
                                             content: Text(
-                                              'Mood has applied to your self-care floow. Enjoy Your Day!',
+                                              'Mood has been applied to your self-care flow. Enjoy Your Day!',
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .labelLarge
@@ -402,7 +514,7 @@ class _FacialMoodAnalyzerPageWidgetState
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .primaryText,
+                                                                .primary,
                                                         letterSpacing: 0.0,
                                                       ),
                                             ),
@@ -410,7 +522,7 @@ class _FacialMoodAnalyzerPageWidgetState
                                                 Duration(milliseconds: 4000),
                                             backgroundColor:
                                                 FlutterFlowTheme.of(context)
-                                                    .secondary,
+                                                    .accent1,
                                           ),
                                         );
                                         logFirebaseEvent('Button_bottom_sheet');
@@ -443,9 +555,11 @@ class _FacialMoodAnalyzerPageWidgetState
                                             );
                                           },
                                         ).then((value) => safeSetState(() {}));
+
+                                        safeSetState(() {});
                                       },
                                       text: FFLocalizations.of(context).getText(
-                                        'd2tlln3o' /* Save Mood */,
+                                        'd2tlln3o' /* Scan Mood */,
                                       ),
                                       icon: Icon(
                                         Icons.mood,
@@ -504,24 +618,33 @@ class _FacialMoodAnalyzerPageWidgetState
                 ),
               ),
             ),
-            Container(
-              width: double.infinity,
-              height: 516.79,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: Image.asset(
-                    'assets/images/download_(46).gif',
-                  ).image,
+            AuthUserStreamWidget(
+              builder: (context) => Container(
+                width: double.infinity,
+                height: 428.03,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: Image.network(
+                      valueOrDefault<String>(
+                        _model.isDataUploading_reUploadData8rj
+                            ? valueOrDefault(
+                                currentUserDocument?.currentMoodPhoto, '')
+                            : 'https://res.cloudinary.com/dbyduwpud/image/upload/v1751860346/AICircleLucilleChat_uo87av.gif',
+                        'https://res.cloudinary.com/dbyduwpud/image/upload/v1751860346/AICircleLucilleChat_uo87av.gif',
+                      ),
+                    ).image,
+                  ),
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(25.0),
+                    bottomRight: Radius.circular(25.0),
+                    topLeft: Radius.circular(0.0),
+                    topRight: Radius.circular(0.0),
+                  ),
                 ),
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(25.0),
-                  bottomRight: Radius.circular(25.0),
-                  topLeft: Radius.circular(0.0),
-                  topRight: Radius.circular(0.0),
-                ),
-              ),
-            ).animateOnPageLoad(animationsMap['containerOnPageLoadAnimation']!),
+              ).animateOnPageLoad(
+                  animationsMap['containerOnPageLoadAnimation']!),
+            ),
           ],
         ),
       ),
