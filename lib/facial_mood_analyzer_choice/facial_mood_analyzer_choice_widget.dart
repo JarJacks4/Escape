@@ -1,14 +1,12 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/upload_data.dart';
-import 'dart:ui';
 import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:lottie/lottie.dart';
-import 'package:provider/provider.dart';
 import 'facial_mood_analyzer_choice_model.dart';
 export 'facial_mood_analyzer_choice_model.dart';
 
@@ -24,10 +22,13 @@ class FacialMoodAnalyzerChoiceWidget extends StatefulWidget {
 }
 
 class _FacialMoodAnalyzerChoiceWidgetState
-    extends State<FacialMoodAnalyzerChoiceWidget> {
+    extends State<FacialMoodAnalyzerChoiceWidget>
+    with TickerProviderStateMixin {
   late FacialMoodAnalyzerChoiceModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -36,6 +37,80 @@ class _FacialMoodAnalyzerChoiceWidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'FacialMoodAnalyzerChoice'});
+    animationsMap.addAll({
+      'textOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'imageOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 3600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'lottieAnimationOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -144,7 +219,8 @@ class _FacialMoodAnalyzerChoiceWidgetState
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
                                   ),
-                            ),
+                            ).animateOnPageLoad(
+                                animationsMap['textOnPageLoadAnimation1']!),
                           ),
                           Flexible(
                             flex: 1,
@@ -166,7 +242,8 @@ class _FacialMoodAnalyzerChoiceWidgetState
                                       fontWeight: FontWeight.w300,
                                       lineHeight: 1.5,
                                     ),
-                              ),
+                              ).animateOnPageLoad(
+                                  animationsMap['textOnPageLoadAnimation2']!),
                             ),
                           ),
                           Flexible(
@@ -230,7 +307,8 @@ class _FacialMoodAnalyzerChoiceWidgetState
                                         borderRadius:
                                             BorderRadius.circular(15.0),
                                       ),
-                                    ),
+                                    ).animateOnPageLoad(animationsMap[
+                                        'buttonOnPageLoadAnimation1']!),
                                   ),
                                   Container(
                                     width: 161.01,
@@ -242,86 +320,6 @@ class _FacialMoodAnalyzerChoiceWidgetState
                                       onPressed: () async {
                                         logFirebaseEvent(
                                             'FACIAL_MOOD_ANALYZER_CHOICE_SCAN_MOOD_BT');
-                                        logFirebaseEvent('Button_wait__delay');
-                                        await Future.delayed(
-                                            const Duration(milliseconds: 2000));
-                                        logFirebaseEvent(
-                                            'Button_store_media_for_upload');
-                                        final selectedMedia =
-                                            await selectMediaWithSourceBottomSheet(
-                                          context: context,
-                                          maxWidth: 1080.00,
-                                          maxHeight: 1080.00,
-                                          allowPhoto: true,
-                                          backgroundColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .alternate,
-                                          textColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .secondary,
-                                          pickerFontFamily: 'The Seasons',
-                                        );
-                                        if (selectedMedia != null &&
-                                            selectedMedia.every((m) =>
-                                                validateFileFormat(
-                                                    m.storagePath, context))) {
-                                          safeSetState(() => _model
-                                                  .isDataUploading_uploadMoodAction1 =
-                                              true);
-                                          var selectedUploadedFiles =
-                                              <FFUploadedFile>[];
-
-                                          try {
-                                            selectedUploadedFiles =
-                                                selectedMedia
-                                                    .map((m) => FFUploadedFile(
-                                                          name: m.storagePath
-                                                              .split('/')
-                                                              .last,
-                                                          bytes: m.bytes,
-                                                          height: m.dimensions
-                                                              ?.height,
-                                                          width: m.dimensions
-                                                              ?.width,
-                                                          blurHash: m.blurHash,
-                                                        ))
-                                                    .toList();
-                                          } finally {
-                                            _model.isDataUploading_uploadMoodAction1 =
-                                                false;
-                                          }
-                                          if (selectedUploadedFiles.length ==
-                                              selectedMedia.length) {
-                                            safeSetState(() {
-                                              _model.uploadedLocalFile_uploadMoodAction1 =
-                                                  selectedUploadedFiles.first;
-                                            });
-                                          } else {
-                                            safeSetState(() {});
-                                            return;
-                                          }
-                                        }
-
-                                        logFirebaseEvent(
-                                            'Button_show_snack_bar');
-                                        ScaffoldMessenger.of(context)
-                                            .showSnackBar(
-                                          SnackBar(
-                                            content: Text(
-                                              'Mood has been saved!',
-                                              style: TextStyle(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
-                                              ),
-                                            ),
-                                            duration:
-                                                Duration(milliseconds: 4000),
-                                            backgroundColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .secondary,
-                                          ),
-                                        );
                                         logFirebaseEvent('Button_navigate_to');
 
                                         context.pushNamed(
@@ -362,7 +360,8 @@ class _FacialMoodAnalyzerChoiceWidgetState
                                         borderRadius:
                                             BorderRadius.circular(15.0),
                                       ),
-                                    ),
+                                    ).animateOnPageLoad(animationsMap[
+                                        'buttonOnPageLoadAnimation2']!),
                                   ),
                                 ],
                               ),
@@ -380,7 +379,8 @@ class _FacialMoodAnalyzerChoiceWidgetState
                                 fit: BoxFit.contain,
                                 alignment: Alignment(0.0, 0.0),
                               ),
-                            ),
+                            ).animateOnPageLoad(
+                                animationsMap['imageOnPageLoadAnimation']!),
                           ),
                         ].divide(SizedBox(height: 6.0)),
                       ),
@@ -395,7 +395,8 @@ class _FacialMoodAnalyzerChoiceWidgetState
               height: 467.2,
               fit: BoxFit.contain,
               animate: true,
-            ),
+            ).animateOnPageLoad(
+                animationsMap['lottieAnimationOnPageLoadAnimation']!),
           ],
         ),
       ),

@@ -1,15 +1,13 @@
 import '/components/fire_nature_meditation_widget.dart';
 import '/components/thunderstorms_nature_meditation_widget.dart';
 import '/components/waterfalls_nature_meditation_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import '/index.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'nature_mediation_choice_model.dart';
 export 'nature_mediation_choice_model.dart';
 
@@ -25,10 +23,12 @@ class NatureMediationChoiceWidget extends StatefulWidget {
 }
 
 class _NatureMediationChoiceWidgetState
-    extends State<NatureMediationChoiceWidget> {
+    extends State<NatureMediationChoiceWidget> with TickerProviderStateMixin {
   late NatureMediationChoiceModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -37,6 +37,20 @@ class _NatureMediationChoiceWidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'NatureMediationChoice'});
+    animationsMap.addAll({
+      'waterfallsNatureMeditationOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -169,7 +183,8 @@ class _NatureMediationChoiceWidgetState
                               model: _model.waterfallsNatureMeditationModel,
                               updateCallback: () => safeSetState(() {}),
                               child: WaterfallsNatureMeditationWidget(),
-                            ),
+                            ).animateOnPageLoad(animationsMap[
+                                'waterfallsNatureMeditationOnPageLoadAnimation']!),
                             wrapWithModel(
                               model: _model.thunderstormsNatureMeditationModel,
                               updateCallback: () => safeSetState(() {}),

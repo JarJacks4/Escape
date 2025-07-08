@@ -1,14 +1,12 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/components/primary_button/primary_button_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:lottie/lottie.dart';
-import 'package:provider/provider.dart';
 import 'registration_success_model.dart';
 export 'registration_success_model.dart';
 
@@ -23,10 +21,13 @@ class RegistrationSuccessWidget extends StatefulWidget {
       _RegistrationSuccessWidgetState();
 }
 
-class _RegistrationSuccessWidgetState extends State<RegistrationSuccessWidget> {
+class _RegistrationSuccessWidgetState extends State<RegistrationSuccessWidget>
+    with TickerProviderStateMixin {
   late RegistrationSuccessModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -35,6 +36,63 @@ class _RegistrationSuccessWidgetState extends State<RegistrationSuccessWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'registrationSuccess'});
+    animationsMap.addAll({
+      'lottieAnimationOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.elasticOut,
+            delay: 0.0.ms,
+            duration: 5000.0.ms,
+            begin: Offset(100.0, 0.0),
+            end: Offset(0.0, 0.0),
+          ),
+          ShimmerEffect(
+            curve: Curves.easeInOut,
+            delay: 1500.0.ms,
+            duration: 600.0.ms,
+            color: Color(0x80FFFFFF),
+            angle: 0.524,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 3000.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 4000.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'primaryButtonOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 5000.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -73,7 +131,8 @@ class _RegistrationSuccessWidgetState extends State<RegistrationSuccessWidget> {
                         height: 315.0,
                         fit: BoxFit.contain,
                         animate: true,
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['lottieAnimationOnPageLoadAnimation']!),
                       Align(
                         alignment: AlignmentDirectional(0.0, 0.0),
                         child: Padding(
@@ -86,11 +145,8 @@ class _RegistrationSuccessWidgetState extends State<RegistrationSuccessWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 8.0),
                                 child: AuthUserStreamWidget(
-                                  builder: (context) => Text(
-                                    valueOrDefault<String>(
-                                      'Welcome,${currentUserDisplayName}',
-                                      'Welcome, Jane Doe!',
-                                    ),
+                                  builder: (context) =>
+                                      AnimatedDefaultTextStyle(
                                     style: FlutterFlowTheme.of(context)
                                         .titleLarge
                                         .override(
@@ -102,7 +158,16 @@ class _RegistrationSuccessWidgetState extends State<RegistrationSuccessWidget> {
                                           fontWeight: FontWeight.bold,
                                           lineHeight: 1.5,
                                         ),
-                                  ),
+                                    duration: Duration(milliseconds: 600),
+                                    curve: Curves.easeIn,
+                                    child: Text(
+                                      valueOrDefault<String>(
+                                        'Welcome,${currentUserDisplayName}',
+                                        'Welcome, Jane Doe!',
+                                      ),
+                                    ),
+                                  ).animateOnPageLoad(animationsMap[
+                                          'textOnPageLoadAnimation1']!),
                                 ),
                               ),
                               Align(
@@ -110,11 +175,7 @@ class _RegistrationSuccessWidgetState extends State<RegistrationSuccessWidget> {
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       24.0, 22.0, 24.0, 0.0),
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      'daxpmpxp' /* You are all set to create a ne... */,
-                                    ),
-                                    textAlign: TextAlign.center,
+                                  child: AnimatedDefaultTextStyle(
                                     style: FlutterFlowTheme.of(context)
                                         .labelMedium
                                         .override(
@@ -126,7 +187,16 @@ class _RegistrationSuccessWidgetState extends State<RegistrationSuccessWidget> {
                                           fontWeight: FontWeight.w300,
                                           lineHeight: 1.5,
                                         ),
-                                  ),
+                                    duration: Duration(milliseconds: 600),
+                                    curve: Curves.easeIn,
+                                    child: Text(
+                                      FFLocalizations.of(context).getText(
+                                        'daxpmpxp' /* You are all set to create a ne... */,
+                                      ),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ).animateOnPageLoad(animationsMap[
+                                      'textOnPageLoadAnimation2']!),
                                 ),
                               ),
                             ],
@@ -169,7 +239,8 @@ class _RegistrationSuccessWidgetState extends State<RegistrationSuccessWidget> {
                             buttonText: 'Go To Home',
                           ),
                         ),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['primaryButtonOnPageLoadAnimation']!),
                     ),
                   ],
                 ),

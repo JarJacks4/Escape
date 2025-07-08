@@ -1,10 +1,9 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'emergency_crisis_button_model.dart';
 export 'emergency_crisis_button_model.dart';
 
@@ -17,8 +16,10 @@ class EmergencyCrisisButtonWidget extends StatefulWidget {
 }
 
 class _EmergencyCrisisButtonWidgetState
-    extends State<EmergencyCrisisButtonWidget> {
+    extends State<EmergencyCrisisButtonWidget> with TickerProviderStateMixin {
   late EmergencyCrisisButtonModel _model;
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void setState(VoidCallback callback) {
@@ -30,6 +31,52 @@ class _EmergencyCrisisButtonWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => EmergencyCrisisButtonModel());
+
+    animationsMap.addAll({
+      'textOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          ShimmerEffect(
+            curve: Curves.easeInOut,
+            delay: 600.0.ms,
+            duration: 600.0.ms,
+            color: Color(0x80FFFFFF),
+            angle: 0.524,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -64,7 +111,7 @@ class _EmergencyCrisisButtonWidgetState
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.w600,
                     ),
-              ),
+              ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation1']!),
               Text(
                 FFLocalizations.of(context).getText(
                   'w4s3eykh' /* If you're experiencing a crisi... */,
@@ -73,7 +120,7 @@ class _EmergencyCrisisButtonWidgetState
                       fontFamily: 'WorkSans',
                       letterSpacing: 0.0,
                     ),
-              ),
+              ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation2']!),
               FFButtonWidget(
                 onPressed: () {
                   print('Button pressed ...');
@@ -99,7 +146,7 @@ class _EmergencyCrisisButtonWidgetState
                   ),
                   borderRadius: BorderRadius.circular(20.0),
                 ),
-              ),
+              ).animateOnPageLoad(animationsMap['buttonOnPageLoadAnimation']!),
             ].divide(SizedBox(height: 12.0)),
           ),
         ),

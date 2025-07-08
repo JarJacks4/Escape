@@ -1,9 +1,8 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'dart:ui';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'primary_button_model.dart';
 export 'primary_button_model.dart';
 
@@ -19,8 +18,11 @@ class PrimaryButtonWidget extends StatefulWidget {
   State<PrimaryButtonWidget> createState() => _PrimaryButtonWidgetState();
 }
 
-class _PrimaryButtonWidgetState extends State<PrimaryButtonWidget> {
+class _PrimaryButtonWidgetState extends State<PrimaryButtonWidget>
+    with TickerProviderStateMixin {
   late PrimaryButtonModel _model;
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void setState(VoidCallback callback) {
@@ -32,6 +34,21 @@ class _PrimaryButtonWidgetState extends State<PrimaryButtonWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => PrimaryButtonModel());
+
+    animationsMap.addAll({
+      'rowOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -67,7 +84,7 @@ class _PrimaryButtonWidgetState extends State<PrimaryButtonWidget> {
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0.0, 18.0, 0.0, 18.0),
               child: Text(
-                widget!.buttonText,
+                widget.buttonText,
                 textAlign: TextAlign.center,
                 style: FlutterFlowTheme.of(context).bodyLarge.override(
                       fontFamily: 'The Seasons',
@@ -79,7 +96,7 @@ class _PrimaryButtonWidgetState extends State<PrimaryButtonWidget> {
               ),
             ),
           ],
-        ),
+        ).animateOnPageLoad(animationsMap['rowOnPageLoadAnimation']!),
       ),
     );
   }

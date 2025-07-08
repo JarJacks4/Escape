@@ -1,15 +1,12 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
-import 'dart:ui';
-import 'package:tiktokfeed_wz8en7/app_state.dart'
-    as tiktokfeed_wz8en7_app_state;
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'upload_video_model.dart';
 export 'upload_video_model.dart';
 
@@ -20,8 +17,11 @@ class UploadVideoWidget extends StatefulWidget {
   State<UploadVideoWidget> createState() => _UploadVideoWidgetState();
 }
 
-class _UploadVideoWidgetState extends State<UploadVideoWidget> {
+class _UploadVideoWidgetState extends State<UploadVideoWidget>
+    with TickerProviderStateMixin {
   late UploadVideoModel _model;
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void setState(VoidCallback callback) {
@@ -42,6 +42,33 @@ class _UploadVideoWidgetState extends State<UploadVideoWidget> {
 
     _model.textController3 ??= TextEditingController();
     _model.textFieldFocusNode3 ??= FocusNode();
+
+    animationsMap.addAll({
+      'columnOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 1200.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -208,7 +235,8 @@ Videos */
                           ),
                         ].divide(SizedBox(height: 12.0)),
                       ),
-                    ),
+                    ).animateOnPageLoad(
+                        animationsMap['columnOnPageLoadAnimation']!),
                   ),
                 ),
                 Column(
@@ -503,7 +531,8 @@ Videos */
                     ),
                     borderRadius: BorderRadius.circular(25.0),
                   ),
-                ),
+                ).animateOnPageLoad(
+                    animationsMap['buttonOnPageLoadAnimation']!),
               ].divide(SizedBox(height: 20.0)),
             ),
           ),

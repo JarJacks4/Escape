@@ -1,9 +1,8 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'dart:ui';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'journal_model.dart';
 export 'journal_model.dart';
 
@@ -14,8 +13,11 @@ class JournalWidget extends StatefulWidget {
   State<JournalWidget> createState() => _JournalWidgetState();
 }
 
-class _JournalWidgetState extends State<JournalWidget> {
+class _JournalWidgetState extends State<JournalWidget>
+    with TickerProviderStateMixin {
   late JournalModel _model;
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void setState(VoidCallback callback) {
@@ -27,6 +29,76 @@ class _JournalWidgetState extends State<JournalWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => JournalModel());
+
+    animationsMap.addAll({
+      'textOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 3600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          RotateEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 3000.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          ShimmerEffect(
+            curve: Curves.easeInOut,
+            delay: 3000.0.ms,
+            duration: 600.0.ms,
+            color: Color(0x80FFFFFF),
+            angle: 0.524,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation4': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 6000.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation5': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -77,7 +149,8 @@ class _JournalWidgetState extends State<JournalWidget> {
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.w300,
                         ),
-                  ),
+                  ).animateOnPageLoad(
+                      animationsMap['textOnPageLoadAnimation1']!),
                 ],
               ),
             ),
@@ -103,7 +176,7 @@ class _JournalWidgetState extends State<JournalWidget> {
                         fontFamily: 'The Seasons',
                         letterSpacing: 0.0,
                       ),
-                ),
+                ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation2']!),
               ],
             ),
             Container(
@@ -156,7 +229,8 @@ class _JournalWidgetState extends State<JournalWidget> {
                                         .primaryBackground,
                                     letterSpacing: 0.0,
                                   ),
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['textOnPageLoadAnimation3']!),
                         Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.end,
@@ -185,7 +259,8 @@ class _JournalWidgetState extends State<JournalWidget> {
                                     color: Color(0xFFFF9933),
                                     letterSpacing: 0.0,
                                   ),
-                            ),
+                            ).animateOnPageLoad(
+                                animationsMap['textOnPageLoadAnimation4']!),
                           ],
                         ),
                       ].divide(SizedBox(height: 8.0)),
@@ -224,7 +299,8 @@ class _JournalWidgetState extends State<JournalWidget> {
                                 FlutterFlowTheme.of(context).primaryBackground,
                             letterSpacing: 0.0,
                           ),
-                    ),
+                    ).animateOnPageLoad(
+                        animationsMap['textOnPageLoadAnimation5']!),
                     Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,

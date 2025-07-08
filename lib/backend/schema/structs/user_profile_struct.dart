@@ -3,38 +3,36 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '/backend/schema/util/firestore_util.dart';
-import '/backend/schema/util/schema_util.dart';
 
-import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 class UserProfileStruct extends FFFirebaseStruct {
   UserProfileStruct({
-    String? username,
-    String? profilePicture,
+    DocumentReference? username,
+    DocumentReference? profilePicture,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _username = username,
         _profilePicture = profilePicture,
         super(firestoreUtilData);
 
   // "username" field.
-  String? _username;
-  String get username => _username ?? '';
-  set username(String? val) => _username = val;
+  DocumentReference? _username;
+  DocumentReference? get username => _username;
+  set username(DocumentReference? val) => _username = val;
 
   bool hasUsername() => _username != null;
 
-  // "profilePicture" field.
-  String? _profilePicture;
-  String get profilePicture => _profilePicture ?? '';
-  set profilePicture(String? val) => _profilePicture = val;
+  // "ProfilePicture" field.
+  DocumentReference? _profilePicture;
+  DocumentReference? get profilePicture => _profilePicture;
+  set profilePicture(DocumentReference? val) => _profilePicture = val;
 
   bool hasProfilePicture() => _profilePicture != null;
 
   static UserProfileStruct fromMap(Map<String, dynamic> data) =>
       UserProfileStruct(
-        username: data['username'] as String?,
-        profilePicture: data['profilePicture'] as String?,
+        username: data['username'] as DocumentReference?,
+        profilePicture: data['ProfilePicture'] as DocumentReference?,
       );
 
   static UserProfileStruct? maybeFromMap(dynamic data) => data is Map
@@ -43,18 +41,18 @@ class UserProfileStruct extends FFFirebaseStruct {
 
   Map<String, dynamic> toMap() => {
         'username': _username,
-        'profilePicture': _profilePicture,
+        'ProfilePicture': _profilePicture,
       }.withoutNulls;
 
   @override
   Map<String, dynamic> toSerializableMap() => {
         'username': serializeParam(
           _username,
-          ParamType.String,
+          ParamType.DocumentReference,
         ),
-        'profilePicture': serializeParam(
+        'ProfilePicture': serializeParam(
           _profilePicture,
-          ParamType.String,
+          ParamType.DocumentReference,
         ),
       }.withoutNulls;
 
@@ -62,13 +60,15 @@ class UserProfileStruct extends FFFirebaseStruct {
       UserProfileStruct(
         username: deserializeParam(
           data['username'],
-          ParamType.String,
+          ParamType.DocumentReference,
           false,
+          collectionNamePath: ['Users'],
         ),
         profilePicture: deserializeParam(
-          data['profilePicture'],
-          ParamType.String,
+          data['ProfilePicture'],
+          ParamType.DocumentReference,
           false,
+          collectionNamePath: ['Users'],
         ),
       );
 
@@ -87,8 +87,8 @@ class UserProfileStruct extends FFFirebaseStruct {
 }
 
 UserProfileStruct createUserProfileStruct({
-  String? username,
-  String? profilePicture,
+  DocumentReference? username,
+  DocumentReference? profilePicture,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,

@@ -27,8 +27,8 @@ import 'schema/history_record.dart';
 import 'schema/conversations_record.dart';
 import 'schema/journal_record.dart';
 import 'schema/user_created_videos_record.dart';
-import "package:tiktokfeed_wz8en7/backend/schema/structs/index.dart"
-    as tiktokfeed_wz8en7_data_schema;
+import 'schema/reels_record.dart';
+import 'schema/user_moods_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart' hide Order;
@@ -59,6 +59,8 @@ export 'schema/history_record.dart';
 export 'schema/conversations_record.dart';
 export 'schema/journal_record.dart';
 export 'schema/user_created_videos_record.dart';
+export 'schema/reels_record.dart';
+export 'schema/user_moods_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -899,6 +901,80 @@ Future<List<UserCreatedVideosRecord>> queryUserCreatedVideosRecordOnce({
     queryCollectionOnce(
       UserCreatedVideosRecord.collection,
       UserCreatedVideosRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query ReelsRecords (as a Stream and as a Future).
+Future<int> queryReelsRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      ReelsRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<ReelsRecord>> queryReelsRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      ReelsRecord.collection,
+      ReelsRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<ReelsRecord>> queryReelsRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      ReelsRecord.collection,
+      ReelsRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query UserMoodsRecords (as a Stream and as a Future).
+Future<int> queryUserMoodsRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      UserMoodsRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<UserMoodsRecord>> queryUserMoodsRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      UserMoodsRecord.collection,
+      UserMoodsRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<UserMoodsRecord>> queryUserMoodsRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      UserMoodsRecord.collection,
+      UserMoodsRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,

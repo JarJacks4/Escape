@@ -1,11 +1,9 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'dart:ui';
-import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'chat_with_lucille_card_model.dart';
 export 'chat_with_lucille_card_model.dart';
 
@@ -17,8 +15,11 @@ class ChatWithLucilleCardWidget extends StatefulWidget {
       _ChatWithLucilleCardWidgetState();
 }
 
-class _ChatWithLucilleCardWidgetState extends State<ChatWithLucilleCardWidget> {
+class _ChatWithLucilleCardWidgetState extends State<ChatWithLucilleCardWidget>
+    with TickerProviderStateMixin {
   late ChatWithLucilleCardModel _model;
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void setState(VoidCallback callback) {
@@ -30,6 +31,28 @@ class _ChatWithLucilleCardWidgetState extends State<ChatWithLucilleCardWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ChatWithLucilleCardModel());
+
+    animationsMap.addAll({
+      'columnOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          ShimmerEffect(
+            curve: Curves.easeInOut,
+            delay: 600.0.ms,
+            duration: 600.0.ms,
+            color: Color(0x80FFFFFF),
+            angle: 0.524,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -93,13 +116,8 @@ class _ChatWithLucilleCardWidgetState extends State<ChatWithLucilleCardWidget> {
                           size: 24.0,
                         ),
                         showLoadingIndicator: true,
-                        onPressed: () async {
-                          logFirebaseEvent(
-                              'CHAT_WITH_LUCILLE_CARD_arrow_outward_ICN');
-                          logFirebaseEvent('IconButton_navigate_to');
-
-                          context.pushNamed(
-                              ChatWithLucilleUnrealPageWidget.routeName);
+                        onPressed: () {
+                          print('IconButton pressed ...');
                         },
                       ),
                     ),
@@ -152,7 +170,7 @@ Lucille */
                   ),
                 ),
               ],
-            ),
+            ).animateOnPageLoad(animationsMap['columnOnPageLoadAnimation']!),
           ),
         ),
       ),

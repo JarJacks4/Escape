@@ -1,12 +1,11 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
-import 'dart:ui';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'how_are_you_feeling_comp_model.dart';
 export 'how_are_you_feeling_comp_model.dart';
 
@@ -18,9 +17,11 @@ class HowAreYouFeelingCompWidget extends StatefulWidget {
       _HowAreYouFeelingCompWidgetState();
 }
 
-class _HowAreYouFeelingCompWidgetState
-    extends State<HowAreYouFeelingCompWidget> {
+class _HowAreYouFeelingCompWidgetState extends State<HowAreYouFeelingCompWidget>
+    with TickerProviderStateMixin {
   late HowAreYouFeelingCompModel _model;
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void setState(VoidCallback callback) {
@@ -35,6 +36,21 @@ class _HowAreYouFeelingCompWidgetState
 
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
+
+    animationsMap.addAll({
+      'columnOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -186,7 +202,7 @@ class _HowAreYouFeelingCompWidgetState
                     ),
                   ),
                 ].divide(SizedBox(height: 8.0)),
-              ),
+              ).animateOnPageLoad(animationsMap['columnOnPageLoadAnimation']!),
               Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [

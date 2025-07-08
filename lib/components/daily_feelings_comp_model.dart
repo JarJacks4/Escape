@@ -1,13 +1,7 @@
-import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
-import 'dart:ui';
 import 'daily_feelings_comp_widget.dart' show DailyFeelingsCompWidget;
-import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 class DailyFeelingsCompModel extends FlutterFlowModel<DailyFeelingsCompWidget> {
   ///  State fields for stateful widgets in this component.

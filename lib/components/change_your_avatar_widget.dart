@@ -1,11 +1,9 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'dart:ui';
-import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'change_your_avatar_model.dart';
 export 'change_your_avatar_model.dart';
 
@@ -16,8 +14,11 @@ class ChangeYourAvatarWidget extends StatefulWidget {
   State<ChangeYourAvatarWidget> createState() => _ChangeYourAvatarWidgetState();
 }
 
-class _ChangeYourAvatarWidgetState extends State<ChangeYourAvatarWidget> {
+class _ChangeYourAvatarWidgetState extends State<ChangeYourAvatarWidget>
+    with TickerProviderStateMixin {
   late ChangeYourAvatarModel _model;
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void setState(VoidCallback callback) {
@@ -29,6 +30,21 @@ class _ChangeYourAvatarWidgetState extends State<ChangeYourAvatarWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ChangeYourAvatarModel());
+
+    animationsMap.addAll({
+      'textOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -92,21 +108,8 @@ class _ChangeYourAvatarWidgetState extends State<ChangeYourAvatarWidget> {
                         color: FlutterFlowTheme.of(context).primary,
                         size: 36.0,
                       ),
-                      onPressed: () async {
-                        logFirebaseEvent(
-                            'CHANGE_YOUR_AVATAR_arrow_outward_ICN_ON_');
-                        logFirebaseEvent('IconButton_navigate_to');
-
-                        context.pushNamed(
-                          AvatarCreationUnrealPageWidget.routeName,
-                          extra: <String, dynamic>{
-                            kTransitionInfoKey: TransitionInfo(
-                              hasTransition: true,
-                              transitionType: PageTransitionType.fade,
-                              duration: Duration(milliseconds: 0),
-                            ),
-                          },
-                        );
+                      onPressed: () {
+                        print('IconButton pressed ...');
                       },
                     ),
                   ],
@@ -131,7 +134,8 @@ class _ChangeYourAvatarWidgetState extends State<ChangeYourAvatarWidget> {
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
                                   ),
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['textOnPageLoadAnimation']!),
                       ),
                       Flexible(
                         flex: 1,
