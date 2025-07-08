@@ -1,16 +1,10 @@
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_video_player.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:math';
-import 'dart:ui';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'community_home_copy_model.dart';
 export 'community_home_copy_model.dart';
 
@@ -42,6 +36,18 @@ class _CommunityHomeCopyWidgetState extends State<CommunityHomeCopyWidget>
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'CommunityHomeCopy'});
     animationsMap.addAll({
+      'containerOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
       'circleImageOnPageLoadAnimation': AnimationInfo(
         loop: true,
         trigger: AnimationTrigger.onPageLoad,
@@ -255,7 +261,8 @@ class _CommunityHomeCopyWidgetState extends State<CommunityHomeCopyWidget>
                                                     width: 2.0,
                                                   ),
                                                 ),
-                                              ),
+                                              ).animateOnPageLoad(animationsMap[
+                                                  'containerOnPageLoadAnimation']!),
                                               Align(
                                                 alignment: AlignmentDirectional(
                                                     0.0, 1.0),

@@ -1,8 +1,8 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'empty_data_model.dart';
 export 'empty_data_model.dart';
 
@@ -13,8 +13,11 @@ class EmptyDataWidget extends StatefulWidget {
   State<EmptyDataWidget> createState() => _EmptyDataWidgetState();
 }
 
-class _EmptyDataWidgetState extends State<EmptyDataWidget> {
+class _EmptyDataWidgetState extends State<EmptyDataWidget>
+    with TickerProviderStateMixin {
   late EmptyDataModel _model;
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void setState(VoidCallback callback) {
@@ -26,6 +29,21 @@ class _EmptyDataWidgetState extends State<EmptyDataWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => EmptyDataModel());
+
+    animationsMap.addAll({
+      'textOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -50,7 +68,7 @@ class _EmptyDataWidgetState extends State<EmptyDataWidget> {
               letterSpacing: 0.0,
               fontWeight: FontWeight.bold,
             ),
-      ),
+      ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation']!),
     );
   }
 }

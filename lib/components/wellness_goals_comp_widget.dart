@@ -1,11 +1,10 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'wellness_goals_comp_model.dart';
 export 'wellness_goals_comp_model.dart';
 
@@ -17,8 +16,11 @@ class WellnessGoalsCompWidget extends StatefulWidget {
       _WellnessGoalsCompWidgetState();
 }
 
-class _WellnessGoalsCompWidgetState extends State<WellnessGoalsCompWidget> {
+class _WellnessGoalsCompWidgetState extends State<WellnessGoalsCompWidget>
+    with TickerProviderStateMixin {
   late WellnessGoalsCompModel _model;
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void setState(VoidCallback callback) {
@@ -30,6 +32,85 @@ class _WellnessGoalsCompWidgetState extends State<WellnessGoalsCompWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => WellnessGoalsCompModel());
+
+    animationsMap.addAll({
+      'sliderOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'sliderOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'sliderOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'sliderOnPageLoadAnimation4': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -154,7 +235,8 @@ class _WellnessGoalsCompWidgetState extends State<WellnessGoalsCompWidget> {
                                   () => _model.sliderValue1 = newValue);
                             },
                           ),
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['sliderOnPageLoadAnimation1']!),
                       ].divide(SizedBox(height: 8.0)),
                     ),
                     Column(
@@ -206,7 +288,8 @@ class _WellnessGoalsCompWidgetState extends State<WellnessGoalsCompWidget> {
                                   () => _model.sliderValue2 = newValue);
                             },
                           ),
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['sliderOnPageLoadAnimation2']!),
                       ].divide(SizedBox(height: 8.0)),
                     ),
                     Column(
@@ -258,7 +341,8 @@ class _WellnessGoalsCompWidgetState extends State<WellnessGoalsCompWidget> {
                                   () => _model.sliderValue3 = newValue);
                             },
                           ),
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['sliderOnPageLoadAnimation3']!),
                       ].divide(SizedBox(height: 8.0)),
                     ),
                     Column(
@@ -310,7 +394,8 @@ class _WellnessGoalsCompWidgetState extends State<WellnessGoalsCompWidget> {
                                   () => _model.sliderValue4 = newValue);
                             },
                           ),
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['sliderOnPageLoadAnimation4']!),
                       ].divide(SizedBox(height: 8.0)),
                     ),
                   ].divide(SizedBox(height: 20.0)),

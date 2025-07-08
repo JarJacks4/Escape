@@ -1,10 +1,10 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'dart:ui';
 import 'package:tiktokfeed_wz8en7/app_state.dart'
     as tiktokfeed_wz8en7_app_state;
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';
 import 'todays_mood_comp_model.dart';
 export 'todays_mood_comp_model.dart';
@@ -16,8 +16,11 @@ class TodaysMoodCompWidget extends StatefulWidget {
   State<TodaysMoodCompWidget> createState() => _TodaysMoodCompWidgetState();
 }
 
-class _TodaysMoodCompWidgetState extends State<TodaysMoodCompWidget> {
+class _TodaysMoodCompWidgetState extends State<TodaysMoodCompWidget>
+    with TickerProviderStateMixin {
   late TodaysMoodCompModel _model;
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void setState(VoidCallback callback) {
@@ -29,6 +32,33 @@ class _TodaysMoodCompWidgetState extends State<TodaysMoodCompWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => TodaysMoodCompModel());
+
+    animationsMap.addAll({
+      'containerOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 1200.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -237,7 +267,8 @@ class _TodaysMoodCompWidgetState extends State<TodaysMoodCompWidget> {
                                         FlutterFlowTheme.of(context).tertiary,
                                     borderRadius: BorderRadius.circular(8.0),
                                   ),
-                                ),
+                                ).animateOnPageLoad(animationsMap[
+                                    'containerOnPageLoadAnimation2']!),
                                 Text(
                                   FFLocalizations.of(context).getText(
                                     'noqgtrc8' /* Evening */,
@@ -283,7 +314,8 @@ class _TodaysMoodCompWidgetState extends State<TodaysMoodCompWidget> {
                         ].divide(SizedBox(width: 12.0)),
                       ),
                     ),
-                  ),
+                  ).animateOnPageLoad(
+                      animationsMap['containerOnPageLoadAnimation1']!),
                   Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,

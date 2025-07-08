@@ -1,10 +1,8 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'notifications_screen_model.dart';
 export 'notifications_screen_model.dart';
 
@@ -19,10 +17,13 @@ class NotificationsScreenWidget extends StatefulWidget {
       _NotificationsScreenWidgetState();
 }
 
-class _NotificationsScreenWidgetState extends State<NotificationsScreenWidget> {
+class _NotificationsScreenWidgetState extends State<NotificationsScreenWidget>
+    with TickerProviderStateMixin {
   late NotificationsScreenModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -31,6 +32,32 @@ class _NotificationsScreenWidgetState extends State<NotificationsScreenWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'notificationsScreen'});
+    animationsMap.addAll({
+      'imageOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -67,7 +94,7 @@ class _NotificationsScreenWidgetState extends State<NotificationsScreenWidget> {
                         fontFamily: 'The Seasons',
                         letterSpacing: 0.0,
                       ),
-                ),
+                ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation']!),
                 actions: [],
                 centerTitle: false,
                 elevation: 0.0,
@@ -473,7 +500,8 @@ class _NotificationsScreenWidgetState extends State<NotificationsScreenWidget> {
                                   height: 200.0,
                                   fit: BoxFit.cover,
                                 ),
-                              ),
+                              ).animateOnPageLoad(
+                                  animationsMap['imageOnPageLoadAnimation']!),
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(

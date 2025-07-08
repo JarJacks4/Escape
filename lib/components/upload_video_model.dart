@@ -1,16 +1,6 @@
-import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/upload_data.dart';
-import 'dart:ui';
-import 'package:tiktokfeed_wz8en7/app_state.dart'
-    as tiktokfeed_wz8en7_app_state;
 import 'upload_video_widget.dart' show UploadVideoWidget;
-import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 class UploadVideoModel extends FlutterFlowModel<UploadVideoWidget> {
   ///  State fields for stateful widgets in this component.

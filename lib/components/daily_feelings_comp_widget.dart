@@ -1,12 +1,11 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
-import 'dart:ui';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'daily_feelings_comp_model.dart';
 export 'daily_feelings_comp_model.dart';
 
@@ -18,8 +17,11 @@ class DailyFeelingsCompWidget extends StatefulWidget {
       _DailyFeelingsCompWidgetState();
 }
 
-class _DailyFeelingsCompWidgetState extends State<DailyFeelingsCompWidget> {
+class _DailyFeelingsCompWidgetState extends State<DailyFeelingsCompWidget>
+    with TickerProviderStateMixin {
   late DailyFeelingsCompModel _model;
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void setState(VoidCallback callback) {
@@ -34,6 +36,21 @@ class _DailyFeelingsCompWidgetState extends State<DailyFeelingsCompWidget> {
 
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
+
+    animationsMap.addAll({
+      'textOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -75,7 +92,7 @@ class _DailyFeelingsCompWidgetState extends State<DailyFeelingsCompWidget> {
                         color: FlutterFlowTheme.of(context).accent1,
                         letterSpacing: 0.0,
                       ),
-                ),
+                ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation']!),
                 Expanded(
                   child: TextFormField(
                     controller: _model.textController,

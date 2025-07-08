@@ -4,15 +4,10 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:math';
-import 'dart:ui';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'box_breathing_meditation_page_model.dart';
 export 'box_breathing_meditation_page_model.dart';
 
@@ -44,7 +39,19 @@ class _BoxBreathingMeditationPageWidgetState
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'BoxBreathingMeditationPage'});
     animationsMap.addAll({
-      'containerOnPageLoadAnimation': AnimationInfo(
+      'containerOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation2': AnimationInfo(
         loop: true,
         reverse: true,
         trigger: AnimationTrigger.onPageLoad,
@@ -96,7 +103,7 @@ class _BoxBreathingMeditationPageWidgetState
             ),
             Container(
               width: double.infinity,
-              height: 832.9,
+              height: 972.78,
               decoration: BoxDecoration(
                 color: Color(0xA31C2444),
               ),
@@ -110,69 +117,77 @@ class _BoxBreathingMeditationPageWidgetState
                     children: [
                       Stack(
                         children: [
-                          Column(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
-                                child: Text(
-                                  FFLocalizations.of(context).getText(
-                                    '3fqyj7p5' /* Box Breathing */,
-                                  ),
-                                  textAlign: TextAlign.center,
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'The Seasons',
-                                        color: FlutterFlowTheme.of(context)
-                                            .accent1,
-                                        fontSize: 22.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                ),
-                              ),
-                              Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
-                                child: Padding(
-                                  padding: EdgeInsets.all(8.0),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 40.0, 0.0, 0.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Align(
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
-                                      'gtn812zg' /* Breathe in slowly to a count o... */,
+                                      '3fqyj7p5' /* Box Breathing */,
                                     ),
                                     textAlign: TextAlign.center,
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'WorkSans',
+                                          fontFamily: 'The Seasons',
                                           color: FlutterFlowTheme.of(context)
-                                              .primary,
-                                          fontSize: 14.0,
+                                              .accent1,
+                                          fontSize: 22.0,
                                           letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w300,
-                                          lineHeight: 1.5,
+                                          fontWeight: FontWeight.bold,
                                         ),
                                   ),
                                 ),
-                              ),
-                            ].divide(SizedBox(height: 6.0)),
+                                Align(
+                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  child: Padding(
+                                    padding: EdgeInsets.all(15.0),
+                                    child: Text(
+                                      FFLocalizations.of(context).getText(
+                                        'gtn812zg' /* Breathe in slowly to a count o... */,
+                                      ),
+                                      textAlign: TextAlign.center,
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'WorkSans',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
+                                            fontSize: 14.0,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.w300,
+                                            lineHeight: 1.5,
+                                          ),
+                                    ),
+                                  ),
+                                ),
+                              ].divide(SizedBox(height: 6.0)),
+                            ),
                           ),
                           Align(
                             alignment: AlignmentDirectional(-1.0, 0.0),
-                            child: FlutterFlowIconButton(
-                              borderRadius: 8.0,
-                              buttonSize: 40.0,
-                              icon: Icon(
-                                Icons.arrow_back,
-                                color: FlutterFlowTheme.of(context).info,
-                                size: 24.0,
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 40.0, 0.0, 0.0),
+                              child: FlutterFlowIconButton(
+                                borderRadius: 8.0,
+                                buttonSize: 40.0,
+                                icon: Icon(
+                                  Icons.arrow_back,
+                                  color: FlutterFlowTheme.of(context).info,
+                                  size: 24.0,
+                                ),
+                                onPressed: () async {
+                                  logFirebaseEvent(
+                                      'BOX_BREATHING_MEDITATION_arrow_back_ICN_');
+                                  logFirebaseEvent('IconButton_navigate_back');
+                                  context.safePop();
+                                },
                               ),
-                              onPressed: () async {
-                                logFirebaseEvent(
-                                    'BOX_BREATHING_MEDITATION_arrow_back_ICN_');
-                                logFirebaseEvent('IconButton_navigate_back');
-                                context.safePop();
-                              },
                             ),
                           ),
                         ],
@@ -204,7 +219,7 @@ class _BoxBreathingMeditationPageWidgetState
                                         shape: BoxShape.circle,
                                       ),
                                     ).animateOnPageLoad(animationsMap[
-                                        'containerOnPageLoadAnimation']!),
+                                        'containerOnPageLoadAnimation2']!),
                                   ),
                                   Align(
                                     alignment: AlignmentDirectional(0.0, 0.0),
@@ -295,7 +310,8 @@ class _BoxBreathingMeditationPageWidgetState
                   ),
                 ),
               ),
-            ),
+            ).animateOnPageLoad(
+                animationsMap['containerOnPageLoadAnimation1']!),
           ],
         ),
       ),

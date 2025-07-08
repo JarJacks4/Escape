@@ -1,15 +1,13 @@
 import '/components/a_d_h_d_binaural_beats_widget.dart';
 import '/components/binaural_beats_anxiety_relief_widget.dart';
 import '/components/nature_sounds_page_comp_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import '/index.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'binaural_beats_choice_model.dart';
 export 'binaural_beats_choice_model.dart';
 
@@ -24,10 +22,13 @@ class BinauralBeatsChoiceWidget extends StatefulWidget {
       _BinauralBeatsChoiceWidgetState();
 }
 
-class _BinauralBeatsChoiceWidgetState extends State<BinauralBeatsChoiceWidget> {
+class _BinauralBeatsChoiceWidgetState extends State<BinauralBeatsChoiceWidget>
+    with TickerProviderStateMixin {
   late BinauralBeatsChoiceModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -36,6 +37,20 @@ class _BinauralBeatsChoiceWidgetState extends State<BinauralBeatsChoiceWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'BinauralBeatsChoice'});
+    animationsMap.addAll({
+      'carouselOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -190,7 +205,8 @@ class _BinauralBeatsChoiceWidgetState extends State<BinauralBeatsChoiceWidget> {
                                 _model.carouselCurrentIndex = index,
                           ),
                         ),
-                      ),
+                      ).animateOnPageLoad(
+                          animationsMap['carouselOnPageLoadAnimation']!),
                     ),
                   ]
                       .addToStart(SizedBox(height: 24.0))

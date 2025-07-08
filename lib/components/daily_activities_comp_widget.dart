@@ -1,10 +1,9 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'dart:ui';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'daily_activities_comp_model.dart';
 export 'daily_activities_comp_model.dart';
 
@@ -16,8 +15,11 @@ class DailyActivitiesCompWidget extends StatefulWidget {
       _DailyActivitiesCompWidgetState();
 }
 
-class _DailyActivitiesCompWidgetState extends State<DailyActivitiesCompWidget> {
+class _DailyActivitiesCompWidgetState extends State<DailyActivitiesCompWidget>
+    with TickerProviderStateMixin {
   late DailyActivitiesCompModel _model;
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void setState(VoidCallback callback) {
@@ -29,6 +31,57 @@ class _DailyActivitiesCompWidgetState extends State<DailyActivitiesCompWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => DailyActivitiesCompModel());
+
+    animationsMap.addAll({
+      'iconOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          RotateEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'iconOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          RotateEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'iconOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          RotateEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'iconOnPageLoadAnimation4': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          RotateEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -136,7 +189,8 @@ class _DailyActivitiesCompWidgetState extends State<DailyActivitiesCompWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .accent1,
                                         size: 24.0,
-                                      ),
+                                      ).animateOnPageLoad(animationsMap[
+                                          'iconOnPageLoadAnimation1']!),
                                     ),
                                     Column(
                                       mainAxisSize: MainAxisSize.max,
@@ -213,7 +267,8 @@ class _DailyActivitiesCompWidgetState extends State<DailyActivitiesCompWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .accent1,
                                         size: 24.0,
-                                      ),
+                                      ).animateOnPageLoad(animationsMap[
+                                          'iconOnPageLoadAnimation2']!),
                                     ),
                                     Column(
                                       mainAxisSize: MainAxisSize.max,
@@ -290,7 +345,8 @@ class _DailyActivitiesCompWidgetState extends State<DailyActivitiesCompWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .accent1,
                                         size: 24.0,
-                                      ),
+                                      ).animateOnPageLoad(animationsMap[
+                                          'iconOnPageLoadAnimation3']!),
                                     ),
                                     Column(
                                       mainAxisSize: MainAxisSize.max,
@@ -368,7 +424,8 @@ class _DailyActivitiesCompWidgetState extends State<DailyActivitiesCompWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .accent1,
                                         size: 24.0,
-                                      ),
+                                      ).animateOnPageLoad(animationsMap[
+                                          'iconOnPageLoadAnimation4']!),
                                     ),
                                     Column(
                                       mainAxisSize: MainAxisSize.max,

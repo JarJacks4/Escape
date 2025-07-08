@@ -1,23 +1,14 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
-import 'dart:math';
-import 'dart:ui';
-import "package:tiktokfeed_wz8en7/backend/schema/structs/index.dart"
-    as tiktokfeed_wz8en7_data_schema;
-import 'package:tiktokfeed_wz8en7/app_state.dart'
-    as tiktokfeed_wz8en7_app_state;
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'edit_profile_model.dart';
 export 'edit_profile_model.dart';
 
@@ -75,13 +66,19 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
           ),
         ],
       ),
+      'circleImageOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 2400.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
     });
-    setupAnimations(
-      animationsMap.values.where((anim) =>
-          anim.trigger == AnimationTrigger.onActionTrigger ||
-          !anim.applyInitialState),
-      this,
-    );
   }
 
   @override
@@ -166,51 +163,46 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Container(
-                              width: 100.0,
-                              height: 100.0,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context).accent1,
-                                shape: BoxShape.circle,
-                                border: Border.all(
-                                  color: FlutterFlowTheme.of(context).primary,
-                                  width: 2.0,
+                            Flexible(
+                              flex: 1,
+                              child: Container(
+                                width: 100.0,
+                                height: 100.0,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  border: Border.all(
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    width: 2.0,
+                                  ),
                                 ),
-                              ),
-                              child: Padding(
-                                padding: EdgeInsets.all(2.0),
-                                child: AuthUserStreamWidget(
-                                  builder: (context) => InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      logFirebaseEvent(
-                                          'EDIT_PROFILE_CircleImage_fxugtfo0_ON_TAP');
-                                      logFirebaseEvent(
-                                          'CircleImage_update_app_state');
-                                      FFAppState().ProfilePicture =
-                                          currentUserPhoto;
-                                      FFAppState().update(() {});
-                                    },
-                                    child: Container(
-                                      width: 90.0,
-                                      height: 90.0,
-                                      clipBehavior: Clip.antiAlias,
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
+                                child: Padding(
+                                  padding: EdgeInsets.all(2.0),
+                                  child: Container(
+                                    width: 90.0,
+                                    height: 90.0,
+                                    clipBehavior: Clip.antiAlias,
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: CachedNetworkImage(
+                                      fadeInDuration:
+                                          Duration(milliseconds: 500),
+                                      fadeOutDuration:
+                                          Duration(milliseconds: 500),
+                                      imageUrl: valueOrDefault<String>(
+                                        _model.profilePicture?.photoUrl,
+                                        'https://res.cloudinary.com/dbyduwpud/image/upload/v1751860346/AICircleLucilleChat_uo87av.gif',
                                       ),
-                                      child: CachedNetworkImage(
-                                        fadeInDuration:
-                                            Duration(milliseconds: 500),
-                                        fadeOutDuration:
-                                            Duration(milliseconds: 500),
-                                        imageUrl: currentUserPhoto,
+                                      fit: BoxFit.fitWidth,
+                                      errorWidget:
+                                          (context, error, stackTrace) =>
+                                              Image.asset(
+                                        'assets/images/error_image.jpg',
                                         fit: BoxFit.fitWidth,
                                       ),
                                     ),
-                                  ),
+                                  ).animateOnPageLoad(animationsMap[
+                                      'circleImageOnPageLoadAnimation']!),
                                 ),
                               ),
                             ),
@@ -219,7 +211,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                 logFirebaseEvent(
                                     'EDIT_PROFILE_CHANGE_PHOTO_BTN_ON_TAP');
                                 logFirebaseEvent(
-                                    'Button_store_media_for_upload');
+                                    'Button_upload_media_to_firebase');
                                 final selectedMedia =
                                     await selectMediaWithSourceBottomSheet(
                                   context: context,
@@ -236,6 +228,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                   var selectedUploadedFiles =
                                       <FFUploadedFile>[];
 
+                                  var downloadUrls = <String>[];
                                   try {
                                     selectedUploadedFiles = selectedMedia
                                         .map((m) => FFUploadedFile(
@@ -247,15 +240,29 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                               blurHash: m.blurHash,
                                             ))
                                         .toList();
+
+                                    downloadUrls = (await Future.wait(
+                                      selectedMedia.map(
+                                        (m) async => await uploadData(
+                                            m.storagePath, m.bytes),
+                                      ),
+                                    ))
+                                        .where((u) => u != null)
+                                        .map((u) => u!)
+                                        .toList();
                                   } finally {
                                     _model.isDataUploading_uploadDataPch =
                                         false;
                                   }
                                   if (selectedUploadedFiles.length ==
-                                      selectedMedia.length) {
+                                          selectedMedia.length &&
+                                      downloadUrls.length ==
+                                          selectedMedia.length) {
                                     safeSetState(() {
                                       _model.uploadedLocalFile_uploadDataPch =
                                           selectedUploadedFiles.first;
+                                      _model.uploadedFileUrl_uploadDataPch =
+                                          downloadUrls.first;
                                     });
                                   } else {
                                     safeSetState(() {});
@@ -264,7 +271,11 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                 }
 
                                 logFirebaseEvent('Button_update_app_state');
-                                FFAppState().ProfilePicture = currentUserPhoto;
+                                FFAppState().ProfilePicture =
+                                    valueOrDefault<String>(
+                                  _model.profilePicture?.photoUrl,
+                                  'https://res.cloudinary.com/dbyduwpud/image/upload/v1751860346/AICircleLucilleChat_uo87av.gif',
+                                );
                                 FFAppState().update(() {});
                               },
                               text: FFLocalizations.of(context).getText(
@@ -276,15 +287,15 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                     24.0, 0.0, 24.0, 0.0),
                                 iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
-                                color: FlutterFlowTheme.of(context)
-                                    .primaryBackground,
+                                color: FlutterFlowTheme.of(context).tertiary,
                                 textStyle: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'WorkSans',
+                                      color:
+                                          FlutterFlowTheme.of(context).accent1,
                                       letterSpacing: 0.0,
                                     ),
-                                elevation: 0.0,
                                 borderSide: BorderSide(
                                   color: FlutterFlowTheme.of(context).alternate,
                                   width: 2.0,
@@ -728,7 +739,8 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'WorkSans',
-                                          color: Colors.white,
+                                          color: FlutterFlowTheme.of(context)
+                                              .alternate,
                                           letterSpacing: 0.0,
                                         ),
                                   ),

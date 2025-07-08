@@ -2,13 +2,7 @@ import 'package:flutter/material.dart';
 import '/backend/backend.dart';
 import "package:tiktokfeed_wz8en7/backend/schema/structs/index.dart"
     as tiktokfeed_wz8en7_data_schema;
-import '/backend/schema/structs/index.dart';
-import "package:tiktokfeed_wz8en7/backend/schema/structs/index.dart"
-    as tiktokfeed_wz8en7_data_schema;
-import 'package:ff_commons/api_requests/api_manager.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'flutter_flow/flutter_flow_util.dart';
-import 'dart:convert';
 
 class FFAppState extends ChangeNotifier {
   static FFAppState _instance = FFAppState._internal();
@@ -28,12 +22,6 @@ class FFAppState extends ChangeNotifier {
   void update(VoidCallback callback) {
     callback();
     notifyListeners();
-  }
-
-  String _ProfilePicture = '';
-  String get ProfilePicture => _ProfilePicture;
-  set ProfilePicture(String value) {
-    _ProfilePicture = value;
   }
 
   List<LatLng> _TherapistLocation = [];
@@ -139,12 +127,6 @@ class FFAppState extends ChangeNotifier {
 
   void insertAtIndexInInterests(int index, String value) {
     interests.insert(index, value);
-  }
-
-  DocumentReference? _userProfile;
-  DocumentReference? get userProfile => _userProfile;
-  set userProfile(DocumentReference? value) {
-    _userProfile = value;
   }
 
   String _systemMessage =
@@ -486,5 +468,23 @@ class FFAppState extends ChangeNotifier {
   DocumentReference? get numberOfGoalsCompleted => _numberOfGoalsCompleted;
   set numberOfGoalsCompleted(DocumentReference? value) {
     _numberOfGoalsCompleted = value;
+  }
+
+  UserProfileStruct _UserProfile = UserProfileStruct.fromSerializableMap(jsonDecode(
+      '{\"username\":\"/Users/display_name\",\"ProfilePicture\":\"/Users/photo_url\"}'));
+  UserProfileStruct get UserProfile => _UserProfile;
+  set UserProfile(UserProfileStruct value) {
+    _UserProfile = value;
+  }
+
+  void updateUserProfileStruct(Function(UserProfileStruct) updateFn) {
+    updateFn(_UserProfile);
+  }
+
+  String _ProfilePicture =
+      'https://res.cloudinary.com/dbyduwpud/image/upload/v1751860346/AICircleLucilleChat_uo87av.gif';
+  String get ProfilePicture => _ProfilePicture;
+  set ProfilePicture(String value) {
+    _ProfilePicture = value;
   }
 }

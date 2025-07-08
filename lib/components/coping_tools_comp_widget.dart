@@ -1,9 +1,8 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'dart:ui';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'coping_tools_comp_model.dart';
 export 'coping_tools_comp_model.dart';
 
@@ -14,8 +13,11 @@ class CopingToolsCompWidget extends StatefulWidget {
   State<CopingToolsCompWidget> createState() => _CopingToolsCompWidgetState();
 }
 
-class _CopingToolsCompWidgetState extends State<CopingToolsCompWidget> {
+class _CopingToolsCompWidgetState extends State<CopingToolsCompWidget>
+    with TickerProviderStateMixin {
   late CopingToolsCompModel _model;
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void setState(VoidCallback callback) {
@@ -27,6 +29,33 @@ class _CopingToolsCompWidgetState extends State<CopingToolsCompWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => CopingToolsCompModel());
+
+    animationsMap.addAll({
+      'iconOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'iconOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -116,7 +145,8 @@ class _CopingToolsCompWidgetState extends State<CopingToolsCompWidget> {
                                 Icons.self_improvement,
                                 color: FlutterFlowTheme.of(context).tertiary,
                                 size: 32.0,
-                              ),
+                              ).animateOnPageLoad(
+                                  animationsMap['iconOnPageLoadAnimation1']!),
                             ),
                             Text(
                               FFLocalizations.of(context).getText(
@@ -178,7 +208,8 @@ class _CopingToolsCompWidgetState extends State<CopingToolsCompWidget> {
                                 Icons.directions_walk,
                                 color: FlutterFlowTheme.of(context).primary,
                                 size: 32.0,
-                              ),
+                              ).animateOnPageLoad(
+                                  animationsMap['iconOnPageLoadAnimation2']!),
                             ),
                             Text(
                               FFLocalizations.of(context).getText(

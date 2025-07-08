@@ -1,10 +1,9 @@
 import '/components/mood_analyzer_success_comp_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'mood_analyzer_success_model.dart';
 export 'mood_analyzer_success_model.dart';
 
@@ -19,10 +18,13 @@ class MoodAnalyzerSuccessWidget extends StatefulWidget {
       _MoodAnalyzerSuccessWidgetState();
 }
 
-class _MoodAnalyzerSuccessWidgetState extends State<MoodAnalyzerSuccessWidget> {
+class _MoodAnalyzerSuccessWidgetState extends State<MoodAnalyzerSuccessWidget>
+    with TickerProviderStateMixin {
   late MoodAnalyzerSuccessModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -31,6 +33,20 @@ class _MoodAnalyzerSuccessWidgetState extends State<MoodAnalyzerSuccessWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'MoodAnalyzerSuccess'});
+    animationsMap.addAll({
+      'moodAnalyzerSuccessCompOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -53,8 +69,17 @@ class _MoodAnalyzerSuccessWidgetState extends State<MoodAnalyzerSuccessWidget> {
         body: wrapWithModel(
           model: _model.moodAnalyzerSuccessCompModel,
           updateCallback: () => safeSetState(() {}),
-          child: MoodAnalyzerSuccessCompWidget(),
-        ),
+          updateOnChange: true,
+          child: Hero(
+            tag: 'MoodAnalyzerAnimation',
+            transitionOnUserGestures: true,
+            child: Material(
+              color: Colors.transparent,
+              child: MoodAnalyzerSuccessCompWidget(),
+            ),
+          ),
+        ).animateOnPageLoad(
+            animationsMap['moodAnalyzerSuccessCompOnPageLoadAnimation']!),
       ),
     );
   }

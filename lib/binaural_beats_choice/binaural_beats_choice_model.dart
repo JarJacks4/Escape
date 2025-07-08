@@ -2,15 +2,10 @@ import '/components/a_d_h_d_binaural_beats_widget.dart';
 import '/components/binaural_beats_anxiety_relief_widget.dart';
 import '/components/nature_sounds_page_comp_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import '/index.dart';
 import 'binaural_beats_choice_widget.dart' show BinauralBeatsChoiceWidget;
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 
 class BinauralBeatsChoiceModel
     extends FlutterFlowModel<BinauralBeatsChoiceWidget> {

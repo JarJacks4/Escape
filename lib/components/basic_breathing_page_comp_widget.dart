@@ -1,12 +1,11 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:lottie/lottie.dart';
-import 'package:provider/provider.dart';
 import 'basic_breathing_page_comp_model.dart';
 export 'basic_breathing_page_comp_model.dart';
 
@@ -19,8 +18,10 @@ class BasicBreathingPageCompWidget extends StatefulWidget {
 }
 
 class _BasicBreathingPageCompWidgetState
-    extends State<BasicBreathingPageCompWidget> {
+    extends State<BasicBreathingPageCompWidget> with TickerProviderStateMixin {
   late BasicBreathingPageCompModel _model;
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void setState(VoidCallback callback) {
@@ -32,6 +33,69 @@ class _BasicBreathingPageCompWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => BasicBreathingPageCompModel());
+
+    animationsMap.addAll({
+      'imageOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'lottieAnimationOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 2400.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -56,7 +120,7 @@ class _BasicBreathingPageCompWidgetState
               fit: BoxFit.cover,
               alignment: Alignment(0.0, 0.0),
             ),
-          ),
+          ).animateOnPageLoad(animationsMap['imageOnPageLoadAnimation']!),
         ),
         Align(
           alignment: AlignmentDirectional(0.0, 1.0),
@@ -144,7 +208,8 @@ class _BasicBreathingPageCompWidgetState
                             height: 347.47,
                             fit: BoxFit.contain,
                             animate: true,
-                          ),
+                          ).animateOnPageLoad(animationsMap[
+                              'lottieAnimationOnPageLoadAnimation']!),
                         ),
                       ),
                       Padding(
@@ -161,7 +226,8 @@ class _BasicBreathingPageCompWidgetState
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
                                   ),
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['textOnPageLoadAnimation1']!),
                       ),
                       Padding(
                         padding: EdgeInsets.all(15.0),
@@ -180,7 +246,8 @@ class _BasicBreathingPageCompWidgetState
                                 fontWeight: FontWeight.w300,
                                 lineHeight: 1.5,
                               ),
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['textOnPageLoadAnimation2']!),
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
@@ -226,7 +293,8 @@ class _BasicBreathingPageCompWidgetState
                             elevation: 3.0,
                             borderRadius: BorderRadius.circular(30.0),
                           ),
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['buttonOnPageLoadAnimation']!),
                       ),
                     ].divide(SizedBox(height: 6.0)),
                   ),

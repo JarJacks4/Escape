@@ -1,12 +1,11 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'dart:ui';
 import '/index.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'side_nav_model.dart';
 export 'side_nav_model.dart';
 
@@ -17,8 +16,11 @@ class SideNavWidget extends StatefulWidget {
   State<SideNavWidget> createState() => _SideNavWidgetState();
 }
 
-class _SideNavWidgetState extends State<SideNavWidget> {
+class _SideNavWidgetState extends State<SideNavWidget>
+    with TickerProviderStateMixin {
   late SideNavModel _model;
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void setState(VoidCallback callback) {
@@ -30,6 +32,88 @@ class _SideNavWidgetState extends State<SideNavWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => SideNavModel());
+
+    animationsMap.addAll({
+      'imageOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 3600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+          ShimmerEffect(
+            curve: Curves.easeInOut,
+            delay: 3600.0.ms,
+            duration: 600.0.ms,
+            color: Color(0x80FFFFFF),
+            angle: 0.524,
+          ),
+        ],
+      ),
+      'rowOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'rowOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'rowOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'rowOnPageLoadAnimation4': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'rowOnPageLoadAnimation5': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -89,7 +173,8 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                             height: 237.0,
                             fit: BoxFit.cover,
                           ),
-                        ),
+                        ).animateOnPageLoad(
+                            animationsMap['imageOnPageLoadAnimation']!),
                       ],
                     ),
                   ),
@@ -148,7 +233,7 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                               ),
                               Icon(
                                 Icons.home_rounded,
-                                color: FlutterFlowTheme.of(context).info,
+                                color: FlutterFlowTheme.of(context).accent1,
                                 size: 28.0,
                               ),
                               Padding(
@@ -162,14 +247,15 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                                       .titleSmall
                                       .override(
                                         fontFamily: 'WorkSans',
-                                        color:
-                                            FlutterFlowTheme.of(context).info,
+                                        color: FlutterFlowTheme.of(context)
+                                            .accent1,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
                             ],
-                          ),
+                          ).animateOnPageLoad(
+                              animationsMap['rowOnPageLoadAnimation1']!),
                         ),
                       ),
                     ),
@@ -246,7 +332,8 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                                 ),
                               ),
                             ],
-                          ),
+                          ).animateOnPageLoad(
+                              animationsMap['rowOnPageLoadAnimation2']!),
                         ),
                       ),
                     ),
@@ -323,7 +410,8 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                                 ),
                               ),
                             ],
-                          ),
+                          ).animateOnPageLoad(
+                              animationsMap['rowOnPageLoadAnimation3']!),
                         ),
                       ),
                     ),
@@ -400,7 +488,8 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                                 ),
                               ),
                             ],
-                          ),
+                          ).animateOnPageLoad(
+                              animationsMap['rowOnPageLoadAnimation4']!),
                         ),
                       ),
                     ),
@@ -474,7 +563,8 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                                 ),
                               ),
                             ],
-                          ),
+                          ).animateOnPageLoad(
+                              animationsMap['rowOnPageLoadAnimation5']!),
                         ),
                       ),
                     ),
@@ -516,18 +606,22 @@ class _SideNavWidgetState extends State<SideNavWidget> {
                                     child: Padding(
                                       padding: EdgeInsets.all(2.0),
                                       child: AuthUserStreamWidget(
-                                        builder: (context) => ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                          child: CachedNetworkImage(
-                                            fadeInDuration:
-                                                Duration(milliseconds: 500),
-                                            fadeOutDuration:
-                                                Duration(milliseconds: 500),
-                                            imageUrl: currentUserPhoto,
-                                            width: 44.0,
-                                            height: 44.0,
-                                            fit: BoxFit.cover,
+                                        builder: (context) => Hero(
+                                          tag: currentUserPhoto,
+                                          transitionOnUserGestures: true,
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            child: CachedNetworkImage(
+                                              fadeInDuration:
+                                                  Duration(milliseconds: 500),
+                                              fadeOutDuration:
+                                                  Duration(milliseconds: 500),
+                                              imageUrl: currentUserPhoto,
+                                              width: 44.0,
+                                              height: 44.0,
+                                              fit: BoxFit.cover,
+                                            ),
                                           ),
                                         ),
                                       ),

@@ -3,10 +3,7 @@ import 'dart:async';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
-import '/backend/schema/util/schema_util.dart';
 
-import "package:tiktokfeed_wz8en7/backend/schema/structs/index.dart"
-    as tiktokfeed_wz8en7_data_schema;
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -38,11 +35,6 @@ class UsersRecord extends FirestoreRecord {
   DateTime? _createdTime;
   DateTime? get createdTime => _createdTime;
   bool hasCreatedTime() => _createdTime != null;
-
-  // "UserName" field.
-  String? _userName;
-  String get userName => _userName ?? '';
-  bool hasUserName() => _userName != null;
 
   // "Role" field.
   String? _role;
@@ -134,12 +126,42 @@ class UsersRecord extends FirestoreRecord {
   int get numberOfGoalsCompleted => _numberOfGoalsCompleted ?? 0;
   bool hasNumberOfGoalsCompleted() => _numberOfGoalsCompleted != null;
 
+  // "ChatProfileUsername" field.
+  UserProfileStruct? _chatProfileUsername;
+  UserProfileStruct get chatProfileUsername =>
+      _chatProfileUsername ?? UserProfileStruct();
+  bool hasChatProfileUsername() => _chatProfileUsername != null;
+
+  // "ChatProfilePicture" field.
+  DocumentReference? _chatProfilePicture;
+  DocumentReference? get chatProfilePicture => _chatProfilePicture;
+  bool hasChatProfilePicture() => _chatProfilePicture != null;
+
+  // "CurrentMood" field.
+  String? _currentMood;
+  String get currentMood => _currentMood ?? '';
+  bool hasCurrentMood() => _currentMood != null;
+
+  // "CurrentMoodPhoto" field.
+  String? _currentMoodPhoto;
+  String get currentMoodPhoto => _currentMoodPhoto ?? '';
+  bool hasCurrentMoodPhoto() => _currentMoodPhoto != null;
+
+  // "Notifications" field.
+  String? _notifications;
+  String get notifications => _notifications ?? '';
+  bool hasNotifications() => _notifications != null;
+
+  // "timeStamp" field.
+  DateTime? _timeStamp;
+  DateTime? get timeStamp => _timeStamp;
+  bool hasTimeStamp() => _timeStamp != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _photoUrl = snapshotData['photo_url'] as String?;
     _uid = snapshotData['uid'] as String?;
     _createdTime = snapshotData['created_time'] as DateTime?;
-    _userName = snapshotData['UserName'] as String?;
     _role = snapshotData['Role'] as String?;
     _displayName = snapshotData['display_name'] as String?;
     _phoneNumber = snapshotData['phone_number'] as String?;
@@ -160,6 +182,16 @@ class UsersRecord extends FirestoreRecord {
     _hasGainedPoints = snapshotData['hasGainedPoints'] as bool?;
     _numberOfGoalsCompleted =
         castToType<int>(snapshotData['numberOfGoalsCompleted']);
+    _chatProfileUsername = snapshotData['ChatProfileUsername']
+            is UserProfileStruct
+        ? snapshotData['ChatProfileUsername']
+        : UserProfileStruct.maybeFromMap(snapshotData['ChatProfileUsername']);
+    _chatProfilePicture =
+        snapshotData['ChatProfilePicture'] as DocumentReference?;
+    _currentMood = snapshotData['CurrentMood'] as String?;
+    _currentMoodPhoto = snapshotData['CurrentMoodPhoto'] as String?;
+    _notifications = snapshotData['Notifications'] as String?;
+    _timeStamp = snapshotData['timeStamp'] as DateTime?;
   }
 
   static CollectionReference get collection =>
@@ -200,7 +232,6 @@ Map<String, dynamic> createUsersRecordData({
   String? photoUrl,
   String? uid,
   DateTime? createdTime,
-  String? userName,
   String? role,
   String? displayName,
   String? phoneNumber,
@@ -219,6 +250,12 @@ Map<String, dynamic> createUsersRecordData({
   bool? hasSeenWalkthrough,
   bool? hasGainedPoints,
   int? numberOfGoalsCompleted,
+  UserProfileStruct? chatProfileUsername,
+  DocumentReference? chatProfilePicture,
+  String? currentMood,
+  String? currentMoodPhoto,
+  String? notifications,
+  DateTime? timeStamp,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -226,7 +263,6 @@ Map<String, dynamic> createUsersRecordData({
       'photo_url': photoUrl,
       'uid': uid,
       'created_time': createdTime,
-      'UserName': userName,
       'Role': role,
       'display_name': displayName,
       'phone_number': phoneNumber,
@@ -245,8 +281,18 @@ Map<String, dynamic> createUsersRecordData({
       'hasSeenWalkthrough': hasSeenWalkthrough,
       'hasGainedPoints': hasGainedPoints,
       'numberOfGoalsCompleted': numberOfGoalsCompleted,
+      'ChatProfileUsername': UserProfileStruct().toMap(),
+      'ChatProfilePicture': chatProfilePicture,
+      'CurrentMood': currentMood,
+      'CurrentMoodPhoto': currentMoodPhoto,
+      'Notifications': notifications,
+      'timeStamp': timeStamp,
     }.withoutNulls,
   );
+
+  // Handle nested data for "ChatProfileUsername" field.
+  addUserProfileStructData(
+      firestoreData, chatProfileUsername, 'ChatProfileUsername');
 
   return firestoreData;
 }
@@ -260,7 +306,6 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.photoUrl == e2?.photoUrl &&
         e1?.uid == e2?.uid &&
         e1?.createdTime == e2?.createdTime &&
-        e1?.userName == e2?.userName &&
         e1?.role == e2?.role &&
         e1?.displayName == e2?.displayName &&
         e1?.phoneNumber == e2?.phoneNumber &&
@@ -278,7 +323,13 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.location == e2?.location &&
         e1?.hasSeenWalkthrough == e2?.hasSeenWalkthrough &&
         e1?.hasGainedPoints == e2?.hasGainedPoints &&
-        e1?.numberOfGoalsCompleted == e2?.numberOfGoalsCompleted;
+        e1?.numberOfGoalsCompleted == e2?.numberOfGoalsCompleted &&
+        e1?.chatProfileUsername == e2?.chatProfileUsername &&
+        e1?.chatProfilePicture == e2?.chatProfilePicture &&
+        e1?.currentMood == e2?.currentMood &&
+        e1?.currentMoodPhoto == e2?.currentMoodPhoto &&
+        e1?.notifications == e2?.notifications &&
+        e1?.timeStamp == e2?.timeStamp;
   }
 
   @override
@@ -287,7 +338,6 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.photoUrl,
         e?.uid,
         e?.createdTime,
-        e?.userName,
         e?.role,
         e?.displayName,
         e?.phoneNumber,
@@ -305,7 +355,13 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.location,
         e?.hasSeenWalkthrough,
         e?.hasGainedPoints,
-        e?.numberOfGoalsCompleted
+        e?.numberOfGoalsCompleted,
+        e?.chatProfileUsername,
+        e?.chatProfilePicture,
+        e?.currentMood,
+        e?.currentMoodPhoto,
+        e?.notifications,
+        e?.timeStamp
       ]);
 
   @override

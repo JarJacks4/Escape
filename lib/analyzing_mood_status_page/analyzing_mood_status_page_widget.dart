@@ -1,11 +1,9 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:ui';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'analyzing_mood_status_page_model.dart';
 export 'analyzing_mood_status_page_model.dart';
 
@@ -21,10 +19,12 @@ class AnalyzingMoodStatusPageWidget extends StatefulWidget {
 }
 
 class _AnalyzingMoodStatusPageWidgetState
-    extends State<AnalyzingMoodStatusPageWidget> {
+    extends State<AnalyzingMoodStatusPageWidget> with TickerProviderStateMixin {
   late AnalyzingMoodStatusPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -38,6 +38,45 @@ class _AnalyzingMoodStatusPageWidgetState
       logFirebaseEvent('ANALYZING_MOOD_STATUS_AnalyzingMoodStatu');
       logFirebaseEvent('AnalyzingMoodStatusPage_wait__delay');
       await Future.delayed(const Duration(milliseconds: 1000));
+    });
+
+    animationsMap.addAll({
+      'imageOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'imageOnPageLoadAnimation2': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 3600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
     });
   }
 
@@ -76,7 +115,8 @@ class _AnalyzingMoodStatusPageWidgetState
                     height: 683.2,
                     fit: BoxFit.cover,
                   ),
-                ),
+                ).animateOnPageLoad(
+                    animationsMap['imageOnPageLoadAnimation1']!),
               ),
             ),
             Flexible(
@@ -97,7 +137,8 @@ class _AnalyzingMoodStatusPageWidgetState
                             fontSize: 28.0,
                             letterSpacing: 0.0,
                           ),
-                    ),
+                    ).animateOnPageLoad(
+                        animationsMap['textOnPageLoadAnimation']!),
                   ],
                 ),
               ),
@@ -112,7 +153,7 @@ class _AnalyzingMoodStatusPageWidgetState
                   height: 95.4,
                   fit: BoxFit.contain,
                 ),
-              ),
+              ).animateOnPageLoad(animationsMap['imageOnPageLoadAnimation2']!),
             ),
           ],
         ),

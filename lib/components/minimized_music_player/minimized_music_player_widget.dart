@@ -1,9 +1,9 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_audio_player.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'minimized_music_player_model.dart';
 export 'minimized_music_player_model.dart';
 
@@ -15,9 +15,11 @@ class MinimizedMusicPlayerWidget extends StatefulWidget {
       _MinimizedMusicPlayerWidgetState();
 }
 
-class _MinimizedMusicPlayerWidgetState
-    extends State<MinimizedMusicPlayerWidget> {
+class _MinimizedMusicPlayerWidgetState extends State<MinimizedMusicPlayerWidget>
+    with TickerProviderStateMixin {
   late MinimizedMusicPlayerModel _model;
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void setState(VoidCallback callback) {
@@ -29,6 +31,21 @@ class _MinimizedMusicPlayerWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => MinimizedMusicPlayerModel());
+
+    animationsMap.addAll({
+      'audioPlayerOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -80,7 +97,7 @@ class _MinimizedMusicPlayerWidgetState
             elevation: 8.0,
             pauseOnNavigate: false,
             playInBackground: PlayInBackground.enabled,
-          ),
+          ).animateOnPageLoad(animationsMap['audioPlayerOnPageLoadAnimation']!),
         ),
       ),
     );
