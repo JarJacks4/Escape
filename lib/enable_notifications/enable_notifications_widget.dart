@@ -356,7 +356,7 @@ personalized n... */
                                       logFirebaseEvent('Button_navigate_to');
 
                                       context.pushNamed(
-                                        FacialMoodAnalyzerChoiceWidget
+                                        FacialMoodAnalyzerChoiceLoginWidget
                                             .routeName,
                                         extra: <String, dynamic>{
                                           kTransitionInfoKey: TransitionInfo(

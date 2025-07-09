@@ -36,11 +36,17 @@ class UserMoodsRecord extends FirestoreRecord {
   DateTime? get timestamp => _timestamp;
   bool hasTimestamp() => _timestamp != null;
 
+  // "moodHistory" field.
+  List<String>? _moodHistory;
+  List<String> get moodHistory => _moodHistory ?? const [];
+  bool hasMoodHistory() => _moodHistory != null;
+
   void _initializeFields() {
     _userId = snapshotData['user_id'] as String?;
     _currentMood = snapshotData['CurrentMood'] as String?;
     _currentMoodPhoto = snapshotData['CurrentMoodPhoto'] as String?;
     _timestamp = snapshotData['timestamp'] as DateTime?;
+    _moodHistory = getDataList(snapshotData['moodHistory']);
   }
 
   static CollectionReference get collection =>
@@ -100,15 +106,22 @@ class UserMoodsRecordDocumentEquality implements Equality<UserMoodsRecord> {
 
   @override
   bool equals(UserMoodsRecord? e1, UserMoodsRecord? e2) {
+    const listEquality = ListEquality();
     return e1?.userId == e2?.userId &&
         e1?.currentMood == e2?.currentMood &&
         e1?.currentMoodPhoto == e2?.currentMoodPhoto &&
-        e1?.timestamp == e2?.timestamp;
+        e1?.timestamp == e2?.timestamp &&
+        listEquality.equals(e1?.moodHistory, e2?.moodHistory);
   }
 
   @override
-  int hash(UserMoodsRecord? e) => const ListEquality()
-      .hash([e?.userId, e?.currentMood, e?.currentMoodPhoto, e?.timestamp]);
+  int hash(UserMoodsRecord? e) => const ListEquality().hash([
+        e?.userId,
+        e?.currentMood,
+        e?.currentMoodPhoto,
+        e?.timestamp,
+        e?.moodHistory
+      ]);
 
   @override
   bool isValidKey(Object? o) => o is UserMoodsRecord;

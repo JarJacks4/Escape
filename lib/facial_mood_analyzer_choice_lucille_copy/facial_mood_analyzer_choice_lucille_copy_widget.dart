@@ -7,24 +7,24 @@ import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:lottie/lottie.dart';
-import 'facial_mood_analyzer_choice_model.dart';
-export 'facial_mood_analyzer_choice_model.dart';
+import 'facial_mood_analyzer_choice_lucille_copy_model.dart';
+export 'facial_mood_analyzer_choice_lucille_copy_model.dart';
 
-class FacialMoodAnalyzerChoiceWidget extends StatefulWidget {
-  const FacialMoodAnalyzerChoiceWidget({super.key});
+class FacialMoodAnalyzerChoiceLucilleCopyWidget extends StatefulWidget {
+  const FacialMoodAnalyzerChoiceLucilleCopyWidget({super.key});
 
-  static String routeName = 'FacialMoodAnalyzerChoice';
-  static String routePath = 'facialMoodAnalyzerChoice';
+  static String routeName = 'FacialMoodAnalyzerChoiceLucilleCopy';
+  static String routePath = 'facialMoodAnalyzerChoiceLucilleCopy';
 
   @override
-  State<FacialMoodAnalyzerChoiceWidget> createState() =>
-      _FacialMoodAnalyzerChoiceWidgetState();
+  State<FacialMoodAnalyzerChoiceLucilleCopyWidget> createState() =>
+      _FacialMoodAnalyzerChoiceLucilleCopyWidgetState();
 }
 
-class _FacialMoodAnalyzerChoiceWidgetState
-    extends State<FacialMoodAnalyzerChoiceWidget>
+class _FacialMoodAnalyzerChoiceLucilleCopyWidgetState
+    extends State<FacialMoodAnalyzerChoiceLucilleCopyWidget>
     with TickerProviderStateMixin {
-  late FacialMoodAnalyzerChoiceModel _model;
+  late FacialMoodAnalyzerChoiceLucilleCopyModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -33,10 +33,11 @@ class _FacialMoodAnalyzerChoiceWidgetState
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => FacialMoodAnalyzerChoiceModel());
+    _model =
+        createModel(context, () => FacialMoodAnalyzerChoiceLucilleCopyModel());
 
     logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'FacialMoodAnalyzerChoice'});
+        parameters: {'screen_name': 'FacialMoodAnalyzerChoiceLucilleCopy'});
     animationsMap.addAll({
       'textOnPageLoadAnimation1': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
@@ -209,7 +210,7 @@ class _FacialMoodAnalyzerChoiceWidgetState
                                 0.0, 8.0, 0.0, 0.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
-                                'wlag196m' /* Daily Mood Scan */,
+                                'xfalks6a' /* Daily Mood Scan */,
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
@@ -228,7 +229,7 @@ class _FacialMoodAnalyzerChoiceWidgetState
                               padding: EdgeInsets.all(15.0),
                               child: Text(
                                 FFLocalizations.of(context).getText(
-                                  '9r3t2uk9' /* Tap the Scan Mood Button below... */,
+                                  'o18hzro1' /* Tap the Continue Button below ... */,
                                 ),
                                 textAlign: TextAlign.center,
                                 style: FlutterFlowTheme.of(context)
@@ -265,24 +266,13 @@ class _FacialMoodAnalyzerChoiceWidgetState
                                     child: FFButtonWidget(
                                       onPressed: () async {
                                         logFirebaseEvent(
-                                            'FACIAL_MOOD_ANALYZER_CHOICE_GO_HOME_BTN_');
-                                        logFirebaseEvent('Button_navigate_to');
-
-                                        context.pushNamed(
-                                          HomeVersion4Widget.routeName,
-                                          extra: <String, dynamic>{
-                                            kTransitionInfoKey: TransitionInfo(
-                                              hasTransition: true,
-                                              transitionType: PageTransitionType
-                                                  .rightToLeft,
-                                              duration:
-                                                  Duration(milliseconds: 1),
-                                            ),
-                                          },
-                                        );
+                                            'FACIAL_MOOD_ANALYZER_CHOICE_LUCILLE_COPY');
+                                        logFirebaseEvent(
+                                            'Button_navigate_back');
+                                        context.safePop();
                                       },
                                       text: FFLocalizations.of(context).getText(
-                                        '8g9f8voi' /* Go Home */,
+                                        'desap5kz' /* Go Home */,
                                       ),
                                       options: FFButtonOptions(
                                         width:
@@ -319,7 +309,7 @@ class _FacialMoodAnalyzerChoiceWidgetState
                                     child: FFButtonWidget(
                                       onPressed: () async {
                                         logFirebaseEvent(
-                                            'FACIAL_MOOD_ANALYZER_CHOICE_SCAN_MOOD_BT');
+                                            'FACIAL_MOOD_ANALYZER_CHOICE_LUCILLE_COPY');
                                         logFirebaseEvent('Button_navigate_to');
 
                                         context.pushNamed(
@@ -337,7 +327,7 @@ class _FacialMoodAnalyzerChoiceWidgetState
                                         );
                                       },
                                       text: FFLocalizations.of(context).getText(
-                                        'gq8nilf4' /* Scan Mood */,
+                                        'geh9rcii' /* Continue */,
                                       ),
                                       options: FFButtonOptions(
                                         height: 40.0,
@@ -391,7 +381,7 @@ class _FacialMoodAnalyzerChoiceWidgetState
             ),
             Lottie.asset(
               'assets/jsons/Animation_-_1749422191934.json',
-              width: 419.46,
+              width: 419.5,
               height: 467.2,
               fit: BoxFit.contain,
               animate: true,

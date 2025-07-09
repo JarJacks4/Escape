@@ -57,7 +57,7 @@ class _CommunityHomeFINALWidgetState extends State<CommunityHomeFINALWidget>
       logFirebaseEvent('CommunityHomeFINAL_custom_action');
       _model.meditationReOrder = await actions.reorderItems(
         tiktokfeed_wz8en7_app_state.FFAppState()
-            .meditationTikToks
+            .ListTikTokPages
             .map((e) => e.urlvideo)
             .toList()
             .toList(),

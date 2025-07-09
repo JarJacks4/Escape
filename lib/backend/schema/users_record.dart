@@ -157,6 +157,11 @@ class UsersRecord extends FirestoreRecord {
   DateTime? get timeStamp => _timeStamp;
   bool hasTimeStamp() => _timeStamp != null;
 
+  // "moodHistory" field.
+  DocumentReference? _moodHistory;
+  DocumentReference? get moodHistory => _moodHistory;
+  bool hasMoodHistory() => _moodHistory != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _photoUrl = snapshotData['photo_url'] as String?;
@@ -192,6 +197,7 @@ class UsersRecord extends FirestoreRecord {
     _currentMoodPhoto = snapshotData['CurrentMoodPhoto'] as String?;
     _notifications = snapshotData['Notifications'] as String?;
     _timeStamp = snapshotData['timeStamp'] as DateTime?;
+    _moodHistory = snapshotData['moodHistory'] as DocumentReference?;
   }
 
   static CollectionReference get collection =>
@@ -256,6 +262,7 @@ Map<String, dynamic> createUsersRecordData({
   String? currentMoodPhoto,
   String? notifications,
   DateTime? timeStamp,
+  DocumentReference? moodHistory,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -287,6 +294,7 @@ Map<String, dynamic> createUsersRecordData({
       'CurrentMoodPhoto': currentMoodPhoto,
       'Notifications': notifications,
       'timeStamp': timeStamp,
+      'moodHistory': moodHistory,
     }.withoutNulls,
   );
 
@@ -329,7 +337,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.currentMood == e2?.currentMood &&
         e1?.currentMoodPhoto == e2?.currentMoodPhoto &&
         e1?.notifications == e2?.notifications &&
-        e1?.timeStamp == e2?.timeStamp;
+        e1?.timeStamp == e2?.timeStamp &&
+        e1?.moodHistory == e2?.moodHistory;
   }
 
   @override
@@ -361,7 +370,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.currentMood,
         e?.currentMoodPhoto,
         e?.notifications,
-        e?.timeStamp
+        e?.timeStamp,
+        e?.moodHistory
       ]);
 
   @override

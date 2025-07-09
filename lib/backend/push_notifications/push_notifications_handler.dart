@@ -173,13 +173,15 @@ final parametersBuilderMap =
           'bodyIndex': getParameter<int>(data, 'bodyIndex'),
         },
       ),
-  'FacialMoodAnalyzerChoice': ParameterData.none(),
+  'FacialMoodAnalyzerChoiceLogin': ParameterData.none(),
   'FacialMoodAnalyzerPage': ParameterData.none(),
   'MoodAnalyzerSuccess': ParameterData.none(),
   'blankSample': ParameterData.none(),
   'reels': ParameterData.none(),
   'ChatWithLucille': ParameterData.none(),
   'ChatWithLucilleCopy': ParameterData.none(),
+  'FacialMoodAnalyzerChoiceLucilleCopy': ParameterData.none(),
+  'BottomSheets': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

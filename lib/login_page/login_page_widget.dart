@@ -944,7 +944,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
 
                                                                           context
                                                                               .pushNamedAuth(
-                                                                            FacialMoodAnalyzerChoiceWidget.routeName,
+                                                                            FacialMoodAnalyzerChoiceLoginWidget.routeName,
                                                                             context.mounted,
                                                                             extra: <String,
                                                                                 dynamic>{

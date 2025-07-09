@@ -91,8 +91,8 @@ export '/meditation_and_breathing_games/long_breathing_goal/long_breathing_goal_
     show LongBreathingGoalWidget;
 export '/community_home_f_i_n_a_l/community_home_f_i_n_a_l_widget.dart'
     show CommunityHomeFINALWidget;
-export '/facial_mood_analyzer_choice/facial_mood_analyzer_choice_widget.dart'
-    show FacialMoodAnalyzerChoiceWidget;
+export '/facial_mood_analyzer_choice_login/facial_mood_analyzer_choice_login_widget.dart'
+    show FacialMoodAnalyzerChoiceLoginWidget;
 export '/facial_mood_analyzer_page/facial_mood_analyzer_page_widget.dart'
     show FacialMoodAnalyzerPageWidget;
 export '/mood_analyzer_success/mood_analyzer_success_widget.dart'
@@ -103,3 +103,6 @@ export '/chat_with_lucille/chat_with_lucille_widget.dart'
     show ChatWithLucilleWidget;
 export '/chat_with_lucille_copy/chat_with_lucille_copy_widget.dart'
     show ChatWithLucilleCopyWidget;
+export '/facial_mood_analyzer_choice_lucille_copy/facial_mood_analyzer_choice_lucille_copy_widget.dart'
+    show FacialMoodAnalyzerChoiceLucilleCopyWidget;
+export '/bottom_sheets/bottom_sheets_widget.dart' show BottomSheetsWidget;

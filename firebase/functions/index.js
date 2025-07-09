@@ -4,6 +4,7 @@ admin.initializeApp();
 
 const kFcmTokensCollection = "fcm_tokens";
 const kPushNotificationsCollection = "ff_push_notifications";
+const kUserPushNotificationsCollection = "ff_user_push_notifications";
 const kSchedulerIntervalMinutes = 1;
 const firestore = admin.firestore();
 
@@ -78,6 +79,29 @@ exports.sendPushNotificationsTrigger = functions
     }
   });
 
+exports.sendUserPushNotificationsTrigger = functions
+  .region("us-central1")
+  .runWith(kPushNotificationRuntimeOpts)
+  .firestore.document(`${kUserPushNotificationsCollection}/{id}`)
+  .onCreate(async (snapshot, _) => {
+    try {
+      // Ignore scheduled push notifications on create
+      const scheduledTime = snapshot.data().scheduled_time || "";
+      if (scheduledTime) {
+        return;
+      }
+
+      // Don't let user-triggered notifications to be sent to all users.
+      const userRefsStr = snapshot.data().user_refs || "";
+      if (userRefsStr) {
+        await sendPushNotifications(snapshot);
+      }
+    } catch (e) {
+      console.log(`Error: ${e}`);
+      await snapshot.ref.update({ status: "failed", error: `${e}` });
+    }
+  });
+
 exports.sendScheduledPushNotifications = functions
   .region("us-central1")
   .pubsub.schedule(`every ${kSchedulerIntervalMinutes} minutes synchronized`)
@@ -104,6 +128,24 @@ exports.sendScheduledPushNotifications = functions
     for (var snapshot of scheduledNotifications.docs) {
       try {
         await sendPushNotifications(snapshot);
+      } catch (e) {
+        console.log(`Error: ${e}`);
+        await snapshot.ref.update({ status: "failed", error: `${e}` });
+      }
+    }
+    // Send push notifications that users have scheduled.
+    const scheduledUserNotifications = await firestore
+      .collection(kUserPushNotificationsCollection)
+      .where("scheduled_time", ">", lowerCutoffTime)
+      .where("scheduled_time", "<=", upperCutoffTime)
+      .get();
+    for (var snapshot of scheduledUserNotifications.docs) {
+      try {
+        // Don't let user-triggered notifications to be sent to all users.
+        const userRefsStr = snapshot.data().user_refs || "";
+        if (userRefsStr) {
+          await sendPushNotifications(snapshot);
+        }
       } catch (e) {
         console.log(`Error: ${e}`);
         await snapshot.ref.update({ status: "failed", error: `${e}` });

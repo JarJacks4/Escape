@@ -487,4 +487,28 @@ class FFAppState extends ChangeNotifier {
   set ProfilePicture(String value) {
     _ProfilePicture = value;
   }
+
+  String _lucillePushNotifRaw = '';
+  String get lucillePushNotifRaw => _lucillePushNotifRaw;
+  set lucillePushNotifRaw(String value) {
+    _lucillePushNotifRaw = value;
+  }
+
+  String _lucillePushTitle = '';
+  String get lucillePushTitle => _lucillePushTitle;
+  set lucillePushTitle(String value) {
+    _lucillePushTitle = value;
+  }
+
+  String _lucillePushBody = '';
+  String get lucillePushBody => _lucillePushBody;
+  set lucillePushBody(String value) {
+    _lucillePushBody = value;
+  }
+
+  DocumentReference? _moodHistory;
+  DocumentReference? get moodHistory => _moodHistory;
+  set moodHistory(DocumentReference? value) {
+    _moodHistory = value;
+  }
 }

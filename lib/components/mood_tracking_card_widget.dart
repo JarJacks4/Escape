@@ -94,7 +94,7 @@ class _MoodTrackingCardWidgetState extends State<MoodTrackingCardWidget> {
                           logFirebaseEvent('IconButton_navigate_to');
 
                           context.pushNamed(
-                            FacialMoodAnalyzerPageWidget.routeName,
+                            FacialMoodAnalyzerChoiceLucilleCopyWidget.routeName,
                             extra: <String, dynamic>{
                               kTransitionInfoKey: TransitionInfo(
                                 hasTransition: true,
