@@ -6715,7 +6715,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '社群',
     },
   },
-  // FacialMoodAnalyzerChoice
+  // FacialMoodAnalyzerChoiceLogin
   {
     'wlag196m': {
       'en': 'Daily Mood Scan',
@@ -6818,7 +6818,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'ux2iw9cn': {
-      'en': 'Retry',
+      'en': 'Skip to Home',
       'ar': '',
       'de': '',
       'es': '',
@@ -7043,6 +7043,108 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'kyf0msmf': {
+      'en': 'Home',
+      'ar': 'بيت',
+      'de': 'Heim',
+      'es': 'Hogar',
+      'fr': 'Maison',
+      'it': 'Casa',
+      'ja': '家',
+      'ko': '집',
+      'ru': 'Дом',
+      'uk': 'Дім',
+      'zh_Hans': '家',
+      'zh_Hant': '家',
+    },
+  },
+  // FacialMoodAnalyzerChoiceLucilleCopy
+  {
+    'xfalks6a': {
+      'en': 'Daily Mood Scan',
+      'ar': 'مسح المزاج اليومي',
+      'de': 'Täglicher Stimmungsscan',
+      'es': 'Análisis diario del estado de ánimo',
+      'fr': 'Analyse quotidienne de l\'humeur',
+      'it': 'Scansione dell\'umore giornaliera',
+      'ja': '毎日の気分スキャン',
+      'ko': '일일 기분 검사',
+      'ru': 'Ежедневное сканирование настроения',
+      'uk': 'Щоденний аналіз настрою',
+      'zh_Hans': '每日情绪扫描',
+      'zh_Hant': '每日情緒掃描',
+    },
+    'o18hzro1': {
+      'en':
+          'Tap the Continue Button below to have Lucille scan your mood for the day.\n\nThis will help your daily self-care algorithm to help you find increased success on Escape',
+      'ar':
+          'اضغط على زر \"مسح الحالة المزاجية\" أدناه لتفحص لوسيل حالتك المزاجية لهذا اليوم.\n\nسيساعدك هذا على تحسين خوارزمية العناية الذاتية اليومية لديك لتحقيق المزيد من النجاح في لعبة Escape.',
+      'de':
+          'Tippe unten auf „Stimmung scannen“, damit Lucille deine Stimmung für den Tag scannt.\n\nDas unterstützt deinen täglichen Selbstfürsorge-Algorithmus und hilft dir, bei Escape erfolgreicher zu sein.',
+      'es':
+          'Pulsa el botón \"Escanear Estado de Ánimo\" a continuación para que Lucille analice tu estado de ánimo del día.\n\nEsto te ayudará a optimizar tu algoritmo de autocuidado diario para que tengas más éxito en Escape.',
+      'fr':
+          'Appuyez sur le bouton « Scanner votre humeur » ci-dessous pour que Lucille analyse votre humeur du jour.\n\nCela aidera votre algorithme de bien-être quotidien à améliorer votre réussite sur Escape.',
+      'it':
+          'Tocca il pulsante Scansiona Umore qui sotto per far sì che Lucille analizzi il tuo umore giornaliero.\n\nQuesto aiuterà il tuo algoritmo di auto-cura quotidiano ad aiutarti a raggiungere un maggiore successo su Escape.',
+      'ja':
+          '下の「気分をスキャン」ボタンをタップすると、ルシールがその日のあなたの気分をスキャンします。\n\nこれにより、毎日のセルフケアアルゴリズムが強化され、Escape での成功率が向上します。',
+      'ko':
+          '아래 기분 스캔 버튼을 탭하면 루실이 오늘의 기분을 스캔해 드립니다.\n\n이 기능은 매일의 셀프 케어 알고리즘을 통해 Escape에서 더 큰 성공을 거두는 데 도움이 됩니다.',
+      'ru':
+          'Нажмите кнопку «Сканировать настроение» ниже, чтобы Люсиль просканировала ваше настроение на день.\n\nЭто поможет вашему ежедневному алгоритму заботы о себе помочь вам добиться большего успеха на Escape',
+      'uk':
+          'Натисніть кнопку «Сканувати настрій» нижче, щоб Люсіль просканувала ваш настрій на день.\n\nЦе допоможе вашому щоденному алгоритму догляду за собою досягти більшого успіху в Escape.',
+      'zh_Hans':
+          '点击下方的“扫描心情”按钮，让露西尔扫描你当天的心情。\n\n这将有助于你的日常自我护理算法，帮助你在 Escape 上获得更高的成功。',
+      'zh_Hant':
+          '點擊下方的「掃描心情」按鈕，讓露西爾掃描你當天的心情。\n\n這將有助於你的日常自我照護演算法，幫助你在 Escape 上獲得更高的成功。',
+    },
+    'desap5kz': {
+      'en': 'Go Home',
+      'ar': 'العودة إلى المنزل',
+      'de': 'Nach Hause gehen',
+      'es': 'Ir a casa',
+      'fr': 'Rentrer à la maison',
+      'it': 'Vai a casa',
+      'ja': '家に帰れ',
+      'ko': '집으로 가세요',
+      'ru': 'Иди домой',
+      'uk': 'Додому',
+      'zh_Hans': '回家',
+      'zh_Hant': '回家',
+    },
+    'geh9rcii': {
+      'en': 'Continue',
+      'ar': 'مسح المزاج',
+      'de': 'Scan-Stimmung',
+      'es': 'Escanear el estado de ánimo',
+      'fr': 'Analyse de l\'humeur',
+      'it': 'Scansiona l\'umore',
+      'ja': 'スキャンムード',
+      'ko': '기분 스캔',
+      'ru': 'Сканировать настроение',
+      'uk': 'Сканувати настрій',
+      'zh_Hans': '扫描心情',
+      'zh_Hant': '掃描心情',
+    },
+    'a9vr15gg': {
+      'en': 'Home',
+      'ar': 'بيت',
+      'de': 'Heim',
+      'es': 'Hogar',
+      'fr': 'Maison',
+      'it': 'Casa',
+      'ja': '家',
+      'ko': '집',
+      'ru': 'Дом',
+      'uk': 'Дім',
+      'zh_Hans': '家',
+      'zh_Hant': '家',
+    },
+  },
+  // BottomSheets
+  {
+    'jqm1qdnn': {
       'en': 'Home',
       'ar': 'بيت',
       'de': 'Heim',

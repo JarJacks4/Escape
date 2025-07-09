@@ -393,9 +393,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
                   ),
           ),
           FFRoute(
-            name: FacialMoodAnalyzerChoiceWidget.routeName,
-            path: FacialMoodAnalyzerChoiceWidget.routePath,
-            builder: (context, params) => FacialMoodAnalyzerChoiceWidget(),
+            name: FacialMoodAnalyzerChoiceLoginWidget.routeName,
+            path: FacialMoodAnalyzerChoiceLoginWidget.routePath,
+            builder: (context, params) => FacialMoodAnalyzerChoiceLoginWidget(),
           ),
           FFRoute(
             name: FacialMoodAnalyzerPageWidget.routeName,
@@ -426,6 +426,17 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             name: ChatWithLucilleCopyWidget.routeName,
             path: ChatWithLucilleCopyWidget.routePath,
             builder: (context, params) => ChatWithLucilleCopyWidget(),
+          ),
+          FFRoute(
+            name: FacialMoodAnalyzerChoiceLucilleCopyWidget.routeName,
+            path: FacialMoodAnalyzerChoiceLucilleCopyWidget.routePath,
+            builder: (context, params) =>
+                FacialMoodAnalyzerChoiceLucilleCopyWidget(),
+          ),
+          FFRoute(
+            name: BottomSheetsWidget.routeName,
+            path: BottomSheetsWidget.routePath,
+            builder: (context, params) => BottomSheetsWidget(),
           ),
           FFRoute(
             name: $tiktokfeed_wz8en7.HomePageWidget.routeName,

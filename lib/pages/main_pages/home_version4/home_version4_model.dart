@@ -12,6 +12,8 @@ import 'package:flutter/material.dart';
 class HomeVersion4Model extends FlutterFlowModel<HomeVersion4Widget> {
   ///  State fields for stateful widgets in this page.
 
+  // Stores action output result for [Custom Action - reorderItems] action in ListView widget.
+  List<String>? reorderSelfCarePacks;
   // Model for MeditationCard component.
   late MeditationCardModel meditationCardModel;
   // Model for BreathingCardCopy component.
