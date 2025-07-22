@@ -1,4 +1,3 @@
-import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'edit_profile_widget.dart' show EditProfileWidget;
 import 'package:flutter/material.dart';
@@ -6,14 +5,14 @@ import 'package:flutter/material.dart';
 class EditProfileModel extends FlutterFlowModel<EditProfileWidget> {
   ///  Local state fields for this component.
 
-  UsersRecord? profilePicture;
+  String? profilePicture;
 
   ///  State fields for stateful widgets in this component.
 
-  bool isDataUploading_uploadDataPch = false;
-  FFUploadedFile uploadedLocalFile_uploadDataPch =
+  bool isDataUploading_uploadPhoto1 = false;
+  FFUploadedFile uploadedLocalFile_uploadPhoto1 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl_uploadDataPch = '';
+  String uploadedFileUrl_uploadPhoto1 = '';
 
   // State field(s) for yourName widget.
   FocusNode? yourNameFocusNode1;

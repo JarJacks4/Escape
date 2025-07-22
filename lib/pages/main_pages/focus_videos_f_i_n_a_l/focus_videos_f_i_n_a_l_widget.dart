@@ -15,7 +15,7 @@ class FocusVideosFINALWidget extends StatefulWidget {
   const FocusVideosFINALWidget({super.key});
 
   static String routeName = 'FocusVideosFINAL';
-  static String routePath = 'focusVideosFINAL';
+  static String routePath = '/focusVideosFINAL';
 
   @override
   State<FocusVideosFINALWidget> createState() => _FocusVideosFINALWidgetState();

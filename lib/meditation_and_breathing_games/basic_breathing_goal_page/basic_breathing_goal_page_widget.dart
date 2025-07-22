@@ -15,7 +15,7 @@ class BasicBreathingGoalPageWidget extends StatefulWidget {
   const BasicBreathingGoalPageWidget({super.key});
 
   static String routeName = 'BasicBreathingGoalPage';
-  static String routePath = 'basicBreathingGoalPage';
+  static String routePath = '/basicBreathingGoalPage';
 
   @override
   State<BasicBreathingGoalPageWidget> createState() =>

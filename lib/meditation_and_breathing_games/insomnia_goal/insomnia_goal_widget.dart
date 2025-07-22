@@ -12,7 +12,7 @@ class InsomniaGoalWidget extends StatefulWidget {
   const InsomniaGoalWidget({super.key});
 
   static String routeName = 'InsomniaGoal';
-  static String routePath = 'insomniaGoal';
+  static String routePath = '/insomniaGoal';
 
   @override
   State<InsomniaGoalWidget> createState() => _InsomniaGoalWidgetState();

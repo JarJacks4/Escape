@@ -5,10 +5,15 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
+import 'package:chat_u_i_kit_n2m29m/app_state.dart'
+    as chat_u_i_kit_n2m29m_app_state;
+import 'package:tiktokfeed_wz8en7/app_state.dart'
+    as tiktokfeed_wz8en7_app_state;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:provider/provider.dart';
 import 'edit_profile_model.dart';
 export 'edit_profile_model.dart';
 
@@ -90,6 +95,10 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+    context.watch<chat_u_i_kit_n2m29m_app_state.FFAppState>();
+    context.watch<tiktokfeed_wz8en7_app_state.FFAppState>();
+
     return Container(
       width: double.infinity,
       height: double.infinity,
@@ -190,7 +199,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                       fadeOutDuration:
                                           Duration(milliseconds: 500),
                                       imageUrl: valueOrDefault<String>(
-                                        _model.profilePicture?.photoUrl,
+                                        FFAppState().ProfilePicture,
                                         'https://res.cloudinary.com/dbyduwpud/image/upload/v1751860346/AICircleLucilleChat_uo87av.gif',
                                       ),
                                       fit: BoxFit.fitWidth,
@@ -215,21 +224,28 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                 final selectedMedia =
                                     await selectMediaWithSourceBottomSheet(
                                   context: context,
-                                  maxWidth: 1080.00,
-                                  maxHeight: 1080.00,
+                                  maxWidth: 300.00,
+                                  maxHeight: 300.00,
                                   allowPhoto: true,
+                                  includeDimensions: true,
+                                  includeBlurHash: true,
                                 );
                                 if (selectedMedia != null &&
                                     selectedMedia.every((m) =>
                                         validateFileFormat(
                                             m.storagePath, context))) {
                                   safeSetState(() => _model
-                                      .isDataUploading_uploadDataPch = true);
+                                      .isDataUploading_uploadPhoto1 = true);
                                   var selectedUploadedFiles =
                                       <FFUploadedFile>[];
 
                                   var downloadUrls = <String>[];
                                   try {
+                                    showUploadMessage(
+                                      context,
+                                      'Uploading file...',
+                                      showLoading: true,
+                                    );
                                     selectedUploadedFiles = selectedMedia
                                         .map((m) => FFUploadedFile(
                                               name:
@@ -251,32 +267,102 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                         .map((u) => u!)
                                         .toList();
                                   } finally {
-                                    _model.isDataUploading_uploadDataPch =
-                                        false;
+                                    ScaffoldMessenger.of(context)
+                                        .hideCurrentSnackBar();
+                                    _model.isDataUploading_uploadPhoto1 = false;
                                   }
                                   if (selectedUploadedFiles.length ==
                                           selectedMedia.length &&
                                       downloadUrls.length ==
                                           selectedMedia.length) {
                                     safeSetState(() {
-                                      _model.uploadedLocalFile_uploadDataPch =
+                                      _model.uploadedLocalFile_uploadPhoto1 =
                                           selectedUploadedFiles.first;
-                                      _model.uploadedFileUrl_uploadDataPch =
+                                      _model.uploadedFileUrl_uploadPhoto1 =
                                           downloadUrls.first;
                                     });
+                                    showUploadMessage(context, 'Success!');
                                   } else {
                                     safeSetState(() {});
+                                    showUploadMessage(
+                                        context, 'Failed to upload data');
                                     return;
                                   }
                                 }
 
+                                logFirebaseEvent('Button_backend_call');
+
+                                await currentUserReference!
+                                    .update(createUsersRecordData(
+                                  photoUrl: _model.uploadedFileUrl_uploadPhoto1,
+                                ));
+                                logFirebaseEvent(
+                                    'Button_update_component_state');
+                                _model.profilePicture =
+                                    _model.uploadedFileUrl_uploadPhoto1;
+                                _model.updatePage(() {});
                                 logFirebaseEvent('Button_update_app_state');
                                 FFAppState().ProfilePicture =
-                                    valueOrDefault<String>(
-                                  _model.profilePicture?.photoUrl,
-                                  'https://res.cloudinary.com/dbyduwpud/image/upload/v1751860346/AICircleLucilleChat_uo87av.gif',
-                                );
+                                    _model.uploadedFileUrl_uploadPhoto1;
                                 FFAppState().update(() {});
+                                if (FFAppState().ProfilePicture == '') {
+                                  logFirebaseEvent('Button_show_snack_bar');
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content: Text(
+                                        'Profile Picture Uploaded!',
+                                        style: TextStyle(
+                                          fontFamily: 'WorkSans',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          fontWeight: FontWeight.normal,
+                                          fontSize: 16.0,
+                                        ),
+                                      ),
+                                      duration: Duration(milliseconds: 4000),
+                                      backgroundColor:
+                                          FlutterFlowTheme.of(context).accent1,
+                                    ),
+                                  );
+                                } else if (currentUserPhoto != '') {
+                                  logFirebaseEvent('Button_show_snack_bar');
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content: Text(
+                                        'Profile Picture Uploaded!',
+                                        style: TextStyle(
+                                          fontFamily: 'WorkSans',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          fontWeight: FontWeight.normal,
+                                          fontSize: 16.0,
+                                        ),
+                                      ),
+                                      duration: Duration(milliseconds: 4000),
+                                      backgroundColor:
+                                          FlutterFlowTheme.of(context).accent1,
+                                    ),
+                                  );
+                                } else {
+                                  logFirebaseEvent('Button_show_snack_bar');
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content: Text(
+                                        'Please try again!',
+                                        style: TextStyle(
+                                          fontFamily: 'WorkSans',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          fontWeight: FontWeight.normal,
+                                          fontSize: 16.0,
+                                        ),
+                                      ),
+                                      duration: Duration(milliseconds: 4000),
+                                      backgroundColor:
+                                          FlutterFlowTheme.of(context).accent1,
+                                    ),
+                                  );
+                                }
                               },
                               text: FFLocalizations.of(context).getText(
                                 '3e823af1' /* Change Photo */,
@@ -335,6 +421,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                 .labelMedium
                                 .override(
                                   fontFamily: 'WorkSans',
+                                  color: FlutterFlowTheme.of(context).alternate,
                                   letterSpacing: 0.0,
                                 ),
                             enabledBorder: OutlineInputBorder(
@@ -370,13 +457,13 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                             contentPadding: EdgeInsetsDirectional.fromSTEB(
                                 20.0, 24.0, 20.0, 24.0),
                           ),
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'WorkSans',
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
-                                    letterSpacing: 0.0,
-                                  ),
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'WorkSans',
+                                color: FlutterFlowTheme.of(context).alternate,
+                                letterSpacing: 0.0,
+                              ),
                           cursorColor: FlutterFlowTheme.of(context).primary,
                           validator: _model.yourNameTextController1Validator
                               .asValidator(context),
@@ -406,6 +493,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                 .labelMedium
                                 .override(
                                   fontFamily: 'WorkSans',
+                                  color: FlutterFlowTheme.of(context).alternate,
                                   letterSpacing: 0.0,
                                 ),
                             enabledBorder: OutlineInputBorder(
@@ -441,13 +529,13 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                             contentPadding: EdgeInsetsDirectional.fromSTEB(
                                 20.0, 24.0, 20.0, 24.0),
                           ),
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'WorkSans',
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
-                                    letterSpacing: 0.0,
-                                  ),
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'WorkSans',
+                                color: FlutterFlowTheme.of(context).alternate,
+                                letterSpacing: 0.0,
+                              ),
                           maxLines: 4,
                           minLines: 3,
                           cursorColor: FlutterFlowTheme.of(context).primary,
@@ -479,6 +567,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                 .labelMedium
                                 .override(
                                   fontFamily: 'WorkSans',
+                                  color: FlutterFlowTheme.of(context).alternate,
                                   letterSpacing: 0.0,
                                 ),
                             enabledBorder: OutlineInputBorder(
@@ -514,13 +603,13 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                             contentPadding: EdgeInsetsDirectional.fromSTEB(
                                 20.0, 24.0, 20.0, 24.0),
                           ),
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'WorkSans',
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryBackground,
-                                    letterSpacing: 0.0,
-                                  ),
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'WorkSans',
+                                color: FlutterFlowTheme.of(context).alternate,
+                                letterSpacing: 0.0,
+                              ),
                           cursorColor: FlutterFlowTheme.of(context).primary,
                           validator: _model.yourNameTextController3Validator
                               .asValidator(context),
@@ -723,7 +812,6 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
 
                               await currentUserReference!
                                   .update(createUsersRecordData(
-                                photoUrl: currentUserPhoto,
                                 email: _model.yourNameTextController2.text,
                                 displayName:
                                     _model.yourNameTextController1.text,

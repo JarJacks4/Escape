@@ -5,6 +5,11 @@ import 'package:flutter/material.dart';
 
 class MoodAnalyzerSuccessCompModel
     extends FlutterFlowModel<MoodAnalyzerSuccessCompWidget> {
+  ///  State fields for stateful widgets in this component.
+
+  // Stores action output result for [Gemini - Generate Text] action in MoodAnalyzerSuccessComp widget.
+  String? moodDescriptionBottomSheetAction;
+
   @override
   void initState(BuildContext context) {}
 

@@ -1,4 +1,3 @@
-import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
@@ -83,29 +82,15 @@ class _HomePageWidgetState extends State<HomePageWidget> {
         ),
         body: Column(
           mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              width: MediaQuery.sizeOf(context).width * 1.0,
-              height: MediaQuery.sizeOf(context).height * 1.0,
-              child: custom_widgets.ChewieWidget(
-                width: MediaQuery.sizeOf(context).width * 1.0,
-                height: MediaQuery.sizeOf(context).height * 1.0,
-                userID: 'userid',
-                data: FFAppState().ListTikTokPages,
-                likerebuidpage: () async {
-                  FFAppState().updateListTikTokPagesAtIndex(
-                    FFAppState().videoID,
-                    (e) => e..likes = FFAppState().newListLike.toList(),
-                  );
-                  safeSetState(() {});
-                },
-                bookedrebuidpage: () async {
-                  FFAppState().updateListTikTokPagesAtIndex(
-                    FFAppState().videoID,
-                    (e) => e..bookmark = FFAppState().newListBookmarks.toList(),
-                  );
-                  safeSetState(() {});
-                },
+              width: double.infinity,
+              height: MediaQuery.sizeOf(context).height * 0.9,
+              child: custom_widgets.TikTokVideoPlayerWidget(
+                width: double.infinity,
+                height: MediaQuery.sizeOf(context).height * 0.9,
+                tiktokVideosData: FFAppState().ListTikTokPages,
               ),
             ),
           ],

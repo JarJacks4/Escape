@@ -15,7 +15,7 @@ class DeepBreathingWidget extends StatefulWidget {
   const DeepBreathingWidget({super.key});
 
   static String routeName = 'DeepBreathing';
-  static String routePath = 'deepBreathing';
+  static String routePath = '/deepBreathing';
 
   @override
   State<DeepBreathingWidget> createState() => _DeepBreathingWidgetState();

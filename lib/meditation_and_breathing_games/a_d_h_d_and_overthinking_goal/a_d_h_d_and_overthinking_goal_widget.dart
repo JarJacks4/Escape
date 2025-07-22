@@ -12,7 +12,7 @@ class ADHDAndOverthinkingGoalWidget extends StatefulWidget {
   const ADHDAndOverthinkingGoalWidget({super.key});
 
   static String routeName = 'ADHDAndOverthinkingGoal';
-  static String routePath = 'aDHDAndOverthinkingGoal';
+  static String routePath = '/aDHDAndOverthinkingGoal';
 
   @override
   State<ADHDAndOverthinkingGoalWidget> createState() =>

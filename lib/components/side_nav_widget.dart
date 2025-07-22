@@ -274,6 +274,12 @@ class _SideNavWidgetState extends State<SideNavWidget>
 
                         context.pushNamed(
                           CommunityHomeFINALWidget.routeName,
+                          queryParameters: {
+                            'initialTabIndex': serializeParam(
+                              1,
+                              ParamType.int,
+                            ),
+                          }.withoutNulls,
                           extra: <String, dynamic>{
                             kTransitionInfoKey: TransitionInfo(
                               hasTransition: true,

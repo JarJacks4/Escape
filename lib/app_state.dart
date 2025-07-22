@@ -511,4 +511,76 @@ class FFAppState extends ChangeNotifier {
   set moodHistory(DocumentReference? value) {
     _moodHistory = value;
   }
+
+  List<String> _LucilleReorderRaw = [];
+  List<String> get LucilleReorderRaw => _LucilleReorderRaw;
+  set LucilleReorderRaw(List<String> value) {
+    _LucilleReorderRaw = value;
+  }
+
+  void addToLucilleReorderRaw(String value) {
+    LucilleReorderRaw.add(value);
+  }
+
+  void removeFromLucilleReorderRaw(String value) {
+    LucilleReorderRaw.remove(value);
+  }
+
+  void removeAtIndexFromLucilleReorderRaw(int index) {
+    LucilleReorderRaw.removeAt(index);
+  }
+
+  void updateLucilleReorderRawAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    LucilleReorderRaw[index] = updateFn(_LucilleReorderRaw[index]);
+  }
+
+  void insertAtIndexInLucilleReorderRaw(int index, String value) {
+    LucilleReorderRaw.insert(index, value);
+  }
+
+  List<tiktokfeed_wz8en7_data_schema.TiktokPageStruct> _LucilleReorderLists =
+      [];
+  List<tiktokfeed_wz8en7_data_schema.TiktokPageStruct>
+      get LucilleReorderLists => _LucilleReorderLists;
+  set LucilleReorderLists(
+      List<tiktokfeed_wz8en7_data_schema.TiktokPageStruct> value) {
+    _LucilleReorderLists = value;
+  }
+
+  void addToLucilleReorderLists(
+      tiktokfeed_wz8en7_data_schema.TiktokPageStruct value) {
+    LucilleReorderLists.add(value);
+  }
+
+  void removeFromLucilleReorderLists(
+      tiktokfeed_wz8en7_data_schema.TiktokPageStruct value) {
+    LucilleReorderLists.remove(value);
+  }
+
+  void removeAtIndexFromLucilleReorderLists(int index) {
+    LucilleReorderLists.removeAt(index);
+  }
+
+  void updateLucilleReorderListsAtIndex(
+    int index,
+    tiktokfeed_wz8en7_data_schema.TiktokPageStruct Function(
+            tiktokfeed_wz8en7_data_schema.TiktokPageStruct)
+        updateFn,
+  ) {
+    LucilleReorderLists[index] = updateFn(_LucilleReorderLists[index]);
+  }
+
+  void insertAtIndexInLucilleReorderLists(
+      int index, tiktokfeed_wz8en7_data_schema.TiktokPageStruct value) {
+    LucilleReorderLists.insert(index, value);
+  }
+
+  String _JournalPrompt = '';
+  String get JournalPrompt => _JournalPrompt;
+  set JournalPrompt(String value) {
+    _JournalPrompt = value;
+  }
 }
