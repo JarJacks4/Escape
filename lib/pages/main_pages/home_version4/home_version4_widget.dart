@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/ai_agents/ai_agent.dart';
 import '/backend/backend.dart';
 import '/components/binuaral_beats_card_widget.dart';
 import '/components/breathing_card_copy_widget.dart';
@@ -12,15 +13,15 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import '/actions/actions.dart' as action_blocks;
-import '/custom_code/actions/index.dart' as actions;
 import '/index.dart';
+import 'package:chat_u_i_kit_n2m29m/app_state.dart'
+    as chat_u_i_kit_n2m29m_app_state;
 import 'package:tiktokfeed_wz8en7/app_state.dart'
     as tiktokfeed_wz8en7_app_state;
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:provider/provider.dart';
 import 'home_version4_model.dart';
@@ -30,7 +31,7 @@ class HomeVersion4Widget extends StatefulWidget {
   const HomeVersion4Widget({super.key});
 
   static String routeName = 'HomeVersion4';
-  static String routePath = 'homeVersion4';
+  static String routePath = '/homeVersion4';
 
   @override
   State<HomeVersion4Widget> createState() => _HomeVersion4WidgetState();
@@ -54,6 +55,20 @@ class _HomeVersion4WidgetState extends State<HomeVersion4Widget>
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('HOME_VERSION4_HomeVersion4_ON_INIT_STATE');
+      logFirebaseEvent('HomeVersion4_a_i_agent');
+      await callAiAgent(
+        context: context,
+        prompt: valueOrDefault(currentUserDocument?.currentMood, ''),
+        threadId: 'PushNotif',
+        agentCloudFunctionName: 'lucilleMoodPushNotificationsAgent',
+        provider: 'GOOGLE',
+        agentJson:
+            "{\"status\":\"LIVE\",\"identifier\":{\"name\":\"lucilleMoodPushNotificationsAgent\",\"key\":\"hz2t7\"},\"name\":\"LucilleMoodPushNotificationsAgent\",\"description\":\"You are Lucille, a supportive self-care AI agent for Escape Self Care AI Led mobile app. Based on the user's current mood and recent mood history, return a motivational push notification in the following format:\\r\\n\\r\\nTitle: [Max 30 characters]  \\r\\nBody: [Max 80 characters]  \\r\\n\\r\\nBe supportive, calming, and pattern-aware. Never exceed 200 characters in total.\\r\\n\\r\\nVariables:  \\r\\n{mood} = current mood  \\r\\n{mood_history} = list of last 3-5 moods (e.g., [\\\"tired\\\", \\\"sad\\\", \\\"anxious\\\"])\\r\\n\",\"aiModel\":{\"provider\":\"GOOGLE\",\"model\":\"gemini-2.0-flash\",\"parameters\":{\"temperature\":{\"inputValue\":0.7},\"maxTokens\":{\"inputValue\":1076},\"topP\":{\"inputValue\":0.3}},\"messages\":[{\"role\":\"SYSTEM\",\"text\":\"You are Lucille, a supportive self-care AI agent for the Escapeapp.ai mobile app. Based on the user's current mood and recent mood history, return a motivational push notification in the following format:\\r\\n\\r\\nTitle: [Max 30 characters]  \\r\\nBody: [Max 80 characters]  \\r\\n\\r\\nBe supportive, calming, and pattern-aware. Never exceed 200 characters in total.\\r\\n\\r\\nVariables:  \\r\\n{mood} = current mood  \\r\\n{mood_history} = list of last 3-5 moods (e.g., [\\\"tired\\\", \\\"sad\\\", \\\"anxious\\\"])\\r\\n{timestamp} = time of updated mood (Keep this in mind with the message)\\n\"},{\"role\":\"USER\",\"text\":\"Current mood: {mood}  (From firebase records)\\nRecent moods: {mood_history}  (From Firebase records)\\n\\nCould you Generate a push notification?\\n\\nReturn only:\\r\\n\\r\\nTitle: ...  \\r\\nBody: ...\"}]},\"requestOptions\":{\"requestTypes\":[\"PLAINTEXT\"]},\"responseOptions\":{\"responseType\":\"PLAINTEXT\"}}",
+        responseType: 'PLAINTEXT',
+      ).then((generatedText) {
+        safeSetState(() => _model.dailyQuoteResult = generatedText);
+      });
+
       logFirebaseEvent('HomeVersion4_backend_call');
 
       await currentUserDocument!.moodHistory!.update(createUserMoodsRecordData(
@@ -64,6 +79,20 @@ class _HomeVersion4WidgetState extends State<HomeVersion4Widget>
       logFirebaseEvent('HomeVersion4_action_block');
       await action_blocks.lucillePushNotificationMood(context);
       safeSetState(() {});
+      logFirebaseEvent('HomeVersion4_a_i_agent');
+      await callAiAgent(
+        context: context,
+        prompt: valueOrDefault(currentUserDocument?.currentMood, ''),
+        threadId: '1',
+        agentCloudFunctionName: 'lucilleGenerateQuote',
+        provider: 'GOOGLE',
+        agentJson:
+            "{\"status\":\"LIVE\",\"identifier\":{\"name\":\"lucilleGenerateQuote\",\"key\":\"fgsej\"},\"name\":\"Lucille Generate Quote\",\"description\":\"This is a AI Agent named Lucille for Escape that helps generate a quote for the user based on their current mood.\",\"aiModel\":{\"provider\":\"GOOGLE\",\"model\":\"gemini-2.0-flash\",\"parameters\":{\"temperature\":{\"inputValue\":0.25},\"maxTokens\":{\"inputValue\":2334},\"topP\":{\"inputValue\":0.4}},\"messages\":[{\"role\":\"SYSTEM\",\"text\":\"Generate a text a 200 characterl quote from a real person that uplifts the user and is based off of the user's {CurrentMood}: \\n\\nCurrentMood\"}]},\"requestOptions\":{\"requestTypes\":[\"PLAINTEXT\"]},\"responseOptions\":{\"responseType\":\"PLAINTEXT\"}}",
+        responseType: 'PLAINTEXT',
+      ).then((generatedText) {
+        safeSetState(() => _model.lucilleGenerateQuote = generatedText);
+      });
+
       if (valueOrDefault<bool>(
               currentUserDocument?.hasSeenWalkthrough, false) ==
           false) {
@@ -218,6 +247,7 @@ class _HomeVersion4WidgetState extends State<HomeVersion4Widget>
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
+    context.watch<chat_u_i_kit_n2m29m_app_state.FFAppState>();
     context.watch<tiktokfeed_wz8en7_app_state.FFAppState>();
 
     return GestureDetector(
@@ -382,21 +412,63 @@ class _HomeVersion4WidgetState extends State<HomeVersion4Widget>
                                                         EdgeInsetsDirectional
                                                             .fromSTEB(15.0, 0.0,
                                                                 0.0, 0.0),
-                                                    child: Container(
-                                                      width: 63.0,
-                                                      height: 63.0,
-                                                      decoration: BoxDecoration(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .tertiary,
-                                                        image: DecorationImage(
-                                                          fit: BoxFit.cover,
-                                                          image: Image.network(
-                                                            'https://res.cloudinary.com/dbyduwpud/image/upload/v1751860346/AICircleLucilleChat_uo87av.gif',
-                                                          ).image,
+                                                    child: InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        logFirebaseEvent(
+                                                            'HOME_VERSION4_Container_wu6no15k_ON_TAP');
+                                                        logFirebaseEvent(
+                                                            'Container_navigate_to');
+                                                        if (Navigator.of(
+                                                                context)
+                                                            .canPop()) {
+                                                          context.pop();
+                                                        }
+                                                        context.pushNamed(
+                                                          LucilleHomeWidget
+                                                              .routeName,
+                                                          extra: <String,
+                                                              dynamic>{
+                                                            kTransitionInfoKey:
+                                                                TransitionInfo(
+                                                              hasTransition:
+                                                                  true,
+                                                              transitionType:
+                                                                  PageTransitionType
+                                                                      .fade,
+                                                              duration: Duration(
+                                                                  milliseconds:
+                                                                      0),
+                                                            ),
+                                                          },
+                                                        );
+                                                      },
+                                                      child: Container(
+                                                        width: 63.0,
+                                                        height: 63.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .tertiary,
+                                                          image:
+                                                              DecorationImage(
+                                                            fit: BoxFit.cover,
+                                                            image:
+                                                                Image.network(
+                                                              'https://res.cloudinary.com/dbyduwpud/image/upload/v1751860346/AICircleLucilleChat_uo87av.gif',
+                                                            ).image,
+                                                          ),
+                                                          shape:
+                                                              BoxShape.circle,
                                                         ),
-                                                        shape: BoxShape.circle,
                                                       ),
                                                     ),
                                                   ),
@@ -452,15 +524,8 @@ class _HomeVersion4WidgetState extends State<HomeVersion4Widget>
                                                           context.pop();
                                                         }
                                                         context.pushNamed(
-                                                          CommunityHomeFINALWidget
+                                                          MeditationReorderWidget
                                                               .routeName,
-                                                          queryParameters: {
-                                                            'forYouIndex':
-                                                                serializeParam(
-                                                              1,
-                                                              ParamType.int,
-                                                            ),
-                                                          }.withoutNulls,
                                                           extra: <String,
                                                               dynamic>{
                                                             kTransitionInfoKey:
@@ -547,7 +612,7 @@ class _HomeVersion4WidgetState extends State<HomeVersion4Widget>
                                                           context.pop();
                                                         }
                                                         context.pushNamed(
-                                                          CommunityHomeFINALWidget
+                                                          FocusReorderWidget
                                                               .routeName,
                                                           extra: <String,
                                                               dynamic>{
@@ -635,7 +700,7 @@ class _HomeVersion4WidgetState extends State<HomeVersion4Widget>
                                                           context.pop();
                                                         }
                                                         context.pushNamed(
-                                                          CommunityHomeFINALWidget
+                                                          DepressionReorderWidget
                                                               .routeName,
                                                           extra: <String,
                                                               dynamic>{
@@ -730,7 +795,7 @@ class _HomeVersion4WidgetState extends State<HomeVersion4Widget>
                                                           context.pop();
                                                         }
                                                         context.pushNamed(
-                                                          CommunityHomeFINALWidget
+                                                          SleepReorderWidget
                                                               .routeName,
                                                           extra: <String,
                                                               dynamic>{
@@ -823,7 +888,7 @@ class _HomeVersion4WidgetState extends State<HomeVersion4Widget>
                                                           context.pop();
                                                         }
                                                         context.pushNamed(
-                                                          CommunityHomeFINALWidget
+                                                          BodyReorderWidget
                                                               .routeName,
                                                           extra: <String,
                                                               dynamic>{
@@ -962,10 +1027,7 @@ class _HomeVersion4WidgetState extends State<HomeVersion4Widget>
                                           AlignmentDirectional(-1.0, -1.0),
                                       child: Padding(
                                         padding: EdgeInsets.all(20.0),
-                                        child: Text(
-                                          FFLocalizations.of(context).getText(
-                                            'ul7lcije' /* "Our Deepest fear is not that ... */,
-                                          ),
+                                        child: AnimatedDefaultTextStyle(
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -976,6 +1038,17 @@ class _HomeVersion4WidgetState extends State<HomeVersion4Widget>
                                                 fontSize: 22.0,
                                                 letterSpacing: 0.0,
                                               ),
+                                          duration: Duration(milliseconds: 855),
+                                          curve: Curves.easeIn,
+                                          child: Text(
+                                            valueOrDefault<String>(
+                                              _model.lucilleGenerateQuote,
+                                              '\"Our Deepest fear is not that we are inadequate, but that we are powerful beyond measure.\"',
+                                            ).maybeHandleOverflow(
+                                              maxChars: 200,
+                                              replacement: '…',
+                                            ),
+                                          ),
                                         ).animateOnPageLoad(animationsMap[
                                             'textOnPageLoadAnimation3']!),
                                       ),
@@ -1000,14 +1073,14 @@ class _HomeVersion4WidgetState extends State<HomeVersion4Widget>
                                                   child: Text(
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                      'cv1sokcw' /* -Marianne Williamson */,
+                                                      'cv1sokcw' /* Escape */,
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily:
-                                                              'WorkSans',
+                                                              'The Seasons',
                                                           color:
                                                               Color(0xA9D0E3F7),
                                                           fontSize: 16.0,
@@ -1065,61 +1138,58 @@ class _HomeVersion4WidgetState extends State<HomeVersion4Widget>
                                               'textOnPageLoadAnimation4']!),
                                         ),
                                       ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 8.0, 0.0, 0.0),
-                                        child: FFButtonWidget(
-                                          onPressed: () async {
-                                            logFirebaseEvent(
-                                                'HOME_VERSION4_LETS_JOURNAL_BTN_ON_TAP');
-                                            logFirebaseEvent(
-                                                'Button_navigate_to');
-
-                                            context.pushNamed(
-                                              JournalPageWidget.routeName,
-                                              extra: <String, dynamic>{
-                                                kTransitionInfoKey:
-                                                    TransitionInfo(
-                                                  hasTransition: true,
-                                                  transitionType:
-                                                      PageTransitionType.fade,
-                                                  duration:
-                                                      Duration(milliseconds: 2),
-                                                ),
-                                              },
-                                            );
-                                          },
-                                          text: FFLocalizations.of(context)
-                                              .getText(
-                                            'qxzso9uh' /* Let's Journal! */,
-                                          ),
-                                          options: FFButtonOptions(
-                                            width: MediaQuery.sizeOf(context)
-                                                    .width *
-                                                0.5,
-                                            height: 40.0,
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 0.0, 16.0, 0.0),
-                                            iconPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
-                                            color: FlutterFlowTheme.of(context)
-                                                .accent1,
-                                            textStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleSmall
-                                                    .override(
-                                                      fontFamily: 'WorkSans',
-                                                      color: Colors.white,
-                                                      letterSpacing: 0.0,
-                                                    ),
-                                            elevation: 0.0,
-                                            borderRadius:
-                                                BorderRadius.circular(15.0),
-                                          ),
-                                        ).animateOnPageLoad(animationsMap[
-                                            'buttonOnPageLoadAnimation']!),
+                                      Flexible(
+                                        flex: 1,
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 8.0, 0.0, 0.0),
+                                          child: FFButtonWidget(
+                                            onPressed: () async {
+                                              logFirebaseEvent(
+                                                  'HOME_VERSION4_LETS_JOURNAL_BTN_ON_TAP');
+                                              logFirebaseEvent(
+                                                  'Button_navigate_to');
+                                              if (Navigator.of(context)
+                                                  .canPop()) {
+                                                context.pop();
+                                              }
+                                              context.pushNamed(
+                                                  JournalPageFINALCopyWidget
+                                                      .routeName);
+                                            },
+                                            text: FFLocalizations.of(context)
+                                                .getText(
+                                              'qxzso9uh' /* Let's Journal! */,
+                                            ),
+                                            options: FFButtonOptions(
+                                              width: MediaQuery.sizeOf(context)
+                                                      .width *
+                                                  0.5,
+                                              height: 40.0,
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      16.0, 0.0, 16.0, 0.0),
+                                              iconPadding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .accent1,
+                                              textStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmall
+                                                      .override(
+                                                        fontFamily: 'WorkSans',
+                                                        color: Colors.white,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                              elevation: 0.0,
+                                              borderRadius:
+                                                  BorderRadius.circular(15.0),
+                                            ),
+                                          ).animateOnPageLoad(animationsMap[
+                                              'buttonOnPageLoadAnimation']!),
+                                        ),
                                       ),
                                     ],
                                   ),
@@ -1158,228 +1228,149 @@ class _HomeVersion4WidgetState extends State<HomeVersion4Widget>
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 8.0, 0.0, 0.0),
-                                child: AuthUserStreamWidget(
-                                  builder: (context) =>
-                                      StreamBuilder<UserMoodsRecord>(
-                                    stream: UserMoodsRecord.getDocument(
-                                        currentUserDocument!.moodHistory!),
-                                    builder: (context, snapshot) {
-                                      // Customize what your widget looks like when it's loading.
-                                      if (!snapshot.hasData) {
-                                        return Center(
-                                          child: SizedBox(
-                                            width: 100.0,
-                                            height: 100.0,
-                                            child: SpinKitWave(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .accent1,
-                                              size: 100.0,
+                                child: ListView(
+                                  padding: EdgeInsets.zero,
+                                  primary: false,
+                                  shrinkWrap: true,
+                                  scrollDirection: Axis.horizontal,
+                                  children: [
+                                    InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        logFirebaseEvent(
+                                            'HOME_VERSION4_Container_76xoxxvw_ON_TAP');
+                                        logFirebaseEvent(
+                                            'MeditationCard_navigate_to');
+
+                                        context.pushNamed(
+                                          MeditationChoicePageWidget.routeName,
+                                          extra: <String, dynamic>{
+                                            kTransitionInfoKey: TransitionInfo(
+                                              hasTransition: true,
+                                              transitionType:
+                                                  PageTransitionType.fade,
+                                              duration:
+                                                  Duration(milliseconds: 2),
                                             ),
-                                          ),
+                                          },
                                         );
-                                      }
-
-                                      final listViewUserMoodsRecord =
-                                          snapshot.data!;
-
-                                      return InkWell(
-                                        splashColor: Colors.transparent,
-                                        focusColor: Colors.transparent,
-                                        hoverColor: Colors.transparent,
-                                        highlightColor: Colors.transparent,
-                                        onTap: () async {
-                                          logFirebaseEvent(
-                                              'HOME_VERSION4_ListView_noiwc27c_ON_TAP');
-                                          logFirebaseEvent(
-                                              'ListView_custom_action');
-                                          _model.reorderSelfCarePacks =
-                                              await actions.reorderItems(
-                                            listViewUserMoodsRecord.moodHistory
-                                                .toList(),
-                                            listViewUserMoodsRecord.moodHistory
-                                                .take(5)
-                                                .toList()
-                                                .length,
-                                            listViewUserMoodsRecord
-                                                .moodHistory.length,
-                                          );
-
-                                          safeSetState(() {});
-                                        },
-                                        child: ListView(
-                                          padding: EdgeInsets.zero,
-                                          primary: false,
-                                          shrinkWrap: true,
-                                          scrollDirection: Axis.horizontal,
-                                          children: [
-                                            InkWell(
-                                              splashColor: Colors.transparent,
-                                              focusColor: Colors.transparent,
-                                              hoverColor: Colors.transparent,
-                                              highlightColor:
-                                                  Colors.transparent,
-                                              onTap: () async {
-                                                logFirebaseEvent(
-                                                    'HOME_VERSION4_Container_76xoxxvw_ON_TAP');
-                                                logFirebaseEvent(
-                                                    'MeditationCard_navigate_to');
-
-                                                context.pushNamed(
-                                                  MeditationChoicePageWidget
-                                                      .routeName,
-                                                  extra: <String, dynamic>{
-                                                    kTransitionInfoKey:
-                                                        TransitionInfo(
-                                                      hasTransition: true,
-                                                      transitionType:
-                                                          PageTransitionType
-                                                              .fade,
-                                                      duration: Duration(
-                                                          milliseconds: 2),
-                                                    ),
-                                                  },
-                                                );
-                                              },
-                                              child: wrapWithModel(
-                                                model:
-                                                    _model.meditationCardModel,
-                                                updateCallback: () =>
-                                                    safeSetState(() {}),
-                                                child: Hero(
-                                                  tag: 'SelfCarePacks',
-                                                  transitionOnUserGestures:
-                                                      true,
-                                                  child: Material(
-                                                    color: Colors.transparent,
-                                                    child:
-                                                        MeditationCardWidget(),
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                            InkWell(
-                                              splashColor: Colors.transparent,
-                                              focusColor: Colors.transparent,
-                                              hoverColor: Colors.transparent,
-                                              highlightColor:
-                                                  Colors.transparent,
-                                              onTap: () async {
-                                                logFirebaseEvent(
-                                                    'HOME_VERSION4_Container_ikiln2hm_ON_TAP');
-                                                logFirebaseEvent(
-                                                    'BreathingCardCopy_navigate_to');
-
-                                                context.pushNamed(
-                                                  BreathingChoicePageWidget
-                                                      .routeName,
-                                                  extra: <String, dynamic>{
-                                                    kTransitionInfoKey:
-                                                        TransitionInfo(
-                                                      hasTransition: true,
-                                                      transitionType:
-                                                          PageTransitionType
-                                                              .fade,
-                                                      duration: Duration(
-                                                          milliseconds: 2),
-                                                    ),
-                                                  },
-                                                );
-                                              },
-                                              child: wrapWithModel(
-                                                model: _model
-                                                    .breathingCardCopyModel,
-                                                updateCallback: () =>
-                                                    safeSetState(() {}),
-                                                child:
-                                                    BreathingCardCopyWidget(),
-                                              ),
-                                            ),
-                                            InkWell(
-                                              splashColor: Colors.transparent,
-                                              focusColor: Colors.transparent,
-                                              hoverColor: Colors.transparent,
-                                              highlightColor:
-                                                  Colors.transparent,
-                                              onTap: () async {
-                                                logFirebaseEvent(
-                                                    'HOME_VERSION4_Container_1cj5qk0l_ON_TAP');
-                                                logFirebaseEvent(
-                                                    'NatureCard_navigate_to');
-
-                                                context.pushNamed(
-                                                  NatureMediationChoiceWidget
-                                                      .routeName,
-                                                  extra: <String, dynamic>{
-                                                    kTransitionInfoKey:
-                                                        TransitionInfo(
-                                                      hasTransition: true,
-                                                      transitionType:
-                                                          PageTransitionType
-                                                              .fade,
-                                                      duration: Duration(
-                                                          milliseconds: 2),
-                                                    ),
-                                                  },
-                                                );
-                                              },
-                                              child: wrapWithModel(
-                                                model: _model.natureCardModel,
-                                                updateCallback: () =>
-                                                    safeSetState(() {}),
-                                                child: NatureCardWidget(),
-                                              ),
-                                            ),
-                                            InkWell(
-                                              splashColor: Colors.transparent,
-                                              focusColor: Colors.transparent,
-                                              hoverColor: Colors.transparent,
-                                              highlightColor:
-                                                  Colors.transparent,
-                                              onTap: () async {
-                                                logFirebaseEvent(
-                                                    'HOME_VERSION4_Container_tudlmnvo_ON_TAP');
-                                                logFirebaseEvent(
-                                                    'BinuaralBeatsCard_navigate_to');
-
-                                                context.pushNamed(
-                                                  BinauralBeatsChoiceWidget
-                                                      .routeName,
-                                                  extra: <String, dynamic>{
-                                                    kTransitionInfoKey:
-                                                        TransitionInfo(
-                                                      hasTransition: true,
-                                                      transitionType:
-                                                          PageTransitionType
-                                                              .fade,
-                                                      duration: Duration(
-                                                          milliseconds: 2),
-                                                    ),
-                                                  },
-                                                );
-                                              },
-                                              child: wrapWithModel(
-                                                model: _model
-                                                    .binuaralBeatsCardModel,
-                                                updateCallback: () =>
-                                                    safeSetState(() {}),
-                                                child:
-                                                    BinuaralBeatsCardWidget(),
-                                              ),
-                                            ),
-                                            wrapWithModel(
-                                              model: _model
-                                                  .therapistDirectoryCardModel,
-                                              updateCallback: () =>
-                                                  safeSetState(() {}),
-                                              child:
-                                                  TherapistDirectoryCardWidget(),
-                                            ),
-                                          ].divide(SizedBox(width: 5.0)),
+                                      },
+                                      child: wrapWithModel(
+                                        model: _model.meditationCardModel,
+                                        updateCallback: () =>
+                                            safeSetState(() {}),
+                                        child: Hero(
+                                          tag: 'SelfCarePacks',
+                                          transitionOnUserGestures: true,
+                                          child: Material(
+                                            color: Colors.transparent,
+                                            child: MeditationCardWidget(),
+                                          ),
                                         ),
-                                      );
-                                    },
-                                  ),
+                                      ),
+                                    ),
+                                    InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        logFirebaseEvent(
+                                            'HOME_VERSION4_Container_ikiln2hm_ON_TAP');
+                                        logFirebaseEvent(
+                                            'BreathingCardCopy_navigate_to');
+
+                                        context.pushNamed(
+                                          BreathingChoicePageWidget.routeName,
+                                          extra: <String, dynamic>{
+                                            kTransitionInfoKey: TransitionInfo(
+                                              hasTransition: true,
+                                              transitionType:
+                                                  PageTransitionType.fade,
+                                              duration:
+                                                  Duration(milliseconds: 2),
+                                            ),
+                                          },
+                                        );
+                                      },
+                                      child: wrapWithModel(
+                                        model: _model.breathingCardCopyModel,
+                                        updateCallback: () =>
+                                            safeSetState(() {}),
+                                        child: BreathingCardCopyWidget(),
+                                      ),
+                                    ),
+                                    InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        logFirebaseEvent(
+                                            'HOME_VERSION4_Container_1cj5qk0l_ON_TAP');
+                                        logFirebaseEvent(
+                                            'NatureCard_navigate_to');
+
+                                        context.pushNamed(
+                                          NatureMediationChoiceWidget.routeName,
+                                          extra: <String, dynamic>{
+                                            kTransitionInfoKey: TransitionInfo(
+                                              hasTransition: true,
+                                              transitionType:
+                                                  PageTransitionType.fade,
+                                              duration:
+                                                  Duration(milliseconds: 2),
+                                            ),
+                                          },
+                                        );
+                                      },
+                                      child: wrapWithModel(
+                                        model: _model.natureCardModel,
+                                        updateCallback: () =>
+                                            safeSetState(() {}),
+                                        child: NatureCardWidget(),
+                                      ),
+                                    ),
+                                    InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        logFirebaseEvent(
+                                            'HOME_VERSION4_Container_tudlmnvo_ON_TAP');
+                                        logFirebaseEvent(
+                                            'BinuaralBeatsCard_navigate_to');
+
+                                        context.pushNamed(
+                                          BinauralBeatsChoiceWidget.routeName,
+                                          extra: <String, dynamic>{
+                                            kTransitionInfoKey: TransitionInfo(
+                                              hasTransition: true,
+                                              transitionType:
+                                                  PageTransitionType.fade,
+                                              duration:
+                                                  Duration(milliseconds: 2),
+                                            ),
+                                          },
+                                        );
+                                      },
+                                      child: wrapWithModel(
+                                        model: _model.binuaralBeatsCardModel,
+                                        updateCallback: () =>
+                                            safeSetState(() {}),
+                                        child: BinuaralBeatsCardWidget(),
+                                      ),
+                                    ),
+                                    wrapWithModel(
+                                      model: _model.therapistDirectoryCardModel,
+                                      updateCallback: () => safeSetState(() {}),
+                                      child: TherapistDirectoryCardWidget(),
+                                    ),
+                                  ].divide(SizedBox(width: 5.0)),
                                 ),
                               ),
                             ),

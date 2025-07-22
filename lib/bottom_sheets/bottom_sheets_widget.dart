@@ -10,7 +10,7 @@ class BottomSheetsWidget extends StatefulWidget {
   const BottomSheetsWidget({super.key});
 
   static String routeName = 'BottomSheets';
-  static String routePath = 'bottomSheets';
+  static String routePath = '/bottomSheets';
 
   @override
   State<BottomSheetsWidget> createState() => _BottomSheetsWidgetState();

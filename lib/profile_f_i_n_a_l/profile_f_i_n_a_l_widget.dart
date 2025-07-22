@@ -8,6 +8,7 @@ import '/index.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'profile_f_i_n_a_l_model.dart';
 export 'profile_f_i_n_a_l_model.dart';
@@ -16,7 +17,7 @@ class ProfileFINALWidget extends StatefulWidget {
   const ProfileFINALWidget({super.key});
 
   static String routeName = 'profileFINAL';
-  static String routePath = 'profileFINAL';
+  static String routePath = '/profileFINAL';
 
   @override
   State<ProfileFINALWidget> createState() => _ProfileFINALWidgetState();
@@ -242,6 +243,7 @@ class _ProfileFINALWidgetState extends State<ProfileFINALWidget>
                                   .override(
                                     fontFamily: 'The Seasons',
                                     letterSpacing: 0.0,
+                                    fontWeight: FontWeight.normal,
                                   ),
                             ).animateOnPageLoad(
                                 animationsMap['textOnPageLoadAnimation']!),
@@ -333,6 +335,9 @@ class _ProfileFINALWidgetState extends State<ProfileFINALWidget>
                                         onTap: () async {
                                           logFirebaseEvent(
                                               'PROFILE_F_I_N_A_L_Icon_79st0tvl_ON_TAP');
+                                          logFirebaseEvent(
+                                              'Icon_haptic_feedback');
+                                          HapticFeedback.vibrate();
                                           logFirebaseEvent('Icon_bottom_sheet');
                                           await showModalBottomSheet(
                                             isScrollControlled: true,
@@ -392,8 +397,8 @@ class _ProfileFINALWidgetState extends State<ProfileFINALWidget>
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Icon(
-                                    Icons.notifications_none,
-                                    color: FlutterFlowTheme.of(context).success,
+                                    Icons.privacy_tip_rounded,
+                                    color: FlutterFlowTheme.of(context).error,
                                     size: 36.0,
                                   ),
                                   Padding(
@@ -401,7 +406,7 @@ class _ProfileFINALWidgetState extends State<ProfileFINALWidget>
                                         12.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
-                                        '3rdin0lj' /* Notifications */,
+                                        'e2e56h3o' /* Privacy Policy */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .labelLarge
@@ -415,11 +420,27 @@ class _ProfileFINALWidgetState extends State<ProfileFINALWidget>
                                     flex: 1,
                                     child: Align(
                                       alignment: AlignmentDirectional(1.0, 0.0),
-                                      child: Icon(
-                                        Icons.touch_app,
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        size: 36.0,
+                                      child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          logFirebaseEvent(
+                                              'PROFILE_F_I_N_A_L_Icon_m4a2w6bb_ON_TAP');
+                                          logFirebaseEvent(
+                                              'Icon_haptic_feedback');
+                                          HapticFeedback.vibrate();
+                                          logFirebaseEvent('Icon_launch_u_r_l');
+                                          await launchURL(
+                                              'https://www.escapeapp.ai/privacy-policy');
+                                        },
+                                        child: Icon(
+                                          Icons.touch_app,
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                          size: 36.0,
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -462,7 +483,7 @@ class _ProfileFINALWidgetState extends State<ProfileFINALWidget>
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Icon(
-                                    Icons.help_outline_rounded,
+                                    FFIcons.kproductReview,
                                     color: FlutterFlowTheme.of(context).accent1,
                                     size: 36.0,
                                   ),
@@ -471,7 +492,7 @@ class _ProfileFINALWidgetState extends State<ProfileFINALWidget>
                                         12.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
-                                        'lhj7dk5m' /* Support */,
+                                        'ft9n21h5' /* Review Us */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .labelLarge
@@ -485,11 +506,27 @@ class _ProfileFINALWidgetState extends State<ProfileFINALWidget>
                                     flex: 1,
                                     child: Align(
                                       alignment: AlignmentDirectional(1.0, 0.0),
-                                      child: Icon(
-                                        Icons.touch_app,
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        size: 36.0,
+                                      child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          logFirebaseEvent(
+                                              'PROFILE_F_I_N_A_L_Icon_g31nouhl_ON_TAP');
+                                          logFirebaseEvent(
+                                              'Icon_haptic_feedback');
+                                          HapticFeedback.vibrate();
+                                          logFirebaseEvent('Icon_launch_u_r_l');
+                                          await launchURL(
+                                              'https://www.escapeapp.ai');
+                                        },
+                                        child: Icon(
+                                          Icons.touch_app,
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                          size: 36.0,
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -518,8 +555,9 @@ class _ProfileFINALWidgetState extends State<ProfileFINALWidget>
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Icon(
-                                    Icons.privacy_tip_rounded,
-                                    color: FlutterFlowTheme.of(context).error,
+                                    Icons.settings,
+                                    color:
+                                        FlutterFlowTheme.of(context).tertiary,
                                     size: 36.0,
                                   ),
                                   Padding(
@@ -527,7 +565,7 @@ class _ProfileFINALWidgetState extends State<ProfileFINALWidget>
                                         12.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
-                                        'ft9n21h5' /* Terms of Service */,
+                                        '3rdin0lj' /* Settings */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .labelLarge
@@ -541,11 +579,28 @@ class _ProfileFINALWidgetState extends State<ProfileFINALWidget>
                                     flex: 1,
                                     child: Align(
                                       alignment: AlignmentDirectional(1.0, 0.0),
-                                      child: Icon(
-                                        Icons.touch_app,
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        size: 36.0,
+                                      child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          logFirebaseEvent(
+                                              'PROFILE_F_I_N_A_L_Icon_vw19zgbq_ON_TAP');
+                                          logFirebaseEvent(
+                                              'Icon_haptic_feedback');
+                                          HapticFeedback.vibrate();
+                                          logFirebaseEvent('Icon_navigate_to');
+
+                                          context.pushNamed(
+                                              SettingsWidget.routeName);
+                                        },
+                                        child: Icon(
+                                          Icons.touch_app,
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                          size: 36.0,
+                                        ),
                                       ),
                                     ),
                                   ),

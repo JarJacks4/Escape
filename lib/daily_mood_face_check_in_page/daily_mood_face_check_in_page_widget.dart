@@ -14,7 +14,7 @@ class DailyMoodFaceCheckInPageWidget extends StatefulWidget {
   const DailyMoodFaceCheckInPageWidget({super.key});
 
   static String routeName = 'DailyMoodFaceCheckInPage';
-  static String routePath = 'dailyMoodFaceCheckInPage';
+  static String routePath = '/dailyMoodFaceCheckInPage';
 
   @override
   State<DailyMoodFaceCheckInPageWidget> createState() =>

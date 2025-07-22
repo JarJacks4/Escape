@@ -7,6 +7,8 @@ import '/flutter_flow/upload_data.dart';
 import 'dart:async';
 import 'dart:ui';
 import '/index.dart';
+import 'package:chat_u_i_kit_n2m29m/app_state.dart'
+    as chat_u_i_kit_n2m29m_app_state;
 import 'package:tiktokfeed_wz8en7/app_state.dart'
     as tiktokfeed_wz8en7_app_state;
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
@@ -21,7 +23,7 @@ class ProfileDetailsWidget extends StatefulWidget {
   const ProfileDetailsWidget({super.key});
 
   static String routeName = 'ProfileDetails';
-  static String routePath = 'profileDetails';
+  static String routePath = '/profileDetails';
 
   @override
   State<ProfileDetailsWidget> createState() => _ProfileDetailsWidgetState();
@@ -113,6 +115,7 @@ class _ProfileDetailsWidgetState extends State<ProfileDetailsWidget>
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
+    context.watch<chat_u_i_kit_n2m29m_app_state.FFAppState>();
     context.watch<tiktokfeed_wz8en7_app_state.FFAppState>();
 
     return GestureDetector(
@@ -219,7 +222,7 @@ class _ProfileDetailsWidgetState extends State<ProfileDetailsWidget>
                                             Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(
-                                                      12.0, 25.0, 0.0, 8.0),
+                                                      12.0, 30.0, 0.0, 0.0),
                                               child: Text(
                                                 FFLocalizations.of(context)
                                                     .getText(
@@ -297,13 +300,9 @@ class _ProfileDetailsWidgetState extends State<ProfileDetailsWidget>
                                                               children: [
                                                                 if (valueOrDefault<
                                                                     bool>(
-                                                                  _model.profilePicture !=
-                                                                          null &&
-                                                                      (_model
-                                                                              .profilePicture
-                                                                              ?.bytes
-                                                                              ?.isNotEmpty ??
-                                                                          false),
+                                                                  _model.uploadedFileUrl_uploadPhoto ==
+                                                                      FFAppState()
+                                                                          .ProfilePicture,
                                                                   false,
                                                                 ))
                                                                   Align(
@@ -312,28 +311,31 @@ class _ProfileDetailsWidgetState extends State<ProfileDetailsWidget>
                                                                             -0.16,
                                                                             0.26),
                                                                     child:
-                                                                        Container(
-                                                                      width:
-                                                                          150.0,
-                                                                      height:
-                                                                          150.0,
-                                                                      clipBehavior:
-                                                                          Clip.antiAlias,
-                                                                      decoration:
-                                                                          BoxDecoration(
-                                                                        shape: BoxShape
-                                                                            .circle,
-                                                                      ),
-                                                                      child: Image
-                                                                          .network(
-                                                                        valueOrDefault<
-                                                                            String>(
-                                                                          FFAppState()
-                                                                              .ProfilePicture,
-                                                                          'https://res.cloudinary.com/dbyduwpud/image/upload/v1751860346/AICircleLucilleChat_uo87av.gif',
+                                                                        AuthUserStreamWidget(
+                                                                      builder:
+                                                                          (context) =>
+                                                                              Container(
+                                                                        width:
+                                                                            150.0,
+                                                                        height:
+                                                                            150.0,
+                                                                        clipBehavior:
+                                                                            Clip.antiAlias,
+                                                                        decoration:
+                                                                            BoxDecoration(
+                                                                          shape:
+                                                                              BoxShape.circle,
                                                                         ),
-                                                                        fit: BoxFit
-                                                                            .cover,
+                                                                        child: Image
+                                                                            .network(
+                                                                          valueOrDefault<
+                                                                              String>(
+                                                                            currentUserPhoto,
+                                                                            'https://res.cloudinary.com/dbyduwpud/image/upload/v1751860346/AICircleLucilleChat_uo87av.gif',
+                                                                          ),
+                                                                          fit: BoxFit
+                                                                              .cover,
+                                                                        ),
                                                                       ),
                                                                     ),
                                                                   ),
@@ -444,37 +446,107 @@ class _ProfileDetailsWidgetState extends State<ProfileDetailsWidget>
                                                               currentUserPhoto;
                                                           FFAppState()
                                                               .update(() {});
-                                                          logFirebaseEvent(
-                                                              'Button_show_snack_bar');
-                                                          ScaffoldMessenger.of(
-                                                                  context)
-                                                              .showSnackBar(
-                                                            SnackBar(
-                                                              content: Text(
-                                                                'Profile Picture Uploaded!',
-                                                                style:
-                                                                    TextStyle(
-                                                                  fontFamily:
-                                                                      'WorkSans',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primary,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
-                                                                  fontSize:
-                                                                      16.0,
+                                                          if (FFAppState()
+                                                                  .ProfilePicture ==
+                                                              '') {
+                                                            logFirebaseEvent(
+                                                                'Button_show_snack_bar');
+                                                            ScaffoldMessenger
+                                                                    .of(context)
+                                                                .showSnackBar(
+                                                              SnackBar(
+                                                                content: Text(
+                                                                  'Profile Picture Uploaded!',
+                                                                  style:
+                                                                      TextStyle(
+                                                                    fontFamily:
+                                                                        'WorkSans',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .normal,
+                                                                    fontSize:
+                                                                        16.0,
+                                                                  ),
                                                                 ),
+                                                                duration: Duration(
+                                                                    milliseconds:
+                                                                        4000),
+                                                                backgroundColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .accent1,
                                                               ),
-                                                              duration: Duration(
-                                                                  milliseconds:
-                                                                      4000),
-                                                              backgroundColor:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .accent1,
-                                                            ),
-                                                          );
+                                                            );
+                                                          } else if (currentUserPhoto !=
+                                                                  '') {
+                                                            logFirebaseEvent(
+                                                                'Button_show_snack_bar');
+                                                            ScaffoldMessenger
+                                                                    .of(context)
+                                                                .showSnackBar(
+                                                              SnackBar(
+                                                                content: Text(
+                                                                  'Profile Picture Uploaded!',
+                                                                  style:
+                                                                      TextStyle(
+                                                                    fontFamily:
+                                                                        'WorkSans',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .normal,
+                                                                    fontSize:
+                                                                        16.0,
+                                                                  ),
+                                                                ),
+                                                                duration: Duration(
+                                                                    milliseconds:
+                                                                        4000),
+                                                                backgroundColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .accent1,
+                                                              ),
+                                                            );
+                                                          } else {
+                                                            logFirebaseEvent(
+                                                                'Button_show_snack_bar');
+                                                            ScaffoldMessenger
+                                                                    .of(context)
+                                                                .showSnackBar(
+                                                              SnackBar(
+                                                                content: Text(
+                                                                  'Please try again!',
+                                                                  style:
+                                                                      TextStyle(
+                                                                    fontFamily:
+                                                                        'WorkSans',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .normal,
+                                                                    fontSize:
+                                                                        16.0,
+                                                                  ),
+                                                                ),
+                                                                duration: Duration(
+                                                                    milliseconds:
+                                                                        4000),
+                                                                backgroundColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .accent1,
+                                                              ),
+                                                            );
+                                                            return;
+                                                          }
                                                         },
                                                         text:
                                                             FFLocalizations.of(
@@ -587,7 +659,7 @@ class _ProfileDetailsWidgetState extends State<ProfileDetailsWidget>
                                                                           'WorkSans',
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .alternate,
+                                                                          .secondary,
                                                                       letterSpacing:
                                                                           0.0,
                                                                       lineHeight:
@@ -624,7 +696,7 @@ class _ProfileDetailsWidgetState extends State<ProfileDetailsWidget>
                                       child: Image.asset(
                                         'assets/images/Logo_ESCAPE_White.png',
                                         width: 178.8,
-                                        height: 77.84,
+                                        height: 47.81,
                                         fit: BoxFit.contain,
                                       ),
                                     ),

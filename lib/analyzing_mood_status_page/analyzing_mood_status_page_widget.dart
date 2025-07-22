@@ -11,7 +11,7 @@ class AnalyzingMoodStatusPageWidget extends StatefulWidget {
   const AnalyzingMoodStatusPageWidget({super.key});
 
   static String routeName = 'AnalyzingMoodStatusPage';
-  static String routePath = 'analyzingMoodStatusPage';
+  static String routePath = '/analyzingMoodStatusPage';
 
   @override
   State<AnalyzingMoodStatusPageWidget> createState() =>
@@ -37,7 +37,11 @@ class _AnalyzingMoodStatusPageWidgetState
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('ANALYZING_MOOD_STATUS_AnalyzingMoodStatu');
       logFirebaseEvent('AnalyzingMoodStatusPage_wait__delay');
-      await Future.delayed(const Duration(milliseconds: 1000));
+      await Future.delayed(
+        Duration(
+          milliseconds: 1000,
+        ),
+      );
     });
 
     animationsMap.addAll({

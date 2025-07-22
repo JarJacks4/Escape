@@ -2,6 +2,7 @@ import '/components/basic_breathing_page_comp_widget.dart';
 import '/components/box_breathing_meditation_card_f_i_n_a_l_widget.dart';
 import '/components/microcosmic_orbit_meditation_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
@@ -13,7 +14,7 @@ class MeditationChoicePageWidget extends StatefulWidget {
   const MeditationChoicePageWidget({super.key});
 
   static String routeName = 'MeditationChoicePage';
-  static String routePath = 'meditationChoicePage';
+  static String routePath = '/meditationChoicePage';
 
   @override
   State<MeditationChoicePageWidget> createState() =>
@@ -186,6 +187,43 @@ class _MeditationChoicePageWidgetState
                             onPageChanged: (index, _) =>
                                 _model.carouselCurrentIndex = index,
                           ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+                      child: FFButtonWidget(
+                        onPressed: () async {
+                          logFirebaseEvent(
+                              'MEDITATION_CHOICE_BACK_TO_HOME_BTN_ON_TA');
+                          logFirebaseEvent('Button_navigate_back');
+                          context.safePop();
+                        },
+                        text: FFLocalizations.of(context).getText(
+                          'dmluj1rq' /* Back to Home */,
+                        ),
+                        icon: Icon(
+                          Icons.arrow_back,
+                          size: 15.0,
+                        ),
+                        options: FFButtonOptions(
+                          width: MediaQuery.sizeOf(context).width * 0.6,
+                          height: 40.0,
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              16.0, 0.0, 16.0, 0.0),
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          color: FlutterFlowTheme.of(context).secondary,
+                          textStyle: FlutterFlowTheme.of(context)
+                              .titleSmall
+                              .override(
+                                fontFamily: 'WorkSans',
+                                color: FlutterFlowTheme.of(context).alternate,
+                                letterSpacing: 0.0,
+                              ),
+                          elevation: 0.0,
+                          borderRadius: BorderRadius.circular(30.0),
                         ),
                       ),
                     ),

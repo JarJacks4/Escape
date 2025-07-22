@@ -5,6 +5,9 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
+import '/index.dart';
+import 'package:chat_u_i_kit_n2m29m/app_state.dart'
+    as chat_u_i_kit_n2m29m_app_state;
 import 'package:tiktokfeed_wz8en7/app_state.dart'
     as tiktokfeed_wz8en7_app_state;
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
@@ -25,7 +28,7 @@ class AISoundscapesWidget extends StatefulWidget {
   final String meditationaudio;
 
   static String routeName = 'AISoundscapes';
-  static String routePath = 'aISoundscapes';
+  static String routePath = '/aISoundscapes';
 
   @override
   State<AISoundscapesWidget> createState() => _AISoundscapesWidgetState();
@@ -92,6 +95,7 @@ class _AISoundscapesWidgetState extends State<AISoundscapesWidget>
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
+    context.watch<chat_u_i_kit_n2m29m_app_state.FFAppState>();
     context.watch<tiktokfeed_wz8en7_app_state.FFAppState>();
 
     return GestureDetector(
@@ -130,7 +134,7 @@ class _AISoundscapesWidgetState extends State<AISoundscapesWidget>
                                 image: DecorationImage(
                                   fit: BoxFit.cover,
                                   image: Image.asset(
-                                    'assets/images/download_(18).gif',
+                                    'assets/images/Register_-_Login_(2).gif',
                                   ).image,
                                 ),
                               ),
@@ -138,14 +142,14 @@ class _AISoundscapesWidgetState extends State<AISoundscapesWidget>
                                 borderRadius: BorderRadius.circular(8.0),
                                 child: BackdropFilter(
                                   filter: ImageFilter.blur(
-                                    sigmaX: 8.0,
-                                    sigmaY: 8.0,
+                                    sigmaX: 7.0,
+                                    sigmaY: 7.0,
                                   ),
                                   child: Container(
                                     width: 100.0,
-                                    height: 100.0,
+                                    height: 117.07,
                                     decoration: BoxDecoration(
-                                      color: Color(0x8F39519F),
+                                      color: Color(0x7DD0E3F7),
                                     ),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
@@ -161,35 +165,70 @@ class _AISoundscapesWidgetState extends State<AISoundscapesWidget>
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
-                                              FlutterFlowIconButton(
-                                                borderRadius: 8.0,
-                                                buttonSize: 50.0,
-                                                icon: Icon(
-                                                  FFIcons.kmenuHambuger,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .info,
-                                                  size: 36.0,
+                                              Flexible(
+                                                flex: 1,
+                                                child: FlutterFlowIconButton(
+                                                  borderRadius: 8.0,
+                                                  buttonSize: 50.0,
+                                                  icon: Icon(
+                                                    Icons.arrow_back,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .info,
+                                                    size: 36.0,
+                                                  ),
+                                                  onPressed: () async {
+                                                    logFirebaseEvent(
+                                                        'A_I_SOUNDSCAPES_arrow_back_ICN_ON_TAP');
+                                                    logFirebaseEvent(
+                                                        'IconButton_navigate_back');
+                                                    context.safePop();
+                                                  },
                                                 ),
-                                                onPressed: () async {
-                                                  logFirebaseEvent(
-                                                      'A_I_SOUNDSCAPES_menuHambuger_ICN_ON_TAP');
-                                                  logFirebaseEvent(
-                                                      'IconButton_navigate_back');
-                                                  context.safePop();
-                                                },
                                               ),
                                               Padding(
                                                 padding: EdgeInsets.all(8.0),
-                                                child: ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
-                                                  child: Image.asset(
-                                                    'assets/images/Logo_ESCAPE_White.png',
-                                                    width: 86.0,
-                                                    height: 72.9,
-                                                    fit: BoxFit.contain,
+                                                child: InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    logFirebaseEvent(
+                                                        'A_I_SOUNDSCAPES_Image_gu53mehd_ON_TAP');
+                                                    logFirebaseEvent(
+                                                        'Image_navigate_to');
+
+                                                    context.pushNamed(
+                                                      HomeVersion4Widget
+                                                          .routeName,
+                                                      extra: <String, dynamic>{
+                                                        kTransitionInfoKey:
+                                                            TransitionInfo(
+                                                          hasTransition: true,
+                                                          transitionType:
+                                                              PageTransitionType
+                                                                  .fade,
+                                                          duration: Duration(
+                                                              milliseconds: 1),
+                                                        ),
+                                                      },
+                                                    );
+                                                  },
+                                                  child: ClipRRect(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8.0),
+                                                    child: Image.asset(
+                                                      'assets/images/Logo_ESCAPE_White.png',
+                                                      width: 86.0,
+                                                      height: 72.9,
+                                                      fit: BoxFit.contain,
+                                                    ),
                                                   ),
                                                 ),
                                               ),
@@ -211,10 +250,10 @@ Soundscapes */
                                                   fontFamily: 'The Seasons',
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .secondary,
+                                                      .alternate,
                                                   fontSize: 36.0,
                                                   letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w300,
+                                                  fontWeight: FontWeight.normal,
                                                 ),
                                           ),
                                         ),
@@ -382,7 +421,7 @@ Soundscapes */
                                                                             .bodyMedium
                                                                             .override(
                                                                               fontFamily: 'The Seasons',
-                                                                              color: FlutterFlowTheme.of(context).primary,
+                                                                              color: FlutterFlowTheme.of(context).alternate,
                                                                               fontSize: 18.0,
                                                                               letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.bold,
@@ -478,7 +517,7 @@ Soundscapes */
                                                                             .bodyMedium
                                                                             .override(
                                                                               fontFamily: 'The Seasons',
-                                                                              color: FlutterFlowTheme.of(context).primary,
+                                                                              color: FlutterFlowTheme.of(context).alternate,
                                                                               fontSize: 18.0,
                                                                               letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.bold,
@@ -538,13 +577,11 @@ Soundscapes */
                                                                                 _model.songandtitle,
                                                                                 r'''$.url''',
                                                                               ).toString();
-                                                                              safeSetState(() {});
-                                                                              logFirebaseEvent('IconButton_update_app_state');
                                                                               FFAppState().currentSongtitle = getJsonField(
                                                                                 _model.songandtitle,
                                                                                 r'''$.title''',
                                                                               ).toString();
-                                                                              safeSetState(() {});
+                                                                              FFAppState().update(() {});
 
                                                                               safeSetState(() {});
                                                                             },
@@ -617,8 +654,24 @@ Soundscapes */
                                                                               size: 36.0,
                                                                             ),
                                                                             onPressed:
-                                                                                () {
-                                                                              print('IconButton pressed ...');
+                                                                                () async {
+                                                                              logFirebaseEvent('A_I_SOUNDSCAPES_PAGE_focus_ICN_ON_TAP');
+                                                                              logFirebaseEvent('IconButton_custom_action');
+                                                                              _model.songandtitle9 = await actions.getRandomSongAndTitle(
+                                                                                'Escape Meditation Help',
+                                                                              );
+                                                                              logFirebaseEvent('IconButton_update_app_state');
+                                                                              FFAppState().currentSongUrl = getJsonField(
+                                                                                _model.songandtitle,
+                                                                                r'''$.url''',
+                                                                              ).toString();
+                                                                              FFAppState().currentSongtitle = getJsonField(
+                                                                                _model.songandtitle,
+                                                                                r'''$.title''',
+                                                                              ).toString();
+                                                                              FFAppState().update(() {});
+
+                                                                              safeSetState(() {});
                                                                             },
                                                                           ),
                                                                         ),
@@ -689,8 +742,24 @@ Soundscapes */
                                                                               size: 36.0,
                                                                             ),
                                                                             onPressed:
-                                                                                () {
-                                                                              print('IconButton pressed ...');
+                                                                                () async {
+                                                                              logFirebaseEvent('A_I_SOUNDSCAPES_PAGE_sadCry_ICN_ON_TAP');
+                                                                              logFirebaseEvent('IconButton_custom_action');
+                                                                              _model.songandtitle1 = await actions.getRandomSongAndTitle(
+                                                                                'Escape Meditation Help',
+                                                                              );
+                                                                              logFirebaseEvent('IconButton_update_app_state');
+                                                                              FFAppState().currentSongUrl = getJsonField(
+                                                                                _model.songandtitle,
+                                                                                r'''$.url''',
+                                                                              ).toString();
+                                                                              FFAppState().currentSongtitle = getJsonField(
+                                                                                _model.songandtitle,
+                                                                                r'''$.title''',
+                                                                              ).toString();
+                                                                              FFAppState().update(() {});
+
+                                                                              safeSetState(() {});
                                                                             },
                                                                           ),
                                                                         ),
@@ -768,8 +837,24 @@ Soundscapes */
                                                                               size: 36.0,
                                                                             ),
                                                                             onPressed:
-                                                                                () {
-                                                                              print('IconButton pressed ...');
+                                                                                () async {
+                                                                              logFirebaseEvent('A_I_SOUNDSCAPES_PAGE_sleeping_ICN_ON_TAP');
+                                                                              logFirebaseEvent('IconButton_custom_action');
+                                                                              _model.songandtitle5 = await actions.getRandomSongAndTitle(
+                                                                                'Escape Meditation Help',
+                                                                              );
+                                                                              logFirebaseEvent('IconButton_update_app_state');
+                                                                              FFAppState().currentSongUrl = getJsonField(
+                                                                                _model.songandtitle,
+                                                                                r'''$.url''',
+                                                                              ).toString();
+                                                                              FFAppState().currentSongtitle = getJsonField(
+                                                                                _model.songandtitle,
+                                                                                r'''$.title''',
+                                                                              ).toString();
+                                                                              FFAppState().update(() {});
+
+                                                                              safeSetState(() {});
                                                                             },
                                                                           ),
                                                                         ),
@@ -830,150 +915,6 @@ Soundscapes */
                                                                           decoration:
                                                                               BoxDecoration(
                                                                             color:
-                                                                                FlutterFlowTheme.of(context).tertiary,
-                                                                            borderRadius:
-                                                                                BorderRadius.circular(50.0),
-                                                                          ),
-                                                                          child:
-                                                                              FlutterFlowIconButton(
-                                                                            borderRadius:
-                                                                                8.0,
-                                                                            buttonSize:
-                                                                                40.0,
-                                                                            icon:
-                                                                                FaIcon(
-                                                                              FontAwesomeIcons.react,
-                                                                              color: FlutterFlowTheme.of(context).info,
-                                                                              size: 36.0,
-                                                                            ),
-                                                                            onPressed:
-                                                                                () {
-                                                                              print('IconButton pressed ...');
-                                                                            },
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                    Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          18.0,
-                                                                          15.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                      child:
-                                                                          Text(
-                                                                        FFLocalizations.of(context)
-                                                                            .getText(
-                                                                          'usoecuz3' /* Spatial Orbit */,
-                                                                        ),
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .override(
-                                                                              fontFamily: 'The Seasons',
-                                                                              color: FlutterFlowTheme.of(context).primary,
-                                                                              fontSize: 18.0,
-                                                                              letterSpacing: 0.0,
-                                                                              fontWeight: FontWeight.bold,
-                                                                            ),
-                                                                      ),
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                                Column(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  children: [
-                                                                    Flexible(
-                                                                      flex: 1,
-                                                                      child:
-                                                                          Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            15.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            Container(
-                                                                          width:
-                                                                              63.0,
-                                                                          height:
-                                                                              64.0,
-                                                                          decoration:
-                                                                              BoxDecoration(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).primaryText,
-                                                                            borderRadius:
-                                                                                BorderRadius.circular(50.0),
-                                                                          ),
-                                                                          child:
-                                                                              FlutterFlowIconButton(
-                                                                            borderRadius:
-                                                                                8.0,
-                                                                            buttonSize:
-                                                                                40.0,
-                                                                            icon:
-                                                                                Icon(
-                                                                              FFIcons.krain1,
-                                                                              color: FlutterFlowTheme.of(context).info,
-                                                                              size: 36.0,
-                                                                            ),
-                                                                            onPressed:
-                                                                                () {
-                                                                              print('IconButton pressed ...');
-                                                                            },
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                    Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          18.0,
-                                                                          15.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                      child:
-                                                                          Text(
-                                                                        FFLocalizations.of(context)
-                                                                            .getText(
-                                                                          '8ltdian5' /* Rainy */,
-                                                                        ),
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .override(
-                                                                              fontFamily: 'The Seasons',
-                                                                              color: FlutterFlowTheme.of(context).primary,
-                                                                              fontSize: 18.0,
-                                                                              letterSpacing: 0.0,
-                                                                              fontWeight: FontWeight.bold,
-                                                                            ),
-                                                                      ),
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                                Column(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  children: [
-                                                                    Flexible(
-                                                                      flex: 1,
-                                                                      child:
-                                                                          Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            15.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            Container(
-                                                                          width:
-                                                                              63.0,
-                                                                          height:
-                                                                              64.0,
-                                                                          decoration:
-                                                                              BoxDecoration(
-                                                                            color:
                                                                                 FlutterFlowTheme.of(context).secondary,
                                                                             borderRadius:
                                                                                 BorderRadius.circular(50.0),
@@ -991,8 +932,24 @@ Soundscapes */
                                                                               size: 36.0,
                                                                             ),
                                                                             onPressed:
-                                                                                () {
-                                                                              print('IconButton pressed ...');
+                                                                                () async {
+                                                                              logFirebaseEvent('A_I_SOUNDSCAPES_PAGE_wind_ICN_ON_TAP');
+                                                                              logFirebaseEvent('IconButton_custom_action');
+                                                                              _model.songandtitle3 = await actions.getRandomSongAndTitle(
+                                                                                'Escape Meditation Help',
+                                                                              );
+                                                                              logFirebaseEvent('IconButton_update_app_state');
+                                                                              FFAppState().currentSongUrl = getJsonField(
+                                                                                _model.songandtitle,
+                                                                                r'''$.url''',
+                                                                              ).toString();
+                                                                              FFAppState().currentSongtitle = getJsonField(
+                                                                                _model.songandtitle,
+                                                                                r'''$.title''',
+                                                                              ).toString();
+                                                                              FFAppState().update(() {});
+
+                                                                              safeSetState(() {});
                                                                             },
                                                                           ),
                                                                         ),
@@ -1009,78 +966,6 @@ Soundscapes */
                                                                         FFLocalizations.of(context)
                                                                             .getText(
                                                                           '88xk0uov' /* Wind Down */,
-                                                                        ),
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .override(
-                                                                              fontFamily: 'The Seasons',
-                                                                              color: FlutterFlowTheme.of(context).primary,
-                                                                              fontSize: 18.0,
-                                                                              letterSpacing: 0.0,
-                                                                              fontWeight: FontWeight.bold,
-                                                                            ),
-                                                                      ),
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                                Column(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  children: [
-                                                                    Flexible(
-                                                                      flex: 1,
-                                                                      child:
-                                                                          Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            15.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            Container(
-                                                                          width:
-                                                                              63.0,
-                                                                          height:
-                                                                              64.0,
-                                                                          decoration:
-                                                                              BoxDecoration(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).accent1,
-                                                                            borderRadius:
-                                                                                BorderRadius.circular(50.0),
-                                                                          ),
-                                                                          child:
-                                                                              FlutterFlowIconButton(
-                                                                            borderRadius:
-                                                                                8.0,
-                                                                            buttonSize:
-                                                                                40.0,
-                                                                            icon:
-                                                                                Icon(
-                                                                              FFIcons.katom,
-                                                                              color: FlutterFlowTheme.of(context).info,
-                                                                              size: 36.0,
-                                                                            ),
-                                                                            onPressed:
-                                                                                () {
-                                                                              print('IconButton pressed ...');
-                                                                            },
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                    Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          18.0,
-                                                                          15.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                      child:
-                                                                          Text(
-                                                                        FFLocalizations.of(context)
-                                                                            .getText(
-                                                                          '423iji5v' /* Multiverse */,
                                                                         ),
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium
@@ -1135,8 +1020,24 @@ Soundscapes */
                                                                               size: 36.0,
                                                                             ),
                                                                             onPressed:
-                                                                                () {
-                                                                              print('IconButton pressed ...');
+                                                                                () async {
+                                                                              logFirebaseEvent('A_I_SOUNDSCAPES_PAGE_bookOpen_ICN_ON_TAP');
+                                                                              logFirebaseEvent('IconButton_custom_action');
+                                                                              _model.songandtitle4 = await actions.getRandomSongAndTitle(
+                                                                                'Escape Meditation Help',
+                                                                              );
+                                                                              logFirebaseEvent('IconButton_update_app_state');
+                                                                              FFAppState().currentSongUrl = getJsonField(
+                                                                                _model.songandtitle,
+                                                                                r'''$.url''',
+                                                                              ).toString();
+                                                                              FFAppState().currentSongtitle = getJsonField(
+                                                                                _model.songandtitle,
+                                                                                r'''$.title''',
+                                                                              ).toString();
+                                                                              FFAppState().update(() {});
+
+                                                                              safeSetState(() {});
                                                                             },
                                                                           ),
                                                                         ),
@@ -1153,294 +1054,6 @@ Soundscapes */
                                                                         FFLocalizations.of(context)
                                                                             .getText(
                                                                           '2xsqyq0v' /* Study */,
-                                                                        ),
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .override(
-                                                                              fontFamily: 'The Seasons',
-                                                                              color: FlutterFlowTheme.of(context).primary,
-                                                                              fontSize: 18.0,
-                                                                              letterSpacing: 0.0,
-                                                                              fontWeight: FontWeight.bold,
-                                                                            ),
-                                                                      ),
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                                Column(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  children: [
-                                                                    Flexible(
-                                                                      flex: 1,
-                                                                      child:
-                                                                          Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            15.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            Container(
-                                                                          width:
-                                                                              63.0,
-                                                                          height:
-                                                                              64.0,
-                                                                          decoration:
-                                                                              BoxDecoration(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).alternate,
-                                                                            borderRadius:
-                                                                                BorderRadius.circular(50.0),
-                                                                          ),
-                                                                          child:
-                                                                              FlutterFlowIconButton(
-                                                                            borderRadius:
-                                                                                8.0,
-                                                                            buttonSize:
-                                                                                40.0,
-                                                                            icon:
-                                                                                Icon(
-                                                                              Icons.blind,
-                                                                              color: FlutterFlowTheme.of(context).info,
-                                                                              size: 36.0,
-                                                                            ),
-                                                                            onPressed:
-                                                                                () {
-                                                                              print('IconButton pressed ...');
-                                                                            },
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                    Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          18.0,
-                                                                          15.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                      child:
-                                                                          Text(
-                                                                        FFLocalizations.of(context)
-                                                                            .getText(
-                                                                          'fn29igon' /* 80;s */,
-                                                                        ),
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .override(
-                                                                              fontFamily: 'The Seasons',
-                                                                              color: FlutterFlowTheme.of(context).primary,
-                                                                              fontSize: 18.0,
-                                                                              letterSpacing: 0.0,
-                                                                              fontWeight: FontWeight.bold,
-                                                                            ),
-                                                                      ),
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                                Column(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  children: [
-                                                                    Flexible(
-                                                                      flex: 1,
-                                                                      child:
-                                                                          Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            15.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            Container(
-                                                                          width:
-                                                                              63.0,
-                                                                          height:
-                                                                              64.0,
-                                                                          decoration:
-                                                                              BoxDecoration(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).accent3,
-                                                                            borderRadius:
-                                                                                BorderRadius.circular(50.0),
-                                                                          ),
-                                                                          child:
-                                                                              FlutterFlowIconButton(
-                                                                            borderRadius:
-                                                                                8.0,
-                                                                            buttonSize:
-                                                                                40.0,
-                                                                            icon:
-                                                                                Icon(
-                                                                              Icons.skateboarding,
-                                                                              color: FlutterFlowTheme.of(context).info,
-                                                                              size: 36.0,
-                                                                            ),
-                                                                            onPressed:
-                                                                                () {
-                                                                              print('IconButton pressed ...');
-                                                                            },
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                    Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          18.0,
-                                                                          15.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                      child:
-                                                                          Text(
-                                                                        FFLocalizations.of(context)
-                                                                            .getText(
-                                                                          'uo823sy6' /* 90's */,
-                                                                        ),
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .override(
-                                                                              fontFamily: 'The Seasons',
-                                                                              color: FlutterFlowTheme.of(context).primary,
-                                                                              fontSize: 18.0,
-                                                                              letterSpacing: 0.0,
-                                                                              fontWeight: FontWeight.bold,
-                                                                            ),
-                                                                      ),
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                                Column(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  children: [
-                                                                    Flexible(
-                                                                      flex: 1,
-                                                                      child:
-                                                                          Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            15.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            Container(
-                                                                          width:
-                                                                              63.0,
-                                                                          height:
-                                                                              64.0,
-                                                                          decoration:
-                                                                              BoxDecoration(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).accent1,
-                                                                            borderRadius:
-                                                                                BorderRadius.circular(50.0),
-                                                                          ),
-                                                                          child:
-                                                                              FlutterFlowIconButton(
-                                                                            borderRadius:
-                                                                                8.0,
-                                                                            buttonSize:
-                                                                                40.0,
-                                                                            icon:
-                                                                                Icon(
-                                                                              Icons.auto_awesome_sharp,
-                                                                              color: FlutterFlowTheme.of(context).info,
-                                                                              size: 36.0,
-                                                                            ),
-                                                                            onPressed:
-                                                                                () {
-                                                                              print('IconButton pressed ...');
-                                                                            },
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                    Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          18.0,
-                                                                          15.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                      child:
-                                                                          Text(
-                                                                        FFLocalizations.of(context)
-                                                                            .getText(
-                                                                          'irt9fmbw' /* Space */,
-                                                                        ),
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .override(
-                                                                              fontFamily: 'The Seasons',
-                                                                              color: FlutterFlowTheme.of(context).primary,
-                                                                              fontSize: 18.0,
-                                                                              letterSpacing: 0.0,
-                                                                              fontWeight: FontWeight.bold,
-                                                                            ),
-                                                                      ),
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                                Column(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  children: [
-                                                                    Flexible(
-                                                                      flex: 1,
-                                                                      child:
-                                                                          Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            15.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            Container(
-                                                                          width:
-                                                                              63.0,
-                                                                          height:
-                                                                              64.0,
-                                                                          decoration:
-                                                                              BoxDecoration(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).secondary,
-                                                                            borderRadius:
-                                                                                BorderRadius.circular(50.0),
-                                                                          ),
-                                                                          child:
-                                                                              FlutterFlowIconButton(
-                                                                            borderRadius:
-                                                                                8.0,
-                                                                            buttonSize:
-                                                                                40.0,
-                                                                            icon:
-                                                                                FaIcon(
-                                                                              FontAwesomeIcons.react,
-                                                                              color: FlutterFlowTheme.of(context).info,
-                                                                              size: 36.0,
-                                                                            ),
-                                                                            onPressed:
-                                                                                () {
-                                                                              print('IconButton pressed ...');
-                                                                            },
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                    Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          18.0,
-                                                                          15.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                      child:
-                                                                          Text(
-                                                                        FFLocalizations.of(context)
-                                                                            .getText(
-                                                                          'o1y1a536' /* Chakras */,
                                                                         ),
                                                                         style: FlutterFlowTheme.of(context)
                                                                             .bodyMedium

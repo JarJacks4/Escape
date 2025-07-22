@@ -1,11 +1,14 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/components/earn_points_with_avatar_card_widget.dart';
+import '/components/chat_with_lucille_card_widget.dart';
+import '/components/generate_soundscapes_card_widget.dart';
 import '/components/todays_self_care_activities_comp_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
 import '/index.dart';
+import 'package:chat_u_i_kit_n2m29m/app_state.dart'
+    as chat_u_i_kit_n2m29m_app_state;
 import 'package:tiktokfeed_wz8en7/app_state.dart'
     as tiktokfeed_wz8en7_app_state;
 import 'package:auto_size_text/auto_size_text.dart';
@@ -23,7 +26,7 @@ class SelfCarePlanPageWidget extends StatefulWidget {
   const SelfCarePlanPageWidget({super.key});
 
   static String routeName = 'SelfCarePlanPage';
-  static String routePath = 'selfCarePlanPage';
+  static String routePath = '/selfCarePlanPage';
 
   @override
   State<SelfCarePlanPageWidget> createState() => _SelfCarePlanPageWidgetState();
@@ -114,32 +117,6 @@ class _SelfCarePlanPageWidgetState extends State<SelfCarePlanPageWidget>
           ),
         ],
       ),
-      'earnPointsWithAvatarCardOnPageLoadAnimation': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 2400.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          ScaleEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: Offset(5.0, 5.0),
-            end: Offset(1.0, 1.0),
-          ),
-          ShimmerEffect(
-            curve: Curves.easeInOut,
-            delay: 3000.0.ms,
-            duration: 600.0.ms,
-            color: Color(0x80FFFFFF),
-            angle: 0.524,
-          ),
-        ],
-      ),
       'textOnPageLoadAnimation2': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
@@ -220,6 +197,7 @@ class _SelfCarePlanPageWidgetState extends State<SelfCarePlanPageWidget>
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
+    context.watch<chat_u_i_kit_n2m29m_app_state.FFAppState>();
     context.watch<tiktokfeed_wz8en7_app_state.FFAppState>();
 
     return StreamBuilder<UsersRecord>(
@@ -259,7 +237,7 @@ class _SelfCarePlanPageWidgetState extends State<SelfCarePlanPageWidget>
               desktop: false,
             )
                 ? PreferredSize(
-                    preferredSize: Size.fromHeight(140.0),
+                    preferredSize: Size.fromHeight(170.0),
                     child: AppBar(
                       backgroundColor: FlutterFlowTheme.of(context).primary,
                       automaticallyImplyLeading: false,
@@ -756,12 +734,8 @@ class _SelfCarePlanPageWidgetState extends State<SelfCarePlanPageWidget>
                                                                 BoxShape.circle,
                                                           ),
                                                           child: Image.network(
-                                                            valueOrDefault<
-                                                                String>(
-                                                              selfCarePlanPageUsersRecord
-                                                                  .photoUrl,
-                                                              'https://res.cloudinary.com/dbyduwpud/image/upload/v1751860485/LucilleAIPhoto_vvmsvx.png',
-                                                            ),
+                                                            selfCarePlanPageUsersRecord
+                                                                .photoUrl,
                                                             fit: BoxFit.cover,
                                                           ),
                                                         ),
@@ -823,16 +797,48 @@ class _SelfCarePlanPageWidgetState extends State<SelfCarePlanPageWidget>
                                     0.0, 25.0, 0.0, 0.0),
                                 child: Container(
                                   width: double.infinity,
-                                  height: 157.7,
+                                  height: 175.69,
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(15.0),
                                   ),
-                                  child: wrapWithModel(
-                                    model: _model.earnPointsWithAvatarCardModel,
-                                    updateCallback: () => safeSetState(() {}),
-                                    child: EarnPointsWithAvatarCardWidget(),
-                                  ).animateOnPageLoad(animationsMap[
-                                      'earnPointsWithAvatarCardOnPageLoadAnimation']!),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Expanded(
+                                        child: Align(
+                                          alignment:
+                                              AlignmentDirectional(0.0, 0.0),
+                                          child: ListView(
+                                            padding: EdgeInsets.symmetric(
+                                                horizontal: 22.0),
+                                            primary: false,
+                                            shrinkWrap: true,
+                                            scrollDirection: Axis.horizontal,
+                                            children: [
+                                              wrapWithModel(
+                                                model: _model
+                                                    .chatWithLucilleCardModel,
+                                                updateCallback: () =>
+                                                    safeSetState(() {}),
+                                                child:
+                                                    ChatWithLucilleCardWidget(),
+                                              ),
+                                              wrapWithModel(
+                                                model: _model
+                                                    .generateSoundscapesCardModel,
+                                                updateCallback: () =>
+                                                    safeSetState(() {}),
+                                                child:
+                                                    GenerateSoundscapesCardWidget(),
+                                              ),
+                                            ].divide(SizedBox(width: 22.0)),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                               Padding(
@@ -968,8 +974,20 @@ class _SelfCarePlanPageWidgetState extends State<SelfCarePlanPageWidget>
                                                   'Container_navigate_to');
 
                                               context.pushNamed(
-                                                  CommunityHomeFINALWidget
-                                                      .routeName);
+                                                CommunityHomeFINALWidget
+                                                    .routeName,
+                                                queryParameters: {
+                                                  'bodyIndex': serializeParam(
+                                                    3,
+                                                    ParamType.int,
+                                                  ),
+                                                  'initialTabIndex':
+                                                      serializeParam(
+                                                    3,
+                                                    ParamType.int,
+                                                  ),
+                                                }.withoutNulls,
+                                              );
                                             },
                                             child: Container(
                                               height: 178.5,
@@ -1167,7 +1185,8 @@ class _SelfCarePlanPageWidgetState extends State<SelfCarePlanPageWidget>
                                                   'Container_navigate_to');
 
                                               context.pushNamed(
-                                                JournalPageWidget.routeName,
+                                                JournalPageFINALWidget
+                                                    .routeName,
                                                 extra: <String, dynamic>{
                                                   kTransitionInfoKey:
                                                       TransitionInfo(
@@ -1367,6 +1386,11 @@ Improvement */
                                                     .routeName,
                                                 queryParameters: {
                                                   'bodyIndex': serializeParam(
+                                                    3,
+                                                    ParamType.int,
+                                                  ),
+                                                  'initialTabIndex':
+                                                      serializeParam(
                                                     3,
                                                     ParamType.int,
                                                   ),

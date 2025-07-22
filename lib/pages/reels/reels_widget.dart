@@ -9,7 +9,7 @@ class ReelsWidget extends StatefulWidget {
   const ReelsWidget({super.key});
 
   static String routeName = 'reels';
-  static String routePath = 'reels';
+  static String routePath = '/reels';
 
   @override
   State<ReelsWidget> createState() => _ReelsWidgetState();
@@ -60,8 +60,10 @@ class _ReelsWidgetState extends State<ReelsWidget> {
                   actions: [],
                   flexibleSpace: FlexibleSpaceBar(
                     title: FFButtonWidget(
-                      onPressed: () {
-                        print('Button pressed ...');
+                      onPressed: () async {
+                        logFirebaseEvent('REELS_PAGE_BACK_BTN_ON_TAP');
+                        logFirebaseEvent('Button_navigate_back');
+                        context.safePop();
                       },
                       text: FFLocalizations.of(context).getText(
                         'd63pbol2' /* Back */,

@@ -1,4 +1,5 @@
-import '/components/earn_points_with_avatar_card_widget.dart';
+import '/components/chat_with_lucille_card_widget.dart';
+import '/components/generate_soundscapes_card_widget.dart';
 import '/components/todays_self_care_activities_comp_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
@@ -8,22 +9,27 @@ import 'package:flutter/material.dart';
 class SelfCarePlanPageModel extends FlutterFlowModel<SelfCarePlanPageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  // Model for EarnPointsWithAvatarCard component.
-  late EarnPointsWithAvatarCardModel earnPointsWithAvatarCardModel;
+  // Model for ChatWithLucilleCard component.
+  late ChatWithLucilleCardModel chatWithLucilleCardModel;
+  // Model for GenerateSoundscapesCard component.
+  late GenerateSoundscapesCardModel generateSoundscapesCardModel;
   // Model for TodaysSelfCareActivitiesComp component.
   late TodaysSelfCareActivitiesCompModel todaysSelfCareActivitiesCompModel;
 
   @override
   void initState(BuildContext context) {
-    earnPointsWithAvatarCardModel =
-        createModel(context, () => EarnPointsWithAvatarCardModel());
+    chatWithLucilleCardModel =
+        createModel(context, () => ChatWithLucilleCardModel());
+    generateSoundscapesCardModel =
+        createModel(context, () => GenerateSoundscapesCardModel());
     todaysSelfCareActivitiesCompModel =
         createModel(context, () => TodaysSelfCareActivitiesCompModel());
   }
 
   @override
   void dispose() {
-    earnPointsWithAvatarCardModel.dispose();
+    chatWithLucilleCardModel.dispose();
+    generateSoundscapesCardModel.dispose();
     todaysSelfCareActivitiesCompModel.dispose();
   }
 }
