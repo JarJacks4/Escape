@@ -1,15 +1,15 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/custom_code/actions/index.dart' as actions;
 import '/index.dart';
+import 'package:chat_u_i_kit_n2m29m/app_state.dart'
+    as chat_u_i_kit_n2m29m_app_state;
 import 'package:tiktokfeed_wz8en7/app_state.dart'
     as tiktokfeed_wz8en7_app_state;
 import 'package:tiktokfeed_wz8en7/custom_code/widgets/index.dart'
     as tiktokfeed_wz8en7_custom_widgets;
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';
 import 'community_home_f_i_n_a_l_model.dart';
@@ -22,14 +22,21 @@ class CommunityHomeFINALWidget extends StatefulWidget {
     this.forYouIndex,
     this.breathingIndex,
     this.bodyIndex,
-  });
+    int? initialTabIndex,
+    this.oldIndex,
+    int? newIndex,
+  })  : this.initialTabIndex = initialTabIndex ?? 0,
+        this.newIndex = newIndex ?? 2;
 
   final int? forYouIndex;
   final int? breathingIndex;
   final int? bodyIndex;
+  final int initialTabIndex;
+  final int? oldIndex;
+  final int newIndex;
 
   static String routeName = 'CommunityHomeFINAL';
-  static String routePath = 'communityHomeFINAL';
+  static String routePath = '/communityHomeFINAL';
 
   @override
   State<CommunityHomeFINALWidget> createState() =>
@@ -51,91 +58,16 @@ class _CommunityHomeFINALWidgetState extends State<CommunityHomeFINALWidget>
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'CommunityHomeFINAL'});
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      logFirebaseEvent('COMMUNITY_HOME_F_I_N_A_L_CommunityHomeFI');
-      logFirebaseEvent('CommunityHomeFINAL_custom_action');
-      _model.meditationReOrder = await actions.reorderItems(
-        tiktokfeed_wz8en7_app_state.FFAppState()
-            .meditationTikToks
-            .map((e) => e.urlvideo)
-            .toList()
-            .toList(),
-        widget.forYouIndex!,
-        widget.breathingIndex!,
-      );
-      logFirebaseEvent('CommunityHomeFINAL_custom_action');
-      _model.bodyReOrder = await actions.reorderItems(
-        tiktokfeed_wz8en7_app_state.FFAppState()
-            .BodyTikToks
-            .map((e) => e.urlvideo)
-            .toList()
-            .toList(),
-        widget.forYouIndex!,
-        widget.bodyIndex!,
-      );
-      logFirebaseEvent('CommunityHomeFINAL_custom_action');
-      _model.forYouReOrder = await actions.reorderItems(
-        tiktokfeed_wz8en7_app_state.FFAppState()
-            .ListTikTokPages
-            .map((e) => e.urlvideo)
-            .toList()
-            .toList(),
-        widget.forYouIndex!,
-        widget.forYouIndex!,
-      );
-    });
-
     _model.tabBarController = TabController(
       vsync: this,
       length: 3,
       initialIndex: min(
           valueOrDefault<int>(
-            widget.forYouIndex,
+            widget.initialTabIndex,
             0,
           ),
           2),
-    )
-      ..addListener(() => safeSetState(() {}))
-      ..addListener(() async {
-        if (_model.tabBarController!.indexIsChanging) {
-          return;
-        }
-
-        logFirebaseEvent('COMMUNITY_HOME_F_I_N_A_L_TabBar_c1dem0rv');
-        logFirebaseEvent('TabBar_custom_action');
-        _model.meditationReOrder1 = await actions.reorderItems(
-          tiktokfeed_wz8en7_app_state.FFAppState()
-              .meditationTikToks
-              .map((e) => e.urlvideo)
-              .toList()
-              .toList(),
-          widget.forYouIndex!,
-          widget.breathingIndex!,
-        );
-        logFirebaseEvent('TabBar_custom_action');
-        _model.bodyReOrder2 = await actions.reorderItems(
-          tiktokfeed_wz8en7_app_state.FFAppState()
-              .BodyTikToks
-              .map((e) => e.urlvideo)
-              .toList()
-              .toList(),
-          widget.forYouIndex!,
-          widget.bodyIndex!,
-        );
-        logFirebaseEvent('TabBar_custom_action');
-        _model.forYouReOrder3 = await actions.reorderItems(
-          tiktokfeed_wz8en7_app_state.FFAppState()
-              .ListTikTokPages
-              .map((e) => e.urlvideo)
-              .toList()
-              .toList(),
-          widget.forYouIndex!,
-          widget.forYouIndex!,
-        );
-
-        safeSetState(() {});
-      });
+    )..addListener(() => safeSetState(() {}));
 
     animationsMap.addAll({
       'imageOnPageLoadAnimation': AnimationInfo(
@@ -201,6 +133,7 @@ class _CommunityHomeFINALWidgetState extends State<CommunityHomeFINALWidget>
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
+    context.watch<chat_u_i_kit_n2m29m_app_state.FFAppState>();
     context.watch<tiktokfeed_wz8en7_app_state.FFAppState>();
 
     return GestureDetector(
@@ -229,6 +162,7 @@ class _CommunityHomeFINALWidgetState extends State<CommunityHomeFINALWidget>
                 ),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Row(
                       mainAxisSize: MainAxisSize.max,
@@ -236,7 +170,7 @@ class _CommunityHomeFINALWidgetState extends State<CommunityHomeFINALWidget>
                         Expanded(
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                8.0, 50.0, 8.0, 0.0),
+                                8.0, 60.0, 8.0, 0.0),
                             child: Container(
                               width: double.infinity,
                               decoration: BoxDecoration(
@@ -327,419 +261,445 @@ class _CommunityHomeFINALWidgetState extends State<CommunityHomeFINALWidget>
                     ),
                     Flexible(
                       flex: 1,
-                      child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
-                        child: Column(
-                          children: [
-                            Align(
-                              alignment: Alignment(0.0, 0),
-                              child: TabBar(
-                                isScrollable: true,
-                                tabAlignment: TabAlignment.center,
-                                labelColor:
-                                    FlutterFlowTheme.of(context).secondary,
-                                unselectedLabelColor:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                labelPadding: EdgeInsetsDirectional.fromSTEB(
-                                    25.0, 0.0, 25.0, 0.0),
-                                labelStyle: FlutterFlowTheme.of(context)
-                                    .titleMedium
-                                    .override(
-                                      fontFamily: 'The Seasons',
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.normal,
-                                    ),
-                                unselectedLabelStyle:
-                                    FlutterFlowTheme.of(context)
-                                        .titleMedium
-                                        .override(
-                                          fontFamily: 'WorkSans',
-                                          letterSpacing: 0.0,
-                                        ),
-                                indicatorColor:
-                                    FlutterFlowTheme.of(context).accent1,
-                                tabs: [
-                                  Tab(
-                                    text: FFLocalizations.of(context).getText(
-                                      'jqshrznh' /* For You */,
-                                    ),
-                                  ),
-                                  Tab(
-                                    text: FFLocalizations.of(context).getText(
-                                      '07okvhbs' /* Breathing */,
-                                    ),
-                                  ),
-                                  Tab(
-                                    text: FFLocalizations.of(context).getText(
-                                      '8vmea7gc' /* Body */,
-                                    ),
-                                  ),
-                                ],
-                                controller: _model.tabBarController,
-                                onTap: (i) async {
-                                  [() async {}, () async {}, () async {}][i]();
-                                },
-                              ),
-                            ),
-                            Expanded(
-                              child: TabBarView(
-                                controller: _model.tabBarController,
+                      child: ListView(
+                        padding: EdgeInsets.zero,
+                        shrinkWrap: true,
+                        scrollDirection: Axis.vertical,
+                        children: [
+                          Container(
+                            height: 683.71,
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 15.0, 0.0, 0.0),
+                              child: Column(
                                 children: [
-                                  Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Flexible(
-                                        flex: 1,
-                                        child: Align(
-                                          alignment:
-                                              AlignmentDirectional(0.0, -1.0),
-                                          child: Container(
-                                            width: double.infinity,
-                                            height: 700.0,
-                                            decoration: BoxDecoration(),
-                                            child: Align(
-                                              alignment: AlignmentDirectional(
-                                                  0.0, -1.0),
-                                              child: ListView(
-                                                padding: EdgeInsets.zero,
-                                                reverse: true,
-                                                primary: false,
-                                                shrinkWrap: true,
-                                                scrollDirection: Axis.vertical,
-                                                children: [
-                                                  Align(
-                                                    alignment:
-                                                        AlignmentDirectional(
-                                                            0.0, -1.0),
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  1.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child:
-                                                          AuthUserStreamWidget(
-                                                        builder: (context) =>
-                                                            Container(
-                                                          width:
-                                                              MediaQuery.sizeOf(
-                                                                          context)
-                                                                      .width *
-                                                                  1.0,
-                                                          height:
-                                                              MediaQuery.sizeOf(
-                                                                          context)
-                                                                      .height *
-                                                                  0.75,
-                                                          child:
-                                                              tiktokfeed_wz8en7_custom_widgets
-                                                                  .ChewieWidget(
-                                                            width: MediaQuery
-                                                                        .sizeOf(
-                                                                            context)
-                                                                    .width *
-                                                                1.0,
-                                                            height: MediaQuery
-                                                                        .sizeOf(
-                                                                            context)
-                                                                    .height *
-                                                                0.75,
-                                                            userID:
-                                                                currentUserDisplayName,
-                                                            data: tiktokfeed_wz8en7_app_state
-                                                                    .FFAppState()
-                                                                .ListTikTokPages,
-                                                            likerebuidpage:
-                                                                () async {
-                                                              logFirebaseEvent(
-                                                                  'COMMUNITY_HOME_F_I_N_A_L_Container_gcbdh');
-                                                              logFirebaseEvent(
-                                                                  'ChewieWidget_update_app_state');
-                                                              FFAppState()
-                                                                  .updateListTikTokPagesAtIndex(
-                                                                FFAppState()
-                                                                    .videoId,
-                                                                (e) => e
-                                                                  ..likes = FFAppState()
-                                                                      .newListLike
-                                                                      .toList(),
-                                                              );
-                                                              safeSetState(
-                                                                  () {});
-                                                            },
-                                                            bookedrebuidpage:
-                                                                () async {
-                                                              logFirebaseEvent(
-                                                                  'COMMUNITY_HOME_F_I_N_A_L_Container_gcbdh');
-                                                              logFirebaseEvent(
-                                                                  'ChewieWidget_update_app_state');
-                                                              FFAppState()
-                                                                  .updateListTikTokPagesAtIndex(
-                                                                FFAppState()
-                                                                    .videoId,
-                                                                (e) => e
-                                                                  ..bookmark =
-                                                                      FFAppState()
-                                                                          .newListBookmarks
-                                                                          .toList(),
-                                                              );
-                                                              safeSetState(
-                                                                  () {});
-                                                            },
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ).animateOnPageLoad(animationsMap[
-                                                  'listViewOnPageLoadAnimation']!),
-                                            ),
+                                  Align(
+                                    alignment: Alignment(0.0, 0),
+                                    child: TabBar(
+                                      isScrollable: true,
+                                      tabAlignment: TabAlignment.center,
+                                      labelColor: FlutterFlowTheme.of(context)
+                                          .secondary,
+                                      unselectedLabelColor:
+                                          FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                      labelPadding:
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              25.0, 0.0, 25.0, 0.0),
+                                      labelStyle: FlutterFlowTheme.of(context)
+                                          .titleMedium
+                                          .override(
+                                            fontFamily: 'The Seasons',
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.normal,
+                                          ),
+                                      unselectedLabelStyle:
+                                          FlutterFlowTheme.of(context)
+                                              .titleMedium
+                                              .override(
+                                                fontFamily: 'WorkSans',
+                                                letterSpacing: 0.0,
+                                              ),
+                                      indicatorColor:
+                                          FlutterFlowTheme.of(context).accent1,
+                                      tabs: [
+                                        Tab(
+                                          text: FFLocalizations.of(context)
+                                              .getText(
+                                            'mjfpegxu' /* For You */,
                                           ),
                                         ),
-                                      ),
-                                    ],
+                                        Tab(
+                                          text: FFLocalizations.of(context)
+                                              .getText(
+                                            'uym5o2s3' /* Breathing */,
+                                          ),
+                                        ),
+                                        Tab(
+                                          text: FFLocalizations.of(context)
+                                              .getText(
+                                            'db42ing9' /* Body */,
+                                          ),
+                                        ),
+                                      ],
+                                      controller: _model.tabBarController,
+                                      onTap: (i) async {
+                                        [
+                                          () async {},
+                                          () async {},
+                                          () async {}
+                                        ][i]();
+                                      },
+                                    ),
                                   ),
-                                  Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Flexible(
-                                        flex: 1,
-                                        child: Align(
-                                          alignment:
-                                              AlignmentDirectional(0.0, -1.0),
-                                          child: Container(
-                                            width: double.infinity,
-                                            height: 700.0,
-                                            decoration: BoxDecoration(),
-                                            child: Align(
-                                              alignment: AlignmentDirectional(
-                                                  0.0, -1.0),
-                                              child: ListView(
-                                                padding: EdgeInsets.zero,
-                                                reverse: true,
-                                                primary: false,
-                                                shrinkWrap: true,
-                                                scrollDirection: Axis.vertical,
-                                                children: [
-                                                  Align(
+                                  Expanded(
+                                    child: TabBarView(
+                                      controller: _model.tabBarController,
+                                      physics:
+                                          const NeverScrollableScrollPhysics(),
+                                      children: [
+                                        Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.end,
+                                          children: [
+                                            Flexible(
+                                              flex: 1,
+                                              child: Align(
+                                                alignment: AlignmentDirectional(
+                                                    0.0, 1.0),
+                                                child: Container(
+                                                  width: double.infinity,
+                                                  height:
+                                                      MediaQuery.sizeOf(context)
+                                                              .height *
+                                                          6.5,
+                                                  constraints: BoxConstraints(
+                                                    minWidth: double.infinity,
+                                                    minHeight: 600.0,
+                                                    maxWidth: double.infinity,
+                                                    maxHeight:
+                                                        MediaQuery.sizeOf(
+                                                                    context)
+                                                                .height *
+                                                            100.0,
+                                                  ),
+                                                  decoration: BoxDecoration(),
+                                                  child: Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.0, -1.0),
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  1.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child:
-                                                          AuthUserStreamWidget(
-                                                        builder: (context) =>
-                                                            Container(
-                                                          width:
-                                                              MediaQuery.sizeOf(
-                                                                          context)
+                                                            0.0, 1.0),
+                                                    child: ListView(
+                                                      padding: EdgeInsets.zero,
+                                                      reverse: true,
+                                                      primary: false,
+                                                      shrinkWrap: true,
+                                                      scrollDirection:
+                                                          Axis.vertical,
+                                                      children: [
+                                                        Align(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  0.0, 1.0),
+                                                          child: Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        1.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            child: Container(
+                                                              width: MediaQuery
+                                                                          .sizeOf(
+                                                                              context)
                                                                       .width *
                                                                   1.0,
-                                                          height:
-                                                              MediaQuery.sizeOf(
-                                                                          context)
+                                                              height: MediaQuery
+                                                                          .sizeOf(
+                                                                              context)
                                                                       .height *
-                                                                  0.75,
-                                                          child:
-                                                              tiktokfeed_wz8en7_custom_widgets
+                                                                  0.8,
+                                                              child: tiktokfeed_wz8en7_custom_widgets
                                                                   .ChewieWidget(
-                                                            width: MediaQuery
-                                                                        .sizeOf(
+                                                                width: MediaQuery.sizeOf(
                                                                             context)
-                                                                    .width *
-                                                                1.0,
-                                                            height: MediaQuery
-                                                                        .sizeOf(
+                                                                        .width *
+                                                                    1.0,
+                                                                height: MediaQuery.sizeOf(
                                                                             context)
-                                                                    .height *
-                                                                0.75,
-                                                            userID:
-                                                                currentUserDisplayName,
-                                                            data: tiktokfeed_wz8en7_app_state
-                                                                    .FFAppState()
-                                                                .BreathingTikTok,
-                                                            likerebuidpage:
-                                                                () async {
-                                                              logFirebaseEvent(
-                                                                  'COMMUNITY_HOME_F_I_N_A_L_Container_85nck');
-                                                              logFirebaseEvent(
-                                                                  'ChewieWidget_update_app_state');
-                                                              FFAppState()
-                                                                  .updateListTikTokPagesAtIndex(
-                                                                FFAppState()
-                                                                    .videoId,
-                                                                (e) => e
-                                                                  ..likes = FFAppState()
-                                                                      .newListLike
-                                                                      .toList(),
-                                                              );
-                                                              safeSetState(
-                                                                  () {});
-                                                            },
-                                                            bookedrebuidpage:
-                                                                () async {
-                                                              logFirebaseEvent(
-                                                                  'COMMUNITY_HOME_F_I_N_A_L_Container_85nck');
-                                                              logFirebaseEvent(
-                                                                  'ChewieWidget_update_app_state');
-                                                              FFAppState()
-                                                                  .updateListTikTokPagesAtIndex(
-                                                                FFAppState()
-                                                                    .videoId,
-                                                                (e) => e
-                                                                  ..bookmark =
-                                                                      FFAppState()
+                                                                        .height *
+                                                                    0.8,
+                                                                userID:
+                                                                    currentUserUid,
+                                                                data: tiktokfeed_wz8en7_app_state
+                                                                        .FFAppState()
+                                                                    .ListTikTokPages,
+                                                                likerebuidpage:
+                                                                    () async {
+                                                                  logFirebaseEvent(
+                                                                      'COMMUNITY_HOME_F_I_N_A_L_Container_vqjof');
+                                                                  logFirebaseEvent(
+                                                                      'ChewieWidget_update_app_state');
+                                                                  FFAppState()
+                                                                      .updateListTikTokPagesAtIndex(
+                                                                    FFAppState()
+                                                                        .videoId,
+                                                                    (e) => e
+                                                                      ..likes = FFAppState()
+                                                                          .newListLike
+                                                                          .toList(),
+                                                                  );
+                                                                  safeSetState(
+                                                                      () {});
+                                                                },
+                                                                bookedrebuidpage:
+                                                                    () async {
+                                                                  logFirebaseEvent(
+                                                                      'COMMUNITY_HOME_F_I_N_A_L_Container_vqjof');
+                                                                  logFirebaseEvent(
+                                                                      'ChewieWidget_update_app_state');
+                                                                  FFAppState()
+                                                                      .updateListTikTokPagesAtIndex(
+                                                                    tiktokfeed_wz8en7_app_state
+                                                                            .FFAppState()
+                                                                        .videoID,
+                                                                    (e) => e
+                                                                      ..bookmark = FFAppState()
                                                                           .newListBookmarks
                                                                           .toList(),
-                                                              );
-                                                              safeSetState(
-                                                                  () {});
-                                                            },
+                                                                  );
+                                                                  safeSetState(
+                                                                      () {});
+                                                                },
+                                                              ),
+                                                            ),
                                                           ),
                                                         ),
-                                                      ),
-                                                    ),
+                                                      ],
+                                                    ).animateOnPageLoad(
+                                                        animationsMap[
+                                                            'listViewOnPageLoadAnimation']!),
                                                   ),
-                                                ],
+                                                ),
                                               ),
                                             ),
-                                          ),
+                                          ],
                                         ),
-                                      ),
-                                    ],
-                                  ),
-                                  Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Flexible(
-                                        flex: 1,
-                                        child: Align(
-                                          alignment:
-                                              AlignmentDirectional(0.0, -1.0),
-                                          child: Container(
-                                            width: double.infinity,
-                                            height: 700.0,
-                                            decoration: BoxDecoration(),
-                                            child: Align(
-                                              alignment: AlignmentDirectional(
-                                                  0.0, -1.0),
-                                              child: ListView(
-                                                padding: EdgeInsets.zero,
-                                                reverse: true,
-                                                primary: false,
-                                                shrinkWrap: true,
-                                                scrollDirection: Axis.vertical,
-                                                children: [
-                                                  Align(
+                                        Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Flexible(
+                                              flex: 1,
+                                              child: Align(
+                                                alignment: AlignmentDirectional(
+                                                    0.0, -1.0),
+                                                child: Container(
+                                                  width: double.infinity,
+                                                  height: 700.0,
+                                                  decoration: BoxDecoration(),
+                                                  child: Align(
                                                     alignment:
                                                         AlignmentDirectional(
                                                             0.0, -1.0),
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  1.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child:
-                                                          AuthUserStreamWidget(
-                                                        builder: (context) =>
-                                                            Container(
-                                                          width:
-                                                              MediaQuery.sizeOf(
-                                                                          context)
-                                                                      .width *
-                                                                  1.0,
-                                                          height:
-                                                              MediaQuery.sizeOf(
-                                                                          context)
-                                                                      .height *
-                                                                  0.75,
-                                                          child:
-                                                              tiktokfeed_wz8en7_custom_widgets
-                                                                  .ChewieWidget(
-                                                            width: MediaQuery
-                                                                        .sizeOf(
+                                                    child: ListView(
+                                                      padding: EdgeInsets.zero,
+                                                      reverse: true,
+                                                      primary: false,
+                                                      shrinkWrap: true,
+                                                      scrollDirection:
+                                                          Axis.vertical,
+                                                      children: [
+                                                        Align(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  0.0, -1.0),
+                                                          child: Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        1.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            child:
+                                                                AuthUserStreamWidget(
+                                                              builder:
+                                                                  (context) =>
+                                                                      Container(
+                                                                width: MediaQuery.sizeOf(
                                                                             context)
-                                                                    .width *
-                                                                1.0,
-                                                            height: MediaQuery
-                                                                        .sizeOf(
+                                                                        .width *
+                                                                    1.0,
+                                                                height: MediaQuery.sizeOf(
                                                                             context)
-                                                                    .height *
-                                                                0.75,
-                                                            userID:
-                                                                currentUserDisplayName,
-                                                            data: tiktokfeed_wz8en7_app_state
-                                                                    .FFAppState()
-                                                                .BodyTikToks,
-                                                            likerebuidpage:
-                                                                () async {
-                                                              logFirebaseEvent(
-                                                                  'COMMUNITY_HOME_F_I_N_A_L_Container_duhiz');
-                                                              logFirebaseEvent(
-                                                                  'ChewieWidget_update_app_state');
-                                                              FFAppState()
-                                                                  .updateListTikTokPagesAtIndex(
-                                                                FFAppState()
-                                                                    .videoId,
-                                                                (e) => e
-                                                                  ..likes = FFAppState()
-                                                                      .newListLike
-                                                                      .toList(),
-                                                              );
-                                                              safeSetState(
-                                                                  () {});
-                                                            },
-                                                            bookedrebuidpage:
-                                                                () async {
-                                                              logFirebaseEvent(
-                                                                  'COMMUNITY_HOME_F_I_N_A_L_Container_duhiz');
-                                                              logFirebaseEvent(
-                                                                  'ChewieWidget_update_app_state');
-                                                              FFAppState()
-                                                                  .updateListTikTokPagesAtIndex(
-                                                                FFAppState()
-                                                                    .videoId,
-                                                                (e) => e
-                                                                  ..bookmark =
+                                                                        .height *
+                                                                    0.75,
+                                                                child: tiktokfeed_wz8en7_custom_widgets
+                                                                    .ChewieWidget(
+                                                                  width: MediaQuery.sizeOf(
+                                                                              context)
+                                                                          .width *
+                                                                      1.0,
+                                                                  height: MediaQuery.sizeOf(
+                                                                              context)
+                                                                          .height *
+                                                                      0.75,
+                                                                  userID:
+                                                                      currentUserDisplayName,
+                                                                  data: tiktokfeed_wz8en7_app_state
+                                                                          .FFAppState()
+                                                                      .BreathingTikTok,
+                                                                  likerebuidpage:
+                                                                      () async {
+                                                                    logFirebaseEvent(
+                                                                        'COMMUNITY_HOME_F_I_N_A_L_Container_gcvai');
+                                                                    logFirebaseEvent(
+                                                                        'ChewieWidget_update_app_state');
+                                                                    FFAppState()
+                                                                        .updateListTikTokPagesAtIndex(
                                                                       FFAppState()
-                                                                          .newListBookmarks
-                                                                          .toList(),
-                                                              );
-                                                              safeSetState(
-                                                                  () {});
-                                                            },
+                                                                          .videoId,
+                                                                      (e) => e
+                                                                        ..likes = FFAppState()
+                                                                            .newListLike
+                                                                            .toList(),
+                                                                    );
+                                                                    safeSetState(
+                                                                        () {});
+                                                                  },
+                                                                  bookedrebuidpage:
+                                                                      () async {
+                                                                    logFirebaseEvent(
+                                                                        'COMMUNITY_HOME_F_I_N_A_L_Container_gcvai');
+                                                                    logFirebaseEvent(
+                                                                        'ChewieWidget_update_app_state');
+                                                                    FFAppState()
+                                                                        .updateListTikTokPagesAtIndex(
+                                                                      FFAppState()
+                                                                          .videoId,
+                                                                      (e) => e
+                                                                        ..bookmark = FFAppState()
+                                                                            .newListBookmarks
+                                                                            .toList(),
+                                                                    );
+                                                                    safeSetState(
+                                                                        () {});
+                                                                  },
+                                                                ),
+                                                              ),
+                                                            ),
                                                           ),
                                                         ),
-                                                      ),
+                                                      ],
                                                     ),
                                                   ),
-                                                ],
+                                                ),
                                               ),
                                             ),
-                                          ),
+                                          ],
                                         ),
-                                      ),
-                                    ],
+                                        Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Flexible(
+                                              flex: 1,
+                                              child: Align(
+                                                alignment: AlignmentDirectional(
+                                                    0.0, -1.0),
+                                                child: Container(
+                                                  width: double.infinity,
+                                                  height: 700.0,
+                                                  decoration: BoxDecoration(),
+                                                  child: Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            0.0, -1.0),
+                                                    child: ListView(
+                                                      padding: EdgeInsets.zero,
+                                                      reverse: true,
+                                                      primary: false,
+                                                      shrinkWrap: true,
+                                                      scrollDirection:
+                                                          Axis.vertical,
+                                                      children: [
+                                                        Align(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  0.0, -1.0),
+                                                          child: Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        1.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            child:
+                                                                AuthUserStreamWidget(
+                                                              builder:
+                                                                  (context) =>
+                                                                      Container(
+                                                                width: MediaQuery.sizeOf(
+                                                                            context)
+                                                                        .width *
+                                                                    1.0,
+                                                                height: MediaQuery.sizeOf(
+                                                                            context)
+                                                                        .height *
+                                                                    0.75,
+                                                                child: tiktokfeed_wz8en7_custom_widgets
+                                                                    .ChewieWidget(
+                                                                  width: MediaQuery.sizeOf(
+                                                                              context)
+                                                                          .width *
+                                                                      1.0,
+                                                                  height: MediaQuery.sizeOf(
+                                                                              context)
+                                                                          .height *
+                                                                      0.75,
+                                                                  userID:
+                                                                      currentUserDisplayName,
+                                                                  data: tiktokfeed_wz8en7_app_state
+                                                                          .FFAppState()
+                                                                      .BodyTikToks,
+                                                                  likerebuidpage:
+                                                                      () async {
+                                                                    logFirebaseEvent(
+                                                                        'COMMUNITY_HOME_F_I_N_A_L_Container_sx2nh');
+                                                                    logFirebaseEvent(
+                                                                        'ChewieWidget_update_app_state');
+                                                                    FFAppState()
+                                                                        .updateListTikTokPagesAtIndex(
+                                                                      FFAppState()
+                                                                          .videoId,
+                                                                      (e) => e
+                                                                        ..likes = FFAppState()
+                                                                            .newListLike
+                                                                            .toList(),
+                                                                    );
+                                                                    safeSetState(
+                                                                        () {});
+                                                                  },
+                                                                  bookedrebuidpage:
+                                                                      () async {
+                                                                    logFirebaseEvent(
+                                                                        'COMMUNITY_HOME_F_I_N_A_L_Container_sx2nh');
+                                                                    logFirebaseEvent(
+                                                                        'ChewieWidget_update_app_state');
+                                                                    FFAppState()
+                                                                        .updateListTikTokPagesAtIndex(
+                                                                      FFAppState()
+                                                                          .videoId,
+                                                                      (e) => e
+                                                                        ..bookmark = FFAppState()
+                                                                            .newListBookmarks
+                                                                            .toList(),
+                                                                    );
+                                                                    safeSetState(
+                                                                        () {});
+                                                                  },
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ],
                               ),
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
                   ],

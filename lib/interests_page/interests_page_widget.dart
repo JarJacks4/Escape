@@ -17,7 +17,7 @@ class InterestsPageWidget extends StatefulWidget {
   const InterestsPageWidget({super.key});
 
   static String routeName = 'InterestsPage';
-  static String routePath = 'interestsPage';
+  static String routePath = '/interestsPage';
 
   @override
   State<InterestsPageWidget> createState() => _InterestsPageWidgetState();
@@ -240,92 +240,102 @@ class _InterestsPageWidgetState extends State<InterestsPageWidget>
                                                       ),
                                             ),
                                           ),
-                                          Padding(
-                                            padding: EdgeInsets.all(15.0),
-                                            child: FlutterFlowCheckboxGroup(
-                                              options: [
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'dfhkcnzc' /* Pilates */,
+                                          Flexible(
+                                            flex: 1,
+                                            child: Padding(
+                                              padding: EdgeInsets.all(15.0),
+                                              child: FlutterFlowCheckboxGroup(
+                                                options: [
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'dfhkcnzc' /* Pilates */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    '9gueolqz' /* Yoga */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'c5fo5j3n' /* Calmness */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'b33ppehl' /* Peace */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'b8pz562k' /* Tai Chi */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'o1afr5fd' /* Meditation */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'bi8yvquk' /* Breathing */,
+                                                  ),
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    '1r2zq5jn' /* Metaphysics */,
+                                                  )
+                                                ],
+                                                onChanged: (val) =>
+                                                    safeSetState(() => _model
+                                                            .checkboxGroupValues =
+                                                        val),
+                                                controller: _model
+                                                        .checkboxGroupValueController ??=
+                                                    FormFieldController<
+                                                        List<String>>(
+                                                  List.from([
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          '1v6l1fsz' /* Calmness */,
+                                                        )
+                                                      ] ??
+                                                      []),
                                                 ),
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  '9gueolqz' /* Yoga */,
-                                                ),
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'c5fo5j3n' /* Calmness */,
-                                                ),
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'b33ppehl' /* Peace */,
-                                                ),
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'b8pz562k' /* Tai Chi */,
-                                                ),
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'o1afr5fd' /* Meditation */,
-                                                ),
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'bi8yvquk' /* Breathing */,
-                                                ),
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  '1r2zq5jn' /* Metaphysics */,
-                                                )
-                                              ],
-                                              onChanged: (val) => safeSetState(
-                                                  () => _model
-                                                          .checkboxGroupValues =
-                                                      val),
-                                              controller: _model
-                                                      .checkboxGroupValueController ??=
-                                                  FormFieldController<
-                                                      List<String>>(
-                                                [],
+                                                activeColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .alternate,
+                                                checkColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .accent1,
+                                                checkboxBorderColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .alternate,
+                                                textStyle: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      fontFamily: 'WorkSans',
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .tertiary,
+                                                      fontSize: 22.0,
+                                                      letterSpacing: 0.0,
+                                                    ),
+                                                unselectedTextStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'WorkSans',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .alternate,
+                                                          fontSize: 18.0,
+                                                          letterSpacing: 0.0,
+                                                          lineHeight: 1.5,
+                                                        ),
+                                                checkboxBorderRadius:
+                                                    BorderRadius.circular(4.0),
+                                                initialized: _model
+                                                        .checkboxGroupValues !=
+                                                    null,
                                               ),
-                                              activeColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .alternate,
-                                              checkColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .accent1,
-                                              checkboxBorderColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .alternate,
-                                              textStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'WorkSans',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .tertiary,
-                                                        fontSize: 22.0,
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                              unselectedTextStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'WorkSans',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .alternate,
-                                                        fontSize: 18.0,
-                                                        letterSpacing: 0.0,
-                                                        lineHeight: 1.5,
-                                                      ),
-                                              checkboxBorderRadius:
-                                                  BorderRadius.circular(4.0),
-                                              initialized:
-                                                  _model.checkboxGroupValues !=
-                                                      null,
                                             ),
                                           ),
                                           Align(

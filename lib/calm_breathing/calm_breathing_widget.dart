@@ -15,7 +15,7 @@ class CalmBreathingWidget extends StatefulWidget {
   const CalmBreathingWidget({super.key});
 
   static String routeName = 'CalmBreathing';
-  static String routePath = 'calmBreathing';
+  static String routePath = '/calmBreathing';
 
   @override
   State<CalmBreathingWidget> createState() => _CalmBreathingWidgetState();

@@ -1,6 +1,8 @@
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
+import 'package:chat_u_i_kit_n2m29m/app_state.dart'
+    as chat_u_i_kit_n2m29m_app_state;
 import 'package:tiktokfeed_wz8en7/app_state.dart'
     as tiktokfeed_wz8en7_app_state;
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
@@ -98,6 +100,7 @@ class _TodaysSelfCareActivitiesCompWidgetState
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
+    context.watch<chat_u_i_kit_n2m29m_app_state.FFAppState>();
     context.watch<tiktokfeed_wz8en7_app_state.FFAppState>();
 
     return Container(
@@ -295,6 +298,16 @@ class _TodaysSelfCareActivitiesCompWidgetState
 
                     context.pushNamed(
                       CommunityHomeFINALWidget.routeName,
+                      queryParameters: {
+                        'forYouIndex': serializeParam(
+                          3,
+                          ParamType.int,
+                        ),
+                        'initialTabIndex': serializeParam(
+                          3,
+                          ParamType.int,
+                        ),
+                      }.withoutNulls,
                       extra: <String, dynamic>{
                         kTransitionInfoKey: TransitionInfo(
                           hasTransition: true,
@@ -460,7 +473,7 @@ class _TodaysSelfCareActivitiesCompWidgetState
                     logFirebaseEvent('Container_navigate_to');
 
                     context.pushNamed(
-                      JournalPageWidget.routeName,
+                      JournalPageFINALWidget.routeName,
                       extra: <String, dynamic>{
                         kTransitionInfoKey: TransitionInfo(
                           hasTransition: true,

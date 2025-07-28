@@ -112,7 +112,7 @@ class _ADHDBinauralBeatsWidgetState extends State<ADHDBinauralBeatsWidget>
           alignment: AlignmentDirectional(0.0, 1.0),
           child: Container(
             width: double.infinity,
-            height: 314.63,
+            height: 300.21,
             decoration: BoxDecoration(
               boxShadow: [
                 BoxShadow(
