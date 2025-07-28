@@ -16,6 +16,8 @@ import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'index.dart';
 
+import 'package:chat_u_i_kit_n2m29m/app_state.dart'
+    as chat_u_i_kit_n2m29m_app_state;
 import 'package:tiktokfeed_wz8en7/app_state.dart'
     as tiktokfeed_wz8en7_app_state;
 
@@ -24,15 +26,16 @@ void main() async {
   GoRouter.optionURLReflectsImperativeAPIs = true;
   usePathUrlStrategy();
 
-  final environmentValues = FFDevEnvironmentValues();
-  await environmentValues.initialize();
-
   await initFirebase();
 
   await FFLocalizations.initialize();
 
   final appState = FFAppState(); // Initialize FFAppState
   await appState.initializePersistedState();
+
+  final chat_u_i_kit_n2m29mAppState =
+      chat_u_i_kit_n2m29m_app_state.FFAppState();
+  await chat_u_i_kit_n2m29mAppState.initializePersistedState();
 
   final tiktokfeed_wz8en7AppState = tiktokfeed_wz8en7_app_state.FFAppState();
   await tiktokfeed_wz8en7AppState.initializePersistedState();
@@ -45,6 +48,9 @@ void main() async {
     providers: [
       ChangeNotifierProvider(
         create: (context) => appState,
+      ),
+      ChangeNotifierProvider(
+        create: (context) => chat_u_i_kit_n2m29mAppState,
       ),
       ChangeNotifierProvider(
         create: (context) => tiktokfeed_wz8en7AppState,

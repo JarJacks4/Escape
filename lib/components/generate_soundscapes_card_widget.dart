@@ -95,6 +95,12 @@ class _GenerateSoundscapesCardWidgetState
 
                         context.pushNamed(
                           AISoundscapesWidget.routeName,
+                          queryParameters: {
+                            'meditationaudio': serializeParam(
+                              '',
+                              ParamType.String,
+                            ),
+                          }.withoutNulls,
                           extra: <String, dynamic>{
                             kTransitionInfoKey: TransitionInfo(
                               hasTransition: true,
@@ -117,11 +123,14 @@ class _GenerateSoundscapesCardWidgetState
                             EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                         child: Text(
                           FFLocalizations.of(context).getText(
-                            'nppdaile' /* AI Soundscapes */,
+                            'nppdaile' /* AI 
+Soundscapes */
+                            ,
                           ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'The Seasons',
+                                    color: FlutterFlowTheme.of(context).primary,
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,

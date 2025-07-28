@@ -1,10 +1,12 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/gemini/gemini.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:lottie/lottie.dart';
 import 'mood_analyzer_success_comp_model.dart';
@@ -34,6 +36,19 @@ class _MoodAnalyzerSuccessCompWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => MoodAnalyzerSuccessCompModel());
+
+    // On component load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('MOOD_ANALYZER_SUCCESS_MoodAnalyzerSucces');
+      logFirebaseEvent('MoodAnalyzerSuccessComp_gemini');
+      await geminiGenerateText(
+        context,
+        'Could I get a 200 character reccommendation on what I can do to improve my {CurrentMood} today within Escapeapp.ai Mobile app. Here is my mood: ${valueOrDefault(currentUserDocument?.currentMood, '')}',
+      ).then((generatedText) {
+        safeSetState(
+            () => _model.moodDescriptionBottomSheetAction = generatedText);
+      });
+    });
 
     animationsMap.addAll({
       'textOnPageLoadAnimation1': AnimationInfo(
@@ -217,41 +232,53 @@ class _MoodAnalyzerSuccessCompWidgetState
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 15.0),
-                          child: Text(
-                            FFLocalizations.of(context).getText(
-                              '70wv9bhh' /* Success! */,
-                            ),
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'WorkSans',
-                                  fontSize: 36.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                          ).animateOnPageLoad(
-                              animationsMap['textOnPageLoadAnimation1']!),
+                          child: AuthUserStreamWidget(
+                            builder: (context) => Text(
+                              valueOrDefault(
+                                  currentUserDocument?.currentMood, ''),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'WorkSans',
+                                    fontSize: 36.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                            ).animateOnPageLoad(
+                                animationsMap['textOnPageLoadAnimation1']!),
+                          ),
                         ),
                       ),
                       Flexible(
                         flex: 1,
-                        child: Text(
-                          FFLocalizations.of(context).getText(
-                            '4hrgh6ry' /* It is amazing that you have ta... */,
-                          ),
-                          textAlign: TextAlign.center,
-                          style: FlutterFlowTheme.of(context)
-                              .bodyMedium
-                              .override(
-                                fontFamily: 'WorkSans',
-                                color: FlutterFlowTheme.of(context).alternate,
-                                fontSize: 18.0,
-                                letterSpacing: 0.0,
-                                fontWeight: FontWeight.w300,
-                                lineHeight: 1.5,
+                        child: Padding(
+                          padding: EdgeInsets.all(15.0),
+                          child: AnimatedDefaultTextStyle(
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'WorkSans',
+                                  color: FlutterFlowTheme.of(context).alternate,
+                                  fontSize: 18.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w300,
+                                  lineHeight: 1.5,
+                                ),
+                            duration: Duration(milliseconds: 1185),
+                            curve: Curves.easeIn,
+                            child: Text(
+                              valueOrDefault<String>(
+                                _model.moodDescriptionBottomSheetAction,
+                                'It is amazing that you have taken the time to Escape help you uplift your day for the better. Tap Go Home to navigate to Home. If you have any last minute adjustments or would like to change your mood, tap the Back button.',
+                              ).maybeHandleOverflow(
+                                maxChars: 300,
+                                replacement: '…',
                               ),
-                        ).animateOnPageLoad(
-                            animationsMap['textOnPageLoadAnimation2']!),
+                              textAlign: TextAlign.center,
+                            ),
+                          ).animateOnPageLoad(
+                              animationsMap['textOnPageLoadAnimation2']!),
+                        ),
                       ),
                       Flexible(
                         flex: 1,

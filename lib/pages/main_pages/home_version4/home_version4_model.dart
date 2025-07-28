@@ -12,6 +12,10 @@ import 'package:flutter/material.dart';
 class HomeVersion4Model extends FlutterFlowModel<HomeVersion4Widget> {
   ///  State fields for stateful widgets in this page.
 
+  // Stores action output result for [AI Agent - Send Message to LucilleMoodPushNotificationsAgent] action in HomeVersion4 widget.
+  String? dailyQuoteResult;
+  // Stores action output result for [AI Agent - Send Message to Lucille Generate Quote] action in HomeVersion4 widget.
+  String? lucilleGenerateQuote;
   // Model for MeditationCard component.
   late MeditationCardModel meditationCardModel;
   // Model for BreathingCardCopy component.

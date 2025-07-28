@@ -12,7 +12,7 @@ class DeepSleepGoalWidget extends StatefulWidget {
   const DeepSleepGoalWidget({super.key});
 
   static String routeName = 'DeepSleepGoal';
-  static String routePath = 'deepSleepGoal';
+  static String routePath = '/deepSleepGoal';
 
   @override
   State<DeepSleepGoalWidget> createState() => _DeepSleepGoalWidgetState();

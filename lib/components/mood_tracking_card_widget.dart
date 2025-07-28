@@ -61,7 +61,10 @@ class _MoodTrackingCardWidgetState extends State<MoodTrackingCardWidget> {
           height: 100.0,
           decoration: BoxDecoration(
             gradient: LinearGradient(
-              colors: [Color(0x8839519F), FlutterFlowTheme.of(context).accent3],
+              colors: [
+                Color(0x8839519F),
+                FlutterFlowTheme.of(context).secondary
+              ],
               stops: [0.0, 1.0],
               begin: AlignmentDirectional(0.0, -1.0),
               end: AlignmentDirectional(0, 1.0),
@@ -94,7 +97,7 @@ class _MoodTrackingCardWidgetState extends State<MoodTrackingCardWidget> {
                           logFirebaseEvent('IconButton_navigate_to');
 
                           context.pushNamed(
-                            FacialMoodAnalyzerPageWidget.routeName,
+                            FacialMoodAnalyzerChoiceLucilleCardWidget.routeName,
                             extra: <String, dynamic>{
                               kTransitionInfoKey: TransitionInfo(
                                 hasTransition: true,

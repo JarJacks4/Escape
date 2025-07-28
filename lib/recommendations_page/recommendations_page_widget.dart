@@ -13,7 +13,7 @@ class RecommendationsPageWidget extends StatefulWidget {
   const RecommendationsPageWidget({super.key});
 
   static String routeName = 'RecommendationsPage';
-  static String routePath = 'recommendationsPage';
+  static String routePath = '/recommendationsPage';
 
   @override
   State<RecommendationsPageWidget> createState() =>

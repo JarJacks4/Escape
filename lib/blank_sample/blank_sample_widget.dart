@@ -10,7 +10,7 @@ class BlankSampleWidget extends StatefulWidget {
   const BlankSampleWidget({super.key});
 
   static String routeName = 'blankSample';
-  static String routePath = 'blankSample';
+  static String routePath = '/blankSample';
 
   @override
   State<BlankSampleWidget> createState() => _BlankSampleWidgetState();

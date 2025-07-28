@@ -13,7 +13,7 @@ class CommunityHomeCopyWidget extends StatefulWidget {
   const CommunityHomeCopyWidget({super.key});
 
   static String routeName = 'CommunityHomeCopy';
-  static String routePath = 'communityHomeCopy';
+  static String routePath = '/communityHomeCopy';
 
   @override
   State<CommunityHomeCopyWidget> createState() =>
@@ -88,17 +88,21 @@ class _CommunityHomeCopyWidgetState extends State<CommunityHomeCopyWidget>
             height: double.infinity,
             child: Stack(
               children: [
-                FlutterFlowVideoPlayer(
-                  path: 'https://www.youtube.com/shorts/E0G19yxr93o',
-                  videoType: VideoType.network,
-                  width: double.infinity,
-                  height: MediaQuery.sizeOf(context).height * 1.0,
-                  autoPlay: true,
-                  looping: true,
-                  showControls: false,
-                  allowFullScreen: false,
-                  allowPlaybackSpeedMenu: false,
-                ),
+                if (responsiveVisibility(
+                  context: context,
+                  phone: false,
+                ))
+                  FlutterFlowVideoPlayer(
+                    path: 'https://www.youtube.com/shorts/E0G19yxr93o',
+                    videoType: VideoType.network,
+                    width: double.infinity,
+                    height: MediaQuery.sizeOf(context).height * 1.0,
+                    autoPlay: true,
+                    looping: true,
+                    showControls: false,
+                    allowFullScreen: false,
+                    allowPlaybackSpeedMenu: false,
+                  ),
                 Container(
                   width: double.infinity,
                   height: double.infinity,

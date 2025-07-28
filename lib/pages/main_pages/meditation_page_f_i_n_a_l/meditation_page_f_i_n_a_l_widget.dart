@@ -15,7 +15,7 @@ class MeditationPageFINALWidget extends StatefulWidget {
   const MeditationPageFINALWidget({super.key});
 
   static String routeName = 'MeditationPageFINAL';
-  static String routePath = 'meditationPageFINAL';
+  static String routePath = '/meditationPageFINAL';
 
   @override
   State<MeditationPageFINALWidget> createState() =>

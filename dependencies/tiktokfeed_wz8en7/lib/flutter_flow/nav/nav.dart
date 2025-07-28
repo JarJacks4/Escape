@@ -58,6 +58,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: Page2Widget.routeName,
           path: Page2Widget.routePath,
           builder: (context, params) => Page2Widget(),
+        ),
+        FFRoute(
+          name: ReelsWidget.routeName,
+          path: ReelsWidget.routePath,
+          builder: (context, params) => ReelsWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -67,11 +72,15 @@ void initializeRoutes({
   String? homePageWidgetPath,
   String? page2WidgetName,
   String? page2WidgetPath,
+  String? reelsWidgetName,
+  String? reelsWidgetPath,
 }) {
   HomePageWidget.maybeSetRouteName(homePageWidgetName);
   HomePageWidget.maybeSetRoutePath(homePageWidgetPath);
   Page2Widget.maybeSetRouteName(page2WidgetName);
   Page2Widget.maybeSetRoutePath(page2WidgetPath);
+  ReelsWidget.maybeSetRouteName(reelsWidgetName);
+  ReelsWidget.maybeSetRoutePath(reelsWidgetPath);
 }
 
 extension NavParamExtensions on Map<String, String?> {

@@ -15,7 +15,7 @@ class EnableNotificationsWidget extends StatefulWidget {
   const EnableNotificationsWidget({super.key});
 
   static String routeName = 'EnableNotifications';
-  static String routePath = 'enableNotifications';
+  static String routePath = '/enableNotifications';
 
   @override
   State<EnableNotificationsWidget> createState() =>
@@ -356,7 +356,7 @@ personalized n... */
                                       logFirebaseEvent('Button_navigate_to');
 
                                       context.pushNamed(
-                                        FacialMoodAnalyzerChoiceWidget
+                                        FacialMoodAnalyzerChoiceLoginWidget
                                             .routeName,
                                         extra: <String, dynamic>{
                                           kTransitionInfoKey: TransitionInfo(

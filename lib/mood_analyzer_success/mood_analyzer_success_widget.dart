@@ -11,7 +11,7 @@ class MoodAnalyzerSuccessWidget extends StatefulWidget {
   const MoodAnalyzerSuccessWidget({super.key});
 
   static String routeName = 'MoodAnalyzerSuccess';
-  static String routePath = 'moodAnalyzerSuccess';
+  static String routePath = '/moodAnalyzerSuccess';
 
   @override
   State<MoodAnalyzerSuccessWidget> createState() =>

@@ -247,10 +247,11 @@ class _ConfettiPageBasicCompWidgetState
                                   logFirebaseEvent('Button_update_app_state');
                                   FFAppState().pointsEarned =
                                       FFAppState().pointsEarned + 50;
-                                  safeSetState(() {});
+                                  FFAppState().update(() {});
                                   logFirebaseEvent('Button_backend_call');
 
-                                  await currentUserReference!.update({
+                                  await _model.numberOfGolasCompleted!.reference
+                                      .update({
                                     ...createUsersRecordData(
                                       hasGainedPoints: true,
                                     ),
@@ -261,8 +262,27 @@ class _ConfettiPageBasicCompWidgetState
                                       },
                                     ),
                                   });
+                                  logFirebaseEvent('Button_show_snack_bar');
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content: Text(
+                                        'Self-Care Goals and Progress Points Updated!',
+                                        style: TextStyle(
+                                          fontFamily: 'WorkSans',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryText,
+                                        ),
+                                      ),
+                                      duration: Duration(milliseconds: 4000),
+                                      backgroundColor:
+                                          FlutterFlowTheme.of(context)
+                                              .secondary,
+                                    ),
+                                  );
                                   logFirebaseEvent('Button_navigate_to');
-
+                                  if (Navigator.of(context).canPop()) {
+                                    context.pop();
+                                  }
                                   context.pushNamed(
                                     SelfCarePlanPageWidget.routeName,
                                     extra: <String, dynamic>{
