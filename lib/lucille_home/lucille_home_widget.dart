@@ -1,5 +1,6 @@
 import '/components/change_your_avatar_widget.dart';
 import '/components/chat_with_lucille_card_widget.dart';
+import '/components/earn_points_with_avatar_card_widget.dart';
 import '/components/generate_soundscapes_card_widget.dart';
 import '/components/mood_tracking_card_widget.dart';
 import '/components/self_care_routine_card_widget.dart';
@@ -391,6 +392,17 @@ class _LucilleHomeWidgetState extends State<LucilleHomeWidget>
                                         shrinkWrap: true,
                                         scrollDirection: Axis.vertical,
                                         children: [
+                                          Padding(
+                                            padding: EdgeInsets.all(15.0),
+                                            child: wrapWithModel(
+                                              model: _model
+                                                  .earnPointsWithAvatarCardModel,
+                                              updateCallback: () =>
+                                                  safeSetState(() {}),
+                                              child:
+                                                  EarnPointsWithAvatarCardWidget(),
+                                            ),
+                                          ),
                                           Padding(
                                             padding: EdgeInsets.all(15.0),
                                             child: wrapWithModel(

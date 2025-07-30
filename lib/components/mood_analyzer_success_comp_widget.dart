@@ -267,12 +267,8 @@ class _MoodAnalyzerSuccessCompWidgetState
                             duration: Duration(milliseconds: 1185),
                             curve: Curves.easeIn,
                             child: Text(
-                              valueOrDefault<String>(
-                                _model.moodDescriptionBottomSheetAction,
-                                'It is amazing that you have taken the time to Escape help you uplift your day for the better. Tap Go Home to navigate to Home. If you have any last minute adjustments or would like to change your mood, tap the Back button.',
-                              ).maybeHandleOverflow(
-                                maxChars: 300,
-                                replacement: '…',
+                              FFLocalizations.of(context).getText(
+                                '4hrgh6ry' /* It is amazing that you have ta... */,
                               ),
                               textAlign: TextAlign.center,
                             ),

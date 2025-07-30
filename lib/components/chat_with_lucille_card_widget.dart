@@ -1,7 +1,7 @@
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/index.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -120,17 +120,9 @@ class _ChatWithLucilleCardWidgetState extends State<ChatWithLucilleCardWidget>
                         onPressed: () async {
                           logFirebaseEvent(
                               'CHAT_WITH_LUCILLE_CARD_arrow_outward_ICN');
-                          logFirebaseEvent('IconButton_navigate_to');
-
-                          context.pushNamed(
-                            ChatWithLucilleVersion4Widget.routeName,
-                            extra: <String, dynamic>{
-                              kTransitionInfoKey: TransitionInfo(
-                                hasTransition: true,
-                                transitionType: PageTransitionType.fade,
-                                duration: Duration(milliseconds: 0),
-                              ),
-                            },
+                          logFirebaseEvent('IconButton_custom_action');
+                          await actions.launchUnrealScene(
+                            'Chat With Lucille Room',
                           );
                         },
                       ),
