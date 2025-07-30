@@ -510,6 +510,21 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
         builder: (context, params) => JournalPageFINALCopyWidget(),
       ),
       FFRoute(
+        name: LucilleNewChatWidget.routeName,
+        path: LucilleNewChatWidget.routePath,
+        builder: (context, params) => LucilleNewChatWidget(),
+      ),
+      FFRoute(
+        name: EscapeInnerverseWidget.routeName,
+        path: EscapeInnerverseWidget.routePath,
+        builder: (context, params) => EscapeInnerverseWidget(),
+      ),
+      FFRoute(
+        name: LoadingScreenAnimusWidget.routeName,
+        path: LoadingScreenAnimusWidget.routePath,
+        builder: (context, params) => LoadingScreenAnimusWidget(),
+      ),
+      FFRoute(
         name: $chat_u_i_kit_n2m29m.HomePageWidget.routeName,
         path: $chat_u_i_kit_n2m29m.HomePageWidget.routePath,
         builder: (context, params) => $chat_u_i_kit_n2m29m.HomePageWidget(),

@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/components/delete_account_bottom_sheet_widget.dart';
 import '/components/edit_profile_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -670,14 +671,26 @@ class _ProfileFINALWidgetState extends State<ProfileFINALWidget>
                             onPressed: () async {
                               logFirebaseEvent(
                                   'PROFILE_F_I_N_A_L_DELETE_ACCOUNT_BTN_ON_');
-                              logFirebaseEvent('Button_auth');
-                              GoRouter.of(context).prepareAuthEvent();
-                              await authManager.signOut();
-                              GoRouter.of(context).clearRedirectLocation();
-
-                              context.goNamedAuth(
-                                  SplashScreenVersion4Widget.routeName,
-                                  context.mounted);
+                              logFirebaseEvent('Button_bottom_sheet');
+                              await showModalBottomSheet(
+                                isScrollControlled: true,
+                                backgroundColor: Colors.transparent,
+                                isDismissible: false,
+                                context: context,
+                                builder: (context) {
+                                  return GestureDetector(
+                                    onTap: () {
+                                      FocusScope.of(context).unfocus();
+                                      FocusManager.instance.primaryFocus
+                                          ?.unfocus();
+                                    },
+                                    child: Padding(
+                                      padding: MediaQuery.viewInsetsOf(context),
+                                      child: DeleteAccountBottomSheetWidget(),
+                                    ),
+                                  );
+                                },
+                              ).then((value) => safeSetState(() {}));
                             },
                             text: FFLocalizations.of(context).getText(
                               '1h7f7ice' /* Delete Account */,
