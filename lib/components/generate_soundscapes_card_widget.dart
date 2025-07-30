@@ -1,6 +1,6 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/index.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'generate_soundscapes_card_model.dart';
@@ -91,23 +91,9 @@ class _GenerateSoundscapesCardWidgetState
                       onPressed: () async {
                         logFirebaseEvent(
                             'GENERATE_SOUNDSCAPES_CARD_arrow_outward_');
-                        logFirebaseEvent('IconButton_navigate_to');
-
-                        context.pushNamed(
-                          AISoundscapesWidget.routeName,
-                          queryParameters: {
-                            'meditationaudio': serializeParam(
-                              '',
-                              ParamType.String,
-                            ),
-                          }.withoutNulls,
-                          extra: <String, dynamic>{
-                            kTransitionInfoKey: TransitionInfo(
-                              hasTransition: true,
-                              transitionType: PageTransitionType.fade,
-                              duration: Duration(milliseconds: 2),
-                            ),
-                          },
+                        logFirebaseEvent('IconButton_custom_action');
+                        await actions.launchUnrealScene(
+                          'Character Customization',
                         );
                       },
                     ),
@@ -123,9 +109,7 @@ class _GenerateSoundscapesCardWidgetState
                             EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                         child: Text(
                           FFLocalizations.of(context).getText(
-                            'nppdaile' /* AI 
-Soundscapes */
-                            ,
+                            'nppdaile' /* Edit Avatar */,
                           ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(

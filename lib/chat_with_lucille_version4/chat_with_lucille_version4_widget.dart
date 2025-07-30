@@ -119,8 +119,12 @@ class _ChatWithLucilleVersion4WidgetState
                                     color: FlutterFlowTheme.of(context).accent1,
                                     size: 32.0,
                                   ),
-                                  onPressed: () {
-                                    print('IconButton pressed ...');
+                                  onPressed: () async {
+                                    logFirebaseEvent(
+                                        'CHAT_WITH_LUCILLE_VERSION4_arrow_back_IC');
+                                    logFirebaseEvent(
+                                        'IconButton_navigate_back');
+                                    context.safePop();
                                   },
                                 ),
                               ),
@@ -131,29 +135,23 @@ class _ChatWithLucilleVersion4WidgetState
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
-                                      Flexible(
-                                        flex: 1,
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 20.0, 0.0, 0.0),
-                                          child: AuthUserStreamWidget(
-                                            builder: (context) => Text(
-                                              valueOrDefault<String>(
-                                                currentUserDisplayName,
-                                                'Jane Doe',
-                                              ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'WorkSans',
-                                                        fontSize: 26.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 20.0, 0.0, 0.0),
+                                        child: AuthUserStreamWidget(
+                                          builder: (context) => Text(
+                                            valueOrDefault<String>(
+                                              currentUserDisplayName,
+                                              'Jane Doe',
                                             ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'WorkSans',
+                                                  fontSize: 26.0,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
                                           ),
                                         ),
                                       ),
@@ -183,21 +181,23 @@ class _ChatWithLucilleVersion4WidgetState
                               ),
                               Flexible(
                                 flex: 1,
-                                child: Container(
-                                  width: 50.0,
-                                  height: 50.0,
-                                  clipBehavior: Clip.antiAlias,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Image.network(
-                                    FFAppState().ProfilePicture,
-                                    fit: BoxFit.cover,
-                                    errorBuilder:
-                                        (context, error, stackTrace) =>
-                                            Image.asset(
-                                      'assets/images/error_image.jpg',
+                                child: AuthUserStreamWidget(
+                                  builder: (context) => Container(
+                                    width: 50.0,
+                                    height: 50.0,
+                                    clipBehavior: Clip.antiAlias,
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: Image.network(
+                                      currentUserPhoto,
                                       fit: BoxFit.cover,
+                                      errorBuilder:
+                                          (context, error, stackTrace) =>
+                                              Image.asset(
+                                        'assets/images/error_image.jpg',
+                                        fit: BoxFit.cover,
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -260,274 +260,274 @@ class _ChatWithLucilleVersion4WidgetState
                                                   .height *
                                               1.0,
                                           decoration: BoxDecoration(),
-                                          child: ScrollConfiguration(
-                                            behavior:
-                                                ScrollConfiguration.of(context)
-                                                    .copyWith(
-                                              scrollbars: false,
-                                              dragDevices: {
-                                                PointerDeviceKind.mouse,
-                                                PointerDeviceKind.touch,
-                                                PointerDeviceKind.stylus,
-                                                PointerDeviceKind.unknown,
-                                              },
-                                            ),
-                                            child: Scrollbar(
-                                              child: SingleChildScrollView(
-                                                child: Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    Flexible(
-                                                      flex: 1,
-                                                      child: Builder(
-                                                        builder: (context) {
-                                                          final chatList =
-                                                              _model.chats
-                                                                  .toList();
-                                                          if (chatList
-                                                              .isEmpty) {
-                                                            return Center(
-                                                              child: Container(
-                                                                height: MediaQuery.sizeOf(
-                                                                            context)
-                                                                        .height *
-                                                                    0.8,
-                                                                child:
-                                                                    EmptyChatsWidget(),
-                                                              ),
-                                                            );
-                                                          }
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Flexible(
+                                                flex: 1,
+                                                child: Builder(
+                                                  builder: (context) {
+                                                    final chatList =
+                                                        _model.chats.toList();
+                                                    if (chatList.isEmpty) {
+                                                      return Center(
+                                                        child: Container(
+                                                          height:
+                                                              MediaQuery.sizeOf(
+                                                                          context)
+                                                                      .height *
+                                                                  0.8,
+                                                          child:
+                                                              EmptyChatsWidget(),
+                                                        ),
+                                                      );
+                                                    }
 
-                                                          return ListView
-                                                              .separated(
-                                                            padding: EdgeInsets
-                                                                .symmetric(
-                                                                    vertical:
-                                                                        20.0),
-                                                            shrinkWrap: true,
-                                                            scrollDirection:
-                                                                Axis.vertical,
-                                                            itemCount:
-                                                                chatList.length,
-                                                            separatorBuilder: (_,
-                                                                    __) =>
-                                                                SizedBox(
-                                                                    height:
-                                                                        20.0),
-                                                            itemBuilder: (context,
-                                                                chatListIndex) {
-                                                              final chatListItem =
-                                                                  chatList[
-                                                                      chatListIndex];
-                                                              return ScrollConfiguration(
-                                                                behavior: ScrollConfiguration.of(
-                                                                        context)
-                                                                    .copyWith(
-                                                                  scrollbars:
-                                                                      false,
-                                                                  dragDevices: {
-                                                                    PointerDeviceKind
-                                                                        .mouse,
-                                                                    PointerDeviceKind
-                                                                        .touch,
-                                                                    PointerDeviceKind
-                                                                        .stylus,
-                                                                    PointerDeviceKind
-                                                                        .unknown,
-                                                                  },
-                                                                ),
-                                                                child:
-                                                                    Scrollbar(
-                                                                  child:
-                                                                      SingleChildScrollView(
-                                                                    child:
-                                                                        Column(
+                                                    return ListView.separated(
+                                                      padding:
+                                                          EdgeInsets.symmetric(
+                                                              vertical: 20.0),
+                                                      shrinkWrap: true,
+                                                      scrollDirection:
+                                                          Axis.vertical,
+                                                      itemCount:
+                                                          chatList.length,
+                                                      separatorBuilder:
+                                                          (_, __) => SizedBox(
+                                                              height: 20.0),
+                                                      itemBuilder: (context,
+                                                          chatListIndex) {
+                                                        final chatListItem =
+                                                            chatList[
+                                                                chatListIndex];
+                                                        return ScrollConfiguration(
+                                                          behavior:
+                                                              ScrollConfiguration
+                                                                      .of(context)
+                                                                  .copyWith(
+                                                            scrollbars: false,
+                                                            dragDevices: {
+                                                              PointerDeviceKind
+                                                                  .mouse,
+                                                              PointerDeviceKind
+                                                                  .touch,
+                                                              PointerDeviceKind
+                                                                  .stylus,
+                                                              PointerDeviceKind
+                                                                  .unknown,
+                                                            },
+                                                          ),
+                                                          child: Scrollbar(
+                                                            child:
+                                                                SingleChildScrollView(
+                                                              child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .center,
+                                                                children: [
+                                                                  Expanded(
+                                                                    flex: 1,
+                                                                    child: Row(
                                                                       mainAxisSize:
                                                                           MainAxisSize
                                                                               .max,
                                                                       mainAxisAlignment:
                                                                           MainAxisAlignment
-                                                                              .center,
+                                                                              .start,
                                                                       children: [
-                                                                        Expanded(
-                                                                          flex:
-                                                                              1,
-                                                                          child:
-                                                                              Row(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.max,
-                                                                            mainAxisAlignment:
-                                                                                MainAxisAlignment.start,
-                                                                            children: [
-                                                                              Padding(
-                                                                                padding: EdgeInsets.all(15.0),
-                                                                                child: Container(
-                                                                                  width: 84.0,
-                                                                                  height: 63.7,
-                                                                                  decoration: BoxDecoration(),
-                                                                                  child: Container(
-                                                                                    width: 100.0,
-                                                                                    height: 100.0,
-                                                                                    clipBehavior: Clip.antiAlias,
-                                                                                    decoration: BoxDecoration(
-                                                                                      shape: BoxShape.circle,
-                                                                                    ),
-                                                                                    child: Image.asset(
-                                                                                      'assets/images/Icon.png',
-                                                                                      fit: BoxFit.cover,
-                                                                                    ),
-                                                                                  ),
-                                                                                ),
-                                                                              ),
-                                                                            ],
-                                                                          ),
-                                                                        ),
-                                                                        Expanded(
-                                                                          flex:
-                                                                              1,
-                                                                          child:
-                                                                              Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0.0,
-                                                                                8.0,
-                                                                                0.0,
-                                                                                0.0),
-                                                                            child:
-                                                                                Row(
-                                                                              mainAxisSize: MainAxisSize.max,
-                                                                              mainAxisAlignment: MainAxisAlignment.start,
-                                                                              children: [
-                                                                                Flexible(
-                                                                                  flex: 1,
-                                                                                  child: Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
-                                                                                    child: SafeArea(
-                                                                                      child: AnimatedContainer(
-                                                                                        duration: Duration(milliseconds: 700),
-                                                                                        curve: Curves.easeIn,
-                                                                                        width: 255.8,
-                                                                                        height: 274.29,
-                                                                                        constraints: BoxConstraints(
-                                                                                          minWidth: 260.0,
-                                                                                          minHeight: 280.0,
-                                                                                          maxWidth: double.infinity,
-                                                                                          maxHeight: double.infinity,
-                                                                                        ),
-                                                                                        decoration: BoxDecoration(
-                                                                                          color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                          borderRadius: BorderRadius.only(
-                                                                                            bottomLeft: Radius.circular(35.0),
-                                                                                            bottomRight: Radius.circular(0.0),
-                                                                                            topLeft: Radius.circular(30.0),
-                                                                                            topRight: Radius.circular(40.0),
-                                                                                          ),
-                                                                                        ),
-                                                                                        child: Column(
-                                                                                          mainAxisSize: MainAxisSize.max,
-                                                                                          children: [
-                                                                                            Align(
-                                                                                              alignment: AlignmentDirectional(-1.0, -1.0),
-                                                                                              child: Padding(
-                                                                                                padding: EdgeInsets.all(20.0),
-                                                                                                child: AnimatedDefaultTextStyle(
-                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                        fontFamily: 'WorkSans',
-                                                                                                        color: FlutterFlowTheme.of(context).secondary,
-                                                                                                        fontSize: 14.0,
-                                                                                                        letterSpacing: 0.0,
-                                                                                                      ),
-                                                                                                  duration: Duration(milliseconds: 915),
-                                                                                                  curve: Curves.easeIn,
-                                                                                                  child: Text(
-                                                                                                    valueOrDefault<String>(
-                                                                                                      chatListItem.message,
-                                                                                                      'Message',
-                                                                                                    ),
-                                                                                                    textAlign: TextAlign.start,
-                                                                                                  ),
-                                                                                                ),
-                                                                                              ),
-                                                                                            ),
-                                                                                          ],
-                                                                                        ),
-                                                                                      ),
-                                                                                    ),
-                                                                                  ),
-                                                                                ),
-                                                                                Padding(
-                                                                                  padding: EdgeInsets.all(8.0),
-                                                                                  child: Container(
-                                                                                    width: 84.0,
-                                                                                    height: 63.7,
-                                                                                    decoration: BoxDecoration(),
-                                                                                    child: Container(
-                                                                                      width: 100.0,
-                                                                                      height: 100.0,
-                                                                                      clipBehavior: Clip.antiAlias,
-                                                                                      decoration: BoxDecoration(
-                                                                                        shape: BoxShape.circle,
-                                                                                      ),
-                                                                                      child: Image.network(
-                                                                                        '',
-                                                                                        fit: BoxFit.cover,
-                                                                                      ),
-                                                                                    ),
-                                                                                  ),
-                                                                                ),
-                                                                              ],
-                                                                            ),
-                                                                          ),
-                                                                        ),
                                                                         Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0.0,
-                                                                              15.0,
-                                                                              0.0,
-                                                                              0.0),
+                                                                          padding:
+                                                                              EdgeInsets.all(15.0),
                                                                           child:
-                                                                              Row(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.max,
-                                                                            mainAxisAlignment:
-                                                                                MainAxisAlignment.end,
-                                                                            children: [
-                                                                              Align(
-                                                                                alignment: AlignmentDirectional(1.0, -1.0),
-                                                                                child: Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 25.0, 0.0),
-                                                                                  child: Text(
-                                                                                    valueOrDefault<String>(
-                                                                                      chatListItem.role?.name,
-                                                                                      'Role',
-                                                                                    ),
-                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                          fontFamily: 'WorkSans',
-                                                                                          fontSize: 16.0,
-                                                                                          letterSpacing: 0.0,
-                                                                                        ),
-                                                                                  ),
+                                                                              Container(
+                                                                            width:
+                                                                                84.0,
+                                                                            height:
+                                                                                63.7,
+                                                                            decoration:
+                                                                                BoxDecoration(),
+                                                                            child:
+                                                                                Hero(
+                                                                              tag: 'BackgroundPicture',
+                                                                              transitionOnUserGestures: true,
+                                                                              child: Container(
+                                                                                width: 100.0,
+                                                                                height: 100.0,
+                                                                                clipBehavior: Clip.antiAlias,
+                                                                                decoration: BoxDecoration(
+                                                                                  shape: BoxShape.circle,
+                                                                                ),
+                                                                                child: Image.asset(
+                                                                                  'assets/images/Erica_Anderson_(5).gif',
+                                                                                  fit: BoxFit.cover,
                                                                                 ),
                                                                               ),
-                                                                            ],
+                                                                            ),
                                                                           ),
                                                                         ),
                                                                       ],
                                                                     ),
                                                                   ),
-                                                                ),
-                                                              );
-                                                            },
-                                                          );
-                                                        },
-                                                      ),
-                                                    ),
-                                                  ],
+                                                                  Expanded(
+                                                                    flex: 1,
+                                                                    child:
+                                                                        Padding(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          8.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                      child:
+                                                                          Row(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.max,
+                                                                        mainAxisAlignment:
+                                                                            MainAxisAlignment.start,
+                                                                        children: [
+                                                                          Flexible(
+                                                                            flex:
+                                                                                1,
+                                                                            child:
+                                                                                Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
+                                                                              child: SafeArea(
+                                                                                child: AnimatedContainer(
+                                                                                  duration: Duration(milliseconds: 700),
+                                                                                  curve: Curves.easeIn,
+                                                                                  width: 255.8,
+                                                                                  height: 274.29,
+                                                                                  constraints: BoxConstraints(
+                                                                                    minWidth: 260.0,
+                                                                                    minHeight: 280.0,
+                                                                                    maxWidth: double.infinity,
+                                                                                    maxHeight: double.infinity,
+                                                                                  ),
+                                                                                  decoration: BoxDecoration(
+                                                                                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                    borderRadius: BorderRadius.only(
+                                                                                      bottomLeft: Radius.circular(35.0),
+                                                                                      bottomRight: Radius.circular(0.0),
+                                                                                      topLeft: Radius.circular(30.0),
+                                                                                      topRight: Radius.circular(40.0),
+                                                                                    ),
+                                                                                  ),
+                                                                                  child: Column(
+                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                    children: [
+                                                                                      Align(
+                                                                                        alignment: AlignmentDirectional(-1.0, -1.0),
+                                                                                        child: Padding(
+                                                                                          padding: EdgeInsets.all(20.0),
+                                                                                          child: AnimatedDefaultTextStyle(
+                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                  fontFamily: 'WorkSans',
+                                                                                                  color: FlutterFlowTheme.of(context).secondary,
+                                                                                                  fontSize: 14.0,
+                                                                                                  letterSpacing: 0.0,
+                                                                                                ),
+                                                                                            duration: Duration(milliseconds: 915),
+                                                                                            curve: Curves.easeIn,
+                                                                                            child: Text(
+                                                                                              valueOrDefault<String>(
+                                                                                                chatListItem.message,
+                                                                                                'Message',
+                                                                                              ),
+                                                                                              textAlign: TextAlign.start,
+                                                                                            ),
+                                                                                          ),
+                                                                                        ),
+                                                                                      ),
+                                                                                    ],
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                          Padding(
+                                                                            padding:
+                                                                                EdgeInsets.all(8.0),
+                                                                            child:
+                                                                                Container(
+                                                                              width: 84.0,
+                                                                              height: 63.7,
+                                                                              decoration: BoxDecoration(),
+                                                                              child: Container(
+                                                                                width: 100.0,
+                                                                                height: 100.0,
+                                                                                clipBehavior: Clip.antiAlias,
+                                                                                decoration: BoxDecoration(
+                                                                                  shape: BoxShape.circle,
+                                                                                ),
+                                                                                child: Image.network(
+                                                                                  '',
+                                                                                  fit: BoxFit.cover,
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            15.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                    child: Row(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      mainAxisAlignment:
+                                                                          MainAxisAlignment
+                                                                              .end,
+                                                                      children: [
+                                                                        Align(
+                                                                          alignment: AlignmentDirectional(
+                                                                              1.0,
+                                                                              -1.0),
+                                                                          child:
+                                                                              Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                0.0,
+                                                                                0.0,
+                                                                                25.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                Text(
+                                                                              valueOrDefault<String>(
+                                                                                chatListItem.role?.name,
+                                                                                'Role',
+                                                                              ),
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: 'WorkSans',
+                                                                                    fontSize: 16.0,
+                                                                                    letterSpacing: 0.0,
+                                                                                  ),
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        );
+                                                      },
+                                                    );
+                                                  },
                                                 ),
                                               ),
-                                            ),
+                                            ],
                                           ),
                                         ),
                                       ),

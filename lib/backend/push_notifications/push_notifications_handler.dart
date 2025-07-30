@@ -197,6 +197,9 @@ final parametersBuilderMap =
   'SleepReorder': ParameterData.none(),
   'DepressionReorder': ParameterData.none(),
   'JournalPageFINALCopy': ParameterData.none(),
+  'LucilleNewChat': ParameterData.none(),
+  'EscapeInnerverse': ParameterData.none(),
+  'LoadingScreenAnimus': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

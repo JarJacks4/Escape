@@ -1,3 +1,4 @@
+import '/components/customdrawer_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_video_player.dart';
@@ -81,6 +82,17 @@ class _CommunityHomeCopyWidgetState extends State<CommunityHomeCopyWidget>
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: Color(0xFF2E2E3A),
+        endDrawer: Container(
+          width: MediaQuery.sizeOf(context).width * 0.85,
+          child: Drawer(
+            elevation: 16.0,
+            child: wrapWithModel(
+              model: _model.customdrawerModel,
+              updateCallback: () => safeSetState(() {}),
+              child: CustomdrawerWidget(),
+            ),
+          ),
+        ),
         body: SafeArea(
           top: true,
           child: Container(
@@ -211,10 +223,22 @@ class _CommunityHomeCopyWidgetState extends State<CommunityHomeCopyWidget>
                                     ].divide(SizedBox(width: 24.0)),
                                   ),
                                 ),
-                                Icon(
-                                  Icons.shopping_bag_outlined,
-                                  color: FlutterFlowTheme.of(context).info,
-                                  size: 24.0,
+                                InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    logFirebaseEvent(
+                                        'COMMUNITY_HOME_COPY_PAGE_Shopping_ON_TAP');
+                                    logFirebaseEvent('Shopping_drawer');
+                                    scaffoldKey.currentState!.openEndDrawer();
+                                  },
+                                  child: Icon(
+                                    Icons.shopping_bag_outlined,
+                                    color: FlutterFlowTheme.of(context).info,
+                                    size: 24.0,
+                                  ),
                                 ),
                               ],
                             ),

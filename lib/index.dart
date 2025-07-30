@@ -119,3 +119,9 @@ export '/depression_reorder/depression_reorder_widget.dart'
     show DepressionReorderWidget;
 export '/journal_page_f_i_n_a_l_copy/journal_page_f_i_n_a_l_copy_widget.dart'
     show JournalPageFINALCopyWidget;
+export '/lucille_new_chat/lucille_new_chat_widget.dart'
+    show LucilleNewChatWidget;
+export '/escape_innerverse/escape_innerverse_widget.dart'
+    show EscapeInnerverseWidget;
+export '/pages/onboarding_login/loading_screen_animus/loading_screen_animus_widget.dart'
+    show LoadingScreenAnimusWidget;

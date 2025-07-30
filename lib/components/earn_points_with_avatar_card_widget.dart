@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -117,8 +118,13 @@ class _EarnPointsWithAvatarCardWidgetState
                         color: FlutterFlowTheme.of(context).alternate,
                         size: 36.0,
                       ),
-                      onPressed: () {
-                        print('IconButton pressed ...');
+                      onPressed: () async {
+                        logFirebaseEvent(
+                            'EARN_POINTS_WITH_AVATAR_CARD_arrow_outwa');
+                        logFirebaseEvent('IconButton_custom_action');
+                        await actions.launchUnrealScene(
+                          'Animus',
+                        );
                       },
                     ),
                   ],
