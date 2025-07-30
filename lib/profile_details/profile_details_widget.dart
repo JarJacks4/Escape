@@ -298,14 +298,24 @@ class _ProfileDetailsWidgetState extends State<ProfileDetailsWidget>
                                                                     0.0, 0.0),
                                                             child: Stack(
                                                               children: [
-                                                                if (valueOrDefault<
-                                                                    bool>(
-                                                                  _model.uploadedFileUrl_uploadPhoto ==
-                                                                      FFAppState()
-                                                                          .ProfilePicture,
-                                                                  false,
-                                                                ))
-                                                                  Align(
+                                                                Container(
+                                                                  width: 167.2,
+                                                                  height: 167.2,
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    shape: BoxShape
+                                                                        .circle,
+                                                                    border:
+                                                                        Border
+                                                                            .all(
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondary,
+                                                                      width:
+                                                                          2.0,
+                                                                    ),
+                                                                  ),
+                                                                  child: Align(
                                                                     alignment:
                                                                         AlignmentDirectional(
                                                                             -0.16,
@@ -328,17 +338,20 @@ class _ProfileDetailsWidgetState extends State<ProfileDetailsWidget>
                                                                         ),
                                                                         child: Image
                                                                             .network(
-                                                                          valueOrDefault<
-                                                                              String>(
-                                                                            currentUserPhoto,
-                                                                            'https://res.cloudinary.com/dbyduwpud/image/upload/v1751860346/AICircleLucilleChat_uo87av.gif',
-                                                                          ),
+                                                                          currentUserPhoto,
                                                                           fit: BoxFit
                                                                               .cover,
+                                                                          errorBuilder: (context, error, stackTrace) =>
+                                                                              Image.asset(
+                                                                            'assets/images/error_image.jpg',
+                                                                            fit:
+                                                                                BoxFit.cover,
+                                                                          ),
                                                                         ),
                                                                       ),
                                                                     ),
                                                                   ),
+                                                                ),
                                                               ],
                                                             ),
                                                           ),
