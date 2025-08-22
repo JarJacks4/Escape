@@ -1,0 +1,11 @@
+{
+    "applinks": {
+        "apps": [],
+        "details": [
+            {
+                "appID": "CKVB3K472T.com.flutterflow.Escape",
+                "paths": [ "/*" ]
+            }
+        ]
+    }
+}
