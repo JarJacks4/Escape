@@ -96,6 +96,8 @@ class _BasicBreathingPageCompWidgetState
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

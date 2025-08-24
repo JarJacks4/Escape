@@ -18,7 +18,7 @@ class FacialMoodAnalyzerPageWidget extends StatefulWidget {
   const FacialMoodAnalyzerPageWidget({super.key});
 
   static String routeName = 'FacialMoodAnalyzerPage';
-  static String routePath = '/facialMoodAnalyzerPage';
+  static String routePath = 'facialMoodAnalyzerPage';
 
   @override
   State<FacialMoodAnalyzerPageWidget> createState() =>
@@ -114,6 +114,8 @@ class _FacialMoodAnalyzerPageWidgetState
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -445,6 +447,7 @@ class _FacialMoodAnalyzerPageWidgetState
                                           currentMoodPhoto: _model
                                               .uploadedFileUrl_aIUploadMoodPhoto,
                                           timeStamp: getCurrentTimestamp,
+                                          createdTime: getCurrentTimestamp,
                                         ));
                                         logFirebaseEvent('Button_bottom_sheet');
                                         await showModalBottomSheet(

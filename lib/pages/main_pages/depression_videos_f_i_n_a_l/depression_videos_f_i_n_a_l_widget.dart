@@ -15,7 +15,7 @@ class DepressionVideosFINALWidget extends StatefulWidget {
   const DepressionVideosFINALWidget({super.key});
 
   static String routeName = 'DepressionVideosFINAL';
-  static String routePath = '/depressionVideosFINAL';
+  static String routePath = 'depressionVideosFINAL';
 
   @override
   State<DepressionVideosFINALWidget> createState() =>
@@ -111,6 +111,8 @@ class _DepressionVideosFINALWidgetState
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

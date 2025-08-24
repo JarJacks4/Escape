@@ -75,6 +75,8 @@ class _SelectSoundscapeDurationCompWidgetState
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

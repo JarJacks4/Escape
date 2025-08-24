@@ -17,7 +17,7 @@ class SelfCareGoalsWidget extends StatefulWidget {
   const SelfCareGoalsWidget({super.key});
 
   static String routeName = 'SelfCareGoals';
-  static String routePath = '/selfCareGoals';
+  static String routePath = 'selfCareGoals';
 
   @override
   State<SelfCareGoalsWidget> createState() => _SelfCareGoalsWidgetState();
@@ -82,6 +82,8 @@ class _SelfCareGoalsWidgetState extends State<SelfCareGoalsWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

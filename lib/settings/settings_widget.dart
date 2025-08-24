@@ -12,7 +12,7 @@ class SettingsWidget extends StatefulWidget {
   const SettingsWidget({super.key});
 
   static String routeName = 'Settings';
-  static String routePath = '/settings';
+  static String routePath = 'settings';
 
   @override
   State<SettingsWidget> createState() => _SettingsWidgetState();
@@ -32,6 +32,7 @@ class _SettingsWidgetState extends State<SettingsWidget> {
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'Settings'});
     getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
         .then((loc) => safeSetState(() => currentUserLocationValue = loc));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

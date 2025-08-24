@@ -83,6 +83,8 @@ class _ADHDBinauralBeatsWidgetState extends State<ADHDBinauralBeatsWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

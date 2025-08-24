@@ -28,6 +28,8 @@ class _GenerateSoundscapesCardWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => GenerateSoundscapesCardModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

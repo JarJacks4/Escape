@@ -1,4 +1,4 @@
-package com.mycompany.escapellc
+package com.flutterflow.escapellc
 
 import io.flutter.embedding.android.FlutterActivity
 

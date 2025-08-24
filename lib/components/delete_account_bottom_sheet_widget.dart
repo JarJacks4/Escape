@@ -29,6 +29,8 @@ class _DeleteAccountBottomSheetWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => DeleteAccountBottomSheetModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

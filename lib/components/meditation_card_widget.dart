@@ -63,6 +63,8 @@ class _MeditationCardWidgetState extends State<MeditationCardWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

@@ -63,6 +63,8 @@ class _NatureCardWidgetState extends State<NatureCardWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

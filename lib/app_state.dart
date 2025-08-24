@@ -583,4 +583,16 @@ class FFAppState extends ChangeNotifier {
   set JournalPrompt(String value) {
     _JournalPrompt = value;
   }
+
+  DateTime? _lastActivity;
+  DateTime? get lastActivity => _lastActivity;
+  set lastActivity(DateTime? value) {
+    _lastActivity = value;
+  }
+
+  bool _showTimeoutWarning = false;
+  bool get showTimeoutWarning => _showTimeoutWarning;
+  set showTimeoutWarning(bool value) {
+    _showTimeoutWarning = value;
+  }
 }

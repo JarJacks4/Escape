@@ -172,6 +172,21 @@ class UsersRecord extends FirestoreRecord {
   bool get notificationsAllowed => _notificationsAllowed ?? false;
   bool hasNotificationsAllowed() => _notificationsAllowed != null;
 
+  // "isLoggedOut" field.
+  bool? _isLoggedOut;
+  bool get isLoggedOut => _isLoggedOut ?? false;
+  bool hasIsLoggedOut() => _isLoggedOut != null;
+
+  // "isActive" field.
+  bool? _isActive;
+  bool get isActive => _isActive ?? false;
+  bool hasIsActive() => _isActive != null;
+
+  // "created_by" field.
+  DocumentReference? _createdBy;
+  DocumentReference? get createdBy => _createdBy;
+  bool hasCreatedBy() => _createdBy != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _photoUrl = snapshotData['photo_url'] as String?;
@@ -210,6 +225,9 @@ class UsersRecord extends FirestoreRecord {
     _moodHistory = snapshotData['moodHistory'] as DocumentReference?;
     _currentMoodDesc = snapshotData['CurrentMoodDesc'] as String?;
     _notificationsAllowed = snapshotData['notificationsAllowed'] as bool?;
+    _isLoggedOut = snapshotData['isLoggedOut'] as bool?;
+    _isActive = snapshotData['isActive'] as bool?;
+    _createdBy = snapshotData['created_by'] as DocumentReference?;
   }
 
   static CollectionReference get collection =>
@@ -277,6 +295,9 @@ Map<String, dynamic> createUsersRecordData({
   DocumentReference? moodHistory,
   String? currentMoodDesc,
   bool? notificationsAllowed,
+  bool? isLoggedOut,
+  bool? isActive,
+  DocumentReference? createdBy,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -311,6 +332,9 @@ Map<String, dynamic> createUsersRecordData({
       'moodHistory': moodHistory,
       'CurrentMoodDesc': currentMoodDesc,
       'notificationsAllowed': notificationsAllowed,
+      'isLoggedOut': isLoggedOut,
+      'isActive': isActive,
+      'created_by': createdBy,
     }.withoutNulls,
   );
 
@@ -356,7 +380,10 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.timeStamp == e2?.timeStamp &&
         e1?.moodHistory == e2?.moodHistory &&
         e1?.currentMoodDesc == e2?.currentMoodDesc &&
-        e1?.notificationsAllowed == e2?.notificationsAllowed;
+        e1?.notificationsAllowed == e2?.notificationsAllowed &&
+        e1?.isLoggedOut == e2?.isLoggedOut &&
+        e1?.isActive == e2?.isActive &&
+        e1?.createdBy == e2?.createdBy;
   }
 
   @override
@@ -391,7 +418,10 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.timeStamp,
         e?.moodHistory,
         e?.currentMoodDesc,
-        e?.notificationsAllowed
+        e?.notificationsAllowed,
+        e?.isLoggedOut,
+        e?.isActive,
+        e?.createdBy
       ]);
 
   @override

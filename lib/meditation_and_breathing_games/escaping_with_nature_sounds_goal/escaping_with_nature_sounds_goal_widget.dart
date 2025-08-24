@@ -12,7 +12,7 @@ class EscapingWithNatureSoundsGoalWidget extends StatefulWidget {
   const EscapingWithNatureSoundsGoalWidget({super.key});
 
   static String routeName = 'EscapingWithNatureSoundsGoal';
-  static String routePath = '/escapingWithNatureSoundsGoal';
+  static String routePath = 'escapingWithNatureSoundsGoal';
 
   @override
   State<EscapingWithNatureSoundsGoalWidget> createState() =>
@@ -32,6 +32,7 @@ class _EscapingWithNatureSoundsGoalWidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'EscapingWithNatureSoundsGoal'});
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

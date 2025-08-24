@@ -8,7 +8,7 @@ class SampleWidget extends StatefulWidget {
   const SampleWidget({super.key});
 
   static String routeName = 'Sample';
-  static String routePath = '/sample';
+  static String routePath = 'sample';
 
   @override
   State<SampleWidget> createState() => _SampleWidgetState();
@@ -25,6 +25,7 @@ class _SampleWidgetState extends State<SampleWidget> {
     _model = createModel(context, () => SampleModel());
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'Sample'});
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

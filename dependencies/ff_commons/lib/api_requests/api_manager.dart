@@ -13,7 +13,7 @@ import 'package:http_parser/http_parser.dart';
 import 'package:mime_type/mime_type.dart';
 
 import 'package:ff_commons/flutter_flow/uploaded_file.dart';
-
+import 'package:ff_commons/api_requests/api_streaming.dart';
 
 import 'get_streamed_response.dart';
 enum ApiCallType {
@@ -230,6 +230,37 @@ class ApiManager {
   // If your API calls need authentication, populate this field once
   // the user has authenticated. Alter this as needed.
   static String? _accessToken;
+    // Map of active streaming response subscriptions
+  // Key is a unique identifier for the subscription
+  // Value is the stream subscription
+  final Map<String, StreamSubscription<ResponseStreamMessage>>
+      _activeStreamingResponseSubscriptions = {};
+
+  // Add a new active streaming response subscription
+  void addActiveStreamingResponseSubscription(
+    String subscriptionKey,
+    StreamSubscription<ResponseStreamMessage>? subscription,
+  ) {
+    // Check if the subscription key is empty or if the subscription is null
+    if (subscriptionKey.isEmpty || subscription == null) {
+      return;
+    }
+    // Add the subscription to the map
+    _activeStreamingResponseSubscriptions[subscriptionKey] = subscription;
+  }
+
+  // Cancel an active streaming response subscription
+  Future<void> cancelActiveStreamingResponseSubscription(
+    String subscriptionKey,
+  ) async {
+    // Check if the subscription key is in the map
+    if (_activeStreamingResponseSubscriptions.containsKey(subscriptionKey)) {
+      // Cancel the subscription
+      await _activeStreamingResponseSubscriptions[subscriptionKey]!.cancel();
+    }
+    // Remove the subscription from the map
+    _activeStreamingResponseSubscriptions.remove(subscriptionKey);
+  }
     // You may want to call this if, for example, you make a change to the
   // database and no longer want the cached result of a call that may
   // have changed.

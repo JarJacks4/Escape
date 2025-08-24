@@ -31,6 +31,8 @@ class _CustomdrawerWidgetState extends State<CustomdrawerWidget> {
 
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

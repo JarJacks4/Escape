@@ -1,9 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/index.dart';
-import 'package:chat_u_i_kit_n2m29m/app_state.dart'
-    as chat_u_i_kit_n2m29m_app_state;
 import 'package:tiktokfeed_wz8en7/app_state.dart'
     as tiktokfeed_wz8en7_app_state;
 import 'package:tiktokfeed_wz8en7/custom_code/widgets/index.dart'
@@ -36,7 +33,7 @@ class CommunityHomeFINALWidget extends StatefulWidget {
   final int newIndex;
 
   static String routeName = 'CommunityHomeFINAL';
-  static String routePath = '/communityHomeFINAL';
+  static String routePath = 'communityHomeFINAL';
 
   @override
   State<CommunityHomeFINALWidget> createState() =>
@@ -60,48 +57,16 @@ class _CommunityHomeFINALWidgetState extends State<CommunityHomeFINALWidget>
         parameters: {'screen_name': 'CommunityHomeFINAL'});
     _model.tabBarController = TabController(
       vsync: this,
-      length: 3,
+      length: 4,
       initialIndex: min(
           valueOrDefault<int>(
             widget.initialTabIndex,
             0,
           ),
-          2),
+          3),
     )..addListener(() => safeSetState(() {}));
 
     animationsMap.addAll({
-      'imageOnPageLoadAnimation': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 3600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-          ShimmerEffect(
-            curve: Curves.easeInOut,
-            delay: 3600.0.ms,
-            duration: 600.0.ms,
-            color: Color(0x80FFFFFF),
-            angle: 0.524,
-          ),
-        ],
-      ),
-      'iconOnActionTriggerAnimation': AnimationInfo(
-        trigger: AnimationTrigger.onActionTrigger,
-        applyInitialState: true,
-        effectsBuilder: () => [
-          MoveEffect(
-            curve: Curves.easeOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: Offset(0.0, 0.0),
-            end: Offset(-48.0, 0.0),
-          ),
-        ],
-      ),
       'listViewOnPageLoadAnimation': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
@@ -115,12 +80,8 @@ class _CommunityHomeFINALWidgetState extends State<CommunityHomeFINALWidget>
         ],
       ),
     });
-    setupAnimations(
-      animationsMap.values.where((anim) =>
-          anim.trigger == AnimationTrigger.onActionTrigger ||
-          !anim.applyInitialState),
-      this,
-    );
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -133,7 +94,6 @@ class _CommunityHomeFINALWidgetState extends State<CommunityHomeFINALWidget>
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
-    context.watch<chat_u_i_kit_n2m29m_app_state.FFAppState>();
     context.watch<tiktokfeed_wz8en7_app_state.FFAppState>();
 
     return GestureDetector(
@@ -143,134 +103,38 @@ class _CommunityHomeFINALWidgetState extends State<CommunityHomeFINALWidget>
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).alternate,
-        body: Container(
-          width: double.infinity,
-          height: double.infinity,
-          child: Stack(
-            children: [
-              Container(
-                width: double.infinity,
-                height: double.infinity,
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [Colors.transparent, Color(0x80000000)],
-                    stops: [0.0, 1.0],
-                    begin: AlignmentDirectional(0.0, -1.0),
-                    end: AlignmentDirectional(0, 1.0),
-                  ),
-                ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Expanded(
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                8.0, 60.0, 8.0, 0.0),
-                            child: Container(
-                              width: double.infinity,
-                              decoration: BoxDecoration(
-                                gradient: LinearGradient(
-                                  colors: [
-                                    Colors.transparent,
-                                    Colors.transparent
-                                  ],
-                                  stops: [0.0, 1.0],
-                                  begin: AlignmentDirectional(0.0, -1.0),
-                                  end: AlignmentDirectional(0, 1.0),
-                                ),
-                              ),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 8.0, 16.0, 8.0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Icon(
-                                      Icons.add,
-                                      color:
-                                          FlutterFlowTheme.of(context).primary,
-                                      size: 24.0,
-                                    ),
-                                    Expanded(
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                            child: Image.asset(
-                                              'assets/images/Logo_ESCAPE_White.png',
-                                              width: 137.32,
-                                              height: 31.4,
-                                              fit: BoxFit.contain,
-                                            ),
-                                          ).animateOnPageLoad(animationsMap[
-                                              'imageOnPageLoadAnimation']!),
-                                        ].divide(SizedBox(width: 24.0)),
-                                      ),
-                                    ),
-                                    InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        logFirebaseEvent(
-                                            'COMMUNITY_HOME_F_I_N_A_L_Icon_dci0nmpb_O');
-                                        logFirebaseEvent('Icon_navigate_to');
-
-                                        context.pushNamed(
-                                          ProfileFINALWidget.routeName,
-                                          extra: <String, dynamic>{
-                                            kTransitionInfoKey: TransitionInfo(
-                                              hasTransition: true,
-                                              transitionType: PageTransitionType
-                                                  .rightToLeft,
-                                              duration:
-                                                  Duration(milliseconds: 1),
-                                            ),
-                                          },
-                                        );
-                                      },
-                                      child: Icon(
-                                        Icons.person_2_sharp,
-                                        color: FlutterFlowTheme.of(context)
-                                            .accent1,
-                                        size: 24.0,
-                                      ),
-                                    ).animateOnActionTrigger(
-                                      animationsMap[
-                                          'iconOnActionTriggerAnimation']!,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
+        backgroundColor: Color(0x001C2444),
+        body: SafeArea(
+          top: true,
+          child: Container(
+            width: double.infinity,
+            height: double.infinity,
+            child: Stack(
+              children: [
+                Container(
+                  width: double.infinity,
+                  height: double.infinity,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [Colors.transparent, Color(0x80000000)],
+                      stops: [0.0, 1.0],
+                      begin: AlignmentDirectional(0.0, -1.0),
+                      end: AlignmentDirectional(0, 1.0),
                     ),
-                    Flexible(
-                      flex: 1,
-                      child: ListView(
-                        padding: EdgeInsets.zero,
-                        shrinkWrap: true,
-                        scrollDirection: Axis.vertical,
-                        children: [
-                          Container(
-                            height: 683.71,
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 15.0, 0.0, 0.0),
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Flexible(
+                        flex: 1,
+                        child: ListView(
+                          padding: EdgeInsets.zero,
+                          shrinkWrap: true,
+                          scrollDirection: Axis.vertical,
+                          children: [
+                            Container(
+                              height: 683.71,
                               child: Column(
                                 children: [
                                   Align(
@@ -321,10 +185,17 @@ class _CommunityHomeFINALWidgetState extends State<CommunityHomeFINALWidget>
                                             'db42ing9' /* Body */,
                                           ),
                                         ),
+                                        Tab(
+                                          text: FFLocalizations.of(context)
+                                              .getText(
+                                            'cmggmub7' /* Meditation */,
+                                          ),
+                                        ),
                                       ],
                                       controller: _model.tabBarController,
                                       onTap: (i) async {
                                         [
+                                          () async {},
                                           () async {},
                                           () async {},
                                           () async {}
@@ -338,70 +209,69 @@ class _CommunityHomeFINALWidgetState extends State<CommunityHomeFINALWidget>
                                       physics:
                                           const NeverScrollableScrollPhysics(),
                                       children: [
-                                        Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.end,
-                                          children: [
-                                            Flexible(
-                                              flex: 1,
-                                              child: Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 1.0),
-                                                child: Container(
-                                                  width: double.infinity,
-                                                  height:
-                                                      MediaQuery.sizeOf(context)
-                                                              .height *
-                                                          6.5,
-                                                  constraints: BoxConstraints(
-                                                    minWidth: double.infinity,
-                                                    minHeight: 600.0,
-                                                    maxWidth: double.infinity,
-                                                    maxHeight:
-                                                        MediaQuery.sizeOf(
-                                                                    context)
-                                                                .height *
-                                                            100.0,
-                                                  ),
-                                                  decoration: BoxDecoration(),
-                                                  child: Align(
-                                                    alignment:
-                                                        AlignmentDirectional(
-                                                            0.0, 1.0),
-                                                    child: ListView(
-                                                      padding: EdgeInsets.zero,
-                                                      reverse: true,
-                                                      primary: false,
-                                                      shrinkWrap: true,
-                                                      scrollDirection:
-                                                          Axis.vertical,
-                                                      children: [
-                                                        Align(
-                                                          alignment:
-                                                              AlignmentDirectional(
-                                                                  0.0, 1.0),
-                                                          child: Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0.0,
-                                                                        1.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            child: Container(
-                                                              width: MediaQuery
-                                                                          .sizeOf(
-                                                                              context)
-                                                                      .width *
-                                                                  1.0,
-                                                              height: MediaQuery
-                                                                          .sizeOf(
-                                                                              context)
-                                                                      .height *
-                                                                  0.8,
-                                                              child: tiktokfeed_wz8en7_custom_widgets
-                                                                  .ChewieWidget(
+                                        Container(
+                                          width: double.infinity,
+                                          height: MediaQuery.sizeOf(context)
+                                                  .height *
+                                              1.069,
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondaryBackground,
+                                          ),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.end,
+                                            children: [
+                                              Flexible(
+                                                flex: 1,
+                                                child: Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          0.0, 1.0),
+                                                  child: Container(
+                                                    width: double.infinity,
+                                                    height: MediaQuery.sizeOf(
+                                                                context)
+                                                            .height *
+                                                        7.0,
+                                                    constraints: BoxConstraints(
+                                                      minWidth: double.infinity,
+                                                      minHeight: 600.0,
+                                                      maxWidth: double.infinity,
+                                                      maxHeight:
+                                                          MediaQuery.sizeOf(
+                                                                      context)
+                                                                  .height *
+                                                              100.0,
+                                                    ),
+                                                    decoration: BoxDecoration(),
+                                                    child: Align(
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              0.0, 1.0),
+                                                      child: ListView(
+                                                        padding:
+                                                            EdgeInsets.zero,
+                                                        reverse: true,
+                                                        primary: false,
+                                                        shrinkWrap: true,
+                                                        scrollDirection:
+                                                            Axis.vertical,
+                                                        children: [
+                                                          Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    0.0, 1.0),
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          1.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Container(
                                                                 width: MediaQuery.sizeOf(
                                                                             context)
                                                                         .width *
@@ -410,61 +280,72 @@ class _CommunityHomeFINALWidgetState extends State<CommunityHomeFINALWidget>
                                                                             context)
                                                                         .height *
                                                                     0.8,
-                                                                userID:
-                                                                    currentUserUid,
-                                                                data: tiktokfeed_wz8en7_app_state
-                                                                        .FFAppState()
-                                                                    .ListTikTokPages,
-                                                                likerebuidpage:
-                                                                    () async {
-                                                                  logFirebaseEvent(
-                                                                      'COMMUNITY_HOME_F_I_N_A_L_Container_vqjof');
-                                                                  logFirebaseEvent(
-                                                                      'ChewieWidget_update_app_state');
-                                                                  FFAppState()
-                                                                      .updateListTikTokPagesAtIndex(
+                                                                child: tiktokfeed_wz8en7_custom_widgets
+                                                                    .ChewieWidget(
+                                                                  width: MediaQuery.sizeOf(
+                                                                              context)
+                                                                          .width *
+                                                                      1.0,
+                                                                  height: MediaQuery.sizeOf(
+                                                                              context)
+                                                                          .height *
+                                                                      0.8,
+                                                                  userID:
+                                                                      currentUserUid,
+                                                                  data: tiktokfeed_wz8en7_app_state
+                                                                          .FFAppState()
+                                                                      .ListTikTokPages,
+                                                                  likerebuidpage:
+                                                                      () async {
+                                                                    logFirebaseEvent(
+                                                                        'COMMUNITY_HOME_F_I_N_A_L_Container_wsyqo');
+                                                                    logFirebaseEvent(
+                                                                        'ChewieWidget_update_app_state');
                                                                     FFAppState()
-                                                                        .videoId,
-                                                                    (e) => e
-                                                                      ..likes = FFAppState()
-                                                                          .newListLike
-                                                                          .toList(),
-                                                                  );
-                                                                  safeSetState(
-                                                                      () {});
-                                                                },
-                                                                bookedrebuidpage:
-                                                                    () async {
-                                                                  logFirebaseEvent(
-                                                                      'COMMUNITY_HOME_F_I_N_A_L_Container_vqjof');
-                                                                  logFirebaseEvent(
-                                                                      'ChewieWidget_update_app_state');
-                                                                  FFAppState()
-                                                                      .updateListTikTokPagesAtIndex(
-                                                                    tiktokfeed_wz8en7_app_state
-                                                                            .FFAppState()
-                                                                        .videoID,
-                                                                    (e) => e
-                                                                      ..bookmark = FFAppState()
-                                                                          .newListBookmarks
-                                                                          .toList(),
-                                                                  );
-                                                                  safeSetState(
-                                                                      () {});
-                                                                },
+                                                                        .updateListTikTokPagesAtIndex(
+                                                                      FFAppState()
+                                                                          .videoId,
+                                                                      (e) => e
+                                                                        ..likes = FFAppState()
+                                                                            .newListLike
+                                                                            .toList(),
+                                                                    );
+                                                                    safeSetState(
+                                                                        () {});
+                                                                  },
+                                                                  bookedrebuidpage:
+                                                                      () async {
+                                                                    logFirebaseEvent(
+                                                                        'COMMUNITY_HOME_F_I_N_A_L_Container_wsyqo');
+                                                                    logFirebaseEvent(
+                                                                        'ChewieWidget_update_app_state');
+                                                                    FFAppState()
+                                                                        .updateListTikTokPagesAtIndex(
+                                                                      tiktokfeed_wz8en7_app_state
+                                                                              .FFAppState()
+                                                                          .videoID,
+                                                                      (e) => e
+                                                                        ..bookmark = FFAppState()
+                                                                            .newListBookmarks
+                                                                            .toList(),
+                                                                    );
+                                                                    safeSetState(
+                                                                        () {});
+                                                                  },
+                                                                ),
                                                               ),
                                                             ),
                                                           ),
-                                                        ),
-                                                      ],
-                                                    ).animateOnPageLoad(
-                                                        animationsMap[
-                                                            'listViewOnPageLoadAnimation']!),
+                                                        ],
+                                                      ).animateOnPageLoad(
+                                                          animationsMap[
+                                                              'listViewOnPageLoadAnimation']!),
+                                                    ),
                                                   ),
                                                 ),
                                               ),
-                                            ),
-                                          ],
+                                            ],
+                                          ),
                                         ),
                                         Column(
                                           mainAxisSize: MainAxisSize.max,
@@ -692,20 +573,98 @@ class _CommunityHomeFINALWidgetState extends State<CommunityHomeFINALWidget>
                                             ),
                                           ],
                                         ),
+                                        Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  0.0, -1.0),
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 1.0, 0.0, 0.0),
+                                                child: AuthUserStreamWidget(
+                                                  builder: (context) =>
+                                                      Container(
+                                                    width: MediaQuery.sizeOf(
+                                                                context)
+                                                            .width *
+                                                        1.0,
+                                                    height: MediaQuery.sizeOf(
+                                                                context)
+                                                            .height *
+                                                        0.75,
+                                                    child:
+                                                        tiktokfeed_wz8en7_custom_widgets
+                                                            .ChewieWidget(
+                                                      width: MediaQuery.sizeOf(
+                                                                  context)
+                                                              .width *
+                                                          1.0,
+                                                      height: MediaQuery.sizeOf(
+                                                                  context)
+                                                              .height *
+                                                          0.75,
+                                                      userID:
+                                                          currentUserDisplayName,
+                                                      data:
+                                                          tiktokfeed_wz8en7_app_state
+                                                                  .FFAppState()
+                                                              .meditationTikToks,
+                                                      likerebuidpage: () async {
+                                                        logFirebaseEvent(
+                                                            'COMMUNITY_HOME_F_I_N_A_L_Container_3xy9w');
+                                                        logFirebaseEvent(
+                                                            'ChewieWidget_update_app_state');
+                                                        FFAppState()
+                                                            .updateListTikTokPagesAtIndex(
+                                                          FFAppState().videoId,
+                                                          (e) => e
+                                                            ..likes =
+                                                                FFAppState()
+                                                                    .newListLike
+                                                                    .toList(),
+                                                        );
+                                                        safeSetState(() {});
+                                                      },
+                                                      bookedrebuidpage:
+                                                          () async {
+                                                        logFirebaseEvent(
+                                                            'COMMUNITY_HOME_F_I_N_A_L_Container_3xy9w');
+                                                        logFirebaseEvent(
+                                                            'ChewieWidget_update_app_state');
+                                                        FFAppState()
+                                                            .updateListTikTokPagesAtIndex(
+                                                          FFAppState().videoId,
+                                                          (e) => e
+                                                            ..bookmark =
+                                                                FFAppState()
+                                                                    .newListBookmarks
+                                                                    .toList(),
+                                                        );
+                                                        safeSetState(() {});
+                                                      },
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
                                       ],
                                     ),
                                   ),
                                 ],
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

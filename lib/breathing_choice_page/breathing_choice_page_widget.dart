@@ -18,7 +18,7 @@ class BreathingChoicePageWidget extends StatefulWidget {
   const BreathingChoicePageWidget({super.key});
 
   static String routeName = 'BreathingChoicePage';
-  static String routePath = '/breathingChoicePage';
+  static String routePath = 'breathingChoicePage';
 
   @override
   State<BreathingChoicePageWidget> createState() =>
@@ -54,6 +54,8 @@ class _BreathingChoicePageWidgetState extends State<BreathingChoicePageWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

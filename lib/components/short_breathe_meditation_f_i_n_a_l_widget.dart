@@ -84,6 +84,8 @@ class _ShortBreatheMeditationFINALWidgetState
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

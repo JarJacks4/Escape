@@ -80,13 +80,15 @@ class _PushNotificationsHandlerState extends State<PushNotificationsHandler> {
 
   @override
   Widget build(BuildContext context) => _loading
-      ? Container(
-          color: FlutterFlowTheme.of(context).alternate,
-          child: Image.asset(
-            'assets/images/Logo_ESCAPE_White.png',
-            fit: BoxFit.contain,
-          ),
-        )
+      ? isWeb
+          ? Container()
+          : Container(
+              color: FlutterFlowTheme.of(context).alternate,
+              child: Image.asset(
+                'assets/images/Logo_ESCAPE_White.png',
+                fit: BoxFit.contain,
+              ),
+            )
       : widget.child;
 }
 
@@ -117,7 +119,11 @@ final parametersBuilderMap =
   'notificationsScreen': ParameterData.none(),
   'subscription': ParameterData.none(),
   'HomeVersion4': ParameterData.none(),
-  'loginPage': ParameterData.none(),
+  'loginPage': (data) async => ParameterData(
+        allParams: {
+          'tabBarIndex': getParameter<int>(data, 'tabBarIndex'),
+        },
+      ),
   'InterestsPage': ParameterData.none(),
   'ProfileDetails': ParameterData.none(),
   'DisplayNameFINAL': ParameterData.none(),
@@ -182,7 +188,6 @@ final parametersBuilderMap =
   'reels': ParameterData.none(),
   'ChatWithLucilleFINAL': ParameterData.none(),
   'FacialMoodAnalyzerChoiceLucilleCard': ParameterData.none(),
-  'BottomSheets': ParameterData.none(),
   'AISoundscapesCopy': (data) async => ParameterData(
         allParams: {
           'meditationaudio': getParameter<String>(data, 'meditationaudio'),
@@ -198,7 +203,6 @@ final parametersBuilderMap =
   'DepressionReorder': ParameterData.none(),
   'JournalPageFINALCopy': ParameterData.none(),
   'LucilleNewChat': ParameterData.none(),
-  'EscapeInnerverse': ParameterData.none(),
   'LoadingScreenAnimus': ParameterData.none(),
 };
 

@@ -14,7 +14,7 @@ class LoadingScreenAnimusWidget extends StatefulWidget {
   const LoadingScreenAnimusWidget({super.key});
 
   static String routeName = 'LoadingScreenAnimus';
-  static String routePath = '/loadingScreenAnimus';
+  static String routePath = 'loadingScreenAnimus';
 
   @override
   State<LoadingScreenAnimusWidget> createState() =>
@@ -78,6 +78,8 @@ class _LoadingScreenAnimusWidgetState extends State<LoadingScreenAnimusWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

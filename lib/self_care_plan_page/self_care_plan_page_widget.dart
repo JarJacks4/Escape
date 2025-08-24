@@ -7,11 +7,10 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
 import '/index.dart';
-import 'package:chat_u_i_kit_n2m29m/app_state.dart'
-    as chat_u_i_kit_n2m29m_app_state;
 import 'package:tiktokfeed_wz8en7/app_state.dart'
     as tiktokfeed_wz8en7_app_state;
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -26,7 +25,7 @@ class SelfCarePlanPageWidget extends StatefulWidget {
   const SelfCarePlanPageWidget({super.key});
 
   static String routeName = 'SelfCarePlanPage';
-  static String routePath = '/selfCarePlanPage';
+  static String routePath = 'selfCarePlanPage';
 
   @override
   State<SelfCarePlanPageWidget> createState() => _SelfCarePlanPageWidgetState();
@@ -185,6 +184,8 @@ class _SelfCarePlanPageWidgetState extends State<SelfCarePlanPageWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -197,7 +198,6 @@ class _SelfCarePlanPageWidgetState extends State<SelfCarePlanPageWidget>
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
-    context.watch<chat_u_i_kit_n2m29m_app_state.FFAppState>();
     context.watch<tiktokfeed_wz8en7_app_state.FFAppState>();
 
     return StreamBuilder<UsersRecord>(
@@ -364,25 +364,28 @@ class _SelfCarePlanPageWidgetState extends State<SelfCarePlanPageWidget>
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 0.0, 8.0, 0.0),
                                               child: Hero(
-                                                tag: valueOrDefault<String>(
-                                                  selfCarePlanPageUsersRecord
-                                                      .photoUrl,
-                                                  'https://res.cloudinary.com/dbyduwpud/image/upload/v1751860346/AICircleLucilleChat_uo87av.gif',
-                                                ),
+                                                tag: selfCarePlanPageUsersRecord
+                                                    .photoUrl,
                                                 transitionOnUserGestures: true,
                                                 child: ClipRRect(
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           24.0),
                                                   child: Image.network(
-                                                    valueOrDefault<String>(
-                                                      selfCarePlanPageUsersRecord
-                                                          .photoUrl,
-                                                      'https://res.cloudinary.com/dbyduwpud/image/upload/v1751860346/AICircleLucilleChat_uo87av.gif',
-                                                    ),
+                                                    selfCarePlanPageUsersRecord
+                                                        .photoUrl,
                                                     width: 46.4,
                                                     height: 46.0,
                                                     fit: BoxFit.cover,
+                                                    errorBuilder: (context,
+                                                            error,
+                                                            stackTrace) =>
+                                                        Image.asset(
+                                                      'assets/images/error_image.jpg',
+                                                      width: 46.4,
+                                                      height: 46.0,
+                                                      fit: BoxFit.cover,
+                                                    ),
                                                   ),
                                                 ),
                                               ),
@@ -733,10 +736,27 @@ class _SelfCarePlanPageWidgetState extends State<SelfCarePlanPageWidget>
                                                             shape:
                                                                 BoxShape.circle,
                                                           ),
-                                                          child: Image.network(
-                                                            selfCarePlanPageUsersRecord
-                                                                .photoUrl,
+                                                          child:
+                                                              CachedNetworkImage(
+                                                            fadeInDuration:
+                                                                Duration(
+                                                                    milliseconds:
+                                                                        500),
+                                                            fadeOutDuration:
+                                                                Duration(
+                                                                    milliseconds:
+                                                                        500),
+                                                            imageUrl:
+                                                                selfCarePlanPageUsersRecord
+                                                                    .photoUrl,
                                                             fit: BoxFit.cover,
+                                                            errorWidget: (context,
+                                                                    error,
+                                                                    stackTrace) =>
+                                                                Image.asset(
+                                                              'assets/images/error_image.jpg',
+                                                              fit: BoxFit.cover,
+                                                            ),
                                                           ),
                                                         ),
                                                       ),

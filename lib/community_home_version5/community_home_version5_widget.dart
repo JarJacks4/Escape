@@ -3,8 +3,6 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
-import 'package:chat_u_i_kit_n2m29m/app_state.dart'
-    as chat_u_i_kit_n2m29m_app_state;
 import 'package:tiktokfeed_wz8en7/app_state.dart'
     as tiktokfeed_wz8en7_app_state;
 import 'package:tiktokfeed_wz8en7/custom_code/widgets/index.dart'
@@ -22,7 +20,7 @@ class CommunityHomeVersion5Widget extends StatefulWidget {
   const CommunityHomeVersion5Widget({super.key});
 
   static String routeName = 'CommunityHomeVersion5';
-  static String routePath = '/communityHomeVersion5';
+  static String routePath = 'communityHomeVersion5';
 
   @override
   State<CommunityHomeVersion5Widget> createState() =>
@@ -90,6 +88,8 @@ class _CommunityHomeVersion5WidgetState
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -102,7 +102,6 @@ class _CommunityHomeVersion5WidgetState
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
-    context.watch<chat_u_i_kit_n2m29m_app_state.FFAppState>();
     context.watch<tiktokfeed_wz8en7_app_state.FFAppState>();
 
     return GestureDetector(
@@ -290,16 +289,6 @@ class _CommunityHomeVersion5WidgetState
                                                               FontWeight.w500,
                                                         ),
                                                   ),
-                                                  Container(
-                                                    width: 0.0,
-                                                    height: 2.0,
-                                                    decoration: BoxDecoration(
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .info,
-                                                    ),
-                                                  ),
                                                 ].divide(SizedBox(height: 4.0)),
                                               ),
                                               Column(
@@ -325,16 +314,6 @@ class _CommunityHomeVersion5WidgetState
                                                               FontWeight.bold,
                                                         ),
                                                   ),
-                                                  Container(
-                                                    width: 60.0,
-                                                    height: 2.0,
-                                                    decoration: BoxDecoration(
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .info,
-                                                    ),
-                                                  ),
                                                 ].divide(SizedBox(height: 4.0)),
                                               ),
                                             ].divide(SizedBox(width: 24.0)),
@@ -355,6 +334,7 @@ class _CommunityHomeVersion5WidgetState
                                 flex: 1,
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Expanded(
                                       flex: 1,
@@ -373,7 +353,7 @@ class _CommunityHomeVersion5WidgetState
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(
-                                                      16.0, 0.0, 16.0, 0.0),
+                                                      16.0, 350.0, 16.0, 0.0),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.min,
                                                 mainAxisAlignment:
@@ -480,53 +460,6 @@ class _CommunityHomeVersion5WidgetState
                                                                   context)
                                                               .getText(
                                                             '66ng94fz' /* 2 */,
-                                                          ),
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodySmall
-                                                              .override(
-                                                                fontFamily:
-                                                                    'The Seasons',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .info,
-                                                                fontSize: 14.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w500,
-                                                              ),
-                                                        ),
-                                                      ].divide(SizedBox(
-                                                          height: 4.0)),
-                                                    ),
-                                                  ),
-                                                  Align(
-                                                    alignment:
-                                                        AlignmentDirectional(
-                                                            1.0, 0.0),
-                                                    child: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        Icon(
-                                                          FFIcons.kcommentLine5,
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .info,
-                                                          size: 32.0,
-                                                        ),
-                                                        Text(
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                            'l2z0yean' /* 190 */,
                                                           ),
                                                           textAlign:
                                                               TextAlign.center,
@@ -765,20 +698,19 @@ class _CommunityHomeVersion5WidgetState
                                                 Text(
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                    '32pyywz3' /* Check out this video! */,
+                                                    '32pyywz3' /* Check out this self-care video... */,
                                                   ),
                                                   maxLines: 2,
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily:
-                                                            'The Seasons',
+                                                        fontFamily: 'WorkSans',
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .info,
-                                                        fontSize: 12.0,
+                                                        fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.bold,

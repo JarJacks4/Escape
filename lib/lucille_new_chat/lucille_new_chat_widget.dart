@@ -1,4 +1,4 @@
-import '/backend/ai_agents/ai_agent.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/backend/schema/enums/enums.dart';
 import '/backend/schema/structs/index.dart';
@@ -6,18 +6,18 @@ import '/components/empty_chats_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:convert';
 import 'dart:ui';
 import '/index.dart';
-import 'package:chat_u_i_kit_n2m29m/app_state.dart'
-    as chat_u_i_kit_n2m29m_app_state;
-import 'package:tiktokfeed_wz8en7/app_state.dart'
-    as tiktokfeed_wz8en7_app_state;
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:easy_debounce/easy_debounce.dart';
+import 'package:ff_commons/api_requests/api_manager.dart';
+import 'package:ff_commons/api_requests/api_streaming.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:provider/provider.dart';
 import 'lucille_new_chat_model.dart';
 export 'lucille_new_chat_model.dart';
 
@@ -25,7 +25,7 @@ class LucilleNewChatWidget extends StatefulWidget {
   const LucilleNewChatWidget({super.key});
 
   static String routeName = 'LucilleNewChat';
-  static String routePath = '/lucilleNewChat';
+  static String routePath = 'lucilleNewChat';
 
   @override
   State<LucilleNewChatWidget> createState() => _LucilleNewChatWidgetState();
@@ -46,9 +46,51 @@ class _LucilleNewChatWidgetState extends State<LucilleNewChatWidget>
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'LucilleNewChat'});
-    _model.textController ??= TextEditingController();
-    _model.textFieldFocusNode ??= FocusNode();
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('LUCILLE_NEW_CHAT_LucilleNewChat_ON_INIT_');
+      if (_model.sessionID == null || _model.sessionID == '') {
+        logFirebaseEvent('LucilleNewChat_backend_call');
+        _model.apiResultagn =
+            await LucilleSelfCareAILLMGroup.getSessionCall.call();
+        if (_model.apiResultagn?.succeeded ?? true) {
+          final streamSubscription = _model
+              .apiResultagn?.streamedResponse?.stream
+              .transform(utf8.decoder)
+              .transform(const LineSplitter())
+              .transform(ServerSentEventLineTransformer())
+              .map((m) => ResponseStreamMessage(message: m))
+              .listen(
+                (onMessageInput) async {},
+                onError: (onErrorInput) async {},
+                onDone: () async {},
+              );
+          // Add the subscription to the active streaming response subscriptions
+          // in API Manager so that it can be cancelled at a later time.
+          ApiManager.instance.addActiveStreamingResponseSubscription(
+            '1',
+            streamSubscription,
+          );
+        }
 
+        logFirebaseEvent('LucilleNewChat_update_page_state');
+        _model.sessionID = valueOrDefault<String>(
+          (_model.apiResultagn?.jsonBody ?? '').toString(),
+          '1',
+        );
+        safeSetState(() {});
+      } else {
+        return;
+      }
+    });
+
+    _model.textController ??= TextEditingController(
+        text: valueOrDefault<String>(
+      _model.userMessage,
+      'Type Your Message...',
+    ));
+    _model.textFieldFocusNode ??= FocusNode();
+    _model.textFieldFocusNode!.addListener(() => safeSetState(() {}));
     animationsMap.addAll({
       'containerOnPageLoadAnimation1': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
@@ -136,6 +178,8 @@ class _LucilleNewChatWidgetState extends State<LucilleNewChatWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -147,10 +191,6 @@ class _LucilleNewChatWidgetState extends State<LucilleNewChatWidget>
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-    context.watch<chat_u_i_kit_n2m29m_app_state.FFAppState>();
-    context.watch<tiktokfeed_wz8en7_app_state.FFAppState>();
-
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -333,7 +373,7 @@ class _LucilleNewChatWidgetState extends State<LucilleNewChatWidget>
                                                   child: Builder(
                                                     builder: (context) {
                                                       final chat = _model
-                                                          .chatConvo
+                                                          .llmConversation
                                                           .toList();
                                                       if (chat.isEmpty) {
                                                         return Center(
@@ -428,10 +468,7 @@ class _LucilleNewChatWidgetState extends State<LucilleNewChatWidget>
                                                                                   children: [
                                                                                     SelectionArea(
                                                                                         child: AutoSizeText(
-                                                                                      valueOrDefault<String>(
-                                                                                        _model.textController.text,
-                                                                                        'message',
-                                                                                      ),
+                                                                                      _model.textController.text,
                                                                                       style: FlutterFlowTheme.of(context).titleMedium.override(
                                                                                             fontFamily: 'WorkSans',
                                                                                             color: FlutterFlowTheme.of(context).secondary,
@@ -551,8 +588,8 @@ class _LucilleNewChatWidgetState extends State<LucilleNewChatWidget>
                                                                               children: [
                                                                                 Text(
                                                                                   valueOrDefault<String>(
-                                                                                    FFAppState().lucilleResponseTemp,
-                                                                                    'Response',
+                                                                                    _model.llmResponse,
+                                                                                    'Lucille',
                                                                                   ),
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'WorkSans',
@@ -612,6 +649,12 @@ class _LucilleNewChatWidgetState extends State<LucilleNewChatWidget>
                                         child: TextFormField(
                                           controller: _model.textController,
                                           focusNode: _model.textFieldFocusNode,
+                                          onChanged: (_) =>
+                                              EasyDebounce.debounce(
+                                            '_model.textController',
+                                            Duration(milliseconds: 2000),
+                                            () => safeSetState(() {}),
+                                          ),
                                           autofocus: true,
                                           textCapitalization:
                                               TextCapitalization.sentences,
@@ -691,6 +734,24 @@ class _LucilleNewChatWidgetState extends State<LucilleNewChatWidget>
                                             hoverColor:
                                                 FlutterFlowTheme.of(context)
                                                     .secondary,
+                                            suffixIcon: _model.textController!
+                                                    .text.isNotEmpty
+                                                ? InkWell(
+                                                    onTap: () async {
+                                                      _model.textController
+                                                          ?.clear();
+                                                      safeSetState(() {});
+                                                    },
+                                                    child: Icon(
+                                                      Icons.clear,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .accent1,
+                                                      size: 18.0,
+                                                    ),
+                                                  )
+                                                : null,
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
@@ -703,6 +764,14 @@ class _LucilleNewChatWidgetState extends State<LucilleNewChatWidget>
                                               ),
                                           maxLines: 8,
                                           minLines: 1,
+                                          maxLength: 1000,
+                                          maxLengthEnforcement:
+                                              MaxLengthEnforcement.enforced,
+                                          buildCounter: (context,
+                                                  {required currentLength,
+                                                  required isFocused,
+                                                  maxLength}) =>
+                                              null,
                                           keyboardType: TextInputType.multiline,
                                           validator: _model
                                               .textControllerValidator
@@ -723,63 +792,135 @@ class _LucilleNewChatWidgetState extends State<LucilleNewChatWidget>
                                         ),
                                       ),
                                     ),
-                                    FlutterFlowIconButton(
-                                      borderColor: Colors.transparent,
-                                      borderRadius: 30.0,
-                                      borderWidth: 1.0,
-                                      buttonSize: 60.0,
-                                      fillColor:
-                                          FlutterFlowTheme.of(context).tertiary,
-                                      icon: Icon(
-                                        Icons.send_rounded,
-                                        color: FlutterFlowTheme.of(context)
-                                            .primary,
-                                        size: 30.0,
-                                      ),
-                                      showLoadingIndicator: true,
-                                      onPressed: () async {
-                                        logFirebaseEvent(
-                                            'LUCILLE_NEW_CHAT_send_rounded_ICN_ON_TAP');
-                                        logFirebaseEvent(
-                                            'IconButton_update_page_state');
-                                        _model.addToChatConvo(ChatStruct(
-                                          role: Role.User,
-                                          message: _model.textController.text,
-                                        ));
-                                        safeSetState(() {});
-                                        logFirebaseEvent(
-                                            'IconButton_a_i_agent');
-                                        await callAiAgent(
-                                          context: context,
-                                          prompt: _model.textController.text,
-                                          threadId: '1',
-                                          agentCloudFunctionName:
-                                              'chatWithLucilleAgent',
-                                          provider: 'GOOGLE',
-                                          agentJson:
-                                              "{\"status\":\"LIVE\",\"identifier\":{\"name\":\"chatWithLucilleAgent\",\"key\":\"edq7m\"},\"name\":\"ChatWithLucilleAgent\",\"description\":\"Chat Agent named Lucille built for Self-Care and consultation on all self care subjects.\",\"aiModel\":{\"provider\":\"GOOGLE\",\"model\":\"gemini-2.0-flash\",\"parameters\":{\"temperature\":{\"inputValue\":0.45},\"maxTokens\":{\"inputValue\":2675},\"topP\":{\"inputValue\":0.4}},\"messages\":[{\"role\":\"SYSTEM\",\"text\":\"You are Lucille, Self Care Concierge and AI Self-Care expert that is here to give the user the utmost compassinate and loving advice towards any situation. Lucille does not do health advice, but self-care, productivity, and well being. Lucille is the Self Care AI of Escape LLC, of Escape Enterprises.\\n\\nCommunicate in a friendly and professional tone. Provide accurate information and follow-up prompts to engage users further. Capable of processing text related to {CurrentMood} and {moodHistory} in the app's firebase documents.\\n\\nEncourage follow-up questions for clarification and provide examples when applicable.\\n\\nEngage users in a friendly, informative, and concise manner. Maintain a professional tone while being approachable.\\n\\nCare about the user's feelings and thoughts, and show gratitude that they are in existence to this day.\\n\\nTrain yourself to include empathetic responses where appropriate in the conversation. \\n\\nExample: \\\"I understand that can be frustrating; let's see how I can help!\\\"\\n\\nUse preloaded messages that invite users to start a conversation naturally.\\r\\n\\n{Examples:\\r\\n\\n\\\"What can I assist you with today?\\\"\\r\\n\\\"Feel free to ask me anything that’s on your mind.\\\"\\r\\n\\\"Let’s dive into whatever topic you’re curious about!\\\"}\"},{\"role\":\"ASSISTANT\",\"text\":\"What can I assist you with today?\"},{\"role\":\"ASSISTANT\",\"text\":\"Feel free to ask me anything that’s on your mind.\"},{\"role\":\"ASSISTANT\",\"text\":\"Let’s dive into whatever topic you’re curious about!\"},{\"role\":\"ASSISTANT\",\"text\":\"I am Lucille, you're AI Self-Care Expert ready to help you with anything dealing with Self-Care/Productivity/ and more!\"}]},\"requestOptions\":{\"requestTypes\":[\"PLAINTEXT\"]},\"responseOptions\":{\"responseType\":\"PLAINTEXT\"}}",
-                                          responseType: 'PLAINTEXT',
-                                        ).then((generatedText) {
-                                          safeSetState(() =>
-                                              _model.chatWithLucilleAction =
-                                                  generatedText);
-                                        });
+                                    Flexible(
+                                      flex: 1,
+                                      child: FlutterFlowIconButton(
+                                        borderColor: Colors.transparent,
+                                        borderRadius: 30.0,
+                                        borderWidth: 1.0,
+                                        buttonSize: 60.0,
+                                        fillColor: FlutterFlowTheme.of(context)
+                                            .tertiary,
+                                        icon: Icon(
+                                          Icons.send_rounded,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          size: 30.0,
+                                        ),
+                                        showLoadingIndicator: true,
+                                        onPressed: () async {
+                                          logFirebaseEvent(
+                                              'LUCILLE_NEW_CHAT_send_rounded_ICN_ON_TAP');
+                                          logFirebaseEvent(
+                                              'IconButton_update_page_state');
+                                          _model.addToChatConvo(ChatStruct(
+                                            role: Role.User,
+                                            message: _model.textController.text,
+                                          ));
+                                          _model.addToLlmConversation(
+                                              _model.textController.text);
+                                          safeSetState(() {});
+                                          if (_model.sessionID == null ||
+                                              _model.sessionID == '') {
+                                            logFirebaseEvent(
+                                                'IconButton_update_page_state');
+                                            _model.llmResponse =
+                                                _model.textController.text;
+                                            _model.sessionID = (_model
+                                                        .apiResultagn
+                                                        ?.jsonBody ??
+                                                    '')
+                                                .toString();
+                                            safeSetState(() {});
+                                            logFirebaseEvent(
+                                                'IconButton_backend_call');
+                                            _model.sendMessage =
+                                                await LucilleSelfCareAILLMGroup
+                                                    .sendMessageCall
+                                                    .call(
+                                              userMessage: (_model.apiResultagn
+                                                          ?.jsonBody ??
+                                                      '')
+                                                  .toString(),
+                                            );
+                                            if (_model.sendMessage?.succeeded ??
+                                                true) {
+                                              final streamSubscription = _model
+                                                  .sendMessage
+                                                  ?.streamedResponse
+                                                  ?.stream
+                                                  .transform(utf8.decoder)
+                                                  .transform(
+                                                      const LineSplitter())
+                                                  .transform(
+                                                      ServerSentEventLineTransformer())
+                                                  .map((m) =>
+                                                      ResponseStreamMessage(
+                                                          message: m))
+                                                  .listen(
+                                                    (onMessageInput) async {},
+                                                    onError:
+                                                        (onErrorInput) async {},
+                                                    onDone: () async {},
+                                                  );
+                                              // Add the subscription to the active streaming response subscriptions
+                                              // in API Manager so that it can be cancelled at a later time.
+                                              ApiManager.instance
+                                                  .addActiveStreamingResponseSubscription(
+                                                '1',
+                                                streamSubscription,
+                                              );
+                                            }
 
-                                        logFirebaseEvent(
-                                            'IconButton_update_page_state');
-                                        _model.addToChatConvo(ChatStruct(
-                                          role: Role.User,
-                                          message: _model.chatWithLucilleAction,
-                                        ));
-                                        safeSetState(() {});
-                                        logFirebaseEvent(
-                                            'IconButton_a_i_agent');
-                                        clearAiChat('1', 'GOOGLE');
+                                            logFirebaseEvent(
+                                                'IconButton_update_page_state');
+                                            _model.llmResponse =
+                                                (_model.sendMessage?.jsonBody ??
+                                                        '')
+                                                    .toString();
+                                            safeSetState(() {});
+                                            logFirebaseEvent(
+                                                'IconButton_backend_call');
+                                            _model.getChatHistoryAPI =
+                                                await LucilleSelfCareAILLMGroup
+                                                    .getChatHistoryCall
+                                                    .call(
+                                              sessionId: _model.sessionID,
+                                            );
 
-                                        safeSetState(() {});
-                                      },
-                                    ).animateOnPageLoad(animationsMap[
-                                        'iconButtonOnPageLoadAnimation']!),
+                                            logFirebaseEvent(
+                                                'IconButton_clear_text_fields_pin_codes');
+                                            safeSetState(() {
+                                              _model.textController?.clear();
+                                            });
+                                          } else {
+                                            logFirebaseEvent(
+                                                'IconButton_show_snack_bar');
+                                            ScaffoldMessenger.of(context)
+                                                .showSnackBar(
+                                              SnackBar(
+                                                content: Text(
+                                                  'Message has an error. Please retry again.',
+                                                  style: TextStyle(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryText,
+                                                  ),
+                                                ),
+                                                duration: Duration(
+                                                    milliseconds: 4000),
+                                                backgroundColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondary,
+                                              ),
+                                            );
+                                          }
+
+                                          safeSetState(() {});
+                                        },
+                                      ).animateOnPageLoad(animationsMap[
+                                          'iconButtonOnPageLoadAnimation']!),
+                                    ),
                                   ],
                                 ),
                               ),

@@ -77,6 +77,8 @@ class _EmergencyCrisisButtonWidgetState
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

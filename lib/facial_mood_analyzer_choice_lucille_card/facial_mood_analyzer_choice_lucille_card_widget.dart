@@ -14,7 +14,7 @@ class FacialMoodAnalyzerChoiceLucilleCardWidget extends StatefulWidget {
   const FacialMoodAnalyzerChoiceLucilleCardWidget({super.key});
 
   static String routeName = 'FacialMoodAnalyzerChoiceLucilleCard';
-  static String routePath = '/facialMoodAnalyzerChoiceLucilleCard';
+  static String routePath = 'facialMoodAnalyzerChoiceLucilleCard';
 
   @override
   State<FacialMoodAnalyzerChoiceLucilleCardWidget> createState() =>
@@ -112,6 +112,8 @@ class _FacialMoodAnalyzerChoiceLucilleCardWidgetState
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

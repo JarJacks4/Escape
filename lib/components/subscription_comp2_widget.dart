@@ -154,6 +154,8 @@ class _SubscriptionComp2WidgetState extends State<SubscriptionComp2Widget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

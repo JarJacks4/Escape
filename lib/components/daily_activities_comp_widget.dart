@@ -82,6 +82,8 @@ class _DailyActivitiesCompWidgetState extends State<DailyActivitiesCompWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

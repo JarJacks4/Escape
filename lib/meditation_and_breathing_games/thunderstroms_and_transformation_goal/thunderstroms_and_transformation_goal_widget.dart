@@ -12,7 +12,7 @@ class ThunderstromsAndTransformationGoalWidget extends StatefulWidget {
   const ThunderstromsAndTransformationGoalWidget({super.key});
 
   static String routeName = 'ThunderstromsAndTransformationGoal';
-  static String routePath = '/thunderstromsAndTransformationGoal';
+  static String routePath = 'thunderstromsAndTransformationGoal';
 
   @override
   State<ThunderstromsAndTransformationGoalWidget> createState() =>
@@ -33,6 +33,7 @@ class _ThunderstromsAndTransformationGoalWidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'ThunderstromsAndTransformationGoal'});
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

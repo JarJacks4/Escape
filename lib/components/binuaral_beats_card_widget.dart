@@ -64,6 +64,8 @@ class _BinuaralBeatsCardWidgetState extends State<BinuaralBeatsCardWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

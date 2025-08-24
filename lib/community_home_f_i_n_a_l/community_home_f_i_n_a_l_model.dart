@@ -1,5 +1,4 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import '/index.dart';
 import 'community_home_f_i_n_a_l_widget.dart' show CommunityHomeFINALWidget;
 import 'package:flutter/material.dart';
 

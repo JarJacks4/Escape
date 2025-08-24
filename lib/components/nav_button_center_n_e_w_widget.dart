@@ -111,6 +111,8 @@ class _NavButtonCenterNEWWidgetState extends State<NavButtonCenterNEWWidget>
           !anim.applyInitialState),
       this,
     );
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

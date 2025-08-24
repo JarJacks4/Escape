@@ -15,7 +15,7 @@ class BoxBreathingMeditationPageWidget extends StatefulWidget {
   const BoxBreathingMeditationPageWidget({super.key});
 
   static String routeName = 'BoxBreathingMeditationPage';
-  static String routePath = '/boxBreathingMeditationPage';
+  static String routePath = 'boxBreathingMeditationPage';
 
   @override
   State<BoxBreathingMeditationPageWidget> createState() =>

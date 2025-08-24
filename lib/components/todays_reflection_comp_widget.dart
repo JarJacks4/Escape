@@ -61,6 +61,8 @@ class _TodaysReflectionCompWidgetState extends State<TodaysReflectionCompWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

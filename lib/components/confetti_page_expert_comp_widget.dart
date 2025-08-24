@@ -136,6 +136,8 @@ class _ConfettiPageExpertCompWidgetState
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

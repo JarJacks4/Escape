@@ -83,6 +83,8 @@ class _InsomniaMeditationCompWidgetState
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

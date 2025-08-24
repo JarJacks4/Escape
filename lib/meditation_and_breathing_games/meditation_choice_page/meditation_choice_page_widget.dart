@@ -14,7 +14,7 @@ class MeditationChoicePageWidget extends StatefulWidget {
   const MeditationChoicePageWidget({super.key});
 
   static String routeName = 'MeditationChoicePage';
-  static String routePath = '/meditationChoicePage';
+  static String routePath = 'meditationChoicePage';
 
   @override
   State<MeditationChoicePageWidget> createState() =>
@@ -34,6 +34,7 @@ class _MeditationChoicePageWidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'MeditationChoicePage'});
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

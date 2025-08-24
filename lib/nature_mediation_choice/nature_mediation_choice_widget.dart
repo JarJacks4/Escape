@@ -16,7 +16,7 @@ class NatureMediationChoiceWidget extends StatefulWidget {
   const NatureMediationChoiceWidget({super.key});
 
   static String routeName = 'NatureMediationChoice';
-  static String routePath = '/natureMediationChoice';
+  static String routePath = 'natureMediationChoice';
 
   @override
   State<NatureMediationChoiceWidget> createState() =>
@@ -52,6 +52,8 @@ class _NatureMediationChoiceWidgetState
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

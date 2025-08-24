@@ -12,7 +12,7 @@ class InsomniaGoalWidget extends StatefulWidget {
   const InsomniaGoalWidget({super.key});
 
   static String routeName = 'InsomniaGoal';
-  static String routePath = '/insomniaGoal';
+  static String routePath = 'insomniaGoal';
 
   @override
   State<InsomniaGoalWidget> createState() => _InsomniaGoalWidgetState();
@@ -30,6 +30,7 @@ class _InsomniaGoalWidgetState extends State<InsomniaGoalWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'InsomniaGoal'});
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

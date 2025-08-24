@@ -13,7 +13,7 @@ class RecommendationsPageWidget extends StatefulWidget {
   const RecommendationsPageWidget({super.key});
 
   static String routeName = 'RecommendationsPage';
-  static String routePath = '/recommendationsPage';
+  static String routePath = 'recommendationsPage';
 
   @override
   State<RecommendationsPageWidget> createState() =>
@@ -49,6 +49,8 @@ class _RecommendationsPageWidgetState extends State<RecommendationsPageWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

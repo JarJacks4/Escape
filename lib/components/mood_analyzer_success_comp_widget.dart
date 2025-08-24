@@ -124,6 +124,8 @@ class _MoodAnalyzerSuccessCompWidgetState
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
