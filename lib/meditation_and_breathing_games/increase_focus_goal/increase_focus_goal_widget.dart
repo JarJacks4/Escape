@@ -12,7 +12,7 @@ class IncreaseFocusGoalWidget extends StatefulWidget {
   const IncreaseFocusGoalWidget({super.key});
 
   static String routeName = 'IncreaseFocusGoal';
-  static String routePath = '/increaseFocusGoal';
+  static String routePath = 'increaseFocusGoal';
 
   @override
   State<IncreaseFocusGoalWidget> createState() =>
@@ -31,6 +31,7 @@ class _IncreaseFocusGoalWidgetState extends State<IncreaseFocusGoalWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'IncreaseFocusGoal'});
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

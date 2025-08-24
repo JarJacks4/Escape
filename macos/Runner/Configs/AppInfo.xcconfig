@@ -8,7 +8,7 @@
 PRODUCT_NAME = Escape
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.mycompany.escapellc
+PRODUCT_BUNDLE_IDENTIFIER = com.flutterflow.escapellc
 
 // The copyright displayed in application information
 PRODUCT_COPYRIGHT = Copyright © 2025 Escape. All rights reserved.

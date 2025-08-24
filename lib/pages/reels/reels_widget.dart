@@ -9,7 +9,7 @@ class ReelsWidget extends StatefulWidget {
   const ReelsWidget({super.key});
 
   static String routeName = 'reels';
-  static String routePath = '/reels';
+  static String routePath = 'reels';
 
   @override
   State<ReelsWidget> createState() => _ReelsWidgetState();
@@ -26,6 +26,7 @@ class _ReelsWidgetState extends State<ReelsWidget> {
     _model = createModel(context, () => ReelsModel());
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'reels'});
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

@@ -121,6 +121,8 @@ class _SuccessHomeFeedbackWidgetState extends State<SuccessHomeFeedbackWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

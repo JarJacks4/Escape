@@ -1,5 +1,6 @@
 export '/backend/schema/util/schema_util.dart';
 
+export 'app_context_struct.dart';
 export 'image_helper_struct.dart';
 export 'message_struct.dart';
 export 'model_configuration_struct.dart';

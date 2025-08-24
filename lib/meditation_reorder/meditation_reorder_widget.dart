@@ -5,8 +5,6 @@ import "package:tiktokfeed_wz8en7/backend/schema/structs/index.dart"
     as tiktokfeed_wz8en7_data_schema;
 import '/custom_code/actions/index.dart' as actions;
 import '/index.dart';
-import 'package:chat_u_i_kit_n2m29m/app_state.dart'
-    as chat_u_i_kit_n2m29m_app_state;
 import 'package:tiktokfeed_wz8en7/app_state.dart'
     as tiktokfeed_wz8en7_app_state;
 import 'package:tiktokfeed_wz8en7/custom_code/widgets/index.dart'
@@ -22,7 +20,7 @@ class MeditationReorderWidget extends StatefulWidget {
   const MeditationReorderWidget({super.key});
 
   static String routeName = 'MeditationReorder';
-  static String routePath = '/meditationReorder';
+  static String routePath = 'meditationReorder';
 
   @override
   State<MeditationReorderWidget> createState() =>
@@ -70,6 +68,8 @@ class _MeditationReorderWidgetState extends State<MeditationReorderWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -82,7 +82,6 @@ class _MeditationReorderWidgetState extends State<MeditationReorderWidget>
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
-    context.watch<chat_u_i_kit_n2m29m_app_state.FFAppState>();
     context.watch<tiktokfeed_wz8en7_app_state.FFAppState>();
 
     return GestureDetector(
@@ -261,7 +260,8 @@ class _MeditationReorderWidgetState extends State<MeditationReorderWidget>
                                     .cast<
                                         tiktokfeed_wz8en7_data_schema
                                         .TiktokPageStruct>();
-                            safeSetState(() {});
+                            tiktokfeed_wz8en7_app_state.FFAppState()
+                                .update(() {});
 
                             safeSetState(() {});
                           },

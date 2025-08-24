@@ -76,6 +76,8 @@ class _MoodTrackingBottomSheetWidgetState
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

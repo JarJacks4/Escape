@@ -54,6 +54,8 @@ class _ChatWithLucilleCardWidgetState extends State<ChatWithLucilleCardWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -122,7 +124,7 @@ class _ChatWithLucilleCardWidgetState extends State<ChatWithLucilleCardWidget>
                               'CHAT_WITH_LUCILLE_CARD_arrow_outward_ICN');
                           logFirebaseEvent('IconButton_custom_action');
                           await actions.launchUnrealScene(
-                            'Chat With Lucille Room',
+                            'ChatRoom',
                           );
                         },
                       ),

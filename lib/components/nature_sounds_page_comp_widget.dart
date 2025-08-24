@@ -83,6 +83,8 @@ class _NatureSoundsPageCompWidgetState extends State<NatureSoundsPageCompWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

@@ -5,8 +5,6 @@ import "package:tiktokfeed_wz8en7/backend/schema/structs/index.dart"
     as tiktokfeed_wz8en7_data_schema;
 import '/custom_code/actions/index.dart' as actions;
 import '/index.dart';
-import 'package:chat_u_i_kit_n2m29m/app_state.dart'
-    as chat_u_i_kit_n2m29m_app_state;
 import 'package:tiktokfeed_wz8en7/app_state.dart'
     as tiktokfeed_wz8en7_app_state;
 import 'package:tiktokfeed_wz8en7/custom_code/widgets/index.dart'
@@ -22,7 +20,7 @@ class SleepReorderWidget extends StatefulWidget {
   const SleepReorderWidget({super.key});
 
   static String routeName = 'SleepReorder';
-  static String routePath = '/sleepReorder';
+  static String routePath = 'sleepReorder';
 
   @override
   State<SleepReorderWidget> createState() => _SleepReorderWidgetState();
@@ -69,6 +67,8 @@ class _SleepReorderWidgetState extends State<SleepReorderWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -81,7 +81,6 @@ class _SleepReorderWidgetState extends State<SleepReorderWidget>
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
-    context.watch<chat_u_i_kit_n2m29m_app_state.FFAppState>();
     context.watch<tiktokfeed_wz8en7_app_state.FFAppState>();
 
     return GestureDetector(

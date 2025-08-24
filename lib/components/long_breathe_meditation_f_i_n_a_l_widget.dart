@@ -84,6 +84,8 @@ class _LongBreatheMeditationFINALWidgetState
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

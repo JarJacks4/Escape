@@ -7,8 +7,6 @@ import '/components/empty_chats_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
-import 'package:chat_u_i_kit_n2m29m/app_state.dart'
-    as chat_u_i_kit_n2m29m_app_state;
 import 'package:tiktokfeed_wz8en7/app_state.dart'
     as tiktokfeed_wz8en7_app_state;
 import 'package:easy_debounce/easy_debounce.dart';
@@ -23,7 +21,7 @@ class ChatWithLucilleVersion4Widget extends StatefulWidget {
   const ChatWithLucilleVersion4Widget({super.key});
 
   static String routeName = 'ChatWithLucilleVersion4';
-  static String routePath = '/chatWithLucilleVersion4';
+  static String routePath = 'chatWithLucilleVersion4';
 
   @override
   State<ChatWithLucilleVersion4Widget> createState() =>
@@ -54,6 +52,7 @@ class _ChatWithLucilleVersion4WidgetState
     _model.inputTextController ??= TextEditingController();
     _model.inputFocusNode ??= FocusNode();
     _model.inputFocusNode!.addListener(() => safeSetState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -66,7 +65,6 @@ class _ChatWithLucilleVersion4WidgetState
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
-    context.watch<chat_u_i_kit_n2m29m_app_state.FFAppState>();
     context.watch<tiktokfeed_wz8en7_app_state.FFAppState>();
 
     return GestureDetector(

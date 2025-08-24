@@ -292,6 +292,8 @@ class _MeditationHelpCompWidgetState extends State<MeditationHelpCompWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

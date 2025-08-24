@@ -14,7 +14,7 @@ class RegistrationSuccessWidget extends StatefulWidget {
   const RegistrationSuccessWidget({super.key});
 
   static String routeName = 'registrationSuccess';
-  static String routePath = '/registrationSuccess';
+  static String routePath = 'registrationSuccess';
 
   @override
   State<RegistrationSuccessWidget> createState() =>
@@ -93,6 +93,8 @@ class _RegistrationSuccessWidgetState extends State<RegistrationSuccessWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

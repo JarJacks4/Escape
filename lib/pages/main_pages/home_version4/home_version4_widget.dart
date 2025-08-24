@@ -5,17 +5,19 @@ import '/components/binuaral_beats_card_widget.dart';
 import '/components/breathing_card_copy_widget.dart';
 import '/components/meditation_card_widget.dart';
 import '/components/nature_card_widget.dart';
+import '/components/sesson_timeout_warning_widget.dart';
 import '/components/success_home_feedback_widget.dart';
 import '/components/therapist_directory_card_widget.dart';
 import '/components/todays_self_care_activities_comp_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import '/actions/actions.dart' as action_blocks;
+import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
-import 'package:chat_u_i_kit_n2m29m/app_state.dart'
-    as chat_u_i_kit_n2m29m_app_state;
+import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:tiktokfeed_wz8en7/app_state.dart'
     as tiktokfeed_wz8en7_app_state;
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
@@ -31,7 +33,7 @@ class HomeVersion4Widget extends StatefulWidget {
   const HomeVersion4Widget({super.key});
 
   static String routeName = 'HomeVersion4';
-  static String routePath = '/homeVersion4';
+  static String routePath = 'homeVersion4';
 
   @override
   State<HomeVersion4Widget> createState() => _HomeVersion4WidgetState();
@@ -55,74 +57,76 @@ class _HomeVersion4WidgetState extends State<HomeVersion4Widget>
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('HOME_VERSION4_HomeVersion4_ON_INIT_STATE');
-      logFirebaseEvent('HomeVersion4_a_i_agent');
-      await callAiAgent(
-        context: context,
-        prompt: valueOrDefault(currentUserDocument?.currentMood, ''),
-        threadId: 'PushNotif',
-        agentCloudFunctionName: 'lucilleMoodPushNotificationsAgent',
-        provider: 'GOOGLE',
-        agentJson:
-            "{\"status\":\"LIVE\",\"identifier\":{\"name\":\"lucilleMoodPushNotificationsAgent\",\"key\":\"hz2t7\"},\"name\":\"LucilleMoodPushNotificationsAgent\",\"description\":\"You are Lucille, a supportive self-care AI agent for Escape Self Care AI Led mobile app. Based on the user's current mood and recent mood history, return a motivational push notification in the following format:\\r\\n\\r\\nTitle: [Max 30 characters]  \\r\\nBody: [Max 80 characters]  \\r\\n\\r\\nBe supportive, calming, and pattern-aware. Never exceed 200 characters in total.\\r\\n\\r\\nVariables:  \\r\\n{mood} = current mood  \\r\\n{mood_history} = list of last 3-5 moods (e.g., [\\\"tired\\\", \\\"sad\\\", \\\"anxious\\\"])\\r\\n\",\"aiModel\":{\"provider\":\"GOOGLE\",\"model\":\"gemini-2.0-flash\",\"parameters\":{\"temperature\":{\"inputValue\":0.7},\"maxTokens\":{\"inputValue\":1076},\"topP\":{\"inputValue\":0.3}},\"messages\":[{\"role\":\"SYSTEM\",\"text\":\"You are Lucille, a supportive self-care AI agent for the Escapeapp.ai mobile app. Based on the user's current mood and recent mood history, return a motivational push notification in the following format:\\r\\n\\r\\nTitle: [Max 30 characters]  \\r\\nBody: [Max 80 characters]  \\r\\n\\r\\nBe supportive, calming, and pattern-aware. Never exceed 200 characters in total.\\r\\n\\r\\nVariables:  \\r\\n{mood} = current mood  \\r\\n{mood_history} = list of last 3-5 moods (e.g., [\\\"tired\\\", \\\"sad\\\", \\\"anxious\\\"])\\r\\n{timestamp} = time of updated mood (Keep this in mind with the message)\\n\"},{\"role\":\"USER\",\"text\":\"Current mood: {mood}  (From firebase records)\\nRecent moods: {mood_history}  (From Firebase records)\\n\\nCould you Generate a push notification?\\n\\nReturn only:\\r\\n\\r\\nTitle: ...  \\r\\nBody: ...\"}]},\"requestOptions\":{\"requestTypes\":[\"PLAINTEXT\"]},\"responseOptions\":{\"responseType\":\"PLAINTEXT\"}}",
-        responseType: 'PLAINTEXT',
-      ).then((generatedText) {
-        safeSetState(() => _model.dailyQuoteResult = generatedText);
-      });
+      final firestoreBatch = FirebaseFirestore.instance.batch();
+      try {
+        logFirebaseEvent('HomeVersion4_backend_call');
 
-      logFirebaseEvent('HomeVersion4_backend_call');
+        firestoreBatch.update(
+            currentUserDocument!.moodHistory!,
+            createUserMoodsRecordData(
+              currentMood: valueOrDefault(currentUserDocument?.currentMood, ''),
+              timestamp: dateTimeFromSecondsSinceEpoch(
+                  getCurrentTimestamp.secondsSinceEpoch),
+            ));
+        logFirebaseEvent('HomeVersion4_backend_call');
 
-      await currentUserDocument!.moodHistory!.update(createUserMoodsRecordData(
-        currentMood: valueOrDefault(currentUserDocument?.currentMood, ''),
-        timestamp: dateTimeFromSecondsSinceEpoch(
-            getCurrentTimestamp.secondsSinceEpoch),
-      ));
-      logFirebaseEvent('HomeVersion4_action_block');
-      await action_blocks.lucillePushNotificationMood(context);
-      safeSetState(() {});
-      logFirebaseEvent('HomeVersion4_a_i_agent');
-      await callAiAgent(
-        context: context,
-        prompt: valueOrDefault(currentUserDocument?.currentMood, ''),
-        threadId: '1',
-        agentCloudFunctionName: 'lucilleGenerateQuote',
-        provider: 'GOOGLE',
-        agentJson:
-            "{\"status\":\"LIVE\",\"identifier\":{\"name\":\"lucilleGenerateQuote\",\"key\":\"fgsej\"},\"name\":\"Lucille Generate Quote\",\"description\":\"This is a AI Agent named Lucille for Escape that helps generate a quote for the user based on their current mood.\",\"aiModel\":{\"provider\":\"GOOGLE\",\"model\":\"gemini-2.0-flash\",\"parameters\":{\"temperature\":{\"inputValue\":0.25},\"maxTokens\":{\"inputValue\":2334},\"topP\":{\"inputValue\":0.4}},\"messages\":[{\"role\":\"SYSTEM\",\"text\":\"Generate a text a 200 characterl quote from a real person that uplifts the user and is based off of the user's {CurrentMood}: \\n\\nCurrentMood\"}]},\"requestOptions\":{\"requestTypes\":[\"PLAINTEXT\"]},\"responseOptions\":{\"responseType\":\"PLAINTEXT\"}}",
-        responseType: 'PLAINTEXT',
-      ).then((generatedText) {
-        safeSetState(() => _model.lucilleGenerateQuote = generatedText);
-      });
-
-      if (valueOrDefault<bool>(
-              currentUserDocument?.hasSeenWalkthrough, false) ==
-          false) {
-        logFirebaseEvent('HomeVersion4_bottom_sheet');
-        await showModalBottomSheet(
-          isScrollControlled: true,
-          backgroundColor: FlutterFlowTheme.of(context).tertiary,
+        firestoreBatch.update(
+            currentUserReference!,
+            createUsersRecordData(
+              isActive: true,
+            ));
+        logFirebaseEvent('HomeVersion4_action_block');
+        await action_blocks.lucillePushNotificationMood(context);
+        safeSetState(() {});
+        logFirebaseEvent('HomeVersion4_a_i_agent');
+        await callAiAgent(
           context: context,
-          builder: (context) {
-            return GestureDetector(
-              onTap: () {
-                FocusScope.of(context).unfocus();
-                FocusManager.instance.primaryFocus?.unfocus();
-              },
-              child: Padding(
-                padding: MediaQuery.viewInsetsOf(context),
-                child: SuccessHomeFeedbackWidget(),
-              ),
-            );
-          },
-        ).then((value) => safeSetState(() {}));
-      } else {
-        return;
+          prompt: valueOrDefault(currentUserDocument?.currentMood, ''),
+          threadId: '1',
+          agentCloudFunctionName: 'lucilleGenerateQuote',
+          provider: 'GOOGLE',
+          agentJson:
+              "{\"status\":\"LIVE\",\"identifier\":{\"name\":\"lucilleGenerateQuote\",\"key\":\"fgsej\"},\"name\":\"Lucille Generate Quote\",\"description\":\"This is a AI Agent named Lucille for Escape that helps generate a quote for the user based on their current mood.\",\"aiModel\":{\"provider\":\"GOOGLE\",\"model\":\"gemini-2.0-flash\",\"parameters\":{\"temperature\":{\"inputValue\":0.25},\"maxTokens\":{\"inputValue\":2334},\"topP\":{\"inputValue\":0.4}},\"messages\":[{\"role\":\"SYSTEM\",\"text\":\"Generate a text a 200 characterl quote from a real person that uplifts the user and is based off of the user's {CurrentMood}: \\n\\nCurrentMood\"}]},\"requestOptions\":{\"requestTypes\":[\"PLAINTEXT\"]},\"responseOptions\":{\"responseType\":\"PLAINTEXT\"}}",
+          responseType: 'PLAINTEXT',
+        ).then((generatedText) {
+          safeSetState(() => _model.lucilleGenerateQuote = generatedText);
+        });
+
+        if (valueOrDefault<bool>(
+                currentUserDocument?.hasSeenWalkthrough, false) ==
+            false) {
+          logFirebaseEvent('HomeVersion4_bottom_sheet');
+          await showModalBottomSheet(
+            isScrollControlled: true,
+            backgroundColor: FlutterFlowTheme.of(context).tertiary,
+            context: context,
+            builder: (context) {
+              return GestureDetector(
+                onTap: () {
+                  FocusScope.of(context).unfocus();
+                  FocusManager.instance.primaryFocus?.unfocus();
+                },
+                child: Padding(
+                  padding: MediaQuery.viewInsetsOf(context),
+                  child: SuccessHomeFeedbackWidget(),
+                ),
+              );
+            },
+          ).then((value) => safeSetState(() {}));
+        } else {
+          return;
+        }
+
+        logFirebaseEvent('HomeVersion4_backend_call');
+
+        firestoreBatch.update(
+            currentUserReference!,
+            createUsersRecordData(
+              hasSeenWalkthrough: true,
+            ));
+      } finally {
+        await firestoreBatch.commit();
       }
-
-      logFirebaseEvent('HomeVersion4_backend_call');
-
-      await currentUserReference!.update(createUsersRecordData(
-        hasSeenWalkthrough: true,
-      ));
     });
 
     animationsMap.addAll({
@@ -235,6 +239,8 @@ class _HomeVersion4WidgetState extends State<HomeVersion4Widget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -247,7 +253,6 @@ class _HomeVersion4WidgetState extends State<HomeVersion4Widget>
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
-    context.watch<chat_u_i_kit_n2m29m_app_state.FFAppState>();
     context.watch<tiktokfeed_wz8en7_app_state.FFAppState>();
 
     return GestureDetector(
@@ -298,6 +303,97 @@ class _HomeVersion4WidgetState extends State<HomeVersion4Widget>
                                       ),
                                 ).animateOnPageLoad(
                                     animationsMap['textOnPageLoadAnimation1']!),
+                                Opacity(
+                                  opacity: 0.0,
+                                  child: FlutterFlowTimer(
+                                    initialTime: _model.timerInitialTimeMs,
+                                    getDisplayTime: (value) =>
+                                        StopWatchTimer.getDisplayTime(
+                                      value,
+                                      hours: false,
+                                      milliSecond: false,
+                                    ),
+                                    controller: _model.timerController,
+                                    updateStateInterval:
+                                        Duration(milliseconds: 900),
+                                    onChanged:
+                                        (value, displayTime, shouldUpdate) {
+                                      _model.timerMilliseconds = value;
+                                      _model.timerValue = displayTime;
+                                      if (shouldUpdate) safeSetState(() {});
+                                    },
+                                    onEnded: () async {
+                                      logFirebaseEvent(
+                                          'HOME_VERSION4_Timer_ufid4r2m_ON_TIMER_EN');
+                                      if ((functions
+                                                  .getMinutesSinceDateTimelastActivity(
+                                                      FFAppState().lastActivity)
+                                                  .toString() ==
+                                              '30') &&
+                                          valueOrDefault<bool>(
+                                            FFAppState().showTimeoutWarning,
+                                            true,
+                                          )) {
+                                        logFirebaseEvent(
+                                            'Timer_update_app_state');
+                                        FFAppState().showTimeoutWarning = true;
+                                        FFAppState().update(() {});
+                                        logFirebaseEvent('Timer_bottom_sheet');
+                                        await showModalBottomSheet(
+                                          isScrollControlled: true,
+                                          backgroundColor: Colors.transparent,
+                                          isDismissible: false,
+                                          context: context,
+                                          builder: (context) {
+                                            return GestureDetector(
+                                              onTap: () {
+                                                FocusScope.of(context)
+                                                    .unfocus();
+                                                FocusManager
+                                                    .instance.primaryFocus
+                                                    ?.unfocus();
+                                              },
+                                              child: Padding(
+                                                padding:
+                                                    MediaQuery.viewInsetsOf(
+                                                        context),
+                                                child:
+                                                    SessonTimeoutWarningWidget(),
+                                              ),
+                                            );
+                                          },
+                                        ).then((value) => safeSetState(() {}));
+                                      } else {
+                                        return;
+                                      }
+
+                                      if (functions
+                                              .getMinutesSinceDateTimelastActivity(
+                                                  FFAppState().lastActivity)
+                                              .toString() ==
+                                          '29') {
+                                        logFirebaseEvent('Timer_auth');
+                                        GoRouter.of(context).prepareAuthEvent();
+                                        await authManager.signOut();
+                                        GoRouter.of(context)
+                                            .clearRedirectLocation();
+                                      } else {
+                                        return;
+                                      }
+
+                                      context.goNamedAuth(
+                                          SplashScreenVersion4Widget.routeName,
+                                          context.mounted);
+                                    },
+                                    textAlign: TextAlign.start,
+                                    style: FlutterFlowTheme.of(context)
+                                        .headlineSmall
+                                        .override(
+                                          fontFamily: 'WorkSans',
+                                          letterSpacing: 0.0,
+                                        ),
+                                  ),
+                                ),
                                 Align(
                                   alignment: AlignmentDirectional(1.0, 0.0),
                                   child: Padding(
@@ -353,26 +449,25 @@ class _HomeVersion4WidgetState extends State<HomeVersion4Widget>
                 ),
               )
             : null,
-        body: ScrollConfiguration(
-          behavior: ScrollConfiguration.of(context).copyWith(
-            scrollbars: false,
-            dragDevices: {
-              PointerDeviceKind.mouse,
-              PointerDeviceKind.touch,
-              PointerDeviceKind.stylus,
-              PointerDeviceKind.unknown,
-            },
-          ),
-          child: Scrollbar(
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Flexible(
-                    flex: 1,
-                    child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+        body: Column(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Flexible(
+              flex: 1,
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                child: ScrollConfiguration(
+                  behavior: ScrollConfiguration.of(context).copyWith(
+                    scrollbars: false,
+                    dragDevices: {
+                      PointerDeviceKind.mouse,
+                      PointerDeviceKind.touch,
+                      PointerDeviceKind.stylus,
+                      PointerDeviceKind.unknown,
+                    },
+                  ),
+                  child: Scrollbar(
+                    child: SingleChildScrollView(
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -1652,10 +1747,10 @@ class _HomeVersion4WidgetState extends State<HomeVersion4Widget>
                       ),
                     ),
                   ),
-                ],
+                ),
               ),
             ),
-          ),
+          ],
         ),
       ),
     );

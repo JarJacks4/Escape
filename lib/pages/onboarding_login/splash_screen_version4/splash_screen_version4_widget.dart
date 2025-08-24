@@ -12,7 +12,7 @@ class SplashScreenVersion4Widget extends StatefulWidget {
   const SplashScreenVersion4Widget({super.key});
 
   static String routeName = 'splashScreenVersion4';
-  static String routePath = '/splashScreenVersion4';
+  static String routePath = 'splashScreenVersion4';
 
   @override
   State<SplashScreenVersion4Widget> createState() =>
@@ -86,6 +86,8 @@ class _SplashScreenVersion4WidgetState extends State<SplashScreenVersion4Widget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

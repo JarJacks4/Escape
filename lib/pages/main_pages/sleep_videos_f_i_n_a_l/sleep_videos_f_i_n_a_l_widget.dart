@@ -15,7 +15,7 @@ class SleepVideosFINALWidget extends StatefulWidget {
   const SleepVideosFINALWidget({super.key});
 
   static String routeName = 'SleepVideosFINAL';
-  static String routePath = '/sleepVideosFINAL';
+  static String routePath = 'sleepVideosFINAL';
 
   @override
   State<SleepVideosFINALWidget> createState() => _SleepVideosFINALWidgetState();
@@ -110,6 +110,8 @@ class _SleepVideosFINALWidgetState extends State<SleepVideosFINALWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

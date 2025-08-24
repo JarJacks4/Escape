@@ -83,6 +83,8 @@ class _DeepBreathingCompWidgetState extends State<DeepBreathingCompWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

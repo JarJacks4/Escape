@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import '/index.dart';
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -17,7 +18,7 @@ class DisplayNameFINALWidget extends StatefulWidget {
   const DisplayNameFINALWidget({super.key});
 
   static String routeName = 'DisplayNameFINAL';
-  static String routePath = '/displayNameFINAL';
+  static String routePath = 'displayNameFINAL';
 
   @override
   State<DisplayNameFINALWidget> createState() => _DisplayNameFINALWidgetState();
@@ -114,6 +115,8 @@ class _DisplayNameFINALWidgetState extends State<DisplayNameFINALWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -203,8 +206,9 @@ class _DisplayNameFINALWidgetState extends State<DisplayNameFINALWidget>
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Flexible(
-                              flex: 1,
+                            Form(
+                              key: _model.formKey,
+                              autovalidateMode: AutovalidateMode.disabled,
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     12.0, 0.0, 12.0, 0.0),
@@ -233,7 +237,7 @@ class _DisplayNameFINALWidgetState extends State<DisplayNameFINALWidget>
                                             child: Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                'b0bksxcf' /* Pick Your Display Name */,
+                                                'zprhtkht' /* Pick Your Display Name */,
                                               ),
                                               textAlign: TextAlign.start,
                                               style: FlutterFlowTheme.of(
@@ -256,7 +260,7 @@ class _DisplayNameFINALWidgetState extends State<DisplayNameFINALWidget>
                                             child: Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                'o29k4ty2' /* Your display name will be used... */,
+                                                'z7nx899d' /* Your display name will be used... */,
                                               ),
                                               textAlign: TextAlign.start,
                                               style:
@@ -273,132 +277,144 @@ class _DisplayNameFINALWidgetState extends State<DisplayNameFINALWidget>
                                             ).animateOnPageLoad(animationsMap[
                                                 'textOnPageLoadAnimation2']!),
                                           ),
-                                          Flexible(
+                                          Expanded(
                                             flex: 1,
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       16.0, 12.0, 16.0, 0.0),
-                                              child: TextFormField(
-                                                controller:
-                                                    _model.textController,
-                                                focusNode:
-                                                    _model.textFieldFocusNode,
-                                                autofocus: false,
-                                                textCapitalization:
-                                                    TextCapitalization.words,
-                                                textInputAction:
-                                                    TextInputAction.done,
-                                                obscureText: false,
-                                                decoration: InputDecoration(
-                                                  labelText: FFLocalizations.of(
-                                                          context)
-                                                      .getText(
-                                                    'pxyv4t9p' /* Display Name */,
+                                              child: Container(
+                                                width: double.infinity,
+                                                child: TextFormField(
+                                                  controller:
+                                                      _model.textController,
+                                                  focusNode:
+                                                      _model.textFieldFocusNode,
+                                                  onChanged: (_) =>
+                                                      EasyDebounce.debounce(
+                                                    '_model.textController',
+                                                    Duration(
+                                                        milliseconds: 2000),
+                                                    () => safeSetState(() {}),
                                                   ),
-                                                  labelStyle: FlutterFlowTheme
-                                                          .of(context)
-                                                      .labelLarge
-                                                      .override(
-                                                        fontFamily: 'WorkSans',
-                                                        letterSpacing: 0.0,
-                                                      ),
-                                                  enabledBorder:
-                                                      UnderlineInputBorder(
-                                                    borderSide: BorderSide(
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .alternate,
-                                                      width: 2.0,
+                                                  autofocus: false,
+                                                  textCapitalization:
+                                                      TextCapitalization.words,
+                                                  textInputAction:
+                                                      TextInputAction.done,
+                                                  obscureText: false,
+                                                  decoration: InputDecoration(
+                                                    labelText:
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                      'mu47yrpt' /* Display Name */,
                                                     ),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            15.0),
-                                                  ),
-                                                  focusedBorder:
-                                                      UnderlineInputBorder(
-                                                    borderSide: BorderSide(
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primary,
-                                                      width: 2.0,
-                                                    ),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            15.0),
-                                                  ),
-                                                  errorBorder:
-                                                      UnderlineInputBorder(
-                                                    borderSide: BorderSide(
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .error,
-                                                      width: 2.0,
-                                                    ),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            15.0),
-                                                  ),
-                                                  focusedErrorBorder:
-                                                      UnderlineInputBorder(
-                                                    borderSide: BorderSide(
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .error,
-                                                      width: 2.0,
-                                                    ),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            15.0),
-                                                  ),
-                                                  filled: true,
-                                                  fillColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .primary,
-                                                  contentPadding:
-                                                      EdgeInsetsDirectional
-                                                          .fromSTEB(8.0, 16.0,
-                                                              16.0, 8.0),
-                                                ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyLarge
+                                                    labelStyle: FlutterFlowTheme
+                                                            .of(context)
+                                                        .labelLarge
                                                         .override(
                                                           fontFamily:
                                                               'WorkSans',
                                                           letterSpacing: 0.0,
-                                                          lineHeight: 3.0,
                                                         ),
-                                                maxLength: 20,
-                                                maxLengthEnforcement:
-                                                    MaxLengthEnforcement
-                                                        .enforced,
-                                                validator: _model
-                                                    .textControllerValidator
-                                                    .asValidator(context),
-                                                inputFormatters: [
-                                                  if (!isAndroid && !isiOS)
-                                                    TextInputFormatter
-                                                        .withFunction((oldValue,
-                                                            newValue) {
-                                                      return TextEditingValue(
-                                                        selection:
-                                                            newValue.selection,
-                                                        text: newValue.text
-                                                            .toCapitalization(
-                                                                TextCapitalization
-                                                                    .words),
-                                                      );
-                                                    }),
-                                                  FilteringTextInputFormatter
-                                                      .allow(
-                                                          RegExp('[a-zA-Z0-9]'))
-                                                ],
+                                                    enabledBorder:
+                                                        UnderlineInputBorder(
+                                                      borderSide: BorderSide(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .alternate,
+                                                        width: 2.0,
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              15.0),
+                                                    ),
+                                                    focusedBorder:
+                                                        UnderlineInputBorder(
+                                                      borderSide: BorderSide(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
+                                                        width: 2.0,
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              15.0),
+                                                    ),
+                                                    errorBorder:
+                                                        UnderlineInputBorder(
+                                                      borderSide: BorderSide(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .error,
+                                                        width: 2.0,
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              15.0),
+                                                    ),
+                                                    focusedErrorBorder:
+                                                        UnderlineInputBorder(
+                                                      borderSide: BorderSide(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .error,
+                                                        width: 2.0,
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              15.0),
+                                                    ),
+                                                    filled: true,
+                                                    fillColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .primary,
+                                                    contentPadding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(8.0, 16.0,
+                                                                16.0, 8.0),
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyLarge
+                                                      .override(
+                                                        fontFamily: 'WorkSans',
+                                                        letterSpacing: 0.0,
+                                                        lineHeight: 3.0,
+                                                      ),
+                                                  maxLength: 20,
+                                                  maxLengthEnforcement:
+                                                      MaxLengthEnforcement
+                                                          .enforced,
+                                                  validator: _model
+                                                      .textControllerValidator
+                                                      .asValidator(context),
+                                                  inputFormatters: [
+                                                    if (!isAndroid && !isiOS)
+                                                      TextInputFormatter
+                                                          .withFunction(
+                                                              (oldValue,
+                                                                  newValue) {
+                                                        return TextEditingValue(
+                                                          selection: newValue
+                                                              .selection,
+                                                          text: newValue.text
+                                                              .toCapitalization(
+                                                                  TextCapitalization
+                                                                      .words),
+                                                        );
+                                                      }),
+                                                    FilteringTextInputFormatter
+                                                        .allow(RegExp(
+                                                            '[a-zA-Z0-9]'))
+                                                  ],
+                                                ),
                                               ).animateOnPageLoad(animationsMap[
                                                   'textFieldOnPageLoadAnimation']!),
                                             ),
@@ -443,6 +459,15 @@ class _DisplayNameFINALWidgetState extends State<DisplayNameFINALWidget>
                                   onPressed: () async {
                                     logFirebaseEvent(
                                         'DISPLAY_NAME_F_I_N_A_L_CONTINUE_TO_PROFI');
+                                    logFirebaseEvent('Button_validate_form');
+                                    _model.validateDisplayName = true;
+                                    if (_model.formKey.currentState == null ||
+                                        !_model.formKey.currentState!
+                                            .validate()) {
+                                      safeSetState(() =>
+                                          _model.validateDisplayName = false);
+                                      return;
+                                    }
                                     logFirebaseEvent('Button_backend_call');
 
                                     await currentUserReference!
@@ -462,6 +487,8 @@ class _DisplayNameFINALWidgetState extends State<DisplayNameFINALWidget>
                                         ),
                                       },
                                     );
+
+                                    safeSetState(() {});
                                   },
                                   text: FFLocalizations.of(context).getText(
                                     'x1kdgths' /* Continue to Profile Details */,

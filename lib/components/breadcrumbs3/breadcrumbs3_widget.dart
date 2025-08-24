@@ -46,6 +46,8 @@ class _Breadcrumbs3WidgetState extends State<Breadcrumbs3Widget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

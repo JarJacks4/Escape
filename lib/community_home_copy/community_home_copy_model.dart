@@ -6,6 +6,13 @@ import 'package:flutter/material.dart';
 class CommunityHomeCopyModel extends FlutterFlowModel<CommunityHomeCopyWidget> {
   ///  State fields for stateful widgets in this page.
 
+  // State field(s) for TabBar widget.
+  TabController? tabBarController;
+  int get tabBarCurrentIndex =>
+      tabBarController != null ? tabBarController!.index : 0;
+  int get tabBarPreviousIndex =>
+      tabBarController != null ? tabBarController!.previousIndex : 0;
+
   // Model for customdrawer component.
   late CustomdrawerModel customdrawerModel;
 
@@ -16,6 +23,7 @@ class CommunityHomeCopyModel extends FlutterFlowModel<CommunityHomeCopyWidget> {
 
   @override
   void dispose() {
+    tabBarController?.dispose();
     customdrawerModel.dispose();
   }
 }

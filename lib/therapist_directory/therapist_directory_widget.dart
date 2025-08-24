@@ -4,8 +4,6 @@ import '/flutter_flow/flutter_flow_google_map.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/permissions_util.dart';
-import 'package:chat_u_i_kit_n2m29m/app_state.dart'
-    as chat_u_i_kit_n2m29m_app_state;
 import 'package:map_launcher/map_launcher.dart' as $ml;
 import 'package:tiktokfeed_wz8en7/app_state.dart'
     as tiktokfeed_wz8en7_app_state;
@@ -21,7 +19,7 @@ class TherapistDirectoryWidget extends StatefulWidget {
   const TherapistDirectoryWidget({super.key});
 
   static String routeName = 'TherapistDirectory';
-  static String routePath = '/therapistDirectory';
+  static String routePath = 'therapistDirectory';
 
   @override
   State<TherapistDirectoryWidget> createState() =>
@@ -70,6 +68,8 @@ class _TherapistDirectoryWidgetState extends State<TherapistDirectoryWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -82,7 +82,6 @@ class _TherapistDirectoryWidgetState extends State<TherapistDirectoryWidget>
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
-    context.watch<chat_u_i_kit_n2m29m_app_state.FFAppState>();
     context.watch<tiktokfeed_wz8en7_app_state.FFAppState>();
 
     return GestureDetector(

@@ -80,6 +80,8 @@ class _AddASoundWidgetState extends State<AddASoundWidget>
           !anim.applyInitialState),
       this,
     );
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

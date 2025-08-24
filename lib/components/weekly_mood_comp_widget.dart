@@ -45,6 +45,8 @@ class _WeeklyMoodCompWidgetState extends State<WeeklyMoodCompWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

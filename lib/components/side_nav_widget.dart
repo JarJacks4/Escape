@@ -114,6 +114,8 @@ class _SideNavWidgetState extends State<SideNavWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

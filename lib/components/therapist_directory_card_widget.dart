@@ -65,6 +65,8 @@ class _TherapistDirectoryCardWidgetState
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

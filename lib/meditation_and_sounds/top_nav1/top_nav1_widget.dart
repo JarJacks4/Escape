@@ -25,6 +25,8 @@ class _TopNav1WidgetState extends State<TopNav1Widget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => TopNav1Model());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

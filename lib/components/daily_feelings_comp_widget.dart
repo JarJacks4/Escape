@@ -51,6 +51,8 @@ class _DailyFeelingsCompWidgetState extends State<DailyFeelingsCompWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

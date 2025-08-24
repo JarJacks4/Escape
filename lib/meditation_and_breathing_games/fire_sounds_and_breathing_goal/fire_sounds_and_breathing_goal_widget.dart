@@ -12,7 +12,7 @@ class FireSoundsAndBreathingGoalWidget extends StatefulWidget {
   const FireSoundsAndBreathingGoalWidget({super.key});
 
   static String routeName = 'FireSoundsAndBreathingGoal';
-  static String routePath = '/fireSoundsAndBreathingGoal';
+  static String routePath = 'fireSoundsAndBreathingGoal';
 
   @override
   State<FireSoundsAndBreathingGoalWidget> createState() =>
@@ -32,6 +32,7 @@ class _FireSoundsAndBreathingGoalWidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'FireSoundsAndBreathingGoal'});
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

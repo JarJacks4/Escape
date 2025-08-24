@@ -1,4 +1,5 @@
 import 'package:provider/provider.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -16,8 +17,6 @@ import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'index.dart';
 
-import 'package:chat_u_i_kit_n2m29m/app_state.dart'
-    as chat_u_i_kit_n2m29m_app_state;
 import 'package:tiktokfeed_wz8en7/app_state.dart'
     as tiktokfeed_wz8en7_app_state;
 
@@ -33,10 +32,6 @@ void main() async {
   final appState = FFAppState(); // Initialize FFAppState
   await appState.initializePersistedState();
 
-  final chat_u_i_kit_n2m29mAppState =
-      chat_u_i_kit_n2m29m_app_state.FFAppState();
-  await chat_u_i_kit_n2m29mAppState.initializePersistedState();
-
   final tiktokfeed_wz8en7AppState = tiktokfeed_wz8en7_app_state.FFAppState();
   await tiktokfeed_wz8en7AppState.initializePersistedState();
 
@@ -48,9 +43,6 @@ void main() async {
     providers: [
       ChangeNotifierProvider(
         create: (context) => appState,
-      ),
-      ChangeNotifierProvider(
-        create: (context) => chat_u_i_kit_n2m29mAppState,
       ),
       ChangeNotifierProvider(
         create: (context) => tiktokfeed_wz8en7AppState,
@@ -67,6 +59,14 @@ class MyApp extends StatefulWidget {
 
   static _MyAppState of(BuildContext context) =>
       context.findAncestorStateOfType<_MyAppState>()!;
+}
+
+class MyAppScrollBehavior extends MaterialScrollBehavior {
+  @override
+  Set<PointerDeviceKind> get dragDevices => {
+        PointerDeviceKind.touch,
+        PointerDeviceKind.mouse,
+      };
 }
 
 class _MyAppState extends State<MyApp> {
@@ -106,7 +106,7 @@ class _MyAppState extends State<MyApp> {
       });
     jwtTokenStream.listen((_) {});
     Future.delayed(
-      Duration(milliseconds: 5),
+      Duration(milliseconds: isWeb ? 0 : 5),
       () => _appStateNotifier.stopShowingSplashImage(),
     );
   }
@@ -132,6 +132,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       title: 'Escape',
+      scrollBehavior: MyAppScrollBehavior(),
       localizationsDelegates: [
         FFLocalizationsDelegate(),
         GlobalMaterialLocalizations.delegate,

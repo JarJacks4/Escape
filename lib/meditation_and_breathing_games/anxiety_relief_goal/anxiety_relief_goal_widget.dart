@@ -12,7 +12,7 @@ class AnxietyReliefGoalWidget extends StatefulWidget {
   const AnxietyReliefGoalWidget({super.key});
 
   static String routeName = 'AnxietyReliefGoal';
-  static String routePath = '/anxietyReliefGoal';
+  static String routePath = 'anxietyReliefGoal';
 
   @override
   State<AnxietyReliefGoalWidget> createState() =>
@@ -31,6 +31,7 @@ class _AnxietyReliefGoalWidgetState extends State<AnxietyReliefGoalWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'AnxietyReliefGoal'});
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

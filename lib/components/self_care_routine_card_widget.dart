@@ -27,6 +27,8 @@ class _SelfCareRoutineCardWidgetState extends State<SelfCareRoutineCardWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => SelfCareRoutineCardModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

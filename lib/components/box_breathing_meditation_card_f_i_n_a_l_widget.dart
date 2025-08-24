@@ -84,6 +84,8 @@ class _BoxBreathingMeditationCardFINALWidgetState
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

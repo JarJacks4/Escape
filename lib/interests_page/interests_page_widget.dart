@@ -17,7 +17,7 @@ class InterestsPageWidget extends StatefulWidget {
   const InterestsPageWidget({super.key});
 
   static String routeName = 'InterestsPage';
-  static String routePath = '/interestsPage';
+  static String routePath = 'interestsPage';
 
   @override
   State<InterestsPageWidget> createState() => _InterestsPageWidgetState();
@@ -82,6 +82,8 @@ class _InterestsPageWidgetState extends State<InterestsPageWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

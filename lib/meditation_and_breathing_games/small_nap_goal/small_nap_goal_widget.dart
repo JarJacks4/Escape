@@ -12,7 +12,7 @@ class SmallNapGoalWidget extends StatefulWidget {
   const SmallNapGoalWidget({super.key});
 
   static String routeName = 'SmallNapGoal';
-  static String routePath = '/smallNapGoal';
+  static String routePath = 'smallNapGoal';
 
   @override
   State<SmallNapGoalWidget> createState() => _SmallNapGoalWidgetState();
@@ -30,6 +30,7 @@ class _SmallNapGoalWidgetState extends State<SmallNapGoalWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'SmallNapGoal'});
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

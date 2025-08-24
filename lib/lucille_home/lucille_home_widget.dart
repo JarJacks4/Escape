@@ -1,6 +1,6 @@
 import '/components/change_your_avatar_widget.dart';
 import '/components/chat_with_lucille_card_widget.dart';
-import '/components/earn_points_with_avatar_card_widget.dart';
+import '/components/escape_innerverse_card_widget.dart';
 import '/components/generate_soundscapes_card_widget.dart';
 import '/components/mood_tracking_card_widget.dart';
 import '/components/self_care_routine_card_widget.dart';
@@ -19,7 +19,7 @@ class LucilleHomeWidget extends StatefulWidget {
   const LucilleHomeWidget({super.key});
 
   static String routeName = 'LucilleHome';
-  static String routePath = '/lucilleHome';
+  static String routePath = 'lucilleHome';
 
   @override
   State<LucilleHomeWidget> createState() => _LucilleHomeWidgetState();
@@ -103,6 +103,8 @@ class _LucilleHomeWidgetState extends State<LucilleHomeWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -396,11 +398,11 @@ class _LucilleHomeWidgetState extends State<LucilleHomeWidget>
                                             padding: EdgeInsets.all(15.0),
                                             child: wrapWithModel(
                                               model: _model
-                                                  .earnPointsWithAvatarCardModel,
+                                                  .escapeInnerverseCardModel,
                                               updateCallback: () =>
                                                   safeSetState(() {}),
                                               child:
-                                                  EarnPointsWithAvatarCardWidget(),
+                                                  EscapeInnerverseCardWidget(),
                                             ),
                                           ),
                                           Padding(

@@ -84,6 +84,8 @@ class _BinauralBeatsAnxietyReliefWidgetState
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

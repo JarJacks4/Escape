@@ -69,6 +69,8 @@ class _UploadVideoWidgetState extends State<UploadVideoWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

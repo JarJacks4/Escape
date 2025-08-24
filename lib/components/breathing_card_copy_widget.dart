@@ -64,6 +64,8 @@ class _BreathingCardCopyWidgetState extends State<BreathingCardCopyWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

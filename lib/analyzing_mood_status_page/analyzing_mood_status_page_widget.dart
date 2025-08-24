@@ -11,7 +11,7 @@ class AnalyzingMoodStatusPageWidget extends StatefulWidget {
   const AnalyzingMoodStatusPageWidget({super.key});
 
   static String routeName = 'AnalyzingMoodStatusPage';
-  static String routePath = '/analyzingMoodStatusPage';
+  static String routePath = 'analyzingMoodStatusPage';
 
   @override
   State<AnalyzingMoodStatusPageWidget> createState() =>
@@ -82,6 +82,8 @@ class _AnalyzingMoodStatusPageWidgetState
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

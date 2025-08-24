@@ -13,8 +13,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'dart:ui';
 import '/index.dart';
-import 'package:chat_u_i_kit_n2m29m/app_state.dart'
-    as chat_u_i_kit_n2m29m_app_state;
 import 'package:tiktokfeed_wz8en7/app_state.dart'
     as tiktokfeed_wz8en7_app_state;
 import 'package:easy_debounce/easy_debounce.dart';
@@ -32,7 +30,7 @@ class JournalPageFINALCopyWidget extends StatefulWidget {
   const JournalPageFINALCopyWidget({super.key});
 
   static String routeName = 'JournalPageFINALCopy';
-  static String routePath = '/journalPageFINALCopy';
+  static String routePath = 'journalPageFINALCopy';
 
   @override
   State<JournalPageFINALCopyWidget> createState() =>
@@ -121,6 +119,8 @@ class _JournalPageFINALCopyWidgetState extends State<JournalPageFINALCopyWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -133,7 +133,6 @@ class _JournalPageFINALCopyWidgetState extends State<JournalPageFINALCopyWidget>
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
-    context.watch<chat_u_i_kit_n2m29m_app_state.FFAppState>();
     context.watch<tiktokfeed_wz8en7_app_state.FFAppState>();
 
     return GestureDetector(

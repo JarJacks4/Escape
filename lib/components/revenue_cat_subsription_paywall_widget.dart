@@ -25,6 +25,8 @@ class _RevenueCatSubsriptionPaywallWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => RevenueCatSubsriptionPaywallModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

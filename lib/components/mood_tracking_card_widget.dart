@@ -26,6 +26,8 @@ class _MoodTrackingCardWidgetState extends State<MoodTrackingCardWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => MoodTrackingCardModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

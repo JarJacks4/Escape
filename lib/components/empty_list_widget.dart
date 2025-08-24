@@ -45,6 +45,8 @@ class _EmptyListWidgetState extends State<EmptyListWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
