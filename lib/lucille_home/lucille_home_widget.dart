@@ -1,12 +1,14 @@
 import '/components/change_your_avatar_widget.dart';
-import '/components/chat_with_lucille_card_widget.dart';
 import '/components/escape_innerverse_card_widget.dart';
 import '/components/generate_soundscapes_card_widget.dart';
 import '/components/mood_tracking_card_widget.dart';
 import '/components/self_care_routine_card_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:async';
 import 'dart:ui';
+import '/custom_code/actions/index.dart' as actions;
 import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
@@ -40,33 +42,26 @@ class _LucilleHomeWidgetState extends State<LucilleHomeWidget>
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'LucilleHome'});
     animationsMap.addAll({
-      'chatWithLucilleCardOnPageLoadAnimation': AnimationInfo(
+      'columnOnPageLoadAnimation': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
-          MoveEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: Offset(25.0, 0.0),
-            end: Offset(0.0, 0.0),
-          ),
           FadeEffect(
             curve: Curves.easeInOut,
-            delay: 600.0.ms,
+            delay: 0.0.ms,
             duration: 600.0.ms,
             begin: 0.0,
             end: 1.0,
           ),
           ShimmerEffect(
             curve: Curves.easeInOut,
-            delay: 1800.0.ms,
+            delay: 600.0.ms,
             duration: 600.0.ms,
             color: Color(0x80FFFFFF),
             angle: 0.524,
           ),
         ],
       ),
-      'moodTrackingCardOnPageLoadAnimation': AnimationInfo(
+      'generateSoundscapesCardOnPageLoadAnimation': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           FadeEffect(
@@ -78,7 +73,7 @@ class _LucilleHomeWidgetState extends State<LucilleHomeWidget>
           ),
         ],
       ),
-      'generateSoundscapesCardOnPageLoadAnimation': AnimationInfo(
+      'moodTrackingCardOnPageLoadAnimation': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           FadeEffect(
@@ -327,26 +322,189 @@ class _LucilleHomeWidgetState extends State<LucilleHomeWidget>
                                             itemCount: 3,
                                             itemBuilder: (context, index) {
                                               return [
-                                                () => wrapWithModel(
-                                                      model: _model
-                                                          .chatWithLucilleCardModel,
-                                                      updateCallback: () =>
-                                                          safeSetState(() {}),
-                                                      child:
-                                                          ChatWithLucilleCardWidget(),
-                                                    ).animateOnPageLoad(
-                                                        animationsMap[
-                                                            'chatWithLucilleCardOnPageLoadAnimation']!),
-                                                () => wrapWithModel(
-                                                      model: _model
-                                                          .moodTrackingCardModel,
-                                                      updateCallback: () =>
-                                                          safeSetState(() {}),
-                                                      child:
-                                                          MoodTrackingCardWidget(),
-                                                    ).animateOnPageLoad(
-                                                        animationsMap[
-                                                            'moodTrackingCardOnPageLoadAnimation']!),
+                                                () => Material(
+                                                      color: Colors.transparent,
+                                                      elevation: 3.0,
+                                                      shape:
+                                                          RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(20.0),
+                                                      ),
+                                                      child: Container(
+                                                        width: 160.0,
+                                                        height: 221.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryBackground,
+                                                          image:
+                                                              DecorationImage(
+                                                            fit: BoxFit.cover,
+                                                            image: Image.asset(
+                                                              'assets/images/Icon.png',
+                                                            ).image,
+                                                          ),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      20.0),
+                                                        ),
+                                                        child: Container(
+                                                          width: 100.0,
+                                                          height: 100.0,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            gradient:
+                                                                LinearGradient(
+                                                              colors: [
+                                                                Color(
+                                                                    0xB6EDF1F7),
+                                                                Color(
+                                                                    0xC939519F)
+                                                              ],
+                                                              stops: [0.0, 1.0],
+                                                              begin:
+                                                                  AlignmentDirectional(
+                                                                      0.0,
+                                                                      -1.0),
+                                                              end:
+                                                                  AlignmentDirectional(
+                                                                      0, 1.0),
+                                                            ),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        20.0),
+                                                          ),
+                                                          child: Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    1.0, 1.0),
+                                                            child: Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .spaceBetween,
+                                                              children: [
+                                                                Row(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .end,
+                                                                  children: [
+                                                                    Flexible(
+                                                                      flex: 1,
+                                                                      child:
+                                                                          FlutterFlowIconButton(
+                                                                        borderRadius:
+                                                                            8.0,
+                                                                        buttonSize:
+                                                                            40.0,
+                                                                        icon:
+                                                                            Icon(
+                                                                          Icons
+                                                                              .arrow_outward,
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).alternate,
+                                                                          size:
+                                                                              24.0,
+                                                                        ),
+                                                                        showLoadingIndicator:
+                                                                            true,
+                                                                        onPressed:
+                                                                            () async {
+                                                                          logFirebaseEvent(
+                                                                              'LUCILLE_HOME_arrow_outward_ICN_ON_TAP');
+                                                                          logFirebaseEvent(
+                                                                              'IconButton_custom_action');
+                                                                          unawaited(
+                                                                            () async {
+                                                                              await actions.launchUnrealScene(
+                                                                                'ChatRoom',
+                                                                              );
+                                                                            }(),
+                                                                          );
+                                                                        },
+                                                                      ),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                                Align(
+                                                                  alignment:
+                                                                      AlignmentDirectional(
+                                                                          0.0,
+                                                                          1.0),
+                                                                  child: Row(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    children: [
+                                                                      Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            8.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            Text(
+                                                                          FFLocalizations.of(context)
+                                                                              .getText(
+                                                                            '8lbpi3u3' /* Chat with 
+Lucille */
+                                                                            ,
+                                                                          ),
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .override(
+                                                                                fontFamily: 'The Seasons',
+                                                                                color: FlutterFlowTheme.of(context).secondary,
+                                                                                fontSize: 16.0,
+                                                                                letterSpacing: 0.0,
+                                                                                fontWeight: FontWeight.bold,
+                                                                              ),
+                                                                        ),
+                                                                      ),
+                                                                      Flexible(
+                                                                        flex: 1,
+                                                                        child:
+                                                                            Align(
+                                                                          alignment: AlignmentDirectional(
+                                                                              1.0,
+                                                                              1.0),
+                                                                          child:
+                                                                              Padding(
+                                                                            padding:
+                                                                                EdgeInsets.all(8.0),
+                                                                            child:
+                                                                                ClipRRect(
+                                                                              borderRadius: BorderRadius.circular(8.0),
+                                                                              child: Image.asset(
+                                                                                'assets/images/ESCAPE_Logo_Clear.png',
+                                                                                width: 35.0,
+                                                                                height: 50.0,
+                                                                                fit: BoxFit.cover,
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ).animateOnPageLoad(
+                                                                animationsMap[
+                                                                    'columnOnPageLoadAnimation']!),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
                                                 () => wrapWithModel(
                                                       model: _model
                                                           .generateSoundscapesCardModel,
@@ -357,6 +515,16 @@ class _LucilleHomeWidgetState extends State<LucilleHomeWidget>
                                                     ).animateOnPageLoad(
                                                         animationsMap[
                                                             'generateSoundscapesCardOnPageLoadAnimation']!),
+                                                () => wrapWithModel(
+                                                      model: _model
+                                                          .moodTrackingCardModel,
+                                                      updateCallback: () =>
+                                                          safeSetState(() {}),
+                                                      child:
+                                                          MoodTrackingCardWidget(),
+                                                    ).animateOnPageLoad(
+                                                        animationsMap[
+                                                            'moodTrackingCardOnPageLoadAnimation']!),
                                               ][index]();
                                             },
                                           ),

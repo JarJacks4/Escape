@@ -166,7 +166,15 @@ class _MeditationChoicePageWidgetState
                             wrapWithModel(
                               model: _model.basicBreathingPageCompModel,
                               updateCallback: () => safeSetState(() {}),
-                              child: BasicBreathingPageCompWidget(),
+                              updateOnChange: true,
+                              child: Hero(
+                                tag: 'choice',
+                                transitionOnUserGestures: true,
+                                child: Material(
+                                  color: Colors.transparent,
+                                  child: BasicBreathingPageCompWidget(),
+                                ),
+                              ),
                             ),
                             wrapWithModel(
                               model: _model.microcosmicOrbitMeditationModel,

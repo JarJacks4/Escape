@@ -80,7 +80,7 @@ class _BinauralBeatsChoiceWidgetState extends State<BinauralBeatsChoiceWidget>
           desktop: false,
         )
             ? PreferredSize(
-                preferredSize: Size.fromHeight(100.0),
+                preferredSize: Size.fromHeight(70.0),
                 child: AppBar(
                   backgroundColor: FlutterFlowTheme.of(context).primary,
                   automaticallyImplyLeading: false,

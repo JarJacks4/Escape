@@ -82,7 +82,7 @@ class _BreathingChoicePageWidgetState extends State<BreathingChoicePageWidget>
           desktop: false,
         )
             ? PreferredSize(
-                preferredSize: Size.fromHeight(100.0),
+                preferredSize: Size.fromHeight(70.0),
                 child: AppBar(
                   backgroundColor: FlutterFlowTheme.of(context).primary,
                   automaticallyImplyLeading: false,
