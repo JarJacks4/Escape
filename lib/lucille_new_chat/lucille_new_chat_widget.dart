@@ -51,11 +51,10 @@ class _LucilleNewChatWidgetState extends State<LucilleNewChatWidget>
       logFirebaseEvent('LUCILLE_NEW_CHAT_LucilleNewChat_ON_INIT_');
       if (_model.sessionID == null || _model.sessionID == '') {
         logFirebaseEvent('LucilleNewChat_backend_call');
-        _model.apiResultagn =
+        _model.getSession =
             await LucilleSelfCareAILLMGroup.getSessionCall.call();
-        if (_model.apiResultagn?.succeeded ?? true) {
-          final streamSubscription = _model
-              .apiResultagn?.streamedResponse?.stream
+        if (_model.getSession?.succeeded ?? true) {
+          final streamSubscription = _model.getSession?.streamedResponse?.stream
               .transform(utf8.decoder)
               .transform(const LineSplitter())
               .transform(ServerSentEventLineTransformer())
@@ -68,16 +67,13 @@ class _LucilleNewChatWidgetState extends State<LucilleNewChatWidget>
           // Add the subscription to the active streaming response subscriptions
           // in API Manager so that it can be cancelled at a later time.
           ApiManager.instance.addActiveStreamingResponseSubscription(
-            '1',
+            '0',
             streamSubscription,
           );
         }
 
         logFirebaseEvent('LucilleNewChat_update_page_state');
-        _model.sessionID = valueOrDefault<String>(
-          (_model.apiResultagn?.jsonBody ?? '').toString(),
-          '1',
-        );
+        _model.sessionID = (_model.getSession?.bodyText ?? '');
         safeSetState(() {});
       } else {
         return;
@@ -374,6 +370,7 @@ class _LucilleNewChatWidgetState extends State<LucilleNewChatWidget>
                                                     builder: (context) {
                                                       final chat = _model
                                                           .llmConversation
+                                                          .map((e) => e)
                                                           .toList();
                                                       if (chat.isEmpty) {
                                                         return Center(
@@ -468,7 +465,7 @@ class _LucilleNewChatWidgetState extends State<LucilleNewChatWidget>
                                                                                   children: [
                                                                                     SelectionArea(
                                                                                         child: AutoSizeText(
-                                                                                      _model.textController.text,
+                                                                                      (_model.sendMessage?.bodyText ?? ''),
                                                                                       style: FlutterFlowTheme.of(context).titleMedium.override(
                                                                                             fontFamily: 'WorkSans',
                                                                                             color: FlutterFlowTheme.of(context).secondary,
@@ -587,10 +584,7 @@ class _LucilleNewChatWidgetState extends State<LucilleNewChatWidget>
                                                                               crossAxisAlignment: CrossAxisAlignment.start,
                                                                               children: [
                                                                                 Text(
-                                                                                  valueOrDefault<String>(
-                                                                                    _model.llmResponse,
-                                                                                    'Lucille',
-                                                                                  ),
+                                                                                  _model.textController.text,
                                                                                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                         fontFamily: 'WorkSans',
                                                                                         letterSpacing: 0.0,
@@ -824,13 +818,9 @@ class _LucilleNewChatWidgetState extends State<LucilleNewChatWidget>
                                               _model.sessionID == '') {
                                             logFirebaseEvent(
                                                 'IconButton_update_page_state');
-                                            _model.llmResponse =
-                                                _model.textController.text;
-                                            _model.sessionID = (_model
-                                                        .apiResultagn
-                                                        ?.jsonBody ??
-                                                    '')
-                                                .toString();
+                                            _model.sessionID =
+                                                (_model.getSession?.bodyText ??
+                                                    '');
                                             safeSetState(() {});
                                             logFirebaseEvent(
                                                 'IconButton_backend_call');
@@ -838,10 +828,9 @@ class _LucilleNewChatWidgetState extends State<LucilleNewChatWidget>
                                                 await LucilleSelfCareAILLMGroup
                                                     .sendMessageCall
                                                     .call(
-                                              userMessage: (_model.apiResultagn
-                                                          ?.jsonBody ??
-                                                      '')
-                                                  .toString(),
+                                              userMessage:
+                                                  _model.textController.text,
+                                              sessionId: _model.sessionID,
                                             );
                                             if (_model.sendMessage?.succeeded ??
                                                 true) {
@@ -875,9 +864,8 @@ class _LucilleNewChatWidgetState extends State<LucilleNewChatWidget>
                                             logFirebaseEvent(
                                                 'IconButton_update_page_state');
                                             _model.llmResponse =
-                                                (_model.sendMessage?.jsonBody ??
-                                                        '')
-                                                    .toString();
+                                                (_model.sendMessage?.bodyText ??
+                                                    '');
                                             safeSetState(() {});
                                             logFirebaseEvent(
                                                 'IconButton_backend_call');
@@ -886,13 +874,10 @@ class _LucilleNewChatWidgetState extends State<LucilleNewChatWidget>
                                                     .getChatHistoryCall
                                                     .call(
                                               sessionId: _model.sessionID,
+                                              getChatHistory: _model
+                                                  .llmConversation.length
+                                                  .toString(),
                                             );
-
-                                            logFirebaseEvent(
-                                                'IconButton_clear_text_fields_pin_codes');
-                                            safeSetState(() {
-                                              _model.textController?.clear();
-                                            });
                                           } else {
                                             logFirebaseEvent(
                                                 'IconButton_show_snack_bar');

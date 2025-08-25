@@ -1,7 +1,4 @@
 import 'dart:convert';
-import '../cloud_functions/cloud_functions.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'cloud_call_http.dart';
 
 import 'package:flutter/foundation.dart';
 
@@ -16,6 +13,16 @@ const _kPrivateApiFunctionName = 'lucillellmfunction';
 /// Start Lucille Self Care AI LLM Group Code
 
 class LucilleSelfCareAILLMGroup {
+  static String getBaseUrl({
+    String? sessionId = '',
+    String? message = '',
+    String? getChatHistory = '',
+  }) =>
+      'https://lucillellm-function-w2jy2mx6tq-uc.a.run.app';
+  static Map<String, String> headers = {
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer',
+  };
   static GetSessionCall getSessionCall = GetSessionCall();
   static SendMessageCall sendMessageCall = SendMessageCall();
   static GetChatHistoryCall getChatHistoryCall = GetChatHistoryCall();
@@ -27,17 +34,27 @@ class GetSessionCall {
     String? message = '',
     String? getChatHistory = '',
   }) async {
-    return await makeCloudCallHttp(
-      Firebase.app().options.projectId,
-      _kPrivateApiFunctionName,
-      {
-        'callName': 'GetSessionCall',
-        'variables': {
-          'sessionId': sessionId,
-          'message': message,
-          'getChatHistory': getChatHistory,
-        },
+    final baseUrl = LucilleSelfCareAILLMGroup.getBaseUrl(
+      sessionId: sessionId,
+      message: message,
+      getChatHistory: getChatHistory,
+    );
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'GetSession',
+      apiUrl: '${baseUrl}//',
+      callType: ApiCallType.GET,
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer',
       },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: true,
+      isStreamingApi: true,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -50,19 +67,34 @@ class SendMessageCall {
     String? message = '',
     String? getChatHistory = '',
   }) async {
-    return await makeCloudCallHttp(
-      Firebase.app().options.projectId,
-      _kPrivateApiFunctionName,
-      {
-        'callName': 'SendMessageCall',
-        'variables': {
-          'userMessage': userMessage,
-          'sessionID': sessionID,
-          'sessionId': sessionId,
-          'message': message,
-          'getChatHistory': getChatHistory,
-        },
+    final baseUrl = LucilleSelfCareAILLMGroup.getBaseUrl(
+      sessionId: sessionId,
+      message: message,
+      getChatHistory: getChatHistory,
+    );
+
+    final ffApiRequestBody = '''
+{
+  "message": "<userMessage>",
+  "session_id": "${escapeStringForJson(sessionID)}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'SendMessage',
+      apiUrl: '${baseUrl}/chat',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer',
       },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: true,
+      isStreamingApi: true,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -73,18 +105,36 @@ class GetChatHistoryCall {
     String? message = '',
     String? getChatHistory = '',
   }) async {
-    final response = await makeCloudCall(
-      _kPrivateApiFunctionName,
-      {
-        'callName': 'GetChatHistoryCall',
-        'variables': {
-          'sessionId': sessionId,
-          'message': message,
-          'getChatHistory': getChatHistory,
-        },
-      },
+    final baseUrl = LucilleSelfCareAILLMGroup.getBaseUrl(
+      sessionId: sessionId,
+      message: message,
+      getChatHistory: getChatHistory,
     );
-    return ApiCallResponse.fromCloudCallResponse(response);
+
+    final ffApiRequestBody = '''
+{
+  "session_id": "string",
+  "response": "Chat history retrieved successfully",
+  "conversation": ["..."]
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'GetChatHistory',
+      apiUrl: '${baseUrl}/chat/{session_id}',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
   }
 }
 

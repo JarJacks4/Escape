@@ -2,54 +2,67 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
   <dict>
-    <!-- App display info -->
+    <!-- App Identity -->
     <key>CFBundleName</key>
     <string>EscapeApp</string>
     <key>CFBundleDisplayName</key>
     <string>EscapeApp</string>
     <key>CFBundleIdentifier</key>
-    <string>com.yourcompany.escapeapp</string>
-    <key>CFBundleVersion</key>
-    <string>1.0.0</string>
+    <string>com.flutterflow.escapellc</string>
+    <!-- Marketing Version (what users see) -->
     <key>CFBundleShortVersionString</key>
-    <string>1.0</string>
+    <string>1.0.4</string>
+    <!-- Build Number (must always increase when resubmitting) -->
+    <key>CFBundleVersion</key>
+    <string>78</string>
+    <!-- iOS App Info -->
+    <key>CFBundleExecutable</key>
+    <string>$(EXECUTABLE_NAME)</string>
+    <key>CFBundlePackageType</key>
+    <string>APPL</string>
+    <key>CFBundleInfoDictionaryVersion</key>
+    <string>6.0</string>
     <key>UILaunchStoryboardName</key>
     <string>LaunchScreen</string>
-    <key>UIRequiredDeviceCapabilities</key>
-    <array>
-      <string>armv7</string>
-    </array>
+    <key>UIMainStoryboardFile</key>
+    <string></string>
+    <!-- Device support -->
     <key>UISupportedInterfaceOrientations</key>
     <array>
       <string>UIInterfaceOrientationPortrait</string>
       <string>UIInterfaceOrientationLandscapeLeft</string>
       <string>UIInterfaceOrientationLandscapeRight</string>
     </array>
-    <!-- ✅ Universal Links (Associated Domains) -->
-    <key>com.apple.developer.associated-domains</key>
-    <array>
-      <string>applinks:yourdomain.com</string>
-      <!-- You can also add subdomains if needed -->
-      <!-- <string>applinks:sub.yourdomain.com</string> -->
-    </array>
-    <!-- ✅ Custom URL Schemes (Deep Links like myapp://scene1) -->
+    <key>UIRequiresFullScreen</key>
+    <true/>
+    <!-- Deep Linking & Universal Links -->
     <key>CFBundleURLTypes</key>
     <array>
       <dict>
-        <key>CFBundleURLName</key>
-        <string>com.yourcompany.escapeapp</string>
         <key>CFBundleURLSchemes</key>
         <array>
-          <string>myapp</string>
+          <string>escapeapp.ai</string>
         </array>
       </dict>
     </array>
-    <!-- ✅ Allow querying external apps (optional, e.g., Unreal, TikTok, etc.) -->
-    <key>LSApplicationQueriesSchemes</key>
+    <key>NSUserActivityTypes</key>
     <array>
-      <string>myapp</string>
-      <string>unreal</string>
-      <string>tiktok</string>
+      <string>NSUserActivityTypeBrowsingWeb</string>
     </array>
+    <!-- App Transport (allow https for deep links) -->
+    <key>NSAppTransportSecurity</key>
+    <dict>
+      <key>NSAllowsArbitraryLoads</key>
+      <true/>
+    </dict>
+    <!-- Privacy Permissions -->
+    <key>NSCameraUsageDescription</key>
+    <string>EscapeApp requires access to your camera for self-care and AR experiences.</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>EscapeApp requires microphone access for voice features and therapy tools.</string>
+    <key>NSBluetoothAlwaysUsageDescription</key>
+    <string>EscapeApp uses Bluetooth to connect with supported self-care devices.</string>
+    <key>NSBluetoothPeripheralUsageDescription</key>
+    <string>EscapeApp uses Bluetooth to discover and communicate with nearby devices.</string>
   </dict>
 </plist>

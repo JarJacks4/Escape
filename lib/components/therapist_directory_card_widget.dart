@@ -80,97 +80,120 @@ class _TherapistDirectoryCardWidgetState
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 12.0, 12.0),
-      child: Container(
-        width: 230.0,
-        height: MediaQuery.sizeOf(context).height * 0.9,
-        decoration: BoxDecoration(
-          boxShadow: [
-            BoxShadow(
-              blurRadius: 4.0,
-              color: Color(0x34090F13),
-              offset: Offset(
-                0.0,
-                2.0,
-              ),
-            )
-          ],
-          borderRadius: BorderRadius.circular(12.0),
-        ),
-        child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              InkWell(
-                splashColor: Colors.transparent,
-                focusColor: Colors.transparent,
-                hoverColor: Colors.transparent,
-                highlightColor: Colors.transparent,
-                onTap: () async {
-                  logFirebaseEvent('THERAPIST_DIRECTORY_CARD_Container_wenlu');
-                  logFirebaseEvent('Container_navigate_to');
+      child: InkWell(
+        splashColor: Colors.transparent,
+        focusColor: Colors.transparent,
+        hoverColor: Colors.transparent,
+        highlightColor: Colors.transparent,
+        onTap: () async {
+          logFirebaseEvent('THERAPIST_DIRECTORY_CARD_projectCard_ON_');
+          logFirebaseEvent('projectCard_navigate_to');
 
-                  context.pushNamed(TherapistDirectoryWidget.routeName);
-                },
-                child: Container(
-                  width: double.infinity,
-                  height: 194.0,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [
-                        FlutterFlowTheme.of(context).accent1,
-                        Color(0xFFD6E364)
-                      ],
-                      stops: [0.0, 1.0],
-                      begin: AlignmentDirectional(0.0, -1.0),
-                      end: AlignmentDirectional(0, 1.0),
+          context.pushNamed(
+            TherapistDirectoryWidget.routeName,
+            extra: <String, dynamic>{
+              kTransitionInfoKey: TransitionInfo(
+                hasTransition: true,
+                transitionType: PageTransitionType.fade,
+                duration: Duration(milliseconds: 2),
+              ),
+            },
+          );
+        },
+        child: Container(
+          width: 230.0,
+          height: MediaQuery.sizeOf(context).height * 0.9,
+          decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                blurRadius: 4.0,
+                color: Color(0x34090F13),
+                offset: Offset(
+                  0.0,
+                  2.0,
+                ),
+              )
+            ],
+            borderRadius: BorderRadius.circular(12.0),
+          ),
+          child: Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 4.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    logFirebaseEvent(
+                        'THERAPIST_DIRECTORY_CARD_Container_wenlu');
+                    logFirebaseEvent('Container_navigate_to');
+
+                    context.pushNamed(TherapistDirectoryWidget.routeName);
+                  },
+                  child: Container(
+                    width: double.infinity,
+                    height: 194.0,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          FlutterFlowTheme.of(context).accent1,
+                          Color(0xFFD6E364)
+                        ],
+                        stops: [0.0, 1.0],
+                        begin: AlignmentDirectional(0.0, -1.0),
+                        end: AlignmentDirectional(0, 1.0),
+                      ),
+                      borderRadius: BorderRadius.circular(12.0),
                     ),
-                    borderRadius: BorderRadius.circular(12.0),
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.all(12.0),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Align(
-                          alignment: AlignmentDirectional(1.0, -1.0),
-                          child: Container(
-                            width: 41.0,
-                            height: 43.0,
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                fit: BoxFit.contain,
-                                image: Image.asset(
-                                  'assets/images/ESCAPE_Logo_Clear.png',
-                                ).image,
+                    child: Padding(
+                      padding: EdgeInsets.all(12.0),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Align(
+                            alignment: AlignmentDirectional(1.0, -1.0),
+                            child: Container(
+                              width: 41.0,
+                              height: 43.0,
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  fit: BoxFit.contain,
+                                  image: Image.asset(
+                                    'assets/images/ESCAPE_Logo_Clear.png',
+                                  ).image,
+                                ),
+                                borderRadius: BorderRadius.circular(12.0),
                               ),
-                              borderRadius: BorderRadius.circular(12.0),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                             ),
-                            alignment: AlignmentDirectional(0.0, 0.0),
                           ),
-                        ),
-                        Text(
-                          FFLocalizations.of(context).getText(
-                            'i1pz834t' /* Therapist Directory */,
+                          Text(
+                            FFLocalizations.of(context).getText(
+                              'i1pz834t' /* Therapist Directory */,
+                            ),
+                            style: FlutterFlowTheme.of(context)
+                                .titleMedium
+                                .override(
+                                  fontFamily: 'WorkSans',
+                                  color: Colors.white,
+                                  fontSize: 28.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w300,
+                                ),
                           ),
-                          style:
-                              FlutterFlowTheme.of(context).titleMedium.override(
-                                    fontFamily: 'WorkSans',
-                                    color: Colors.white,
-                                    fontSize: 28.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w300,
-                                  ),
-                        ),
-                      ],
-                    ).animateOnPageLoad(
-                        animationsMap['columnOnPageLoadAnimation']!),
+                        ],
+                      ).animateOnPageLoad(
+                          animationsMap['columnOnPageLoadAnimation']!),
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ).animateOnPageLoad(animationsMap['containerOnPageLoadAnimation']!),

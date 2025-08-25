@@ -293,72 +293,99 @@ class _ConfettiPageExpertCompWidgetState
                                   ],
                                 ),
                               ),
-                              FFButtonWidget(
-                                onPressed: () async {
-                                  logFirebaseEvent(
-                                      'CONFETTI_EXPERT_SEE_SELF_CARE_PLAN_BTN_O');
-                                  logFirebaseEvent('Button_update_app_state');
-                                  FFAppState().pointsEarned =
-                                      FFAppState().pointsEarned + 150;
-                                  safeSetState(() {});
-                                  logFirebaseEvent('Button_backend_call');
+                              Flexible(
+                                flex: 1,
+                                child: FFButtonWidget(
+                                  onPressed: () async {
+                                    logFirebaseEvent(
+                                        'CONFETTI_EXPERT_BACK_TO_HOME_BTN_ON_TAP');
+                                    logFirebaseEvent('Button_update_app_state');
+                                    FFAppState().pointsEarned =
+                                        FFAppState().pointsEarned + 150;
+                                    safeSetState(() {});
+                                    logFirebaseEvent('Button_backend_call');
 
-                                  await currentUserReference!.update({
-                                    ...createUsersRecordData(
-                                      hasGainedPoints: true,
-                                    ),
-                                    ...mapToFirestore(
-                                      {
-                                        'numberOfGoalsCompleted':
-                                            FieldValue.increment(1),
-                                      },
-                                    ),
-                                  });
-                                  logFirebaseEvent('Button_navigate_to');
-                                  if (Navigator.of(context).canPop()) {
-                                    context.pop();
-                                  }
-                                  context.pushNamed(
-                                    SelfCarePlanPageWidget.routeName,
-                                    extra: <String, dynamic>{
-                                      kTransitionInfoKey: TransitionInfo(
-                                        hasTransition: true,
-                                        transitionType: PageTransitionType.fade,
-                                        duration: Duration(milliseconds: 2),
+                                    await currentUserReference!.update({
+                                      ...createUsersRecordData(
+                                        hasGainedPoints: true,
                                       ),
-                                    },
-                                  );
-                                },
-                                text: FFLocalizations.of(context).getText(
-                                  'yk1httyq' /* See Self Care Plan */,
-                                ),
-                                options: FFButtonOptions(
-                                  width: double.infinity,
-                                  height: 40.0,
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      24.0, 0.0, 24.0, 0.0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  color: FlutterFlowTheme.of(context).primary,
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .titleSmall
-                                      .override(
-                                        fontFamily: 'The Seasons',
-                                        color: FlutterFlowTheme.of(context)
-                                            .alternate,
-                                        fontSize: 18.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.normal,
+                                      ...mapToFirestore(
+                                        {
+                                          'numberOfGoalsCompleted':
+                                              FieldValue.increment(1),
+                                        },
                                       ),
-                                  elevation: 3.0,
-                                  borderSide: BorderSide(
-                                    color: Colors.transparent,
-                                    width: 1.0,
+                                    });
+                                    logFirebaseEvent('Button_show_snack_bar');
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content: Text(
+                                          'Self-Care Goals and Progress Points Updated!',
+                                          style: TextStyle(
+                                            fontFamily: 'WorkSans',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                          ),
+                                        ),
+                                        duration: Duration(milliseconds: 4000),
+                                        backgroundColor:
+                                            FlutterFlowTheme.of(context)
+                                                .secondary,
+                                        action: SnackBarAction(
+                                          label: 'Navigating Home!',
+                                          textColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .alternate,
+                                          onPressed: () async {
+                                            context.goNamed(
+                                              HomeVersion4Widget.routeName,
+                                              extra: <String, dynamic>{
+                                                kTransitionInfoKey:
+                                                    TransitionInfo(
+                                                  hasTransition: true,
+                                                  transitionType:
+                                                      PageTransitionType.fade,
+                                                  duration:
+                                                      Duration(milliseconds: 0),
+                                                ),
+                                              },
+                                            );
+                                          },
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                  text: FFLocalizations.of(context).getText(
+                                    'yk1httyq' /* Back to Home */,
                                   ),
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                              ).animateOnPageLoad(
-                                  animationsMap['buttonOnPageLoadAnimation1']!),
+                                  options: FFButtonOptions(
+                                    width: double.infinity,
+                                    height: 40.0,
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        24.0, 0.0, 24.0, 0.0),
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .override(
+                                          fontFamily: 'The Seasons',
+                                          color: FlutterFlowTheme.of(context)
+                                              .alternate,
+                                          fontSize: 18.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.normal,
+                                        ),
+                                    elevation: 3.0,
+                                    borderSide: BorderSide(
+                                      color: Colors.transparent,
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                ).animateOnPageLoad(animationsMap[
+                                    'buttonOnPageLoadAnimation1']!),
+                              ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 16.0, 0.0, 0.0),

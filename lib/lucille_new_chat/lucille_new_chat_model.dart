@@ -38,7 +38,7 @@ class LucilleNewChatModel extends FlutterFlowModel<LucilleNewChatWidget> {
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Backend Call - API (GetSession)] action in LucilleNewChat widget.
-  ApiCallResponse? apiResultagn;
+  ApiCallResponse? getSession;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;

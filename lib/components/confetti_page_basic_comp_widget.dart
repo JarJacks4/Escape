@@ -3,6 +3,7 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:async';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
@@ -245,7 +246,7 @@ class _ConfettiPageBasicCompWidgetState
                               FFButtonWidget(
                                 onPressed: () async {
                                   logFirebaseEvent(
-                                      'CONFETTI_BASIC_SEE_SELF_CARE_PLAN_BTN_ON');
+                                      'CONFETTI_BASIC_BACK_TO_HOME_BTN_ON_TAP');
                                   logFirebaseEvent('Button_update_app_state');
                                   FFAppState().pointsEarned =
                                       FFAppState().pointsEarned + 50;
@@ -279,25 +280,31 @@ class _ConfettiPageBasicCompWidgetState
                                       backgroundColor:
                                           FlutterFlowTheme.of(context)
                                               .secondary,
-                                    ),
-                                  );
-                                  logFirebaseEvent('Button_navigate_to');
-                                  if (Navigator.of(context).canPop()) {
-                                    context.pop();
-                                  }
-                                  context.pushNamed(
-                                    SelfCarePlanPageWidget.routeName,
-                                    extra: <String, dynamic>{
-                                      kTransitionInfoKey: TransitionInfo(
-                                        hasTransition: true,
-                                        transitionType: PageTransitionType.fade,
-                                        duration: Duration(milliseconds: 2),
+                                      action: SnackBarAction(
+                                        label: 'Navigating Home!',
+                                        textColor: FlutterFlowTheme.of(context)
+                                            .alternate,
+                                        onPressed: () async {
+                                          context.goNamed(
+                                            HomeVersion4Widget.routeName,
+                                            extra: <String, dynamic>{
+                                              kTransitionInfoKey:
+                                                  TransitionInfo(
+                                                hasTransition: true,
+                                                transitionType:
+                                                    PageTransitionType.fade,
+                                                duration:
+                                                    Duration(milliseconds: 0),
+                                              ),
+                                            },
+                                          );
+                                        },
                                       ),
-                                    },
+                                    ),
                                   );
                                 },
                                 text: FFLocalizations.of(context).getText(
-                                  'acmn1kak' /* See Self Care Plan */,
+                                  'acmn1kak' /* Back to Home */,
                                 ),
                                 options: FFButtonOptions(
                                   width: double.infinity,
@@ -333,18 +340,21 @@ class _ConfettiPageBasicCompWidgetState
                                     logFirebaseEvent(
                                         'CONFETTI_BASIC_DISMISS_AND_REPLAY_BTN_ON');
                                     logFirebaseEvent('Button_backend_call');
-
-                                    await currentUserReference!.update({
-                                      ...createUsersRecordData(
-                                        hasGainedPoints: true,
-                                      ),
-                                      ...mapToFirestore(
-                                        {
-                                          'numberOfGoalsCompleted':
-                                              FieldValue.increment(1),
-                                        },
-                                      ),
-                                    });
+                                    unawaited(
+                                      () async {
+                                        await currentUserReference!.update({
+                                          ...createUsersRecordData(
+                                            hasGainedPoints: true,
+                                          ),
+                                          ...mapToFirestore(
+                                            {
+                                              'numberOfGoalsCompleted':
+                                                  FieldValue.increment(1),
+                                            },
+                                          ),
+                                        });
+                                      }(),
+                                    );
                                     logFirebaseEvent('Button_bottom_sheet');
                                     Navigator.pop(context);
                                   },

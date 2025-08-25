@@ -1,6 +1,5 @@
 import '/backend/backend.dart';
 import '/components/change_your_avatar_widget.dart';
-import '/components/chat_with_lucille_card_widget.dart';
 import '/components/escape_innerverse_card_widget.dart';
 import '/components/generate_soundscapes_card_widget.dart';
 import '/components/mood_tracking_card_widget.dart';
@@ -17,12 +16,10 @@ class LucilleHomeModel extends FlutterFlowModel<LucilleHomeWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  // Model for ChatWithLucilleCard component.
-  late ChatWithLucilleCardModel chatWithLucilleCardModel;
-  // Model for MoodTrackingCard component.
-  late MoodTrackingCardModel moodTrackingCardModel;
   // Model for GenerateSoundscapesCard component.
   late GenerateSoundscapesCardModel generateSoundscapesCardModel;
+  // Model for MoodTrackingCard component.
+  late MoodTrackingCardModel moodTrackingCardModel;
   // Model for EscapeInnerverseCard component.
   late EscapeInnerverseCardModel escapeInnerverseCardModel;
   // Model for SelfCareRoutineCard component.
@@ -32,11 +29,9 @@ class LucilleHomeModel extends FlutterFlowModel<LucilleHomeWidget> {
 
   @override
   void initState(BuildContext context) {
-    chatWithLucilleCardModel =
-        createModel(context, () => ChatWithLucilleCardModel());
-    moodTrackingCardModel = createModel(context, () => MoodTrackingCardModel());
     generateSoundscapesCardModel =
         createModel(context, () => GenerateSoundscapesCardModel());
+    moodTrackingCardModel = createModel(context, () => MoodTrackingCardModel());
     escapeInnerverseCardModel =
         createModel(context, () => EscapeInnerverseCardModel());
     selfCareRoutineCardModel =
@@ -46,9 +41,8 @@ class LucilleHomeModel extends FlutterFlowModel<LucilleHomeWidget> {
 
   @override
   void dispose() {
-    chatWithLucilleCardModel.dispose();
-    moodTrackingCardModel.dispose();
     generateSoundscapesCardModel.dispose();
+    moodTrackingCardModel.dispose();
     escapeInnerverseCardModel.dispose();
     selfCareRoutineCardModel.dispose();
     changeYourAvatarModel.dispose();
