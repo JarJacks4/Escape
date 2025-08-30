@@ -1,3 +1,4 @@
+# Existing rules
 # Compiled class file
 *.class
 
@@ -19,6 +20,32 @@
 *.tar.gz
 *.rar
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+# Virtual machine crash logs
 hs_err_pid*
 replay_pid*
+
+# ------------------------------
+# Unreal / iOS specific ignores
+# Ignore Unreal asset files
+*.uasset
+*.umap
+*.pak
+
+# Ignore intermediate / build files
+Binaries/
+Intermediate/
+DerivedDataCache/
+
+# Ignore iOS build products
+build/
+*.xcworkspace
+*.xcuserdata
+*.xcodeproj/project.xcworkspace
+*.xcodeproj/xcuserdata/
+
+# Ignore Swift Package Manager build
+.build/
+Packages/
+
+# Ignore CocoaPods
+Pods/
