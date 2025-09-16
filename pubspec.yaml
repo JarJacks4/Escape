@@ -15,7 +15,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.0.4+78
+version: 1.0.4+93
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
@@ -29,11 +29,11 @@ dependencies:
     sdk: flutter
   assets_audio_player: 
     git:
-      url: https://github.com/wenkaifan0720/Flutter-AssetsAudioPlayer.git
+      url: https://github.com/FlutterFlow/Flutter-AssetsAudioPlayer.git
       ref: 243f9533279b73fa9dae345cc96e5d7d84cac0ac
   assets_audio_player_web: 
     git:
-      url: https://github.com/wenkaifan0720/Flutter-AssetsAudioPlayerWeb.git
+      url: https://github.com/FlutterFlow/Flutter-AssetsAudioPlayerWeb.git
       ref: cae7ceb6af99f4da1ec27136d312d0ef045c83d9
   auto_size_text: 3.0.0
   blurhash_dart: 1.2.1
@@ -59,9 +59,9 @@ dependencies:
   fetch_api: 2.2.0
   fetch_client: 1.1.2
   ff_commons:
-    path: ./dependencies/ff_commons # 1.0.4+78
+    path: ./dependencies/ff_commons # 1.0.4+93
   ff_theme:
-    path: ./dependencies/ff_theme # 1.0.4+78
+    path: ./dependencies/ff_theme # 1.0.4+93
   file_picker: 10.1.9
   firebase_analytics: 11.5.0
   firebase_analytics_platform_interface: 4.4.0
@@ -89,7 +89,7 @@ dependencies:
   flutter_cache_manager: 3.4.1
   flutter_keyboard_visibility: 
     git:
-      url: https://github.com/wenkaifan0720/flutter_keyboard_visibility.git
+      url: https://github.com/FlutterFlow/flutter_keyboard_visibility.git
       path: flutter_keyboard_visibility
       ref: b39c1d0ca1671458e4daf3eea2ebe11741f9bcf3
   flutter_keyboard_visibility_linux: 1.0.0
@@ -97,7 +97,7 @@ dependencies:
   flutter_keyboard_visibility_platform_interface: 2.0.0
   flutter_keyboard_visibility_web: 
     git:
-      url: https://github.com/wenkaifan0720/flutter_keyboard_visibility.git
+      url: https://github.com/FlutterFlow/flutter_keyboard_visibility.git
       path: flutter_keyboard_visibility_web
       ref: b39c1d0ca1671458e4daf3eea2ebe11741f9bcf3
   flutter_keyboard_visibility_windows: 1.0.0
@@ -144,6 +144,8 @@ dependencies:
   lottie: 3.1.2
   map_launcher: 3.5.0
   mime_type: 1.0.0
+  music_player_library_jwsrtr:
+    path: ./dependencies/music_player_library_jwsrtr # 1.0.0
   octo_image: 2.1.0
   page_transition: 2.1.0
   path_provider: 2.1.4

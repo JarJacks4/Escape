@@ -425,7 +425,7 @@ class _LucilleHomeWidgetState extends State<LucilleHomeWidget>
                                                                               'IconButton_custom_action');
                                                                           unawaited(
                                                                             () async {
-                                                                              await actions.launchUnrealScene(
+                                                                              await actions.launchUnrealLevel(
                                                                                 'ChatRoom',
                                                                               );
                                                                             }(),

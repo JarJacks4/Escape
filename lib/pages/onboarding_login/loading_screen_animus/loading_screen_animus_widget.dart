@@ -40,7 +40,7 @@ class _LoadingScreenAnimusWidgetState extends State<LoadingScreenAnimusWidget>
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('LOADING_SCREEN_ANIMUS_LoadingScreenAnimu');
       logFirebaseEvent('LoadingScreenAnimus_custom_action');
-      await actions.launchUnrealScene(
+      await actions.launchUnrealLevel(
         'Animus',
       );
     });

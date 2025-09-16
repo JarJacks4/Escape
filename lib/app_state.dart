@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '/backend/backend.dart';
 import "package:tiktokfeed_wz8en7/backend/schema/structs/index.dart"
     as tiktokfeed_wz8en7_data_schema;
+import 'package:shared_preferences/shared_preferences.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 
 class FFAppState extends ChangeNotifier {
@@ -17,12 +18,19 @@ class FFAppState extends ChangeNotifier {
     _instance = FFAppState._internal();
   }
 
-  Future initializePersistedState() async {}
+  Future initializePersistedState() async {
+    prefs = await SharedPreferences.getInstance();
+    _safeInit(() {
+      _AmbientMusic = prefs.getStringList('ff_AmbientMusic') ?? _AmbientMusic;
+    });
+  }
 
   void update(VoidCallback callback) {
     callback();
     notifyListeners();
   }
+
+  late SharedPreferences prefs;
 
   List<LatLng> _TherapistLocation = [];
   List<LatLng> get TherapistLocation => _TherapistLocation;
@@ -140,12 +148,6 @@ class FFAppState extends ChangeNotifier {
   bool get expandMenu => _expandMenu;
   set expandMenu(bool value) {
     _expandMenu = value;
-  }
-
-  DocumentReference? _activeChat;
-  DocumentReference? get activeChat => _activeChat;
-  set activeChat(DocumentReference? value) {
-    _activeChat = value;
   }
 
   String _newName = '';
@@ -595,4 +597,63 @@ class FFAppState extends ChangeNotifier {
   set showTimeoutWarning(bool value) {
     _showTimeoutWarning = value;
   }
+
+  List<String> _AmbientMusic = [
+    'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/ES_A%20Prayer%20for%20Light%20-%20Sayuri%20Hayashi%20Egnell.mp3?alt=media&token=01416c12-7b48-425a-8001-2d315409650f',
+    'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/ES_Ashkira%20-%20Place%20of%20Light%20(432%20Hz)%20-%20369.mp3?alt=media&token=54deda0a-e53c-42f0-8edc-8c436fedc940',
+    'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/ES_Bhimpalasi%20-%20Pawan%20Krishna%20(1).mp3?alt=media&token=9ec67458-dd89-4da7-bfba-88b195ff4434',
+    'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/ES_Bhimpalasi%20-%20Pawan%20Krishna%20(1).mp3?alt=media&token=9ec67458-dd89-4da7-bfba-88b195ff4434',
+    'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/ES_Binaural%20Cloud%20(Alpha%207%20Hz)%20-%20Syntropy.mp3?alt=media&token=68c213c6-1d70-40b1-9998-25aa64093d13',
+    'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/ES_Binaural%20Schumann%20Alpha%20-%20Magonia%20-%20369.mp3?alt=media&token=a1cb0f6e-101a-4517-b15b-65900c7964d2',
+    'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/ES_Binaural%20Schumann%20Alpha%20-%20Mermaids\'%20Dance%20-%20369.mp3?alt=media&token=07a98f46-9422-4cb2-8b61-9cb38698062c',
+    'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/ES_Dimension%20of%20Dreams%20-%20Mandala%20Dreams.mp3?alt=media&token=99e0d610-51f5-44f7-b55f-0559f9d46f5b',
+    'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/ES_Frankel%20-%20Syntropy%20(1).mp3?alt=media&token=a04b73b2-8438-4c03-9f8b-557d8e458a84',
+    'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/ES_Gaia%20Awakening%20-%20Syntropy.mp3?alt=media&token=0b62b171-f229-4c0a-851e-1637ce7c26ce',
+    'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/New%20Composition%20%233.mp3?alt=media&token=39444123-3b36-40e8-b82b-802f4de2c8ad'
+  ];
+  List<String> get AmbientMusic => _AmbientMusic;
+  set AmbientMusic(List<String> value) {
+    _AmbientMusic = value;
+    prefs.setStringList('ff_AmbientMusic', value);
+  }
+
+  void addToAmbientMusic(String value) {
+    AmbientMusic.add(value);
+    prefs.setStringList('ff_AmbientMusic', _AmbientMusic);
+  }
+
+  void removeFromAmbientMusic(String value) {
+    AmbientMusic.remove(value);
+    prefs.setStringList('ff_AmbientMusic', _AmbientMusic);
+  }
+
+  void removeAtIndexFromAmbientMusic(int index) {
+    AmbientMusic.removeAt(index);
+    prefs.setStringList('ff_AmbientMusic', _AmbientMusic);
+  }
+
+  void updateAmbientMusicAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    AmbientMusic[index] = updateFn(_AmbientMusic[index]);
+    prefs.setStringList('ff_AmbientMusic', _AmbientMusic);
+  }
+
+  void insertAtIndexInAmbientMusic(int index, String value) {
+    AmbientMusic.insert(index, value);
+    prefs.setStringList('ff_AmbientMusic', _AmbientMusic);
+  }
+}
+
+void _safeInit(Function() initializeField) {
+  try {
+    initializeField();
+  } catch (_) {}
+}
+
+Future _safeInitAsync(Function() initializeField) async {
+  try {
+    await initializeField();
+  } catch (_) {}
 }

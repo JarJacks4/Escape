@@ -17,7 +17,6 @@ export '/pages/display_name_f_i_n_a_l/display_name_f_i_n_a_l_widget.dart'
 export '/self_care_goals/self_care_goals_widget.dart' show SelfCareGoalsWidget;
 export '/enable_notifications/enable_notifications_widget.dart'
     show EnableNotificationsWidget;
-export '/a_i_soundscapes/a_i_soundscapes_widget.dart' show AISoundscapesWidget;
 export '/analyzing_mood_status_page/analyzing_mood_status_page_widget.dart'
     show AnalyzingMoodStatusPageWidget;
 export '/profile_f_i_n_a_l/profile_f_i_n_a_l_widget.dart'
@@ -103,8 +102,6 @@ export '/chat_with_lucille_f_i_n_a_l/chat_with_lucille_f_i_n_a_l_widget.dart'
     show ChatWithLucilleFINALWidget;
 export '/facial_mood_analyzer_choice_lucille_card/facial_mood_analyzer_choice_lucille_card_widget.dart'
     show FacialMoodAnalyzerChoiceLucilleCardWidget;
-export '/a_i_soundscapes_copy/a_i_soundscapes_copy_widget.dart'
-    show AISoundscapesCopyWidget;
 export '/sample/sample_widget.dart' show SampleWidget;
 export '/settings/settings_widget.dart' show SettingsWidget;
 export '/chat_with_lucille_version4/chat_with_lucille_version4_widget.dart'
@@ -122,3 +119,8 @@ export '/lucille_new_chat/lucille_new_chat_widget.dart'
     show LucilleNewChatWidget;
 export '/pages/onboarding_login/loading_screen_animus/loading_screen_animus_widget.dart'
     show LoadingScreenAnimusWidget;
+export '/soundscapes_home_final/soundscapes_home_final_widget.dart'
+    show SoundscapesHomeFinalWidget;
+export '/music_player/music_player_widget.dart' show MusicPlayerWidget;
+export '/a_i_soundscapes_copy_copy/a_i_soundscapes_copy_copy_widget.dart'
+    show AISoundscapesCopyCopyWidget;

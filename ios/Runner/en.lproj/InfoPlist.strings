@@ -4,4 +4,3 @@ NSPhotoLibraryUsageDescription = "In order to take a picture for your mood, Esca
 NSMicrophoneUsageDescription = "In order to take a picture for your mood, Escape will need permission to access your microphone.";
 PermissionGroupNotification = "In order to take a picture for your mood, Escape will need permission to access your notifications.";
 NSPushNotification = "In order to send notifications, Escape will need permission to send push notifications when your mood updates.";
-NSLocationAlwaysAndWhenInUseUsageDescription = "In order to help us locate therapists for you, we will need your permission for your device location when in usage of Escape.";
