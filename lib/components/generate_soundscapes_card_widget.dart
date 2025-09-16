@@ -94,7 +94,7 @@ class _GenerateSoundscapesCardWidgetState
                         logFirebaseEvent(
                             'GENERATE_SOUNDSCAPES_CARD_arrow_outward_');
                         logFirebaseEvent('IconButton_custom_action');
-                        await actions.launchUnrealScene(
+                        await actions.launchUnrealLevel(
                           'Character Customization',
                         );
                       },

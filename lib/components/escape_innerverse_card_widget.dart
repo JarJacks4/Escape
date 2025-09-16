@@ -123,7 +123,7 @@ class _EscapeInnerverseCardWidgetState extends State<EscapeInnerverseCardWidget>
                         logFirebaseEvent(
                             'ESCAPE_INNERVERSE_CARD_arrow_outward_ICN');
                         logFirebaseEvent('IconButton_custom_action');
-                        await actions.launchUnrealScene(
+                        await actions.launchUnrealLevel(
                           'Animus',
                         );
                       },

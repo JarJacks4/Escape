@@ -15,6 +15,8 @@ import '/flutter_flow/flutter_flow_util.dart';
 
 import '/index.dart';
 import 'package:tiktokfeed_wz8en7/index.dart' as $tiktokfeed_wz8en7;
+import 'package:music_player_library_jwsrtr/index.dart'
+    as $music_player_library_jwsrtr;
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
@@ -84,6 +86,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
     page2WidgetPath: 'page2',
     reelsWidgetName: 'tiktokfeed_wz8en7.Reels',
     reelsWidgetPath: 'Reels',
+  );
+
+  $music_player_library_jwsrtr.initializeRoutes(
+    homePageWidgetName: 'music_player_library_jwsrtr.HomePage',
+    homePageWidgetPath: 'homePage',
   );
 
   return GoRouter(
@@ -167,16 +174,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             name: EnableNotificationsWidget.routeName,
             path: EnableNotificationsWidget.routePath,
             builder: (context, params) => EnableNotificationsWidget(),
-          ),
-          FFRoute(
-            name: AISoundscapesWidget.routeName,
-            path: AISoundscapesWidget.routePath,
-            builder: (context, params) => AISoundscapesWidget(
-              meditationaudio: params.getParam(
-                'meditationaudio',
-                ParamType.String,
-              ),
-            ),
           ),
           FFRoute(
             name: AnalyzingMoodStatusPageWidget.routeName,
@@ -443,16 +440,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
                 FacialMoodAnalyzerChoiceLucilleCardWidget(),
           ),
           FFRoute(
-            name: AISoundscapesCopyWidget.routeName,
-            path: AISoundscapesCopyWidget.routePath,
-            builder: (context, params) => AISoundscapesCopyWidget(
-              meditationaudio: params.getParam(
-                'meditationaudio',
-                ParamType.String,
-              ),
-            ),
-          ),
-          FFRoute(
             name: SampleWidget.routeName,
             path: SampleWidget.routePath,
             builder: (context, params) => SampleWidget(),
@@ -508,6 +495,32 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             builder: (context, params) => LoadingScreenAnimusWidget(),
           ),
           FFRoute(
+            name: SoundscapesHomeFinalWidget.routeName,
+            path: SoundscapesHomeFinalWidget.routePath,
+            builder: (context, params) => SoundscapesHomeFinalWidget(),
+          ),
+          FFRoute(
+            name: MusicPlayerWidget.routeName,
+            path: MusicPlayerWidget.routePath,
+            builder: (context, params) => MusicPlayerWidget(
+              musicList: params.getParam<String>(
+                'musicList',
+                ParamType.String,
+                isList: true,
+              ),
+            ),
+          ),
+          FFRoute(
+            name: AISoundscapesCopyCopyWidget.routeName,
+            path: AISoundscapesCopyCopyWidget.routePath,
+            builder: (context, params) => AISoundscapesCopyCopyWidget(
+              meditationaudio: params.getParam(
+                'meditationaudio',
+                ParamType.String,
+              ),
+            ),
+          ),
+          FFRoute(
             name: $tiktokfeed_wz8en7.HomePageWidget.routeName,
             path: $tiktokfeed_wz8en7.HomePageWidget.routePath,
             builder: (context, params) => $tiktokfeed_wz8en7.HomePageWidget(),
@@ -521,6 +534,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             name: $tiktokfeed_wz8en7.ReelsWidget.routeName,
             path: $tiktokfeed_wz8en7.ReelsWidget.routePath,
             builder: (context, params) => $tiktokfeed_wz8en7.ReelsWidget(),
+          ),
+          FFRoute(
+            name: $music_player_library_jwsrtr.HomePageWidget.routeName,
+            path: $music_player_library_jwsrtr.HomePageWidget.routePath,
+            builder: (context, params) =>
+                $music_player_library_jwsrtr.HomePageWidget(),
           )
         ].map((r) => r.toRoute(appStateNotifier)).toList(),
       ),

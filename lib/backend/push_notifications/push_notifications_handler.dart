@@ -129,11 +129,6 @@ final parametersBuilderMap =
   'DisplayNameFINAL': ParameterData.none(),
   'SelfCareGoals': ParameterData.none(),
   'EnableNotifications': ParameterData.none(),
-  'AISoundscapes': (data) async => ParameterData(
-        allParams: {
-          'meditationaudio': getParameter<String>(data, 'meditationaudio'),
-        },
-      ),
   'AnalyzingMoodStatusPage': ParameterData.none(),
   'profileFINAL': ParameterData.none(),
   'SelfCarePlanPage': ParameterData.none(),
@@ -188,11 +183,6 @@ final parametersBuilderMap =
   'reels': ParameterData.none(),
   'ChatWithLucilleFINAL': ParameterData.none(),
   'FacialMoodAnalyzerChoiceLucilleCard': ParameterData.none(),
-  'AISoundscapesCopy': (data) async => ParameterData(
-        allParams: {
-          'meditationaudio': getParameter<String>(data, 'meditationaudio'),
-        },
-      ),
   'Sample': ParameterData.none(),
   'Settings': ParameterData.none(),
   'ChatWithLucilleVersion4': ParameterData.none(),
@@ -204,6 +194,15 @@ final parametersBuilderMap =
   'JournalPageFINALCopy': ParameterData.none(),
   'LucilleNewChat': ParameterData.none(),
   'LoadingScreenAnimus': ParameterData.none(),
+  'SoundscapesHomeFinal': ParameterData.none(),
+  'MusicPlayer': (data) async => ParameterData(
+        allParams: <String, dynamic>{},
+      ),
+  'AISoundscapesCopyCopy': (data) async => ParameterData(
+        allParams: {
+          'meditationaudio': getParameter<String>(data, 'meditationaudio'),
+        },
+      ),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {
