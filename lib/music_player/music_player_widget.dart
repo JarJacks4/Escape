@@ -6,16 +6,14 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/flutter_flow_app_state.dart';
 import '/index.dart';
-import 'package:music_player_library_jwsrtr/custom_code/widgets/index.dart'
-    as music_player_library_jwsrtr_custom_widgets;
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:tiktokfeed_wz8en7/app_state.dart'
     as tiktokfeed_wz8en7_app_state;
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'music_player_model.dart';
 export 'music_player_model.dart';
 
@@ -180,20 +178,22 @@ class _MusicPlayerWidgetState extends State<MusicPlayerWidget>
                                           isDismissible: false,
                                           context: context,
                                           builder: (context) {
-                                            return GestureDetector(
-                                              onTap: () {
-                                                FocusScope.of(context)
-                                                    .unfocus();
-                                                FocusManager
-                                                    .instance.primaryFocus
-                                                    ?.unfocus();
-                                              },
-                                              child: Padding(
-                                                padding:
-                                                    MediaQuery.viewInsetsOf(
-                                                        context),
-                                                child:
-                                                    SessonTimeoutWarningWidget(),
+                                            return WebViewAware(
+                                              child: GestureDetector(
+                                                onTap: () {
+                                                  FocusScope.of(context)
+                                                      .unfocus();
+                                                  FocusManager
+                                                      .instance.primaryFocus
+                                                      ?.unfocus();
+                                                },
+                                                child: Padding(
+                                                  padding:
+                                                      MediaQuery.viewInsetsOf(
+                                                          context),
+                                                  child:
+                                                      SessonTimeoutWarningWidget(),
+                                                ),
                                               ),
                                             );
                                           },
@@ -288,92 +288,7 @@ class _MusicPlayerWidgetState extends State<MusicPlayerWidget>
           top: true,
           child: Column(
             mainAxisSize: MainAxisSize.max,
-            children: [
-              Flexible(
-                flex: 1,
-                child: Container(
-                  width: double.infinity,
-                  height: MediaQuery.sizeOf(context).height * 0.9,
-                  child: music_player_library_jwsrtr_custom_widgets
-                      .AdvanceMusicPlayer(
-                    width: double.infinity,
-                    height: MediaQuery.sizeOf(context).height * 0.9,
-                    initialUrl: '',
-                    sliderActiveColor: FlutterFlowTheme.of(context).accent1,
-                    sliderInactiveColor: FlutterFlowTheme.of(context).alternate,
-                    backwardIconPath: FaIcon(
-                      FontAwesomeIcons.backward,
-                      color: FlutterFlowTheme.of(context).accent1,
-                      size: 22.0,
-                    ),
-                    forwardIconPath: Icon(
-                      FFIcons.kfastForward,
-                      color: FlutterFlowTheme.of(context).accent1,
-                      size: 22.0,
-                    ),
-                    backwardIconColor: FlutterFlowTheme.of(context).accent1,
-                    forwardIconColor: FlutterFlowTheme.of(context).accent1,
-                    pauseIconPath: Icon(
-                      Icons.pause,
-                      color: FlutterFlowTheme.of(context).accent1,
-                      size: 22.0,
-                    ),
-                    playIconPath: Icon(
-                      Icons.play_circle_outline,
-                      color: FlutterFlowTheme.of(context).accent1,
-                      size: 22.0,
-                    ),
-                    pauseIconColor: FlutterFlowTheme.of(context).accent1,
-                    playIconColor: FlutterFlowTheme.of(context).accent1,
-                    loopIconPath: Icon(
-                      Icons.loop_outlined,
-                    ),
-                    loopIconColor: FlutterFlowTheme.of(context).alternate,
-                    shuffleIconPath: Icon(
-                      FFIcons.kshuffle1,
-                      color: FlutterFlowTheme.of(context).accent1,
-                    ),
-                    shuffleIconColor: FlutterFlowTheme.of(context).tertiary,
-                    playbackDurationTextColor:
-                        FlutterFlowTheme.of(context).accent1,
-                    previousIconPath: Icon(
-                      Icons.skip_previous,
-                    ),
-                    nextIconPath: Icon(
-                      Icons.skip_next_sharp,
-                    ),
-                    previousIconColor: FlutterFlowTheme.of(context).accent1,
-                    nextIconColor: FlutterFlowTheme.of(context).accent1,
-                    loopIconPressedPath: Icon(
-                      Icons.loop_sharp,
-                      color: FlutterFlowTheme.of(context).accent1,
-                    ),
-                    shuffleIconPressedPath: Icon(
-                      Icons.shuffle_on_rounded,
-                      color: FlutterFlowTheme.of(context).accent1,
-                    ),
-                    speakerOnIconPath: Icon(
-                      Icons.speaker_phone,
-                      color: FlutterFlowTheme.of(context).accent1,
-                    ),
-                    speakerOffIconPath: Icon(
-                      Icons.speaker_sharp,
-                      color: FlutterFlowTheme.of(context).alternate,
-                    ),
-                    speakerOnIconColor: FlutterFlowTheme.of(context).tertiary,
-                    speakerOffIconColor:
-                        FlutterFlowTheme.of(context).secondaryText,
-                    dropdownTextColor: FlutterFlowTheme.of(context).alternate,
-                    timerIcon: Icon(
-                      Icons.timer,
-                      color: FlutterFlowTheme.of(context).tertiary,
-                      size: 22.0,
-                    ),
-                    musicUrls: widget.musicList!,
-                  ),
-                ),
-              ),
-            ],
+            children: [],
           ),
         ),
       ),

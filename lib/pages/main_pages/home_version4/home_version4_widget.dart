@@ -21,6 +21,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'home_version4_model.dart';
 export 'home_version4_model.dart';
 
@@ -96,14 +97,16 @@ class _HomeVersion4WidgetState extends State<HomeVersion4Widget>
             backgroundColor: FlutterFlowTheme.of(context).tertiary,
             context: context,
             builder: (context) {
-              return GestureDetector(
-                onTap: () {
-                  FocusScope.of(context).unfocus();
-                  FocusManager.instance.primaryFocus?.unfocus();
-                },
-                child: Padding(
-                  padding: MediaQuery.viewInsetsOf(context),
-                  child: SuccessHomeFeedbackWidget(),
+              return WebViewAware(
+                child: GestureDetector(
+                  onTap: () {
+                    FocusScope.of(context).unfocus();
+                    FocusManager.instance.primaryFocus?.unfocus();
+                  },
+                  child: Padding(
+                    padding: MediaQuery.viewInsetsOf(context),
+                    child: SuccessHomeFeedbackWidget(),
+                  ),
                 ),
               );
             },
@@ -495,20 +498,22 @@ class _HomeVersion4WidgetState extends State<HomeVersion4Widget>
                                           isDismissible: false,
                                           context: context,
                                           builder: (context) {
-                                            return GestureDetector(
-                                              onTap: () {
-                                                FocusScope.of(context)
-                                                    .unfocus();
-                                                FocusManager
-                                                    .instance.primaryFocus
-                                                    ?.unfocus();
-                                              },
-                                              child: Padding(
-                                                padding:
-                                                    MediaQuery.viewInsetsOf(
-                                                        context),
-                                                child:
-                                                    SessonTimeoutWarningWidget(),
+                                            return WebViewAware(
+                                              child: GestureDetector(
+                                                onTap: () {
+                                                  FocusScope.of(context)
+                                                      .unfocus();
+                                                  FocusManager
+                                                      .instance.primaryFocus
+                                                      ?.unfocus();
+                                                },
+                                                child: Padding(
+                                                  padding:
+                                                      MediaQuery.viewInsetsOf(
+                                                          context),
+                                                  child:
+                                                      SessonTimeoutWarningWidget(),
+                                                ),
                                               ),
                                             );
                                           },

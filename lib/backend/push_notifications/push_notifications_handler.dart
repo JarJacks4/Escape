@@ -203,6 +203,7 @@ final parametersBuilderMap =
           'meditationaudio': getParameter<String>(data, 'meditationaudio'),
         },
       ),
+  'EscapeInnerverseWebView': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

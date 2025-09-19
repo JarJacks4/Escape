@@ -11,6 +11,7 @@ import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'facial_mood_analyzer_page_model.dart';
 export 'facial_mood_analyzer_page_model.dart';
 
@@ -461,20 +462,22 @@ class _FacialMoodAnalyzerPageWidgetState
                                           useSafeArea: true,
                                           context: context,
                                           builder: (context) {
-                                            return GestureDetector(
-                                              onTap: () {
-                                                FocusScope.of(context)
-                                                    .unfocus();
-                                                FocusManager
-                                                    .instance.primaryFocus
-                                                    ?.unfocus();
-                                              },
-                                              child: Padding(
-                                                padding:
-                                                    MediaQuery.viewInsetsOf(
-                                                        context),
-                                                child:
-                                                    MoodAnalyzerSuccessCompWidget(),
+                                            return WebViewAware(
+                                              child: GestureDetector(
+                                                onTap: () {
+                                                  FocusScope.of(context)
+                                                      .unfocus();
+                                                  FocusManager
+                                                      .instance.primaryFocus
+                                                      ?.unfocus();
+                                                },
+                                                child: Padding(
+                                                  padding:
+                                                      MediaQuery.viewInsetsOf(
+                                                          context),
+                                                  child:
+                                                      MoodAnalyzerSuccessCompWidget(),
+                                                ),
                                               ),
                                             );
                                           },

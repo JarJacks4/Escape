@@ -8,7 +8,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:async';
 import 'dart:ui';
-import '/custom_code/actions/index.dart' as actions;
 import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
@@ -422,11 +421,18 @@ class _LucilleHomeWidgetState extends State<LucilleHomeWidget>
                                                                           logFirebaseEvent(
                                                                               'LUCILLE_HOME_arrow_outward_ICN_ON_TAP');
                                                                           logFirebaseEvent(
-                                                                              'IconButton_custom_action');
+                                                                              'IconButton_navigate_to');
                                                                           unawaited(
                                                                             () async {
-                                                                              await actions.launchUnrealLevel(
-                                                                                'ChatRoom',
+                                                                              context.pushNamed(
+                                                                                EscapeInnerverseWebViewWidget.routeName,
+                                                                                extra: <String, dynamic>{
+                                                                                  kTransitionInfoKey: TransitionInfo(
+                                                                                    hasTransition: true,
+                                                                                    transitionType: PageTransitionType.fade,
+                                                                                    duration: Duration(milliseconds: 2),
+                                                                                  ),
+                                                                                },
                                                                               );
                                                                             }(),
                                                                           );
@@ -505,13 +511,48 @@ Lucille */
                                                         ),
                                                       ),
                                                     ),
-                                                () => wrapWithModel(
-                                                      model: _model
-                                                          .generateSoundscapesCardModel,
-                                                      updateCallback: () =>
-                                                          safeSetState(() {}),
-                                                      child:
-                                                          GenerateSoundscapesCardWidget(),
+                                                () => InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        logFirebaseEvent(
+                                                            'LUCILLE_HOME_Container_19y4scpw_ON_TAP');
+                                                        logFirebaseEvent(
+                                                            'GenerateSoundscapesCard_navigate_to');
+
+                                                        context.pushNamed(
+                                                          EscapeInnerverseWebViewWidget
+                                                              .routeName,
+                                                          extra: <String,
+                                                              dynamic>{
+                                                            kTransitionInfoKey:
+                                                                TransitionInfo(
+                                                              hasTransition:
+                                                                  true,
+                                                              transitionType:
+                                                                  PageTransitionType
+                                                                      .fade,
+                                                              duration: Duration(
+                                                                  milliseconds:
+                                                                      2),
+                                                            ),
+                                                          },
+                                                        );
+                                                      },
+                                                      child: wrapWithModel(
+                                                        model: _model
+                                                            .generateSoundscapesCardModel,
+                                                        updateCallback: () =>
+                                                            safeSetState(() {}),
+                                                        child:
+                                                            GenerateSoundscapesCardWidget(),
+                                                      ),
                                                     ).animateOnPageLoad(
                                                         animationsMap[
                                                             'generateSoundscapesCardOnPageLoadAnimation']!),

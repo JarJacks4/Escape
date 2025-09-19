@@ -13,6 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'profile_f_i_n_a_l_model.dart';
 export 'profile_f_i_n_a_l_model.dart';
 
@@ -383,20 +384,22 @@ class _ProfileFINALWidgetState extends State<ProfileFINALWidget>
                                                     Colors.transparent,
                                                 context: context,
                                                 builder: (context) {
-                                                  return GestureDetector(
-                                                    onTap: () {
-                                                      FocusScope.of(context)
-                                                          .unfocus();
-                                                      FocusManager
-                                                          .instance.primaryFocus
-                                                          ?.unfocus();
-                                                    },
-                                                    child: Padding(
-                                                      padding: MediaQuery
-                                                          .viewInsetsOf(
-                                                              context),
-                                                      child:
-                                                          EditProfileWidget(),
+                                                  return WebViewAware(
+                                                    child: GestureDetector(
+                                                      onTap: () {
+                                                        FocusScope.of(context)
+                                                            .unfocus();
+                                                        FocusManager.instance
+                                                            .primaryFocus
+                                                            ?.unfocus();
+                                                      },
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child:
+                                                            EditProfileWidget(),
+                                                      ),
                                                     ),
                                                   );
                                                 },
@@ -771,17 +774,19 @@ class _ProfileFINALWidgetState extends State<ProfileFINALWidget>
                                     isDismissible: false,
                                     context: context,
                                     builder: (context) {
-                                      return GestureDetector(
-                                        onTap: () {
-                                          FocusScope.of(context).unfocus();
-                                          FocusManager.instance.primaryFocus
-                                              ?.unfocus();
-                                        },
-                                        child: Padding(
-                                          padding:
-                                              MediaQuery.viewInsetsOf(context),
-                                          child:
-                                              DeleteAccountBottomSheetWidget(),
+                                      return WebViewAware(
+                                        child: GestureDetector(
+                                          onTap: () {
+                                            FocusScope.of(context).unfocus();
+                                            FocusManager.instance.primaryFocus
+                                                ?.unfocus();
+                                          },
+                                          child: Padding(
+                                            padding: MediaQuery.viewInsetsOf(
+                                                context),
+                                            child:
+                                                DeleteAccountBottomSheetWidget(),
+                                          ),
                                         ),
                                       );
                                     },
