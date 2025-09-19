@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'community_home_copy_model.dart';
 export 'community_home_copy_model.dart';
 
@@ -209,10 +210,12 @@ class _CommunityHomeCopyWidgetState extends State<CommunityHomeCopyWidget>
           width: MediaQuery.sizeOf(context).width * 0.85,
           child: Drawer(
             elevation: 16.0,
-            child: wrapWithModel(
-              model: _model.customdrawerModel,
-              updateCallback: () => safeSetState(() {}),
-              child: CustomdrawerWidget(),
+            child: WebViewAware(
+              child: wrapWithModel(
+                model: _model.customdrawerModel,
+                updateCallback: () => safeSetState(() {}),
+                child: CustomdrawerWidget(),
+              ),
             ),
           ),
         ),

@@ -15,8 +15,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 
 import '/index.dart';
 import 'package:tiktokfeed_wz8en7/index.dart' as $tiktokfeed_wz8en7;
-import 'package:music_player_library_jwsrtr/index.dart'
-    as $music_player_library_jwsrtr;
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
@@ -86,11 +84,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
     page2WidgetPath: 'page2',
     reelsWidgetName: 'tiktokfeed_wz8en7.Reels',
     reelsWidgetPath: 'Reels',
-  );
-
-  $music_player_library_jwsrtr.initializeRoutes(
-    homePageWidgetName: 'music_player_library_jwsrtr.HomePage',
-    homePageWidgetPath: 'homePage',
   );
 
   return GoRouter(
@@ -521,6 +514,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             ),
           ),
           FFRoute(
+            name: EscapeInnerverseWebViewWidget.routeName,
+            path: EscapeInnerverseWebViewWidget.routePath,
+            builder: (context, params) => EscapeInnerverseWebViewWidget(),
+          ),
+          FFRoute(
             name: $tiktokfeed_wz8en7.HomePageWidget.routeName,
             path: $tiktokfeed_wz8en7.HomePageWidget.routePath,
             builder: (context, params) => $tiktokfeed_wz8en7.HomePageWidget(),
@@ -534,12 +532,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             name: $tiktokfeed_wz8en7.ReelsWidget.routeName,
             path: $tiktokfeed_wz8en7.ReelsWidget.routePath,
             builder: (context, params) => $tiktokfeed_wz8en7.ReelsWidget(),
-          ),
-          FFRoute(
-            name: $music_player_library_jwsrtr.HomePageWidget.routeName,
-            path: $music_player_library_jwsrtr.HomePageWidget.routePath,
-            builder: (context, params) =>
-                $music_player_library_jwsrtr.HomePageWidget(),
           )
         ].map((r) => r.toRoute(appStateNotifier)).toList(),
       ),

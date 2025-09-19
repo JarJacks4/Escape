@@ -1,7 +1,7 @@
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/custom_code/actions/index.dart' as actions;
+import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -122,9 +122,17 @@ class _EscapeInnerverseCardWidgetState extends State<EscapeInnerverseCardWidget>
                       onPressed: () async {
                         logFirebaseEvent(
                             'ESCAPE_INNERVERSE_CARD_arrow_outward_ICN');
-                        logFirebaseEvent('IconButton_custom_action');
-                        await actions.launchUnrealLevel(
-                          'Animus',
+                        logFirebaseEvent('IconButton_navigate_to');
+
+                        context.pushNamed(
+                          EscapeInnerverseWebViewWidget.routeName,
+                          extra: <String, dynamic>{
+                            kTransitionInfoKey: TransitionInfo(
+                              hasTransition: true,
+                              transitionType: PageTransitionType.fade,
+                              duration: Duration(milliseconds: 2),
+                            ),
+                          },
                         );
                       },
                     ),

@@ -124,3 +124,5 @@ export '/soundscapes_home_final/soundscapes_home_final_widget.dart'
 export '/music_player/music_player_widget.dart' show MusicPlayerWidget;
 export '/a_i_soundscapes_copy_copy/a_i_soundscapes_copy_copy_widget.dart'
     show AISoundscapesCopyCopyWidget;
+export '/escape_innerverse_web_view/escape_innerverse_web_view_widget.dart'
+    show EscapeInnerverseWebViewWidget;

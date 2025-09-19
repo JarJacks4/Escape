@@ -8,6 +8,7 @@ import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'box_breathing_goal_page_model.dart';
 export 'box_breathing_goal_page_model.dart';
 
@@ -255,14 +256,16 @@ class _BoxBreathingGoalPageWidgetState extends State<BoxBreathingGoalPageWidget>
                           backgroundColor: Colors.transparent,
                           context: context,
                           builder: (context) {
-                            return GestureDetector(
-                              onTap: () {
-                                FocusScope.of(context).unfocus();
-                                FocusManager.instance.primaryFocus?.unfocus();
-                              },
-                              child: Padding(
-                                padding: MediaQuery.viewInsetsOf(context),
-                                child: ConfettiPageIntermediateCompWidget(),
+                            return WebViewAware(
+                              child: GestureDetector(
+                                onTap: () {
+                                  FocusScope.of(context).unfocus();
+                                  FocusManager.instance.primaryFocus?.unfocus();
+                                },
+                                child: Padding(
+                                  padding: MediaQuery.viewInsetsOf(context),
+                                  child: ConfettiPageIntermediateCompWidget(),
+                                ),
                               ),
                             );
                           },
