@@ -190,7 +190,9 @@ class _SelfCareGoalsWidgetState extends State<SelfCareGoalsWidget>
                                     },
                                   ),
                                   child: Scrollbar(
+                                    controller: _model.columnController,
                                     child: SingleChildScrollView(
+                                      controller: _model.columnController,
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         crossAxisAlignment:

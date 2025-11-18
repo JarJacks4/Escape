@@ -1,9 +1,6 @@
-import '/auth/firebase_auth/auth_util.dart';
-import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:async';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
@@ -71,6 +68,13 @@ class _ConfettiPageBasicCompWidgetState
             duration: 600.0.ms,
             begin: 0.0,
             end: 1.0,
+          ),
+          ShimmerEffect(
+            curve: Curves.easeIn,
+            delay: 600.0.ms,
+            duration: 600.0.ms,
+            color: FlutterFlowTheme.of(context).primary,
+            angle: 0.524,
           ),
         ],
       ),
@@ -197,7 +201,7 @@ class _ConfettiPageBasicCompWidgetState
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 24.0, 0.0, 24.0),
+                                    0.0, 20.0, 0.0, 20.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment:
@@ -208,15 +212,16 @@ class _ConfettiPageBasicCompWidgetState
                                       children: [
                                         Text(
                                           FFLocalizations.of(context).getText(
-                                            'tm8ms04w' /* x 50 */,
+                                            'e0y1pt1x' /* + 50 */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .titleLarge
                                               .override(
-                                                fontFamily: 'The Seasons',
+                                                fontFamily: 'WorkSans',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondary,
+                                                fontSize: 28.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w300,
                                               ),
@@ -231,8 +236,8 @@ class _ConfettiPageBasicCompWidgetState
                                                 BorderRadius.circular(8.0),
                                             child: Image.asset(
                                               'assets/images/free-coin-icon-794-thumb.png',
-                                              width: 25.0,
-                                              height: 25.0,
+                                              width: 33.7,
+                                              height: 36.0,
                                               fit: BoxFit.cover,
                                             ),
                                           ).animateOnPageLoad(animationsMap[
@@ -246,25 +251,12 @@ class _ConfettiPageBasicCompWidgetState
                               FFButtonWidget(
                                 onPressed: () async {
                                   logFirebaseEvent(
-                                      'CONFETTI_BASIC_BACK_TO_HOME_BTN_ON_TAP');
+                                      'CONFETTI_BASIC_SEE_SELF_CARE_PLAN_BTN_ON');
                                   logFirebaseEvent('Button_update_app_state');
                                   FFAppState().pointsEarned =
                                       FFAppState().pointsEarned + 50;
+                                  FFAppState().hasCompletedGoal = true;
                                   FFAppState().update(() {});
-                                  logFirebaseEvent('Button_backend_call');
-
-                                  await _model.numberOfGolasCompleted!.reference
-                                      .update({
-                                    ...createUsersRecordData(
-                                      hasGainedPoints: true,
-                                    ),
-                                    ...mapToFirestore(
-                                      {
-                                        'numberOfGoalsCompleted':
-                                            FieldValue.increment(1),
-                                      },
-                                    ),
-                                  });
                                   logFirebaseEvent('Button_show_snack_bar');
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
@@ -280,31 +272,25 @@ class _ConfettiPageBasicCompWidgetState
                                       backgroundColor:
                                           FlutterFlowTheme.of(context)
                                               .secondary,
-                                      action: SnackBarAction(
-                                        label: 'Navigating Home!',
-                                        textColor: FlutterFlowTheme.of(context)
-                                            .alternate,
-                                        onPressed: () async {
-                                          context.goNamed(
-                                            HomeVersion4Widget.routeName,
-                                            extra: <String, dynamic>{
-                                              kTransitionInfoKey:
-                                                  TransitionInfo(
-                                                hasTransition: true,
-                                                transitionType:
-                                                    PageTransitionType.fade,
-                                                duration:
-                                                    Duration(milliseconds: 0),
-                                              ),
-                                            },
-                                          );
-                                        },
-                                      ),
                                     ),
+                                  );
+                                  logFirebaseEvent('Button_navigate_to');
+                                  if (Navigator.of(context).canPop()) {
+                                    context.pop();
+                                  }
+                                  context.pushNamed(
+                                    HomeVersion4Widget.routeName,
+                                    extra: <String, dynamic>{
+                                      kTransitionInfoKey: TransitionInfo(
+                                        hasTransition: true,
+                                        transitionType: PageTransitionType.fade,
+                                        duration: Duration(milliseconds: 2),
+                                      ),
+                                    },
                                   );
                                 },
                                 text: FFLocalizations.of(context).getText(
-                                  'acmn1kak' /* Back to Home */,
+                                  'acmn1kak' /* See Self-Care Plan */,
                                 ),
                                 options: FFButtonOptions(
                                   width: double.infinity,
@@ -317,12 +303,12 @@ class _ConfettiPageBasicCompWidgetState
                                   textStyle: FlutterFlowTheme.of(context)
                                       .titleSmall
                                       .override(
-                                        fontFamily: 'The Seasons',
+                                        fontFamily: 'WorkSans',
                                         color: FlutterFlowTheme.of(context)
                                             .alternate,
                                         fontSize: 18.0,
                                         letterSpacing: 0.0,
-                                        fontWeight: FontWeight.normal,
+                                        fontWeight: FontWeight.w600,
                                       ),
                                   elevation: 3.0,
                                   borderSide: BorderSide(
@@ -339,22 +325,6 @@ class _ConfettiPageBasicCompWidgetState
                                   onPressed: () async {
                                     logFirebaseEvent(
                                         'CONFETTI_BASIC_DISMISS_AND_REPLAY_BTN_ON');
-                                    logFirebaseEvent('Button_backend_call');
-                                    unawaited(
-                                      () async {
-                                        await currentUserReference!.update({
-                                          ...createUsersRecordData(
-                                            hasGainedPoints: true,
-                                          ),
-                                          ...mapToFirestore(
-                                            {
-                                              'numberOfGoalsCompleted':
-                                                  FieldValue.increment(1),
-                                            },
-                                          ),
-                                        });
-                                      }(),
-                                    );
                                     logFirebaseEvent('Button_bottom_sheet');
                                     Navigator.pop(context);
                                   },
@@ -372,12 +342,12 @@ class _ConfettiPageBasicCompWidgetState
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .override(
-                                          fontFamily: 'The Seasons',
+                                          fontFamily: 'WorkSans',
                                           color: FlutterFlowTheme.of(context)
                                               .primary,
                                           fontSize: 18.0,
                                           letterSpacing: 0.0,
-                                          fontWeight: FontWeight.bold,
+                                          fontWeight: FontWeight.w600,
                                         ),
                                     borderSide: BorderSide(
                                       color:

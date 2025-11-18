@@ -17,7 +17,12 @@ import 'focus_reorder_model.dart';
 export 'focus_reorder_model.dart';
 
 class FocusReorderWidget extends StatefulWidget {
-  const FocusReorderWidget({super.key});
+  const FocusReorderWidget({
+    super.key,
+    int? tabIndex,
+  }) : this.tabIndex = tabIndex ?? 2;
+
+  final int tabIndex;
 
   static String routeName = 'FocusReorder';
   static String routePath = 'focusReorder';
@@ -228,7 +233,7 @@ class _FocusReorderWidgetState extends State<FocusReorderWidget>
                                       MediaQuery.sizeOf(context).height * 0.85,
                                   tiktokVideosData:
                                       tiktokfeed_wz8en7_app_state.FFAppState()
-                                          .meditationTikToks,
+                                          .BreathingTikTok,
                                 ),
                               ),
                             );

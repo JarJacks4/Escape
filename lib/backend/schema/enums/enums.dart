@@ -3,7 +3,7 @@ export 'package:ff_commons/flutter_flow/enums.dart';
 
 enum Role {
   User,
-  Assistant,
+  Lucille,
 }
 
 T? deserializeEnum<T>(String? value) {

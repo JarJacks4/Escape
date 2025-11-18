@@ -207,7 +207,9 @@ class _SubscriptionComp2WidgetState extends State<SubscriptionComp2Widget>
             },
           ),
           child: Scrollbar(
+            controller: _model.columnController,
             child: SingleChildScrollView(
+              controller: _model.columnController,
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

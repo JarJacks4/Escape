@@ -88,7 +88,19 @@ class _Page2WidgetState extends State<Page2Widget> {
               children: [
                 FFButtonWidget(
                   onPressed: () async {
-                    context.pushNamed(HomePageWidget.routeName);
+                    context.pushNamed(
+                      HomePageWidget.routeName,
+                      queryParameters: {
+                        'oldIndex': serializeParam(
+                          0,
+                          ParamType.int,
+                        ),
+                        'newIndex': serializeParam(
+                          1,
+                          ParamType.int,
+                        ),
+                      }.withoutNulls,
+                    );
                   },
                   text: 'Open Feed',
                   options: FFButtonOptions(

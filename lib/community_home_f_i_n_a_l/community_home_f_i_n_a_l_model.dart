@@ -1,28 +1,17 @@
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/index.dart';
 import 'community_home_f_i_n_a_l_widget.dart' show CommunityHomeFINALWidget;
 import 'package:flutter/material.dart';
 
 class CommunityHomeFINALModel
     extends FlutterFlowModel<CommunityHomeFINALWidget> {
-  ///  Local state fields for this page.
-
-  List<int> reorderList = [];
-  void addToReorderList(int item) => reorderList.add(item);
-  void removeFromReorderList(int item) => reorderList.remove(item);
-  void removeAtIndexFromReorderList(int index) => reorderList.removeAt(index);
-  void insertAtIndexInReorderList(int index, int item) =>
-      reorderList.insert(index, item);
-  void updateReorderListAtIndex(int index, Function(int) updateFn) =>
-      reorderList[index] = updateFn(reorderList[index]);
-
   ///  State fields for stateful widgets in this page.
 
-  // Stores action output result for [Custom Action - reorderItems] action in ListView widget.
-  List<String>? communityForYouReorder;
-  // Stores action output result for [Custom Action - reorderItems] action in ListView widget.
-  List<String>? communityBreathingReorder;
-  // Stores action output result for [Custom Action - reorderItems] action in ListView widget.
-  List<String>? communityBodyReorder;
+  // Stores action output result for [Backend Call - API (Partner Token Epidemic Sound)] action in CommunityHomeFINAL widget.
+  ApiCallResponse? partnerToken;
+  // Stores action output result for [Backend Call - API (Epidemic Sound Albums)] action in CommunityHomeFINAL widget.
+  ApiCallResponse? epidemicAlbums;
   // State field(s) for TabBar widget.
   TabController? tabBarController;
   int get tabBarCurrentIndex =>
@@ -30,11 +19,29 @@ class CommunityHomeFINALModel
   int get tabBarPreviousIndex =>
       tabBarController != null ? tabBarController!.previousIndex : 0;
 
+  // State field(s) for PageView widget.
+  PageController? pageViewController;
+
+  int get pageViewCurrentIndex => pageViewController != null &&
+          pageViewController!.hasClients &&
+          pageViewController!.page != null
+      ? pageViewController!.page!.round()
+      : 0;
+  // State field(s) for Column widget.
+  ScrollController? columnController;
+  // State field(s) for Row widget.
+  ScrollController? rowController;
+
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    columnController = ScrollController();
+    rowController = ScrollController();
+  }
 
   @override
   void dispose() {
     tabBarController?.dispose();
+    columnController?.dispose();
+    rowController?.dispose();
   }
 }

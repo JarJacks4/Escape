@@ -320,8 +320,10 @@ class _TodaysReflectionCompWidgetState extends State<TodaysReflectionCompWidget>
                           },
                         ),
                         child: Scrollbar(
+                          controller: _model.rowController,
                           child: SingleChildScrollView(
                             scrollDirection: Axis.horizontal,
+                            controller: _model.rowController,
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -1,6 +1,5 @@
 import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_app_state.dart';
 import '/index.dart';
 import 'music_player_widget.dart' show MusicPlayerWidget;
 import 'package:stop_watch_timer/stop_watch_timer.dart';

@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
@@ -9,6 +10,10 @@ class SoundscapesHomeFinalModel
     extends FlutterFlowModel<SoundscapesHomeFinalWidget> {
   ///  State fields for stateful widgets in this page.
 
+  // Stores action output result for [Backend Call - API (Partner Token Epidemic Sound)] action in SoundscapesHomeFinal widget.
+  ApiCallResponse? partnerToken;
+  // Stores action output result for [Backend Call - API (Epidemic Search Tracks API)] action in SoundscapesHomeFinal widget.
+  ApiCallResponse? epidemicTracks;
   // State field(s) for Timer widget.
   final timerInitialTimeMs = 900;
   int timerMilliseconds = 900;
@@ -28,12 +33,21 @@ class SoundscapesHomeFinalModel
           pageViewController!.page != null
       ? pageViewController!.page!.round()
       : 0;
+  // State field(s) for Column widget.
+  ScrollController? columnController;
+  // State field(s) for Row widget.
+  ScrollController? rowController;
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    columnController = ScrollController();
+    rowController = ScrollController();
+  }
 
   @override
   void dispose() {
     timerController.dispose();
+    columnController?.dispose();
+    rowController?.dispose();
   }
 }

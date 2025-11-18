@@ -133,7 +133,7 @@ final parametersBuilderMap =
   'profileFINAL': ParameterData.none(),
   'SelfCarePlanPage': ParameterData.none(),
   'RecommendationsPage': ParameterData.none(),
-  'JournalPageFINAL': ParameterData.none(),
+  'journalPageFINAL': ParameterData.none(),
   'MeditationChoicePage': ParameterData.none(),
   'BreathingChoicePage': ParameterData.none(),
   'BasicBreathingGoalPage': ParameterData.none(),
@@ -163,7 +163,6 @@ final parametersBuilderMap =
   'ADHDAndOverthinkingGoal': ParameterData.none(),
   'AnxietyReliefGoal': ParameterData.none(),
   'IncreaseFocusGoal': ParameterData.none(),
-  'splashScreenVersion4': ParameterData.none(),
   'ShortBreathingGoal': ParameterData.none(),
   'LongBreathingGoal': ParameterData.none(),
   'CommunityHomeFINAL': (data) async => ParameterData(
@@ -181,29 +180,57 @@ final parametersBuilderMap =
   'MoodAnalyzerSuccess': ParameterData.none(),
   'blankSample': ParameterData.none(),
   'reels': ParameterData.none(),
-  'ChatWithLucilleFINAL': ParameterData.none(),
   'FacialMoodAnalyzerChoiceLucilleCard': ParameterData.none(),
-  'Sample': ParameterData.none(),
   'Settings': ParameterData.none(),
-  'ChatWithLucilleVersion4': ParameterData.none(),
-  'MeditationReorder': ParameterData.none(),
-  'FocusReorder': ParameterData.none(),
-  'BodyReorder': ParameterData.none(),
-  'SleepReorder': ParameterData.none(),
-  'DepressionReorder': ParameterData.none(),
-  'JournalPageFINALCopy': ParameterData.none(),
-  'LucilleNewChat': ParameterData.none(),
-  'LoadingScreenAnimus': ParameterData.none(),
-  'SoundscapesHomeFinal': ParameterData.none(),
-  'MusicPlayer': (data) async => ParameterData(
-        allParams: <String, dynamic>{},
+  'MeditationReorder': (data) async => ParameterData(
+        allParams: {
+          'tabIndex': getParameter<int>(data, 'tabIndex'),
+        },
       ),
+  'FocusReorder': (data) async => ParameterData(
+        allParams: {
+          'tabIndex': getParameter<int>(data, 'tabIndex'),
+        },
+      ),
+  'BodyReorder': (data) async => ParameterData(
+        allParams: {
+          'tabIndex': getParameter<int>(data, 'tabIndex'),
+        },
+      ),
+  'SleepReorder': (data) async => ParameterData(
+        allParams: {
+          'tabIndex': getParameter<int>(data, 'tabIndex'),
+        },
+      ),
+  'DepressionReorder': (data) async => ParameterData(
+        allParams: {
+          'tabIndex': getParameter<int>(data, 'tabIndex'),
+        },
+      ),
+  'journalPageFINALCopy': ParameterData.none(),
+  'SoundscapesHomeFinal': ParameterData.none(),
+  'MusicPlayer': ParameterData.none(),
   'AISoundscapesCopyCopy': (data) async => ParameterData(
         allParams: {
           'meditationaudio': getParameter<String>(data, 'meditationaudio'),
         },
       ),
   'EscapeInnerverseWebView': ParameterData.none(),
+  'journalVersion5': ParameterData.none(),
+  'splashScreenVersion5': ParameterData.none(),
+  'chat_ai_Screen': ParameterData.none(),
+  'ChatWithLucilleVersion5': ParameterData.none(),
+  'NewSignInVersion5': (data) async => ParameterData(
+        allParams: {
+          'tabIndexLogin': getParameter<int>(data, 'tabIndexLogin'),
+        },
+      ),
+  'DestinationsUnrealEngine': ParameterData.none(),
+  'DestinationDetailsUnrealEngineVersion5': ParameterData.none(),
+  'WorldsAndRealmsUnrealEngine': ParameterData.none(),
+  'MoodTrackingLoadingPage': ParameterData.none(),
+  'chat_ai_Screen_1': ParameterData.none(),
+  'AdvancedMoodTracker': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:webviewx_plus/webviewx_plus.dart';
 import 'escaping_with_nature_sounds_goal_model.dart';
 export 'escaping_with_nature_sounds_goal_model.dart';
 
@@ -166,11 +165,11 @@ Water Sounds */
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 200.0, 0.0, 0.0),
                       child: FlutterFlowAudioPlayer(
-                        audio: Audio.network(
-                          'https://firebasestorage.googleapis.com/v0/b/escape-ujuzxr.appspot.com/o/Escape%20Nature%20Sounds%2FWater%20Stream%2C%20Background.mp3?alt=media&token=418647bf-4d57-4f63-a946-fa23a5c8df78',
+                        audio: Audio(
+                          'assets/audios/Ocean_Soundscape_01_clip00_aug01_extra30.wav',
                           metas: Metas(
-                            id: 'Escape%20Nature%20Sounds%2FWater%20Stream%2C%20Background.mp3?alt=media&token=418647bf-4d57-4f63-a946-fa23a5c8df78-e3d820b1',
-                            title: 'Water Stream, Background',
+                            id: 'Ocean_Soundscape_01_clip00_aug01_extra30.wav-e3d820b1',
+                            title: 'Ocean Soundscape',
                           ),
                         ),
                         titleTextStyle:
@@ -207,16 +206,14 @@ Water Sounds */
                           backgroundColor: Colors.transparent,
                           context: context,
                           builder: (context) {
-                            return WebViewAware(
-                              child: GestureDetector(
-                                onTap: () {
-                                  FocusScope.of(context).unfocus();
-                                  FocusManager.instance.primaryFocus?.unfocus();
-                                },
-                                child: Padding(
-                                  padding: MediaQuery.viewInsetsOf(context),
-                                  child: ConfettiPageBasicCompWidget(),
-                                ),
+                            return GestureDetector(
+                              onTap: () {
+                                FocusScope.of(context).unfocus();
+                                FocusManager.instance.primaryFocus?.unfocus();
+                              },
+                              child: Padding(
+                                padding: MediaQuery.viewInsetsOf(context),
+                                child: ConfettiPageBasicCompWidget(),
                               ),
                             );
                           },

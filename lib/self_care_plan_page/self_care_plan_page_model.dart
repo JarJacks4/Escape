@@ -9,6 +9,10 @@ import 'package:flutter/material.dart';
 class SelfCarePlanPageModel extends FlutterFlowModel<SelfCarePlanPageWidget> {
   ///  State fields for stateful widgets in this page.
 
+  // State field(s) for Column widget.
+  ScrollController? columnController;
+  // State field(s) for ListView widget.
+  ScrollController? listViewController;
   // Model for ChatWithLucilleCard component.
   late ChatWithLucilleCardModel chatWithLucilleCardModel;
   // Model for GenerateSoundscapesCard component.
@@ -18,6 +22,8 @@ class SelfCarePlanPageModel extends FlutterFlowModel<SelfCarePlanPageWidget> {
 
   @override
   void initState(BuildContext context) {
+    columnController = ScrollController();
+    listViewController = ScrollController();
     chatWithLucilleCardModel =
         createModel(context, () => ChatWithLucilleCardModel());
     generateSoundscapesCardModel =
@@ -28,6 +34,8 @@ class SelfCarePlanPageModel extends FlutterFlowModel<SelfCarePlanPageWidget> {
 
   @override
   void dispose() {
+    columnController?.dispose();
+    listViewController?.dispose();
     chatWithLucilleCardModel.dispose();
     generateSoundscapesCardModel.dispose();
     todaysSelfCareActivitiesCompModel.dispose();

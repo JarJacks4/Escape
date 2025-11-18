@@ -167,6 +167,7 @@ Future<List<SelectedFile>?> selectMedia({
         bytes: mediaBytes,
         dimensions: await dimensions,
         blurHash: blurHash,
+        originalFilename: media.name,
       );
     }));
   }
@@ -205,6 +206,7 @@ Future<List<SelectedFile>?> selectMedia({
       bytes: mediaBytes,
       dimensions: await dimensions,
       blurHash: blurHash,
+      originalFilename: pickedMedia.name,
     ),
   ];
 }
@@ -255,6 +257,7 @@ Future<List<SelectedFile>?> selectFiles({
         storagePath: storagePath,
         filePath: isWeb ? null : file.path,
         bytes: file.bytes!,
+        originalFilename: file.name,
       );
     }));
   }
@@ -268,6 +271,7 @@ Future<List<SelectedFile>?> selectFiles({
       storagePath: storagePath,
       filePath: isWeb ? null : file.path,
       bytes: file.bytes!,
+      originalFilename: file.name,
     )
   ];
 }
@@ -288,7 +292,8 @@ List<SelectedFile> selectedFilesFromUploadedFiles(
               false,
               isMultiData ? index : null,
             ),
-            bytes: file.bytes!);
+            bytes: file.bytes!,
+            originalFilename: file.originalFilename);
       },
     ).toList();
 

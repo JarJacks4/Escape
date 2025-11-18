@@ -3,6 +3,7 @@ import '/backend/schema/structs/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'index.dart'; // Imports other custom widgets
+import '/custom_code/actions/index.dart'; // Imports custom actions
 import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
@@ -12,6 +13,8 @@ import 'dart:async';
 import 'package:video_player/video_player.dart';
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import 'package:video_player/video_player.dart';
 
 class ChewieWidget extends StatefulWidget {
   const ChewieWidget({
@@ -38,7 +41,6 @@ class ChewieWidget extends StatefulWidget {
 class _ChewieWidgetState extends State<ChewieWidget> {
   List<Video> _videos = [];
   List<Video2> _videoss = [];
-
   int _currentIndex = 0;
   bool _showPlayIcon = true;
   bool lastValue = true;
@@ -108,6 +110,23 @@ class _ChewieWidgetState extends State<ChewieWidget> {
       ),
     );
   }
+
+  //   body: PageView.builder(
+  //     itemCount: _preloadVideos!.getTotalVideoCount(),
+  //     scrollDirection: Axis.vertical,
+  //     itemBuilder: (context, index) {
+  //       return videoCard(_videos[index], _videoss[index], index);
+  //     },
+  //     onPageChanged: (index) {
+  //       if (_currentIndex != index) {
+  //         _videos[_currentIndex].controller?.pause();
+  //       }
+  //       _currentIndex = index;
+  //       _videos[_currentIndex].controller?.play();
+  //       _showPlayIcon = true;
+  //     },
+  //   ),
+  // );
 
   Widget videoCard(Video video, Video2 videoo, int index) {
     GlobalKey<_HeartState> heart = GlobalKey<_HeartState>();

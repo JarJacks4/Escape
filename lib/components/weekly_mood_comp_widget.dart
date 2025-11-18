@@ -369,8 +369,10 @@ class _WeeklyMoodCompWidgetState extends State<WeeklyMoodCompWidget>
                             },
                           ),
                           child: Scrollbar(
+                            controller: _model.rowController,
                             child: SingleChildScrollView(
                               scrollDirection: Axis.horizontal,
+                              controller: _model.rowController,
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [

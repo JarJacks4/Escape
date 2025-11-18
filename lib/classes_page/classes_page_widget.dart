@@ -135,7 +135,9 @@ class _ClassesPageWidgetState extends State<ClassesPageWidget>
                   },
                 ),
                 child: Scrollbar(
+                  controller: _model.columnController,
                   child: SingleChildScrollView(
+                    controller: _model.columnController,
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       crossAxisAlignment: CrossAxisAlignment.start,

@@ -42,7 +42,7 @@
         <string>Editor</string>
         <key>CFBundleURLSchemes</key>
         <array>
-          <!--FF_REVERSED_CLIENT_ID-->
+          <string>com.googleusercontent.apps.286076426888-bjuqp3v20r0n6f99d9lpn07pvpfti4ei</string>
         </array>
       </dict>
       <dict>
@@ -62,26 +62,30 @@
     <string>$(FLUTTER_BUILD_NUMBER)</string>
     <key>LSRequiresIPhoneOS</key>
     <true/>
-    <key>NSLocationWhenInUseUsageDescription</key>
-    <string>Escape requires access to your Location in order to use parts of our app.</string>
+    <!-- 🔐 REQUIRED APPLE PRIVACY PERMISSIONS -->
     <key>NSCameraUsageDescription</key>
-    <string>Escape requires access to your Camera in order to use parts of our app.</string>
+    <string>Escape requires camera access to capture images for mood analysis and self-care features.</string>
     <key>NSMicrophoneUsageDescription</key>
-    <string>In order to record audio for video, this app requires permission to access the microphone.</string>
+    <string>Escape requires microphone access to support audio features, mood scanning, and guided experiences.</string>
+    <key>NSSpeechRecognitionUsageDescription</key>
+    <string>Escape uses speech recognition to enhance hands-free mood journaling and AI-guided experiences.</string>
     <key>NSPhotoLibraryUsageDescription</key>
-    <string>Escape requires access to your Photo Library in order to use parts of our app.</string>
-    <key>PermissionGroupNotification</key>
-    <string>In order to take a picture for your mood, Escape will need permission to access your notifications.</string>
-    <key>NSPushNotification</key>
-    <string>In order to send notifications, Escape will need permission to send push notifications when your mood updates.</string>
+    <string>Escape needs access to your photo library to let you upload images for your self-care journey.</string>
     <key>NSLocationWhenInUseUsageDescription</key>
-    <string>In order to help Lucille give you a better self-care experience, we will need your permission for your device location when in usage of Escape.</string>
+    <string>Escape uses your location to provide personalized self-care suggestions and mood-aware insights.</string>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>Escape requires location access even when the app is not active to support advanced mood mapping and self-care personalization.</string>
+    <!-- 🔔 Notifications -->
+    <key>NSUserNotificationUsageDescription</key>
+    <string>Escape uses notifications to keep you updated on mood insights, milestones, and wellness reminders.</string>
+    <!-- 🔧 Background Modes -->
     <key>UIBackgroundModes</key>
     <array>
       <string>fetch</string>
       <string>remote-notification</string>
       <string>audio</string>
     </array>
+    <!-- 🌐 App Linking -->
     <key>LSApplicationQueriesSchemes</key>
     <array>
       <string>comgooglemaps</string>

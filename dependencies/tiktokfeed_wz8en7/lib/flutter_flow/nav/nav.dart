@@ -52,7 +52,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: HomePageWidget.routeName,
           path: HomePageWidget.routePath,
-          builder: (context, params) => HomePageWidget(),
+          builder: (context, params) => HomePageWidget(
+            oldIndex: params.getParam(
+              'oldIndex',
+              ParamType.int,
+            ),
+            newIndex: params.getParam(
+              'newIndex',
+              ParamType.int,
+            ),
+          ),
         ),
         FFRoute(
           name: Page2Widget.routeName,

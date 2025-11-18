@@ -139,7 +139,7 @@ class _SessonTimeoutWarningWidgetState
                     GoRouter.of(context).clearRedirectLocation();
 
                     context.goNamedAuth(
-                        SplashScreenVersion4Widget.routeName, context.mounted);
+                        SplashScreenVersion5Widget.routeName, context.mounted);
                   },
                   text: FFLocalizations.of(context).getText(
                     'vub5e85e' /* Logout */,

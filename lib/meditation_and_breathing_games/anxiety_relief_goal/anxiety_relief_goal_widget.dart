@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:webviewx_plus/webviewx_plus.dart';
 import 'anxiety_relief_goal_model.dart';
 export 'anxiety_relief_goal_model.dart';
 
@@ -160,10 +159,10 @@ class _AnxietyReliefGoalWidgetState extends State<AnxietyReliefGoalWidget> {
                           EdgeInsetsDirectional.fromSTEB(0.0, 350.0, 0.0, 8.0),
                       child: FlutterFlowAudioPlayer(
                         audio: Audio.network(
-                          'https://firebasestorage.googleapis.com/v0/b/escape-ujuzxr.appspot.com/o/Escape%20Binaural%20Beats%2FES_Mirror%20Gloss%20-%20Fridhem.mp3?alt=media&token=e5ef3704-a979-45f9-bbed-5affa2560872',
+                          'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/ES_A%20Prayer%20for%20Light%20-%20Sayuri%20Hayashi%20Egnell.mp3?alt=media&token=01416c12-7b48-425a-8001-2d315409650f',
                           metas: Metas(
-                            id: 'Escape%20Binaural%20Beats%2FES_Mirror%20Gloss%20-%20Fridhem.mp3?alt=media&token=e5ef3704-a979-45f9-bbed-5affa2560872-fc0640cb',
-                            title: 'Mirror Gloss - Fridhem',
+                            id: 'ES_A%20Prayer%20for%20Light%20-%20Sayuri%20Hayashi%20Egnell.mp3?alt=media&token=01416c12-7b48-425a-8001-2d315409650f-fc0640cb',
+                            title: 'A Prayer for Light - Sayuri Hayashi Egnell',
                           ),
                         ),
                         titleTextStyle:
@@ -174,10 +173,17 @@ class _AnxietyReliefGoalWidgetState extends State<AnxietyReliefGoalWidget> {
                                 ),
                         playbackDurationTextStyle:
                             FlutterFlowTheme.of(context).labelMedium.override(
-                                  fontFamily: 'WorkSans',
-                                  color: FlutterFlowTheme.of(context).primary,
-                                  letterSpacing: 0.0,
-                                ),
+                          fontFamily: 'WorkSans',
+                          color: FlutterFlowTheme.of(context).primary,
+                          letterSpacing: 0.0,
+                          shadows: [
+                            Shadow(
+                              color: FlutterFlowTheme.of(context).primary,
+                              offset: Offset(2.0, 2.0),
+                              blurRadius: 8.0,
+                            )
+                          ],
+                        ),
                         fillColor: Color(0x4ED0E3F7),
                         playbackButtonColor:
                             FlutterFlowTheme.of(context).accent1,
@@ -198,16 +204,14 @@ class _AnxietyReliefGoalWidgetState extends State<AnxietyReliefGoalWidget> {
                           backgroundColor: Colors.transparent,
                           context: context,
                           builder: (context) {
-                            return WebViewAware(
-                              child: GestureDetector(
-                                onTap: () {
-                                  FocusScope.of(context).unfocus();
-                                  FocusManager.instance.primaryFocus?.unfocus();
-                                },
-                                child: Padding(
-                                  padding: MediaQuery.viewInsetsOf(context),
-                                  child: ConfettiPageExpertCompWidget(),
-                                ),
+                            return GestureDetector(
+                              onTap: () {
+                                FocusScope.of(context).unfocus();
+                                FocusManager.instance.primaryFocus?.unfocus();
+                              },
+                              child: Padding(
+                                padding: MediaQuery.viewInsetsOf(context),
+                                child: ConfettiPageExpertCompWidget(),
                               ),
                             );
                           },

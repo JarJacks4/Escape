@@ -23,14 +23,13 @@ import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:webviewx_plus/webviewx_plus.dart';
 import 'journal_page_f_i_n_a_l_model.dart';
 export 'journal_page_f_i_n_a_l_model.dart';
 
 class JournalPageFINALWidget extends StatefulWidget {
   const JournalPageFINALWidget({super.key});
 
-  static String routeName = 'JournalPageFINAL';
+  static String routeName = 'journalPageFINAL';
   static String routePath = 'journalPageFINAL';
 
   @override
@@ -51,11 +50,11 @@ class _JournalPageFINALWidgetState extends State<JournalPageFINALWidget>
     _model = createModel(context, () => JournalPageFINALModel());
 
     logFirebaseEvent('screen_view',
-        parameters: {'screen_name': 'JournalPageFINAL'});
+        parameters: {'screen_name': 'journalPageFINAL'});
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      logFirebaseEvent('JOURNAL_F_I_N_A_L_JournalPageFINAL_ON_IN');
-      logFirebaseEvent('JournalPageFINAL_a_i_agent');
+      logFirebaseEvent('JOURNAL_F_I_N_A_L_journalPageFINAL_ON_IN');
+      logFirebaseEvent('journalPageFINAL_a_i_agent');
       await callAiAgent(
         context: context,
         prompt:
@@ -64,13 +63,13 @@ class _JournalPageFINALWidgetState extends State<JournalPageFINALWidget>
         agentCloudFunctionName: 'lucilleGenerateQuote',
         provider: 'GOOGLE',
         agentJson:
-            '{\"status\":\"LIVE\",\"identifier\":{\"name\":\"lucilleGenerateQuote\",\"key\":\"fgsej\"},\"name\":\"Lucille Generate Quote\",\"description\":\"This is a AI Agent named Lucille for Escape that helps generate a quote for the user based on their current mood.\",\"aiModel\":{\"provider\":\"GOOGLE\",\"model\":\"gemini-2.0-flash\",\"parameters\":{\"temperature\":{\"inputValue\":0.25},\"maxTokens\":{\"inputValue\":2334},\"topP\":{\"inputValue\":0.4}},\"messages\":[{\"role\":\"SYSTEM\",\"text\":\"Generate a text a 200 characterl quote from a real person that uplifts the user and is based off of the user\'s {CurrentMood}: \\n\\nCurrentMood\"}]},\"requestOptions\":{\"requestTypes\":[\"PLAINTEXT\"]},\"responseOptions\":{\"responseType\":\"PLAINTEXT\"}}',
+            '{\"status\":\"LIVE\",\"identifier\":{\"name\":\"lucilleGenerateQuote\",\"key\":\"fgsej\"},\"name\":\"Lucille Generate Quote\",\"description\":\"This is a AI Agent named Lucille for Escape that helps generate a quote for the user based on their current mood.\",\"aiModel\":{\"provider\":\"GOOGLE\",\"model\":\"gemini-2.0-flash\",\"parameters\":{\"temperature\":{\"inputValue\":1},\"maxTokens\":{\"inputValue\":8192},\"topP\":{\"inputValue\":0.95}},\"messages\":[{\"role\":\"SYSTEM\",\"text\":\"Generate a text a 200 characterl quote from a real person that uplifts the user and is based off of the user\'s {CurrentMood}: \\n\\nCurrentMood\"},{\"role\":\"USER\",\"text\":\"Could you help me generate a 200 character quote from a real person that uplifts the user and is based off of the user\'s {CurrentMood}: \\n\\nCurrentMood\"}]},\"requestOptions\":{\"requestTypes\":[\"PLAINTEXT\"]},\"responseOptions\":{\"responseType\":\"PLAINTEXT\"}}',
         responseType: 'PLAINTEXT',
       ).then((generatedText) {
         safeSetState(() => _model.generateQuoteForJournal = generatedText);
       });
 
-      logFirebaseEvent('JournalPageFINAL_a_i_agent');
+      logFirebaseEvent('journalPageFINAL_a_i_agent');
       await callAiAgent(
         context: context,
         prompt:
@@ -79,22 +78,22 @@ class _JournalPageFINALWidgetState extends State<JournalPageFINALWidget>
         agentCloudFunctionName: 'lucilleJournalGeneration',
         provider: 'GOOGLE',
         agentJson:
-            '{\"status\":\"LIVE\",\"identifier\":{\"name\":\"lucilleJournalGeneration\",\"key\":\"y28g9\"},\"name\":\"LucilleJournalGeneration\",\"description\":\"This is a AI Agent named Lucille for Escape that helps generate a journal entry for the user based on their current mood.\",\"aiModel\":{\"provider\":\"GOOGLE\",\"model\":\"gemini-2.0-flash\",\"parameters\":{\"temperature\":{\"inputValue\":0.8},\"maxTokens\":{\"inputValue\":2275},\"topP\":{\"inputValue\":0.4}},\"messages\":[{\"role\":\"SYSTEM\",\"text\":\"Generate a text a 200 character journal entry that uplifts the user and is based off of the user\'s {CurrentMood}: \\n\\nCurrentMood\"},{\"role\":\"USER\",\"text\":\"Coulud I please get a Generated text that 200 character journal entry that uplifts the me and is based off of my {CurrentMood} in the Firebase Firestore: \\n\\nCurrentMood\"}]},\"requestOptions\":{\"requestTypes\":[\"PLAINTEXT\"]},\"responseOptions\":{\"responseType\":\"PLAINTEXT\"}}',
+            '{\"status\":\"LIVE\",\"identifier\":{\"name\":\"lucilleJournalGeneration\",\"key\":\"y28g9\"},\"name\":\"LucilleJournalGeneration\",\"description\":\"This is a AI Agent named Lucille for Escape that helps generate a journal entry for the user based on their current mood.\",\"aiModel\":{\"provider\":\"GOOGLE\",\"model\":\"gemini-2.0-flash\",\"parameters\":{\"temperature\":{\"inputValue\":1},\"maxTokens\":{\"inputValue\":8192},\"topP\":{\"inputValue\":0.95}},\"messages\":[{\"role\":\"SYSTEM\",\"text\":\"Generate a text a 200 character journal entry that uplifts the user and is based off of the user\'s {CurrentMood}: \\n\\nCurrentMood\"},{\"role\":\"USER\",\"text\":\"Coulud I please get a Generated text that 200 character journal entry that uplifts the me and is based off of my {CurrentMood} in the Firebase Firestore: \\n\\nCurrentMood\"}]},\"requestOptions\":{\"requestTypes\":[\"PLAINTEXT\"]},\"responseOptions\":{\"responseType\":\"PLAINTEXT\"}}',
         responseType: 'PLAINTEXT',
       ).then((generatedText) {
         safeSetState(() => _model.journalGeneration = generatedText);
       });
 
       if (_model.generateQuoteForJournal == '') {
-        logFirebaseEvent('JournalPageFINAL_a_i_agent');
+        logFirebaseEvent('journalPageFINAL_a_i_agent');
         clearAiChat('1', 'GOOGLE');
-        logFirebaseEvent('JournalPageFINAL_a_i_agent');
+        logFirebaseEvent('journalPageFINAL_a_i_agent');
         clearAiChat('2', 'GOOGLE');
       } else {
         return;
       }
 
-      logFirebaseEvent('JournalPageFINAL_update_app_state');
+      logFirebaseEvent('journalPageFINAL_update_app_state');
       FFAppState().JournalPrompt = valueOrDefault<String>(
         _model.journalGeneration,
         'What three things brought you joy today, and how can you incorporate more of these moments into your daily life?',
@@ -247,6 +246,7 @@ class _JournalPageFINALWidgetState extends State<JournalPageFINALWidget>
                 },
               ),
               child: Scrollbar(
+                controller: _model.columnController1,
                 child: SingleChildScrollView(
                   primary: false,
                   controller: _model.columnController1,
@@ -443,6 +443,7 @@ class _JournalPageFINALWidgetState extends State<JournalPageFINALWidget>
                     },
                   ),
                   child: Scrollbar(
+                    controller: _model.columnController2,
                     child: SingleChildScrollView(
                       controller: _model.columnController2,
                       child: Column(
@@ -661,6 +662,7 @@ class _JournalPageFINALWidgetState extends State<JournalPageFINALWidget>
                                       },
                                     ),
                                     child: Scrollbar(
+                                      controller: _model.columnController3,
                                       child: SingleChildScrollView(
                                         primary: false,
                                         controller: _model.columnController3,
@@ -1256,6 +1258,8 @@ class _JournalPageFINALWidgetState extends State<JournalPageFINALWidget>
                                                       },
                                                     ),
                                                     child: Scrollbar(
+                                                      controller:
+                                                          _model.rowController,
                                                       child:
                                                           SingleChildScrollView(
                                                         scrollDirection:
@@ -1459,24 +1463,20 @@ class _JournalPageFINALWidgetState extends State<JournalPageFINALWidget>
                                                     enableDrag: false,
                                                     context: context,
                                                     builder: (context) {
-                                                      return WebViewAware(
-                                                        child: GestureDetector(
-                                                          onTap: () {
-                                                            FocusScope.of(
-                                                                    context)
-                                                                .unfocus();
-                                                            FocusManager
-                                                                .instance
-                                                                .primaryFocus
-                                                                ?.unfocus();
-                                                          },
-                                                          child: Padding(
-                                                            padding: MediaQuery
-                                                                .viewInsetsOf(
-                                                                    context),
-                                                            child:
-                                                                ConfettiPageBasicCompWidget(),
-                                                          ),
+                                                      return GestureDetector(
+                                                        onTap: () {
+                                                          FocusScope.of(context)
+                                                              .unfocus();
+                                                          FocusManager.instance
+                                                              .primaryFocus
+                                                              ?.unfocus();
+                                                        },
+                                                        child: Padding(
+                                                          padding: MediaQuery
+                                                              .viewInsetsOf(
+                                                                  context),
+                                                          child:
+                                                              ConfettiPageBasicCompWidget(),
                                                         ),
                                                       );
                                                     },

@@ -253,7 +253,9 @@ class _FocusVideosFINALWidgetState extends State<FocusVideosFINALWidget>
                       },
                     ),
                     child: Scrollbar(
+                      controller: _model.columnController1,
                       child: SingleChildScrollView(
+                        controller: _model.columnController1,
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -322,7 +324,9 @@ class _FocusVideosFINALWidgetState extends State<FocusVideosFINALWidget>
                                     },
                                   ),
                                   child: Scrollbar(
+                                    controller: _model.columnController2,
                                     child: SingleChildScrollView(
+                                      controller: _model.columnController2,
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [

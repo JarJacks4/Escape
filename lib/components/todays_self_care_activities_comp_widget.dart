@@ -116,9 +116,10 @@ class _TodaysSelfCareActivitiesCompWidgetState
                 'zsskeqiq' /* Recommended Self-Care Activiti... */,
               ),
               style: FlutterFlowTheme.of(context).headlineSmall.override(
-                    fontFamily: 'WorkSans',
+                    fontFamily: 'The Seasons',
                     fontSize: 28.0,
                     letterSpacing: 0.0,
+                    fontWeight: FontWeight.bold,
                   ),
             ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation1']!),
             ListView(
