@@ -6,6 +6,8 @@ class AddASoundModel extends FlutterFlowModel<AddASoundWidget> {
   ///  State fields for stateful widgets in this component.
 
   final formKey = GlobalKey<FormState>();
+  // State field(s) for Column widget.
+  ScrollController? columnController;
   // State field(s) for projectName widget.
   FocusNode? projectNameFocusNode;
   TextEditingController? projectNameTextController;
@@ -24,10 +26,13 @@ class AddASoundModel extends FlutterFlowModel<AddASoundWidget> {
   String? Function(BuildContext, String?)? clonableURLTextControllerValidator;
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    columnController = ScrollController();
+  }
 
   @override
   void dispose() {
+    columnController?.dispose();
     projectNameFocusNode?.dispose();
     projectNameTextController?.dispose();
 

@@ -187,6 +187,31 @@ class UsersRecord extends FirestoreRecord {
   DocumentReference? get createdBy => _createdBy;
   bool hasCreatedBy() => _createdBy != null;
 
+  // "LowerChakraMood" field.
+  String? _lowerChakraMood;
+  String get lowerChakraMood => _lowerChakraMood ?? '';
+  bool hasLowerChakraMood() => _lowerChakraMood != null;
+
+  // "MiddleChakraMood" field.
+  String? _middleChakraMood;
+  String get middleChakraMood => _middleChakraMood ?? '';
+  bool hasMiddleChakraMood() => _middleChakraMood != null;
+
+  // "HigherChakraMood" field.
+  String? _higherChakraMood;
+  String get higherChakraMood => _higherChakraMood ?? '';
+  bool hasHigherChakraMood() => _higherChakraMood != null;
+
+  // "AscendedMood" field.
+  String? _ascendedMood;
+  String get ascendedMood => _ascendedMood ?? '';
+  bool hasAscendedMood() => _ascendedMood != null;
+
+  // "isRecording" field.
+  bool? _isRecording;
+  bool get isRecording => _isRecording ?? false;
+  bool hasIsRecording() => _isRecording != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _photoUrl = snapshotData['photo_url'] as String?;
@@ -228,6 +253,11 @@ class UsersRecord extends FirestoreRecord {
     _isLoggedOut = snapshotData['isLoggedOut'] as bool?;
     _isActive = snapshotData['isActive'] as bool?;
     _createdBy = snapshotData['created_by'] as DocumentReference?;
+    _lowerChakraMood = snapshotData['LowerChakraMood'] as String?;
+    _middleChakraMood = snapshotData['MiddleChakraMood'] as String?;
+    _higherChakraMood = snapshotData['HigherChakraMood'] as String?;
+    _ascendedMood = snapshotData['AscendedMood'] as String?;
+    _isRecording = snapshotData['isRecording'] as bool?;
   }
 
   static CollectionReference get collection =>
@@ -298,6 +328,11 @@ Map<String, dynamic> createUsersRecordData({
   bool? isLoggedOut,
   bool? isActive,
   DocumentReference? createdBy,
+  String? lowerChakraMood,
+  String? middleChakraMood,
+  String? higherChakraMood,
+  String? ascendedMood,
+  bool? isRecording,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -335,6 +370,11 @@ Map<String, dynamic> createUsersRecordData({
       'isLoggedOut': isLoggedOut,
       'isActive': isActive,
       'created_by': createdBy,
+      'LowerChakraMood': lowerChakraMood,
+      'MiddleChakraMood': middleChakraMood,
+      'HigherChakraMood': higherChakraMood,
+      'AscendedMood': ascendedMood,
+      'isRecording': isRecording,
     }.withoutNulls,
   );
 
@@ -383,7 +423,12 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.notificationsAllowed == e2?.notificationsAllowed &&
         e1?.isLoggedOut == e2?.isLoggedOut &&
         e1?.isActive == e2?.isActive &&
-        e1?.createdBy == e2?.createdBy;
+        e1?.createdBy == e2?.createdBy &&
+        e1?.lowerChakraMood == e2?.lowerChakraMood &&
+        e1?.middleChakraMood == e2?.middleChakraMood &&
+        e1?.higherChakraMood == e2?.higherChakraMood &&
+        e1?.ascendedMood == e2?.ascendedMood &&
+        e1?.isRecording == e2?.isRecording;
   }
 
   @override
@@ -421,7 +466,12 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.notificationsAllowed,
         e?.isLoggedOut,
         e?.isActive,
-        e?.createdBy
+        e?.createdBy,
+        e?.lowerChakraMood,
+        e?.middleChakraMood,
+        e?.higherChakraMood,
+        e?.ascendedMood,
+        e?.isRecording
       ]);
 
   @override

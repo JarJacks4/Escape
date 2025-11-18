@@ -2,7 +2,6 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/ai_agents/ai_agent.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
-import '/components/mood_analyzer_success_comp_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -11,7 +10,7 @@ import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:webviewx_plus/webviewx_plus.dart';
+import 'package:lottie/lottie.dart';
 import 'facial_mood_analyzer_page_model.dart';
 export 'facial_mood_analyzer_page_model.dart';
 
@@ -135,7 +134,7 @@ class _FacialMoodAnalyzerPageWidgetState
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: FlutterFlowTheme.of(context).primary,
         body: Stack(
           children: [
             Align(
@@ -324,7 +323,6 @@ class _FacialMoodAnalyzerPageWidgetState
                                             await selectMediaWithSourceBottomSheet(
                                           context: context,
                                           allowPhoto: true,
-                                          includeDimensions: true,
                                         );
                                         if (selectedMedia != null &&
                                             selectedMedia.every((m) =>
@@ -338,11 +336,6 @@ class _FacialMoodAnalyzerPageWidgetState
 
                                           var downloadUrls = <String>[];
                                           try {
-                                            showUploadMessage(
-                                              context,
-                                              'Uploading file...',
-                                              showLoading: true,
-                                            );
                                             selectedUploadedFiles =
                                                 selectedMedia
                                                     .map((m) => FFUploadedFile(
@@ -355,6 +348,8 @@ class _FacialMoodAnalyzerPageWidgetState
                                                           width: m.dimensions
                                                               ?.width,
                                                           blurHash: m.blurHash,
+                                                          originalFilename: m
+                                                              .originalFilename,
                                                         ))
                                                     .toList();
 
@@ -368,8 +363,6 @@ class _FacialMoodAnalyzerPageWidgetState
                                                 .map((u) => u!)
                                                 .toList();
                                           } finally {
-                                            ScaffoldMessenger.of(context)
-                                                .hideCurrentSnackBar();
                                             _model.isDataUploading_aIUploadMoodPhoto =
                                                 false;
                                           }
@@ -383,18 +376,16 @@ class _FacialMoodAnalyzerPageWidgetState
                                               _model.uploadedFileUrl_aIUploadMoodPhoto =
                                                   downloadUrls.first;
                                             });
-                                            showUploadMessage(
-                                                context, 'Success!');
                                           } else {
                                             safeSetState(() {});
-                                            showUploadMessage(context,
-                                                'Failed to upload data');
                                             return;
                                           }
                                         }
 
                                         logFirebaseEvent(
                                             'Button_show_snack_bar');
+                                        ScaffoldMessenger.of(context)
+                                            .clearSnackBars();
                                         ScaffoldMessenger.of(context)
                                             .showSnackBar(
                                           SnackBar(
@@ -431,7 +422,7 @@ class _FacialMoodAnalyzerPageWidgetState
                                               'lucilleMoodAnalyzerAgent',
                                           provider: 'GOOGLE',
                                           agentJson:
-                                              '{\"status\":\"LIVE\",\"identifier\":{\"name\":\"lucilleMoodAnalyzerAgent\",\"key\":\"qs0vq\"},\"name\":\"LucilleMoodAnalyzerAgent\",\"description\":\"This Self-Care agent is for primarily giving a one word response to \\\"What is the user\'s mood, according to their uploaded photo?\\\"\",\"aiModel\":{\"provider\":\"GOOGLE\",\"model\":\"gemini-2.0-flash\",\"parameters\":{\"temperature\":{\"inputValue\":0.3},\"maxTokens\":{\"inputValue\":100},\"topP\":{\"inputValue\":0.7}},\"messages\":[{\"role\":\"SYSTEM\",\"text\":\"You are a Self-Care agent for the AI Self Care company Escapeapp.ai and you are here to give a one word response to their uploaded photo. The response should be the mood that you analyze from the photo, as a completely one word response.\"},{\"role\":\"USER\",\"text\":\"What is the my mood today, in one word, according to the photo they just uploaded for text-to-image mood analyzation?\"}]},\"requestOptions\":{\"requestTypes\":[\"PLAINTEXT\"]},\"responseOptions\":{\"responseType\":\"PLAINTEXT\"}}',
+                                              '{\"status\":\"LIVE\",\"identifier\":{\"name\":\"lucilleMoodAnalyzerAgent\",\"key\":\"qs0vq\"},\"name\":\"LucilleMoodAnalyzerAgent\",\"description\":\"This Self-Care agent is for primarily giving a one word response to \\\"What is the user\'s mood, according to their uploaded photo?\\\"\",\"aiModel\":{\"provider\":\"GOOGLE\",\"model\":\"gemini-2.0-flash\",\"parameters\":{\"temperature\":{\"inputValue\":1},\"maxTokens\":{\"inputValue\":8192},\"topP\":{\"inputValue\":0.95}},\"messages\":[{\"role\":\"SYSTEM\",\"text\":\"You are a Self-Care agent for the AI Self Care company Escapeapp.ai and you are here to give a one word response to their uploaded photo. The response should be the mood that you analyze from the photo, as a completely one word response.\"},{\"role\":\"USER\",\"text\":\"What is the my mood today, in one word, according to the photo they just uploaded for text-to-image mood analyzation?\"}]},\"requestOptions\":{\"requestTypes\":[\"PLAINTEXT\"]},\"responseOptions\":{\"responseType\":\"PLAINTEXT\"}}',
                                           responseType: 'PLAINTEXT',
                                         ).then((generatedText) {
                                           safeSetState(() =>
@@ -449,39 +440,22 @@ class _FacialMoodAnalyzerPageWidgetState
                                               .uploadedFileUrl_aIUploadMoodPhoto,
                                           timeStamp: getCurrentTimestamp,
                                           createdTime: getCurrentTimestamp,
+                                          uid: 'user1',
                                         ));
-                                        logFirebaseEvent('Button_bottom_sheet');
-                                        await showModalBottomSheet(
-                                          isScrollControlled: true,
-                                          backgroundColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .primary,
-                                          barrierColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .alternate,
-                                          useSafeArea: true,
-                                          context: context,
-                                          builder: (context) {
-                                            return WebViewAware(
-                                              child: GestureDetector(
-                                                onTap: () {
-                                                  FocusScope.of(context)
-                                                      .unfocus();
-                                                  FocusManager
-                                                      .instance.primaryFocus
-                                                      ?.unfocus();
-                                                },
-                                                child: Padding(
-                                                  padding:
-                                                      MediaQuery.viewInsetsOf(
-                                                          context),
-                                                  child:
-                                                      MoodAnalyzerSuccessCompWidget(),
-                                                ),
-                                              ),
-                                            );
+                                        logFirebaseEvent('Button_navigate_to');
+
+                                        context.pushNamed(
+                                          AdvancedMoodTrackerWidget.routeName,
+                                          extra: <String, dynamic>{
+                                            kTransitionInfoKey: TransitionInfo(
+                                              hasTransition: true,
+                                              transitionType:
+                                                  PageTransitionType.fade,
+                                              duration:
+                                                  Duration(milliseconds: 9),
+                                            ),
                                           },
-                                        ).then((value) => safeSetState(() {}));
+                                        );
 
                                         safeSetState(() {});
                                       },
@@ -545,35 +519,39 @@ class _FacialMoodAnalyzerPageWidgetState
                 ),
               ),
             ),
-            AuthUserStreamWidget(
-              builder: (context) => Container(
-                width: double.infinity,
-                height: 428.03,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: Image.network(
-                      valueOrDefault<String>(
-                        valueOrDefault(
-                                        currentUserDocument?.currentMood, '') !=
-                                    ''
-                            ? valueOrDefault(
-                                currentUserDocument?.currentMoodPhoto, '')
-                            : 'https://res.cloudinary.com/dbyduwpud/image/upload/v1751860346/AICircleLucilleChat_uo87av.gif',
-                        'https://res.cloudinary.com/dbyduwpud/image/upload/v1751860346/AICircleLucilleChat_uo87av.gif',
-                      ),
-                    ).image,
-                  ),
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(25.0),
-                    bottomRight: Radius.circular(25.0),
-                    topLeft: Radius.circular(0.0),
-                    topRight: Radius.circular(0.0),
-                  ),
+            Container(
+              width: double.infinity,
+              height: 428.03,
+              decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    blurRadius: 10.0,
+                    color: FlutterFlowTheme.of(context).primary,
+                    offset: Offset(
+                      8.0,
+                      10.0,
+                    ),
+                    spreadRadius: 10.0,
+                  )
+                ],
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(25.0),
+                  bottomRight: Radius.circular(25.0),
+                  topLeft: Radius.circular(0.0),
+                  topRight: Radius.circular(0.0),
                 ),
-              ).animateOnPageLoad(
-                  animationsMap['containerOnPageLoadAnimation']!),
-            ),
+              ),
+              child: Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Lottie.asset(
+                  'assets/jsons/Face_scan.json',
+                  width: 200.0,
+                  height: 200.0,
+                  fit: BoxFit.contain,
+                  animate: true,
+                ),
+              ),
+            ).animateOnPageLoad(animationsMap['containerOnPageLoadAnimation']!),
           ],
         ),
       ),

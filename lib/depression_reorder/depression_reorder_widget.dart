@@ -17,7 +17,12 @@ import 'depression_reorder_model.dart';
 export 'depression_reorder_model.dart';
 
 class DepressionReorderWidget extends StatefulWidget {
-  const DepressionReorderWidget({super.key});
+  const DepressionReorderWidget({
+    super.key,
+    int? tabIndex,
+  }) : this.tabIndex = tabIndex ?? 2;
+
+  final int tabIndex;
 
   static String routeName = 'DepressionReorder';
   static String routePath = 'depressionReorder';
@@ -229,7 +234,7 @@ class _DepressionReorderWidgetState extends State<DepressionReorderWidget>
                                       MediaQuery.sizeOf(context).height * 0.85,
                                   tiktokVideosData:
                                       tiktokfeed_wz8en7_app_state.FFAppState()
-                                          .BreathingTikTok,
+                                          .meditationTikToks,
                                 ),
                               ),
                             );

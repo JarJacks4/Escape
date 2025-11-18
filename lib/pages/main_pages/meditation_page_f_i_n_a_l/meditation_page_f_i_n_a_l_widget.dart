@@ -254,7 +254,9 @@ class _MeditationPageFINALWidgetState extends State<MeditationPageFINALWidget>
                       },
                     ),
                     child: Scrollbar(
+                      controller: _model.columnController1,
                       child: SingleChildScrollView(
+                        controller: _model.columnController1,
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -323,7 +325,9 @@ class _MeditationPageFINALWidgetState extends State<MeditationPageFINALWidget>
                                     },
                                   ),
                                   child: Scrollbar(
+                                    controller: _model.columnController2,
                                     child: SingleChildScrollView(
+                                      controller: _model.columnController2,
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [

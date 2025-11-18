@@ -518,7 +518,7 @@ class _SideNavWidgetState extends State<SideNavWidget>
                         GoRouter.of(context).clearRedirectLocation();
 
                         context.goNamedAuth(
-                            SplashScreenVersion4Widget.routeName,
+                            SplashScreenVersion5Widget.routeName,
                             context.mounted);
                       },
                       child: Container(

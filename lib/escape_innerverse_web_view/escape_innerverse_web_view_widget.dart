@@ -1,7 +1,7 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_web_view.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'escape_innerverse_web_view_model.dart';
 export 'escape_innerverse_web_view_model.dart';
 
@@ -29,6 +29,13 @@ class _EscapeInnerverseWebViewWidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'EscapeInnerverseWebView'});
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('ESCAPE_INNERVERSE_WEB_VIEW_EscapeInnerve');
+      logFirebaseEvent('EscapeInnerverseWebView_launch_u_r_l');
+      await launchURL('https://ps.escapeapp.ai');
+    });
+
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
@@ -52,14 +59,11 @@ class _EscapeInnerverseWebViewWidgetState
         body: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
-            Flexible(
-              flex: 1,
-              child: FlutterFlowWebView(
-                content: 'http://127.0.0.1:80',
-                bypass: true,
-                height: MediaQuery.sizeOf(context).height * 1.0,
-                verticalScroll: false,
-                horizontalScroll: false,
+            Container(
+              width: double.infinity,
+              height: 882.93,
+              decoration: BoxDecoration(
+                color: FlutterFlowTheme.of(context).primary,
               ),
             ),
           ],

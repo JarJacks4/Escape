@@ -1,3 +1,5 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -210,6 +212,11 @@ our Self Care ... */
           child: FFButtonWidget(
             onPressed: () async {
               logFirebaseEvent('SUCCESS_HOME_FEEDBACK_LOOK_AT_SELF_CARE_');
+              logFirebaseEvent('Button_backend_call');
+
+              await currentUserReference!.update(createUsersRecordData(
+                hasSeenWalkthrough: true,
+              ));
               logFirebaseEvent('Button_navigate_to');
 
               context.pushNamed(
@@ -251,6 +258,11 @@ our Self Care ... */
           child: FFButtonWidget(
             onPressed: () async {
               logFirebaseEvent('SUCCESS_HOME_FEEDBACK_DISMISS_BTN_ON_TAP');
+              logFirebaseEvent('Button_backend_call');
+
+              await currentUserReference!.update(createUsersRecordData(
+                hasSeenWalkthrough: true,
+              ));
               logFirebaseEvent('Button_bottom_sheet');
               Navigator.pop(context);
             },

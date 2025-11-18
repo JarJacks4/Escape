@@ -95,8 +95,10 @@ class _DailyMoodFaceCheckInPageWidgetState
             },
           ),
           child: Scrollbar(
+            controller: _model.columnController,
             child: SingleChildScrollView(
               primary: false,
+              controller: _model.columnController,
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [

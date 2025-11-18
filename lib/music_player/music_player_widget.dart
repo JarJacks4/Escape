@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
-import '/flutter_flow/flutter_flow_app_state.dart';
 import '/index.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:tiktokfeed_wz8en7/app_state.dart'
@@ -13,17 +12,11 @@ import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';
-import 'package:webviewx_plus/webviewx_plus.dart';
 import 'music_player_model.dart';
 export 'music_player_model.dart';
 
 class MusicPlayerWidget extends StatefulWidget {
-  const MusicPlayerWidget({
-    super.key,
-    this.musicList,
-  });
-
-  final List<String>? musicList;
+  const MusicPlayerWidget({super.key});
 
   static String routeName = 'MusicPlayer';
   static String routePath = 'musicPlayer';
@@ -178,22 +171,20 @@ class _MusicPlayerWidgetState extends State<MusicPlayerWidget>
                                           isDismissible: false,
                                           context: context,
                                           builder: (context) {
-                                            return WebViewAware(
-                                              child: GestureDetector(
-                                                onTap: () {
-                                                  FocusScope.of(context)
-                                                      .unfocus();
-                                                  FocusManager
-                                                      .instance.primaryFocus
-                                                      ?.unfocus();
-                                                },
-                                                child: Padding(
-                                                  padding:
-                                                      MediaQuery.viewInsetsOf(
-                                                          context),
-                                                  child:
-                                                      SessonTimeoutWarningWidget(),
-                                                ),
+                                            return GestureDetector(
+                                              onTap: () {
+                                                FocusScope.of(context)
+                                                    .unfocus();
+                                                FocusManager
+                                                    .instance.primaryFocus
+                                                    ?.unfocus();
+                                              },
+                                              child: Padding(
+                                                padding:
+                                                    MediaQuery.viewInsetsOf(
+                                                        context),
+                                                child:
+                                                    SessonTimeoutWarningWidget(),
                                               ),
                                             );
                                           },
@@ -217,7 +208,7 @@ class _MusicPlayerWidgetState extends State<MusicPlayerWidget>
                                       }
 
                                       context.goNamedAuth(
-                                          SplashScreenVersion4Widget.routeName,
+                                          SplashScreenVersion5Widget.routeName,
                                           context.mounted);
                                     },
                                     textAlign: TextAlign.start,

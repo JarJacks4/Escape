@@ -8,83 +8,73 @@ import 'package:ff_commons/api_requests/api_manager.dart';
 
 export 'package:ff_commons/api_requests/api_manager.dart' show ApiCallResponse;
 
-const _kPrivateApiFunctionName = 'lucillellmfunction';
+const _kPrivateApiFunctionName = 'PartnerToken';
 
 /// Start Lucille Self Care AI LLM Group Code
 
 class LucilleSelfCareAILLMGroup {
-  static String getBaseUrl({
-    String? sessionId = '',
-    String? message = '',
-    String? getChatHistory = '',
-  }) =>
-      'https://lucillellm-function-w2jy2mx6tq-uc.a.run.app';
+  static String getBaseUrl() =>
+      'https://lucillellm2-286076426888.us-east4.run.app';
   static Map<String, String> headers = {
     'Content-Type': 'application/json',
-    'Authorization': 'Bearer',
   };
-  static GetSessionCall getSessionCall = GetSessionCall();
-  static SendMessageCall sendMessageCall = SendMessageCall();
+  static CreateSessionCall createSessionCall = CreateSessionCall();
+  static ChatCall chatCall = ChatCall();
   static GetChatHistoryCall getChatHistoryCall = GetChatHistoryCall();
+  static HealthCheckCall healthCheckCall = HealthCheckCall();
 }
 
-class GetSessionCall {
+class CreateSessionCall {
   Future<ApiCallResponse> call({
-    String? sessionId = '',
-    String? message = '',
-    String? getChatHistory = '',
+    dynamic sessionIdJson,
   }) async {
-    final baseUrl = LucilleSelfCareAILLMGroup.getBaseUrl(
-      sessionId: sessionId,
-      message: message,
-      getChatHistory: getChatHistory,
-    );
+    final baseUrl = LucilleSelfCareAILLMGroup.getBaseUrl();
+
+    final sessionId = _serializeJson(sessionIdJson);
 
     return ApiManager.instance.makeApiCall(
-      callName: 'GetSession',
+      callName: 'CreateSession',
       apiUrl: '${baseUrl}//',
       callType: ApiCallType.GET,
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer',
       },
-      params: {},
+      params: {
+        'SessionId': {"session_id": "newly-generated-uuid"},
+      },
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: true,
-      isStreamingApi: true,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
+
+  dynamic sessionId(dynamic response) => getJsonField(
+        response,
+        r'''$.session_id''',
+      );
 }
 
-class SendMessageCall {
+class ChatCall {
   Future<ApiCallResponse> call({
-    String? userMessage = '',
-    String? sessionID = '',
-    String? sessionId = '',
     String? message = '',
-    String? getChatHistory = '',
+    String? sessionId = '',
   }) async {
-    final baseUrl = LucilleSelfCareAILLMGroup.getBaseUrl(
-      sessionId: sessionId,
-      message: message,
-      getChatHistory: getChatHistory,
-    );
+    final baseUrl = LucilleSelfCareAILLMGroup.getBaseUrl();
 
     final ffApiRequestBody = '''
 {
-  "message": "<userMessage>",
-  "session_id": "${escapeStringForJson(sessionID)}"
+  "message": "Hello! Can you give me a mindfulness tip?",
+  "session_id": "unique-session-identifier"
 }''';
     return ApiManager.instance.makeApiCall(
-      callName: 'SendMessage',
+      callName: 'Chat',
       apiUrl: '${baseUrl}/chat',
       callType: ApiCallType.POST,
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer',
       },
       params: {},
       body: ffApiRequestBody,
@@ -97,37 +87,80 @@ class SendMessageCall {
       alwaysAllowBody: false,
     );
   }
+
+  dynamic aIResponse(dynamic response) => getJsonField(
+        response,
+        r'''$.response.content''',
+      );
+  dynamic category(dynamic response) => getJsonField(
+        response,
+        r'''$.response.category''',
+      );
+  dynamic hasDisclaimer(dynamic response) => getJsonField(
+        response,
+        r'''$.response.has_disclaimer''',
+      );
+  dynamic disclaimerText(dynamic response) => getJsonField(
+        response,
+        r'''$.response.disclaimer''',
+      );
+  dynamic confidence(dynamic response) => getJsonField(
+        response,
+        r'''$.response.confidence''',
+      );
+  String? sessionID(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.session_id''',
+      ));
+  List<String>? conversationHistory(dynamic response) => (getJsonField(
+        response,
+        r'''$.conversation''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class GetChatHistoryCall {
   Future<ApiCallResponse> call({
     String? sessionId = '',
-    String? message = '',
-    String? getChatHistory = '',
   }) async {
-    final baseUrl = LucilleSelfCareAILLMGroup.getBaseUrl(
-      sessionId: sessionId,
-      message: message,
-      getChatHistory: getChatHistory,
-    );
+    final baseUrl = LucilleSelfCareAILLMGroup.getBaseUrl();
 
-    final ffApiRequestBody = '''
-{
-  "session_id": "string",
-  "response": "Chat history retrieved successfully",
-  "conversation": ["..."]
-}''';
     return ApiManager.instance.makeApiCall(
       callName: 'GetChatHistory',
       apiUrl: '${baseUrl}/chat/{session_id}',
-      callType: ApiCallType.POST,
+      callType: ApiCallType.GET,
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer',
+      },
+      params: {
+        'session_id': sessionId,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class HealthCheckCall {
+  Future<ApiCallResponse> call() async {
+    final baseUrl = LucilleSelfCareAILLMGroup.getBaseUrl();
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'Health Check',
+      apiUrl: '${baseUrl}/health',
+      callType: ApiCallType.GET,
+      headers: {
+        'Content-Type': 'application/json',
       },
       params: {},
-      body: ffApiRequestBody,
-      bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
@@ -144,58 +177,54 @@ class GetChatHistoryCall {
 
 class EpidemicSoundAPIGroup {
   static String getBaseUrl({
-    String? baseURL = 'https://api.epidemicsound.com/v1/',
-    String? authToken = '',
-    int? limit = 100,
-    int? offset = 0,
+    String? accessToken = '',
   }) =>
-      'https://api.epidemicsound.com/v1/';
+      'https://partner-content-api.epidemicsound.com';
   static Map<String, String> headers = {
     'Content-Type': 'application/json',
-    'Authorization': 'Bearer (YourToken)',
+    'Authorization': 'Bearer {{EpidemicSound.accessToken}}',
   };
-  static EpidemicSoundTracksAPICall epidemicSoundTracksAPICall =
-      EpidemicSoundTracksAPICall();
+  static EpidemicSearchTracksAPICall epidemicSearchTracksAPICall =
+      EpidemicSearchTracksAPICall();
   static EpidemicSoundAlbumsCall epidemicSoundAlbumsCall =
       EpidemicSoundAlbumsCall();
   static EpidemicSoundPlaylistsCall epidemicSoundPlaylistsCall =
       EpidemicSoundPlaylistsCall();
+  static EpidemicSoundGenresCall epidemicSoundGenresCall =
+      EpidemicSoundGenresCall();
+  static EpidemicMoodsCall epidemicMoodsCall = EpidemicMoodsCall();
 }
 
-class EpidemicSoundTracksAPICall {
+class EpidemicSearchTracksAPICall {
   Future<ApiCallResponse> call({
     dynamic tracksJson,
     String? id = '',
     String? title = '',
     int? durationMs,
     String? artistsName = '',
-    String? previewsMp3Url = '',
-    String? baseURL = 'https://api.epidemicsound.com/v1/',
-    String? authToken = '',
-    int? limit = 100,
-    int? offset = 0,
+    String? previewUrl = '',
+    String? accessToken = '',
   }) async {
     final baseUrl = EpidemicSoundAPIGroup.getBaseUrl(
-      baseURL: baseURL,
-      authToken: authToken,
-      limit: limit,
-      offset: offset,
+      accessToken: accessToken,
     );
 
     final tracks = _serializeJson(tracksJson, true);
 
     return ApiManager.instance.makeApiCall(
-      callName: 'Epidemic Sound Tracks API',
-      apiUrl: '${baseUrl}/tracks?q={query}&limit={limit}&offset={offset}',
+      callName: 'Epidemic Search Tracks API',
+      apiUrl: '${baseUrl}/v0/tracks/search',
       callType: ApiCallType.GET,
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer (YourToken)',
+        'Authorization': 'Bearer {{EpidemicSound.accessToken}}',
       },
       params: {
-        'q': "calm",
+        'query': "{{query}}",
         'limit': 50,
-        'offset': 0,
+        'mood': "{CurrentMood}",
+        'offset': 3,
+        'genre': "Nature",
       },
       returnBody: true,
       encodeBodyUtf8: false,
@@ -214,27 +243,21 @@ class EpidemicSoundAlbumsCall {
     String? title = '',
     String? coverArtUrl = '',
     String? releaseDate = '',
-    String? baseURL = 'https://api.epidemicsound.com/v1/',
-    String? authToken = '',
-    int? limit = 100,
-    int? offset = 0,
+    String? accessToken = '',
   }) async {
     final baseUrl = EpidemicSoundAPIGroup.getBaseUrl(
-      baseURL: baseURL,
-      authToken: authToken,
-      limit: limit,
-      offset: offset,
+      accessToken: accessToken,
     );
 
     final albums = _serializeJson(albumsJson);
 
     return ApiManager.instance.makeApiCall(
       callName: 'Epidemic Sound Albums',
-      apiUrl: '${baseUrl}/albums',
+      apiUrl: '${baseUrl}/v0/albums',
       callType: ApiCallType.GET,
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer (YourToken)',
+        'Authorization': 'Bearer {{EpidemicSound.accessToken}}',
       },
       params: {
         'q': "calm",
@@ -258,27 +281,21 @@ class EpidemicSoundPlaylistsCall {
     String? title = '',
     List<String>? coverArtUrlList,
     String? description = '',
-    String? baseURL = 'https://api.epidemicsound.com/v1/',
-    String? authToken = '',
-    int? limit = 100,
-    int? offset = 0,
+    String? accessToken = '',
   }) async {
     final baseUrl = EpidemicSoundAPIGroup.getBaseUrl(
-      baseURL: baseURL,
-      authToken: authToken,
-      limit: limit,
-      offset: offset,
+      accessToken: accessToken,
     );
     final coverArtUrl = _serializeList(coverArtUrlList);
     final playlists = _serializeJson(playlistsJson, true);
 
     return ApiManager.instance.makeApiCall(
       callName: 'Epidemic Sound Playlists',
-      apiUrl: '${baseUrl}/playlists',
+      apiUrl: '${baseUrl}/v0/collections',
       callType: ApiCallType.GET,
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer (YourToken)',
+        'Authorization': 'Bearer {{EpidemicSound.accessToken}}',
       },
       params: {
         'q': "ambient",
@@ -295,7 +312,236 @@ class EpidemicSoundPlaylistsCall {
   }
 }
 
+class EpidemicSoundGenresCall {
+  Future<ApiCallResponse> call({
+    String? accessToken = '',
+  }) async {
+    final baseUrl = EpidemicSoundAPIGroup.getBaseUrl(
+      accessToken: accessToken,
+    );
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'Epidemic Sound Genres',
+      apiUrl: '${baseUrl}/v0/genres',
+      callType: ApiCallType.GET,
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer {{EpidemicSound.accessToken}}',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class EpidemicMoodsCall {
+  Future<ApiCallResponse> call({
+    String? accessToken = '',
+  }) async {
+    final baseUrl = EpidemicSoundAPIGroup.getBaseUrl(
+      accessToken: accessToken,
+    );
+
+    return ApiManager.instance.makeApiCall(
+      callName: 'Epidemic Moods',
+      apiUrl: '${baseUrl}/v0/moods',
+      callType: ApiCallType.GET,
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer {{EpidemicSound.accessToken}}',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
 /// End Epidemic Sound API Group Code
+
+/// Start OpenAI ChatGPT Group Code
+
+class OpenAIChatGPTGroup {
+  static String getBaseUrl() => 'https://api.openai.com/v1';
+  static Map<String, String> headers = {
+    'Content-Type': 'application/json',
+  };
+  static SendFullPromptCall sendFullPromptCall = SendFullPromptCall();
+}
+
+class SendFullPromptCall {
+  Future<ApiCallResponse> call({
+    String? apiKey = '',
+    dynamic promptJson,
+  }) async {
+    final baseUrl = OpenAIChatGPTGroup.getBaseUrl();
+
+    final prompt = _serializeJson(promptJson);
+    final ffApiRequestBody = '''
+{
+  "model": "gpt-4",
+  "messages": ${prompt}
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Send Full Prompt',
+      apiUrl: '${baseUrl}/chat/completions',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ${apiKey}',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  int? createdTimestamp(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.created''',
+      ));
+  String? role(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.choices[:].message.role''',
+      ));
+  String? content(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.choices[:].message.content''',
+      ));
+}
+
+/// End OpenAI ChatGPT Group Code
+
+class PartnerTokenEpidemicSoundCall {
+  static Future<ApiCallResponse> call({
+    String? tokenType = 'client-credentials',
+    String? accessToken = '',
+    int? expiresIn,
+    String? grantType = 'client_credentials',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'Partner Token Epidemic Sound',
+      apiUrl:
+          'https://epidemic-server-286076426888.us-central1.run.app/api/auth/user-token',
+      callType: ApiCallType.POST,
+      headers: {
+        'Grant_Type': 'client_credentials',
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      params: {
+        'grant_type': "client_credentials",
+        'clientId': "2a291f75dcfb452e88f89dc86a140ca5",
+        'clientSecret': "E9006b29e6c44232aca5846836df0d54",
+      },
+      bodyType: BodyType.X_WWW_FORM_URL_ENCODED,
+      returnBody: true,
+      encodeBodyUtf8: true,
+      decodeUtf8: false,
+      cache: true,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class EpidemicMCPServerAuthCall {
+  static Future<ApiCallResponse> call() async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'Epidemic MCP Server Auth',
+      apiUrl: 'https://www.epidemicsound.com/a/mcp-service/mcp',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      params: {
+        'grant_type': "client_credentials",
+      },
+      bodyType: BodyType.X_WWW_FORM_URL_ENCODED,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class LucilleChatCall {
+  static Future<ApiCallResponse> call({
+    String? message = 'Hey Lucille! How are you?',
+    String? sessionId = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "message": "${escapeStringForJson(message)}",
+  "session_id": "${escapeStringForJson(sessionId)}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Lucille Chat',
+      apiUrl: 'https://lucillellm2-286076426888.us-east4.run.app/chat',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static String? sessionID(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.session_id''',
+      ));
+  static String? aIResponse(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.response''',
+      ));
+  static List<String>? conversation(dynamic response) => (getJsonField(
+        response,
+        r'''$.conversation''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static String? status(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.status''',
+      ));
+  static String? timestamp(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.timestamp''',
+      ));
+  static int? messageCount(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.message_count''',
+      ));
+}
 
 String _toEncodable(dynamic item) {
   if (item is DocumentReference) {

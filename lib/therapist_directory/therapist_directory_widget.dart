@@ -31,6 +31,7 @@ class _TherapistDirectoryWidgetState extends State<TherapistDirectoryWidget>
   late TherapistDirectoryModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  LatLng? currentUserLocationValue;
 
   final animationsMap = <String, AnimationInfo>{};
 
@@ -44,12 +45,14 @@ class _TherapistDirectoryWidgetState extends State<TherapistDirectoryWidget>
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('THERAPIST_DIRECTORY_TherapistDirectory_O');
+      currentUserLocationValue =
+          await getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0));
       logFirebaseEvent('TherapistDirectory_request_permissions');
       await requestPermission(locationPermission);
       logFirebaseEvent('TherapistDirectory_launch_map');
       await launchMap(
         mapType: $ml.MapType.google,
-        location: _model.googleMapsCenter,
+        address: currentUserLocationValue?.toString(),
         title: 'Nearby Therapists',
       );
     });

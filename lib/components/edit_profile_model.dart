@@ -8,7 +8,7 @@ class EditProfileModel extends FlutterFlowModel<EditProfileWidget> {
   final formKey = GlobalKey<FormState>();
   bool isDataUploading_uploadPhoto1 = false;
   FFUploadedFile uploadedLocalFile_uploadPhoto1 =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_uploadPhoto1 = '';
 
   // State field(s) for NewDisplayName widget.

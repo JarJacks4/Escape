@@ -17,7 +17,12 @@ import 'body_reorder_model.dart';
 export 'body_reorder_model.dart';
 
 class BodyReorderWidget extends StatefulWidget {
-  const BodyReorderWidget({super.key});
+  const BodyReorderWidget({
+    super.key,
+    int? tabIndex,
+  }) : this.tabIndex = tabIndex ?? 2;
+
+  final int tabIndex;
 
   static String routeName = 'BodyReorder';
   static String routePath = 'bodyReorder';

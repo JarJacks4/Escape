@@ -16,6 +16,10 @@ class LucilleHomeModel extends FlutterFlowModel<LucilleHomeWidget> {
 
   ///  State fields for stateful widgets in this page.
 
+  // State field(s) for Column widget.
+  ScrollController? columnController1;
+  // State field(s) for Column widget.
+  ScrollController? columnController2;
   // Model for GenerateSoundscapesCard component.
   late GenerateSoundscapesCardModel generateSoundscapesCardModel;
   // Model for MoodTrackingCard component.
@@ -29,6 +33,8 @@ class LucilleHomeModel extends FlutterFlowModel<LucilleHomeWidget> {
 
   @override
   void initState(BuildContext context) {
+    columnController1 = ScrollController();
+    columnController2 = ScrollController();
     generateSoundscapesCardModel =
         createModel(context, () => GenerateSoundscapesCardModel());
     moodTrackingCardModel = createModel(context, () => MoodTrackingCardModel());
@@ -41,6 +47,8 @@ class LucilleHomeModel extends FlutterFlowModel<LucilleHomeWidget> {
 
   @override
   void dispose() {
+    columnController1?.dispose();
+    columnController2?.dispose();
     generateSoundscapesCardModel.dispose();
     moodTrackingCardModel.dispose();
     escapeInnerverseCardModel.dispose();

@@ -8,6 +8,8 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
 
   final formKey2 = GlobalKey<FormState>();
   final formKey1 = GlobalKey<FormState>();
+  // State field(s) for Column widget.
+  ScrollController? columnController1;
   // State field(s) for TabBar widget.
   TabController? tabBarController;
   int get tabBarCurrentIndex =>
@@ -15,6 +17,8 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
   int get tabBarPreviousIndex =>
       tabBarController != null ? tabBarController!.previousIndex : 0;
 
+  // State field(s) for Column widget.
+  ScrollController? columnController2;
   // State field(s) for emailAddress widget.
   final emailAddressKey = GlobalKey();
   FocusNode? emailAddressFocusNode;
@@ -70,104 +74,24 @@ class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
 
   // Stores action output result for [Validate Form] action in Button-Login widget.
   bool? validateLogin;
-  // State field(s) for emailAddress-Create widget.
-  FocusNode? emailAddressCreateFocusNode;
-  TextEditingController? emailAddressCreateTextController;
-  String? Function(BuildContext, String?)?
-      emailAddressCreateTextControllerValidator;
-  String? _emailAddressCreateTextControllerValidator(
-      BuildContext context, String? val) {
-    if (val == null || val.isEmpty) {
-      return FFLocalizations.of(context).getText(
-        'z4gall96' /* Email Address is required */,
-      );
-    }
-
-    if (val.length < 8) {
-      return 'Requires at least 8 characters.';
-    }
-
-    if (!RegExp(kTextValidatorEmailRegex).hasMatch(val)) {
-      return 'Has to be a valid email address.';
-    }
-    return null;
-  }
-
-  // State field(s) for password-Create widget.
-  FocusNode? passwordCreateFocusNode;
-  TextEditingController? passwordCreateTextController;
-  late bool passwordCreateVisibility;
-  String? Function(BuildContext, String?)?
-      passwordCreateTextControllerValidator;
-  String? _passwordCreateTextControllerValidator(
-      BuildContext context, String? val) {
-    if (val == null || val.isEmpty) {
-      return FFLocalizations.of(context).getText(
-        'm10jv6if' /* Password is required */,
-      );
-    }
-
-    if (val.length < 8) {
-      return 'Requires at least 8 characters.';
-    }
-
-    return null;
-  }
-
-  // State field(s) for Confirm-Password widget.
-  FocusNode? confirmPasswordFocusNode;
-  TextEditingController? confirmPasswordTextController;
-  late bool confirmPasswordVisibility;
-  String? Function(BuildContext, String?)?
-      confirmPasswordTextControllerValidator;
-  String? _confirmPasswordTextControllerValidator(
-      BuildContext context, String? val) {
-    if (val == null || val.isEmpty) {
-      return FFLocalizations.of(context).getText(
-        '2f50x8tg' /* Confirm Password is required */,
-      );
-    }
-
-    if (val.length < 8) {
-      return 'Requires at least 8 characters.';
-    }
-
-    return null;
-  }
-
-  // Stores action output result for [Validate Form] action in Button-Login widget.
-  bool? validateCreateAccount;
 
   @override
   void initState(BuildContext context) {
+    columnController1 = ScrollController();
+    columnController2 = ScrollController();
     emailAddressTextControllerValidator = _emailAddressTextControllerValidator;
     passwordVisibility = false;
     passwordTextControllerValidator = _passwordTextControllerValidator;
-    emailAddressCreateTextControllerValidator =
-        _emailAddressCreateTextControllerValidator;
-    passwordCreateVisibility = false;
-    passwordCreateTextControllerValidator =
-        _passwordCreateTextControllerValidator;
-    confirmPasswordVisibility = false;
-    confirmPasswordTextControllerValidator =
-        _confirmPasswordTextControllerValidator;
   }
 
   @override
   void dispose() {
+    columnController1?.dispose();
     tabBarController?.dispose();
+    columnController2?.dispose();
     emailAddressFocusNode?.dispose();
 
     passwordFocusNode?.dispose();
     passwordTextController?.dispose();
-
-    emailAddressCreateFocusNode?.dispose();
-    emailAddressCreateTextController?.dispose();
-
-    passwordCreateFocusNode?.dispose();
-    passwordCreateTextController?.dispose();
-
-    confirmPasswordFocusNode?.dispose();
-    confirmPasswordTextController?.dispose();
   }
 }

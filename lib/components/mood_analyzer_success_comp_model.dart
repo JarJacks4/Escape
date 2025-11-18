@@ -7,8 +7,8 @@ class MoodAnalyzerSuccessCompModel
     extends FlutterFlowModel<MoodAnalyzerSuccessCompWidget> {
   ///  State fields for stateful widgets in this component.
 
-  // Stores action output result for [Gemini - Generate Text] action in MoodAnalyzerSuccessComp widget.
-  String? moodDescriptionBottomSheetAction;
+  // Stores action output result for [AI Agent - Send Message to AdvancedMoodAnalyzer] action in MoodAnalyzerSuccessComp widget.
+  String? finalMood;
 
   @override
   void initState(BuildContext context) {}

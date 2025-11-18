@@ -14,7 +14,7 @@ class FacialMoodAnalyzerPageModel
 
   bool isDataUploading_aIUploadMoodPhoto = false;
   FFUploadedFile uploadedLocalFile_aIUploadMoodPhoto =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_aIUploadMoodPhoto = '';
 
   // Stores action output result for [AI Agent - Send Message to LucilleMoodAnalyzerAgent] action in Button widget.

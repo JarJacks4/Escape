@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:tiktokfeed_wz8en7/app_state.dart'
@@ -371,15 +372,19 @@ class _TodaysMoodCompWidgetState extends State<TodaysMoodCompWidget>
                                   fontWeight: FontWeight.w600,
                                 ),
                           ),
-                          Text(
-                            FFAppState().moods,
-                            style: FlutterFlowTheme.of(context)
-                                .labelMedium
-                                .override(
-                                  fontFamily: 'WorkSans',
-                                  color: FlutterFlowTheme.of(context).secondary,
-                                  letterSpacing: 0.0,
-                                ),
+                          AuthUserStreamWidget(
+                            builder: (context) => Text(
+                              valueOrDefault(
+                                  currentUserDocument?.currentMood, ''),
+                              style: FlutterFlowTheme.of(context)
+                                  .labelMedium
+                                  .override(
+                                    fontFamily: 'WorkSans',
+                                    color:
+                                        FlutterFlowTheme.of(context).secondary,
+                                    letterSpacing: 0.0,
+                                  ),
+                            ),
                           ),
                         ],
                       ),

@@ -125,7 +125,7 @@ class _EscapeInnerverseCardWidgetState extends State<EscapeInnerverseCardWidget>
                         logFirebaseEvent('IconButton_navigate_to');
 
                         context.pushNamed(
-                          EscapeInnerverseWebViewWidget.routeName,
+                          DestinationsUnrealEngineWidget.routeName,
                           extra: <String, dynamic>{
                             kTransitionInfoKey: TransitionInfo(
                               hasTransition: true,
@@ -148,7 +148,7 @@ class _EscapeInnerverseCardWidgetState extends State<EscapeInnerverseCardWidget>
                             EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                         child: Text(
                           FFLocalizations.of(context).getText(
-                            'tsjs6ccc' /* Escape Innerverse */,
+                            'tsjs6ccc' /* Escape Destinations */,
                           ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(

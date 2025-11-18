@@ -7,7 +7,7 @@ class UploadVideoModel extends FlutterFlowModel<UploadVideoWidget> {
 
   bool isDataUploading_uploadVideo = false;
   FFUploadedFile uploadedLocalFile_uploadVideo =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode1;

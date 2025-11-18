@@ -11,7 +11,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
-import 'package:webviewx_plus/webviewx_plus.dart';
 import 'community_home_copy_model.dart';
 export 'community_home_copy_model.dart';
 
@@ -210,12 +209,10 @@ class _CommunityHomeCopyWidgetState extends State<CommunityHomeCopyWidget>
           width: MediaQuery.sizeOf(context).width * 0.85,
           child: Drawer(
             elevation: 16.0,
-            child: WebViewAware(
-              child: wrapWithModel(
-                model: _model.customdrawerModel,
-                updateCallback: () => safeSetState(() {}),
-                child: CustomdrawerWidget(),
-              ),
+            child: wrapWithModel(
+              model: _model.customdrawerModel,
+              updateCallback: () => safeSetState(() {}),
+              child: CustomdrawerWidget(),
             ),
           ),
         ),
@@ -240,100 +237,6 @@ class _CommunityHomeCopyWidgetState extends State<CommunityHomeCopyWidget>
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  15.0, 0.0, 0.0, 0.0),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Icon(
-                                    Icons.person_rounded,
-                                    color: FlutterFlowTheme.of(context).info,
-                                    size: 32.0,
-                                  ),
-                                  AnimatedDefaultTextStyle(
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodySmall
-                                        .override(
-                                          fontFamily: 'The Seasons',
-                                          color:
-                                              FlutterFlowTheme.of(context).info,
-                                          fontSize: 14.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                    duration: Duration(milliseconds: 600),
-                                    curve: Curves.easeIn,
-                                    child: Text(
-                                      FFLocalizations.of(context).getText(
-                                        'hu9lleoe' /* Profle */,
-                                      ),
-                                      textAlign: TextAlign.center,
-                                    ),
-                                  ),
-                                ].divide(SizedBox(height: 4.0)),
-                              ),
-                            ),
-                          ),
-                          Flexible(
-                            flex: 1,
-                            child: Hero(
-                              tag: 'logo',
-                              transitionOnUserGestures: true,
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
-                                child: Image.asset(
-                                  'assets/images/Logo_ESCAPE_White.png',
-                                  width: 200.0,
-                                  height: 27.11,
-                                  fit: BoxFit.contain,
-                                ),
-                              ),
-                            ),
-                          ),
-                          Align(
-                            alignment: AlignmentDirectional(1.0, 0.0),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 15.0, 0.0),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Icon(
-                                    Icons.home,
-                                    color: FlutterFlowTheme.of(context).accent1,
-                                    size: 32.0,
-                                  ),
-                                  Text(
-                                    FFLocalizations.of(context).getText(
-                                      'naw4ghrs' /* Home */,
-                                    ),
-                                    textAlign: TextAlign.center,
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodySmall
-                                        .override(
-                                          fontFamily: 'The Seasons',
-                                          color:
-                                              FlutterFlowTheme.of(context).info,
-                                          fontSize: 14.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                  ),
-                                ].divide(SizedBox(height: 4.0)),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
                       Divider(
                         thickness: 1.0,
                         color: FlutterFlowTheme.of(context).accent1,

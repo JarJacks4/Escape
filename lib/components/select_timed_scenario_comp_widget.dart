@@ -8,7 +8,6 @@ import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
-import 'package:webviewx_plus/webviewx_plus.dart';
 import 'select_timed_scenario_comp_model.dart';
 export 'select_timed_scenario_comp_model.dart';
 
@@ -293,11 +292,9 @@ class _SelectTimedScenarioCompWidgetState
                               enableDrag: false,
                               context: context,
                               builder: (context) {
-                                return WebViewAware(
-                                  child: Padding(
-                                    padding: MediaQuery.viewInsetsOf(context),
-                                    child: SelectSoundscapeDurationCompWidget(),
-                                  ),
+                                return Padding(
+                                  padding: MediaQuery.viewInsetsOf(context),
+                                  child: SelectSoundscapeDurationCompWidget(),
                                 );
                               },
                             ).then((value) => safeSetState(() {}));

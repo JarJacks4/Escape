@@ -205,7 +205,9 @@ class _EnableNotificationsWidgetState extends State<EnableNotificationsWidget>
                                       },
                                     ),
                                     child: Scrollbar(
+                                      controller: _model.columnController,
                                       child: SingleChildScrollView(
+                                        controller: _model.columnController,
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           crossAxisAlignment:
@@ -377,14 +379,13 @@ personalized n... */
                                       logFirebaseEvent('Button_navigate_to');
 
                                       context.pushNamed(
-                                        FacialMoodAnalyzerChoiceLoginWidget
-                                            .routeName,
+                                        RegistrationSuccessWidget.routeName,
                                         extra: <String, dynamic>{
                                           kTransitionInfoKey: TransitionInfo(
                                             hasTransition: true,
                                             transitionType:
-                                                PageTransitionType.fade,
-                                            duration: Duration(milliseconds: 0),
+                                                PageTransitionType.bottomToTop,
+                                            duration: Duration(milliseconds: 9),
                                           ),
                                         },
                                       );

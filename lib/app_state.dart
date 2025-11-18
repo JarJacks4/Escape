@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'flutter_flow/request_manager.dart';
 import '/backend/backend.dart';
 import "package:tiktokfeed_wz8en7/backend/schema/structs/index.dart"
     as tiktokfeed_wz8en7_data_schema;
+import 'package:ff_commons/api_requests/api_manager.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 
@@ -644,6 +646,167 @@ class FFAppState extends ChangeNotifier {
     AmbientMusic.insert(index, value);
     prefs.setStringList('ff_AmbientMusic', _AmbientMusic);
   }
+
+  int _GoalsCompleted = 0;
+  int get GoalsCompleted => _GoalsCompleted;
+  set GoalsCompleted(int value) {
+    _GoalsCompleted = value;
+  }
+
+  bool _hasCompletedGoal = false;
+  bool get hasCompletedGoal => _hasCompletedGoal;
+  set hasCompletedGoal(bool value) {
+    _hasCompletedGoal = value;
+  }
+
+  String _EpidemicToken = '';
+  String get EpidemicToken => _EpidemicToken;
+  set EpidemicToken(String value) {
+    _EpidemicToken = value;
+  }
+
+  String _userVoiceMessage = '';
+  String get userVoiceMessage => _userVoiceMessage;
+  set userVoiceMessage(String value) {
+    _userVoiceMessage = value;
+  }
+
+  bool _isListening = false;
+  bool get isListening => _isListening;
+  set isListening(bool value) {
+    _isListening = value;
+  }
+
+  List<String> _AdvancedMoodChoiceChips = [];
+  List<String> get AdvancedMoodChoiceChips => _AdvancedMoodChoiceChips;
+  set AdvancedMoodChoiceChips(List<String> value) {
+    _AdvancedMoodChoiceChips = value;
+  }
+
+  void addToAdvancedMoodChoiceChips(String value) {
+    AdvancedMoodChoiceChips.add(value);
+  }
+
+  void removeFromAdvancedMoodChoiceChips(String value) {
+    AdvancedMoodChoiceChips.remove(value);
+  }
+
+  void removeAtIndexFromAdvancedMoodChoiceChips(int index) {
+    AdvancedMoodChoiceChips.removeAt(index);
+  }
+
+  void updateAdvancedMoodChoiceChipsAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    AdvancedMoodChoiceChips[index] = updateFn(_AdvancedMoodChoiceChips[index]);
+  }
+
+  void insertAtIndexInAdvancedMoodChoiceChips(int index, String value) {
+    AdvancedMoodChoiceChips.insert(index, value);
+  }
+
+  List<String> _NeutralMoodsHistory = [];
+  List<String> get NeutralMoodsHistory => _NeutralMoodsHistory;
+  set NeutralMoodsHistory(List<String> value) {
+    _NeutralMoodsHistory = value;
+  }
+
+  void addToNeutralMoodsHistory(String value) {
+    NeutralMoodsHistory.add(value);
+  }
+
+  void removeFromNeutralMoodsHistory(String value) {
+    NeutralMoodsHistory.remove(value);
+  }
+
+  void removeAtIndexFromNeutralMoodsHistory(int index) {
+    NeutralMoodsHistory.removeAt(index);
+  }
+
+  void updateNeutralMoodsHistoryAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    NeutralMoodsHistory[index] = updateFn(_NeutralMoodsHistory[index]);
+  }
+
+  void insertAtIndexInNeutralMoodsHistory(int index, String value) {
+    NeutralMoodsHistory.insert(index, value);
+  }
+
+  List<String> _StressedMoodsHistory = [];
+  List<String> get StressedMoodsHistory => _StressedMoodsHistory;
+  set StressedMoodsHistory(List<String> value) {
+    _StressedMoodsHistory = value;
+  }
+
+  void addToStressedMoodsHistory(String value) {
+    StressedMoodsHistory.add(value);
+  }
+
+  void removeFromStressedMoodsHistory(String value) {
+    StressedMoodsHistory.remove(value);
+  }
+
+  void removeAtIndexFromStressedMoodsHistory(int index) {
+    StressedMoodsHistory.removeAt(index);
+  }
+
+  void updateStressedMoodsHistoryAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    StressedMoodsHistory[index] = updateFn(_StressedMoodsHistory[index]);
+  }
+
+  void insertAtIndexInStressedMoodsHistory(int index, String value) {
+    StressedMoodsHistory.insert(index, value);
+  }
+
+  List<String> _HeavyMoodsHistory = [];
+  List<String> get HeavyMoodsHistory => _HeavyMoodsHistory;
+  set HeavyMoodsHistory(List<String> value) {
+    _HeavyMoodsHistory = value;
+  }
+
+  void addToHeavyMoodsHistory(String value) {
+    HeavyMoodsHistory.add(value);
+  }
+
+  void removeFromHeavyMoodsHistory(String value) {
+    HeavyMoodsHistory.remove(value);
+  }
+
+  void removeAtIndexFromHeavyMoodsHistory(int index) {
+    HeavyMoodsHistory.removeAt(index);
+  }
+
+  void updateHeavyMoodsHistoryAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    HeavyMoodsHistory[index] = updateFn(_HeavyMoodsHistory[index]);
+  }
+
+  void insertAtIndexInHeavyMoodsHistory(int index, String value) {
+    HeavyMoodsHistory.insert(index, value);
+  }
+
+  final _epidemicTracksManager = FutureRequestManager<ApiCallResponse>();
+  Future<ApiCallResponse> epidemicTracks({
+    String? uniqueQueryKey,
+    bool? overrideCache,
+    required Future<ApiCallResponse> Function() requestFn,
+  }) =>
+      _epidemicTracksManager.performRequest(
+        uniqueQueryKey: uniqueQueryKey,
+        overrideCache: overrideCache,
+        requestFn: requestFn,
+      );
+  void clearEpidemicTracksCache() => _epidemicTracksManager.clear();
+  void clearEpidemicTracksCacheKey(String? uniqueKey) =>
+      _epidemicTracksManager.clearRequest(uniqueKey);
 }
 
 void _safeInit(Function() initializeField) {

@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:webviewx_plus/webviewx_plus.dart';
 import 'fire_sounds_and_breathing_goal_model.dart';
 export 'fire_sounds_and_breathing_goal_model.dart';
 
@@ -139,9 +138,9 @@ class _FireSoundsAndBreathingGoalWidgetState
                           EdgeInsetsDirectional.fromSTEB(0.0, 200.0, 0.0, 0.0),
                       child: FlutterFlowAudioPlayer(
                         audio: Audio.network(
-                          'https://firebasestorage.googleapis.com/v0/b/escape-ujuzxr.appspot.com/o/Escape%20Fire%20Sounds%2FFireplace%2C%20Wood%20Burning%2C%20Close%2C%20Crackling%2C%20Exterior%20Atlas%2C%20Morocco.mp3?alt=media&token=3e4b7e77-0b6e-4ba1-84f9-596f989d463e',
+                          'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/aachen_burning-fireplace-crackling-fire-soundswav-14561.mp3?alt=media&token=bee5fafb-6f68-42f3-8313-78d225b8cb26',
                           metas: Metas(
-                            id: 'Escape%20Fire%20Sounds%2FFireplace%2C%20Wood%20Burning%2C%20Close%2C%20Crackling%2C%20Exterior%20Atlas%2C%20Morocco.mp3?alt=media&token=3e4b7e77-0b6e-4ba1-84f9-596f989d463e-44b2074d',
+                            id: 'aachen_burning-fireplace-crackling-fire-soundswav-14561.mp3?alt=media&token=bee5fafb-6f68-42f3-8313-78d225b8cb26-44b2074d',
                             title:
                                 'Fireplace, Wood Burning, Close, Crackling, Exterior Atlas, Morocco',
                           ),
@@ -176,16 +175,14 @@ class _FireSoundsAndBreathingGoalWidgetState
                           backgroundColor: Colors.transparent,
                           context: context,
                           builder: (context) {
-                            return WebViewAware(
-                              child: GestureDetector(
-                                onTap: () {
-                                  FocusScope.of(context).unfocus();
-                                  FocusManager.instance.primaryFocus?.unfocus();
-                                },
-                                child: Padding(
-                                  padding: MediaQuery.viewInsetsOf(context),
-                                  child: ConfettiPageIntermediateCompWidget(),
-                                ),
+                            return GestureDetector(
+                              onTap: () {
+                                FocusScope.of(context).unfocus();
+                                FocusManager.instance.primaryFocus?.unfocus();
+                              },
+                              child: Padding(
+                                padding: MediaQuery.viewInsetsOf(context),
+                                child: ConfettiPageIntermediateCompWidget(),
                               ),
                             );
                           },

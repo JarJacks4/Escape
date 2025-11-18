@@ -17,7 +17,12 @@ import 'sleep_reorder_model.dart';
 export 'sleep_reorder_model.dart';
 
 class SleepReorderWidget extends StatefulWidget {
-  const SleepReorderWidget({super.key});
+  const SleepReorderWidget({
+    super.key,
+    int? tabIndex,
+  }) : this.tabIndex = tabIndex ?? 2;
+
+  final int tabIndex;
 
   static String routeName = 'SleepReorder';
   static String routePath = 'sleepReorder';

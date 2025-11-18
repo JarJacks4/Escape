@@ -92,14 +92,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
     refreshListenable: appStateNotifier,
     navigatorKey: appNavigatorKey,
     errorBuilder: (context, state) =>
-        appStateNotifier.loggedIn ? NavBarPage() : SplashScreenVersion4Widget(),
+        appStateNotifier.loggedIn ? NavBarPage() : SplashScreenVersion5Widget(),
     routes: [
       FFRoute(
         name: '_initialize',
         path: '/',
         builder: (context, _) => appStateNotifier.loggedIn
             ? NavBarPage()
-            : SplashScreenVersion4Widget(),
+            : SplashScreenVersion5Widget(),
         routes: [
           FFRoute(
             name: RegistrationSuccessWidget.routeName,
@@ -350,11 +350,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             builder: (context, params) => IncreaseFocusGoalWidget(),
           ),
           FFRoute(
-            name: SplashScreenVersion4Widget.routeName,
-            path: SplashScreenVersion4Widget.routePath,
-            builder: (context, params) => SplashScreenVersion4Widget(),
-          ),
-          FFRoute(
             name: ShortBreathingGoalWidget.routeName,
             path: ShortBreathingGoalWidget.routePath,
             builder: (context, params) => ShortBreathingGoalWidget(),
@@ -422,20 +417,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             builder: (context, params) => ReelsWidget(),
           ),
           FFRoute(
-            name: ChatWithLucilleFINALWidget.routeName,
-            path: ChatWithLucilleFINALWidget.routePath,
-            builder: (context, params) => ChatWithLucilleFINALWidget(),
-          ),
-          FFRoute(
             name: FacialMoodAnalyzerChoiceLucilleCardWidget.routeName,
             path: FacialMoodAnalyzerChoiceLucilleCardWidget.routePath,
             builder: (context, params) =>
                 FacialMoodAnalyzerChoiceLucilleCardWidget(),
-          ),
-          FFRoute(
-            name: SampleWidget.routeName,
-            path: SampleWidget.routePath,
-            builder: (context, params) => SampleWidget(),
           ),
           FFRoute(
             name: SettingsWidget.routeName,
@@ -443,49 +428,59 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             builder: (context, params) => SettingsWidget(),
           ),
           FFRoute(
-            name: ChatWithLucilleVersion4Widget.routeName,
-            path: ChatWithLucilleVersion4Widget.routePath,
-            builder: (context, params) => ChatWithLucilleVersion4Widget(),
-          ),
-          FFRoute(
             name: MeditationReorderWidget.routeName,
             path: MeditationReorderWidget.routePath,
-            builder: (context, params) => MeditationReorderWidget(),
+            builder: (context, params) => MeditationReorderWidget(
+              tabIndex: params.getParam(
+                'tabIndex',
+                ParamType.int,
+              ),
+            ),
           ),
           FFRoute(
             name: FocusReorderWidget.routeName,
             path: FocusReorderWidget.routePath,
-            builder: (context, params) => FocusReorderWidget(),
+            builder: (context, params) => FocusReorderWidget(
+              tabIndex: params.getParam(
+                'tabIndex',
+                ParamType.int,
+              ),
+            ),
           ),
           FFRoute(
             name: BodyReorderWidget.routeName,
             path: BodyReorderWidget.routePath,
-            builder: (context, params) => BodyReorderWidget(),
+            builder: (context, params) => BodyReorderWidget(
+              tabIndex: params.getParam(
+                'tabIndex',
+                ParamType.int,
+              ),
+            ),
           ),
           FFRoute(
             name: SleepReorderWidget.routeName,
             path: SleepReorderWidget.routePath,
-            builder: (context, params) => SleepReorderWidget(),
+            builder: (context, params) => SleepReorderWidget(
+              tabIndex: params.getParam(
+                'tabIndex',
+                ParamType.int,
+              ),
+            ),
           ),
           FFRoute(
             name: DepressionReorderWidget.routeName,
             path: DepressionReorderWidget.routePath,
-            builder: (context, params) => DepressionReorderWidget(),
+            builder: (context, params) => DepressionReorderWidget(
+              tabIndex: params.getParam(
+                'tabIndex',
+                ParamType.int,
+              ),
+            ),
           ),
           FFRoute(
             name: JournalPageFINALCopyWidget.routeName,
             path: JournalPageFINALCopyWidget.routePath,
             builder: (context, params) => JournalPageFINALCopyWidget(),
-          ),
-          FFRoute(
-            name: LucilleNewChatWidget.routeName,
-            path: LucilleNewChatWidget.routePath,
-            builder: (context, params) => LucilleNewChatWidget(),
-          ),
-          FFRoute(
-            name: LoadingScreenAnimusWidget.routeName,
-            path: LoadingScreenAnimusWidget.routePath,
-            builder: (context, params) => LoadingScreenAnimusWidget(),
           ),
           FFRoute(
             name: SoundscapesHomeFinalWidget.routeName,
@@ -495,13 +490,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
           FFRoute(
             name: MusicPlayerWidget.routeName,
             path: MusicPlayerWidget.routePath,
-            builder: (context, params) => MusicPlayerWidget(
-              musicList: params.getParam<String>(
-                'musicList',
-                ParamType.String,
-                isList: true,
-              ),
-            ),
+            builder: (context, params) => MusicPlayerWidget(),
           ),
           FFRoute(
             name: AISoundscapesCopyCopyWidget.routeName,
@@ -519,9 +508,79 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             builder: (context, params) => EscapeInnerverseWebViewWidget(),
           ),
           FFRoute(
+            name: JournalVersion5Widget.routeName,
+            path: JournalVersion5Widget.routePath,
+            builder: (context, params) => JournalVersion5Widget(),
+          ),
+          FFRoute(
+            name: SplashScreenVersion5Widget.routeName,
+            path: SplashScreenVersion5Widget.routePath,
+            builder: (context, params) => SplashScreenVersion5Widget(),
+          ),
+          FFRoute(
+            name: ChatAiScreenWidget.routeName,
+            path: ChatAiScreenWidget.routePath,
+            builder: (context, params) => ChatAiScreenWidget(),
+          ),
+          FFRoute(
+            name: ChatWithLucilleVersion5Widget.routeName,
+            path: ChatWithLucilleVersion5Widget.routePath,
+            builder: (context, params) => ChatWithLucilleVersion5Widget(),
+          ),
+          FFRoute(
+            name: NewSignInVersion5Widget.routeName,
+            path: NewSignInVersion5Widget.routePath,
+            builder: (context, params) => NewSignInVersion5Widget(
+              tabIndexLogin: params.getParam(
+                'tabIndexLogin',
+                ParamType.int,
+              ),
+            ),
+          ),
+          FFRoute(
+            name: DestinationsUnrealEngineWidget.routeName,
+            path: DestinationsUnrealEngineWidget.routePath,
+            builder: (context, params) => DestinationsUnrealEngineWidget(),
+          ),
+          FFRoute(
+            name: DestinationDetailsUnrealEngineVersion5Widget.routeName,
+            path: DestinationDetailsUnrealEngineVersion5Widget.routePath,
+            builder: (context, params) =>
+                DestinationDetailsUnrealEngineVersion5Widget(),
+          ),
+          FFRoute(
+            name: WorldsAndRealmsUnrealEngineWidget.routeName,
+            path: WorldsAndRealmsUnrealEngineWidget.routePath,
+            builder: (context, params) => WorldsAndRealmsUnrealEngineWidget(),
+          ),
+          FFRoute(
+            name: MoodTrackingLoadingPageWidget.routeName,
+            path: MoodTrackingLoadingPageWidget.routePath,
+            builder: (context, params) => MoodTrackingLoadingPageWidget(),
+          ),
+          FFRoute(
+            name: ChatAiScreen1Widget.routeName,
+            path: ChatAiScreen1Widget.routePath,
+            builder: (context, params) => ChatAiScreen1Widget(),
+          ),
+          FFRoute(
+            name: AdvancedMoodTrackerWidget.routeName,
+            path: AdvancedMoodTrackerWidget.routePath,
+            builder: (context, params) => AdvancedMoodTrackerWidget(),
+          ),
+          FFRoute(
             name: $tiktokfeed_wz8en7.HomePageWidget.routeName,
             path: $tiktokfeed_wz8en7.HomePageWidget.routePath,
-            builder: (context, params) => $tiktokfeed_wz8en7.HomePageWidget(),
+            builder: (context, params) => $tiktokfeed_wz8en7.HomePageWidget(
+              oldIndex: params.getParam(
+                'oldIndex',
+                ParamType.int,
+              ),
+              newIndex: params.getParam(
+                'newIndex',
+                ParamType.int,
+              ),
+            ),
           ),
           FFRoute(
             name: $tiktokfeed_wz8en7.Page2Widget.routeName,
@@ -708,7 +767,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.uri.toString());
-            return '/splashScreenVersion4';
+            return '/splashScreenVersion5';
           }
           return null;
         },

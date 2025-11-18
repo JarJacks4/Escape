@@ -17,7 +17,12 @@ import 'meditation_reorder_model.dart';
 export 'meditation_reorder_model.dart';
 
 class MeditationReorderWidget extends StatefulWidget {
-  const MeditationReorderWidget({super.key});
+  const MeditationReorderWidget({
+    super.key,
+    int? tabIndex,
+  }) : this.tabIndex = tabIndex ?? 2;
+
+  final int tabIndex;
 
   static String routeName = 'MeditationReorder';
   static String routePath = 'meditationReorder';
@@ -201,6 +206,7 @@ class _MeditationReorderWidgetState extends State<MeditationReorderWidget>
                         final meditations =
                             tiktokfeed_wz8en7_app_state.FFAppState()
                                 .meditationTikToks
+                                .where((e) => widget.tabIndex > 1)
                                 .toList();
 
                         return ReorderableListView.builder(
@@ -230,7 +236,7 @@ class _MeditationReorderWidgetState extends State<MeditationReorderWidget>
                                       MediaQuery.sizeOf(context).height * 0.85,
                                   tiktokVideosData:
                                       tiktokfeed_wz8en7_app_state.FFAppState()
-                                          .BreathingTikTok,
+                                          .meditationTikToks,
                                 ),
                               ),
                             );

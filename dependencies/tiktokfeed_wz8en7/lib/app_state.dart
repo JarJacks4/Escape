@@ -16,48 +16,75 @@ class FFAppState extends ChangeNotifier {
     _instance = FFAppState._internal();
   }
 
-  Future initializePersistedState() async {}
+  Future initializePersistedState() async {
+    prefs = await SharedPreferences.getInstance();
+    _safeInit(() {
+      _ListTikTokPages = prefs
+              .getStringList('ff_ListTikTokPages')
+              ?.map((x) {
+                try {
+                  return TiktokPageStruct.fromSerializableMap(jsonDecode(x));
+                } catch (e) {
+                  print("Can't decode persisted data type. Error: $e.");
+                  return null;
+                }
+              })
+              .withoutNulls
+              .toList() ??
+          _ListTikTokPages;
+    });
+  }
 
   void update(VoidCallback callback) {
     callback();
     notifyListeners();
   }
 
+  late SharedPreferences prefs;
+
   List<TiktokPageStruct> _ListTikTokPages = [
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"video1\",\"likes\":\"[]\",\"bookmark\":\"[]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1744993440/Download_1_yra0ld.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"video1\",\"likes\":\"[]\",\"bookmark\":\"[]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310516/ssstik.io__everyjayliving_1759091822579_shm5yb.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[]\",\"bookmark\":\"[]\",\"id\":\"1\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1744992912/Download_qccjju.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[]\",\"bookmark\":\"[]\",\"id\":\"1\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310517/ssstik.io__ethera.collective_1759091701500_a2gtir.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[]\",\"bookmark\":\"[]\",\"id\":\"2\",\"urlvideo\":\"https://res.cloudinary.com/dcato1y8g/video/upload/v1717458332/h1cstbyekaq8mnlcrntv.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[]\",\"bookmark\":\"[]\",\"id\":\"2\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310522/ssstik.io__katybath_1759091465877_sgkz3o.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1744993439/Download_2_qw2mdv.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310521/ssstik.io__tranquilvibes8_1759091605607_iawohr.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1744994648/Download_7_ktaowq.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310521/ssstik.io__nikki.neisler_1759091523152_xncutw.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1744994628/Download_8_ffhfxw.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310520/ssstik.io__growwithguri_1759091627876_u8v1qy.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1744994629/Download_3_sfz1n8.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310523/ssstik.io__lealii_1759091437708_edtwlq.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"Hello World\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1744994628/Download_5_dv7dxz.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"Hello World\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310523/ssstik.io__katybath_1759091410546_gk2tut.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"Hello World\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1744994627/Download_6_tvuh5s.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}'))
+        '{\"video\":\"Hello World\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310523/ssstik.io__iamlarasophiee_1759091491173_rxrg7n.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}'))
   ];
   List<TiktokPageStruct> get ListTikTokPages => _ListTikTokPages;
   set ListTikTokPages(List<TiktokPageStruct> value) {
     _ListTikTokPages = value;
+    prefs.setStringList(
+        'ff_ListTikTokPages', value.map((x) => x.serialize()).toList());
   }
 
   void addToListTikTokPages(TiktokPageStruct value) {
     ListTikTokPages.add(value);
+    prefs.setStringList('ff_ListTikTokPages',
+        _ListTikTokPages.map((x) => x.serialize()).toList());
   }
 
   void removeFromListTikTokPages(TiktokPageStruct value) {
     ListTikTokPages.remove(value);
+    prefs.setStringList('ff_ListTikTokPages',
+        _ListTikTokPages.map((x) => x.serialize()).toList());
   }
 
   void removeAtIndexFromListTikTokPages(int index) {
     ListTikTokPages.removeAt(index);
+    prefs.setStringList('ff_ListTikTokPages',
+        _ListTikTokPages.map((x) => x.serialize()).toList());
   }
 
   void updateListTikTokPagesAtIndex(
@@ -65,10 +92,14 @@ class FFAppState extends ChangeNotifier {
     TiktokPageStruct Function(TiktokPageStruct) updateFn,
   ) {
     ListTikTokPages[index] = updateFn(_ListTikTokPages[index]);
+    prefs.setStringList('ff_ListTikTokPages',
+        _ListTikTokPages.map((x) => x.serialize()).toList());
   }
 
   void insertAtIndexInListTikTokPages(int index, TiktokPageStruct value) {
     ListTikTokPages.insert(index, value);
+    prefs.setStringList('ff_ListTikTokPages',
+        _ListTikTokPages.map((x) => x.serialize()).toList());
   }
 
   List<String> _newListLike = [];
@@ -149,59 +180,51 @@ class FFAppState extends ChangeNotifier {
 
   List<TiktokPageStruct> _BreathingTikTok = [
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1744998504/Download_11_n6onoj.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310538/ssstik.io__unwindambientmusic_1759090891180_1_uqeyqi.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1744998506/Download_9_vltml4.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310539/ssstik.io__sr_animaticdreamfantasy_1759090870652_ii3wfk.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1744998504/Download_10_plbezp.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310537/ssstik.io__serenitysoulsounds_1759090948759_dk9rf2.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1744998501/Download_12_xee5fu.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310542/ssstik.io__big.visual.chill_1759090848819_b6mqxh.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1744998500/Download_13_xrbaff.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310541/ssstik.io__markdurre_1759090826263_dv8d2p.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1744998497/Download_15_zvsun6.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310541/ssstik.io__deva_gin_1759090793287_mgdabr.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1744998497/Download_15_zvsun6.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310541/ssstik.io__lesfreemusic_1759090779605_ynjdag.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1744998497/Download_16_a40edl.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310542/ssstik.io__vlogbackgroundmusic_1759090916590_orfin3.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1744998491/Download_22_fz96kq.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310543/ssstik.io__mandala_meditation_1759090695111_fb0ud6.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604047/588b57e1dfd96a53c9bef7d0d9baab03_daoswp.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310542/ssstik.io__ashamaluevmusic_1759090721244_dm1zln.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604047/b65740305d9f721b703061d843565c4e_oanmc3.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310547/ssstik.io__sr_animaticdreamfantasy_1759090641182_ufl4vk.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604040/e744e44480bbdf8e17ffeb8d3be25e72_o9oqbb.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310551/ssstik.io___ausmad_1759066915001_tlotkb.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604037/59ece56067de09704c5befe5abc9d25a_eqm8sc.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310553/ssstik.io__laurieasmr_1759067831028_hy1gjz.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604036/62e89d09d9eccc65a1db302fd0192da9_zj5xhy.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310555/ssstik.io__ryanclarkinmindset_1759067917387_eyz0cm.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604036/39d374d8c9410c16a300b8aa36d9e45c_rw3bss.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310559/ssstik.io__iamcherenya_1759066563536_q3psnw.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604036/cc3157ae2467df9ef1025ed0ea809b57_ka2s2h.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310562/ssstik.io__ultrahealer_1759065666860_segg4w.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604029/69729711a4f2b6a2095a7cf593c09955_cpa4hj.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310565/ssstik.io__rea.earth_1759064650635_i4moeh.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604029/79d559d448a1d938e0d5f5d27afc6d39_dw52pc.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310567/ssstik.io__sendgoodvibes__1759064598979_ol2xnx.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604028/96c931f97b84b28b167bbabdd692e949_prrcmm.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310571/ssstik.io__coachchristo_1759067713232_srjsxj.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604028/3c7bc2dd16f3389b790eb956647a1278_qmiqda.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310562/ssstik.io__nightatlasmusic_1759065636957_upjzld.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604028/d18aac755aba901350593d4de7717409_abgvbw.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310571/ssstik.io__emilymeditates_1759067682716_lpm0fj.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604021/6c0bd47d31832f516f621460c3fec309_gnwxrn.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310572/ssstik.io__nightatlasmusic_1759064330385_kxczuc.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604020/e9a5f897d3297cc82fef3744f703f64f_nto6ql.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
-    TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604020/e8ef22aa2605f40b04cbdcb79da92392_dn8czs.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
-    TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604019/d1f96c4a7dd137c10d7d70567ba99bc1_etbunj.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
-    TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"Hello World\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604019/d1f96c4a7dd137c10d7d70567ba99bc1_etbunj.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
-    TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604014/096cfdd90d53e4fc0d21a96802c4bb57_g9cl4s.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}'))
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310581/ssstik.io__joeyxoto_1759065727474_oeexan.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}'))
   ];
   List<TiktokPageStruct> get BreathingTikTok => _BreathingTikTok;
   set BreathingTikTok(List<TiktokPageStruct> value) {
@@ -233,65 +256,65 @@ class FFAppState extends ChangeNotifier {
 
   List<TiktokPageStruct> _BodyTikToks = [
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1744998494/Download_18_kdrylz.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763311072/ssstik.io__kharmagrimes_1759012438803_verwwv.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1744998493/Download_19_koimmh.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763312342/ssstik.io__claudibar_1759091328638_nmq5mq.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1744998491/Download_20_grrrsn.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763312342/ssstik.io__mellymena_1759091284147_birjmb.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1744998491/Download_21_qcusmr.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763312342/ssstik.io__thecurtisfu_1759091301020_bpq2d0.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1744998490/Download_23_ximpym.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763312341/ssstik.io__paigegallardo_1759091315124_lesdos.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604019/d1f96c4a7dd137c10d7d70567ba99bc1_etbunj.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763311987/ssstik.io__katelynernst4_1759091362726_sdpyuq.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604014/096cfdd90d53e4fc0d21a96802c4bb57_g9cl4s.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763311946/ssstik.io__ashtonvonkessler_1759091376293_wtw2kc.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604014/a0005e6aa527b09410de3e68cbbc10ae_yrcfng.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763311946/ssstik.io__ruthpilatesstudio_1759091391994_a0udvr.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604014/c41f57cce7dd6c038733b11a688e7b4d_x8tt7s.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763311946/ssstik.io__katybath_1759091410546_j5mjpr.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604013/3eb5a4bcbf90d994b71bb11b5fa8b995_madhh9.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763311946/ssstik.io__katybath_1759091465877_sl4krj.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604013/3e04542e301ae648df70da36b2168683_apqndr.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763311073/ssstik.io__syddyoungyoga_1759012479813_q9cdd2.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604013/6fdb5e1981904baf379c070382b410be_uvhruy.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763311072/ssstik.io__kharmagrimes_1759012438803_verwwv.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604012/8c435a4a31fff61e04a183cf47e7eaae_j6yin0.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/ds1fszisq/video/upload/v1759067979/ssstik.io__agelessmobility_1759066937240_sucl2v.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604012/0b526c3b91c33084f3e1a643fd7a22a7_k8tpxg.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763311071/ssstik.io__livebetr_1759012561969_jc3hwo.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604012/8a16b6583e3bfca56e0540b258ad005d_frkdij.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310556/ssstik.io__yoga.with.kate.amber_1759066603878_nvi3zy.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604012/2dbb82ac04cc27b41070a303bea07074_ecdq0j.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310556/ssstik.io__emilykchen_1759066637292_sc1zls.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604008/b8d0513e5d46be9aa8c28a38d596af47_t0v65y.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310555/ssstik.io__kamilalyu_1759066715224_gzdzoo.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604007/f4b5010abcf7dfcd42af9aa57ba23531_temxz0.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310555/ssstik.io__kharmagrimes_1759066684642_ivk6cu.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604007/ac34006e6a0acd8b8e3d974736765d82_q3n06a.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310553/ssstik.io__marlasyoga_1759066835804_ceyhxx.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604004/fe77661a51c2c6508d7a0732c957e375_chgbzs.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310552/ssstik.io__itssydneynoelle_1759066861208_w6k50z.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604006/5d43708b36991fc15f39f5a880093241_oqxyic.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310551/ssstik.io__onthematwithmack_1759066892056_vtim5u.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604006/85ed9261f358eb6e3285206c94eaddf4_famfls.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310551/ssstik.io___ausmad_1759066915001_tlotkb.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604004/fe77661a51c2c6508d7a0732c957e375_chgbzs.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310550/ssstik.io__agelessmobility_1759066937240_rvhp6b.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604003/9c60b717307916906329692b1168d643_tqbzcu.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310539/ssstik.io__unwindambientmusic_1759090891180_zbmgfk.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604002/3e6994586df08fafbccb57d12a90a4a1_djfk78.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310537/ssstik.io__taichi.qingxuan_1759090963421_axzske.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604001/4418662efde983ef1f9b106bbeec4483_mj7f4h.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310535/ssstik.io__daouniverse_1759091007797_y3rxzo.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604001/d6247386afbd55885539706a96612b3a_f8znx3.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310530/ssstik.io__taichikungfu112_1759091047059_yvukmk.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747273730/dotsave.app_pinterest_video_downloader_1747273217681_ilmykb.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310530/ssstik.io__daouniverse_1759091123436_yoetgm.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747273722/dotsave.app_pinterest_video_downloader_1747273329264_hone4t.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310530/ssstik.io__annataichi_1759091063820_edvysa.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"Hello World\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}'))
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310530/ssstik.io__annataichi_1759091063820_edvysa.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}'))
   ];
   List<TiktokPageStruct> get BodyTikToks => _BodyTikToks;
   set BodyTikToks(List<TiktokPageStruct> value) {
@@ -323,105 +346,105 @@ class FFAppState extends ChangeNotifier {
 
   List<TiktokPageStruct> _meditationTikToks = [
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604109/d8d8a34cc26f59bd8789096881c32b40_jt3jfy.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310523/ssstik.io__brittany_broski_1759091508015_agm7se.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604105/337474901981bea82ccb352733355d7f_cxksfz.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310523/ssstik.io__iamlarasophiee_1759091491173_rxrg7n.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604105/dbacae154920fa63f482f88cbb8becf1_bibmxx.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310521/ssstik.io__nikki.neisler_1759091523152_xncutw.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604104/a355dde69ccad511622282071539d01b_vzbjm1.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310521/ssstik.io__tranquilvibes8_1759091605607_iawohr.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604104/8306986c6c4e59605fecf532e2ec0f89_zonxqe.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310520/ssstik.io__theintuitionschool.co_1759091663659_bhpd4o.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604103/29491cf9fdc3087d8aeb0f9b52566257_se9eyh.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310520/ssstik.io__zencollection108_1759091750274_yh7ud0.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604103/7cbb1a1a19573b7231eb8e859c4185e2_genb7y.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310519/ssstik.io__zencollection108_1759091767278_s74tm1.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604103/a157bf1efd3e73f5b412c876539406b2_hujt7t.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310517/ssstik.io__mrcultdaddy_1759091813447_medmi3.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604102/dc51b0ca79caeb4b10c7a080e8ffe678_ns92gb.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310542/ssstik.io__vlogbackgroundmusic_1759090916590_orfin3.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604102/d9c1c322a26bab2a370ed754edebada6_qcppjv.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310543/ssstik.io__mandala_meditation_1759090695111_fb0ud6.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604091/486d530ec0c837903ffb229c8d22cd8c_exqsb4.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310553/ssstik.io__laurieasmr_1759067831028_hy1gjz.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604090/9ffff119b410ef388d60b6e97f4e1312_xpqj13.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310559/ssstik.io__iamcherenya_1759066563536_q3psnw.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604090/92a2b0ae85a91d85b420f97e0ec6f54b_qh3bro.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310568/ssstik.io__thecollectiveritual_1759064413087_iegccb.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604090/92a2b0ae85a91d85b420f97e0ec6f54b_qh3bro.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/ds1fszisq/video/upload/v1759068010/ssstik.io__joeyxoto_1759065727474_if2llc.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604089/eec6496efe12efcaa4ad623be6bc4bf0_kuvsbg.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310566/ssstik.io__dailyaffirmbliss_1759065419510_cswotn.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604089/a9714e72f9bef742e8a2b35e87f95dbb_roqoh7.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310568/ssstik.io__thecollectiveritual_1759064413087_iegccb.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604088/d4b914ef6a1ea931894f276537996813_vy4o4z.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310565/ssstik.io__rea.earth_1759064650635_i4moeh.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604088/75ce33bd03931e5b56f3f338597e615d_kjug7u.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310571/ssstik.io__emilymeditates_1759067682716_lpm0fj.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604088/9d48e828599b30b7c145c71684c0dd04_tnuwo9.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/ds1fszisq/video/upload/v1759068021/ssstik.io__tranquilwhisperer_1759064797079_xjr5yo.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604088/7c51befa0164c9a04dd1cb269339e972_t7kcqg.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310581/ssstik.io__joeyxoto_1759065727474_oeexan.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604075/425e178f40bdd46ae45f28112fa4863d_z6ncbr.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310579/ssstik.io__serenitysoulsounds_1759090929575_ssk3it.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604075/4400c7f9fd66d8bdc193366bde3abcb3_dfnwxc.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310581/ssstik.io__monkeymindmeditation_1759065752596_zcttzc.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604075/6f070b85dc055ecfbb657ee2685546a4_fwf1dr.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310575/ssstik.io__monkeymindmeditation_1759066479466_tqjjvo.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604074/a3b360226a1b1aa1f57f59d3598104c5_tfldwk.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310586/ssstik.io__heatherkonzehypnotherapy_1759065690736_cgtvuy.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604074/c90e96af29b4cc9debff77f0d87021ac_rkkiu2.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310588/ssstik.io__daithi7_1759064740784_xejezs.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604074/2e64cec55da014f8eb5124140956f19e_wcpgyt.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310591/ssstik.io__soothing.relaxation_1759067939697_mw4igr.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604074/305f8a3f78e0da6aa42a640bafc69ccc_nzhknj.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310592/ssstik.io__tranquilwhisperer_1759064797079_p0smte.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604073/10494053d20d31d71687fd2b9e4681d9_yvzt8w.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310597/ssstik.io__esthers_universe_1759064365629_mqrpkr.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604072/5376f6a1d1757d9892c96c24abd6cefc_wd35bu.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763311064/ssstik.io__musicforbodyandspirit_1759013003282_rmnhpm.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604072/fc32d8944ebf9021e3c030cce499968c_maemik.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763311066/ssstik.io__rea.earth_1759012916348_ged3xa.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604072/2e0cdc1c54d6ab67369630106a4878d3_ov7d0i.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763311066/ssstik.io__loreenofficial_1759012870988_zcrecf.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604072/93595fa8fc89ced6301e576ea4f4ae0a_ppp1gl.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763311067/ssstik.io__meditation4soul_1759013029274_nfkei7.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604071/0f68cd14f97e7dd1ebf6c60fcbe3fe52_jqhjob.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763311067/ssstik.io__meditation4soul_1759013029274_nfkei7.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604071/a4fc047cee51112151e2936aaae0b281_ctrmwy.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763311069/ssstik.io__estefaniamarroquinl_1759012642727_qhhyni.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604062/dfa2af3c2300e4b56e36f37d804e2993_lx2g8u.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763311070/ssstik.io__meditation4soul_1759012740840_pjvszc.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604062/6e3e5c69cd3c36c0660cc57dd0d84980_fzs5sz.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763311074/ssstik.io__kalisyuga_1759012385500_gfbag5.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604061/3cad74378ca0adcf47514a43cb1d6e33_nd5fcy.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763311078/ssstik.io__carrieann_bailey_1759012706778_tc757m.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604061/72b5a2371603c23570e215ede0a21f17_zigipw.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763311082/ssstik.io__soul_star_sanctuary_1759011950710_1_t16h7h.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604061/72b5a2371603c23570e215ede0a21f17_zigipw.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763311083/ssstik.io__dreastlks_1759012824738_jn7gwl.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604060/36a54e09b08f60b4eeec0b090e9e98af_mhigpi.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763311084/ssstik.io__deeprootmovement_1758933717221_baozxb.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604060/ae1c72e7e431d8897b7c8744f16f370d_eom8zf.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763311084/ssstik.io__thecollectiveritual_1758933917848_v1mxc8.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604059/ec8a2cb740e2a860ee80489b0f6a0997_aramye.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763311085/ssstik.io__emselement_1759012224318_i5batx.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604059/c26790cbf1f62f3252237b58ae3ca72b_hrefv0.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763311085/ssstik.io__intinature_1758933655698_pdcza5.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604058/3a78b214f6793e5c44fa1406ae8ba5fc_lvffmw.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763311089/ssstik.io__ultrahealer_1759013127900_yqyh1m.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604051/8dde5c2512e984372f09cb8f5a3ae16c_mjdhsh.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763311089/ssstik.io__ultrahealer_1759013127900_yqyh1m.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604050/7f88b2a9d426819651d744ba29c1d9ff_aelnjv.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763311089/ssstik.io__serenitysoulsounds_1759012613110_znvkrb.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604049/dc5d893087420d92dea63b33350583c0_mscssq.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763311103/ssstik.io__dralangoodwin_1758933195758_npjpyv.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604048/d1d009c51a8212ae556bc6f589fdf0b2_uquqma.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763311103/ssstik.io__biancarosestephenson_1758933262667_qh2zhs.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/dbyduwpud/video/upload/v1747604048/fa064c879f9e1e96f4508337a3822ae8_rn7dze.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763311106/ssstik.io__yoga.samantha_1758933316314_z607ys.mp4\",\"userPicture\":\"\",\"profilename\":\"Escape - Featured\"}')),
     TiktokPageStruct.fromSerializableMap(jsonDecode(
-        '{\"video\":\"Hello World\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"Hello World\",\"userPicture\":\"Hello World\",\"profilename\":\"Hello World\"}'))
+        '{\"video\":\"\",\"likes\":\"[\\\"Hello World\\\"]\",\"bookmark\":\"[\\\"Hello World\\\"]\",\"id\":\"0\",\"urlvideo\":\"https://res.cloudinary.com/djm6axyxz/video/upload/v1763310541/ssstik.io__deva_gin_1759090793287_mgdabr.mp4\",\"userPicture\":\"\",\"profilename\":\"\"}'))
   ];
   List<TiktokPageStruct> get meditationTikToks => _meditationTikToks;
   set meditationTikToks(List<TiktokPageStruct> value) {
@@ -450,4 +473,45 @@ class FFAppState extends ChangeNotifier {
   void insertAtIndexInMeditationTikToks(int index, TiktokPageStruct value) {
     meditationTikToks.insert(index, value);
   }
+
+  List<TiktokPageStruct> _ReorderedForYouVideos = [];
+  List<TiktokPageStruct> get ReorderedForYouVideos => _ReorderedForYouVideos;
+  set ReorderedForYouVideos(List<TiktokPageStruct> value) {
+    _ReorderedForYouVideos = value;
+  }
+
+  void addToReorderedForYouVideos(TiktokPageStruct value) {
+    ReorderedForYouVideos.add(value);
+  }
+
+  void removeFromReorderedForYouVideos(TiktokPageStruct value) {
+    ReorderedForYouVideos.remove(value);
+  }
+
+  void removeAtIndexFromReorderedForYouVideos(int index) {
+    ReorderedForYouVideos.removeAt(index);
+  }
+
+  void updateReorderedForYouVideosAtIndex(
+    int index,
+    TiktokPageStruct Function(TiktokPageStruct) updateFn,
+  ) {
+    ReorderedForYouVideos[index] = updateFn(_ReorderedForYouVideos[index]);
+  }
+
+  void insertAtIndexInReorderedForYouVideos(int index, TiktokPageStruct value) {
+    ReorderedForYouVideos.insert(index, value);
+  }
+}
+
+void _safeInit(Function() initializeField) {
+  try {
+    initializeField();
+  } catch (_) {}
+}
+
+Future _safeInitAsync(Function() initializeField) async {
+  try {
+    await initializeField();
+  } catch (_) {}
 }

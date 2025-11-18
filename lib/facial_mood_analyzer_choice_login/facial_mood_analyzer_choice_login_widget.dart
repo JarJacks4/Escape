@@ -391,14 +391,17 @@ class _FacialMoodAnalyzerChoiceLoginWidgetState
                 ),
               ),
             ),
-            Lottie.asset(
-              'assets/jsons/Animation_-_1749422191934.json',
-              width: 419.46,
-              height: 467.2,
-              fit: BoxFit.contain,
-              animate: true,
-            ).animateOnPageLoad(
-                animationsMap['lottieAnimationOnPageLoadAnimation']!),
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Lottie.asset(
+                'assets/jsons/Animation_-_1749422191934.json',
+                width: 419.46,
+                height: 467.2,
+                fit: BoxFit.contain,
+                animate: true,
+              ).animateOnPageLoad(
+                  animationsMap['lottieAnimationOnPageLoadAnimation']!),
+            ),
           ],
         ),
       ),

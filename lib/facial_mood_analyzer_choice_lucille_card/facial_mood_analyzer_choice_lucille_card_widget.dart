@@ -381,14 +381,17 @@ class _FacialMoodAnalyzerChoiceLucilleCardWidgetState
                 ),
               ),
             ),
-            Lottie.asset(
-              'assets/jsons/Animation_-_1749422191934.json',
-              width: 419.5,
-              height: 467.2,
-              fit: BoxFit.contain,
-              animate: true,
-            ).animateOnPageLoad(
-                animationsMap['lottieAnimationOnPageLoadAnimation']!),
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Lottie.asset(
+                'assets/jsons/Face_scan.json',
+                width: 419.5,
+                height: 467.2,
+                fit: BoxFit.contain,
+                animate: true,
+              ).animateOnPageLoad(
+                  animationsMap['lottieAnimationOnPageLoadAnimation']!),
+            ),
           ],
         ),
       ),

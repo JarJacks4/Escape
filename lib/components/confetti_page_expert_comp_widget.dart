@@ -1,5 +1,3 @@
-import '/auth/firebase_auth/auth_util.dart';
-import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -89,6 +87,13 @@ class _ConfettiPageExpertCompWidgetState
             duration: 600.0.ms,
             begin: 0.0,
             end: 1.0,
+          ),
+          ShimmerEffect(
+            curve: Curves.easeIn,
+            delay: 600.0.ms,
+            duration: 600.0.ms,
+            color: FlutterFlowTheme.of(context).primary,
+            angle: 0.524,
           ),
         ],
       ),
@@ -247,7 +252,7 @@ class _ConfettiPageExpertCompWidgetState
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 24.0, 0.0, 24.0),
+                                    0.0, 20.0, 0.0, 20.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment:
@@ -258,15 +263,16 @@ class _ConfettiPageExpertCompWidgetState
                                       children: [
                                         Text(
                                           FFLocalizations.of(context).getText(
-                                            'tj3spxky' /* x 150 */,
+                                            '93oaowba' /* + 150 */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .titleLarge
                                               .override(
-                                                fontFamily: 'The Seasons',
+                                                fontFamily: 'WorkSans',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondary,
+                                                fontSize: 28.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w300,
                                               ),
@@ -281,8 +287,8 @@ class _ConfettiPageExpertCompWidgetState
                                                 BorderRadius.circular(8.0),
                                             child: Image.asset(
                                               'assets/images/free-coin-icon-794-thumb.png',
-                                              width: 25.0,
-                                              height: 25.0,
+                                              width: 33.7,
+                                              height: 36.0,
                                               fit: BoxFit.cover,
                                             ),
                                           ).animateOnPageLoad(animationsMap[
@@ -298,24 +304,12 @@ class _ConfettiPageExpertCompWidgetState
                                 child: FFButtonWidget(
                                   onPressed: () async {
                                     logFirebaseEvent(
-                                        'CONFETTI_EXPERT_BACK_TO_HOME_BTN_ON_TAP');
+                                        'CONFETTI_EXPERT_SEE_SELF_CARE_PLAN_BTN_O');
                                     logFirebaseEvent('Button_update_app_state');
                                     FFAppState().pointsEarned =
                                         FFAppState().pointsEarned + 150;
-                                    safeSetState(() {});
-                                    logFirebaseEvent('Button_backend_call');
-
-                                    await currentUserReference!.update({
-                                      ...createUsersRecordData(
-                                        hasGainedPoints: true,
-                                      ),
-                                      ...mapToFirestore(
-                                        {
-                                          'numberOfGoalsCompleted':
-                                              FieldValue.increment(1),
-                                        },
-                                      ),
-                                    });
+                                    FFAppState().hasCompletedGoal = true;
+                                    FFAppState().update(() {});
                                     logFirebaseEvent('Button_show_snack_bar');
                                     ScaffoldMessenger.of(context).showSnackBar(
                                       SnackBar(
@@ -331,32 +325,24 @@ class _ConfettiPageExpertCompWidgetState
                                         backgroundColor:
                                             FlutterFlowTheme.of(context)
                                                 .secondary,
-                                        action: SnackBarAction(
-                                          label: 'Navigating Home!',
-                                          textColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .alternate,
-                                          onPressed: () async {
-                                            context.goNamed(
-                                              HomeVersion4Widget.routeName,
-                                              extra: <String, dynamic>{
-                                                kTransitionInfoKey:
-                                                    TransitionInfo(
-                                                  hasTransition: true,
-                                                  transitionType:
-                                                      PageTransitionType.fade,
-                                                  duration:
-                                                      Duration(milliseconds: 0),
-                                                ),
-                                              },
-                                            );
-                                          },
-                                        ),
                                       ),
+                                    );
+                                    logFirebaseEvent('Button_navigate_to');
+
+                                    context.pushNamed(
+                                      SelfCarePlanPageWidget.routeName,
+                                      extra: <String, dynamic>{
+                                        kTransitionInfoKey: TransitionInfo(
+                                          hasTransition: true,
+                                          transitionType:
+                                              PageTransitionType.fade,
+                                          duration: Duration(milliseconds: 9),
+                                        ),
+                                      },
                                     );
                                   },
                                   text: FFLocalizations.of(context).getText(
-                                    'yk1httyq' /* Back to Home */,
+                                    'yk1httyq' /* See Self-Care Plan */,
                                   ),
                                   options: FFButtonOptions(
                                     width: double.infinity,
@@ -369,12 +355,12 @@ class _ConfettiPageExpertCompWidgetState
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .override(
-                                          fontFamily: 'The Seasons',
+                                          fontFamily: 'WorkSans',
                                           color: FlutterFlowTheme.of(context)
                                               .alternate,
                                           fontSize: 18.0,
                                           letterSpacing: 0.0,
-                                          fontWeight: FontWeight.normal,
+                                          fontWeight: FontWeight.w600,
                                         ),
                                     elevation: 3.0,
                                     borderSide: BorderSide(
@@ -393,19 +379,6 @@ class _ConfettiPageExpertCompWidgetState
                                   onPressed: () async {
                                     logFirebaseEvent(
                                         'CONFETTI_EXPERT_DISMISS_AND_REPLAY_BTN_O');
-                                    logFirebaseEvent('Button_backend_call');
-
-                                    await currentUserReference!.update({
-                                      ...createUsersRecordData(
-                                        hasGainedPoints: true,
-                                      ),
-                                      ...mapToFirestore(
-                                        {
-                                          'numberOfGoalsCompleted':
-                                              FieldValue.increment(1),
-                                        },
-                                      ),
-                                    });
                                     logFirebaseEvent('Button_bottom_sheet');
                                     Navigator.pop(context);
                                   },
@@ -423,7 +396,7 @@ class _ConfettiPageExpertCompWidgetState
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .override(
-                                          fontFamily: 'The Seasons',
+                                          fontFamily: 'WorkSans',
                                           color: FlutterFlowTheme.of(context)
                                               .primary,
                                           fontSize: 18.0,
