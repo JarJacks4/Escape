@@ -12,7 +12,7 @@ class SoundscapesHomeFinalModel
 
   // Stores action output result for [Backend Call - API (Partner Token Epidemic Sound)] action in SoundscapesHomeFinal widget.
   ApiCallResponse? partnerToken;
-  // Stores action output result for [Backend Call - API (Epidemic Search Tracks API)] action in SoundscapesHomeFinal widget.
+  // Stores action output result for [Backend Call - API (Get Epidemic Tracks)] action in SoundscapesHomeFinal widget.
   ApiCallResponse? epidemicTracks;
   // State field(s) for Timer widget.
   final timerInitialTimeMs = 900;
@@ -35,12 +35,15 @@ class SoundscapesHomeFinalModel
       : 0;
   // State field(s) for Column widget.
   ScrollController? columnController;
+  // State field(s) for ListView widget.
+  ScrollController? listViewController2;
   // State field(s) for Row widget.
   ScrollController? rowController;
 
   @override
   void initState(BuildContext context) {
     columnController = ScrollController();
+    listViewController2 = ScrollController();
     rowController = ScrollController();
   }
 
@@ -48,6 +51,7 @@ class SoundscapesHomeFinalModel
   void dispose() {
     timerController.dispose();
     columnController?.dispose();
+    listViewController2?.dispose();
     rowController?.dispose();
   }
 }
