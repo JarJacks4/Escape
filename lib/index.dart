@@ -137,3 +137,7 @@ export '/chat_g_p_t_component/chat_ai_screen_1/chat_ai_screen1_widget.dart'
     show ChatAiScreen1Widget;
 export '/advanced_mood_tracker/advanced_mood_tracker_widget.dart'
     show AdvancedMoodTrackerWidget;
+export '/soundscapes/soundscapes_widget.dart' show SoundscapesWidget;
+export '/tabbar/tabbar_widget.dart' show TabbarWidget;
+export '/community_home_version5_copy/community_home_version5_copy_widget.dart'
+    show CommunityHomeVersion5CopyWidget;

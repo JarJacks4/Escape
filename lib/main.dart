@@ -19,6 +19,8 @@ import 'index.dart';
 
 import 'package:tiktokfeed_wz8en7/app_state.dart'
     as tiktokfeed_wz8en7_app_state;
+import 'package:that_audio_player_5bjqer/app_state.dart'
+    as that_audio_player_5bjqer_app_state;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -35,6 +37,10 @@ void main() async {
   final tiktokfeed_wz8en7AppState = tiktokfeed_wz8en7_app_state.FFAppState();
   await tiktokfeed_wz8en7AppState.initializePersistedState();
 
+  final that_audio_player_5bjqerAppState =
+      that_audio_player_5bjqer_app_state.FFAppState();
+  await that_audio_player_5bjqerAppState.initializePersistedState();
+
   if (!kIsWeb) {
     FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
   }
@@ -46,6 +52,9 @@ void main() async {
       ),
       ChangeNotifierProvider(
         create: (context) => tiktokfeed_wz8en7AppState,
+      ),
+      ChangeNotifierProvider(
+        create: (context) => that_audio_player_5bjqerAppState,
       ),
     ],
     child: MyApp(),

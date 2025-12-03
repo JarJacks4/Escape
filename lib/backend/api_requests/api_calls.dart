@@ -177,12 +177,13 @@ class HealthCheckCall {
 
 class EpidemicSoundAPIGroup {
   static String getBaseUrl({
-    String? accessToken = '',
+    String? accessToken =
+        'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIxODEzNTBlZS04ZjYwLTRlOWMtODE2Yi1jMzhhMDgwZTAyZDUiLCJwYXJ0bmVyTmFtZSI6IkVzY2FwZSBFbnRlcnByaXNlcyIsImFwcElkIjoiZjYzZTM4NGItMDExYi00MDZiLTgyZDUtNDkyNzUzMDA4ZGE0IiwiYXBwTmFtZSI6IkVzY2FwZSBBcHAiLCJ1c2VySWQiOiJzb21lLXVuaXF1ZS11c2VyLWlkIiwidGllcklkIjoiNzViMzEwY2YtMjM0Yi00NTIzLWEyZmMtZjIxOWZiZDk4YTJhIiwidGllck5hbWUiOiJDdXN0b20iLCJhdWQiOiJlbmQtdXNlciIsImlzcyI6IkVwaWRlbWljIFNvdW5kIiwiZXhwIjoxNzY0MjIwMDY3fQ.j80T5uKOuTlvbr8EzCF7Gp-kyJKTm1MGisMKCq70IEuMvA7Y-Jv1yuJ0OhkzhVHL3FTG6t_5EZ3-d24m_rJ5MpVqwfRsMDyXz83PpVRcD10ZijB7i3U5gEenVltccpixkW4rC6zuSx9IneDfrh8RNBO0AVvff0woJ6lvkA_77l9WZ6mB5cMlt_Zp44Bj6VVL0Zj0jtNW2dwpDONW6uTBLn9nMmrAOCTDcNQ_ezlA-Rzekf83UsE39x2LaAEoDs_4F140yIeI2NnZgRhOthb0CTzqy1xjefu7hsM8kRrHUvEmxyIvK33SyM-KP4Jmqy7PztB3lsAJDvMHCABdASpzBA',
   }) =>
       'https://partner-content-api.epidemicsound.com';
   static Map<String, String> headers = {
-    'Content-Type': 'application/json',
-    'Authorization': 'Bearer {{EpidemicSound.accessToken}}',
+    'Authorization':
+        'Bearer {eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIxODEzNTBlZS04ZjYwLTRlOWMtODE2Yi1jMzhhMDgwZTAyZDUiLCJwYXJ0bmVyTmFtZSI6IkVzY2FwZSBFbnRlcnByaXNlcyIsImFwcElkIjoiZjYzZTM4NGItMDExYi00MDZiLTgyZDUtNDkyNzUzMDA4ZGE0IiwiYXBwTmFtZSI6IkVzY2FwZSBBcHAiLCJ1c2VySWQiOiJzb21lLXVuaXF1ZS11c2VyLWlkIiwidGllcklkIjoiNzViMzEwY2YtMjM0Yi00NTIzLWEyZmMtZjIxOWZiZDk4YTJhIiwidGllck5hbWUiOiJDdXN0b20iLCJhdWQiOiJlbmQtdXNlciIsImlzcyI6IkVwaWRlbWljIFNvdW5kIiwiZXhwIjoxNzY0MjIwMDY3fQ.j80T5uKOuTlvbr8EzCF7Gp-kyJKTm1MGisMKCq70IEuMvA7Y-Jv1yuJ0OhkzhVHL3FTG6t_5EZ3-d24m_rJ5MpVqwfRsMDyXz83PpVRcD10ZijB7i3U5gEenVltccpixkW4rC6zuSx9IneDfrh8RNBO0AVvff0woJ6lvkA_77l9WZ6mB5cMlt_Zp44Bj6VVL0Zj0jtNW2dwpDONW6uTBLn9nMmrAOCTDcNQ_ezlA-Rzekf83UsE39x2LaAEoDs_4F140yIeI2NnZgRhOthb0CTzqy1xjefu7hsM8kRrHUvEmxyIvK33SyM-KP4Jmqy7PztB3lsAJDvMHCABdASpzBA}',
   };
   static EpidemicSearchTracksAPICall epidemicSearchTracksAPICall =
       EpidemicSearchTracksAPICall();
@@ -203,7 +204,8 @@ class EpidemicSearchTracksAPICall {
     int? durationMs,
     String? artistsName = '',
     String? previewUrl = '',
-    String? accessToken = '',
+    String? accessToken =
+        'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIxODEzNTBlZS04ZjYwLTRlOWMtODE2Yi1jMzhhMDgwZTAyZDUiLCJwYXJ0bmVyTmFtZSI6IkVzY2FwZSBFbnRlcnByaXNlcyIsImFwcElkIjoiZjYzZTM4NGItMDExYi00MDZiLTgyZDUtNDkyNzUzMDA4ZGE0IiwiYXBwTmFtZSI6IkVzY2FwZSBBcHAiLCJ1c2VySWQiOiJzb21lLXVuaXF1ZS11c2VyLWlkIiwidGllcklkIjoiNzViMzEwY2YtMjM0Yi00NTIzLWEyZmMtZjIxOWZiZDk4YTJhIiwidGllck5hbWUiOiJDdXN0b20iLCJhdWQiOiJlbmQtdXNlciIsImlzcyI6IkVwaWRlbWljIFNvdW5kIiwiZXhwIjoxNzY0MjIwMDY3fQ.j80T5uKOuTlvbr8EzCF7Gp-kyJKTm1MGisMKCq70IEuMvA7Y-Jv1yuJ0OhkzhVHL3FTG6t_5EZ3-d24m_rJ5MpVqwfRsMDyXz83PpVRcD10ZijB7i3U5gEenVltccpixkW4rC6zuSx9IneDfrh8RNBO0AVvff0woJ6lvkA_77l9WZ6mB5cMlt_Zp44Bj6VVL0Zj0jtNW2dwpDONW6uTBLn9nMmrAOCTDcNQ_ezlA-Rzekf83UsE39x2LaAEoDs_4F140yIeI2NnZgRhOthb0CTzqy1xjefu7hsM8kRrHUvEmxyIvK33SyM-KP4Jmqy7PztB3lsAJDvMHCABdASpzBA',
   }) async {
     final baseUrl = EpidemicSoundAPIGroup.getBaseUrl(
       accessToken: accessToken,
@@ -213,11 +215,11 @@ class EpidemicSearchTracksAPICall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'Epidemic Search Tracks API',
-      apiUrl: '${baseUrl}/v0/tracks/search',
+      apiUrl: '${baseUrl}v0/tracks',
       callType: ApiCallType.GET,
       headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer {{EpidemicSound.accessToken}}',
+        'Authorization':
+            'Bearer {eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIxODEzNTBlZS04ZjYwLTRlOWMtODE2Yi1jMzhhMDgwZTAyZDUiLCJwYXJ0bmVyTmFtZSI6IkVzY2FwZSBFbnRlcnByaXNlcyIsImFwcElkIjoiZjYzZTM4NGItMDExYi00MDZiLTgyZDUtNDkyNzUzMDA4ZGE0IiwiYXBwTmFtZSI6IkVzY2FwZSBBcHAiLCJ1c2VySWQiOiJzb21lLXVuaXF1ZS11c2VyLWlkIiwidGllcklkIjoiNzViMzEwY2YtMjM0Yi00NTIzLWEyZmMtZjIxOWZiZDk4YTJhIiwidGllck5hbWUiOiJDdXN0b20iLCJhdWQiOiJlbmQtdXNlciIsImlzcyI6IkVwaWRlbWljIFNvdW5kIiwiZXhwIjoxNzY0MjIwMDY3fQ.j80T5uKOuTlvbr8EzCF7Gp-kyJKTm1MGisMKCq70IEuMvA7Y-Jv1yuJ0OhkzhVHL3FTG6t_5EZ3-d24m_rJ5MpVqwfRsMDyXz83PpVRcD10ZijB7i3U5gEenVltccpixkW4rC6zuSx9IneDfrh8RNBO0AVvff0woJ6lvkA_77l9WZ6mB5cMlt_Zp44Bj6VVL0Zj0jtNW2dwpDONW6uTBLn9nMmrAOCTDcNQ_ezlA-Rzekf83UsE39x2LaAEoDs_4F140yIeI2NnZgRhOthb0CTzqy1xjefu7hsM8kRrHUvEmxyIvK33SyM-KP4Jmqy7PztB3lsAJDvMHCABdASpzBA}',
       },
       params: {
         'query': "{{query}}",
@@ -243,7 +245,8 @@ class EpidemicSoundAlbumsCall {
     String? title = '',
     String? coverArtUrl = '',
     String? releaseDate = '',
-    String? accessToken = '',
+    String? accessToken =
+        'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIxODEzNTBlZS04ZjYwLTRlOWMtODE2Yi1jMzhhMDgwZTAyZDUiLCJwYXJ0bmVyTmFtZSI6IkVzY2FwZSBFbnRlcnByaXNlcyIsImFwcElkIjoiZjYzZTM4NGItMDExYi00MDZiLTgyZDUtNDkyNzUzMDA4ZGE0IiwiYXBwTmFtZSI6IkVzY2FwZSBBcHAiLCJ1c2VySWQiOiJzb21lLXVuaXF1ZS11c2VyLWlkIiwidGllcklkIjoiNzViMzEwY2YtMjM0Yi00NTIzLWEyZmMtZjIxOWZiZDk4YTJhIiwidGllck5hbWUiOiJDdXN0b20iLCJhdWQiOiJlbmQtdXNlciIsImlzcyI6IkVwaWRlbWljIFNvdW5kIiwiZXhwIjoxNzY0MjIwMDY3fQ.j80T5uKOuTlvbr8EzCF7Gp-kyJKTm1MGisMKCq70IEuMvA7Y-Jv1yuJ0OhkzhVHL3FTG6t_5EZ3-d24m_rJ5MpVqwfRsMDyXz83PpVRcD10ZijB7i3U5gEenVltccpixkW4rC6zuSx9IneDfrh8RNBO0AVvff0woJ6lvkA_77l9WZ6mB5cMlt_Zp44Bj6VVL0Zj0jtNW2dwpDONW6uTBLn9nMmrAOCTDcNQ_ezlA-Rzekf83UsE39x2LaAEoDs_4F140yIeI2NnZgRhOthb0CTzqy1xjefu7hsM8kRrHUvEmxyIvK33SyM-KP4Jmqy7PztB3lsAJDvMHCABdASpzBA',
   }) async {
     final baseUrl = EpidemicSoundAPIGroup.getBaseUrl(
       accessToken: accessToken,
@@ -256,8 +259,8 @@ class EpidemicSoundAlbumsCall {
       apiUrl: '${baseUrl}/v0/albums',
       callType: ApiCallType.GET,
       headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer {{EpidemicSound.accessToken}}',
+        'Authorization':
+            'Bearer {eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIxODEzNTBlZS04ZjYwLTRlOWMtODE2Yi1jMzhhMDgwZTAyZDUiLCJwYXJ0bmVyTmFtZSI6IkVzY2FwZSBFbnRlcnByaXNlcyIsImFwcElkIjoiZjYzZTM4NGItMDExYi00MDZiLTgyZDUtNDkyNzUzMDA4ZGE0IiwiYXBwTmFtZSI6IkVzY2FwZSBBcHAiLCJ1c2VySWQiOiJzb21lLXVuaXF1ZS11c2VyLWlkIiwidGllcklkIjoiNzViMzEwY2YtMjM0Yi00NTIzLWEyZmMtZjIxOWZiZDk4YTJhIiwidGllck5hbWUiOiJDdXN0b20iLCJhdWQiOiJlbmQtdXNlciIsImlzcyI6IkVwaWRlbWljIFNvdW5kIiwiZXhwIjoxNzY0MjIwMDY3fQ.j80T5uKOuTlvbr8EzCF7Gp-kyJKTm1MGisMKCq70IEuMvA7Y-Jv1yuJ0OhkzhVHL3FTG6t_5EZ3-d24m_rJ5MpVqwfRsMDyXz83PpVRcD10ZijB7i3U5gEenVltccpixkW4rC6zuSx9IneDfrh8RNBO0AVvff0woJ6lvkA_77l9WZ6mB5cMlt_Zp44Bj6VVL0Zj0jtNW2dwpDONW6uTBLn9nMmrAOCTDcNQ_ezlA-Rzekf83UsE39x2LaAEoDs_4F140yIeI2NnZgRhOthb0CTzqy1xjefu7hsM8kRrHUvEmxyIvK33SyM-KP4Jmqy7PztB3lsAJDvMHCABdASpzBA}',
       },
       params: {
         'q': "calm",
@@ -281,7 +284,8 @@ class EpidemicSoundPlaylistsCall {
     String? title = '',
     List<String>? coverArtUrlList,
     String? description = '',
-    String? accessToken = '',
+    String? accessToken =
+        'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIxODEzNTBlZS04ZjYwLTRlOWMtODE2Yi1jMzhhMDgwZTAyZDUiLCJwYXJ0bmVyTmFtZSI6IkVzY2FwZSBFbnRlcnByaXNlcyIsImFwcElkIjoiZjYzZTM4NGItMDExYi00MDZiLTgyZDUtNDkyNzUzMDA4ZGE0IiwiYXBwTmFtZSI6IkVzY2FwZSBBcHAiLCJ1c2VySWQiOiJzb21lLXVuaXF1ZS11c2VyLWlkIiwidGllcklkIjoiNzViMzEwY2YtMjM0Yi00NTIzLWEyZmMtZjIxOWZiZDk4YTJhIiwidGllck5hbWUiOiJDdXN0b20iLCJhdWQiOiJlbmQtdXNlciIsImlzcyI6IkVwaWRlbWljIFNvdW5kIiwiZXhwIjoxNzY0MjIwMDY3fQ.j80T5uKOuTlvbr8EzCF7Gp-kyJKTm1MGisMKCq70IEuMvA7Y-Jv1yuJ0OhkzhVHL3FTG6t_5EZ3-d24m_rJ5MpVqwfRsMDyXz83PpVRcD10ZijB7i3U5gEenVltccpixkW4rC6zuSx9IneDfrh8RNBO0AVvff0woJ6lvkA_77l9WZ6mB5cMlt_Zp44Bj6VVL0Zj0jtNW2dwpDONW6uTBLn9nMmrAOCTDcNQ_ezlA-Rzekf83UsE39x2LaAEoDs_4F140yIeI2NnZgRhOthb0CTzqy1xjefu7hsM8kRrHUvEmxyIvK33SyM-KP4Jmqy7PztB3lsAJDvMHCABdASpzBA',
   }) async {
     final baseUrl = EpidemicSoundAPIGroup.getBaseUrl(
       accessToken: accessToken,
@@ -294,8 +298,8 @@ class EpidemicSoundPlaylistsCall {
       apiUrl: '${baseUrl}/v0/collections',
       callType: ApiCallType.GET,
       headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer {{EpidemicSound.accessToken}}',
+        'Authorization':
+            'Bearer {eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIxODEzNTBlZS04ZjYwLTRlOWMtODE2Yi1jMzhhMDgwZTAyZDUiLCJwYXJ0bmVyTmFtZSI6IkVzY2FwZSBFbnRlcnByaXNlcyIsImFwcElkIjoiZjYzZTM4NGItMDExYi00MDZiLTgyZDUtNDkyNzUzMDA4ZGE0IiwiYXBwTmFtZSI6IkVzY2FwZSBBcHAiLCJ1c2VySWQiOiJzb21lLXVuaXF1ZS11c2VyLWlkIiwidGllcklkIjoiNzViMzEwY2YtMjM0Yi00NTIzLWEyZmMtZjIxOWZiZDk4YTJhIiwidGllck5hbWUiOiJDdXN0b20iLCJhdWQiOiJlbmQtdXNlciIsImlzcyI6IkVwaWRlbWljIFNvdW5kIiwiZXhwIjoxNzY0MjIwMDY3fQ.j80T5uKOuTlvbr8EzCF7Gp-kyJKTm1MGisMKCq70IEuMvA7Y-Jv1yuJ0OhkzhVHL3FTG6t_5EZ3-d24m_rJ5MpVqwfRsMDyXz83PpVRcD10ZijB7i3U5gEenVltccpixkW4rC6zuSx9IneDfrh8RNBO0AVvff0woJ6lvkA_77l9WZ6mB5cMlt_Zp44Bj6VVL0Zj0jtNW2dwpDONW6uTBLn9nMmrAOCTDcNQ_ezlA-Rzekf83UsE39x2LaAEoDs_4F140yIeI2NnZgRhOthb0CTzqy1xjefu7hsM8kRrHUvEmxyIvK33SyM-KP4Jmqy7PztB3lsAJDvMHCABdASpzBA}',
       },
       params: {
         'q': "ambient",
@@ -314,7 +318,8 @@ class EpidemicSoundPlaylistsCall {
 
 class EpidemicSoundGenresCall {
   Future<ApiCallResponse> call({
-    String? accessToken = '',
+    String? accessToken =
+        'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIxODEzNTBlZS04ZjYwLTRlOWMtODE2Yi1jMzhhMDgwZTAyZDUiLCJwYXJ0bmVyTmFtZSI6IkVzY2FwZSBFbnRlcnByaXNlcyIsImFwcElkIjoiZjYzZTM4NGItMDExYi00MDZiLTgyZDUtNDkyNzUzMDA4ZGE0IiwiYXBwTmFtZSI6IkVzY2FwZSBBcHAiLCJ1c2VySWQiOiJzb21lLXVuaXF1ZS11c2VyLWlkIiwidGllcklkIjoiNzViMzEwY2YtMjM0Yi00NTIzLWEyZmMtZjIxOWZiZDk4YTJhIiwidGllck5hbWUiOiJDdXN0b20iLCJhdWQiOiJlbmQtdXNlciIsImlzcyI6IkVwaWRlbWljIFNvdW5kIiwiZXhwIjoxNzY0MjIwMDY3fQ.j80T5uKOuTlvbr8EzCF7Gp-kyJKTm1MGisMKCq70IEuMvA7Y-Jv1yuJ0OhkzhVHL3FTG6t_5EZ3-d24m_rJ5MpVqwfRsMDyXz83PpVRcD10ZijB7i3U5gEenVltccpixkW4rC6zuSx9IneDfrh8RNBO0AVvff0woJ6lvkA_77l9WZ6mB5cMlt_Zp44Bj6VVL0Zj0jtNW2dwpDONW6uTBLn9nMmrAOCTDcNQ_ezlA-Rzekf83UsE39x2LaAEoDs_4F140yIeI2NnZgRhOthb0CTzqy1xjefu7hsM8kRrHUvEmxyIvK33SyM-KP4Jmqy7PztB3lsAJDvMHCABdASpzBA',
   }) async {
     final baseUrl = EpidemicSoundAPIGroup.getBaseUrl(
       accessToken: accessToken,
@@ -325,8 +330,8 @@ class EpidemicSoundGenresCall {
       apiUrl: '${baseUrl}/v0/genres',
       callType: ApiCallType.GET,
       headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer {{EpidemicSound.accessToken}}',
+        'Authorization':
+            'Bearer {eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIxODEzNTBlZS04ZjYwLTRlOWMtODE2Yi1jMzhhMDgwZTAyZDUiLCJwYXJ0bmVyTmFtZSI6IkVzY2FwZSBFbnRlcnByaXNlcyIsImFwcElkIjoiZjYzZTM4NGItMDExYi00MDZiLTgyZDUtNDkyNzUzMDA4ZGE0IiwiYXBwTmFtZSI6IkVzY2FwZSBBcHAiLCJ1c2VySWQiOiJzb21lLXVuaXF1ZS11c2VyLWlkIiwidGllcklkIjoiNzViMzEwY2YtMjM0Yi00NTIzLWEyZmMtZjIxOWZiZDk4YTJhIiwidGllck5hbWUiOiJDdXN0b20iLCJhdWQiOiJlbmQtdXNlciIsImlzcyI6IkVwaWRlbWljIFNvdW5kIiwiZXhwIjoxNzY0MjIwMDY3fQ.j80T5uKOuTlvbr8EzCF7Gp-kyJKTm1MGisMKCq70IEuMvA7Y-Jv1yuJ0OhkzhVHL3FTG6t_5EZ3-d24m_rJ5MpVqwfRsMDyXz83PpVRcD10ZijB7i3U5gEenVltccpixkW4rC6zuSx9IneDfrh8RNBO0AVvff0woJ6lvkA_77l9WZ6mB5cMlt_Zp44Bj6VVL0Zj0jtNW2dwpDONW6uTBLn9nMmrAOCTDcNQ_ezlA-Rzekf83UsE39x2LaAEoDs_4F140yIeI2NnZgRhOthb0CTzqy1xjefu7hsM8kRrHUvEmxyIvK33SyM-KP4Jmqy7PztB3lsAJDvMHCABdASpzBA}',
       },
       params: {},
       returnBody: true,
@@ -341,7 +346,8 @@ class EpidemicSoundGenresCall {
 
 class EpidemicMoodsCall {
   Future<ApiCallResponse> call({
-    String? accessToken = '',
+    String? accessToken =
+        'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIxODEzNTBlZS04ZjYwLTRlOWMtODE2Yi1jMzhhMDgwZTAyZDUiLCJwYXJ0bmVyTmFtZSI6IkVzY2FwZSBFbnRlcnByaXNlcyIsImFwcElkIjoiZjYzZTM4NGItMDExYi00MDZiLTgyZDUtNDkyNzUzMDA4ZGE0IiwiYXBwTmFtZSI6IkVzY2FwZSBBcHAiLCJ1c2VySWQiOiJzb21lLXVuaXF1ZS11c2VyLWlkIiwidGllcklkIjoiNzViMzEwY2YtMjM0Yi00NTIzLWEyZmMtZjIxOWZiZDk4YTJhIiwidGllck5hbWUiOiJDdXN0b20iLCJhdWQiOiJlbmQtdXNlciIsImlzcyI6IkVwaWRlbWljIFNvdW5kIiwiZXhwIjoxNzY0MjIwMDY3fQ.j80T5uKOuTlvbr8EzCF7Gp-kyJKTm1MGisMKCq70IEuMvA7Y-Jv1yuJ0OhkzhVHL3FTG6t_5EZ3-d24m_rJ5MpVqwfRsMDyXz83PpVRcD10ZijB7i3U5gEenVltccpixkW4rC6zuSx9IneDfrh8RNBO0AVvff0woJ6lvkA_77l9WZ6mB5cMlt_Zp44Bj6VVL0Zj0jtNW2dwpDONW6uTBLn9nMmrAOCTDcNQ_ezlA-Rzekf83UsE39x2LaAEoDs_4F140yIeI2NnZgRhOthb0CTzqy1xjefu7hsM8kRrHUvEmxyIvK33SyM-KP4Jmqy7PztB3lsAJDvMHCABdASpzBA',
   }) async {
     final baseUrl = EpidemicSoundAPIGroup.getBaseUrl(
       accessToken: accessToken,
@@ -352,8 +358,8 @@ class EpidemicMoodsCall {
       apiUrl: '${baseUrl}/v0/moods',
       callType: ApiCallType.GET,
       headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer {{EpidemicSound.accessToken}}',
+        'Authorization':
+            'Bearer {eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIxODEzNTBlZS04ZjYwLTRlOWMtODE2Yi1jMzhhMDgwZTAyZDUiLCJwYXJ0bmVyTmFtZSI6IkVzY2FwZSBFbnRlcnByaXNlcyIsImFwcElkIjoiZjYzZTM4NGItMDExYi00MDZiLTgyZDUtNDkyNzUzMDA4ZGE0IiwiYXBwTmFtZSI6IkVzY2FwZSBBcHAiLCJ1c2VySWQiOiJzb21lLXVuaXF1ZS11c2VyLWlkIiwidGllcklkIjoiNzViMzEwY2YtMjM0Yi00NTIzLWEyZmMtZjIxOWZiZDk4YTJhIiwidGllck5hbWUiOiJDdXN0b20iLCJhdWQiOiJlbmQtdXNlciIsImlzcyI6IkVwaWRlbWljIFNvdW5kIiwiZXhwIjoxNzY0MjIwMDY3fQ.j80T5uKOuTlvbr8EzCF7Gp-kyJKTm1MGisMKCq70IEuMvA7Y-Jv1yuJ0OhkzhVHL3FTG6t_5EZ3-d24m_rJ5MpVqwfRsMDyXz83PpVRcD10ZijB7i3U5gEenVltccpixkW4rC6zuSx9IneDfrh8RNBO0AVvff0woJ6lvkA_77l9WZ6mB5cMlt_Zp44Bj6VVL0Zj0jtNW2dwpDONW6uTBLn9nMmrAOCTDcNQ_ezlA-Rzekf83UsE39x2LaAEoDs_4F140yIeI2NnZgRhOthb0CTzqy1xjefu7hsM8kRrHUvEmxyIvK33SyM-KP4Jmqy7PztB3lsAJDvMHCABdASpzBA}',
       },
       params: {},
       returnBody: true,
@@ -429,26 +435,26 @@ class SendFullPromptCall {
 
 class PartnerTokenEpidemicSoundCall {
   static Future<ApiCallResponse> call({
-    String? tokenType = 'client-credentials',
-    String? accessToken = '',
-    int? expiresIn,
-    String? grantType = 'client_credentials',
+    String? userId = 'Escape-User-1',
+    String? token = '',
+    String? apiUrl = 'https://partner-content-api.epidemicsound.com',
+    int? expiresIn = 518400,
   }) async {
+    final ffApiRequestBody = '''
+{
+  "userId": "some-unique-user-id"
+}''';
     return ApiManager.instance.makeApiCall(
       callName: 'Partner Token Epidemic Sound',
       apiUrl:
           'https://epidemic-server-286076426888.us-central1.run.app/api/auth/user-token',
       callType: ApiCallType.POST,
       headers: {
-        'Grant_Type': 'client_credentials',
-        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Type': 'application/json',
       },
-      params: {
-        'grant_type': "client_credentials",
-        'clientId': "2a291f75dcfb452e88f89dc86a140ca5",
-        'clientSecret': "E9006b29e6c44232aca5846836df0d54",
-      },
-      bodyType: BodyType.X_WWW_FORM_URL_ENCODED,
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.TEXT,
       returnBody: true,
       encodeBodyUtf8: true,
       decodeUtf8: false,
@@ -457,6 +463,38 @@ class PartnerTokenEpidemicSoundCall {
       alwaysAllowBody: false,
     );
   }
+
+  static String? epidemicToken(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.token''',
+      ));
+  static String? userID(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.userId''',
+      ));
+  static String? apiURL(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.apiUrl''',
+      ));
+  static int? expiringTokenTime(dynamic response) =>
+      castToType<int>(getJsonField(
+        response,
+        r'''$.expiresIn''',
+      ));
+  static dynamic usageOfToken(dynamic response) => getJsonField(
+        response,
+        r'''$.usage''',
+      );
+  static String? usageAuth(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.usage.authorization''',
+      ));
+  static String? usageExample(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.usage.example''',
+      ));
 }
 
 class EpidemicMCPServerAuthCall {
@@ -540,6 +578,710 @@ class LucilleChatCall {
   static int? messageCount(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.message_count''',
+      ));
+}
+
+class EpidemicSoundAPICheckCall {
+  static Future<ApiCallResponse> call() async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'Epidemic Sound API Check',
+      apiUrl:
+          'https://epidemic-server-286076426888.us-central1.run.app/api/info',
+      callType: ApiCallType.GET,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class EpidemicSoundCollectionsCall {
+  static Future<ApiCallResponse> call({
+    String? token =
+        'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIxODEzNTBlZS04ZjYwLTRlOWMtODE2Yi1jMzhhMDgwZTAyZDUiLCJwYXJ0bmVyTmFtZSI6IkVzY2FwZSBFbnRlcnByaXNlcyIsImFwcElkIjoiZjYzZTM4NGItMDExYi00MDZiLTgyZDUtNDkyNzUzMDA4ZGE0IiwiYXBwTmFtZSI6IkVzY2FwZSBBcHAiLCJ1c2VySWQiOiJzb21lLXVuaXF1ZS11c2VyLWlkIiwidGllcklkIjoiNzViMzEwY2YtMjM0Yi00NTIzLWEyZmMtZjIxOWZiZDk4YTJhIiwidGllck5hbWUiOiJDdXN0b20iLCJhdWQiOiJlbmQtdXNlciIsImlzcyI6IkVwaWRlbWljIFNvdW5kIiwiZXhwIjoxNzY0MjIwMDY3fQ.j80T5uKOuTlvbr8EzCF7Gp-kyJKTm1MGisMKCq70IEuMvA7Y-Jv1yuJ0OhkzhVHL3FTG6t_5EZ3-d24m_rJ5MpVqwfRsMDyXz83PpVRcD10ZijB7i3U5gEenVltccpixkW4rC6zuSx9IneDfrh8RNBO0AVvff0woJ6lvkA_77l9WZ6mB5cMlt_Zp44Bj6VVL0Zj0jtNW2dwpDONW6uTBLn9nMmrAOCTDcNQ_ezlA-Rzekf83UsE39x2LaAEoDs_4F140yIeI2NnZgRhOthb0CTzqy1xjefu7hsM8kRrHUvEmxyIvK33SyM-KP4Jmqy7PztB3lsAJDvMHCABdASpzBA',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'Epidemic Sound Collections',
+      apiUrl: 'https://partner-content-api.epidemicsound.com/v0/collections',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer ${token}',
+      },
+      params: {
+        'token':
+            "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIxODEzNTBlZS04ZjYwLTRlOWMtODE2Yi1jMzhhMDgwZTAyZDUiLCJwYXJ0bmVyTmFtZSI6IkVzY2FwZSBFbnRlcnByaXNlcyIsImFwcElkIjoiZjYzZTM4NGItMDExYi00MDZiLTgyZDUtNDkyNzUzMDA4ZGE0IiwiYXBwTmFtZSI6IkVzY2FwZSBBcHAiLCJ1c2VySWQiOiJzb21lLXVuaXF1ZS11c2VyLWlkIiwidGllcklkIjoiNzViMzEwY2YtMjM0Yi00NTIzLWEyZmMtZjIxOWZiZDk4YTJhIiwidGllck5hbWUiOiJDdXN0b20iLCJhdWQiOiJlbmQtdXNlciIsImlzcyI6IkVwaWRlbWljIFNvdW5kIiwiZXhwIjoxNzY0MjIwMDY3fQ.j80T5uKOuTlvbr8EzCF7Gp-kyJKTm1MGisMKCq70IEuMvA7Y-Jv1yuJ0OhkzhVHL3FTG6t_5EZ3-d24m_rJ5MpVqwfRsMDyXz83PpVRcD10ZijB7i3U5gEenVltccpixkW4rC6zuSx9IneDfrh8RNBO0AVvff0woJ6lvkA_77l9WZ6mB5cMlt_Zp44Bj6VVL0Zj0jtNW2dwpDONW6uTBLn9nMmrAOCTDcNQ_ezlA-Rzekf83UsE39x2LaAEoDs_4F140yIeI2NnZgRhOthb0CTzqy1xjefu7hsM8kRrHUvEmxyIvK33SyM-KP4Jmqy7PztB3lsAJDvMHCABdASpzBA",
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static List? collections(dynamic response) => getJsonField(
+        response,
+        r'''$.collections''',
+        true,
+      ) as List?;
+  static List<String>? collectionID(dynamic response) => (getJsonField(
+        response,
+        r'''$.collections[:].id''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? collectionName(dynamic response) => (getJsonField(
+        response,
+        r'''$.collections[:].name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List? collectionTracks(dynamic response) => getJsonField(
+        response,
+        r'''$.collections[:].tracks''',
+        true,
+      ) as List?;
+  static List<String>? collectionTrackID(dynamic response) => (getJsonField(
+        response,
+        r'''$.collections[:].tracks[:].id''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List? collectionTrackMainArtist(dynamic response) => getJsonField(
+        response,
+        r'''$.collections[:].tracks[:].mainArtists''',
+        true,
+      ) as List?;
+  static List? collectionTrackFeaturedArtist(dynamic response) => getJsonField(
+        response,
+        r'''$.collections[:].tracks[:].featuredArtists''',
+        true,
+      ) as List?;
+  static List<String>? collectionTrackTitle(dynamic response) => (getJsonField(
+        response,
+        r'''$.collections[:].tracks[:].title''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<int>? collectionTrackBPM(dynamic response) => (getJsonField(
+        response,
+        r'''$.collections[:].tracks[:].bpm''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  static List<int>? collectionTrackLength(dynamic response) => (getJsonField(
+        response,
+        r'''$.collections[:].tracks[:].length''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  static List? collectionTrackMoods(dynamic response) => getJsonField(
+        response,
+        r'''$.collections[:].tracks[:].moods''',
+        true,
+      ) as List?;
+  static List<String>? collectionTrackMoodsID(dynamic response) =>
+      (getJsonField(
+        response,
+        r'''$.collections[:].tracks[:].moods[:].id''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? collectionTrackMoodsName(dynamic response) =>
+      (getJsonField(
+        response,
+        r'''$.collections[:].tracks[:].moods[:].name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? collectionTrackGenresID(dynamic response) =>
+      (getJsonField(
+        response,
+        r'''$.collections[:].tracks[:].genres[:].id''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? collectionTrackGenresName(dynamic response) =>
+      (getJsonField(
+        response,
+        r'''$.collections[:].tracks[:].genres[:].name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List? collectionTrackGenresParent(dynamic response) => getJsonField(
+        response,
+        r'''$.collections[:].tracks[:].genres[:].parent''',
+        true,
+      ) as List?;
+  static List<String>? collectionTrackGenresParentID(dynamic response) =>
+      (getJsonField(
+        response,
+        r'''$.collections[:].tracks[:].genres[:].parent.id''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? collectionTrackParentName(dynamic response) =>
+      (getJsonField(
+        response,
+        r'''$.collections[:].tracks[:].genres[:].parent.name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List? collectionTrackImages(dynamic response) => getJsonField(
+        response,
+        r'''$.collections[:].tracks[:].images''',
+        true,
+      ) as List?;
+  static List<String>? collectionTrackImagesDefault(dynamic response) =>
+      (getJsonField(
+        response,
+        r'''$.collections[:].tracks[:].images.default''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? collectionTrackImagesXS(dynamic response) =>
+      (getJsonField(
+        response,
+        r'''$.collections[:].tracks[:].images.XS''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? collectionTrackImagesS(dynamic response) =>
+      (getJsonField(
+        response,
+        r'''$.collections[:].tracks[:].images.S''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? collectionTrackImagesM(dynamic response) =>
+      (getJsonField(
+        response,
+        r'''$.collections[:].tracks[:].images.M''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? collectionTrackImagesL(dynamic response) =>
+      (getJsonField(
+        response,
+        r'''$.collections[:].tracks[:].images.L''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? collectionTrackWaveformUrl(dynamic response) =>
+      (getJsonField(
+        response,
+        r'''$.collections[:].tracks[:].waveformUrl''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<bool>? collectionTrackisExplicit(dynamic response) =>
+      (getJsonField(
+        response,
+        r'''$.collections[:].tracks[:].isExplicit''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<bool>(x))
+          .withoutNulls
+          .toList();
+  static List<bool>? collectionTrackHasVocals(dynamic response) =>
+      (getJsonField(
+        response,
+        r'''$.collections[:].tracks[:].hasVocals''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<bool>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? collectionTracksAdded(dynamic response) => (getJsonField(
+        response,
+        r'''$.collections[:].tracks[:].added''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<bool>? collectionTrackIsPreviewOnly(dynamic response) =>
+      (getJsonField(
+        response,
+        r'''$.collections[:].tracks[:].isPreviewOnly''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<bool>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? collectionTrackTierOption(dynamic response) =>
+      (getJsonField(
+        response,
+        r'''$.collections[:].tracks[:].tierOption''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<int>? collectionAvailableTracks(dynamic response) =>
+      (getJsonField(
+        response,
+        r'''$.collections[:].availableTracks''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  static List? collectionTrackGenres(dynamic response) => getJsonField(
+        response,
+        r'''$.collections[:].tracks[:].genres''',
+        true,
+      ) as List?;
+  static List? collectionImages(dynamic response) => getJsonField(
+        response,
+        r'''$.collections[:].images''',
+        true,
+      ) as List?;
+  static List<String>? collectionImagesDefault(dynamic response) =>
+      (getJsonField(
+        response,
+        r'''$.collections[:].images.default''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? collectionImagesXS(dynamic response) => (getJsonField(
+        response,
+        r'''$.collections[:].images.XS''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? collectionImagesS(dynamic response) => (getJsonField(
+        response,
+        r'''$.collections[:].images.S''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? collectionImagesM(dynamic response) => (getJsonField(
+        response,
+        r'''$.collections[:].images.M''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? collectionImagesL(dynamic response) => (getJsonField(
+        response,
+        r'''$.collections[:].images.L''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static dynamic pagination(dynamic response) => getJsonField(
+        response,
+        r'''$.pagination''',
+      );
+  static int? paginationImages(dynamic response) =>
+      castToType<int>(getJsonField(
+        response,
+        r'''$.pagination.page''',
+      ));
+  static int? paginationLimit(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.pagination.limit''',
+      ));
+  static dynamic links(dynamic response) => getJsonField(
+        response,
+        r'''$.links''',
+      );
+  static String? linksNext(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.links.next''',
+      ));
+}
+
+class GetEpidemicTracksCall {
+  static Future<ApiCallResponse> call({
+    String? token =
+        'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIxODEzNTBlZS04ZjYwLTRlOWMtODE2Yi1jMzhhMDgwZTAyZDUiLCJwYXJ0bmVyTmFtZSI6IkVzY2FwZSBFbnRlcnByaXNlcyIsImFwcElkIjoiZjYzZTM4NGItMDExYi00MDZiLTgyZDUtNDkyNzUzMDA4ZGE0IiwiYXBwTmFtZSI6IkVzY2FwZSBBcHAiLCJ1c2VySWQiOiJzb21lLXVuaXF1ZS11c2VyLWlkIiwidGllcklkIjoiNzViMzEwY2YtMjM0Yi00NTIzLWEyZmMtZjIxOWZiZDk4YTJhIiwidGllck5hbWUiOiJDdXN0b20iLCJhdWQiOiJlbmQtdXNlciIsImlzcyI6IkVwaWRlbWljIFNvdW5kIiwiZXhwIjoxNzY0MjIwMDY3fQ.j80T5uKOuTlvbr8EzCF7Gp-kyJKTm1MGisMKCq70IEuMvA7Y-Jv1yuJ0OhkzhVHL3FTG6t_5EZ3-d24m_rJ5MpVqwfRsMDyXz83PpVRcD10ZijB7i3U5gEenVltccpixkW4rC6zuSx9IneDfrh8RNBO0AVvff0woJ6lvkA_77l9WZ6mB5cMlt_Zp44Bj6VVL0Zj0jtNW2dwpDONW6uTBLn9nMmrAOCTDcNQ_ezlA-Rzekf83UsE39x2LaAEoDs_4F140yIeI2NnZgRhOthb0CTzqy1xjefu7hsM8kRrHUvEmxyIvK33SyM-KP4Jmqy7PztB3lsAJDvMHCABdASpzBA',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'Get Epidemic Tracks',
+      apiUrl:
+          'https://partner-content-api.epidemicsound.com/v0/tracks?limit=20',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization': 'Bearer ${token}',
+      },
+      params: {
+        'token':
+            "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIxODEzNTBlZS04ZjYwLTRlOWMtODE2Yi1jMzhhMDgwZTAyZDUiLCJwYXJ0bmVyTmFtZSI6IkVzY2FwZSBFbnRlcnByaXNlcyIsImFwcElkIjoiZjYzZTM4NGItMDExYi00MDZiLTgyZDUtNDkyNzUzMDA4ZGE0IiwiYXBwTmFtZSI6IkVzY2FwZSBBcHAiLCJ1c2VySWQiOiJzb21lLXVuaXF1ZS11c2VyLWlkIiwidGllcklkIjoiNzViMzEwY2YtMjM0Yi00NTIzLWEyZmMtZjIxOWZiZDk4YTJhIiwidGllck5hbWUiOiJDdXN0b20iLCJhdWQiOiJlbmQtdXNlciIsImlzcyI6IkVwaWRlbWljIFNvdW5kIiwiZXhwIjoxNzY0MjIwMDY3fQ.j80T5uKOuTlvbr8EzCF7Gp-kyJKTm1MGisMKCq70IEuMvA7Y-Jv1yuJ0OhkzhVHL3FTG6t_5EZ3-d24m_rJ5MpVqwfRsMDyXz83PpVRcD10ZijB7i3U5gEenVltccpixkW4rC6zuSx9IneDfrh8RNBO0AVvff0woJ6lvkA_77l9WZ6mB5cMlt_Zp44Bj6VVL0Zj0jtNW2dwpDONW6uTBLn9nMmrAOCTDcNQ_ezlA-Rzekf83UsE39x2LaAEoDs_4F140yIeI2NnZgRhOthb0CTzqy1xjefu7hsM8kRrHUvEmxyIvK33SyM-KP4Jmqy7PztB3lsAJDvMHCABdASpzBA",
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static List? tracks(dynamic response) => getJsonField(
+        response,
+        r'''$.tracks''',
+        true,
+      ) as List?;
+  static List? tracksMainArtists(dynamic response) => getJsonField(
+        response,
+        r'''$.tracks[:].mainArtists''',
+        true,
+      ) as List?;
+  static List? tracksFeaturedArtists(dynamic response) => getJsonField(
+        response,
+        r'''$.tracks[:].featuredArtists''',
+        true,
+      ) as List?;
+  static List<String>? tracksTitle(dynamic response) => (getJsonField(
+        response,
+        r'''$.tracks[:].title''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<int>? tracksBPM(dynamic response) => (getJsonField(
+        response,
+        r'''$.tracks[:].bpm''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  static List<int>? tracksLength(dynamic response) => (getJsonField(
+        response,
+        r'''$.tracks[:].length''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  static List? tracksMoods(dynamic response) => getJsonField(
+        response,
+        r'''$.tracks[:].moods''',
+        true,
+      ) as List?;
+  static List<String>? tracksMoodName(dynamic response) => (getJsonField(
+        response,
+        r'''$.tracks[:].moods[:].name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List? tracksGenres(dynamic response) => getJsonField(
+        response,
+        r'''$.tracks[:].genres''',
+        true,
+      ) as List?;
+  static List<String>? tracksGenresID(dynamic response) => (getJsonField(
+        response,
+        r'''$.tracks[:].genres[:].id''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? tracksGenresName(dynamic response) => (getJsonField(
+        response,
+        r'''$.tracks[:].genres[:].name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List? tracksGenresParent(dynamic response) => getJsonField(
+        response,
+        r'''$.tracks[:].genres[:].parent''',
+        true,
+      ) as List?;
+  static List<String>? tracksGenresParentID(dynamic response) => (getJsonField(
+        response,
+        r'''$.tracks[:].genres[:].parent.id''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? tracksGenresParentName(dynamic response) =>
+      (getJsonField(
+        response,
+        r'''$.tracks[:].genres[:].parent.name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List? tracksImages(dynamic response) => getJsonField(
+        response,
+        r'''$.tracks[:].images''',
+        true,
+      ) as List?;
+  static List<String>? tracksImagesDefault(dynamic response) => (getJsonField(
+        response,
+        r'''$.tracks[:].images.default''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? tracksImagesXS(dynamic response) => (getJsonField(
+        response,
+        r'''$.tracks[:].images.XS''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? tracksImagesS(dynamic response) => (getJsonField(
+        response,
+        r'''$.tracks[:].images.S''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? tracksImagesM(dynamic response) => (getJsonField(
+        response,
+        r'''$.tracks[:].images.M''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? tracksImagesL(dynamic response) => (getJsonField(
+        response,
+        r'''$.tracks[:].images.L''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? tracksWaveformUrl(dynamic response) => (getJsonField(
+        response,
+        r'''$.tracks[:].waveformUrl''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? tracksMoodsID(dynamic response) => (getJsonField(
+        response,
+        r'''$.tracks[:].moods[:].id''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? tracksID(dynamic response) => (getJsonField(
+        response,
+        r'''$.tracks[:].id''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<bool>? tracksIsExplicit(dynamic response) => (getJsonField(
+        response,
+        r'''$.tracks[:].isExplicit''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<bool>(x))
+          .withoutNulls
+          .toList();
+  static List<bool>? tracksHasVocals(dynamic response) => (getJsonField(
+        response,
+        r'''$.tracks[:].hasVocals''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<bool>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? tracksAdded(dynamic response) => (getJsonField(
+        response,
+        r'''$.tracks[:].added''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<bool>? tracksIsPreviewOnly(dynamic response) => (getJsonField(
+        response,
+        r'''$.tracks[:].isPreviewOnly''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<bool>(x))
+          .withoutNulls
+          .toList();
+  static List? tracksTierOption(dynamic response) => getJsonField(
+        response,
+        r'''$.tracks[:].tierOption''',
+        true,
+      ) as List?;
+  static dynamic pagination(dynamic response) => getJsonField(
+        response,
+        r'''$.pagination''',
+      );
+  static int? paginationPage(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.pagination.page''',
+      ));
+  static int? paginationLimit(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.pagination.limit''',
+      ));
+  static dynamic links(dynamic response) => getJsonField(
+        response,
+        r'''$.links''',
+      );
+  static String? linksNext(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.links.next''',
+      ));
+}
+
+class EpidemicStreamURLCall {
+  static Future<ApiCallResponse> call({
+    String? token =
+        'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIxODEzNTBlZS04ZjYwLTRlOWMtODE2Yi1jMzhhMDgwZTAyZDUiLCJwYXJ0bmVyTmFtZSI6IkVzY2FwZSBFbnRlcnByaXNlcyIsImFwcElkIjoiZjYzZTM4NGItMDExYi00MDZiLTgyZDUtNDkyNzUzMDA4ZGE0IiwiYXBwTmFtZSI6IkVzY2FwZSBBcHAiLCJ1c2VySWQiOiJzb21lLXVuaXF1ZS11c2VyLWlkIiwidGllcklkIjoiNzViMzEwY2YtMjM0Yi00NTIzLWEyZmMtZjIxOWZiZDk4YTJhIiwidGllck5hbWUiOiJDdXN0b20iLCJhdWQiOiJlbmQtdXNlciIsImlzcyI6IkVwaWRlbWljIFNvdW5kIiwiZXhwIjoxNzY0MjIwMDY3fQ.j80T5uKOuTlvbr8EzCF7Gp-kyJKTm1MGisMKCq70IEuMvA7Y-Jv1yuJ0OhkzhVHL3FTG6t_5EZ3-d24m_rJ5MpVqwfRsMDyXz83PpVRcD10ZijB7i3U5gEenVltccpixkW4rC6zuSx9IneDfrh8RNBO0AVvff0woJ6lvkA_77l9WZ6mB5cMlt_Zp44Bj6VVL0Zj0jtNW2dwpDONW6uTBLn9nMmrAOCTDcNQ_ezlA-Rzekf83UsE39x2LaAEoDs_4F140yIeI2NnZgRhOthb0CTzqy1xjefu7hsM8kRrHUvEmxyIvK33SyM-KP4Jmqy7PztB3lsAJDvMHCABdASpzBA',
+    String? trackId = '1',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'Epidemic Stream URL',
+      apiUrl:
+          'https://partner-content-api.epidemicsound.com/v0/tracks/${trackId}/stream',
+      callType: ApiCallType.GET,
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization':
+            'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIxODEzNTBlZS04ZjYwLTRlOWMtODE2Yi1jMzhhMDgwZTAyZDUiLCJwYXJ0bmVyTmFtZSI6IkVzY2FwZSBFbnRlcnByaXNlcyIsImFwcElkIjoiZjYzZTM4NGItMDExYi00MDZiLTgyZDUtNDkyNzUzMDA4ZGE0IiwiYXBwTmFtZSI6IkVzY2FwZSBBcHAiLCJ1c2VySWQiOiJzb21lLXVuaXF1ZS11c2VyLWlkIiwidGllcklkIjoiNzViMzEwY2YtMjM0Yi00NTIzLWEyZmMtZjIxOWZiZDk4YTJhIiwidGllck5hbWUiOiJDdXN0b20iLCJhdWQiOiJlbmQtdXNlciIsImlzcyI6IkVwaWRlbWljIFNvdW5kIiwiZXhwIjoxNzY0MjIwMDY3fQ.j80T5uKOuTlvbr8EzCF7Gp-kyJKTm1MGisMKCq70IEuMvA7Y-Jv1yuJ0OhkzhVHL3FTG6t_5EZ3-d24m_rJ5MpVqwfRsMDyXz83PpVRcD10ZijB7i3U5gEenVltccpixkW4rC6zuSx9IneDfrh8RNBO0AVvff0woJ6lvkA_77l9WZ6mB5cMlt_Zp44Bj6VVL0Zj0jtNW2dwpDONW6uTBLn9nMmrAOCTDcNQ_ezlA-Rzekf83UsE39x2LaAEoDs_4F140yIeI2NnZgRhOthb0CTzqy1xjefu7hsM8kRrHUvEmxyIvK33SyM-KP4Jmqy7PztB3lsAJDvMHCABdASpzBA',
+      },
+      params: {
+        'track_id': "1",
+        'token':
+            "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXJ0bmVySWQiOiIxODEzNTBlZS04ZjYwLTRlOWMtODE2Yi1jMzhhMDgwZTAyZDUiLCJwYXJ0bmVyTmFtZSI6IkVzY2FwZSBFbnRlcnByaXNlcyIsImFwcElkIjoiZjYzZTM4NGItMDExYi00MDZiLTgyZDUtNDkyNzUzMDA4ZGE0IiwiYXBwTmFtZSI6IkVzY2FwZSBBcHAiLCJ1c2VySWQiOiJzb21lLXVuaXF1ZS11c2VyLWlkIiwidGllcklkIjoiNzViMzEwY2YtMjM0Yi00NTIzLWEyZmMtZjIxOWZiZDk4YTJhIiwidGllck5hbWUiOiJDdXN0b20iLCJhdWQiOiJlbmQtdXNlciIsImlzcyI6IkVwaWRlbWljIFNvdW5kIiwiZXhwIjoxNzY0MjIwMDY3fQ.j80T5uKOuTlvbr8EzCF7Gp-kyJKTm1MGisMKCq70IEuMvA7Y-Jv1yuJ0OhkzhVHL3FTG6t_5EZ3-d24m_rJ5MpVqwfRsMDyXz83PpVRcD10ZijB7i3U5gEenVltccpixkW4rC6zuSx9IneDfrh8RNBO0AVvff0woJ6lvkA_77l9WZ6mB5cMlt_Zp44Bj6VVL0Zj0jtNW2dwpDONW6uTBLn9nMmrAOCTDcNQ_ezlA-Rzekf83UsE39x2LaAEoDs_4F140yIeI2NnZgRhOthb0CTzqy1xjefu7hsM8kRrHUvEmxyIvK33SyM-KP4Jmqy7PztB3lsAJDvMHCABdASpzBA",
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static String? musicStreamUrl(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.url''',
+      ));
+  static String? expirationTime(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.expires''',
       ));
 }
 

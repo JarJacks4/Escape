@@ -13,6 +13,8 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'dart:ui';
 import '/index.dart';
+import 'package:that_audio_player_5bjqer/app_state.dart'
+    as that_audio_player_5bjqer_app_state;
 import 'package:tiktokfeed_wz8en7/app_state.dart'
     as tiktokfeed_wz8en7_app_state;
 import 'package:easy_debounce/easy_debounce.dart';
@@ -134,6 +136,7 @@ class _JournalPageFINALCopyWidgetState extends State<JournalPageFINALCopyWidget>
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
     context.watch<tiktokfeed_wz8en7_app_state.FFAppState>();
+    context.watch<that_audio_player_5bjqer_app_state.FFAppState>();
 
     return GestureDetector(
       onTap: () {

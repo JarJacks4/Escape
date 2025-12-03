@@ -209,7 +209,11 @@ final parametersBuilderMap =
       ),
   'journalPageFINALCopy': ParameterData.none(),
   'SoundscapesHomeFinal': ParameterData.none(),
-  'MusicPlayer': ParameterData.none(),
+  'MusicPlayer': (data) async => ParameterData(
+        allParams: {
+          'initialSong': getParameter<String>(data, 'initialSong'),
+        },
+      ),
   'AISoundscapesCopyCopy': (data) async => ParameterData(
         allParams: {
           'meditationaudio': getParameter<String>(data, 'meditationaudio'),
@@ -231,6 +235,9 @@ final parametersBuilderMap =
   'MoodTrackingLoadingPage': ParameterData.none(),
   'chat_ai_Screen_1': ParameterData.none(),
   'AdvancedMoodTracker': ParameterData.none(),
+  'Soundscapes': ParameterData.none(),
+  'tabbar': ParameterData.none(),
+  'CommunityHomeVersion5Copy': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

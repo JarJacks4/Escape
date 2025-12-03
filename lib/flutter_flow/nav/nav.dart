@@ -15,6 +15,8 @@ import '/flutter_flow/flutter_flow_util.dart';
 
 import '/index.dart';
 import 'package:tiktokfeed_wz8en7/index.dart' as $tiktokfeed_wz8en7;
+import 'package:that_audio_player_5bjqer/index.dart'
+    as $that_audio_player_5bjqer;
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
@@ -84,6 +86,19 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
     page2WidgetPath: 'page2',
     reelsWidgetName: 'tiktokfeed_wz8en7.Reels',
     reelsWidgetPath: 'Reels',
+  );
+
+  $that_audio_player_5bjqer.initializeRoutes(
+    homePageWidgetName: 'that_audio_player_5bjqer.HomePage',
+    homePageWidgetPath: 'homePage',
+    blankPage1WidgetName: 'that_audio_player_5bjqer.BlankPage1',
+    blankPage1WidgetPath: 'blankPage1',
+    blankPage2WidgetName: 'that_audio_player_5bjqer.BlankPage2',
+    blankPage2WidgetPath: 'blankPage2',
+    playerPageWidgetName: 'that_audio_player_5bjqer.PlayerPage',
+    playerPageWidgetPath: 'playerPage',
+    splashPageWidgetName: 'that_audio_player_5bjqer.SplashPage',
+    splashPageWidgetPath: 'splashPage',
   );
 
   return GoRouter(
@@ -490,7 +505,17 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
           FFRoute(
             name: MusicPlayerWidget.routeName,
             path: MusicPlayerWidget.routePath,
-            builder: (context, params) => MusicPlayerWidget(),
+            builder: (context, params) => MusicPlayerWidget(
+              initialSong: params.getParam(
+                'initialSong',
+                ParamType.String,
+              ),
+              tracks: params.getParam<String>(
+                'tracks',
+                ParamType.String,
+                isList: true,
+              ),
+            ),
           ),
           FFRoute(
             name: AISoundscapesCopyCopyWidget.routeName,
@@ -569,6 +594,21 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             builder: (context, params) => AdvancedMoodTrackerWidget(),
           ),
           FFRoute(
+            name: SoundscapesWidget.routeName,
+            path: SoundscapesWidget.routePath,
+            builder: (context, params) => SoundscapesWidget(),
+          ),
+          FFRoute(
+            name: TabbarWidget.routeName,
+            path: TabbarWidget.routePath,
+            builder: (context, params) => TabbarWidget(),
+          ),
+          FFRoute(
+            name: CommunityHomeVersion5CopyWidget.routeName,
+            path: CommunityHomeVersion5CopyWidget.routePath,
+            builder: (context, params) => CommunityHomeVersion5CopyWidget(),
+          ),
+          FFRoute(
             name: $tiktokfeed_wz8en7.HomePageWidget.routeName,
             path: $tiktokfeed_wz8en7.HomePageWidget.routePath,
             builder: (context, params) => $tiktokfeed_wz8en7.HomePageWidget(
@@ -591,6 +631,36 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             name: $tiktokfeed_wz8en7.ReelsWidget.routeName,
             path: $tiktokfeed_wz8en7.ReelsWidget.routePath,
             builder: (context, params) => $tiktokfeed_wz8en7.ReelsWidget(),
+          ),
+          FFRoute(
+            name: $that_audio_player_5bjqer.HomePageWidget.routeName,
+            path: $that_audio_player_5bjqer.HomePageWidget.routePath,
+            builder: (context, params) =>
+                $that_audio_player_5bjqer.HomePageWidget(),
+          ),
+          FFRoute(
+            name: $that_audio_player_5bjqer.BlankPage1Widget.routeName,
+            path: $that_audio_player_5bjqer.BlankPage1Widget.routePath,
+            builder: (context, params) =>
+                $that_audio_player_5bjqer.BlankPage1Widget(),
+          ),
+          FFRoute(
+            name: $that_audio_player_5bjqer.BlankPage2Widget.routeName,
+            path: $that_audio_player_5bjqer.BlankPage2Widget.routePath,
+            builder: (context, params) =>
+                $that_audio_player_5bjqer.BlankPage2Widget(),
+          ),
+          FFRoute(
+            name: $that_audio_player_5bjqer.PlayerPageWidget.routeName,
+            path: $that_audio_player_5bjqer.PlayerPageWidget.routePath,
+            builder: (context, params) =>
+                $that_audio_player_5bjqer.PlayerPageWidget(),
+          ),
+          FFRoute(
+            name: $that_audio_player_5bjqer.SplashPageWidget.routeName,
+            path: $that_audio_player_5bjqer.SplashPageWidget.routePath,
+            builder: (context, params) =>
+                $that_audio_player_5bjqer.SplashPageWidget(),
           )
         ].map((r) => r.toRoute(appStateNotifier)).toList(),
       ),

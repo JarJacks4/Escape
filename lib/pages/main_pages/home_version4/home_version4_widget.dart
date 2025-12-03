@@ -14,6 +14,8 @@ import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
+import 'package:that_audio_player_5bjqer/app_state.dart'
+    as that_audio_player_5bjqer_app_state;
 import 'package:tiktokfeed_wz8en7/app_state.dart'
     as tiktokfeed_wz8en7_app_state;
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
@@ -391,6 +393,7 @@ class _HomeVersion4WidgetState extends State<HomeVersion4Widget>
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
     context.watch<tiktokfeed_wz8en7_app_state.FFAppState>();
+    context.watch<that_audio_player_5bjqer_app_state.FFAppState>();
 
     return GestureDetector(
       onTap: () {
@@ -1569,7 +1572,7 @@ class _HomeVersion4WidgetState extends State<HomeVersion4Widget>
                                                           'Button_navigate_to');
 
                                                       context.pushNamed(
-                                                        JournalVersion5Widget
+                                                        CommunityHomeVersion5CopyWidget
                                                             .routeName,
                                                         extra: <String,
                                                             dynamic>{

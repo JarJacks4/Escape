@@ -793,6 +793,41 @@ class FFAppState extends ChangeNotifier {
     HeavyMoodsHistory.insert(index, value);
   }
 
+  List<String> _communityTabs = [
+    'For You',
+    'Meditation',
+    'Breathing',
+    'Body',
+    'Soundscapes'
+  ];
+  List<String> get communityTabs => _communityTabs;
+  set communityTabs(List<String> value) {
+    _communityTabs = value;
+  }
+
+  void addToCommunityTabs(String value) {
+    communityTabs.add(value);
+  }
+
+  void removeFromCommunityTabs(String value) {
+    communityTabs.remove(value);
+  }
+
+  void removeAtIndexFromCommunityTabs(int index) {
+    communityTabs.removeAt(index);
+  }
+
+  void updateCommunityTabsAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    communityTabs[index] = updateFn(_communityTabs[index]);
+  }
+
+  void insertAtIndexInCommunityTabs(int index, String value) {
+    communityTabs.insert(index, value);
+  }
+
   final _epidemicTracksManager = FutureRequestManager<ApiCallResponse>();
   Future<ApiCallResponse> epidemicTracks({
     String? uniqueQueryKey,
