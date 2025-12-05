@@ -13,10 +13,16 @@ class TodaysReflectionCompModel
       choiceChipsValueController?.value?.firstOrNull;
   set choiceChipsValue(String? val) =>
       choiceChipsValueController?.value = val != null ? [val] : [];
+  // State field(s) for Row widget.
+  ScrollController? rowController;
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    rowController = ScrollController();
+  }
 
   @override
-  void dispose() {}
+  void dispose() {
+    rowController?.dispose();
+  }
 }

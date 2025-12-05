@@ -1,8 +1,10 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:async';
 import 'dart:ui';
+import '/flutter_flow/permissions_util.dart';
 import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +17,7 @@ class EnableNotificationsWidget extends StatefulWidget {
   const EnableNotificationsWidget({super.key});
 
   static String routeName = 'EnableNotifications';
-  static String routePath = '/enableNotifications';
+  static String routePath = 'enableNotifications';
 
   @override
   State<EnableNotificationsWidget> createState() =>
@@ -93,6 +95,8 @@ class _EnableNotificationsWidgetState extends State<EnableNotificationsWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -201,7 +205,9 @@ class _EnableNotificationsWidgetState extends State<EnableNotificationsWidget>
                                       },
                                     ),
                                     child: Scrollbar(
+                                      controller: _model.columnController,
                                       child: SingleChildScrollView(
+                                        controller: _model.columnController,
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           crossAxisAlignment:
@@ -353,17 +359,33 @@ personalized n... */
                                     onPressed: () async {
                                       logFirebaseEvent(
                                           'ENABLE_NOTIFICATIONS_COMPLETE_TUTORIAL_B');
+                                      logFirebaseEvent(
+                                          'Button_request_permissions');
+                                      await requestPermission(
+                                          notificationsPermission);
+                                      logFirebaseEvent('Button_backend_call');
+
+                                      await currentUserReference!.update({
+                                        ...createUsersRecordData(
+                                          notificationsAllowed: true,
+                                        ),
+                                        ...mapToFirestore(
+                                          {
+                                            'created_time':
+                                                FieldValue.serverTimestamp(),
+                                          },
+                                        ),
+                                      });
                                       logFirebaseEvent('Button_navigate_to');
 
                                       context.pushNamed(
-                                        FacialMoodAnalyzerChoiceLoginWidget
-                                            .routeName,
+                                        RegistrationSuccessWidget.routeName,
                                         extra: <String, dynamic>{
                                           kTransitionInfoKey: TransitionInfo(
                                             hasTransition: true,
                                             transitionType:
-                                                PageTransitionType.fade,
-                                            duration: Duration(milliseconds: 0),
+                                                PageTransitionType.bottomToTop,
+                                            duration: Duration(milliseconds: 9),
                                           ),
                                         },
                                       );

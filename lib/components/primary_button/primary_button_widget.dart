@@ -49,6 +49,8 @@ class _PrimaryButtonWidgetState extends State<PrimaryButtonWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -63,8 +65,9 @@ class _PrimaryButtonWidgetState extends State<PrimaryButtonWidget>
     return Align(
       alignment: AlignmentDirectional(0.0, 0.0),
       child: Container(
+        width: MediaQuery.sizeOf(context).width * 0.5,
         decoration: BoxDecoration(
-          color: FlutterFlowTheme.of(context).accent1,
+          color: FlutterFlowTheme.of(context).tertiary,
           boxShadow: [
             BoxShadow(
               blurRadius: 22.0,

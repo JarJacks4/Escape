@@ -1,10 +1,6 @@
-import '/components/deep_sleep_meditation_widget.dart';
-import '/components/insomnia_meditation_comp_widget.dart';
-import '/components/nap_meditation_comp_widget.dart';
+import '/components/sleep_choice_comp_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'sleep_meditations_choice_model.dart';
@@ -14,7 +10,7 @@ class SleepMeditationsChoiceWidget extends StatefulWidget {
   const SleepMeditationsChoiceWidget({super.key});
 
   static String routeName = 'SleepMeditationsChoice';
-  static String routePath = '/sleepMeditationsChoice';
+  static String routePath = 'sleepMeditationsChoice';
 
   @override
   State<SleepMeditationsChoiceWidget> createState() =>
@@ -34,6 +30,7 @@ class _SleepMeditationsChoiceWidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'SleepMeditationsChoice'});
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -59,75 +56,84 @@ class _SleepMeditationsChoiceWidgetState
           tabletLandscape: false,
           desktop: false,
         )
-            ? AppBar(
-                backgroundColor: FlutterFlowTheme.of(context).primary,
-                automaticallyImplyLeading: false,
-                actions: [],
-                flexibleSpace: FlexibleSpaceBar(
-                  background: Container(
-                    width: 100.0,
-                    height: 52.0,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).primaryBackground,
-                    ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Flexible(
-                          flex: 1,
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                15.0, 0.0, 0.0, 0.0),
-                            child: Text(
-                              FFLocalizations.of(context).getText(
-                                'qkq6bg4i' /* Binaural Beats */,
-                              ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'The Seasons',
-                                    fontSize: 22.0,
-                                    letterSpacing: 0.0,
+            ? PreferredSize(
+                preferredSize: Size.fromHeight(70.0),
+                child: AppBar(
+                  backgroundColor: FlutterFlowTheme.of(context).primary,
+                  automaticallyImplyLeading: false,
+                  actions: [],
+                  flexibleSpace: FlexibleSpaceBar(
+                    background: Container(
+                      width: 100.0,
+                      height: 52.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).primaryBackground,
+                      ),
+                      child: Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Flexible(
+                              flex: 1,
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    15.0, 0.0, 0.0, 0.0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    'qkq6bg4i' /* Sleep */,
                                   ),
-                            ),
-                          ),
-                        ),
-                        Align(
-                          alignment: AlignmentDirectional(1.0, 0.0),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                120.0, 0.0, 8.0, 0.0),
-                            child: InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                logFirebaseEvent(
-                                    'SLEEP_MEDITATIONS_CHOICE_Image_r0tm8uma_');
-                                logFirebaseEvent('Image_navigate_to');
-
-                                context.pushNamed(HomeVersion4Widget.routeName);
-                              },
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
-                                child: Image.asset(
-                                  'assets/images/Logo_ESCAPE_DarkBlue.png',
-                                  width:
-                                      MediaQuery.sizeOf(context).width * 0.352,
-                                  height: 156.0,
-                                  fit: BoxFit.contain,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'The Seasons',
+                                        fontSize: 36.0,
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
                               ),
                             ),
-                          ),
+                            Align(
+                              alignment: AlignmentDirectional(1.0, 0.0),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    120.0, 0.0, 8.0, 0.0),
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    logFirebaseEvent(
+                                        'SLEEP_MEDITATIONS_CHOICE_Image_r0tm8uma_');
+                                    logFirebaseEvent('Image_navigate_to');
+
+                                    context.pushNamed(
+                                        HomeVersion4Widget.routeName);
+                                  },
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                    child: Image.asset(
+                                      'assets/images/Logo_ESCAPE_DarkBlue.png',
+                                      width: MediaQuery.sizeOf(context).width *
+                                          0.352,
+                                      height: 156.0,
+                                      fit: BoxFit.contain,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
-                      ],
+                      ),
                     ),
                   ),
+                  centerTitle: true,
+                  elevation: 0.0,
                 ),
-                centerTitle: true,
-                elevation: 0.0,
               )
             : null,
         body: SafeArea(
@@ -137,90 +143,10 @@ class _SleepMeditationsChoiceWidgetState
             children: [
               Flexible(
                 flex: 1,
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Flexible(
-                      flex: 1,
-                      child: Container(
-                        width: double.infinity,
-                        height: 671.7,
-                        child: CarouselSlider(
-                          items: [
-                            wrapWithModel(
-                              model: _model.deepSleepMeditationModel,
-                              updateCallback: () => safeSetState(() {}),
-                              child: DeepSleepMeditationWidget(),
-                            ),
-                            wrapWithModel(
-                              model: _model.napMeditationCompModel,
-                              updateCallback: () => safeSetState(() {}),
-                              child: NapMeditationCompWidget(),
-                            ),
-                            wrapWithModel(
-                              model: _model.insomniaMeditationCompModel,
-                              updateCallback: () => safeSetState(() {}),
-                              child: InsomniaMeditationCompWidget(),
-                            ),
-                          ],
-                          carouselController: _model.carouselController ??=
-                              CarouselSliderController(),
-                          options: CarouselOptions(
-                            initialPage: 1,
-                            viewportFraction: 0.8,
-                            disableCenter: true,
-                            enlargeCenterPage: true,
-                            enlargeFactor: 0.25,
-                            enableInfiniteScroll: true,
-                            scrollDirection: Axis.horizontal,
-                            autoPlay: false,
-                            onPageChanged: (index, _) =>
-                                _model.carouselCurrentIndex = index,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
-                      child: FFButtonWidget(
-                        onPressed: () async {
-                          logFirebaseEvent(
-                              'SLEEP_MEDITATIONS_CHOICE_BACK_TO_HOME_BT');
-                          logFirebaseEvent('Button_navigate_back');
-                          context.safePop();
-                        },
-                        text: FFLocalizations.of(context).getText(
-                          'mlo5596a' /* Back to Home */,
-                        ),
-                        icon: Icon(
-                          Icons.arrow_back,
-                          size: 15.0,
-                        ),
-                        options: FFButtonOptions(
-                          width: MediaQuery.sizeOf(context).width * 0.6,
-                          height: 40.0,
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 0.0, 16.0, 0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color: FlutterFlowTheme.of(context).secondary,
-                          textStyle: FlutterFlowTheme.of(context)
-                              .titleSmall
-                              .override(
-                                fontFamily: 'WorkSans',
-                                color: FlutterFlowTheme.of(context).alternate,
-                                letterSpacing: 0.0,
-                              ),
-                          elevation: 0.0,
-                          borderRadius: BorderRadius.circular(30.0),
-                        ),
-                      ),
-                    ),
-                  ]
-                      .addToStart(SizedBox(height: 24.0))
-                      .addToEnd(SizedBox(height: 24.0)),
+                child: wrapWithModel(
+                  model: _model.sleepChoiceCompModel,
+                  updateCallback: () => safeSetState(() {}),
+                  child: SleepChoiceCompWidget(),
                 ),
               ),
             ],

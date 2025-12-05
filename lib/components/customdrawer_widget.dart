@@ -31,6 +31,8 @@ class _CustomdrawerWidgetState extends State<CustomdrawerWidget> {
 
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -57,7 +59,9 @@ class _CustomdrawerWidgetState extends State<CustomdrawerWidget> {
             },
           ),
           child: Scrollbar(
+            controller: _model.columnController,
             child: SingleChildScrollView(
+              controller: _model.columnController,
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -161,8 +165,10 @@ class _CustomdrawerWidgetState extends State<CustomdrawerWidget> {
                       },
                     ),
                     child: Scrollbar(
+                      controller: _model.rowController1,
                       child: SingleChildScrollView(
                         scrollDirection: Axis.horizontal,
+                        controller: _model.rowController1,
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -480,8 +486,10 @@ class _CustomdrawerWidgetState extends State<CustomdrawerWidget> {
                       },
                     ),
                     child: Scrollbar(
+                      controller: _model.rowController2,
                       child: SingleChildScrollView(
                         scrollDirection: Axis.horizontal,
+                        controller: _model.rowController2,
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -764,8 +772,10 @@ class _CustomdrawerWidgetState extends State<CustomdrawerWidget> {
                         },
                       ),
                       child: Scrollbar(
+                        controller: _model.rowController3,
                         child: SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
+                          controller: _model.rowController3,
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -1049,8 +1059,10 @@ class _CustomdrawerWidgetState extends State<CustomdrawerWidget> {
                       },
                     ),
                     child: Scrollbar(
+                      controller: _model.rowController4,
                       child: SingleChildScrollView(
                         scrollDirection: Axis.horizontal,
+                        controller: _model.rowController4,
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [

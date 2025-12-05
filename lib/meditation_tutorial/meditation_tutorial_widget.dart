@@ -11,7 +11,7 @@ class MeditationTutorialWidget extends StatefulWidget {
   const MeditationTutorialWidget({super.key});
 
   static String routeName = 'MeditationTutorial';
-  static String routePath = '/meditationTutorial';
+  static String routePath = 'meditationTutorial';
 
   @override
   State<MeditationTutorialWidget> createState() =>
@@ -47,6 +47,8 @@ class _MeditationTutorialWidgetState extends State<MeditationTutorialWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

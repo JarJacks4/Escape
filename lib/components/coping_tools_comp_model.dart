@@ -3,9 +3,18 @@ import 'coping_tools_comp_widget.dart' show CopingToolsCompWidget;
 import 'package:flutter/material.dart';
 
 class CopingToolsCompModel extends FlutterFlowModel<CopingToolsCompWidget> {
-  @override
-  void initState(BuildContext context) {}
+  ///  State fields for stateful widgets in this component.
+
+  // State field(s) for ListView widget.
+  ScrollController? listViewController;
 
   @override
-  void dispose() {}
+  void initState(BuildContext context) {
+    listViewController = ScrollController();
+  }
+
+  @override
+  void dispose() {
+    listViewController?.dispose();
+  }
 }

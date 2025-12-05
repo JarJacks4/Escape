@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 class InterestsPageModel extends FlutterFlowModel<InterestsPageWidget> {
   ///  State fields for stateful widgets in this page.
 
+  // State field(s) for Column widget.
+  ScrollController? columnController;
   // State field(s) for CheckboxGroup widget.
   FormFieldController<List<String>>? checkboxGroupValueController;
   List<String>? get checkboxGroupValues => checkboxGroupValueController?.value;
@@ -14,8 +16,12 @@ class InterestsPageModel extends FlutterFlowModel<InterestsPageWidget> {
       checkboxGroupValueController?.value = v;
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    columnController = ScrollController();
+  }
 
   @override
-  void dispose() {}
+  void dispose() {
+    columnController?.dispose();
+  }
 }

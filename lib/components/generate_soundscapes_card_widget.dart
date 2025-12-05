@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/custom_code/actions/index.dart' as actions;
+import 'dart:async';
+import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'generate_soundscapes_card_model.dart';
@@ -28,6 +29,8 @@ class _GenerateSoundscapesCardWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => GenerateSoundscapesCardModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -91,9 +94,20 @@ class _GenerateSoundscapesCardWidgetState
                       onPressed: () async {
                         logFirebaseEvent(
                             'GENERATE_SOUNDSCAPES_CARD_arrow_outward_');
-                        logFirebaseEvent('IconButton_custom_action');
-                        await actions.launchUnrealScene(
-                          'Character Customization',
+                        logFirebaseEvent('IconButton_navigate_to');
+                        unawaited(
+                          () async {
+                            context.pushNamed(
+                              DestinationsUnrealEngineWidget.routeName,
+                              extra: <String, dynamic>{
+                                kTransitionInfoKey: TransitionInfo(
+                                  hasTransition: true,
+                                  transitionType: PageTransitionType.fade,
+                                  duration: Duration(milliseconds: 9),
+                                ),
+                              },
+                            );
+                          }(),
                         );
                       },
                     ),
@@ -104,21 +118,25 @@ class _GenerateSoundscapesCardWidgetState
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
-                        child: Text(
-                          FFLocalizations.of(context).getText(
-                            'nppdaile' /* Edit Avatar */,
+                      Align(
+                        alignment: AlignmentDirectional(-1.0, 1.0),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              8.0, 20.0, 0.0, 0.0),
+                          child: Text(
+                            FFLocalizations.of(context).getText(
+                              'nppdaile' /* Escape Worlds */,
+                            ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'The Seasons',
+                                  color: FlutterFlowTheme.of(context).primary,
+                                  fontSize: 16.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.bold,
+                                ),
                           ),
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'The Seasons',
-                                    color: FlutterFlowTheme.of(context).primary,
-                                    fontSize: 16.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.bold,
-                                  ),
                         ),
                       ),
                       Flexible(

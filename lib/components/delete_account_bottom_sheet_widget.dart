@@ -29,6 +29,8 @@ class _DeleteAccountBottomSheetWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => DeleteAccountBottomSheetModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -106,7 +108,7 @@ class _DeleteAccountBottomSheetWidgetState
                   GoRouter.of(context).clearRedirectLocation();
 
                   context.goNamedAuth(
-                      SplashScreenVersion4Widget.routeName, context.mounted);
+                      SplashScreenVersion5Widget.routeName, context.mounted);
                 },
                 text: FFLocalizations.of(context).getText(
                   's7vfwprx' /* Yes */,

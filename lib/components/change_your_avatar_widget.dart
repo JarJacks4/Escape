@@ -45,6 +45,8 @@ class _ChangeYourAvatarWidgetState extends State<ChangeYourAvatarWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

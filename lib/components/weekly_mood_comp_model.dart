@@ -3,9 +3,18 @@ import 'weekly_mood_comp_widget.dart' show WeeklyMoodCompWidget;
 import 'package:flutter/material.dart';
 
 class WeeklyMoodCompModel extends FlutterFlowModel<WeeklyMoodCompWidget> {
-  @override
-  void initState(BuildContext context) {}
+  ///  State fields for stateful widgets in this component.
+
+  // State field(s) for Row widget.
+  ScrollController? rowController;
 
   @override
-  void dispose() {}
+  void initState(BuildContext context) {
+    rowController = ScrollController();
+  }
+
+  @override
+  void dispose() {
+    rowController?.dispose();
+  }
 }

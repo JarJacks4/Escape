@@ -12,7 +12,7 @@ class DeepSleepGoalWidget extends StatefulWidget {
   const DeepSleepGoalWidget({super.key});
 
   static String routeName = 'DeepSleepGoal';
-  static String routePath = '/deepSleepGoal';
+  static String routePath = 'deepSleepGoal';
 
   @override
   State<DeepSleepGoalWidget> createState() => _DeepSleepGoalWidgetState();
@@ -30,6 +30,7 @@ class _DeepSleepGoalWidgetState extends State<DeepSleepGoalWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'DeepSleepGoal'});
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -157,10 +158,10 @@ class _DeepSleepGoalWidgetState extends State<DeepSleepGoalWidget> {
                           EdgeInsetsDirectional.fromSTEB(0.0, 300.0, 0.0, 8.0),
                       child: FlutterFlowAudioPlayer(
                         audio: Audio.network(
-                          'https://firebasestorage.googleapis.com/v0/b/escape-ujuzxr.appspot.com/o/Escape%20Ambient%20Music%2FES_Third%20Charm%20-%20Joseph%20Beg.mp3?alt=media&token=9a1227fd-a02a-4cdd-96a6-ae989a079364',
+                          'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/ES_Ashkira%20-%20Place%20of%20Light%20(432%20Hz)%20-%20369.mp3?alt=media&token=54deda0a-e53c-42f0-8edc-8c436fedc940',
                           metas: Metas(
-                            id: 'Escape%20Ambient%20Music%2FES_Third%20Charm%20-%20Joseph%20Beg.mp3?alt=media&token=9a1227fd-a02a-4cdd-96a6-ae989a079364-5158bfa6',
-                            title: 'Joseph Beg - Third Charm',
+                            id: 'ES_Ashkira%20-%20Place%20of%20Light%20(432%20Hz)%20-%20369.mp3?alt=media&token=54deda0a-e53c-42f0-8edc-8c436fedc940-5158bfa6',
+                            title: 'Ashkira - Place of Light (432 Hz)',
                           ),
                         ),
                         titleTextStyle:

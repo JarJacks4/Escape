@@ -25,6 +25,8 @@ class _UsageCreditExcededWidgetState extends State<UsageCreditExcededWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => UsageCreditExcededModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

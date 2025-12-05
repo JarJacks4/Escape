@@ -1,41 +1,23 @@
-import '/components/fire_nature_meditation_widget.dart';
-import '/components/thunderstorms_nature_meditation_widget.dart';
-import '/components/waterfalls_nature_meditation_widget.dart';
+import '/components/nature_choice_comp_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
 import 'nature_mediation_choice_widget.dart' show NatureMediationChoiceWidget;
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 class NatureMediationChoiceModel
     extends FlutterFlowModel<NatureMediationChoiceWidget> {
   ///  State fields for stateful widgets in this page.
 
-  // State field(s) for Carousel widget.
-  CarouselSliderController? carouselController;
-  int carouselCurrentIndex = 1;
-
-  // Model for FireNatureMeditation component.
-  late FireNatureMeditationModel fireNatureMeditationModel;
-  // Model for WaterfallsNatureMeditation component.
-  late WaterfallsNatureMeditationModel waterfallsNatureMeditationModel;
-  // Model for ThunderstormsNatureMeditation component.
-  late ThunderstormsNatureMeditationModel thunderstormsNatureMeditationModel;
+  // Model for NatureChoiceComp component.
+  late NatureChoiceCompModel natureChoiceCompModel;
 
   @override
   void initState(BuildContext context) {
-    fireNatureMeditationModel =
-        createModel(context, () => FireNatureMeditationModel());
-    waterfallsNatureMeditationModel =
-        createModel(context, () => WaterfallsNatureMeditationModel());
-    thunderstormsNatureMeditationModel =
-        createModel(context, () => ThunderstormsNatureMeditationModel());
+    natureChoiceCompModel = createModel(context, () => NatureChoiceCompModel());
   }
 
   @override
   void dispose() {
-    fireNatureMeditationModel.dispose();
-    waterfallsNatureMeditationModel.dispose();
-    thunderstormsNatureMeditationModel.dispose();
+    natureChoiceCompModel.dispose();
   }
 }

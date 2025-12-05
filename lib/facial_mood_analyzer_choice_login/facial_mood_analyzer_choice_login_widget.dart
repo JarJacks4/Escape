@@ -14,7 +14,7 @@ class FacialMoodAnalyzerChoiceLoginWidget extends StatefulWidget {
   const FacialMoodAnalyzerChoiceLoginWidget({super.key});
 
   static String routeName = 'FacialMoodAnalyzerChoiceLogin';
-  static String routePath = '/facialMoodAnalyzerChoiceLogin';
+  static String routePath = 'facialMoodAnalyzerChoiceLogin';
 
   @override
   State<FacialMoodAnalyzerChoiceLoginWidget> createState() =>
@@ -111,6 +111,8 @@ class _FacialMoodAnalyzerChoiceLoginWidgetState
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -389,14 +391,17 @@ class _FacialMoodAnalyzerChoiceLoginWidgetState
                 ),
               ),
             ),
-            Lottie.asset(
-              'assets/jsons/Animation_-_1749422191934.json',
-              width: 419.46,
-              height: 467.2,
-              fit: BoxFit.contain,
-              animate: true,
-            ).animateOnPageLoad(
-                animationsMap['lottieAnimationOnPageLoadAnimation']!),
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Lottie.asset(
+                'assets/jsons/Animation_-_1749422191934.json',
+                width: 419.46,
+                height: 467.2,
+                fit: BoxFit.contain,
+                animate: true,
+              ).animateOnPageLoad(
+                  animationsMap['lottieAnimationOnPageLoadAnimation']!),
+            ),
           ],
         ),
       ),

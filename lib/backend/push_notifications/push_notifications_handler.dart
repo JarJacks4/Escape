@@ -80,13 +80,15 @@ class _PushNotificationsHandlerState extends State<PushNotificationsHandler> {
 
   @override
   Widget build(BuildContext context) => _loading
-      ? Container(
-          color: FlutterFlowTheme.of(context).alternate,
-          child: Image.asset(
-            'assets/images/Logo_ESCAPE_White.png',
-            fit: BoxFit.contain,
-          ),
-        )
+      ? isWeb
+          ? Container()
+          : Container(
+              color: FlutterFlowTheme.of(context).alternate,
+              child: Image.asset(
+                'assets/images/Logo_ESCAPE_White.png',
+                fit: BoxFit.contain,
+              ),
+            )
       : widget.child;
 }
 
@@ -117,22 +119,21 @@ final parametersBuilderMap =
   'notificationsScreen': ParameterData.none(),
   'subscription': ParameterData.none(),
   'HomeVersion4': ParameterData.none(),
-  'loginPage': ParameterData.none(),
+  'loginPage': (data) async => ParameterData(
+        allParams: {
+          'tabBarIndex': getParameter<int>(data, 'tabBarIndex'),
+        },
+      ),
   'InterestsPage': ParameterData.none(),
   'ProfileDetails': ParameterData.none(),
   'DisplayNameFINAL': ParameterData.none(),
   'SelfCareGoals': ParameterData.none(),
   'EnableNotifications': ParameterData.none(),
-  'AISoundscapes': (data) async => ParameterData(
-        allParams: {
-          'meditationaudio': getParameter<String>(data, 'meditationaudio'),
-        },
-      ),
   'AnalyzingMoodStatusPage': ParameterData.none(),
   'profileFINAL': ParameterData.none(),
   'SelfCarePlanPage': ParameterData.none(),
   'RecommendationsPage': ParameterData.none(),
-  'JournalPageFINAL': ParameterData.none(),
+  'journalPageFINAL': ParameterData.none(),
   'MeditationChoicePage': ParameterData.none(),
   'BreathingChoicePage': ParameterData.none(),
   'BasicBreathingGoalPage': ParameterData.none(),
@@ -162,7 +163,6 @@ final parametersBuilderMap =
   'ADHDAndOverthinkingGoal': ParameterData.none(),
   'AnxietyReliefGoal': ParameterData.none(),
   'IncreaseFocusGoal': ParameterData.none(),
-  'splashScreenVersion4': ParameterData.none(),
   'ShortBreathingGoal': ParameterData.none(),
   'LongBreathingGoal': ParameterData.none(),
   'CommunityHomeFINAL': (data) async => ParameterData(
@@ -180,26 +180,64 @@ final parametersBuilderMap =
   'MoodAnalyzerSuccess': ParameterData.none(),
   'blankSample': ParameterData.none(),
   'reels': ParameterData.none(),
-  'ChatWithLucilleFINAL': ParameterData.none(),
   'FacialMoodAnalyzerChoiceLucilleCard': ParameterData.none(),
-  'BottomSheets': ParameterData.none(),
-  'AISoundscapesCopy': (data) async => ParameterData(
+  'Settings': ParameterData.none(),
+  'MeditationReorder': (data) async => ParameterData(
+        allParams: {
+          'tabIndex': getParameter<int>(data, 'tabIndex'),
+        },
+      ),
+  'FocusReorder': (data) async => ParameterData(
+        allParams: {
+          'tabIndex': getParameter<int>(data, 'tabIndex'),
+        },
+      ),
+  'BodyReorder': (data) async => ParameterData(
+        allParams: {
+          'tabIndex': getParameter<int>(data, 'tabIndex'),
+        },
+      ),
+  'SleepReorder': (data) async => ParameterData(
+        allParams: {
+          'tabIndex': getParameter<int>(data, 'tabIndex'),
+        },
+      ),
+  'DepressionReorder': (data) async => ParameterData(
+        allParams: {
+          'tabIndex': getParameter<int>(data, 'tabIndex'),
+        },
+      ),
+  'journalPageFINALCopy': ParameterData.none(),
+  'SoundscapesHomeFinal': ParameterData.none(),
+  'MusicPlayer': (data) async => ParameterData(
+        allParams: {
+          'initialSong': getParameter<String>(data, 'initialSong'),
+        },
+      ),
+  'AISoundscapesCopyCopy': (data) async => ParameterData(
         allParams: {
           'meditationaudio': getParameter<String>(data, 'meditationaudio'),
         },
       ),
-  'Sample': ParameterData.none(),
-  'Settings': ParameterData.none(),
-  'ChatWithLucilleVersion4': ParameterData.none(),
-  'MeditationReorder': ParameterData.none(),
-  'FocusReorder': ParameterData.none(),
-  'BodyReorder': ParameterData.none(),
-  'SleepReorder': ParameterData.none(),
-  'DepressionReorder': ParameterData.none(),
-  'JournalPageFINALCopy': ParameterData.none(),
-  'LucilleNewChat': ParameterData.none(),
-  'EscapeInnerverse': ParameterData.none(),
-  'LoadingScreenAnimus': ParameterData.none(),
+  'EscapeInnerverseWebView': ParameterData.none(),
+  'journalVersion5': ParameterData.none(),
+  'splashScreenVersion5': ParameterData.none(),
+  'chat_ai_Screen': ParameterData.none(),
+  'ChatWithLucilleVersion5': ParameterData.none(),
+  'NewSignInVersion5': (data) async => ParameterData(
+        allParams: {
+          'tabIndexLogin': getParameter<int>(data, 'tabIndexLogin'),
+        },
+      ),
+  'DestinationsUnrealEngine': ParameterData.none(),
+  'DestinationDetailsUnrealEngineVersion5': ParameterData.none(),
+  'WorldsAndRealmsUnrealEngine': ParameterData.none(),
+  'MoodTrackingLoadingPage': ParameterData.none(),
+  'chat_ai_Screen_1': ParameterData.none(),
+  'AdvancedMoodTracker': ParameterData.none(),
+  'Soundscapes': ParameterData.none(),
+  'tabbar': ParameterData.none(),
+  'CommunityHomeVersion5Copy': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

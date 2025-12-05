@@ -84,6 +84,8 @@ class _ThunderstormsNatureMeditationWidgetState
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

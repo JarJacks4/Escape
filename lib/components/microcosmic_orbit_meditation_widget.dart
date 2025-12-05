@@ -84,6 +84,8 @@ class _MicrocosmicOrbitMeditationWidgetState
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

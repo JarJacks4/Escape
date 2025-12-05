@@ -1,5 +1,4 @@
-import 'package:http/http.dart';
-
-Future<StreamedResponse> getStreamedResponse(Request request) =>
-    Client().send(request);
+export 'get_streamed_response_http.dart'
+    if (dart.library.js) 'get_streamed_response_web.dart'
+    if (dart.library.js_interop) 'get_streamed_response_web.dart';
 

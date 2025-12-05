@@ -69,6 +69,8 @@ class _UploadVideoWidgetState extends State<UploadVideoWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -190,6 +192,7 @@ Videos */
                                       height: m.dimensions?.height,
                                       width: m.dimensions?.width,
                                       blurHash: m.blurHash,
+                                      originalFilename: m.originalFilename,
                                     ))
                                 .toList();
                           } finally {

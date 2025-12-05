@@ -15,7 +15,7 @@ class MeditationPageFINALWidget extends StatefulWidget {
   const MeditationPageFINALWidget({super.key});
 
   static String routeName = 'MeditationPageFINAL';
-  static String routePath = '/meditationPageFINAL';
+  static String routePath = 'meditationPageFINAL';
 
   @override
   State<MeditationPageFINALWidget> createState() =>
@@ -111,6 +111,8 @@ class _MeditationPageFINALWidgetState extends State<MeditationPageFINALWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -252,7 +254,9 @@ class _MeditationPageFINALWidgetState extends State<MeditationPageFINALWidget>
                       },
                     ),
                     child: Scrollbar(
+                      controller: _model.columnController1,
                       child: SingleChildScrollView(
+                        controller: _model.columnController1,
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -321,7 +325,9 @@ class _MeditationPageFINALWidgetState extends State<MeditationPageFINALWidget>
                                     },
                                   ),
                                   child: Scrollbar(
+                                    controller: _model.columnController2,
                                     child: SingleChildScrollView(
+                                      controller: _model.columnController2,
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [

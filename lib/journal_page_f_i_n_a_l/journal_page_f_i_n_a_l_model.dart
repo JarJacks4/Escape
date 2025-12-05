@@ -11,9 +11,9 @@ import 'package:flutter/material.dart';
 class JournalPageFINALModel extends FlutterFlowModel<JournalPageFINALWidget> {
   ///  State fields for stateful widgets in this page.
 
-  // Stores action output result for [AI Agent - Send Message to Lucille Generate Quote] action in JournalPageFINAL widget.
+  // Stores action output result for [AI Agent - Send Message to Lucille Generate Quote] action in journalPageFINAL widget.
   String? generateQuoteForJournal;
-  // Stores action output result for [AI Agent - Send Message to LucilleJournalGeneration] action in JournalPageFINAL widget.
+  // Stores action output result for [AI Agent - Send Message to LucilleJournalGeneration] action in journalPageFINAL widget.
   String? journalGeneration;
   // State field(s) for Column widget.
   ScrollController? columnController1;

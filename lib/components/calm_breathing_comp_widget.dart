@@ -91,6 +91,8 @@ class _CalmBreathingCompWidgetState extends State<CalmBreathingCompWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
