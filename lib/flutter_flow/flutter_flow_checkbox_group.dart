@@ -1,4 +1,5 @@
 import 'form_field_controller.dart';
+import 'flutter_flow_widgets.dart';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +20,9 @@ class FlutterFlowCheckboxGroup extends StatefulWidget {
     this.checkboxBorderColor,
     this.initialized = true,
     this.unselectedTextStyle,
+    this.focusBorder,
+    this.focusBorderRadius,
+    this.focusBorderPadding,
   });
 
   final List<String> options;
@@ -33,6 +37,9 @@ class FlutterFlowCheckboxGroup extends StatefulWidget {
   final Color? checkboxBorderColor;
   final bool initialized;
   final TextStyle? unselectedTextStyle;
+  final Border? focusBorder;
+  final BorderRadius? focusBorderRadius;
+  final EdgeInsetsGeometry? focusBorderPadding;
 
   @override
   State<FlutterFlowCheckboxGroup> createState() =>
@@ -88,7 +95,8 @@ class _FlutterFlowCheckboxGroupState extends State<FlutterFlowCheckboxGroup> {
           final selected = selectedValues.contains(option);
           final unselectedTextStyle =
               widget.unselectedTextStyle ?? widget.textStyle;
-          return Theme(
+
+          Widget checkboxRow = Theme(
             data: ThemeData(
               checkboxTheme: widget.checkboxBorderColor != null
                   ? CheckboxThemeData(
@@ -125,14 +133,18 @@ class _FlutterFlowCheckboxGroupState extends State<FlutterFlowCheckboxGroup> {
                     ),
                     materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                     visualDensity: VisualDensity.compact,
+                    focusNode: FocusNode(skipTraversal: true),
                   ),
                   Expanded(
                     child: Padding(
                       padding: widget.labelPadding ?? EdgeInsets.zero,
-                      child: Text(
-                        widget.options[index],
-                        style:
-                            selected ? widget.textStyle : unselectedTextStyle,
+                      child: Focus(
+                        skipTraversal: true,
+                        child: Text(
+                          widget.options[index],
+                          style:
+                              selected ? widget.textStyle : unselectedTextStyle,
+                        ),
                       ),
                     ),
                   ),
@@ -140,6 +152,32 @@ class _FlutterFlowCheckboxGroupState extends State<FlutterFlowCheckboxGroup> {
               ),
             ),
           );
+
+          // Wrap with FFFocusIndicator if focus properties are provided
+          if (widget.focusBorder != null ||
+              widget.focusBorderRadius != null ||
+              widget.focusBorderPadding != null) {
+            return FFFocusIndicator(
+              border: widget.focusBorder,
+              borderRadius: widget.focusBorderRadius,
+              padding: widget.focusBorderPadding,
+              onTap: widget.onChanged != null
+                  ? () {
+                      final isSelected = selectedValues.contains(option);
+                      if (isSelected) {
+                        checkboxValues.remove(option);
+                      } else {
+                        checkboxValues.add(option);
+                      }
+                      widget.controller.value = List.from(checkboxValues);
+                      setState(() {});
+                    }
+                  : null,
+              child: checkboxRow,
+            );
+          }
+
+          return checkboxRow;
         },
       );
 }

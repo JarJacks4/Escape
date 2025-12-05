@@ -83,6 +83,8 @@ class _NapMeditationCompWidgetState extends State<NapMeditationCompWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

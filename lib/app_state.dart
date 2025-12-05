@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'flutter_flow/request_manager.dart';
 import '/backend/backend.dart';
 import "package:tiktokfeed_wz8en7/backend/schema/structs/index.dart"
     as tiktokfeed_wz8en7_data_schema;
+import 'package:ff_commons/api_requests/api_manager.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 
 class FFAppState extends ChangeNotifier {
@@ -17,12 +20,19 @@ class FFAppState extends ChangeNotifier {
     _instance = FFAppState._internal();
   }
 
-  Future initializePersistedState() async {}
+  Future initializePersistedState() async {
+    prefs = await SharedPreferences.getInstance();
+    _safeInit(() {
+      _AmbientMusic = prefs.getStringList('ff_AmbientMusic') ?? _AmbientMusic;
+    });
+  }
 
   void update(VoidCallback callback) {
     callback();
     notifyListeners();
   }
+
+  late SharedPreferences prefs;
 
   List<LatLng> _TherapistLocation = [];
   List<LatLng> get TherapistLocation => _TherapistLocation;
@@ -140,12 +150,6 @@ class FFAppState extends ChangeNotifier {
   bool get expandMenu => _expandMenu;
   set expandMenu(bool value) {
     _expandMenu = value;
-  }
-
-  DocumentReference? _activeChat;
-  DocumentReference? get activeChat => _activeChat;
-  set activeChat(DocumentReference? value) {
-    _activeChat = value;
   }
 
   String _newName = '';
@@ -583,4 +587,271 @@ class FFAppState extends ChangeNotifier {
   set JournalPrompt(String value) {
     _JournalPrompt = value;
   }
+
+  DateTime? _lastActivity;
+  DateTime? get lastActivity => _lastActivity;
+  set lastActivity(DateTime? value) {
+    _lastActivity = value;
+  }
+
+  bool _showTimeoutWarning = false;
+  bool get showTimeoutWarning => _showTimeoutWarning;
+  set showTimeoutWarning(bool value) {
+    _showTimeoutWarning = value;
+  }
+
+  List<String> _AmbientMusic = [
+    'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/ES_A%20Prayer%20for%20Light%20-%20Sayuri%20Hayashi%20Egnell.mp3?alt=media&token=01416c12-7b48-425a-8001-2d315409650f',
+    'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/ES_Ashkira%20-%20Place%20of%20Light%20(432%20Hz)%20-%20369.mp3?alt=media&token=54deda0a-e53c-42f0-8edc-8c436fedc940',
+    'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/ES_Bhimpalasi%20-%20Pawan%20Krishna%20(1).mp3?alt=media&token=9ec67458-dd89-4da7-bfba-88b195ff4434',
+    'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/ES_Bhimpalasi%20-%20Pawan%20Krishna%20(1).mp3?alt=media&token=9ec67458-dd89-4da7-bfba-88b195ff4434',
+    'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/ES_Binaural%20Cloud%20(Alpha%207%20Hz)%20-%20Syntropy.mp3?alt=media&token=68c213c6-1d70-40b1-9998-25aa64093d13',
+    'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/ES_Binaural%20Schumann%20Alpha%20-%20Magonia%20-%20369.mp3?alt=media&token=a1cb0f6e-101a-4517-b15b-65900c7964d2',
+    'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/ES_Binaural%20Schumann%20Alpha%20-%20Mermaids\'%20Dance%20-%20369.mp3?alt=media&token=07a98f46-9422-4cb2-8b61-9cb38698062c',
+    'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/ES_Dimension%20of%20Dreams%20-%20Mandala%20Dreams.mp3?alt=media&token=99e0d610-51f5-44f7-b55f-0559f9d46f5b',
+    'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/ES_Frankel%20-%20Syntropy%20(1).mp3?alt=media&token=a04b73b2-8438-4c03-9f8b-557d8e458a84',
+    'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/ES_Gaia%20Awakening%20-%20Syntropy.mp3?alt=media&token=0b62b171-f229-4c0a-851e-1637ce7c26ce',
+    'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/New%20Composition%20%233.mp3?alt=media&token=39444123-3b36-40e8-b82b-802f4de2c8ad'
+  ];
+  List<String> get AmbientMusic => _AmbientMusic;
+  set AmbientMusic(List<String> value) {
+    _AmbientMusic = value;
+    prefs.setStringList('ff_AmbientMusic', value);
+  }
+
+  void addToAmbientMusic(String value) {
+    AmbientMusic.add(value);
+    prefs.setStringList('ff_AmbientMusic', _AmbientMusic);
+  }
+
+  void removeFromAmbientMusic(String value) {
+    AmbientMusic.remove(value);
+    prefs.setStringList('ff_AmbientMusic', _AmbientMusic);
+  }
+
+  void removeAtIndexFromAmbientMusic(int index) {
+    AmbientMusic.removeAt(index);
+    prefs.setStringList('ff_AmbientMusic', _AmbientMusic);
+  }
+
+  void updateAmbientMusicAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    AmbientMusic[index] = updateFn(_AmbientMusic[index]);
+    prefs.setStringList('ff_AmbientMusic', _AmbientMusic);
+  }
+
+  void insertAtIndexInAmbientMusic(int index, String value) {
+    AmbientMusic.insert(index, value);
+    prefs.setStringList('ff_AmbientMusic', _AmbientMusic);
+  }
+
+  int _GoalsCompleted = 0;
+  int get GoalsCompleted => _GoalsCompleted;
+  set GoalsCompleted(int value) {
+    _GoalsCompleted = value;
+  }
+
+  bool _hasCompletedGoal = false;
+  bool get hasCompletedGoal => _hasCompletedGoal;
+  set hasCompletedGoal(bool value) {
+    _hasCompletedGoal = value;
+  }
+
+  String _EpidemicToken = '';
+  String get EpidemicToken => _EpidemicToken;
+  set EpidemicToken(String value) {
+    _EpidemicToken = value;
+  }
+
+  String _userVoiceMessage = '';
+  String get userVoiceMessage => _userVoiceMessage;
+  set userVoiceMessage(String value) {
+    _userVoiceMessage = value;
+  }
+
+  bool _isListening = false;
+  bool get isListening => _isListening;
+  set isListening(bool value) {
+    _isListening = value;
+  }
+
+  List<String> _AdvancedMoodChoiceChips = [];
+  List<String> get AdvancedMoodChoiceChips => _AdvancedMoodChoiceChips;
+  set AdvancedMoodChoiceChips(List<String> value) {
+    _AdvancedMoodChoiceChips = value;
+  }
+
+  void addToAdvancedMoodChoiceChips(String value) {
+    AdvancedMoodChoiceChips.add(value);
+  }
+
+  void removeFromAdvancedMoodChoiceChips(String value) {
+    AdvancedMoodChoiceChips.remove(value);
+  }
+
+  void removeAtIndexFromAdvancedMoodChoiceChips(int index) {
+    AdvancedMoodChoiceChips.removeAt(index);
+  }
+
+  void updateAdvancedMoodChoiceChipsAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    AdvancedMoodChoiceChips[index] = updateFn(_AdvancedMoodChoiceChips[index]);
+  }
+
+  void insertAtIndexInAdvancedMoodChoiceChips(int index, String value) {
+    AdvancedMoodChoiceChips.insert(index, value);
+  }
+
+  List<String> _NeutralMoodsHistory = [];
+  List<String> get NeutralMoodsHistory => _NeutralMoodsHistory;
+  set NeutralMoodsHistory(List<String> value) {
+    _NeutralMoodsHistory = value;
+  }
+
+  void addToNeutralMoodsHistory(String value) {
+    NeutralMoodsHistory.add(value);
+  }
+
+  void removeFromNeutralMoodsHistory(String value) {
+    NeutralMoodsHistory.remove(value);
+  }
+
+  void removeAtIndexFromNeutralMoodsHistory(int index) {
+    NeutralMoodsHistory.removeAt(index);
+  }
+
+  void updateNeutralMoodsHistoryAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    NeutralMoodsHistory[index] = updateFn(_NeutralMoodsHistory[index]);
+  }
+
+  void insertAtIndexInNeutralMoodsHistory(int index, String value) {
+    NeutralMoodsHistory.insert(index, value);
+  }
+
+  List<String> _StressedMoodsHistory = [];
+  List<String> get StressedMoodsHistory => _StressedMoodsHistory;
+  set StressedMoodsHistory(List<String> value) {
+    _StressedMoodsHistory = value;
+  }
+
+  void addToStressedMoodsHistory(String value) {
+    StressedMoodsHistory.add(value);
+  }
+
+  void removeFromStressedMoodsHistory(String value) {
+    StressedMoodsHistory.remove(value);
+  }
+
+  void removeAtIndexFromStressedMoodsHistory(int index) {
+    StressedMoodsHistory.removeAt(index);
+  }
+
+  void updateStressedMoodsHistoryAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    StressedMoodsHistory[index] = updateFn(_StressedMoodsHistory[index]);
+  }
+
+  void insertAtIndexInStressedMoodsHistory(int index, String value) {
+    StressedMoodsHistory.insert(index, value);
+  }
+
+  List<String> _HeavyMoodsHistory = [];
+  List<String> get HeavyMoodsHistory => _HeavyMoodsHistory;
+  set HeavyMoodsHistory(List<String> value) {
+    _HeavyMoodsHistory = value;
+  }
+
+  void addToHeavyMoodsHistory(String value) {
+    HeavyMoodsHistory.add(value);
+  }
+
+  void removeFromHeavyMoodsHistory(String value) {
+    HeavyMoodsHistory.remove(value);
+  }
+
+  void removeAtIndexFromHeavyMoodsHistory(int index) {
+    HeavyMoodsHistory.removeAt(index);
+  }
+
+  void updateHeavyMoodsHistoryAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    HeavyMoodsHistory[index] = updateFn(_HeavyMoodsHistory[index]);
+  }
+
+  void insertAtIndexInHeavyMoodsHistory(int index, String value) {
+    HeavyMoodsHistory.insert(index, value);
+  }
+
+  List<String> _communityTabs = [
+    'For You',
+    'Meditation',
+    'Breathing',
+    'Body',
+    'Soundscapes'
+  ];
+  List<String> get communityTabs => _communityTabs;
+  set communityTabs(List<String> value) {
+    _communityTabs = value;
+  }
+
+  void addToCommunityTabs(String value) {
+    communityTabs.add(value);
+  }
+
+  void removeFromCommunityTabs(String value) {
+    communityTabs.remove(value);
+  }
+
+  void removeAtIndexFromCommunityTabs(int index) {
+    communityTabs.removeAt(index);
+  }
+
+  void updateCommunityTabsAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    communityTabs[index] = updateFn(_communityTabs[index]);
+  }
+
+  void insertAtIndexInCommunityTabs(int index, String value) {
+    communityTabs.insert(index, value);
+  }
+
+  final _epidemicTracksManager = FutureRequestManager<ApiCallResponse>();
+  Future<ApiCallResponse> epidemicTracks({
+    String? uniqueQueryKey,
+    bool? overrideCache,
+    required Future<ApiCallResponse> Function() requestFn,
+  }) =>
+      _epidemicTracksManager.performRequest(
+        uniqueQueryKey: uniqueQueryKey,
+        overrideCache: overrideCache,
+        requestFn: requestFn,
+      );
+  void clearEpidemicTracksCache() => _epidemicTracksManager.clear();
+  void clearEpidemicTracksCacheKey(String? uniqueKey) =>
+      _epidemicTracksManager.clearRequest(uniqueKey);
+}
+
+void _safeInit(Function() initializeField) {
+  try {
+    initializeField();
+  } catch (_) {}
+}
+
+Future _safeInitAsync(Function() initializeField) async {
+  try {
+    await initializeField();
+  } catch (_) {}
 }

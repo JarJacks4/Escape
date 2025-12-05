@@ -12,7 +12,7 @@ class ThunderstromsAndTransformationGoalWidget extends StatefulWidget {
   const ThunderstromsAndTransformationGoalWidget({super.key});
 
   static String routeName = 'ThunderstromsAndTransformationGoal';
-  static String routePath = '/thunderstromsAndTransformationGoal';
+  static String routePath = 'thunderstromsAndTransformationGoal';
 
   @override
   State<ThunderstromsAndTransformationGoalWidget> createState() =>
@@ -33,6 +33,7 @@ class _ThunderstromsAndTransformationGoalWidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'ThunderstromsAndTransformationGoal'});
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -160,10 +161,10 @@ class _ThunderstromsAndTransformationGoalWidgetState
                           EdgeInsetsDirectional.fromSTEB(0.0, 300.0, 0.0, 8.0),
                       child: FlutterFlowAudioPlayer(
                         audio: Audio.network(
-                          'https://firebasestorage.googleapis.com/v0/b/escape-ujuzxr.appspot.com/o/Escape%20Water%20Sounds%2FRain%2C%20Thunder%2C%20Thailand.mp3?alt=media&token=dffdcb85-2449-49c8-a8b1-349077bb0892',
+                          'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/rain-and-thunder-321270.mp3?alt=media&token=5edecf79-5db6-4158-8da6-6b43ee047617',
                           metas: Metas(
-                            id: 'Escape%20Water%20Sounds%2FRain%2C%20Thunder%2C%20Thailand.mp3?alt=media&token=dffdcb85-2449-49c8-a8b1-349077bb0892-1dbb3cae',
-                            title: 'Rain, Thunder, Thailand',
+                            id: 'rain-and-thunder-321270.mp3?alt=media&token=5edecf79-5db6-4158-8da6-6b43ee047617-1dbb3cae',
+                            title: 'Rain and Thunder Soundscape',
                           ),
                         ),
                         titleTextStyle:

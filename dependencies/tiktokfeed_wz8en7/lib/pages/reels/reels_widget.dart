@@ -55,42 +55,23 @@ class _ReelsWidgetState extends State<ReelsWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        appBar: AppBar(
-          backgroundColor: FlutterFlowTheme.of(context).primary,
-          automaticallyImplyLeading: false,
-          title: Text(
-            'TIk Tok',
-            style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  font: GoogleFonts.outfit(
-                    fontWeight:
-                        FlutterFlowTheme.of(context).headlineMedium.fontWeight,
-                    fontStyle:
-                        FlutterFlowTheme.of(context).headlineMedium.fontStyle,
-                  ),
-                  color: Colors.white,
-                  fontSize: 22.0,
-                  letterSpacing: 0.0,
-                  fontWeight:
-                      FlutterFlowTheme.of(context).headlineMedium.fontWeight,
-                  fontStyle:
-                      FlutterFlowTheme.of(context).headlineMedium.fontStyle,
-                ),
-          ),
-          actions: [],
-          centerTitle: false,
-          elevation: 2.0,
-        ),
         body: Column(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
-              width: double.infinity,
-              height: MediaQuery.sizeOf(context).height * 0.9,
-              child: custom_widgets.TikTokVideoPlayerWidget(
-                width: double.infinity,
-                height: MediaQuery.sizeOf(context).height * 0.9,
-                tiktokVideosData: FFAppState().ListTikTokPages,
+            Flexible(
+              flex: 1,
+              child: Align(
+                alignment: AlignmentDirectional(0.0, -1.0),
+                child: Container(
+                  width: double.infinity,
+                  height: MediaQuery.sizeOf(context).height * 0.9,
+                  child: custom_widgets.TikTokVideoPlayerWidget(
+                    width: double.infinity,
+                    height: MediaQuery.sizeOf(context).height * 0.9,
+                    tiktokVideosData: FFAppState().BreathingTikTok,
+                  ),
+                ),
               ),
             ),
           ],

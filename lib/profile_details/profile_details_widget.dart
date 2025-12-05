@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -7,8 +8,8 @@ import '/flutter_flow/upload_data.dart';
 import 'dart:async';
 import 'dart:ui';
 import '/index.dart';
-import 'package:chat_u_i_kit_n2m29m/app_state.dart'
-    as chat_u_i_kit_n2m29m_app_state;
+import 'package:that_audio_player_5bjqer/app_state.dart'
+    as that_audio_player_5bjqer_app_state;
 import 'package:tiktokfeed_wz8en7/app_state.dart'
     as tiktokfeed_wz8en7_app_state;
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
@@ -23,7 +24,7 @@ class ProfileDetailsWidget extends StatefulWidget {
   const ProfileDetailsWidget({super.key});
 
   static String routeName = 'ProfileDetails';
-  static String routePath = '/profileDetails';
+  static String routePath = 'profileDetails';
 
   @override
   State<ProfileDetailsWidget> createState() => _ProfileDetailsWidgetState();
@@ -100,6 +101,8 @@ class _ProfileDetailsWidgetState extends State<ProfileDetailsWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -115,8 +118,8 @@ class _ProfileDetailsWidgetState extends State<ProfileDetailsWidget>
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
-    context.watch<chat_u_i_kit_n2m29m_app_state.FFAppState>();
     context.watch<tiktokfeed_wz8en7_app_state.FFAppState>();
+    context.watch<that_audio_player_5bjqer_app_state.FFAppState>();
 
     return GestureDetector(
       onTap: () {
@@ -213,7 +216,9 @@ class _ProfileDetailsWidgetState extends State<ProfileDetailsWidget>
                                       },
                                     ),
                                     child: Scrollbar(
+                                      controller: _model.columnController,
                                       child: SingleChildScrollView(
+                                        controller: _model.columnController,
                                         child: Column(
                                           mainAxisSize: MainAxisSize.max,
                                           crossAxisAlignment:
@@ -268,422 +273,455 @@ class _ProfileDetailsWidgetState extends State<ProfileDetailsWidget>
                                             ),
                                             Flexible(
                                               flex: 1,
-                                              child: Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
-                                                child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          15.0, 0.0, 15.0, 0.0),
-                                                  child: Column(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment.end,
-                                                    children: [
-                                                      Padding(
-                                                        padding: EdgeInsets.all(
-                                                            25.0),
-                                                        child: Container(
-                                                          width: 164.66,
-                                                          height: 190.0,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: Color(
-                                                                0x00000220),
-                                                          ),
-                                                          child: Align(
-                                                            alignment:
-                                                                AlignmentDirectional(
-                                                                    0.0, 0.0),
-                                                            child: Stack(
-                                                              children: [
-                                                                Container(
-                                                                  width: 167.2,
-                                                                  height: 167.2,
-                                                                  decoration:
-                                                                      BoxDecoration(
-                                                                    shape: BoxShape
-                                                                        .circle,
-                                                                    border:
-                                                                        Border
-                                                                            .all(
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .secondary,
+                                              child: Container(
+                                                width: double.infinity,
+                                                child: Form(
+                                                  key: _model.formKey,
+                                                  autovalidateMode:
+                                                      AutovalidateMode.always,
+                                                  child: Align(
+                                                    alignment:
+                                                        AlignmentDirectional(
+                                                            0.0, 0.0),
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  15.0,
+                                                                  0.0,
+                                                                  15.0,
+                                                                  0.0),
+                                                      child: Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .end,
+                                                        children: [
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsets.all(
+                                                                    25.0),
+                                                            child: Container(
+                                                              width: 164.66,
+                                                              height: 190.0,
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                color: Color(
+                                                                    0x00000220),
+                                                              ),
+                                                              child: Align(
+                                                                alignment:
+                                                                    AlignmentDirectional(
+                                                                        0.0,
+                                                                        0.0),
+                                                                child: Stack(
+                                                                  children: [
+                                                                    Container(
                                                                       width:
-                                                                          2.0,
-                                                                    ),
-                                                                  ),
-                                                                  child: Align(
-                                                                    alignment:
-                                                                        AlignmentDirectional(
+                                                                          167.2,
+                                                                      height:
+                                                                          167.2,
+                                                                      decoration:
+                                                                          BoxDecoration(
+                                                                        shape: BoxShape
+                                                                            .circle,
+                                                                        border:
+                                                                            Border.all(
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).secondary,
+                                                                          width:
+                                                                              2.0,
+                                                                        ),
+                                                                      ),
+                                                                      child:
+                                                                          Align(
+                                                                        alignment: AlignmentDirectional(
                                                                             -0.16,
                                                                             0.26),
-                                                                    child:
-                                                                        AuthUserStreamWidget(
-                                                                      builder:
-                                                                          (context) =>
-                                                                              Container(
-                                                                        width:
-                                                                            150.0,
-                                                                        height:
-                                                                            150.0,
-                                                                        clipBehavior:
-                                                                            Clip.antiAlias,
-                                                                        decoration:
-                                                                            BoxDecoration(
-                                                                          shape:
-                                                                              BoxShape.circle,
-                                                                        ),
-                                                                        child: Image
-                                                                            .network(
-                                                                          currentUserPhoto,
-                                                                          fit: BoxFit
-                                                                              .cover,
-                                                                          errorBuilder: (context, error, stackTrace) =>
-                                                                              Image.asset(
-                                                                            'assets/images/error_image.jpg',
+                                                                        child:
+                                                                            Container(
+                                                                          width:
+                                                                              150.0,
+                                                                          height:
+                                                                              150.0,
+                                                                          clipBehavior:
+                                                                              Clip.antiAlias,
+                                                                          decoration:
+                                                                              BoxDecoration(
+                                                                            shape:
+                                                                                BoxShape.circle,
+                                                                          ),
+                                                                          child:
+                                                                              Image.memory(
+                                                                            _model.uploadedLocalFile_uploadPhoto.bytes ??
+                                                                                Uint8List.fromList([]),
                                                                             fit:
                                                                                 BoxFit.cover,
+                                                                            errorBuilder: (context, error, stackTrace) =>
+                                                                                Image.asset(
+                                                                              'assets/images/error_image.jpg',
+                                                                              fit: BoxFit.cover,
+                                                                            ),
                                                                           ),
                                                                         ),
                                                                       ),
                                                                     ),
-                                                                  ),
+                                                                  ],
                                                                 ),
-                                                              ],
+                                                              ),
                                                             ),
                                                           ),
-                                                        ),
-                                                      ),
-                                                      FFButtonWidget(
-                                                        onPressed: () async {
-                                                          logFirebaseEvent(
-                                                              'PROFILE_DETAILS_UPLOAD_PROFILE_PHOTO_BTN');
-                                                          logFirebaseEvent(
-                                                              'Button_upload_media_to_firebase');
-                                                          final selectedMedia =
-                                                              await selectMediaWithSourceBottomSheet(
-                                                            context: context,
-                                                            allowPhoto: true,
-                                                            includeBlurHash:
-                                                                true,
-                                                          );
-                                                          if (selectedMedia !=
-                                                                  null &&
-                                                              selectedMedia.every((m) =>
-                                                                  validateFileFormat(
-                                                                      m.storagePath,
-                                                                      context))) {
-                                                            safeSetState(() =>
-                                                                _model.isDataUploading_uploadPhoto =
-                                                                    true);
-                                                            var selectedUploadedFiles =
-                                                                <FFUploadedFile>[];
+                                                          FFButtonWidget(
+                                                            onPressed:
+                                                                () async {
+                                                              logFirebaseEvent(
+                                                                  'PROFILE_DETAILS_UPLOAD_PROFILE_PHOTO_BTN');
+                                                              logFirebaseEvent(
+                                                                  'Button_upload_media_to_firebase');
+                                                              final selectedMedia =
+                                                                  await selectMediaWithSourceBottomSheet(
+                                                                context:
+                                                                    context,
+                                                                maxWidth:
+                                                                    400.00,
+                                                                maxHeight:
+                                                                    400.00,
+                                                                allowPhoto:
+                                                                    true,
+                                                                includeDimensions:
+                                                                    true,
+                                                                includeBlurHash:
+                                                                    true,
+                                                              );
+                                                              if (selectedMedia !=
+                                                                      null &&
+                                                                  selectedMedia.every((m) =>
+                                                                      validateFileFormat(
+                                                                          m.storagePath,
+                                                                          context))) {
+                                                                safeSetState(() =>
+                                                                    _model.isDataUploading_uploadPhoto =
+                                                                        true);
+                                                                var selectedUploadedFiles =
+                                                                    <FFUploadedFile>[];
 
-                                                            var downloadUrls =
-                                                                <String>[];
-                                                            try {
-                                                              selectedUploadedFiles =
-                                                                  selectedMedia
-                                                                      .map((m) =>
-                                                                          FFUploadedFile(
-                                                                            name:
-                                                                                m.storagePath.split('/').last,
-                                                                            bytes:
-                                                                                m.bytes,
-                                                                            height:
-                                                                                m.dimensions?.height,
-                                                                            width:
-                                                                                m.dimensions?.width,
-                                                                            blurHash:
-                                                                                m.blurHash,
-                                                                          ))
-                                                                      .toList();
+                                                                var downloadUrls =
+                                                                    <String>[];
+                                                                try {
+                                                                  showUploadMessage(
+                                                                    context,
+                                                                    'Uploading file...',
+                                                                    showLoading:
+                                                                        true,
+                                                                  );
+                                                                  selectedUploadedFiles =
+                                                                      selectedMedia
+                                                                          .map((m) =>
+                                                                              FFUploadedFile(
+                                                                                name: m.storagePath.split('/').last,
+                                                                                bytes: m.bytes,
+                                                                                height: m.dimensions?.height,
+                                                                                width: m.dimensions?.width,
+                                                                                blurHash: m.blurHash,
+                                                                                originalFilename: m.originalFilename,
+                                                                              ))
+                                                                          .toList();
 
-                                                              downloadUrls =
-                                                                  (await Future
+                                                                  downloadUrls = (await Future
                                                                           .wait(
-                                                                selectedMedia
-                                                                    .map(
-                                                                  (m) async =>
-                                                                      await uploadData(
+                                                                    selectedMedia
+                                                                        .map(
+                                                                      (m) async => await uploadData(
                                                                           m.storagePath,
                                                                           m.bytes),
-                                                                ),
-                                                              ))
+                                                                    ),
+                                                                  ))
                                                                       .where((u) =>
                                                                           u !=
                                                                           null)
                                                                       .map((u) =>
                                                                           u!)
                                                                       .toList();
-                                                            } finally {
-                                                              _model.isDataUploading_uploadPhoto =
-                                                                  false;
-                                                            }
-                                                            if (selectedUploadedFiles
-                                                                        .length ==
-                                                                    selectedMedia
-                                                                        .length &&
-                                                                downloadUrls
-                                                                        .length ==
-                                                                    selectedMedia
-                                                                        .length) {
-                                                              safeSetState(() {
-                                                                _model.uploadedLocalFile_uploadPhoto =
-                                                                    selectedUploadedFiles
-                                                                        .first;
-                                                                _model.uploadedFileUrl_uploadPhoto =
+                                                                } finally {
+                                                                  ScaffoldMessenger.of(
+                                                                          context)
+                                                                      .hideCurrentSnackBar();
+                                                                  _model.isDataUploading_uploadPhoto =
+                                                                      false;
+                                                                }
+                                                                if (selectedUploadedFiles
+                                                                            .length ==
+                                                                        selectedMedia
+                                                                            .length &&
                                                                     downloadUrls
-                                                                        .first;
-                                                              });
-                                                            } else {
+                                                                            .length ==
+                                                                        selectedMedia
+                                                                            .length) {
+                                                                  safeSetState(
+                                                                      () {
+                                                                    _model.uploadedLocalFile_uploadPhoto =
+                                                                        selectedUploadedFiles
+                                                                            .first;
+                                                                    _model.uploadedFileUrl_uploadPhoto =
+                                                                        downloadUrls
+                                                                            .first;
+                                                                  });
+                                                                  showUploadMessage(
+                                                                      context,
+                                                                      'Success!');
+                                                                } else {
+                                                                  safeSetState(
+                                                                      () {});
+                                                                  showUploadMessage(
+                                                                      context,
+                                                                      'Failed to upload data');
+                                                                  return;
+                                                                }
+                                                              }
+
+                                                              logFirebaseEvent(
+                                                                  'Button_update_page_state');
+                                                              _model.uploadedPicture =
+                                                                  _model
+                                                                      .uploadedFileUrl_uploadPhoto;
                                                               safeSetState(
                                                                   () {});
-                                                              return;
-                                                            }
-                                                          }
+                                                              logFirebaseEvent(
+                                                                  'Button_update_app_state');
+                                                              FFAppState()
+                                                                      .ProfilePicture =
+                                                                  _model
+                                                                      .uploadedFileUrl_uploadPhoto;
+                                                              FFAppState()
+                                                                  .update(
+                                                                      () {});
+                                                              logFirebaseEvent(
+                                                                  'Button_backend_call');
 
-                                                          logFirebaseEvent(
-                                                              'Button_update_page_state');
-                                                          _model.profilePicture =
-                                                              _model
-                                                                  .uploadedLocalFile_uploadPhoto;
-                                                          safeSetState(() {});
-                                                          logFirebaseEvent(
-                                                              'Button_update_app_state');
-                                                          FFAppState()
-                                                                  .ProfilePicture =
-                                                              currentUserPhoto;
-                                                          FFAppState()
-                                                              .update(() {});
-                                                          if (FFAppState()
-                                                                  .ProfilePicture ==
-                                                              '') {
-                                                            logFirebaseEvent(
-                                                                'Button_show_snack_bar');
-                                                            ScaffoldMessenger
-                                                                    .of(context)
-                                                                .showSnackBar(
-                                                              SnackBar(
-                                                                content: Text(
-                                                                  'Profile Picture Uploaded!',
-                                                                  style:
-                                                                      TextStyle(
-                                                                    fontFamily:
-                                                                        'WorkSans',
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primary,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .normal,
-                                                                    fontSize:
-                                                                        16.0,
-                                                                  ),
-                                                                ),
-                                                                duration: Duration(
-                                                                    milliseconds:
-                                                                        4000),
-                                                                backgroundColor:
-                                                                    FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .accent1,
-                                                              ),
-                                                            );
-                                                          } else if (currentUserPhoto !=
+                                                              await currentUserReference!
+                                                                  .update(
+                                                                      createUsersRecordData(
+                                                                photoUrl: _model
+                                                                    .uploadedFileUrl_uploadPhoto,
+                                                              ));
+                                                              if (FFAppState()
+                                                                      .ProfilePicture ==
                                                                   '') {
-                                                            logFirebaseEvent(
-                                                                'Button_show_snack_bar');
-                                                            ScaffoldMessenger
-                                                                    .of(context)
-                                                                .showSnackBar(
-                                                              SnackBar(
-                                                                content: Text(
-                                                                  'Profile Picture Uploaded!',
-                                                                  style:
-                                                                      TextStyle(
-                                                                    fontFamily:
-                                                                        'WorkSans',
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primary,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .normal,
-                                                                    fontSize:
-                                                                        16.0,
+                                                                logFirebaseEvent(
+                                                                    'Button_show_snack_bar');
+                                                                ScaffoldMessenger.of(
+                                                                        context)
+                                                                    .showSnackBar(
+                                                                  SnackBar(
+                                                                    content:
+                                                                        Text(
+                                                                      'Profile Picture Uploaded!',
+                                                                      style:
+                                                                          TextStyle(
+                                                                        fontFamily:
+                                                                            'WorkSans',
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .primary,
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                        fontSize:
+                                                                            16.0,
+                                                                      ),
+                                                                    ),
+                                                                    duration: Duration(
+                                                                        milliseconds:
+                                                                            4000),
+                                                                    backgroundColor:
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .accent1,
                                                                   ),
-                                                                ),
-                                                                duration: Duration(
-                                                                    milliseconds:
-                                                                        4000),
-                                                                backgroundColor:
-                                                                    FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .accent1,
-                                                              ),
-                                                            );
-                                                          } else {
-                                                            logFirebaseEvent(
-                                                                'Button_show_snack_bar');
-                                                            ScaffoldMessenger
-                                                                    .of(context)
-                                                                .showSnackBar(
-                                                              SnackBar(
-                                                                content: Text(
-                                                                  'Please try again!',
-                                                                  style:
-                                                                      TextStyle(
-                                                                    fontFamily:
-                                                                        'WorkSans',
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primary,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .normal,
-                                                                    fontSize:
-                                                                        16.0,
+                                                                );
+                                                              } else if (currentUserPhoto !=
+                                                                      '') {
+                                                                logFirebaseEvent(
+                                                                    'Button_show_snack_bar');
+                                                                ScaffoldMessenger.of(
+                                                                        context)
+                                                                    .showSnackBar(
+                                                                  SnackBar(
+                                                                    content:
+                                                                        Text(
+                                                                      'Profile Picture Uploaded!',
+                                                                      style:
+                                                                          TextStyle(
+                                                                        fontFamily:
+                                                                            'WorkSans',
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .primary,
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                        fontSize:
+                                                                            16.0,
+                                                                      ),
+                                                                    ),
+                                                                    duration: Duration(
+                                                                        milliseconds:
+                                                                            4000),
+                                                                    backgroundColor:
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .accent1,
                                                                   ),
-                                                                ),
-                                                                duration: Duration(
-                                                                    milliseconds:
-                                                                        4000),
-                                                                backgroundColor:
-                                                                    FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .accent1,
-                                                              ),
-                                                            );
-                                                            return;
-                                                          }
-                                                        },
-                                                        text:
-                                                            FFLocalizations.of(
-                                                                    context)
+                                                                );
+                                                              } else {
+                                                                logFirebaseEvent(
+                                                                    'Button_show_snack_bar');
+                                                                ScaffoldMessenger.of(
+                                                                        context)
+                                                                    .showSnackBar(
+                                                                  SnackBar(
+                                                                    content:
+                                                                        Text(
+                                                                      'Please try again!',
+                                                                      style:
+                                                                          TextStyle(
+                                                                        fontFamily:
+                                                                            'WorkSans',
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .primary,
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                        fontSize:
+                                                                            16.0,
+                                                                      ),
+                                                                    ),
+                                                                    duration: Duration(
+                                                                        milliseconds:
+                                                                            4000),
+                                                                    backgroundColor:
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .accent1,
+                                                                  ),
+                                                                );
+                                                                return;
+                                                              }
+                                                            },
+                                                            text: FFLocalizations
+                                                                    .of(context)
                                                                 .getText(
-                                                          'k398ecyg' /* Upload Profile Photo */,
-                                                        ),
-                                                        options:
-                                                            FFButtonOptions(
-                                                          height: 42.29,
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      24.0,
-                                                                      0.0,
-                                                                      24.0,
-                                                                      0.0),
-                                                          iconPadding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .alternate,
-                                                          textStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .titleSmall
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'WorkSans',
-                                                                    color: Colors
-                                                                        .white,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                  ),
-                                                          elevation: 3.0,
-                                                          borderSide:
-                                                              BorderSide(
-                                                            color: Colors
-                                                                .transparent,
-                                                            width: 1.0,
-                                                          ),
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      8.0),
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    20.0,
-                                                                    0.0,
-                                                                    30.0),
-                                                        child: Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: [
-                                                            Text(
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                                'dhw76ecs' /* Let’s complete your profile */,
-                                                              ),
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .titleLarge
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'The Seasons',
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primary,
-                                                                    fontSize:
-                                                                        20.0,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .bold,
-                                                                    lineHeight:
-                                                                        1.5,
-                                                                  ),
+                                                              'dgw4o8sh' /* Upload Profile Photo */,
                                                             ),
-                                                            Padding(
+                                                            options:
+                                                                FFButtonOptions(
+                                                              height: 42.3,
                                                               padding:
                                                                   EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          24.0,
+                                                                          0.0,
+                                                                          24.0,
+                                                                          0.0),
+                                                              iconPadding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .alternate,
+                                                              textStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleSmall
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'WorkSans',
+                                                                        color: Colors
+                                                                            .white,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
+                                                              elevation: 3.0,
+                                                              borderSide:
+                                                                  BorderSide(
+                                                                color: Colors
+                                                                    .transparent,
+                                                                width: 1.0,
+                                                              ),
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          8.0),
+                                                            ),
+                                                          ),
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        20.0,
+                                                                        0.0,
+                                                                        30.0),
+                                                            child: Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              children: [
+                                                                Text(
+                                                                  FFLocalizations.of(
+                                                                          context)
+                                                                      .getText(
+                                                                    '2cto6xgo' /* Let’s complete your profile */,
+                                                                  ),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleLarge
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'The Seasons',
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .primary,
+                                                                        fontSize:
+                                                                            20.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        fontWeight:
+                                                                            FontWeight.bold,
+                                                                        lineHeight:
+                                                                            1.5,
+                                                                      ),
+                                                                ),
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           1.0,
                                                                           0.0,
                                                                           0.0),
-                                                              child: Text(
-                                                                FFLocalizations.of(
-                                                                        context)
-                                                                    .getText(
-                                                                  '3joiyli3' /* It will help us to know more a... */,
-                                                                ),
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'WorkSans',
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .secondary,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                      lineHeight:
-                                                                          1.5,
+                                                                  child: Text(
+                                                                    FFLocalizations.of(
+                                                                            context)
+                                                                        .getText(
+                                                                      'n9q4qjsq' /* It will help us to know more a... */,
                                                                     ),
-                                                              ),
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'WorkSans',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).secondary,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          lineHeight:
+                                                                              1.5,
+                                                                        ),
+                                                                  ),
+                                                                ),
+                                                              ],
                                                             ),
-                                                          ],
-                                                        ),
+                                                          ),
+                                                        ],
                                                       ),
-                                                    ],
+                                                    ),
                                                   ),
                                                 ),
                                               ),
@@ -727,6 +765,101 @@ class _ProfileDetailsWidgetState extends State<ProfileDetailsWidget>
                                     onPressed: () async {
                                       logFirebaseEvent(
                                           'PROFILE_DETAILS_CONTINUE_TO_INTERESTS_BT');
+                                      logFirebaseEvent('Button_validate_form');
+                                      _model.validateProfilePicture = true;
+                                      if (_model.formKey.currentState == null ||
+                                          !_model.formKey.currentState!
+                                              .validate()) {
+                                        safeSetState(() => _model
+                                            .validateProfilePicture = false);
+                                        return;
+                                      }
+                                      if ((_model.uploadedLocalFile_uploadPhoto
+                                                      .bytes ??
+                                                  [])
+                                              .isEmpty) {
+                                        final selectedMedia =
+                                            await selectMediaWithSourceBottomSheet(
+                                          context: context,
+                                          maxWidth: 400.00,
+                                          maxHeight: 400.00,
+                                          allowPhoto: true,
+                                          includeDimensions: true,
+                                          includeBlurHash: true,
+                                        );
+                                        if (selectedMedia != null &&
+                                            selectedMedia.every((m) =>
+                                                validateFileFormat(
+                                                    m.storagePath, context))) {
+                                          safeSetState(() => _model
+                                                  .isDataUploading_uploadPhoto =
+                                              true);
+                                          var selectedUploadedFiles =
+                                              <FFUploadedFile>[];
+
+                                          var downloadUrls = <String>[];
+                                          try {
+                                            showUploadMessage(
+                                              context,
+                                              'Uploading file...',
+                                              showLoading: true,
+                                            );
+                                            selectedUploadedFiles =
+                                                selectedMedia
+                                                    .map((m) => FFUploadedFile(
+                                                          name: m.storagePath
+                                                              .split('/')
+                                                              .last,
+                                                          bytes: m.bytes,
+                                                          height: m.dimensions
+                                                              ?.height,
+                                                          width: m.dimensions
+                                                              ?.width,
+                                                          blurHash: m.blurHash,
+                                                          originalFilename: m
+                                                              .originalFilename,
+                                                        ))
+                                                    .toList();
+
+                                            downloadUrls = (await Future.wait(
+                                              selectedMedia.map(
+                                                (m) async => await uploadData(
+                                                    m.storagePath, m.bytes),
+                                              ),
+                                            ))
+                                                .where((u) => u != null)
+                                                .map((u) => u!)
+                                                .toList();
+                                          } finally {
+                                            ScaffoldMessenger.of(context)
+                                                .hideCurrentSnackBar();
+                                            _model.isDataUploading_uploadPhoto =
+                                                false;
+                                          }
+                                          if (selectedUploadedFiles.length ==
+                                                  selectedMedia.length &&
+                                              downloadUrls.length ==
+                                                  selectedMedia.length) {
+                                            safeSetState(() {
+                                              _model.uploadedLocalFile_uploadPhoto =
+                                                  selectedUploadedFiles.first;
+                                              _model.uploadedFileUrl_uploadPhoto =
+                                                  downloadUrls.first;
+                                            });
+                                            showUploadMessage(
+                                                context, 'Success!');
+                                          } else {
+                                            safeSetState(() {});
+                                            showUploadMessage(context,
+                                                'Failed to upload data');
+                                            return;
+                                          }
+                                        }
+
+                                        _model.validateProfilePicture = false;
+                                        safeSetState(() {});
+                                        return;
+                                      }
                                       logFirebaseEvent('Button_navigate_to');
 
                                       context.pushNamed(
@@ -740,6 +873,8 @@ class _ProfileDetailsWidgetState extends State<ProfileDetailsWidget>
                                           ),
                                         },
                                       );
+
+                                      safeSetState(() {});
                                     },
                                     text: FFLocalizations.of(context).getText(
                                       '807d9w86' /* Continue to Interests */,

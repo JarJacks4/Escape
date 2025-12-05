@@ -7,12 +7,14 @@ class SelectedFile {
     required this.bytes,
     this.dimensions,
     this.blurHash,
+    this.originalFilename = '',
   });
   final String storagePath;
   final String? filePath;
   final Uint8List bytes;
   final MediaDimensions? dimensions;
   final String? blurHash;
+  final String originalFilename;
 }
 
 class MediaDimensions {

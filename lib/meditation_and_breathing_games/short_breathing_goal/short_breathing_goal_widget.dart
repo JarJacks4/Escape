@@ -15,7 +15,7 @@ class ShortBreathingGoalWidget extends StatefulWidget {
   const ShortBreathingGoalWidget({super.key});
 
   static String routeName = 'ShortBreathingGoal';
-  static String routePath = '/shortBreathingGoal';
+  static String routePath = 'shortBreathingGoal';
 
   @override
   State<ShortBreathingGoalWidget> createState() =>

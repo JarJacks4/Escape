@@ -10,4 +10,7 @@ class ConfettiPageIntermediateCompModel
 
   @override
   void dispose() {}
+
+  /// Action blocks.
+  Future componentPointsUpdateBasic(BuildContext context) async {}
 }

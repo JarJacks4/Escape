@@ -12,7 +12,7 @@ class SmallNapGoalWidget extends StatefulWidget {
   const SmallNapGoalWidget({super.key});
 
   static String routeName = 'SmallNapGoal';
-  static String routePath = '/smallNapGoal';
+  static String routePath = 'smallNapGoal';
 
   @override
   State<SmallNapGoalWidget> createState() => _SmallNapGoalWidgetState();
@@ -30,6 +30,7 @@ class _SmallNapGoalWidgetState extends State<SmallNapGoalWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'SmallNapGoal'});
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -104,22 +105,25 @@ class _SmallNapGoalWidgetState extends State<SmallNapGoalWidget> {
                               ),
                               Align(
                                 alignment: AlignmentDirectional(0.0, 0.0),
-                                child: Text(
-                                  FFLocalizations.of(context).getText(
-                                    'wpumrqbk' /* Listen to our sample song get ... */,
+                                child: Padding(
+                                  padding: EdgeInsets.all(15.0),
+                                  child: Text(
+                                    FFLocalizations.of(context).getText(
+                                      'wpumrqbk' /* Listen to our sample song get ... */,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'WorkSans',
+                                          color: FlutterFlowTheme.of(context)
+                                              .alternate,
+                                          fontSize: 16.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w500,
+                                          lineHeight: 1.5,
+                                        ),
                                   ),
-                                  textAlign: TextAlign.center,
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'WorkSans',
-                                        color: FlutterFlowTheme.of(context)
-                                            .alternate,
-                                        fontSize: 16.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w500,
-                                        lineHeight: 1.5,
-                                      ),
                                 ),
                               ),
                             ].divide(SizedBox(height: 6.0)),
@@ -154,11 +158,10 @@ class _SmallNapGoalWidgetState extends State<SmallNapGoalWidget> {
                           EdgeInsetsDirectional.fromSTEB(0.0, 300.0, 0.0, 8.0),
                       child: FlutterFlowAudioPlayer(
                         audio: Audio.network(
-                          'https://firebasestorage.googleapis.com/v0/b/escape-ujuzxr.appspot.com/o/Escape%20Binaural%20Beats%2FES_Healing%20Hub%20in%20Gamma%20-%20Autonomic%20Sensations.mp3?alt=media&token=664ef092-de55-4158-a5af-6dc7ae6fba40',
+                          'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/ES_Bhimpalasi%20-%20Pawan%20Krishna%20(1).mp3?alt=media&token=9ec67458-dd89-4da7-bfba-88b195ff4434',
                           metas: Metas(
-                            id: 'Escape%20Binaural%20Beats%2FES_Healing%20Hub%20in%20Gamma%20-%20Autonomic%20Sensations.mp3?alt=media&token=664ef092-de55-4158-a5af-6dc7ae6fba40-e689bc16',
-                            title:
-                                'Healing Hub in Gamma - Autonomic Sensations',
+                            id: 'ES_Bhimpalasi%20-%20Pawan%20Krishna%20(1).mp3?alt=media&token=9ec67458-dd89-4da7-bfba-88b195ff4434-e689bc16',
+                            title: 'Bhimpalasi - Pawan Krishna',
                           ),
                         ),
                         titleTextStyle:

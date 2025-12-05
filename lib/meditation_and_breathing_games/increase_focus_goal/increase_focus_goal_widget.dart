@@ -12,7 +12,7 @@ class IncreaseFocusGoalWidget extends StatefulWidget {
   const IncreaseFocusGoalWidget({super.key});
 
   static String routeName = 'IncreaseFocusGoal';
-  static String routePath = '/increaseFocusGoal';
+  static String routePath = 'increaseFocusGoal';
 
   @override
   State<IncreaseFocusGoalWidget> createState() =>
@@ -31,6 +31,7 @@ class _IncreaseFocusGoalWidgetState extends State<IncreaseFocusGoalWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'IncreaseFocusGoal'});
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -158,10 +159,10 @@ class _IncreaseFocusGoalWidgetState extends State<IncreaseFocusGoalWidget> {
                           EdgeInsetsDirectional.fromSTEB(0.0, 425.0, 0.0, 15.0),
                       child: FlutterFlowAudioPlayer(
                         audio: Audio.network(
-                          'https://firebasestorage.googleapis.com/v0/b/escape-ujuzxr.appspot.com/o/Escape%20Binaural%20Beats%2FES_Nashwa%20-%20Syntropy.mp3?alt=media&token=35ac74e8-b67f-4482-841c-a30e15f8ceb7',
+                          'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/ES_Binaural%20Cloud%20(Alpha%207%20Hz)%20-%20Syntropy.mp3?alt=media&token=68c213c6-1d70-40b1-9998-25aa64093d13',
                           metas: Metas(
-                            id: 'Escape%20Binaural%20Beats%2FES_Nashwa%20-%20Syntropy.mp3?alt=media&token=35ac74e8-b67f-4482-841c-a30e15f8ceb7-8c2813e6',
-                            title: 'Nashwa - Syntropy',
+                            id: 'ES_Binaural%20Cloud%20(Alpha%207%20Hz)%20-%20Syntropy.mp3?alt=media&token=68c213c6-1d70-40b1-9998-25aa64093d13-8c2813e6',
+                            title: 'Binaural Cloud (Alpha 7 Hz) - Syntropy',
                           ),
                         ),
                         titleTextStyle:

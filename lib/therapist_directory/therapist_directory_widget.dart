@@ -4,9 +4,9 @@ import '/flutter_flow/flutter_flow_google_map.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/permissions_util.dart';
-import 'package:chat_u_i_kit_n2m29m/app_state.dart'
-    as chat_u_i_kit_n2m29m_app_state;
 import 'package:map_launcher/map_launcher.dart' as $ml;
+import 'package:that_audio_player_5bjqer/app_state.dart'
+    as that_audio_player_5bjqer_app_state;
 import 'package:tiktokfeed_wz8en7/app_state.dart'
     as tiktokfeed_wz8en7_app_state;
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
@@ -21,7 +21,7 @@ class TherapistDirectoryWidget extends StatefulWidget {
   const TherapistDirectoryWidget({super.key});
 
   static String routeName = 'TherapistDirectory';
-  static String routePath = '/therapistDirectory';
+  static String routePath = 'therapistDirectory';
 
   @override
   State<TherapistDirectoryWidget> createState() =>
@@ -33,6 +33,7 @@ class _TherapistDirectoryWidgetState extends State<TherapistDirectoryWidget>
   late TherapistDirectoryModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  LatLng? currentUserLocationValue;
 
   final animationsMap = <String, AnimationInfo>{};
 
@@ -46,12 +47,14 @@ class _TherapistDirectoryWidgetState extends State<TherapistDirectoryWidget>
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('THERAPIST_DIRECTORY_TherapistDirectory_O');
+      currentUserLocationValue =
+          await getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0));
       logFirebaseEvent('TherapistDirectory_request_permissions');
       await requestPermission(locationPermission);
       logFirebaseEvent('TherapistDirectory_launch_map');
       await launchMap(
         mapType: $ml.MapType.google,
-        location: _model.googleMapsCenter,
+        address: currentUserLocationValue?.toString(),
         title: 'Nearby Therapists',
       );
     });
@@ -70,6 +73,8 @@ class _TherapistDirectoryWidgetState extends State<TherapistDirectoryWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -82,8 +87,8 @@ class _TherapistDirectoryWidgetState extends State<TherapistDirectoryWidget>
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
-    context.watch<chat_u_i_kit_n2m29m_app_state.FFAppState>();
     context.watch<tiktokfeed_wz8en7_app_state.FFAppState>();
+    context.watch<that_audio_player_5bjqer_app_state.FFAppState>();
 
     return GestureDetector(
       onTap: () {

@@ -12,7 +12,7 @@ class SubscriptionWidget extends StatefulWidget {
   const SubscriptionWidget({super.key});
 
   static String routeName = 'subscription';
-  static String routePath = '/subscription';
+  static String routePath = 'subscription';
 
   @override
   State<SubscriptionWidget> createState() => _SubscriptionWidgetState();
@@ -47,6 +47,8 @@ class _SubscriptionWidgetState extends State<SubscriptionWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

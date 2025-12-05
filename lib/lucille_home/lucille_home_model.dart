@@ -1,7 +1,6 @@
 import '/backend/backend.dart';
 import '/components/change_your_avatar_widget.dart';
-import '/components/chat_with_lucille_card_widget.dart';
-import '/components/earn_points_with_avatar_card_widget.dart';
+import '/components/escape_innerverse_card_widget.dart';
 import '/components/generate_soundscapes_card_widget.dart';
 import '/components/mood_tracking_card_widget.dart';
 import '/components/self_care_routine_card_widget.dart';
@@ -17,14 +16,16 @@ class LucilleHomeModel extends FlutterFlowModel<LucilleHomeWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  // Model for ChatWithLucilleCard component.
-  late ChatWithLucilleCardModel chatWithLucilleCardModel;
-  // Model for MoodTrackingCard component.
-  late MoodTrackingCardModel moodTrackingCardModel;
+  // State field(s) for Column widget.
+  ScrollController? columnController1;
+  // State field(s) for Column widget.
+  ScrollController? columnController2;
   // Model for GenerateSoundscapesCard component.
   late GenerateSoundscapesCardModel generateSoundscapesCardModel;
-  // Model for EarnPointsWithAvatarCard component.
-  late EarnPointsWithAvatarCardModel earnPointsWithAvatarCardModel;
+  // Model for MoodTrackingCard component.
+  late MoodTrackingCardModel moodTrackingCardModel;
+  // Model for EscapeInnerverseCard component.
+  late EscapeInnerverseCardModel escapeInnerverseCardModel;
   // Model for SelfCareRoutineCard component.
   late SelfCareRoutineCardModel selfCareRoutineCardModel;
   // Model for ChangeYourAvatar component.
@@ -32,13 +33,13 @@ class LucilleHomeModel extends FlutterFlowModel<LucilleHomeWidget> {
 
   @override
   void initState(BuildContext context) {
-    chatWithLucilleCardModel =
-        createModel(context, () => ChatWithLucilleCardModel());
-    moodTrackingCardModel = createModel(context, () => MoodTrackingCardModel());
+    columnController1 = ScrollController();
+    columnController2 = ScrollController();
     generateSoundscapesCardModel =
         createModel(context, () => GenerateSoundscapesCardModel());
-    earnPointsWithAvatarCardModel =
-        createModel(context, () => EarnPointsWithAvatarCardModel());
+    moodTrackingCardModel = createModel(context, () => MoodTrackingCardModel());
+    escapeInnerverseCardModel =
+        createModel(context, () => EscapeInnerverseCardModel());
     selfCareRoutineCardModel =
         createModel(context, () => SelfCareRoutineCardModel());
     changeYourAvatarModel = createModel(context, () => ChangeYourAvatarModel());
@@ -46,10 +47,11 @@ class LucilleHomeModel extends FlutterFlowModel<LucilleHomeWidget> {
 
   @override
   void dispose() {
-    chatWithLucilleCardModel.dispose();
-    moodTrackingCardModel.dispose();
+    columnController1?.dispose();
+    columnController2?.dispose();
     generateSoundscapesCardModel.dispose();
-    earnPointsWithAvatarCardModel.dispose();
+    moodTrackingCardModel.dispose();
+    escapeInnerverseCardModel.dispose();
     selfCareRoutineCardModel.dispose();
     changeYourAvatarModel.dispose();
   }

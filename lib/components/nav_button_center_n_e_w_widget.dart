@@ -111,6 +111,8 @@ class _NavButtonCenterNEWWidgetState extends State<NavButtonCenterNEWWidget>
           !anim.applyInitialState),
       this,
     );
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -233,24 +235,6 @@ class _NavButtonCenterNEWWidgetState extends State<NavButtonCenterNEWWidget>
                           .controller
                           .forward(from: 0.0);
                     }
-                    logFirebaseEvent('Column_navigate_to');
-
-                    context.pushNamed(
-                      AISoundscapesWidget.routeName,
-                      queryParameters: {
-                        'meditationaudio': serializeParam(
-                          '',
-                          ParamType.String,
-                        ),
-                      }.withoutNulls,
-                      extra: <String, dynamic>{
-                        kTransitionInfoKey: TransitionInfo(
-                          hasTransition: true,
-                          transitionType: PageTransitionType.fade,
-                          duration: Duration(milliseconds: 7),
-                        ),
-                      },
-                    );
                   },
                   child: Column(
                     mainAxisSize: MainAxisSize.min,

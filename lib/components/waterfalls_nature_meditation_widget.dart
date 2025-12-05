@@ -84,6 +84,8 @@ class _WaterfallsNatureMeditationWidgetState
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

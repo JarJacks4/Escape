@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
-import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -75,6 +74,8 @@ class _SelectSoundscapeDurationCompWidgetState
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -280,18 +281,6 @@ class _SelectSoundscapeDurationCompWidgetState
                                 backgroundColor:
                                     FlutterFlowTheme.of(context).secondary,
                               ),
-                            );
-                            logFirebaseEvent('Button_navigate_to');
-
-                            context.pushNamed(
-                              AISoundscapesWidget.routeName,
-                              extra: <String, dynamic>{
-                                kTransitionInfoKey: TransitionInfo(
-                                  hasTransition: true,
-                                  transitionType: PageTransitionType.fade,
-                                  duration: Duration(milliseconds: 2),
-                                ),
-                              },
                             );
                           },
                           text: FFLocalizations.of(context).getText(

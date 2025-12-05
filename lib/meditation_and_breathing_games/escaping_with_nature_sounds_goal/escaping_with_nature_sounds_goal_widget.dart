@@ -12,7 +12,7 @@ class EscapingWithNatureSoundsGoalWidget extends StatefulWidget {
   const EscapingWithNatureSoundsGoalWidget({super.key});
 
   static String routeName = 'EscapingWithNatureSoundsGoal';
-  static String routePath = '/escapingWithNatureSoundsGoal';
+  static String routePath = 'escapingWithNatureSoundsGoal';
 
   @override
   State<EscapingWithNatureSoundsGoalWidget> createState() =>
@@ -32,6 +32,7 @@ class _EscapingWithNatureSoundsGoalWidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'EscapingWithNatureSoundsGoal'});
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -164,11 +165,11 @@ Water Sounds */
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 200.0, 0.0, 0.0),
                       child: FlutterFlowAudioPlayer(
-                        audio: Audio.network(
-                          'https://firebasestorage.googleapis.com/v0/b/escape-ujuzxr.appspot.com/o/Escape%20Nature%20Sounds%2FWater%20Stream%2C%20Background.mp3?alt=media&token=418647bf-4d57-4f63-a946-fa23a5c8df78',
+                        audio: Audio(
+                          'assets/audios/Ocean_Soundscape_01_clip00_aug01_extra30.wav',
                           metas: Metas(
-                            id: 'Escape%20Nature%20Sounds%2FWater%20Stream%2C%20Background.mp3?alt=media&token=418647bf-4d57-4f63-a946-fa23a5c8df78-e3d820b1',
-                            title: 'Water Stream, Background',
+                            id: 'Ocean_Soundscape_01_clip00_aug01_extra30.wav-e3d820b1',
+                            title: 'Ocean Soundscape',
                           ),
                         ),
                         titleTextStyle:

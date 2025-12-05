@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/components/delete_account_bottom_sheet_widget.dart';
 import '/components/edit_profile_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
@@ -18,7 +19,7 @@ class ProfileFINALWidget extends StatefulWidget {
   const ProfileFINALWidget({super.key});
 
   static String routeName = 'profileFINAL';
-  static String routePath = '/profileFINAL';
+  static String routePath = 'profileFINAL';
 
   @override
   State<ProfileFINALWidget> createState() => _ProfileFINALWidgetState();
@@ -124,6 +125,8 @@ class _ProfileFINALWidgetState extends State<ProfileFINALWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -156,7 +159,9 @@ class _ProfileFINALWidgetState extends State<ProfileFINALWidget>
                 },
               ),
               child: Scrollbar(
+                controller: _model.columnController,
                 child: SingleChildScrollView(
+                  controller: _model.columnController,
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -218,6 +223,14 @@ class _ProfileFINALWidgetState extends State<ProfileFINALWidget>
                                               width: 100.0,
                                               height: 100.0,
                                               fit: BoxFit.cover,
+                                              errorWidget: (context, error,
+                                                      stackTrace) =>
+                                                  Image.asset(
+                                                'assets/images/error_image.jpg',
+                                                width: 100.0,
+                                                height: 100.0,
+                                                fit: BoxFit.cover,
+                                              ),
                                             ),
                                           ),
                                         ).animateOnPageLoad(animationsMap[
@@ -620,13 +633,36 @@ class _ProfileFINALWidgetState extends State<ProfileFINALWidget>
                             onPressed: () async {
                               logFirebaseEvent(
                                   'PROFILE_F_I_N_A_L_LOG_OUT_BTN_ON_TAP');
+                              logFirebaseEvent('Button_backend_call');
+
+                              await currentUserReference!
+                                  .update(createUsersRecordData(
+                                isLoggedOut: true,
+                                isActive: false,
+                              ));
                               logFirebaseEvent('Button_auth');
                               GoRouter.of(context).prepareAuthEvent();
                               await authManager.signOut();
                               GoRouter.of(context).clearRedirectLocation();
 
+                              logFirebaseEvent('Button_show_snack_bar');
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    'Log Out Successful!',
+                                    style: TextStyle(
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
+                                    ),
+                                  ),
+                                  duration: Duration(milliseconds: 4000),
+                                  backgroundColor:
+                                      FlutterFlowTheme.of(context).accent1,
+                                ),
+                              );
+
                               context.goNamedAuth(
-                                  SplashScreenVersion4Widget.routeName,
+                                  SplashScreenVersion5Widget.routeName,
                                   context.mounted);
                             },
                             text: FFLocalizations.of(context).getText(

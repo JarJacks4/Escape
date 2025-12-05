@@ -30,6 +30,8 @@ class _ActionWidgetState extends State<ActionWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ActionModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

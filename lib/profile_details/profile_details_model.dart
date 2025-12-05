@@ -6,18 +6,28 @@ import 'package:flutter/material.dart';
 class ProfileDetailsModel extends FlutterFlowModel<ProfileDetailsWidget> {
   ///  Local state fields for this page.
 
-  FFUploadedFile? profilePicture;
+  String? uploadedPicture;
 
   ///  State fields for stateful widgets in this page.
 
+  final formKey = GlobalKey<FormState>();
+  // State field(s) for Column widget.
+  ScrollController? columnController;
   bool isDataUploading_uploadPhoto = false;
   FFUploadedFile uploadedLocalFile_uploadPhoto =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_uploadPhoto = '';
 
-  @override
-  void initState(BuildContext context) {}
+  // Stores action output result for [Validate Form] action in Button widget.
+  bool? validateProfilePicture;
 
   @override
-  void dispose() {}
+  void initState(BuildContext context) {
+    columnController = ScrollController();
+  }
+
+  @override
+  void dispose() {
+    columnController?.dispose();
+  }
 }

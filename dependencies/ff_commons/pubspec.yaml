@@ -3,7 +3,7 @@ description: FlutterFlow Commons Package
 
 publish_to: 'none'
 
-version: 1.0.4+42
+version: 1.0.4+133
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
@@ -19,5 +19,10 @@ dependencies:
   equatable: 2.0.7
   http: 1.4.0
   mime_type: 1.0.0
+
+dependency_overrides:
+  http: 1.4.0
+  uuid: ^4.0.0
+
 
 flutter:

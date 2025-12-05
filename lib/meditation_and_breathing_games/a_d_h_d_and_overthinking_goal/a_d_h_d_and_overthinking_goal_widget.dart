@@ -12,7 +12,7 @@ class ADHDAndOverthinkingGoalWidget extends StatefulWidget {
   const ADHDAndOverthinkingGoalWidget({super.key});
 
   static String routeName = 'ADHDAndOverthinkingGoal';
-  static String routePath = '/aDHDAndOverthinkingGoal';
+  static String routePath = 'aDHDAndOverthinkingGoal';
 
   @override
   State<ADHDAndOverthinkingGoalWidget> createState() =>
@@ -32,6 +32,7 @@ class _ADHDAndOverthinkingGoalWidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'ADHDAndOverthinkingGoal'});
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -162,10 +163,10 @@ class _ADHDAndOverthinkingGoalWidgetState
                             0.0, 300.0, 0.0, 8.0),
                         child: FlutterFlowAudioPlayer(
                           audio: Audio.network(
-                            'https://firebasestorage.googleapis.com/v0/b/escape-ujuzxr.appspot.com/o/Escape%20Binaural%20Beats%2FES_Koan%20I%20(Theta%205%20Hz)%20-%20Syntropy.mp3?alt=media&token=6a4cf537-6136-4dfe-99f6-5e5501bd959a',
+                            'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/binaural_delta_500_501-5hz-19563.mp3?alt=media&token=0c78eb05-8665-4123-9fe3-b6ef67d13a1e',
                             metas: Metas(
-                              id: 'Escape%20Binaural%20Beats%2FES_Koan%20I%20(Theta%205%20Hz)%20-%20Syntropy.mp3?alt=media&token=6a4cf537-6136-4dfe-99f6-5e5501bd959a-b69128ff',
-                              title: 'Koan I (Theta 5 Hz) - Syntropy',
+                              id: 'binaural_delta_500_501-5hz-19563.mp3?alt=media&token=0c78eb05-8665-4123-9fe3-b6ef67d13a1e-b69128ff',
+                              title: 'Binaural Delta 5 501-5Hz',
                             ),
                           ),
                           titleTextStyle: FlutterFlowTheme.of(context)

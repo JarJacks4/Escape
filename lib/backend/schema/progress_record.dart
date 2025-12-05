@@ -31,11 +31,6 @@ class ProgressRecord extends FirestoreRecord {
   DocumentReference? get goalID => _goalID;
   bool hasGoalID() => _goalID != null;
 
-  // "meditationSessionID" field.
-  DocumentReference? _meditationSessionID;
-  DocumentReference? get meditationSessionID => _meditationSessionID;
-  bool hasMeditationSessionID() => _meditationSessionID != null;
-
   // "completionDate" field.
   String? _completionDate;
   String get completionDate => _completionDate ?? '';
@@ -47,8 +42,6 @@ class ProgressRecord extends FirestoreRecord {
     _progressID = snapshotData['progressID'] as String?;
     _userID = snapshotData['UserID'] as DocumentReference?;
     _goalID = snapshotData['goalID'] as DocumentReference?;
-    _meditationSessionID =
-        snapshotData['meditationSessionID'] as DocumentReference?;
     _completionDate = snapshotData['completionDate'] as String?;
   }
 
@@ -95,7 +88,6 @@ Map<String, dynamic> createProgressRecordData({
   String? progressID,
   DocumentReference? userID,
   DocumentReference? goalID,
-  DocumentReference? meditationSessionID,
   String? completionDate,
 }) {
   final firestoreData = mapToFirestore(
@@ -103,7 +95,6 @@ Map<String, dynamic> createProgressRecordData({
       'progressID': progressID,
       'UserID': userID,
       'goalID': goalID,
-      'meditationSessionID': meditationSessionID,
       'completionDate': completionDate,
     }.withoutNulls,
   );
@@ -119,18 +110,12 @@ class ProgressRecordDocumentEquality implements Equality<ProgressRecord> {
     return e1?.progressID == e2?.progressID &&
         e1?.userID == e2?.userID &&
         e1?.goalID == e2?.goalID &&
-        e1?.meditationSessionID == e2?.meditationSessionID &&
         e1?.completionDate == e2?.completionDate;
   }
 
   @override
-  int hash(ProgressRecord? e) => const ListEquality().hash([
-        e?.progressID,
-        e?.userID,
-        e?.goalID,
-        e?.meditationSessionID,
-        e?.completionDate
-      ]);
+  int hash(ProgressRecord? e) => const ListEquality()
+      .hash([e?.progressID, e?.userID, e?.goalID, e?.completionDate]);
 
   @override
   bool isValidKey(Object? o) => o is ProgressRecord;

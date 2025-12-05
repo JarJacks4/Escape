@@ -13,9 +13,9 @@ class JournalPageFINALCopyModel
     extends FlutterFlowModel<JournalPageFINALCopyWidget> {
   ///  State fields for stateful widgets in this page.
 
-  // Stores action output result for [AI Agent - Send Message to Lucille Generate Quote] action in JournalPageFINALCopy widget.
+  // Stores action output result for [AI Agent - Send Message to Lucille Generate Quote] action in journalPageFINALCopy widget.
   String? generateQuoteForJournal;
-  // Stores action output result for [AI Agent - Send Message to LucilleJournalGeneration] action in JournalPageFINALCopy widget.
+  // Stores action output result for [AI Agent - Send Message to LucilleJournalGeneration] action in journalPageFINALCopy widget.
   String? journalGeneration;
   // State field(s) for Column widget.
   ScrollController? columnController1;

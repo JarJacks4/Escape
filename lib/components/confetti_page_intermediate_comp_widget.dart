@@ -1,5 +1,3 @@
-import '/auth/firebase_auth/auth_util.dart';
-import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -72,6 +70,13 @@ class _ConfettiPageIntermediateCompWidgetState
             begin: 0.0,
             end: 1.0,
           ),
+          ShimmerEffect(
+            curve: Curves.easeIn,
+            delay: 600.0.ms,
+            duration: 600.0.ms,
+            color: FlutterFlowTheme.of(context).primary,
+            angle: 0.524,
+          ),
         ],
       ),
       'imageOnPageLoadAnimation2': AnimationInfo(
@@ -87,6 +92,8 @@ class _ConfettiPageIntermediateCompWidgetState
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -195,7 +202,7 @@ class _ConfettiPageIntermediateCompWidgetState
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 24.0, 0.0, 24.0),
+                                    0.0, 20.0, 0.0, 20.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment:
@@ -206,15 +213,16 @@ class _ConfettiPageIntermediateCompWidgetState
                                       children: [
                                         Text(
                                           FFLocalizations.of(context).getText(
-                                            'alh3r2ic' /* x 100 */,
+                                            'alh3r2ic' /* + 100 */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .titleLarge
                                               .override(
-                                                fontFamily: 'The Seasons',
+                                                fontFamily: 'WorkSans',
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .secondary,
+                                                fontSize: 28.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w300,
                                               ),
@@ -229,8 +237,8 @@ class _ConfettiPageIntermediateCompWidgetState
                                                 BorderRadius.circular(8.0),
                                             child: Image.asset(
                                               'assets/images/free-coin-icon-794-thumb.png',
-                                              width: 25.0,
-                                              height: 25.0,
+                                              width: 33.68,
+                                              height: 36.0,
                                               fit: BoxFit.cover,
                                             ),
                                           ).animateOnPageLoad(animationsMap[
@@ -241,69 +249,76 @@ class _ConfettiPageIntermediateCompWidgetState
                                   ],
                                 ),
                               ),
-                              FFButtonWidget(
-                                onPressed: () async {
-                                  logFirebaseEvent(
-                                      'CONFETTI_INTERMEDIATE_SEE_SELF_CARE_PLAN');
-                                  logFirebaseEvent('Button_update_app_state');
-                                  FFAppState().pointsEarned =
-                                      FFAppState().pointsEarned + 100;
-                                  safeSetState(() {});
-                                  logFirebaseEvent('Button_backend_call');
+                              Flexible(
+                                flex: 1,
+                                child: FFButtonWidget(
+                                  onPressed: () async {
+                                    logFirebaseEvent(
+                                        'CONFETTI_INTERMEDIATE_SEE_SELF_CARE_PLAN');
+                                    logFirebaseEvent('Button_update_app_state');
+                                    FFAppState().pointsEarned =
+                                        FFAppState().pointsEarned + 100;
+                                    FFAppState().hasCompletedGoal = true;
+                                    FFAppState().update(() {});
+                                    logFirebaseEvent('Button_show_snack_bar');
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content: Text(
+                                          'Self-Care Goals and Progress Points Updated!',
+                                          style: TextStyle(
+                                            fontFamily: 'WorkSans',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                          ),
+                                        ),
+                                        duration: Duration(milliseconds: 4000),
+                                        backgroundColor:
+                                            FlutterFlowTheme.of(context)
+                                                .secondary,
+                                      ),
+                                    );
+                                    logFirebaseEvent('Button_navigate_to');
 
-                                  await currentUserReference!.update({
-                                    ...createUsersRecordData(
-                                      hasGainedPoints: true,
-                                    ),
-                                    ...mapToFirestore(
-                                      {
-                                        'numberOfGoalsCompleted':
-                                            FieldValue.increment(1),
+                                    context.pushNamed(
+                                      SelfCarePlanPageWidget.routeName,
+                                      extra: <String, dynamic>{
+                                        kTransitionInfoKey: TransitionInfo(
+                                          hasTransition: true,
+                                          transitionType:
+                                              PageTransitionType.fade,
+                                          duration: Duration(milliseconds: 9),
+                                        ),
                                       },
-                                    ),
-                                  });
-                                  logFirebaseEvent('Button_navigate_to');
-                                  if (Navigator.of(context).canPop()) {
-                                    context.pop();
-                                  }
-                                  context.pushNamed(
-                                    SelfCarePlanPageWidget.routeName,
-                                    extra: <String, dynamic>{
-                                      kTransitionInfoKey: TransitionInfo(
-                                        hasTransition: true,
-                                        transitionType: PageTransitionType.fade,
-                                        duration: Duration(milliseconds: 2),
-                                      ),
-                                    },
-                                  );
-                                },
-                                text: FFLocalizations.of(context).getText(
-                                  'dlmsn11b' /* See Self Care Plan */,
-                                ),
-                                options: FFButtonOptions(
-                                  width: double.infinity,
-                                  height: 40.0,
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      24.0, 0.0, 24.0, 0.0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  color: FlutterFlowTheme.of(context).primary,
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .titleSmall
-                                      .override(
-                                        fontFamily: 'The Seasons',
-                                        color: FlutterFlowTheme.of(context)
-                                            .alternate,
-                                        fontSize: 18.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.normal,
-                                      ),
-                                  elevation: 3.0,
-                                  borderSide: BorderSide(
-                                    color: Colors.transparent,
-                                    width: 1.0,
+                                    );
+                                  },
+                                  text: FFLocalizations.of(context).getText(
+                                    'dlmsn11b' /* See Self-Care Plan */,
                                   ),
-                                  borderRadius: BorderRadius.circular(8.0),
+                                  options: FFButtonOptions(
+                                    width: double.infinity,
+                                    height: 40.0,
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        24.0, 0.0, 24.0, 0.0),
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .override(
+                                          fontFamily: 'WorkSans',
+                                          color: FlutterFlowTheme.of(context)
+                                              .alternate,
+                                          fontSize: 18.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                    elevation: 3.0,
+                                    borderSide: BorderSide(
+                                      color: Colors.transparent,
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
                                 ),
                               ),
                               Padding(
@@ -313,19 +328,6 @@ class _ConfettiPageIntermediateCompWidgetState
                                   onPressed: () async {
                                     logFirebaseEvent(
                                         'CONFETTI_INTERMEDIATE_DISMISS_AND_REPLAY');
-                                    logFirebaseEvent('Button_backend_call');
-
-                                    await currentUserReference!.update({
-                                      ...createUsersRecordData(
-                                        hasGainedPoints: true,
-                                      ),
-                                      ...mapToFirestore(
-                                        {
-                                          'numberOfGoalsCompleted':
-                                              FieldValue.increment(1),
-                                        },
-                                      ),
-                                    });
                                     logFirebaseEvent('Button_bottom_sheet');
                                     Navigator.pop(context);
                                   },
@@ -343,12 +345,12 @@ class _ConfettiPageIntermediateCompWidgetState
                                     textStyle: FlutterFlowTheme.of(context)
                                         .titleSmall
                                         .override(
-                                          fontFamily: 'The Seasons',
+                                          fontFamily: 'WorkSans',
                                           color: FlutterFlowTheme.of(context)
                                               .primary,
                                           fontSize: 18.0,
                                           letterSpacing: 0.0,
-                                          fontWeight: FontWeight.bold,
+                                          fontWeight: FontWeight.w600,
                                         ),
                                     borderSide: BorderSide(
                                       color:

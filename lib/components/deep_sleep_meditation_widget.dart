@@ -83,6 +83,8 @@ class _DeepSleepMeditationWidgetState extends State<DeepSleepMeditationWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

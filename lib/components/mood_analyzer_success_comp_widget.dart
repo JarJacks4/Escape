@@ -1,5 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
-import '/backend/gemini/gemini.dart';
+import '/backend/ai_agents/ai_agent.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -40,13 +40,20 @@ class _MoodAnalyzerSuccessCompWidgetState
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('MOOD_ANALYZER_SUCCESS_MoodAnalyzerSucces');
-      logFirebaseEvent('MoodAnalyzerSuccessComp_gemini');
-      await geminiGenerateText(
-        context,
-        'Could I get a 200 character reccommendation on what I can do to improve my {CurrentMood} today within Escapeapp.ai Mobile app. Here is my mood: ${valueOrDefault(currentUserDocument?.currentMood, '')}',
+      logFirebaseEvent('MoodAnalyzerSuccessComp_a_i_agent');
+      await callAiAgent(
+        context: context,
+        prompt:
+            'Could I get a one word summarization for my mood today within Escapeapp.ai Mobile app? Also use my uploaded photo',
+        imageUrl: valueOrDefault(currentUserDocument?.currentMoodPhoto, ''),
+        threadId: '2',
+        agentCloudFunctionName: 'advancedMoodAnalyzer',
+        provider: 'GOOGLE',
+        agentJson:
+            '{\"status\":\"LIVE\",\"identifier\":{\"name\":\"advancedMoodAnalyzer\",\"key\":\"czkjr\"},\"name\":\"AdvancedMoodAnalyzer\",\"description\":\"This Self-Care agent is for primarily giving a one word response to \\\"What is the user\'s mood, according to their uploaded photo?\\\"\",\"aiModel\":{\"provider\":\"GOOGLE\",\"model\":\"gemini-2.5-pro\",\"parameters\":{\"temperature\":{\"inputValue\":1.55},\"maxTokens\":{\"inputValue\":32000},\"topP\":{\"inputValue\":0.5}},\"messages\":[{\"role\":\"SYSTEM\",\"text\":\"You are a Self-Care agent for the AI Self Care company Escape LLC and you are here to use the users mood in the firebase documents for this project \\\"{CurrentMood}\\\". \\r\\n\\nWrite a warm, emotionally-safe insight that fits in 140–220 characters.\\r\\nDo NOT use lists, markdown, bold, headings, or emojis.\\r\\n\\nOne gentle sentence only.\\r\\n\"},{\"role\":\"USER\",\"text\":\"What is an insight based on the current mood of the image or choice chips (list of strings) I uploaded to you?\"}]},\"requestOptions\":{\"requestTypes\":[\"PLAINTEXT\",\"IMAGE\"]},\"responseOptions\":{\"responseType\":\"PLAINTEXT\"}}',
+        responseType: 'PLAINTEXT',
       ).then((generatedText) {
-        safeSetState(
-            () => _model.moodDescriptionBottomSheetAction = generatedText);
+        safeSetState(() => _model.finalMood = generatedText);
       });
     });
 
@@ -124,6 +131,8 @@ class _MoodAnalyzerSuccessCompWidgetState
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -252,7 +261,7 @@ class _MoodAnalyzerSuccessCompWidgetState
                       Flexible(
                         flex: 1,
                         child: Padding(
-                          padding: EdgeInsets.all(15.0),
+                          padding: EdgeInsets.all(8.0),
                           child: AnimatedDefaultTextStyle(
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium

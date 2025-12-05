@@ -66,6 +66,8 @@ class _JournalEntryCompWidgetState extends State<JournalEntryCompWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

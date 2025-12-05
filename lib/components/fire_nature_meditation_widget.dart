@@ -83,6 +83,8 @@ class _FireNatureMeditationWidgetState extends State<FireNatureMeditationWidget>
         ],
       ),
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

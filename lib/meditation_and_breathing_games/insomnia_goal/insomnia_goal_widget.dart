@@ -12,7 +12,7 @@ class InsomniaGoalWidget extends StatefulWidget {
   const InsomniaGoalWidget({super.key});
 
   static String routeName = 'InsomniaGoal';
-  static String routePath = '/insomniaGoal';
+  static String routePath = 'insomniaGoal';
 
   @override
   State<InsomniaGoalWidget> createState() => _InsomniaGoalWidgetState();
@@ -30,6 +30,7 @@ class _InsomniaGoalWidgetState extends State<InsomniaGoalWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'InsomniaGoal'});
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -157,11 +158,10 @@ class _InsomniaGoalWidgetState extends State<InsomniaGoalWidget> {
                           EdgeInsetsDirectional.fromSTEB(0.0, 300.0, 0.0, 8.0),
                       child: FlutterFlowAudioPlayer(
                         audio: Audio.network(
-                          'https://firebasestorage.googleapis.com/v0/b/escape-ujuzxr.appspot.com/o/Escape%20Binaural%20Beats%2FES_Dream%20Focus%20Beta%20Waves%20(146-160%20Hz)%20-%20Mandala%20Dreams.mp3?alt=media&token=81ca58c9-7a56-4b83-8b30-a57af95e1916',
+                          'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/ES_Binaural%20Schumann%20Alpha%20-%20Magonia%20-%20369.mp3?alt=media&token=a1cb0f6e-101a-4517-b15b-65900c7964d2',
                           metas: Metas(
-                            id: 'Escape%20Binaural%20Beats%2FES_Dream%20Focus%20Beta%20Waves%20(146-160%20Hz)%20-%20Mandala%20Dreams.mp3?alt=media&token=81ca58c9-7a56-4b83-8b30-a57af95e1916-dcf24aa1',
-                            title:
-                                'Dream Focus Beta Waves (146-160 Hz) - Mandala Dreams',
+                            id: 'ES_Binaural%20Schumann%20Alpha%20-%20Magonia%20-%20369.mp3?alt=media&token=a1cb0f6e-101a-4517-b15b-65900c7964d2-dcf24aa1',
+                            title: 'Binaural Schumann Alpha - Magonia - 369',
                           ),
                         ),
                         titleTextStyle:
