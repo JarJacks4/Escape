@@ -633,6 +633,11 @@ class _ProfileFINALWidgetState extends State<ProfileFINALWidget>
                             onPressed: () async {
                               logFirebaseEvent(
                                   'PROFILE_F_I_N_A_L_LOG_OUT_BTN_ON_TAP');
+                              logFirebaseEvent('Button_auth');
+                              GoRouter.of(context).prepareAuthEvent();
+                              await authManager.signOut();
+                              GoRouter.of(context).clearRedirectLocation();
+
                               logFirebaseEvent('Button_backend_call');
 
                               await currentUserReference!
@@ -640,11 +645,6 @@ class _ProfileFINALWidgetState extends State<ProfileFINALWidget>
                                 isLoggedOut: true,
                                 isActive: false,
                               ));
-                              logFirebaseEvent('Button_auth');
-                              GoRouter.of(context).prepareAuthEvent();
-                              await authManager.signOut();
-                              GoRouter.of(context).clearRedirectLocation();
-
                               logFirebaseEvent('Button_show_snack_bar');
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(

@@ -222,6 +222,7 @@ class _NavBarPageState extends State<NavBarPage> {
       'LucilleHome': LucilleHomeWidget(),
       'CommunityHomeFINAL': CommunityHomeFINALWidget(),
       'profileFINAL': ProfileFINALWidget(),
+      'HomeVersion5': HomeVersion5Widget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -298,6 +299,16 @@ class _NavBarPageState extends State<NavBarPage> {
               ),
               label: FFLocalizations.of(context).getText(
                 'fu6l3npq' /* Profile */,
+              ),
+              tooltip: '',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.home_outlined,
+                size: 24.0,
+              ),
+              label: FFLocalizations.of(context).getText(
+                '7b29kf54' /* Home */,
               ),
               tooltip: '',
             )

@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'new_comp_widget.dart' show NewCompWidget;
+import 'mind_page_version5_widget.dart' show MindPageVersion5Widget;
 import 'package:flutter/material.dart';
 
-class NewCompModel extends FlutterFlowModel<NewCompWidget> {
+class MindPageVersion5Model extends FlutterFlowModel<MindPageVersion5Widget> {
   @override
   void initState(BuildContext context) {}
 

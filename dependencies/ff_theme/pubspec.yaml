@@ -3,7 +3,7 @@ description: FlutterFlow Theme Package
 
 publish_to: 'none'
 
-version: 1.0.4+133
+version: 1.0.4+137
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
