@@ -828,6 +828,12 @@ class FFAppState extends ChangeNotifier {
     communityTabs.insert(index, value);
   }
 
+  String _sampleRecording = '';
+  String get sampleRecording => _sampleRecording;
+  set sampleRecording(String value) {
+    _sampleRecording = value;
+  }
+
   final _epidemicTracksManager = FutureRequestManager<ApiCallResponse>();
   Future<ApiCallResponse> epidemicTracks({
     String? uniqueQueryKey,

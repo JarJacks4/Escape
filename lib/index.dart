@@ -141,3 +141,4 @@ export '/soundscapes/soundscapes_widget.dart' show SoundscapesWidget;
 export '/tabbar/tabbar_widget.dart' show TabbarWidget;
 export '/community_home_version5_copy/community_home_version5_copy_widget.dart'
     show CommunityHomeVersion5CopyWidget;
+export '/home_version5/home_version5_widget.dart' show HomeVersion5Widget;

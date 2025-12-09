@@ -10,7 +10,6 @@ import '/auth/base_auth_user_provider.dart';
 import '/backend/push_notifications/push_notifications_handler.dart'
     show PushNotificationsHandler;
 import '/main.dart';
-import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 import '/index.dart';
@@ -609,6 +608,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             builder: (context, params) => CommunityHomeVersion5CopyWidget(),
           ),
           FFRoute(
+            name: HomeVersion5Widget.routeName,
+            path: HomeVersion5Widget.routePath,
+            builder: (context, params) => params.isEmpty
+                ? NavBarPage(initialPage: 'HomeVersion5')
+                : HomeVersion5Widget(),
+          ),
+          FFRoute(
             name: $tiktokfeed_wz8en7.HomePageWidget.routeName,
             path: $tiktokfeed_wz8en7.HomePageWidget.routePath,
             builder: (context, params) => $tiktokfeed_wz8en7.HomePageWidget(
@@ -854,10 +860,10 @@ class FFRoute {
               ? isWeb
                   ? Container()
                   : Container(
-                      color: FlutterFlowTheme.of(context).alternate,
+                      color: Colors.transparent,
                       child: Image.asset(
-                        'assets/images/Logo_ESCAPE_White.png',
-                        fit: BoxFit.contain,
+                        'assets/images/Escape_Logo_White_and_Black_(1).png',
+                        fit: BoxFit.cover,
                       ),
                     )
               : PushNotificationsHandler(child: page);

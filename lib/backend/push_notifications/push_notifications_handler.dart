@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'serialization_util.dart';
-import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import '../../flutter_flow/flutter_flow_util.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -83,10 +82,10 @@ class _PushNotificationsHandlerState extends State<PushNotificationsHandler> {
       ? isWeb
           ? Container()
           : Container(
-              color: FlutterFlowTheme.of(context).alternate,
+              color: Colors.transparent,
               child: Image.asset(
-                'assets/images/Logo_ESCAPE_White.png',
-                fit: BoxFit.contain,
+                'assets/images/Escape_Logo_White_and_Black_(1).png',
+                fit: BoxFit.cover,
               ),
             )
       : widget.child;
@@ -238,6 +237,7 @@ final parametersBuilderMap =
   'Soundscapes': ParameterData.none(),
   'tabbar': ParameterData.none(),
   'CommunityHomeVersion5Copy': ParameterData.none(),
+  'HomeVersion5': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {
