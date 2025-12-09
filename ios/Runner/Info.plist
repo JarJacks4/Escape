@@ -3,74 +3,10 @@
  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CFBundleDevelopmentRegion</key>
-	<string>en</string>
-	<key>CFBundleExecutable</key>
-	<string>$(EXECUTABLE_NAME)</string>
-	<key>CFBundleIdentifier</key>
-	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
-	<key>CFBundleInfoDictionaryVersion</key>
-	<string>6.0</string>
-	<key>CFBundleName</key>
-	<string>$(PRODUCT_NAME)</string>
-	<key>CFBundlePackageType</key>
-	<string>APPL</string>
-	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
-	<key>CFBundleVersion</key>
-	<string>79</string>
-	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
-	<key>UIMainStoryboardFile</key>
-	<string></string>
-	<key>LSRequiresIPhoneOS</key>
-	<true/>
 
-	<!-- ✅ Privacy Permissions -->
-	<key>NSCameraUsageDescription</key>
-	<string>This app needs camera access for AR, scanning, and gameplay.</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>This app needs microphone access for voice features and in-game sound recording.</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>This app saves and loads media from your photo library.</string>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>This app saves screenshots or recordings to your photo library.</string>
-	<key>NSBluetoothAlwaysUsageDescription</key>
-	<string>This app uses Bluetooth for device connection and in-game features.</string>
-	<key>NSBluetoothPeripheralUsageDescription</key>
-	<string>This app needs Bluetooth access for external devices.</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>This app may use your location for gameplay features.</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>This app may need location data for background services.</string>
-	<key>NSSpeechRecognitionUsageDescription</key>
-	<string>This app uses speech recognition for voice commands.</string>
-	<key>NSLocalNetworkUsageDescription</key>
-	<string>This app connects to devices and servers on your local network.</string>
-	<key>NSFaceIDUsageDescription</key>
-	<string>This app may use Face ID for authentication.</string>
-	<key>NSUserTrackingUsageDescription</key>
-	<string>This identifier will be used to deliver a personalized experience.</string>
-
-	<!-- ✅ Networking -->
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
-	</dict>
-
-	<!-- ✅ Orientation -->
-	<key>UISupportedInterfaceOrientations</key>
-	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-</dict>
-</plist>
-  <dict>
+    <!-- General App Info -->
     <key>CFBundleDevelopmentRegion</key>
-    <string>$(DEVELOPMENT_LANGUAGE)</string>
+    <string>en</string>
     <key>CFBundleDisplayName</key>
     <string>Escape</string>
     <key>CFBundleExecutable</key>
@@ -83,109 +19,120 @@
     <string>Escape</string>
     <key>CFBundlePackageType</key>
     <string>APPL</string>
-    <key>CFBundleLocalizations</key>
-    <array>
-      <string>en</string>
-      <string>zh_Hans</string>
-      <string>zh_Hant</string>
-      <string>es</string>
-      <string>it</string>
-      <string>fr</string>
-      <string>de</string>
-      <string>ru</string>
-      <string>ja</string>
-      <string>ar</string>
-      <string>uk</string>
-      <string>ko</string>
-    </array>
     <key>CFBundleShortVersionString</key>
     <string>$(FLUTTER_BUILD_NAME)</string>
-    <key>CFBundleSignature</key>
-    <string>????</string>
-    <key>CFBundleURLTypes</key>
-    <array>
-      <dict>
-        <key>CFBundleTypeRole</key>
-        <string>Editor</string>
-        <key>CFBundleURLSchemes</key>
-        <array>
-          <string>com.googleusercontent.apps.286076426888-bjuqp3v20r0n6f99d9lpn07pvpfti4ei</string>
-        </array>
-      </dict>
-      <dict>
-        <key>CFBundleTypeRole</key>
-        <string>Editor</string>
-        <key>CFBundleURLName</key>
-        <string>escapeapp.ai</string>
-        <key>CFBundleURLSchemes</key>
-        <array>
-          <string>http</string>
-        </array>
-      </dict>
-    </array>
-    <key>FlutterDeepLinkingEnabled</key>
-    <true/>
     <key>CFBundleVersion</key>
     <string>$(FLUTTER_BUILD_NUMBER)</string>
-    <key>LSRequiresIPhoneOS</key>
-    <true/>
-    <!-- 🔐 REQUIRED APPLE PRIVACY PERMISSIONS -->
-    <key>NSCameraUsageDescription</key>
-    <string>Escape requires camera access to capture images for mood analysis and self-care features.</string>
-    <key>NSMicrophoneUsageDescription</key>
-    <string>Escape requires microphone access to support audio features, mood scanning, and guided experiences.</string>
-    <key>NSSpeechRecognitionUsageDescription</key>
-    <string>Escape uses speech recognition to enhance hands-free mood journaling and AI-guided experiences.</string>
-    <key>NSPhotoLibraryUsageDescription</key>
-    <string>Escape needs access to your photo library to let you upload images for your self-care journey.</string>
-    <key>NSLocationWhenInUseUsageDescription</key>
-    <string>Escape uses your location to provide personalized self-care suggestions and mood-aware insights.</string>
-    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-    <string>Escape requires location access even when the app is not active to support advanced mood mapping and self-care personalization.</string>
-    <!-- 🔔 Notifications -->
-    <key>NSUserNotificationUsageDescription</key>
-    <string>Escape uses notifications to keep you updated on mood insights, milestones, and wellness reminders.</string>
-    <!-- 🔧 Background Modes -->
-    <key>UIBackgroundModes</key>
-    <array>
-      <string>fetch</string>
-      <string>remote-notification</string>
-      <string>audio</string>
-    </array>
-    <!-- 🌐 App Linking -->
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-      <string>comgooglemaps</string>
-      <string>baidumap</string>
-      <string>iosamap</string>
-      <string>waze</string>
-      <string>yandexmaps</string>
-      <string>yandexnavi</string>
-      <string>citymapper</string>
-      <string>mapswithme</string>
-      <string>osmandmaps</string>
-      <string>dgis</string>
-      <string>qqmap</string>
-      <string>here-location</string>
-    </array>
+    <key>CFBundleSignature</key>
+    <string>????</string>
     <key>UILaunchStoryboardName</key>
     <string>LaunchScreen</string>
     <key>UIMainStoryboardFile</key>
     <string>Main</string>
+    <key>LSRequiresIPhoneOS</key>
+    <true/>
+    <key>FlutterDeepLinkingEnabled</key>
+    <true/>
+
+    <!-- Privacy Permissions -->
+    <key>NSCameraUsageDescription</key>
+    <string>Escape requires camera access to capture images for mood analysis and self-care features.</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>Escape requires microphone access to support audio features, mood scanning, and guided experiences.</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>Escape needs access to your photo library to let you upload images for your self-care journey.</string>
+    <key>NSPhotoLibraryAddUsageDescription</key>
+    <string>This app saves screenshots or recordings to your photo library.</string>
+    <key>NSSpeechRecognitionUsageDescription</key>
+    <string>Escape uses speech recognition to enhance hands-free mood journaling and AI-guided experiences.</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Escape uses your location to provide personalized self-care suggestions and mood-aware insights.</string>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>Escape requires location access even when the app is not active to support advanced mood mapping and self-care personalization.</string>
+    <key>NSFaceIDUsageDescription</key>
+    <string>This app may use Face ID for authentication.</string>
+    <key>NSLocalNetworkUsageDescription</key>
+    <string>This app connects to devices and servers on your local network.</string>
+    <key>NSBluetoothAlwaysUsageDescription</key>
+    <string>This app uses Bluetooth for device connection and in-game features.</string>
+    <key>NSBluetoothPeripheralUsageDescription</key>
+    <string>This app needs Bluetooth access for external devices.</string>
+    <key>NSUserTrackingUsageDescription</key>
+    <string>This identifier will be used to deliver a personalized experience.</string>
+    <key>NSUserNotificationUsageDescription</key>
+    <string>Escape uses notifications to keep you updated on mood insights, milestones, and wellness reminders.</string>
+
+    <!-- Networking -->
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <true/>
+    </dict>
+
+    <!-- Orientation -->
     <key>UISupportedInterfaceOrientations</key>
     <array>
-      <string>UIInterfaceOrientationPortrait</string>
-      <string>UIInterfaceOrientationLandscapeLeft</string>
-      <string>UIInterfaceOrientationLandscapeRight</string>
+        <string>UIInterfaceOrientationPortrait</string>
+        <string>UIInterfaceOrientationLandscapeLeft</string>
+        <string>UIInterfaceOrientationLandscapeRight</string>
     </array>
     <key>UISupportedInterfaceOrientations~ipad</key>
     <array>
-      <string>UIInterfaceOrientationPortrait</string>
-      <string>UIInterfaceOrientationPortraitUpsideDown</string>
-      <string>UIInterfaceOrientationLandscapeLeft</string>
-      <string>UIInterfaceOrientationLandscapeRight</string>
+        <string>UIInterfaceOrientationPortrait</string>
+        <string>UIInterfaceOrientationPortraitUpsideDown</string>
+        <string>UIInterfaceOrientationLandscapeLeft</string>
+        <string>UIInterfaceOrientationLandscapeRight</string>
     </array>
+
     <key>UIViewControllerBasedStatusBarAppearance</key>
     <false/>
-  </dict>
+
+    <!-- URLs & Deep Linking -->
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleTypeRole</key>
+            <string>Editor</string>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>com.googleusercontent.apps.286076426888-bjuqp3v20r0n6f99d9lpn07pvpfti4ei</string>
+            </array>
+        </dict>
+        <dict>
+            <key>CFBundleTypeRole</key>
+            <string>Editor</string>
+            <key>CFBundleURLName</key>
+            <string>escapeapp.ai</string>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>http</string>
+            </array>
+        </dict>
+    </array>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>comgooglemaps</string>
+        <string>baidumap</string>
+        <string>iosamap</string>
+        <string>waze</string>
+        <string>yandexmaps</string>
+        <string>yandexnavi</string>
+        <string>citymapper</string>
+        <string>mapswithme</string>
+        <string>osmandmaps</string>
+        <string>dgis</string>
+        <string>qqmap</string>
+        <string>here-location</string>
+    </array>
+
+    <!-- Background Modes -->
+    <key>UIBackgroundModes</key>
+    <array>
+        <string>fetch</string>
+        <string>remote-notification</string>
+        <string>audio</string>
+    </array>
+
+</dict>
 </plist>
+
