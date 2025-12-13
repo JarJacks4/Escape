@@ -1,0 +1,12 @@
+# Docker Compose for Escape Flutter Web App
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+    environment:
+      - TZ=UTC
