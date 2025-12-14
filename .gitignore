@@ -49,3 +49,27 @@ Packages/
 
 # Ignore CocoaPods
 Pods/
+
+# Flutter/Dart
+.dart_tool/
+build/
+/.packages
+.flutter-plugins
+.flutter-plugins-dependencies
+pubspec.lock
+ios/Flutter/ephemeral/
+/.dart_tool/
+# Flutter / Dart generated
+.dart_tool/
+.build/
+build/
+ios/Flutter/ephemeral/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub/
+# Lockfile (keep locally in repo if you prefer, but avoid committing changes from CI)
+pubspec.lock
+# VSCode / IntelliJ
+.vscode/
+.idea/
