@@ -1,11 +1,6 @@
 import '/backend/backend.dart';
-import '/components/change_your_avatar_widget.dart';
-import '/components/escape_innerverse_card_widget.dart';
-import '/components/generate_soundscapes_card_widget.dart';
-import '/components/mood_tracking_card_widget.dart';
-import '/components/self_care_routine_card_widget.dart';
+import '/components/lucille_home_comp_version5_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/index.dart';
 import 'lucille_home_widget.dart' show LucilleHomeWidget;
 import 'package:flutter/material.dart';
 
@@ -17,42 +12,20 @@ class LucilleHomeModel extends FlutterFlowModel<LucilleHomeWidget> {
   ///  State fields for stateful widgets in this page.
 
   // State field(s) for Column widget.
-  ScrollController? columnController1;
-  // State field(s) for Column widget.
-  ScrollController? columnController2;
-  // Model for GenerateSoundscapesCard component.
-  late GenerateSoundscapesCardModel generateSoundscapesCardModel;
-  // Model for MoodTrackingCard component.
-  late MoodTrackingCardModel moodTrackingCardModel;
-  // Model for EscapeInnerverseCard component.
-  late EscapeInnerverseCardModel escapeInnerverseCardModel;
-  // Model for SelfCareRoutineCard component.
-  late SelfCareRoutineCardModel selfCareRoutineCardModel;
-  // Model for ChangeYourAvatar component.
-  late ChangeYourAvatarModel changeYourAvatarModel;
+  ScrollController? columnController;
+  // Model for LucilleHomeCompVersion5 component.
+  late LucilleHomeCompVersion5Model lucilleHomeCompVersion5Model;
 
   @override
   void initState(BuildContext context) {
-    columnController1 = ScrollController();
-    columnController2 = ScrollController();
-    generateSoundscapesCardModel =
-        createModel(context, () => GenerateSoundscapesCardModel());
-    moodTrackingCardModel = createModel(context, () => MoodTrackingCardModel());
-    escapeInnerverseCardModel =
-        createModel(context, () => EscapeInnerverseCardModel());
-    selfCareRoutineCardModel =
-        createModel(context, () => SelfCareRoutineCardModel());
-    changeYourAvatarModel = createModel(context, () => ChangeYourAvatarModel());
+    columnController = ScrollController();
+    lucilleHomeCompVersion5Model =
+        createModel(context, () => LucilleHomeCompVersion5Model());
   }
 
   @override
   void dispose() {
-    columnController1?.dispose();
-    columnController2?.dispose();
-    generateSoundscapesCardModel.dispose();
-    moodTrackingCardModel.dispose();
-    escapeInnerverseCardModel.dispose();
-    selfCareRoutineCardModel.dispose();
-    changeYourAvatarModel.dispose();
+    columnController?.dispose();
+    lucilleHomeCompVersion5Model.dispose();
   }
 }

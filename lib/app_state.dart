@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'flutter_flow/request_manager.dart';
 import '/backend/backend.dart';
 import "package:tiktokfeed_wz8en7/backend/schema/structs/index.dart"
     as tiktokfeed_wz8en7_data_schema;
-import 'package:ff_commons/api_requests/api_manager.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 
@@ -834,20 +832,94 @@ class FFAppState extends ChangeNotifier {
     _sampleRecording = value;
   }
 
-  final _epidemicTracksManager = FutureRequestManager<ApiCallResponse>();
-  Future<ApiCallResponse> epidemicTracks({
-    String? uniqueQueryKey,
-    bool? overrideCache,
-    required Future<ApiCallResponse> Function() requestFn,
-  }) =>
-      _epidemicTracksManager.performRequest(
-        uniqueQueryKey: uniqueQueryKey,
-        overrideCache: overrideCache,
-        requestFn: requestFn,
-      );
-  void clearEpidemicTracksCache() => _epidemicTracksManager.clear();
-  void clearEpidemicTracksCacheKey(String? uniqueKey) =>
-      _epidemicTracksManager.clearRequest(uniqueKey);
+  List<LucilleChatStruct> _newMessages = [];
+  List<LucilleChatStruct> get newMessages => _newMessages;
+  set newMessages(List<LucilleChatStruct> value) {
+    _newMessages = value;
+  }
+
+  void addToNewMessages(LucilleChatStruct value) {
+    newMessages.add(value);
+  }
+
+  void removeFromNewMessages(LucilleChatStruct value) {
+    newMessages.remove(value);
+  }
+
+  void removeAtIndexFromNewMessages(int index) {
+    newMessages.removeAt(index);
+  }
+
+  void updateNewMessagesAtIndex(
+    int index,
+    LucilleChatStruct Function(LucilleChatStruct) updateFn,
+  ) {
+    newMessages[index] = updateFn(_newMessages[index]);
+  }
+
+  void insertAtIndexInNewMessages(int index, LucilleChatStruct value) {
+    newMessages.insert(index, value);
+  }
+
+  List<LucilleMessageStruct> _listOfMessages = [];
+  List<LucilleMessageStruct> get listOfMessages => _listOfMessages;
+  set listOfMessages(List<LucilleMessageStruct> value) {
+    _listOfMessages = value;
+  }
+
+  void addToListOfMessages(LucilleMessageStruct value) {
+    listOfMessages.add(value);
+  }
+
+  void removeFromListOfMessages(LucilleMessageStruct value) {
+    listOfMessages.remove(value);
+  }
+
+  void removeAtIndexFromListOfMessages(int index) {
+    listOfMessages.removeAt(index);
+  }
+
+  void updateListOfMessagesAtIndex(
+    int index,
+    LucilleMessageStruct Function(LucilleMessageStruct) updateFn,
+  ) {
+    listOfMessages[index] = updateFn(_listOfMessages[index]);
+  }
+
+  void insertAtIndexInListOfMessages(int index, LucilleMessageStruct value) {
+    listOfMessages.insert(index, value);
+  }
+
+  List<LucilleStreamResponseFINALStruct> _messages = [];
+  List<LucilleStreamResponseFINALStruct> get messages => _messages;
+  set messages(List<LucilleStreamResponseFINALStruct> value) {
+    _messages = value;
+  }
+
+  void addToMessages(LucilleStreamResponseFINALStruct value) {
+    messages.add(value);
+  }
+
+  void removeFromMessages(LucilleStreamResponseFINALStruct value) {
+    messages.remove(value);
+  }
+
+  void removeAtIndexFromMessages(int index) {
+    messages.removeAt(index);
+  }
+
+  void updateMessagesAtIndex(
+    int index,
+    LucilleStreamResponseFINALStruct Function(LucilleStreamResponseFINALStruct)
+        updateFn,
+  ) {
+    messages[index] = updateFn(_messages[index]);
+  }
+
+  void insertAtIndexInMessages(
+      int index, LucilleStreamResponseFINALStruct value) {
+    messages.insert(index, value);
+  }
 }
 
 void _safeInit(Function() initializeField) {

@@ -2,7 +2,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
-import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
@@ -103,21 +102,8 @@ class _AdvancedMoodTrackingComp4WidgetState
                           color: FlutterFlowTheme.of(context).primaryText,
                           size: 24.0,
                         ),
-                        onPressed: () async {
-                          logFirebaseEvent(
-                              'ADVANCED_MOOD_TRACKING_COMP4_person_roun');
-                          logFirebaseEvent('IconButton_navigate_to');
-
-                          context.pushNamed(
-                            HomeVersion4Widget.routeName,
-                            extra: <String, dynamic>{
-                              kTransitionInfoKey: TransitionInfo(
-                                hasTransition: true,
-                                transitionType: PageTransitionType.fade,
-                                duration: Duration(milliseconds: 9),
-                              ),
-                            },
-                          );
+                        onPressed: () {
+                          print('IconButton pressed ...');
                         },
                       ),
                     ].divide(SizedBox(width: 8.0)),
@@ -267,21 +253,8 @@ class _AdvancedMoodTrackingComp4WidgetState
                                 ].divide(SizedBox(width: 12.0)),
                               ),
                               FFButtonWidget(
-                                onPressed: () async {
-                                  logFirebaseEvent(
-                                      'ADVANCED_MOOD_TRACKING_COMP4_START_3_MIN');
-                                  logFirebaseEvent('Button_navigate_to');
-
-                                  context.pushNamed(
-                                    HomeVersion4Widget.routeName,
-                                    extra: <String, dynamic>{
-                                      kTransitionInfoKey: TransitionInfo(
-                                        hasTransition: true,
-                                        transitionType: PageTransitionType.fade,
-                                        duration: Duration(milliseconds: 3),
-                                      ),
-                                    },
-                                  );
+                                onPressed: () {
+                                  print('Button pressed ...');
                                 },
                                 text: FFLocalizations.of(context).getText(
                                   'kuw1g98i' /* Start 3-minute breathing */,
@@ -385,13 +358,8 @@ class _AdvancedMoodTrackingComp4WidgetState
                                 ].divide(SizedBox(width: 12.0)),
                               ),
                               FFButtonWidget(
-                                onPressed: () async {
-                                  logFirebaseEvent(
-                                      'ADVANCED_MOOD_TRACKING_COMP4_EXPLORE_YOU');
-                                  logFirebaseEvent('Button_navigate_to');
-
-                                  context.pushNamed(
-                                      JournalVersion5Widget.routeName);
+                                onPressed: () {
+                                  print('Button pressed ...');
                                 },
                                 text: FFLocalizations.of(context).getText(
                                   'gqxg140i' /* Explore your thoughts */,
@@ -495,21 +463,8 @@ class _AdvancedMoodTrackingComp4WidgetState
                                 ].divide(SizedBox(width: 12.0)),
                               ),
                               FFButtonWidget(
-                                onPressed: () async {
-                                  logFirebaseEvent(
-                                      'ADVANCED_MOOD_TRACKING_COMP4_SEE_SUGGEST');
-                                  logFirebaseEvent('Button_navigate_to');
-
-                                  context.pushNamed(
-                                    SelfCarePlanPageWidget.routeName,
-                                    extra: <String, dynamic>{
-                                      kTransitionInfoKey: TransitionInfo(
-                                        hasTransition: true,
-                                        transitionType: PageTransitionType.fade,
-                                        duration: Duration(milliseconds: 9),
-                                      ),
-                                    },
-                                  );
+                                onPressed: () {
+                                  print('Button pressed ...');
                                 },
                                 text: FFLocalizations.of(context).getText(
                                   'bj5rm3fi' /* See suggestions */,

@@ -20,13 +20,11 @@ class ChatLucilleCompModel extends FlutterFlowModel<ChatLucilleCompWidget> {
 
   // Stores action output result for [Custom Action - startListening] action in LottieAnimation widget.
   String? returnedVoiceText;
-  // Stores action output result for [Backend Call - API (GetChatHistory)] action in LottieAnimation widget.
-  ApiCallResponse? apiResult80y;
-  // Stores action output result for [Backend Call - API (Chat)] action in LottieAnimation widget.
+  // Stores action output result for [Backend Call - API (Lucille Chat Stream)] action in LottieAnimation widget.
   ApiCallResponse? voiceChatLucilleResponse1;
-  // Stores action output result for [Backend Call - API (CreateSession)] action in LottieAnimation widget.
-  ApiCallResponse? sessionIDVoiceChat;
-  // Stores action output result for [Backend Call - API (Chat)] action in LottieAnimation widget.
+  // Stores action output result for [Backend Call - API (Lucille Streaming Response)] action in LottieAnimation widget.
+  ApiCallResponse? sessionIDVoiceChat2;
+  // Stores action output result for [Backend Call - API (Lucille Health Check)] action in LottieAnimation widget.
   ApiCallResponse? voiceChatLucilleResponse2;
   // Model for aiChat_Component component.
   late AiChatComponentModel aiChatComponentModel;

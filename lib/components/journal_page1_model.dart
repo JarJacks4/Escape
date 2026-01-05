@@ -10,10 +10,16 @@ class JournalPage1Model extends FlutterFlowModel<JournalPage1Widget> {
   String? personalThoughts;
   FFUploadedFile recordedFileBytes =
       FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
+  // State field(s) for Column widget.
+  ScrollController? columnController;
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    columnController = ScrollController();
+  }
 
   @override
-  void dispose() {}
+  void dispose() {
+    columnController?.dispose();
+  }
 }

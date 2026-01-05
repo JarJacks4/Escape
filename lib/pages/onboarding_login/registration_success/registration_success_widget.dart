@@ -229,7 +229,7 @@ class _RegistrationSuccessWidgetState extends State<RegistrationSuccessWidget>
                             logFirebaseEvent('primaryButton_navigate_to');
 
                             context.pushNamed(
-                              HomeVersion4Widget.routeName,
+                              HomeVersion5Widget.routeName,
                               extra: <String, dynamic>{
                                 kTransitionInfoKey: TransitionInfo(
                                   hasTransition: true,

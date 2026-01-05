@@ -3,9 +3,14 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/index.dart';
+import 'package:that_audio_player_5bjqer/app_state.dart'
+    as that_audio_player_5bjqer_app_state;
+import 'package:tiktokfeed_wz8en7/app_state.dart'
+    as tiktokfeed_wz8en7_app_state;
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:provider/provider.dart';
 import 'confetti_page_expert_comp_model.dart';
 export 'confetti_page_expert_comp_model.dart';
 
@@ -154,6 +159,10 @@ class _ConfettiPageExpertCompWidgetState
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+    context.watch<tiktokfeed_wz8en7_app_state.FFAppState>();
+    context.watch<that_audio_player_5bjqer_app_state.FFAppState>();
+
     return Container(
       height: double.infinity,
       decoration: BoxDecoration(),
@@ -217,12 +226,12 @@ class _ConfettiPageExpertCompWidgetState
                                       style: FlutterFlowTheme.of(context)
                                           .labelMedium
                                           .override(
-                                            fontFamily: 'The Seasons',
+                                            fontFamily: 'WorkSans',
                                             color: FlutterFlowTheme.of(context)
                                                 .primary,
                                             fontSize: 18.0,
                                             letterSpacing: 0.0,
-                                            fontWeight: FontWeight.bold,
+                                            fontWeight: FontWeight.w600,
                                           ),
                                     ),
                                     Padding(
@@ -299,91 +308,18 @@ class _ConfettiPageExpertCompWidgetState
                                   ],
                                 ),
                               ),
-                              Flexible(
-                                flex: 1,
-                                child: FFButtonWidget(
-                                  onPressed: () async {
-                                    logFirebaseEvent(
-                                        'CONFETTI_EXPERT_SEE_SELF_CARE_PLAN_BTN_O');
-                                    logFirebaseEvent('Button_update_app_state');
-                                    FFAppState().pointsEarned =
-                                        FFAppState().pointsEarned + 150;
-                                    FFAppState().hasCompletedGoal = true;
-                                    FFAppState().update(() {});
-                                    logFirebaseEvent('Button_show_snack_bar');
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                        content: Text(
-                                          'Self-Care Goals and Progress Points Updated!',
-                                          style: TextStyle(
-                                            fontFamily: 'WorkSans',
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                          ),
-                                        ),
-                                        duration: Duration(milliseconds: 4000),
-                                        backgroundColor:
-                                            FlutterFlowTheme.of(context)
-                                                .secondary,
-                                      ),
-                                    );
-                                    logFirebaseEvent('Button_navigate_to');
-
-                                    context.pushNamed(
-                                      SelfCarePlanPageWidget.routeName,
-                                      extra: <String, dynamic>{
-                                        kTransitionInfoKey: TransitionInfo(
-                                          hasTransition: true,
-                                          transitionType:
-                                              PageTransitionType.fade,
-                                          duration: Duration(milliseconds: 9),
-                                        ),
-                                      },
-                                    );
-                                  },
-                                  text: FFLocalizations.of(context).getText(
-                                    'yk1httyq' /* See Self-Care Plan */,
-                                  ),
-                                  options: FFButtonOptions(
-                                    width: double.infinity,
-                                    height: 40.0,
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        24.0, 0.0, 24.0, 0.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
-                                    color: FlutterFlowTheme.of(context).primary,
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .titleSmall
-                                        .override(
-                                          fontFamily: 'WorkSans',
-                                          color: FlutterFlowTheme.of(context)
-                                              .alternate,
-                                          fontSize: 18.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                    elevation: 3.0,
-                                    borderSide: BorderSide(
-                                      color: Colors.transparent,
-                                      width: 1.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                ).animateOnPageLoad(animationsMap[
-                                    'buttonOnPageLoadAnimation1']!),
-                              ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 16.0, 0.0, 0.0),
                                 child: FFButtonWidget(
                                   onPressed: () async {
                                     logFirebaseEvent(
-                                        'CONFETTI_EXPERT_DISMISS_AND_REPLAY_BTN_O');
+                                        'CONFETTI_EXPERT_REPLAY_BTN_ON_TAP');
                                     logFirebaseEvent('Button_bottom_sheet');
                                     Navigator.pop(context);
                                   },
                                   text: FFLocalizations.of(context).getText(
-                                    's4mllmso' /* Dismiss and Replay */,
+                                    's4mllmso' /* Replay */,
                                   ),
                                   options: FFButtonOptions(
                                     width: double.infinity,
@@ -411,7 +347,93 @@ class _ConfettiPageExpertCompWidgetState
                                     borderRadius: BorderRadius.circular(8.0),
                                   ),
                                 ).animateOnPageLoad(animationsMap[
-                                    'buttonOnPageLoadAnimation2']!),
+                                    'buttonOnPageLoadAnimation1']!),
+                              ),
+                              Flexible(
+                                flex: 1,
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 15.0, 0.0, 0.0),
+                                  child: FFButtonWidget(
+                                    onPressed: () async {
+                                      logFirebaseEvent(
+                                          'CONFETTI_EXPERT_EXPLORE_MORE_EXERCISES_B');
+                                      logFirebaseEvent(
+                                          'Button_update_app_state');
+                                      FFAppState().pointsEarned =
+                                          FFAppState().pointsEarned + 150;
+                                      FFAppState().hasCompletedGoal = true;
+                                      FFAppState().update(() {});
+                                      logFirebaseEvent('Button_show_snack_bar');
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
+                                        SnackBar(
+                                          content: Text(
+                                            'Self-Care Goals and Progress Points Updated!',
+                                            style: TextStyle(
+                                              fontFamily: 'WorkSans',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                            ),
+                                          ),
+                                          duration:
+                                              Duration(milliseconds: 4000),
+                                          backgroundColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .secondary,
+                                        ),
+                                      );
+                                      logFirebaseEvent('Button_bottom_sheet');
+                                      Navigator.pop(
+                                          context, FFAppState().pointsEarned);
+                                      logFirebaseEvent('Button_navigate_to');
+
+                                      context.pushNamed(
+                                        ExplorePageWidget.routeName,
+                                        extra: <String, dynamic>{
+                                          kTransitionInfoKey: TransitionInfo(
+                                            hasTransition: true,
+                                            transitionType:
+                                                PageTransitionType.fade,
+                                            duration: Duration(milliseconds: 9),
+                                          ),
+                                        },
+                                      );
+                                    },
+                                    text: FFLocalizations.of(context).getText(
+                                      'yk1httyq' /* Explore More Exercises */,
+                                    ),
+                                    options: FFButtonOptions(
+                                      width: double.infinity,
+                                      height: 40.0,
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          24.0, 0.0, 24.0, 0.0),
+                                      iconPadding:
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              0.0, 0.0, 0.0, 0.0),
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
+                                      textStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .override(
+                                            fontFamily: 'WorkSans',
+                                            color: FlutterFlowTheme.of(context)
+                                                .alternate,
+                                            fontSize: 18.0,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                      elevation: 3.0,
+                                      borderSide: BorderSide(
+                                        color: Colors.transparent,
+                                        width: 1.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                  ).animateOnPageLoad(animationsMap[
+                                      'buttonOnPageLoadAnimation2']!),
+                                ),
                               ),
                             ],
                           ),

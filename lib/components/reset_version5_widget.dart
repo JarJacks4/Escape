@@ -41,6 +41,7 @@ class _ResetVersion5WidgetState extends State<ResetVersion5Widget> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: MediaQuery.sizeOf(context).height * 1.0,
       child: Padding(
         padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
         child: Column(
@@ -57,8 +58,11 @@ class _ResetVersion5WidgetState extends State<ResetVersion5Widget> {
                     color: FlutterFlowTheme.of(context).primaryText,
                     size: 20.0,
                   ),
-                  onPressed: () {
-                    print('IconButton pressed ...');
+                  onPressed: () async {
+                    logFirebaseEvent(
+                        'RESET_VERSION5_arrow_back_ios_ICN_ON_TAP');
+                    logFirebaseEvent('IconButton_navigate_back');
+                    context.safePop();
                   },
                 ),
                 Text(
@@ -196,6 +200,17 @@ class _ResetVersion5WidgetState extends State<ResetVersion5Widget> {
               width: double.infinity,
               decoration: BoxDecoration(
                 color: Colors.white,
+                boxShadow: [
+                  BoxShadow(
+                    blurRadius: 3.0,
+                    color: Color(0x27000000),
+                    offset: Offset(
+                      0.0,
+                      3.0,
+                    ),
+                    spreadRadius: 3.0,
+                  )
+                ],
                 borderRadius: BorderRadius.circular(16.0),
               ),
               child: Padding(
@@ -321,6 +336,17 @@ class _ResetVersion5WidgetState extends State<ResetVersion5Widget> {
                   child: Container(
                     decoration: BoxDecoration(
                       color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          blurRadius: 3.0,
+                          color: Color(0x27000000),
+                          offset: Offset(
+                            0.0,
+                            3.0,
+                          ),
+                          spreadRadius: 3.0,
+                        )
+                      ],
                       borderRadius: BorderRadius.circular(16.0),
                     ),
                     child: Padding(
@@ -402,6 +428,17 @@ class _ResetVersion5WidgetState extends State<ResetVersion5Widget> {
                   child: Container(
                     decoration: BoxDecoration(
                       color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          blurRadius: 3.0,
+                          color: Color(0x27000000),
+                          offset: Offset(
+                            0.0,
+                            3.0,
+                          ),
+                          spreadRadius: 3.0,
+                        )
+                      ],
                       borderRadius: BorderRadius.circular(16.0),
                     ),
                     child: Padding(
@@ -485,6 +522,17 @@ class _ResetVersion5WidgetState extends State<ResetVersion5Widget> {
               width: double.infinity,
               decoration: BoxDecoration(
                 color: Colors.white,
+                boxShadow: [
+                  BoxShadow(
+                    blurRadius: 3.0,
+                    color: Color(0x27000000),
+                    offset: Offset(
+                      0.0,
+                      3.0,
+                    ),
+                    spreadRadius: 3.0,
+                  )
+                ],
                 borderRadius: BorderRadius.circular(16.0),
               ),
               child: Padding(
@@ -610,6 +658,17 @@ class _ResetVersion5WidgetState extends State<ResetVersion5Widget> {
                   child: Container(
                     decoration: BoxDecoration(
                       color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          blurRadius: 3.0,
+                          color: Color(0x27000000),
+                          offset: Offset(
+                            0.0,
+                            3.0,
+                          ),
+                          spreadRadius: 3.0,
+                        )
+                      ],
                       borderRadius: BorderRadius.circular(16.0),
                     ),
                     child: Padding(
@@ -691,6 +750,17 @@ class _ResetVersion5WidgetState extends State<ResetVersion5Widget> {
                   child: Container(
                     decoration: BoxDecoration(
                       color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          blurRadius: 3.0,
+                          color: Color(0x27000000),
+                          offset: Offset(
+                            0.0,
+                            3.0,
+                          ),
+                          spreadRadius: 3.0,
+                        )
+                      ],
                       borderRadius: BorderRadius.circular(16.0),
                     ),
                     child: Padding(

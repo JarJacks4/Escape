@@ -18,6 +18,7 @@ import 'schema/history_record.dart';
 import 'schema/journal_record.dart';
 import 'schema/user_moods_record.dart';
 import 'schema/user_moods_main_record.dart';
+import 'schema/ritual_spark_journal_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart' hide Order;
@@ -39,6 +40,7 @@ export 'schema/history_record.dart';
 export 'schema/journal_record.dart';
 export 'schema/user_moods_record.dart';
 export 'schema/user_moods_main_record.dart';
+export 'schema/ritual_spark_journal_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -537,6 +539,46 @@ Future<List<UserMoodsMainRecord>> queryUserMoodsMainRecordOnce({
     queryCollectionOnce(
       UserMoodsMainRecord.collection(parent),
       UserMoodsMainRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query RitualSparkJournalRecords (as a Stream and as a Future).
+Future<int> queryRitualSparkJournalRecordCount({
+  DocumentReference? parent,
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      RitualSparkJournalRecord.collection(parent),
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<RitualSparkJournalRecord>> queryRitualSparkJournalRecord({
+  DocumentReference? parent,
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      RitualSparkJournalRecord.collection(parent),
+      RitualSparkJournalRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<RitualSparkJournalRecord>> queryRitualSparkJournalRecordOnce({
+  DocumentReference? parent,
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      RitualSparkJournalRecord.collection(parent),
+      RitualSparkJournalRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
