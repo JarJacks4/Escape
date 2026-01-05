@@ -14,7 +14,7 @@ Future lucillePushNotificationMood(BuildContext context) async {
           'https://res.cloudinary.com/dbyduwpud/image/upload/v1751860485/LucilleAIPhoto_vvmsvx.png',
       notificationSound: 'default',
       userRefs: [currentUserReference!],
-      initialPageName: 'SelfCarePlanPage',
+      initialPageName: 'HabitsPageVersion5',
       parameterData: {},
     );
   } else {

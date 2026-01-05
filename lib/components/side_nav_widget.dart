@@ -137,10 +137,10 @@ class _SideNavWidgetState extends State<SideNavWidget>
       child: Align(
         alignment: AlignmentDirectional(-1.0, 0.0),
         child: Container(
-          width: 270.0,
+          width: 291.27,
           height: double.infinity,
           decoration: BoxDecoration(
-            color: FlutterFlowTheme.of(context).secondaryBackground,
+            color: Color(0xE50C0F1C),
             boxShadow: [
               BoxShadow(
                 blurRadius: 4.0,
@@ -152,6 +152,9 @@ class _SideNavWidgetState extends State<SideNavWidget>
               )
             ],
             borderRadius: BorderRadius.circular(0.0),
+            border: Border.all(
+              color: Color(0x9F5A5C60),
+            ),
           ),
           child: Align(
             alignment: AlignmentDirectional(-1.0, 0.0),
@@ -171,7 +174,7 @@ class _SideNavWidgetState extends State<SideNavWidget>
                           borderRadius: BorderRadius.circular(8.0),
                           child: Image.asset(
                             'assets/images/ESCAPE_Logo_Clear.png',
-                            width: 233.0,
+                            width: 246.77,
                             height: 237.0,
                             fit: BoxFit.cover,
                           ),
@@ -193,7 +196,7 @@ class _SideNavWidgetState extends State<SideNavWidget>
                         logFirebaseEvent('contentView_1_navigate_to');
 
                         context.pushNamed(
-                          HomeVersion4Widget.routeName,
+                          HomeVersion5Widget.routeName,
                           extra: <String, dynamic>{
                             kTransitionInfoKey: TransitionInfo(
                               hasTransition: true,
@@ -207,7 +210,7 @@ class _SideNavWidgetState extends State<SideNavWidget>
                         width: double.infinity,
                         height: 50.0,
                         decoration: BoxDecoration(
-                          color: FlutterFlowTheme.of(context).secondary,
+                          color: Color(0x95D0E3F7),
                           borderRadius: BorderRadius.circular(12.0),
                           shape: BoxShape.rectangle,
                           border: Border.all(
@@ -220,6 +223,7 @@ class _SideNavWidgetState extends State<SideNavWidget>
                               12.0, 0.0, 12.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
@@ -250,7 +254,7 @@ class _SideNavWidgetState extends State<SideNavWidget>
                                       .override(
                                         fontFamily: 'WorkSans',
                                         color: FlutterFlowTheme.of(context)
-                                            .accent1,
+                                            .primary,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -295,7 +299,7 @@ class _SideNavWidgetState extends State<SideNavWidget>
                         width: double.infinity,
                         height: 50.0,
                         decoration: BoxDecoration(
-                          color: FlutterFlowTheme.of(context).secondary,
+                          color: Color(0x95D0E3F7),
                           borderRadius: BorderRadius.circular(12.0),
                           shape: BoxShape.rectangle,
                         ),
@@ -334,7 +338,7 @@ class _SideNavWidgetState extends State<SideNavWidget>
                                       .override(
                                         fontFamily: 'WorkSans',
                                         color: FlutterFlowTheme.of(context)
-                                            .accent4,
+                                            .primary,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -373,7 +377,7 @@ class _SideNavWidgetState extends State<SideNavWidget>
                         width: double.infinity,
                         height: 50.0,
                         decoration: BoxDecoration(
-                          color: FlutterFlowTheme.of(context).secondary,
+                          color: Color(0x95D0E3F7),
                           borderRadius: BorderRadius.circular(12.0),
                           shape: BoxShape.rectangle,
                         ),
@@ -412,7 +416,7 @@ class _SideNavWidgetState extends State<SideNavWidget>
                                       .override(
                                         fontFamily: 'WorkSans',
                                         color: FlutterFlowTheme.of(context)
-                                            .accent4,
+                                            .primary,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -451,7 +455,7 @@ class _SideNavWidgetState extends State<SideNavWidget>
                         width: double.infinity,
                         height: 50.0,
                         decoration: BoxDecoration(
-                          color: FlutterFlowTheme.of(context).secondary,
+                          color: Color(0x95D0E3F7),
                           borderRadius: BorderRadius.circular(12.0),
                           shape: BoxShape.rectangle,
                         ),
@@ -490,7 +494,7 @@ class _SideNavWidgetState extends State<SideNavWidget>
                                       .override(
                                         fontFamily: 'WorkSans',
                                         color: FlutterFlowTheme.of(context)
-                                            .accent4,
+                                            .primary,
                                         letterSpacing: 0.0,
                                       ),
                                 ),

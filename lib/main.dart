@@ -204,7 +204,7 @@ class NavBarPage extends StatefulWidget {
 
 /// This is the private State class that goes with NavBarPage.
 class _NavBarPageState extends State<NavBarPage> {
-  String _currentPageName = 'HomeVersion4';
+  String _currentPageName = 'HomeVersion5';
   late Widget? _currentPage;
 
   @override
@@ -217,12 +217,11 @@ class _NavBarPageState extends State<NavBarPage> {
   @override
   Widget build(BuildContext context) {
     final tabs = {
-      'HomeVersion4': HomeVersion4Widget(),
-      'SelfCarePlanPage': SelfCarePlanPageWidget(),
-      'LucilleHome': LucilleHomeWidget(),
-      'CommunityHomeFINAL': CommunityHomeFINALWidget(),
-      'profileFINAL': ProfileFINALWidget(),
       'HomeVersion5': HomeVersion5Widget(),
+      'ExplorePage': ExplorePageWidget(),
+      'EscapeInnerVerse': EscapeInnerVerseWidget(),
+      'CommunityHomeFINAL': CommunityHomeFINALWidget(),
+      'LucilleHome': LucilleHomeWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -242,9 +241,9 @@ class _NavBarPageState extends State<NavBarPage> {
             _currentPage = null;
             _currentPageName = tabs.keys.toList()[i];
           }),
-          backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+          backgroundColor: Color(0xFF031E6C),
           selectedItemColor: FlutterFlowTheme.of(context).accent1,
-          unselectedItemColor: Color(0xACD0E3F7),
+          unselectedItemColor: Color(0x9EFFFFFF),
           showSelectedLabels: true,
           showUnselectedLabels: true,
           type: BottomNavigationBarType.fixed,
@@ -252,33 +251,30 @@ class _NavBarPageState extends State<NavBarPage> {
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.home_outlined,
-                size: 28.0,
-              ),
-              activeIcon: Icon(
-                Icons.home,
-                size: 28.0,
+                size: 24.0,
               ),
               label: FFLocalizations.of(context).getText(
-                '1fs38btr' /* Home */,
+                'j23dlg0j' /* Home */,
               ),
               tooltip: '',
             ),
             BottomNavigationBarItem(
               icon: Icon(
-                FFIcons.kplans,
+                FFIcons.kcompass,
+                size: 24.0,
               ),
               label: FFLocalizations.of(context).getText(
-                'py6c4427' /* Plan */,
+                'njuvx0m5' /* Explore */,
               ),
               tooltip: '',
             ),
             BottomNavigationBarItem(
-              icon: FaIcon(
-                FontAwesomeIcons.robot,
+              icon: Icon(
+                FFIcons.kglobeGrid,
                 size: 24.0,
               ),
               label: FFLocalizations.of(context).getText(
-                '6ozwyngp' /* Lucille */,
+                'vkc52yjw' /* Innerverse */,
               ),
               tooltip: '',
             ),
@@ -293,22 +289,12 @@ class _NavBarPageState extends State<NavBarPage> {
               tooltip: '',
             ),
             BottomNavigationBarItem(
-              icon: Icon(
-                FFIcons.kprofile,
-                size: 28.0,
-              ),
-              label: FFLocalizations.of(context).getText(
-                'fu6l3npq' /* Profile */,
-              ),
-              tooltip: '',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.home_outlined,
+              icon: FaIcon(
+                FontAwesomeIcons.robot,
                 size: 24.0,
               ),
               label: FFLocalizations.of(context).getText(
-                '7b29kf54' /* Home */,
+                '6ozwyngp' /* Lucille */,
               ),
               tooltip: '',
             )

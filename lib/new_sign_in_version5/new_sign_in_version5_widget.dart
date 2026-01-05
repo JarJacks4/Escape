@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'dart:ui';
+import '/flutter_flow/random_data_util.dart' as random_data;
 import '/index.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
@@ -2147,6 +2148,10 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                       displayName: _model
                                                           .displayNameTextController
                                                           .text,
+                                                      uid: random_data
+                                                          .randomInteger(
+                                                              0, 10000)
+                                                          .toString(),
                                                     ));
 
                                                 logFirebaseEvent(

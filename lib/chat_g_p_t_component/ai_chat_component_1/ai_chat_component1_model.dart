@@ -23,7 +23,7 @@ class AiChatComponent1Model extends FlutterFlowModel<AiChatComponent1Widget> {
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
-  // Stores action output result for [Backend Call - API (Lucille Chat)] action in IconButton widget.
+  // Stores action output result for [Backend Call - API (Lucille Chat Stream)] action in IconButton widget.
   ApiCallResponse? chatGPTResponse;
 
   @override

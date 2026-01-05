@@ -1,5 +1,4 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import '/index.dart';
 import 'focus_reorder_widget.dart' show FocusReorderWidget;
 import 'package:flutter/material.dart';
 

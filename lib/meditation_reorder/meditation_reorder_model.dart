@@ -1,5 +1,4 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import '/index.dart';
 import 'meditation_reorder_widget.dart' show MeditationReorderWidget;
 import 'package:flutter/material.dart';
 

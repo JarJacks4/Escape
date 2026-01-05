@@ -660,10 +660,6 @@ class _ProfileFINALWidgetState extends State<ProfileFINALWidget>
                                       FlutterFlowTheme.of(context).accent1,
                                 ),
                               );
-
-                              context.goNamedAuth(
-                                  SplashScreenVersion5Widget.routeName,
-                                  context.mounted);
                             },
                             text: FFLocalizations.of(context).getText(
                               'yc1gizcl' /* Log Out */,

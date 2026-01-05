@@ -287,20 +287,8 @@ class _ChatLucilleCompWidgetState extends State<ChatLucilleCompWidget>
                                           safeSetState(() {});
                                           logFirebaseEvent(
                                               'LottieAnimation_backend_call');
-                                          _model.apiResult80y =
-                                              await LucilleSelfCareAILLMGroup
-                                                  .getChatHistoryCall
-                                                  .call(
-                                            sessionId:
-                                                FFAppState().chatSessionId,
-                                          );
-
-                                          logFirebaseEvent(
-                                              'LottieAnimation_backend_call');
                                           _model.voiceChatLucilleResponse1 =
-                                              await LucilleSelfCareAILLMGroup
-                                                  .chatCall
-                                                  .call(
+                                              await LucilleChatStreamCall.call(
                                             sessionId:
                                                 FFAppState().chatSessionId,
                                             message: _model.returnedVoiceText,
@@ -327,7 +315,8 @@ class _ChatLucilleCompWidgetState extends State<ChatLucilleCompWidget>
                                                 );
                                           }
 
-                                          if ((_model.apiResult80y?.succeeded ??
+                                          if ((_model.voiceChatLucilleResponse2
+                                                  ?.succeeded ??
                                               true)) {
                                             logFirebaseEvent(
                                                 'LottieAnimation_custom_action');
@@ -341,30 +330,22 @@ class _ChatLucilleCompWidgetState extends State<ChatLucilleCompWidget>
                                           } else {
                                             logFirebaseEvent(
                                                 'LottieAnimation_backend_call');
-                                            _model.sessionIDVoiceChat =
-                                                await LucilleSelfCareAILLMGroup
-                                                    .createSessionCall
-                                                    .call();
-
-                                            logFirebaseEvent(
-                                                'LottieAnimation_backend_call');
-                                            _model.voiceChatLucilleResponse2 =
-                                                await LucilleSelfCareAILLMGroup
-                                                    .chatCall
+                                            _model.sessionIDVoiceChat2 =
+                                                await LucilleStreamingGroup
+                                                    .lucilleStreamingResponseCall
                                                     .call(
-                                              sessionId: LucilleChatStruct
-                                                      .maybeFromMap((_model
-                                                              .sessionIDVoiceChat
-                                                              ?.jsonBody ??
-                                                          ''))
-                                                  ?.sessionId,
+                                              sessionID: (_model
+                                                          .sessionIDVoiceChat2
+                                                          ?.jsonBody ??
+                                                      '')
+                                                  .toString(),
                                               message: _model.returnedVoiceText,
                                             );
-                                            if (_model.voiceChatLucilleResponse2
+                                            if (_model.sessionIDVoiceChat2
                                                     ?.succeeded ??
                                                 true) {
                                               final streamSubscription = _model
-                                                  .voiceChatLucilleResponse2
+                                                  .sessionIDVoiceChat2
                                                   ?.streamedResponse
                                                   ?.stream
                                                   .transform(utf8.decoder)
@@ -382,6 +363,20 @@ class _ChatLucilleCompWidgetState extends State<ChatLucilleCompWidget>
                                                     onDone: () async {},
                                                   );
                                             }
+
+                                            logFirebaseEvent(
+                                                'LottieAnimation_backend_call');
+                                            _model.voiceChatLucilleResponse2 =
+                                                await LucilleStreamingGroup
+                                                    .lucilleHealthCheckCall
+                                                    .call(
+                                              sessionID: (_model
+                                                          .sessionIDVoiceChat2
+                                                          ?.jsonBody ??
+                                                      '')
+                                                  .toString(),
+                                              message: _model.returnedVoiceText,
+                                            );
 
                                             if ((_model.voiceChatLucilleResponse2
                                                         ?.succeeded ??

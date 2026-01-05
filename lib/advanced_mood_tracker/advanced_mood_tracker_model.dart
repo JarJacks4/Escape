@@ -1,9 +1,9 @@
+import '/components/mood_weather_version5_comp_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/index.dart';
 import 'advanced_mood_tracker_widget.dart' show AdvancedMoodTrackerWidget;
 import 'package:flutter/material.dart';
-import 'package:record/record.dart';
 
 class AdvancedMoodTrackerModel
     extends FlutterFlowModel<AdvancedMoodTrackerWidget> {
@@ -67,16 +67,8 @@ class AdvancedMoodTrackerModel
   ScrollController? columnController5;
   // State field(s) for Column widget.
   ScrollController? columnController6;
-  // State field(s) for Column widget.
-  ScrollController? columnController7;
-  AudioRecorder? audioRecorder;
-  String? stopRecord;
-  FFUploadedFile recordedFileBytes =
-      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
-  bool isDataUploading_photoUpload = false;
-  FFUploadedFile uploadedLocalFile_photoUpload =
-      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
-  String uploadedFileUrl_photoUpload = '';
+  // Model for MoodWeatherVersion5Comp component.
+  late MoodWeatherVersion5CompModel moodWeatherVersion5CompModel;
 
   @override
   void initState(BuildContext context) {
@@ -86,7 +78,8 @@ class AdvancedMoodTrackerModel
     columnController4 = ScrollController();
     columnController5 = ScrollController();
     columnController6 = ScrollController();
-    columnController7 = ScrollController();
+    moodWeatherVersion5CompModel =
+        createModel(context, () => MoodWeatherVersion5CompModel());
   }
 
   @override
@@ -97,6 +90,6 @@ class AdvancedMoodTrackerModel
     columnController4?.dispose();
     columnController5?.dispose();
     columnController6?.dispose();
-    columnController7?.dispose();
+    moodWeatherVersion5CompModel.dispose();
   }
 }

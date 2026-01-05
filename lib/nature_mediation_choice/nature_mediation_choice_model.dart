@@ -1,6 +1,5 @@
 import '/components/nature_choice_comp_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/index.dart';
 import 'nature_mediation_choice_widget.dart' show NatureMediationChoiceWidget;
 import 'package:flutter/material.dart';
 

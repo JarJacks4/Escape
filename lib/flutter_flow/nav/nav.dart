@@ -121,11 +121,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             builder: (context, params) => RegistrationSuccessWidget(),
           ),
           FFRoute(
-            name: MeditationTutorialWidget.routeName,
-            path: MeditationTutorialWidget.routePath,
-            builder: (context, params) => MeditationTutorialWidget(),
-          ),
-          FFRoute(
             name: ClassesPageWidget.routeName,
             path: ClassesPageWidget.routePath,
             builder: (context, params) => ClassesPageWidget(),
@@ -139,23 +134,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             name: SubscriptionWidget.routeName,
             path: SubscriptionWidget.routePath,
             builder: (context, params) => SubscriptionWidget(),
-          ),
-          FFRoute(
-            name: HomeVersion4Widget.routeName,
-            path: HomeVersion4Widget.routePath,
-            builder: (context, params) => params.isEmpty
-                ? NavBarPage(initialPage: 'HomeVersion4')
-                : HomeVersion4Widget(),
-          ),
-          FFRoute(
-            name: LoginPageWidget.routeName,
-            path: LoginPageWidget.routePath,
-            builder: (context, params) => LoginPageWidget(
-              tabBarIndex: params.getParam(
-                'tabBarIndex',
-                ParamType.int,
-              ),
-            ),
           ),
           FFRoute(
             name: InterestsPageWidget.routeName,
@@ -183,35 +161,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             builder: (context, params) => EnableNotificationsWidget(),
           ),
           FFRoute(
-            name: AnalyzingMoodStatusPageWidget.routeName,
-            path: AnalyzingMoodStatusPageWidget.routePath,
-            builder: (context, params) => AnalyzingMoodStatusPageWidget(),
-          ),
-          FFRoute(
-              name: ProfileFINALWidget.routeName,
-              path: ProfileFINALWidget.routePath,
-              builder: (context, params) => params.isEmpty
-                  ? NavBarPage(initialPage: 'profileFINAL')
-                  : NavBarPage(
-                      initialPage: 'profileFINAL',
-                      page: ProfileFINALWidget(),
-                    )),
-          FFRoute(
-            name: SelfCarePlanPageWidget.routeName,
-            path: SelfCarePlanPageWidget.routePath,
-            builder: (context, params) => params.isEmpty
-                ? NavBarPage(initialPage: 'SelfCarePlanPage')
-                : SelfCarePlanPageWidget(),
-          ),
-          FFRoute(
-            name: RecommendationsPageWidget.routeName,
-            path: RecommendationsPageWidget.routePath,
-            builder: (context, params) => RecommendationsPageWidget(),
-          ),
-          FFRoute(
-            name: JournalPageFINALWidget.routeName,
-            path: JournalPageFINALWidget.routePath,
-            builder: (context, params) => JournalPageFINALWidget(),
+            name: ProfileFINALWidget.routeName,
+            path: ProfileFINALWidget.routePath,
+            builder: (context, params) => ProfileFINALWidget(),
           ),
           FFRoute(
             name: MeditationChoicePageWidget.routeName,
@@ -237,11 +189,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             name: MicrcosmicMeditationGoalPageWidget.routeName,
             path: MicrcosmicMeditationGoalPageWidget.routePath,
             builder: (context, params) => MicrcosmicMeditationGoalPageWidget(),
-          ),
-          FFRoute(
-            name: DailyMoodFaceCheckInPageWidget.routeName,
-            path: DailyMoodFaceCheckInPageWidget.routePath,
-            builder: (context, params) => DailyMoodFaceCheckInPageWidget(),
           ),
           FFRoute(
               name: LucilleHomeWidget.routeName,
@@ -271,16 +218,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             name: SleepMeditationsChoiceWidget.routeName,
             path: SleepMeditationsChoiceWidget.routePath,
             builder: (context, params) => SleepMeditationsChoiceWidget(),
-          ),
-          FFRoute(
-            name: TherapistDirectoryWidget.routeName,
-            path: TherapistDirectoryWidget.routePath,
-            builder: (context, params) => TherapistDirectoryWidget(),
-          ),
-          FFRoute(
-            name: CommunityHomeCopyWidget.routeName,
-            path: CommunityHomeCopyWidget.routePath,
-            builder: (context, params) => CommunityHomeCopyWidget(),
           ),
           FFRoute(
             name: CommunityHomeVersion5Widget.routeName,
@@ -374,37 +311,39 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             builder: (context, params) => LongBreathingGoalWidget(),
           ),
           FFRoute(
-            name: CommunityHomeFINALWidget.routeName,
-            path: CommunityHomeFINALWidget.routePath,
-            builder: (context, params) => params.isEmpty
-                ? NavBarPage(initialPage: 'CommunityHomeFINAL')
-                : CommunityHomeFINALWidget(
-                    forYouIndex: params.getParam(
-                      'forYouIndex',
-                      ParamType.int,
-                    ),
-                    breathingIndex: params.getParam(
-                      'breathingIndex',
-                      ParamType.int,
-                    ),
-                    bodyIndex: params.getParam(
-                      'bodyIndex',
-                      ParamType.int,
-                    ),
-                    initialTabIndex: params.getParam(
-                      'initialTabIndex',
-                      ParamType.int,
-                    ),
-                    oldIndex: params.getParam(
-                      'oldIndex',
-                      ParamType.int,
-                    ),
-                    newIndex: params.getParam(
-                      'newIndex',
-                      ParamType.int,
-                    ),
-                  ),
-          ),
+              name: CommunityHomeFINALWidget.routeName,
+              path: CommunityHomeFINALWidget.routePath,
+              builder: (context, params) => params.isEmpty
+                  ? NavBarPage(initialPage: 'CommunityHomeFINAL')
+                  : NavBarPage(
+                      initialPage: 'CommunityHomeFINAL',
+                      page: CommunityHomeFINALWidget(
+                        forYouIndex: params.getParam(
+                          'forYouIndex',
+                          ParamType.int,
+                        ),
+                        breathingIndex: params.getParam(
+                          'breathingIndex',
+                          ParamType.int,
+                        ),
+                        bodyIndex: params.getParam(
+                          'bodyIndex',
+                          ParamType.int,
+                        ),
+                        initialTabIndex: params.getParam(
+                          'initialTabIndex',
+                          ParamType.int,
+                        ),
+                        oldIndex: params.getParam(
+                          'oldIndex',
+                          ParamType.int,
+                        ),
+                        newIndex: params.getParam(
+                          'newIndex',
+                          ParamType.int,
+                        ),
+                      ),
+                    )),
           FFRoute(
             name: FacialMoodAnalyzerChoiceLoginWidget.routeName,
             path: FacialMoodAnalyzerChoiceLoginWidget.routePath,
@@ -419,11 +358,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             name: MoodAnalyzerSuccessWidget.routeName,
             path: MoodAnalyzerSuccessWidget.routePath,
             builder: (context, params) => MoodAnalyzerSuccessWidget(),
-          ),
-          FFRoute(
-            name: BlankSampleWidget.routeName,
-            path: BlankSampleWidget.routePath,
-            builder: (context, params) => BlankSampleWidget(),
           ),
           FFRoute(
             name: ReelsWidget.routeName,
@@ -492,16 +426,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             ),
           ),
           FFRoute(
-            name: JournalPageFINALCopyWidget.routeName,
-            path: JournalPageFINALCopyWidget.routePath,
-            builder: (context, params) => JournalPageFINALCopyWidget(),
-          ),
-          FFRoute(
-            name: SoundscapesHomeFinalWidget.routeName,
-            path: SoundscapesHomeFinalWidget.routePath,
-            builder: (context, params) => SoundscapesHomeFinalWidget(),
-          ),
-          FFRoute(
             name: MusicPlayerWidget.routeName,
             path: MusicPlayerWidget.routePath,
             builder: (context, params) => MusicPlayerWidget(
@@ -512,6 +436,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
               tracks: params.getParam<String>(
                 'tracks',
                 ParamType.String,
+                isList: true,
+              ),
+              trackAlbumArt: params.getParam<String>(
+                'trackAlbumArt',
+                ParamType.String,
+                isList: true,
+              ),
+              trackTime: params.getParam<int>(
+                'trackTime',
+                ParamType.int,
                 isList: true,
               ),
             ),
@@ -525,16 +459,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
                 ParamType.String,
               ),
             ),
-          ),
-          FFRoute(
-            name: EscapeInnerverseWebViewWidget.routeName,
-            path: EscapeInnerverseWebViewWidget.routePath,
-            builder: (context, params) => EscapeInnerverseWebViewWidget(),
-          ),
-          FFRoute(
-            name: JournalVersion5Widget.routeName,
-            path: JournalVersion5Widget.routePath,
-            builder: (context, params) => JournalVersion5Widget(),
           ),
           FFRoute(
             name: SplashScreenVersion5Widget.routeName,
@@ -573,16 +497,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
                 DestinationDetailsUnrealEngineVersion5Widget(),
           ),
           FFRoute(
-            name: WorldsAndRealmsUnrealEngineWidget.routeName,
-            path: WorldsAndRealmsUnrealEngineWidget.routePath,
-            builder: (context, params) => WorldsAndRealmsUnrealEngineWidget(),
-          ),
-          FFRoute(
-            name: MoodTrackingLoadingPageWidget.routeName,
-            path: MoodTrackingLoadingPageWidget.routePath,
-            builder: (context, params) => MoodTrackingLoadingPageWidget(),
-          ),
-          FFRoute(
             name: ChatAiScreen1Widget.routeName,
             path: ChatAiScreen1Widget.routePath,
             builder: (context, params) => ChatAiScreen1Widget(),
@@ -608,11 +522,108 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             builder: (context, params) => CommunityHomeVersion5CopyWidget(),
           ),
           FFRoute(
-            name: HomeVersion5Widget.routeName,
-            path: HomeVersion5Widget.routePath,
-            builder: (context, params) => params.isEmpty
-                ? NavBarPage(initialPage: 'HomeVersion5')
-                : HomeVersion5Widget(),
+              name: HomeVersion5Widget.routeName,
+              path: HomeVersion5Widget.routePath,
+              builder: (context, params) => params.isEmpty
+                  ? NavBarPage(initialPage: 'HomeVersion5')
+                  : NavBarPage(
+                      initialPage: 'HomeVersion5',
+                      page: HomeVersion5Widget(),
+                    )),
+          FFRoute(
+            name: ResetPageWidget.routeName,
+            path: ResetPageWidget.routePath,
+            builder: (context, params) => ResetPageWidget(),
+          ),
+          FFRoute(
+            name: MindPageWidget.routeName,
+            path: MindPageWidget.routePath,
+            builder: (context, params) => MindPageWidget(),
+          ),
+          FFRoute(
+              name: ExplorePageWidget.routeName,
+              path: ExplorePageWidget.routePath,
+              builder: (context, params) => params.isEmpty
+                  ? NavBarPage(initialPage: 'ExplorePage')
+                  : NavBarPage(
+                      initialPage: 'ExplorePage',
+                      page: ExplorePageWidget(),
+                    )),
+          FFRoute(
+            name: BodyPageVersion5Widget.routeName,
+            path: BodyPageVersion5Widget.routePath,
+            builder: (context, params) => BodyPageVersion5Widget(),
+          ),
+          FFRoute(
+            name: DeepWorkModesVersion5PageWidget.routeName,
+            path: DeepWorkModesVersion5PageWidget.routePath,
+            builder: (context, params) => DeepWorkModesVersion5PageWidget(),
+          ),
+          FFRoute(
+            name: JournalPageVersion5Widget.routeName,
+            path: JournalPageVersion5Widget.routePath,
+            builder: (context, params) => JournalPageVersion5Widget(),
+          ),
+          FFRoute(
+            name: FocusModesPageWidget.routeName,
+            path: FocusModesPageWidget.routePath,
+            builder: (context, params) => FocusModesPageWidget(),
+          ),
+          FFRoute(
+              name: EscapeInnerVerseWidget.routeName,
+              path: EscapeInnerVerseWidget.routePath,
+              builder: (context, params) => params.isEmpty
+                  ? NavBarPage(initialPage: 'EscapeInnerVerse')
+                  : NavBarPage(
+                      initialPage: 'EscapeInnerVerse',
+                      page: EscapeInnerVerseWidget(),
+                    )),
+          FFRoute(
+            name: HabitsPageVersion5Widget.routeName,
+            path: HabitsPageVersion5Widget.routePath,
+            builder: (context, params) => HabitsPageVersion5Widget(),
+          ),
+          FFRoute(
+            name: ChooseYourRealmVersion5PageWidget.routeName,
+            path: ChooseYourRealmVersion5PageWidget.routePath,
+            builder: (context, params) => ChooseYourRealmVersion5PageWidget(),
+          ),
+          FFRoute(
+            name: ChooseRealmsPageWidget.routeName,
+            path: ChooseRealmsPageWidget.routePath,
+            builder: (context, params) => ChooseRealmsPageWidget(),
+          ),
+          FFRoute(
+            name: StartingRealmWidget.routeName,
+            path: StartingRealmWidget.routePath,
+            builder: (context, params) => StartingRealmWidget(),
+          ),
+          FFRoute(
+            name: RitualSparkJournalPageVersion5Widget.routeName,
+            path: RitualSparkJournalPageVersion5Widget.routePath,
+            builder: (context, params) =>
+                RitualSparkJournalPageVersion5Widget(),
+          ),
+          FFRoute(
+            name: QuestsPageWidget.routeName,
+            path: QuestsPageWidget.routePath,
+            builder: (context, params) => QuestsPageWidget(),
+          ),
+          FFRoute(
+            name: ConnectionCommunityStartPageVersion5Widget.routeName,
+            path: ConnectionCommunityStartPageVersion5Widget.routePath,
+            builder: (context, params) =>
+                ConnectionCommunityStartPageVersion5Widget(),
+          ),
+          FFRoute(
+            name: TestPage1Widget.routeName,
+            path: TestPage1Widget.routePath,
+            builder: (context, params) => TestPage1Widget(),
+          ),
+          FFRoute(
+            name: EnergyScanVersion5Widget.routeName,
+            path: EnergyScanVersion5Widget.routePath,
+            builder: (context, params) => EnergyScanVersion5Widget(),
           ),
           FFRoute(
             name: $tiktokfeed_wz8en7.HomePageWidget.routeName,

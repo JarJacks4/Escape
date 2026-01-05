@@ -168,7 +168,7 @@ class _CommunityHomeVersion5CopyWidgetState
                                       userID: currentUserUid,
                                       data: tiktokfeed_wz8en7_app_state
                                               .FFAppState()
-                                          .ListTikTokPages,
+                                          .BodyTikToks,
                                       likerebuidpage: () async {},
                                       bookedrebuidpage: () async {},
                                     ),
@@ -362,8 +362,9 @@ class _CommunityHomeVersion5CopyWidgetState
                                                                               () async {
                                                                             logFirebaseEvent('COMMUNITY_HOME_VERSION5_COPY_MEDITATION_');
                                                                             logFirebaseEvent('Button_page_view');
-                                                                            await _model.pageViewController?.nextPage(
-                                                                              duration: Duration(milliseconds: 300),
+                                                                            await _model.pageViewController?.animateToPage(
+                                                                              1,
+                                                                              duration: Duration(milliseconds: 500),
                                                                               curve: Curves.ease,
                                                                             );
                                                                           },
@@ -417,8 +418,14 @@ class _CommunityHomeVersion5CopyWidgetState
                                                                           [
                                                                         FFButtonWidget(
                                                                           onPressed:
-                                                                              () {
-                                                                            print('Button pressed ...');
+                                                                              () async {
+                                                                            logFirebaseEvent('COMMUNITY_HOME_VERSION5_COPY_BODY_BTN_ON');
+                                                                            logFirebaseEvent('Button_page_view');
+                                                                            await _model.pageViewController?.animateToPage(
+                                                                              2,
+                                                                              duration: Duration(milliseconds: 500),
+                                                                              curve: Curves.ease,
+                                                                            );
                                                                           },
                                                                           text:
                                                                               FFLocalizations.of(context).getText(

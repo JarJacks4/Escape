@@ -1,5 +1,4 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import '/index.dart';
 import 'depression_reorder_widget.dart' show DepressionReorderWidget;
 import 'package:flutter/material.dart';
 
