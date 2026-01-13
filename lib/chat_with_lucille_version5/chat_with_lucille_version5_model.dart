@@ -39,26 +39,29 @@ class ChatWithLucilleVersion5Model
 
   String? sessionID;
 
-  List<String> messages = [];
-  void addToMessages(String item) => messages.add(item);
-  void removeFromMessages(String item) => messages.remove(item);
+  List<BuildShipStreamStruct> messages = [];
+  void addToMessages(BuildShipStreamStruct item) => messages.add(item);
+  void removeFromMessages(BuildShipStreamStruct item) => messages.remove(item);
   void removeAtIndexFromMessages(int index) => messages.removeAt(index);
-  void insertAtIndexInMessages(int index, String item) =>
+  void insertAtIndexInMessages(int index, BuildShipStreamStruct item) =>
       messages.insert(index, item);
-  void updateMessagesAtIndex(int index, Function(String) updateFn) =>
+  void updateMessagesAtIndex(
+          int index, Function(BuildShipStreamStruct) updateFn) =>
       messages[index] = updateFn(messages[index]);
 
-  List<LucilleStreamResponseFINALStruct> message = [];
-  void addToMessage(LucilleStreamResponseFINALStruct item) => message.add(item);
-  void removeFromMessage(LucilleStreamResponseFINALStruct item) =>
-      message.remove(item);
-  void removeAtIndexFromMessage(int index) => message.removeAt(index);
-  void insertAtIndexInMessage(
-          int index, LucilleStreamResponseFINALStruct item) =>
-      message.insert(index, item);
-  void updateMessageAtIndex(
-          int index, Function(LucilleStreamResponseFINALStruct) updateFn) =>
-      message[index] = updateFn(message[index]);
+  List<LucilleStreamFINALStruct> streamMessages = [];
+  void addToStreamMessages(LucilleStreamFINALStruct item) =>
+      streamMessages.add(item);
+  void removeFromStreamMessages(LucilleStreamFINALStruct item) =>
+      streamMessages.remove(item);
+  void removeAtIndexFromStreamMessages(int index) =>
+      streamMessages.removeAt(index);
+  void insertAtIndexInStreamMessages(
+          int index, LucilleStreamFINALStruct item) =>
+      streamMessages.insert(index, item);
+  void updateStreamMessagesAtIndex(
+          int index, Function(LucilleStreamFINALStruct) updateFn) =>
+      streamMessages[index] = updateFn(streamMessages[index]);
 
   ///  State fields for stateful widgets in this page.
 

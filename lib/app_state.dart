@@ -890,35 +890,64 @@ class FFAppState extends ChangeNotifier {
     listOfMessages.insert(index, value);
   }
 
-  List<LucilleStreamResponseFINALStruct> _messages = [];
-  List<LucilleStreamResponseFINALStruct> get messages => _messages;
-  set messages(List<LucilleStreamResponseFINALStruct> value) {
-    _messages = value;
+  List<BuildShipStreamStruct> _messagesBuildShip = [];
+  List<BuildShipStreamStruct> get messagesBuildShip => _messagesBuildShip;
+  set messagesBuildShip(List<BuildShipStreamStruct> value) {
+    _messagesBuildShip = value;
   }
 
-  void addToMessages(LucilleStreamResponseFINALStruct value) {
-    messages.add(value);
+  void addToMessagesBuildShip(BuildShipStreamStruct value) {
+    messagesBuildShip.add(value);
   }
 
-  void removeFromMessages(LucilleStreamResponseFINALStruct value) {
-    messages.remove(value);
+  void removeFromMessagesBuildShip(BuildShipStreamStruct value) {
+    messagesBuildShip.remove(value);
   }
 
-  void removeAtIndexFromMessages(int index) {
-    messages.removeAt(index);
+  void removeAtIndexFromMessagesBuildShip(int index) {
+    messagesBuildShip.removeAt(index);
   }
 
-  void updateMessagesAtIndex(
+  void updateMessagesBuildShipAtIndex(
     int index,
-    LucilleStreamResponseFINALStruct Function(LucilleStreamResponseFINALStruct)
-        updateFn,
+    BuildShipStreamStruct Function(BuildShipStreamStruct) updateFn,
   ) {
-    messages[index] = updateFn(_messages[index]);
+    messagesBuildShip[index] = updateFn(_messagesBuildShip[index]);
   }
 
-  void insertAtIndexInMessages(
-      int index, LucilleStreamResponseFINALStruct value) {
-    messages.insert(index, value);
+  void insertAtIndexInMessagesBuildShip(
+      int index, BuildShipStreamStruct value) {
+    messagesBuildShip.insert(index, value);
+  }
+
+  List<LucilleStreamFINALStruct> _streamMessages = [];
+  List<LucilleStreamFINALStruct> get streamMessages => _streamMessages;
+  set streamMessages(List<LucilleStreamFINALStruct> value) {
+    _streamMessages = value;
+  }
+
+  void addToStreamMessages(LucilleStreamFINALStruct value) {
+    streamMessages.add(value);
+  }
+
+  void removeFromStreamMessages(LucilleStreamFINALStruct value) {
+    streamMessages.remove(value);
+  }
+
+  void removeAtIndexFromStreamMessages(int index) {
+    streamMessages.removeAt(index);
+  }
+
+  void updateStreamMessagesAtIndex(
+    int index,
+    LucilleStreamFINALStruct Function(LucilleStreamFINALStruct) updateFn,
+  ) {
+    streamMessages[index] = updateFn(_streamMessages[index]);
+  }
+
+  void insertAtIndexInStreamMessages(
+      int index, LucilleStreamFINALStruct value) {
+    streamMessages.insert(index, value);
   }
 }
 

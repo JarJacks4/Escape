@@ -10,6 +10,8 @@ class HomeVersion5Model extends FlutterFlowModel<HomeVersion5Widget> {
 
   // Stores action output result for [Backend Call - API (Create New Session)] action in HomeVersion5 widget.
   ApiCallResponse? createSession;
+  // State field(s) for Column widget.
+  ScrollController? columnController;
   // Model for NewHomeVersion5 component.
   late NewHomeVersion5Model newHomeVersion5Model;
   // Model for SideNav component.
@@ -17,12 +19,14 @@ class HomeVersion5Model extends FlutterFlowModel<HomeVersion5Widget> {
 
   @override
   void initState(BuildContext context) {
+    columnController = ScrollController();
     newHomeVersion5Model = createModel(context, () => NewHomeVersion5Model());
     sideNavModel = createModel(context, () => SideNavModel());
   }
 
   @override
   void dispose() {
+    columnController?.dispose();
     newHomeVersion5Model.dispose();
     sideNavModel.dispose();
   }

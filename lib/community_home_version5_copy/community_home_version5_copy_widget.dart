@@ -228,6 +228,12 @@ class _CommunityHomeVersion5CopyWidgetState
                                               child: Container(
                                                 width: double.infinity,
                                                 decoration: BoxDecoration(
+                                                  image: DecorationImage(
+                                                    fit: BoxFit.cover,
+                                                    image: Image.asset(
+                                                      'assets/images/Container_(12).png',
+                                                    ).image,
+                                                  ),
                                                   gradient: LinearGradient(
                                                     colors: [
                                                       Colors.transparent,

@@ -62,6 +62,41 @@ class JournalRecord extends FirestoreRecord {
   String get thoughtsOfGratitude => _thoughtsOfGratitude ?? '';
   bool hasThoughtsOfGratitude() => _thoughtsOfGratitude != null;
 
+  // "DisplayName" field.
+  DocumentReference? _displayName;
+  DocumentReference? get displayName => _displayName;
+  bool hasDisplayName() => _displayName != null;
+
+  // "JournalTitle" field.
+  String? _journalTitle;
+  String get journalTitle => _journalTitle ?? '';
+  bool hasJournalTitle() => _journalTitle != null;
+
+  // "JournalContent" field.
+  String? _journalContent;
+  String get journalContent => _journalContent ?? '';
+  bool hasJournalContent() => _journalContent != null;
+
+  // "JournalPhoto" field.
+  String? _journalPhoto;
+  String get journalPhoto => _journalPhoto ?? '';
+  bool hasJournalPhoto() => _journalPhoto != null;
+
+  // "JournalVoiceNote" field.
+  String? _journalVoiceNote;
+  String get journalVoiceNote => _journalVoiceNote ?? '';
+  bool hasJournalVoiceNote() => _journalVoiceNote != null;
+
+  // "LucilleJournalPrompt" field.
+  String? _lucilleJournalPrompt;
+  String get lucilleJournalPrompt => _lucilleJournalPrompt ?? '';
+  bool hasLucilleJournalPrompt() => _lucilleJournalPrompt != null;
+
+  // "JournalTags" field.
+  List<String>? _journalTags;
+  List<String> get journalTags => _journalTags ?? const [];
+  bool hasJournalTags() => _journalTags != null;
+
   DocumentReference get parentReference => reference.parent.parent!;
 
   void _initializeFields() {
@@ -77,6 +112,13 @@ class JournalRecord extends FirestoreRecord {
     _numberOfBodyCompleted =
         castToType<int>(snapshotData['NumberOfBodyCompleted']);
     _thoughtsOfGratitude = snapshotData['ThoughtsOfGratitude'] as String?;
+    _displayName = snapshotData['DisplayName'] as DocumentReference?;
+    _journalTitle = snapshotData['JournalTitle'] as String?;
+    _journalContent = snapshotData['JournalContent'] as String?;
+    _journalPhoto = snapshotData['JournalPhoto'] as String?;
+    _journalVoiceNote = snapshotData['JournalVoiceNote'] as String?;
+    _lucilleJournalPrompt = snapshotData['LucilleJournalPrompt'] as String?;
+    _journalTags = getDataList(snapshotData['JournalTags']);
   }
 
   static Query<Map<String, dynamic>> collection([DocumentReference? parent]) =>
@@ -128,6 +170,12 @@ Map<String, dynamic> createJournalRecordData({
   int? numberOfMentalCompleted,
   int? numberOfBodyCompleted,
   String? thoughtsOfGratitude,
+  DocumentReference? displayName,
+  String? journalTitle,
+  String? journalContent,
+  String? journalPhoto,
+  String? journalVoiceNote,
+  String? lucilleJournalPrompt,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -140,6 +188,12 @@ Map<String, dynamic> createJournalRecordData({
       'NumberOfMentalCompleted': numberOfMentalCompleted,
       'NumberOfBodyCompleted': numberOfBodyCompleted,
       'ThoughtsOfGratitude': thoughtsOfGratitude,
+      'DisplayName': displayName,
+      'JournalTitle': journalTitle,
+      'JournalContent': journalContent,
+      'JournalPhoto': journalPhoto,
+      'JournalVoiceNote': journalVoiceNote,
+      'LucilleJournalPrompt': lucilleJournalPrompt,
     }.withoutNulls,
   );
 
@@ -151,6 +205,7 @@ class JournalRecordDocumentEquality implements Equality<JournalRecord> {
 
   @override
   bool equals(JournalRecord? e1, JournalRecord? e2) {
+    const listEquality = ListEquality();
     return e1?.improvingThoughts == e2?.improvingThoughts &&
         e1?.moods == e2?.moods &&
         e1?.moodPhoto == e2?.moodPhoto &&
@@ -159,7 +214,14 @@ class JournalRecordDocumentEquality implements Equality<JournalRecord> {
         e1?.numberOfMeditationsCompleted == e2?.numberOfMeditationsCompleted &&
         e1?.numberOfMentalCompleted == e2?.numberOfMentalCompleted &&
         e1?.numberOfBodyCompleted == e2?.numberOfBodyCompleted &&
-        e1?.thoughtsOfGratitude == e2?.thoughtsOfGratitude;
+        e1?.thoughtsOfGratitude == e2?.thoughtsOfGratitude &&
+        e1?.displayName == e2?.displayName &&
+        e1?.journalTitle == e2?.journalTitle &&
+        e1?.journalContent == e2?.journalContent &&
+        e1?.journalPhoto == e2?.journalPhoto &&
+        e1?.journalVoiceNote == e2?.journalVoiceNote &&
+        e1?.lucilleJournalPrompt == e2?.lucilleJournalPrompt &&
+        listEquality.equals(e1?.journalTags, e2?.journalTags);
   }
 
   @override
@@ -172,7 +234,14 @@ class JournalRecordDocumentEquality implements Equality<JournalRecord> {
         e?.numberOfMeditationsCompleted,
         e?.numberOfMentalCompleted,
         e?.numberOfBodyCompleted,
-        e?.thoughtsOfGratitude
+        e?.thoughtsOfGratitude,
+        e?.displayName,
+        e?.journalTitle,
+        e?.journalContent,
+        e?.journalPhoto,
+        e?.journalVoiceNote,
+        e?.lucilleJournalPrompt,
+        e?.journalTags
       ]);
 
   @override

@@ -1,8 +1,9 @@
 import '/backend/api_requests/api_calls.dart';
 import '/components/new_home_version5_widget.dart';
 import '/components/side_nav_widget.dart';
-import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:ui';
 import 'package:that_audio_player_5bjqer/app_state.dart'
     as that_audio_player_5bjqer_app_state;
 import 'package:tiktokfeed_wz8en7/app_state.dart'
@@ -10,6 +11,7 @@ import 'package:tiktokfeed_wz8en7/app_state.dart'
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';
 import 'home_version5_model.dart';
 export 'home_version5_model.dart';
@@ -24,10 +26,13 @@ class HomeVersion5Widget extends StatefulWidget {
   State<HomeVersion5Widget> createState() => _HomeVersion5WidgetState();
 }
 
-class _HomeVersion5WidgetState extends State<HomeVersion5Widget> {
+class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
+    with TickerProviderStateMixin {
   late HomeVersion5Model _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void initState() {
@@ -49,6 +54,34 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget> {
         (_model.createSession?.jsonBody ?? ''),
       )!;
       FFAppState().update(() {});
+    });
+
+    animationsMap.addAll({
+      'imageOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 190.ms),
+          FadeEffect(
+            curve: Curves.easeIn,
+            delay: 190.0.ms,
+            duration: 1220.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 1680.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
@@ -74,7 +107,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget> {
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: FlutterFlowTheme.of(context).primary,
         drawer: Container(
           width: MediaQuery.sizeOf(context).width * 0.7,
           child: Drawer(
@@ -86,66 +119,6 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget> {
             ),
           ),
         ),
-        appBar: responsiveVisibility(
-          context: context,
-          tablet: false,
-          tabletLandscape: false,
-          desktop: false,
-        )
-            ? PreferredSize(
-                preferredSize: Size.fromHeight(70.0),
-                child: AppBar(
-                  backgroundColor: Color(0xFFFCFCFC),
-                  automaticallyImplyLeading: false,
-                  title: Padding(
-                    padding: EdgeInsets.all(16.0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        FlutterFlowIconButton(
-                          borderRadius: 8.0,
-                          buttonSize: 60.0,
-                          icon: Icon(
-                            FFIcons.khamburgerMenu,
-                            color: FlutterFlowTheme.of(context).alternate,
-                            size: 36.0,
-                          ),
-                          onPressed: () async {
-                            logFirebaseEvent(
-                                'HOME_VERSION5_hamburgerMenu_ICN_ON_TAP');
-                            logFirebaseEvent('IconButton_drawer');
-                            scaffoldKey.currentState!.openDrawer();
-                          },
-                        ),
-                        Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Container(
-                            width: 90.47,
-                            height: 43.1,
-                            decoration: BoxDecoration(),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(8.0),
-                              child: Image.asset(
-                                'assets/images/Logo_ESCAPE_DarkBlue.png',
-                                width: 55.0,
-                                height: 200.0,
-                                fit: BoxFit.contain,
-                                alignment: Alignment(0.0, 0.0),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  actions: [],
-                  centerTitle: true,
-                  toolbarHeight: 75.0,
-                  elevation: 3.0,
-                ),
-              )
-            : null,
         body: SafeArea(
           top: true,
           child: Align(
@@ -159,6 +132,17 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget> {
                       width: double.infinity,
                       height: 815.48,
                       decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            blurRadius: 8.0,
+                            color: Colors.white,
+                            offset: Offset(
+                              0.0,
+                              8.0,
+                            ),
+                            spreadRadius: 20.0,
+                          )
+                        ],
                         gradient: LinearGradient(
                           colors: [
                             FlutterFlowTheme.of(context).primary,
@@ -169,10 +153,96 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget> {
                           end: AlignmentDirectional(0, 1.0),
                         ),
                       ),
-                      child: wrapWithModel(
-                        model: _model.newHomeVersion5Model,
-                        updateCallback: () => safeSetState(() {}),
-                        child: NewHomeVersion5Widget(),
+                      child: ScrollConfiguration(
+                        behavior: ScrollConfiguration.of(context).copyWith(
+                          scrollbars: false,
+                          dragDevices: {
+                            PointerDeviceKind.mouse,
+                            PointerDeviceKind.touch,
+                            PointerDeviceKind.stylus,
+                            PointerDeviceKind.unknown,
+                          },
+                        ),
+                        child: Scrollbar(
+                          controller: _model.columnController,
+                          child: SingleChildScrollView(
+                            controller: _model.columnController,
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Stack(
+                                  children: [
+                                    Opacity(
+                                      opacity: 0.5,
+                                      child: Hero(
+                                        tag: 'background',
+                                        transitionOnUserGestures: true,
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                          child: Image.asset(
+                                            'assets/images/spiritual-chakra-pensive-man-face-purple-blue-mist-4k-2025-08-29-06-28-30-utc.gif',
+                                            width: 409.6,
+                                            height: 876.8,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ).animateOnPageLoad(animationsMap[
+                                          'imageOnPageLoadAnimation']!),
+                                    ),
+                                    Stack(
+                                      alignment: AlignmentDirectional(0.0, 1.0),
+                                      children: [
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(0.0, 1.0),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 30.0, 0.0, 0.0),
+                                            child: Container(
+                                              width: double.infinity,
+                                              height: 872.0,
+                                              decoration: BoxDecoration(
+                                                gradient: LinearGradient(
+                                                  colors: [
+                                                    Color(0xB8EDF1F7),
+                                                    Colors.white,
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondary,
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondary
+                                                  ],
+                                                  stops: [0.0, 0.8, 1.0, 1.0],
+                                                  begin: AlignmentDirectional(
+                                                      0.0, -1.0),
+                                                  end: AlignmentDirectional(
+                                                      0, 1.0),
+                                                ),
+                                              ),
+                                              child: Container(
+                                                decoration: BoxDecoration(),
+                                                child: wrapWithModel(
+                                                  model: _model
+                                                      .newHomeVersion5Model,
+                                                  updateCallback: () =>
+                                                      safeSetState(() {}),
+                                                  child:
+                                                      NewHomeVersion5Widget(),
+                                                ),
+                                              ),
+                                            ).animateOnPageLoad(animationsMap[
+                                                'containerOnPageLoadAnimation']!),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                   ],

@@ -20,6 +20,10 @@ class JournalPage1Version5Model
   List<String>? get choiceChipsValues => choiceChipsValueController?.value;
   set choiceChipsValues(List<String>? val) =>
       choiceChipsValueController?.value = val;
+  bool isDataUploading_uploadJournalMood = false;
+  FFUploadedFile uploadedLocalFile_uploadJournalMood =
+      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
+  String uploadedFileUrl_uploadJournalMood = '';
 
   @override
   void initState(BuildContext context) {}
