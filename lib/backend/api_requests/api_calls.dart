@@ -255,42 +255,61 @@ class LucilleChatStreamCall {
         response,
         r'''$.session_id''',
       ));
-  static String? deltaContent(dynamic response) =>
-      castToType<String>(getJsonField(
-        response,
-        r'''$.delta''',
-      ));
-  static String? typeOfResponse(dynamic response) =>
-      castToType<String>(getJsonField(
-        response,
-        r'''$.type''',
-      ));
   static String? lucilleResponse(dynamic response) =>
       castToType<String>(getJsonField(
         response,
         r'''$.response''',
       ));
-  static List<String>? chatConversation(dynamic response) => (getJsonField(
-        response,
-        r'''$.conversation''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  static String? messageStatus(dynamic response) =>
-      castToType<String>(getJsonField(
-        response,
-        r'''$.status''',
-      ));
   static int? messageCount(dynamic response) => castToType<int>(getJsonField(
         response,
         r'''$.message_count''',
       ));
-  static String? timestamp(dynamic response) => castToType<String>(getJsonField(
+  static String? content(dynamic response) => castToType<String>(getJsonField(
         response,
-        r'''$.timestamp''',
+        r'''$.content''',
+      ));
+  static bool? status(dynamic response) => castToType<bool>(getJsonField(
+        response,
+        r'''$.done''',
+      ));
+}
+
+class LucilleStreamingBuildShipCall {
+  static Future<ApiCallResponse> call({
+    String? sessionID = '',
+    String? message = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "message": "${escapeStringForJson(message)}",
+  "session_id": "${escapeStringForJson(sessionID)}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'Lucille Streaming BuildShip',
+      apiUrl: 'https://mj1jep.buildship.run/chat/stream/',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static int? statusCode(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.status''',
+      ));
+  static String? delta(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.data''',
       ));
 }
 

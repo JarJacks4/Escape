@@ -78,7 +78,7 @@ class _NewHomeVersion5WidgetState extends State<NewHomeVersion5Widget>
       height: MediaQuery.sizeOf(context).height * 2.047,
       decoration: BoxDecoration(),
       child: Padding(
-        padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
+        padding: EdgeInsets.all(15.0),
         child: ScrollConfiguration(
           behavior: ScrollConfiguration.of(context).copyWith(
             scrollbars: false,
@@ -97,6 +97,54 @@ class _NewHomeVersion5WidgetState extends State<NewHomeVersion5Widget>
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
+                  Padding(
+                    padding: EdgeInsets.all(16.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Flexible(
+                          flex: 1,
+                          child: Align(
+                            alignment: AlignmentDirectional(-1.0, -1.0),
+                            child: FlutterFlowIconButton(
+                              borderRadius: 8.0,
+                              buttonSize: 60.0,
+                              icon: Icon(
+                                FFIcons.khamburgerMenu,
+                                color: FlutterFlowTheme.of(context).alternate,
+                                size: 42.0,
+                              ),
+                              onPressed: () async {
+                                logFirebaseEvent(
+                                    'NEW_HOME_VERSION5_hamburgerMenu_ICN_ON_T');
+                                logFirebaseEvent('IconButton_drawer');
+                                Scaffold.of(context).openDrawer();
+                              },
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Container(
+                            width: 90.47,
+                            height: 43.1,
+                            decoration: BoxDecoration(),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(8.0),
+                              child: Image.asset(
+                                'assets/images/Logo_ESCAPE_DarkBlue.png',
+                                width: 55.0,
+                                height: 200.0,
+                                fit: BoxFit.contain,
+                                alignment: Alignment(0.0, 0.0),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                   Container(
                     width: double.infinity,
                     height: 60.0,
@@ -554,7 +602,13 @@ class _NewHomeVersion5WidgetState extends State<NewHomeVersion5Widget>
                               logFirebaseEvent('Container_navigate_to');
 
                               context.pushNamed(
-                                ChooseRealmsPageWidget.routeName,
+                                AISoundscapesCopyCopyWidget.routeName,
+                                queryParameters: {
+                                  'meditationaudio': serializeParam(
+                                    '',
+                                    ParamType.String,
+                                  ),
+                                }.withoutNulls,
                                 extra: <String, dynamic>{
                                   kTransitionInfoKey: TransitionInfo(
                                     hasTransition: true,
@@ -571,7 +625,7 @@ class _NewHomeVersion5WidgetState extends State<NewHomeVersion5Widget>
                                 image: DecorationImage(
                                   fit: BoxFit.cover,
                                   image: Image.asset(
-                                    'assets/images/gemstone.gif',
+                                    'assets/images/headphones-heart.gif',
                                   ).image,
                                 ),
                                 boxShadow: [
@@ -600,7 +654,7 @@ class _NewHomeVersion5WidgetState extends State<NewHomeVersion5Widget>
                           ),
                           Text(
                             FFLocalizations.of(context).getText(
-                              'w5w37zo6' /* Worlds */,
+                              'w5w37zo6' /* Soundscapes */,
                             ),
                             style:
                                 FlutterFlowTheme.of(context).bodySmall.override(

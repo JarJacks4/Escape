@@ -68,10 +68,11 @@ class _ChatWithLucilleVersion5WidgetState
         trigger: AnimationTrigger.onActionTrigger,
         applyInitialState: true,
         effectsBuilder: () => [
+          VisibilityEffect(duration: 220.ms),
           FadeEffect(
             curve: Curves.easeIn,
             delay: 220.0.ms,
-            duration: 1570.0.ms,
+            duration: 380.0.ms,
             begin: 0.0,
             end: 1.0,
           ),
@@ -506,7 +507,7 @@ class _ChatWithLucilleVersion5WidgetState
                                                             await actions
                                                                 .speakText(
                                                               LucilleChatStreamCall
-                                                                  .deltaContent(
+                                                                  .content(
                                                                 (_model.voiceChatLucilleResponse1
                                                                         ?.jsonBody ??
                                                                     ''),
@@ -599,7 +600,7 @@ class _ChatWithLucilleVersion5WidgetState
                                                               await actions
                                                                   .speakText(
                                                                 LucilleChatStreamCall
-                                                                    .deltaContent(
+                                                                    .content(
                                                                   (_model.voiceChatLucilleResponse2
                                                                           ?.jsonBody ??
                                                                       ''),
@@ -852,7 +853,7 @@ class _ChatWithLucilleVersion5WidgetState
                                                                                     alignment: AlignmentDirectional(0.0, -1.0),
                                                                                     child: Builder(
                                                                                       builder: (context) {
-                                                                                        final chat = _model.message.map((e) => e.content).toList();
+                                                                                        final chat = _model.streamMessages.toList();
                                                                                         if (chat.isEmpty) {
                                                                                           return Center(
                                                                                             child: Container(
@@ -922,10 +923,7 @@ class _ChatWithLucilleVersion5WidgetState
                                                                                                                     text: TextSpan(
                                                                                                                       children: [
                                                                                                                         TextSpan(
-                                                                                                                          text: valueOrDefault<String>(
-                                                                                                                            FFAppState().messages.firstOrNull?.userMessage,
-                                                                                                                            'UserMessage',
-                                                                                                                          ),
+                                                                                                                          text: _model.textController.text,
                                                                                                                           style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                                 fontFamily: 'WorkSans',
                                                                                                                                 letterSpacing: 0.0,
@@ -1050,7 +1048,7 @@ class _ChatWithLucilleVersion5WidgetState
                                                                                                                 text: TextSpan(
                                                                                                                   children: [
                                                                                                                     TextSpan(
-                                                                                                                      text: chatItem,
+                                                                                                                      text: chatItem.content,
                                                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                                             fontFamily: 'WorkSans',
                                                                                                                             letterSpacing: 0.0,
@@ -1291,12 +1289,12 @@ class _ChatWithLucilleVersion5WidgetState
                                                                         logFirebaseEvent(
                                                                             'IconButton_update_app_state');
                                                                         FFAppState()
-                                                                            .addToMessages(LucilleStreamResponseFINALStruct(
+                                                                            .addToStreamMessages(LucilleStreamFINALStruct(
+                                                                          role:
+                                                                              Role.User,
                                                                           userMessage: _model
                                                                               .textController
                                                                               .text,
-                                                                          role:
-                                                                              Role.User,
                                                                         ));
                                                                         safeSetState(
                                                                             () {});
@@ -1306,7 +1304,7 @@ class _ChatWithLucilleVersion5WidgetState
                                                                             .lucilleStreamingResponseCall
                                                                             .call(
                                                                           sessionID:
-                                                                              FFAppState().chatSessionId,
+                                                                              (_model.sessionIDVoiceChat?.jsonBody ?? '').toString(),
                                                                           message: _model
                                                                               .textController
                                                                               .text,
@@ -1325,29 +1323,15 @@ class _ChatWithLucilleVersion5WidgetState
                                                                             (onMessageInput) async {
                                                                               if (_model.newMessage!) {
                                                                                 logFirebaseEvent('_update_page_state');
-                                                                                _model.newMessage = false;
-                                                                                _model.addToMessage((getJsonField(
-                                                                                  onMessageInput.serverSentEvent.jsonData,
-                                                                                  r'''$.delta''',
-                                                                                ).toList().map<LucilleStreamResponseFINALStruct?>(LucilleStreamResponseFINALStruct.maybeFromMap).toList() as Iterable<LucilleStreamResponseFINALStruct?>)
-                                                                                    .withoutNulls
-                                                                                    .firstOrNull!);
+                                                                                _model.newMessage = true;
+                                                                                _model.streamedResponse = LucilleStreamFINALStruct.maybeFromMap(onMessageInput.serverSentEvent.jsonData)?.content;
                                                                                 safeSetState(() {});
-                                                                                logFirebaseEvent('_update_app_state');
-                                                                                FFAppState().addToMessages(LucilleStreamResponseFINALStruct(
-                                                                                  content: LucilleStreamResponseFINALStruct.maybeFromMap(onMessageInput.serverSentEvent.jsonData)?.content,
-                                                                                  done: false,
-                                                                                  sessionId: LucilleStreamResponseFINALStruct.maybeFromMap(onMessageInput.serverSentEvent.jsonData)?.sessionId,
-                                                                                  response: LucilleStreamResponseFINALStruct.maybeFromMap(onMessageInput.serverSentEvent.jsonData)?.response,
-                                                                                  messageCount: LucilleStreamResponseFINALStruct.maybeFromMap(onMessageInput.serverSentEvent.jsonData)?.messageCount,
-                                                                                  role: Role.Lucille,
-                                                                                ));
-                                                                                safeSetState(() {});
+                                                                              } else {
                                                                                 logFirebaseEvent('_show_snack_bar');
                                                                                 ScaffoldMessenger.of(context).showSnackBar(
                                                                                   SnackBar(
                                                                                     content: Text(
-                                                                                      'Stream Complete',
+                                                                                      'Stream Error! Please Check.',
                                                                                       style: TextStyle(
                                                                                         color: FlutterFlowTheme.of(context).primaryText,
                                                                                       ),
@@ -1356,28 +1340,7 @@ class _ChatWithLucilleVersion5WidgetState
                                                                                     backgroundColor: FlutterFlowTheme.of(context).secondary,
                                                                                   ),
                                                                                 );
-                                                                              } else {
-                                                                                logFirebaseEvent('_update_app_state');
-                                                                                FFAppState().updateMessagesAtIndex(
-                                                                                  LucilleStreamResponseFINALStruct.maybeFromMap(onMessageInput.serverSentEvent.jsonData)!.messageCount,
-                                                                                  (e) => e..content = LucilleStreamResponseFINALStruct.maybeFromMap(onMessageInput.serverSentEvent.jsonData)?.response,
-                                                                                );
-                                                                                safeSetState(() {});
                                                                               }
-
-                                                                              logFirebaseEvent('_show_snack_bar');
-                                                                              ScaffoldMessenger.of(context).showSnackBar(
-                                                                                SnackBar(
-                                                                                  content: Text(
-                                                                                    'Stream Recieved!',
-                                                                                    style: TextStyle(
-                                                                                      color: FlutterFlowTheme.of(context).primaryText,
-                                                                                    ),
-                                                                                  ),
-                                                                                  duration: Duration(milliseconds: 4000),
-                                                                                  backgroundColor: FlutterFlowTheme.of(context).secondary,
-                                                                                ),
-                                                                              );
                                                                             },
                                                                             onError:
                                                                                 (onErrorInput) async {
@@ -1397,9 +1360,19 @@ class _ChatWithLucilleVersion5WidgetState
                                                                             },
                                                                             onDone:
                                                                                 () async {
-                                                                              logFirebaseEvent('_update_page_state');
-                                                                              _model.addToChatMessages(_model.streamedResponse!);
-                                                                              safeSetState(() {});
+                                                                              logFirebaseEvent('_show_snack_bar');
+                                                                              ScaffoldMessenger.of(context).showSnackBar(
+                                                                                SnackBar(
+                                                                                  content: Text(
+                                                                                    'Message Finished!',
+                                                                                    style: TextStyle(
+                                                                                      color: FlutterFlowTheme.of(context).primaryText,
+                                                                                    ),
+                                                                                  ),
+                                                                                  duration: Duration(milliseconds: 4000),
+                                                                                  backgroundColor: FlutterFlowTheme.of(context).secondary,
+                                                                                ),
+                                                                              );
                                                                             },
                                                                           );
                                                                         }
@@ -1418,10 +1391,8 @@ class _ChatWithLucilleVersion5WidgetState
                                                                               'IconButton_update_page_state');
                                                                           _model.aiIsResponsing =
                                                                               false;
-                                                                          _model.addToMessages(((_model.lucilleStreamChat?.jsonBody ?? '').toList().map<LucilleStreamResponseFINALStruct?>(LucilleStreamResponseFINALStruct.maybeFromMap).toList() as Iterable<LucilleStreamResponseFINALStruct?>)
-                                                                              .withoutNulls
-                                                                              .firstOrNull!
-                                                                              .content);
+                                                                          _model.addToStreamMessages(LucilleStreamFINALStruct.maybeFromMap((_model.lucilleStreamChat?.jsonBody ??
+                                                                              ''))!);
                                                                           safeSetState(
                                                                               () {});
                                                                         } else {

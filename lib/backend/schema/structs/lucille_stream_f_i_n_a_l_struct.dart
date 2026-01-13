@@ -9,8 +9,8 @@ import '/backend/schema/enums/enums.dart';
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
-class LucilleStreamResponseFINALStruct extends FFFirebaseStruct {
-  LucilleStreamResponseFINALStruct({
+class LucilleStreamFINALStruct extends FFFirebaseStruct {
+  LucilleStreamFINALStruct({
     String? content,
     bool? done,
     String? sessionId,
@@ -66,7 +66,7 @@ class LucilleStreamResponseFINALStruct extends FFFirebaseStruct {
 
   bool hasMessageCount() => _messageCount != null;
 
-  // "role" field.
+  // "Role" field.
   Role? _role;
   Role? get role => _role;
   set role(Role? val) => _role = val;
@@ -80,22 +80,21 @@ class LucilleStreamResponseFINALStruct extends FFFirebaseStruct {
 
   bool hasUserMessage() => _userMessage != null;
 
-  static LucilleStreamResponseFINALStruct fromMap(Map<String, dynamic> data) =>
-      LucilleStreamResponseFINALStruct(
+  static LucilleStreamFINALStruct fromMap(Map<String, dynamic> data) =>
+      LucilleStreamFINALStruct(
         content: data['content'] as String?,
         done: data['done'] as bool?,
         sessionId: data['session_id'] as String?,
         response: data['response'] as String?,
         messageCount: castToType<int>(data['message_count']),
-        role: data['role'] is Role
-            ? data['role']
-            : deserializeEnum<Role>(data['role']),
+        role: data['Role'] is Role
+            ? data['Role']
+            : deserializeEnum<Role>(data['Role']),
         userMessage: data['UserMessage'] as String?,
       );
 
-  static LucilleStreamResponseFINALStruct? maybeFromMap(dynamic data) => data
-          is Map
-      ? LucilleStreamResponseFINALStruct.fromMap(data.cast<String, dynamic>())
+  static LucilleStreamFINALStruct? maybeFromMap(dynamic data) => data is Map
+      ? LucilleStreamFINALStruct.fromMap(data.cast<String, dynamic>())
       : null;
 
   Map<String, dynamic> toMap() => {
@@ -104,7 +103,7 @@ class LucilleStreamResponseFINALStruct extends FFFirebaseStruct {
         'session_id': _sessionId,
         'response': _response,
         'message_count': _messageCount,
-        'role': _role?.serialize(),
+        'Role': _role?.serialize(),
         'UserMessage': _userMessage,
       }.withoutNulls;
 
@@ -130,7 +129,7 @@ class LucilleStreamResponseFINALStruct extends FFFirebaseStruct {
           _messageCount,
           ParamType.int,
         ),
-        'role': serializeParam(
+        'Role': serializeParam(
           _role,
           ParamType.Enum,
         ),
@@ -140,9 +139,9 @@ class LucilleStreamResponseFINALStruct extends FFFirebaseStruct {
         ),
       }.withoutNulls;
 
-  static LucilleStreamResponseFINALStruct fromSerializableMap(
+  static LucilleStreamFINALStruct fromSerializableMap(
           Map<String, dynamic> data) =>
-      LucilleStreamResponseFINALStruct(
+      LucilleStreamFINALStruct(
         content: deserializeParam(
           data['content'],
           ParamType.String,
@@ -169,7 +168,7 @@ class LucilleStreamResponseFINALStruct extends FFFirebaseStruct {
           false,
         ),
         role: deserializeParam<Role>(
-          data['role'],
+          data['Role'],
           ParamType.Enum,
           false,
         ),
@@ -181,11 +180,11 @@ class LucilleStreamResponseFINALStruct extends FFFirebaseStruct {
       );
 
   @override
-  String toString() => 'LucilleStreamResponseFINALStruct(${toMap()})';
+  String toString() => 'LucilleStreamFINALStruct(${toMap()})';
 
   @override
   bool operator ==(Object other) {
-    return other is LucilleStreamResponseFINALStruct &&
+    return other is LucilleStreamFINALStruct &&
         content == other.content &&
         done == other.done &&
         sessionId == other.sessionId &&
@@ -200,7 +199,7 @@ class LucilleStreamResponseFINALStruct extends FFFirebaseStruct {
       [content, done, sessionId, response, messageCount, role, userMessage]);
 }
 
-LucilleStreamResponseFINALStruct createLucilleStreamResponseFINALStruct({
+LucilleStreamFINALStruct createLucilleStreamFINALStruct({
   String? content,
   bool? done,
   String? sessionId,
@@ -213,7 +212,7 @@ LucilleStreamResponseFINALStruct createLucilleStreamResponseFINALStruct({
   bool create = false,
   bool delete = false,
 }) =>
-    LucilleStreamResponseFINALStruct(
+    LucilleStreamFINALStruct(
       content: content,
       done: done,
       sessionId: sessionId,
@@ -229,68 +228,67 @@ LucilleStreamResponseFINALStruct createLucilleStreamResponseFINALStruct({
       ),
     );
 
-LucilleStreamResponseFINALStruct? updateLucilleStreamResponseFINALStruct(
-  LucilleStreamResponseFINALStruct? lucilleStreamResponseFINAL, {
+LucilleStreamFINALStruct? updateLucilleStreamFINALStruct(
+  LucilleStreamFINALStruct? lucilleStreamFINAL, {
   bool clearUnsetFields = true,
   bool create = false,
 }) =>
-    lucilleStreamResponseFINAL
+    lucilleStreamFINAL
       ?..firestoreUtilData = FirestoreUtilData(
         clearUnsetFields: clearUnsetFields,
         create: create,
       );
 
-void addLucilleStreamResponseFINALStructData(
+void addLucilleStreamFINALStructData(
   Map<String, dynamic> firestoreData,
-  LucilleStreamResponseFINALStruct? lucilleStreamResponseFINAL,
+  LucilleStreamFINALStruct? lucilleStreamFINAL,
   String fieldName, [
   bool forFieldValue = false,
 ]) {
   firestoreData.remove(fieldName);
-  if (lucilleStreamResponseFINAL == null) {
+  if (lucilleStreamFINAL == null) {
     return;
   }
-  if (lucilleStreamResponseFINAL.firestoreUtilData.delete) {
+  if (lucilleStreamFINAL.firestoreUtilData.delete) {
     firestoreData[fieldName] = FieldValue.delete();
     return;
   }
-  final clearFields = !forFieldValue &&
-      lucilleStreamResponseFINAL.firestoreUtilData.clearUnsetFields;
+  final clearFields =
+      !forFieldValue && lucilleStreamFINAL.firestoreUtilData.clearUnsetFields;
   if (clearFields) {
     firestoreData[fieldName] = <String, dynamic>{};
   }
-  final lucilleStreamResponseFINALData =
-      getLucilleStreamResponseFINALFirestoreData(
-          lucilleStreamResponseFINAL, forFieldValue);
-  final nestedData = lucilleStreamResponseFINALData
-      .map((k, v) => MapEntry('$fieldName.$k', v));
+  final lucilleStreamFINALData =
+      getLucilleStreamFINALFirestoreData(lucilleStreamFINAL, forFieldValue);
+  final nestedData =
+      lucilleStreamFINALData.map((k, v) => MapEntry('$fieldName.$k', v));
 
   final mergeFields =
-      lucilleStreamResponseFINAL.firestoreUtilData.create || clearFields;
+      lucilleStreamFINAL.firestoreUtilData.create || clearFields;
   firestoreData
       .addAll(mergeFields ? mergeNestedFields(nestedData) : nestedData);
 }
 
-Map<String, dynamic> getLucilleStreamResponseFINALFirestoreData(
-  LucilleStreamResponseFINALStruct? lucilleStreamResponseFINAL, [
+Map<String, dynamic> getLucilleStreamFINALFirestoreData(
+  LucilleStreamFINALStruct? lucilleStreamFINAL, [
   bool forFieldValue = false,
 ]) {
-  if (lucilleStreamResponseFINAL == null) {
+  if (lucilleStreamFINAL == null) {
     return {};
   }
-  final firestoreData = mapToFirestore(lucilleStreamResponseFINAL.toMap());
+  final firestoreData = mapToFirestore(lucilleStreamFINAL.toMap());
 
   // Add any Firestore field values
-  lucilleStreamResponseFINAL.firestoreUtilData.fieldValues
+  lucilleStreamFINAL.firestoreUtilData.fieldValues
       .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;
 }
 
-List<Map<String, dynamic>> getLucilleStreamResponseFINALListFirestoreData(
-  List<LucilleStreamResponseFINALStruct>? lucilleStreamResponseFINALs,
+List<Map<String, dynamic>> getLucilleStreamFINALListFirestoreData(
+  List<LucilleStreamFINALStruct>? lucilleStreamFINALs,
 ) =>
-    lucilleStreamResponseFINALs
-        ?.map((e) => getLucilleStreamResponseFINALFirestoreData(e, true))
+    lucilleStreamFINALs
+        ?.map((e) => getLucilleStreamFINALFirestoreData(e, true))
         .toList() ??
     [];

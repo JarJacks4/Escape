@@ -1,17 +1,14 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'journal_page1_widget.dart' show JournalPage1Widget;
+import 'third_eye_chakra_mood_scan_widget.dart'
+    show ThirdEyeChakraMoodScanWidget;
 import 'package:flutter/material.dart';
-import 'package:record/record.dart';
 
-class JournalPage1Model extends FlutterFlowModel<JournalPage1Widget> {
+class ThirdEyeChakraMoodScanModel
+    extends FlutterFlowModel<ThirdEyeChakraMoodScanWidget> {
   ///  State fields for stateful widgets in this component.
 
   // State field(s) for Column widget.
   ScrollController? columnController;
-  AudioRecorder? audioRecorder;
-  String? stopAudioRitual;
-  FFUploadedFile recordedFileBytes =
-      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
 
   @override
   void initState(BuildContext context) {

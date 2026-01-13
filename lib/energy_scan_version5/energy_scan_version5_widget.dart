@@ -1,3 +1,11 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/components/crown_chakra_mood_scan_comp_widget.dart';
+import '/components/heart_chakra_bottom_sheet_mood_scan_widget.dart';
+import '/components/root_chakra_comp_mood_scanner_widget.dart';
+import '/components/sacral_chakra_mood_comp_widget.dart';
+import '/components/solar_plexus_chakra_mood_scanner_comp_widget.dart';
+import '/components/third_eye_chakra_mood_scan_widget.dart';
+import '/components/throat_chakra_mood_scan_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
@@ -126,7 +134,9 @@ class _EnergyScanVersion5WidgetState extends State<EnergyScanVersion5Widget> {
                                       children: [
                                         Text(
                                           FFLocalizations.of(context).getText(
-                                            'b79bvrc0' /* Lucille's Energy Center */,
+                                            'b79bvrc0' /* Lucille's Energy Progress 
+Cen... */
+                                            ,
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .headlineMedium
@@ -134,7 +144,7 @@ class _EnergyScanVersion5WidgetState extends State<EnergyScanVersion5Widget> {
                                                 fontFamily: 'WorkSans',
                                                 color: Colors.white,
                                                 letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w600,
+                                                fontWeight: FontWeight.bold,
                                               ),
                                         ),
                                         Text(
@@ -200,19 +210,22 @@ class _EnergyScanVersion5WidgetState extends State<EnergyScanVersion5Widget> {
                                             shape: BoxShape.circle,
                                           ),
                                         ),
-                                        Text(
-                                          FFLocalizations.of(context).getText(
-                                            'vb43dyby' /* Centered */,
+                                        AuthUserStreamWidget(
+                                          builder: (context) => Text(
+                                            valueOrDefault(
+                                                currentUserDocument
+                                                    ?.currentMood,
+                                                ''),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'WorkSans',
+                                                  color: Colors.white,
+                                                  fontSize: 14.0,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
                                           ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'WorkSans',
-                                                color: Colors.white,
-                                                fontSize: 14.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w500,
-                                              ),
                                         ),
                                       ].divide(SizedBox(width: 8.0)),
                                     ),
@@ -230,269 +243,514 @@ class _EnergyScanVersion5WidgetState extends State<EnergyScanVersion5Widget> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
-                                    Container(
-                                      width: 60.0,
-                                      height: 60.0,
-                                      decoration: BoxDecoration(
-                                        boxShadow: [
-                                          BoxShadow(
-                                            blurRadius: 8.0,
-                                            color: Color(0xFFAF52DE),
-                                            offset: Offset(
-                                              0.0,
-                                              2.0,
-                                            ),
-                                            spreadRadius: 14.0,
-                                          )
-                                        ],
-                                        gradient: LinearGradient(
-                                          colors: [
-                                            FlutterFlowTheme.of(context)
-                                                .primary,
-                                            Color(0xFFAF52DE),
-                                            Color(0xFFAD1457)
+                                    InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        logFirebaseEvent(
+                                            'ENERGY_SCAN_VERSION5_Container_r67xup7q_');
+                                        logFirebaseEvent(
+                                            'Container_bottom_sheet');
+                                        await showModalBottomSheet(
+                                          isScrollControlled: true,
+                                          backgroundColor: Colors.transparent,
+                                          context: context,
+                                          builder: (context) {
+                                            return GestureDetector(
+                                              onTap: () {
+                                                FocusScope.of(context)
+                                                    .unfocus();
+                                                FocusManager
+                                                    .instance.primaryFocus
+                                                    ?.unfocus();
+                                              },
+                                              child: Padding(
+                                                padding:
+                                                    MediaQuery.viewInsetsOf(
+                                                        context),
+                                                child:
+                                                    CrownChakraMoodScanCompWidget(),
+                                              ),
+                                            );
+                                          },
+                                        ).then((value) => safeSetState(() {}));
+                                      },
+                                      child: Container(
+                                        width: 60.0,
+                                        height: 60.0,
+                                        decoration: BoxDecoration(
+                                          boxShadow: [
+                                            BoxShadow(
+                                              blurRadius: 8.0,
+                                              color: Color(0xFFAF52DE),
+                                              offset: Offset(
+                                                0.0,
+                                                2.0,
+                                              ),
+                                              spreadRadius: 14.0,
+                                            )
                                           ],
-                                          stops: [0.1, 0.5, 1.0],
-                                          begin:
-                                              AlignmentDirectional(-1.0, -1.0),
-                                          end: AlignmentDirectional(1.0, 1.0),
+                                          gradient: LinearGradient(
+                                            colors: [
+                                              FlutterFlowTheme.of(context)
+                                                  .primary,
+                                              Color(0xFFAF52DE),
+                                              Color(0xFFAD1457)
+                                            ],
+                                            stops: [0.1, 0.5, 1.0],
+                                            begin: AlignmentDirectional(
+                                                -1.0, -1.0),
+                                            end: AlignmentDirectional(1.0, 1.0),
+                                          ),
+                                          shape: BoxShape.circle,
                                         ),
-                                        shape: BoxShape.circle,
-                                      ),
-                                      child: Align(
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0),
-                                        child: Icon(
-                                          Icons.auto_awesome,
-                                          color: Colors.white,
-                                          size: 24.0,
+                                        child: Align(
+                                          alignment:
+                                              AlignmentDirectional(0.0, 0.0),
+                                          child: Icon(
+                                            Icons.auto_awesome,
+                                            color: Colors.white,
+                                            size: 24.0,
+                                          ),
                                         ),
                                       ),
                                     ),
-                                    Container(
-                                      width: 56.24,
-                                      height: 56.24,
-                                      decoration: BoxDecoration(
-                                        boxShadow: [
-                                          BoxShadow(
-                                            blurRadius: 8.0,
-                                            color: Color(0xFF5856D6),
-                                            offset: Offset(
-                                              0.0,
-                                              2.0,
-                                            ),
-                                            spreadRadius: 11.0,
-                                          )
-                                        ],
-                                        gradient: LinearGradient(
-                                          colors: [
-                                            Colors.white,
-                                            Color(0xFF5856D6)
+                                    InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        logFirebaseEvent(
+                                            'ENERGY_SCAN_VERSION5_Container_ikh9azqb_');
+                                        logFirebaseEvent(
+                                            'Container_bottom_sheet');
+                                        await showModalBottomSheet(
+                                          isScrollControlled: true,
+                                          backgroundColor: Colors.transparent,
+                                          context: context,
+                                          builder: (context) {
+                                            return GestureDetector(
+                                              onTap: () {
+                                                FocusScope.of(context)
+                                                    .unfocus();
+                                                FocusManager
+                                                    .instance.primaryFocus
+                                                    ?.unfocus();
+                                              },
+                                              child: Padding(
+                                                padding:
+                                                    MediaQuery.viewInsetsOf(
+                                                        context),
+                                                child:
+                                                    ThirdEyeChakraMoodScanWidget(),
+                                              ),
+                                            );
+                                          },
+                                        ).then((value) => safeSetState(() {}));
+                                      },
+                                      child: Container(
+                                        width: 56.24,
+                                        height: 56.24,
+                                        decoration: BoxDecoration(
+                                          boxShadow: [
+                                            BoxShadow(
+                                              blurRadius: 8.0,
+                                              color: Color(0xFF5856D6),
+                                              offset: Offset(
+                                                0.0,
+                                                2.0,
+                                              ),
+                                              spreadRadius: 11.0,
+                                            )
                                           ],
-                                          stops: [0.0, 0.67],
-                                          begin:
-                                              AlignmentDirectional(0.0, -1.0),
-                                          end: AlignmentDirectional(0, 1.0),
+                                          gradient: LinearGradient(
+                                            colors: [
+                                              Colors.white,
+                                              Color(0xFF5856D6)
+                                            ],
+                                            stops: [0.0, 0.67],
+                                            begin:
+                                                AlignmentDirectional(0.0, -1.0),
+                                            end: AlignmentDirectional(0, 1.0),
+                                          ),
+                                          shape: BoxShape.circle,
                                         ),
-                                        shape: BoxShape.circle,
-                                      ),
-                                      child: Align(
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0),
-                                        child: Icon(
-                                          Icons.auto_awesome,
-                                          color: Colors.white,
-                                          size: 24.0,
+                                        child: Align(
+                                          alignment:
+                                              AlignmentDirectional(0.0, 0.0),
+                                          child: Icon(
+                                            Icons.auto_awesome,
+                                            color: Colors.white,
+                                            size: 24.0,
+                                          ),
                                         ),
                                       ),
                                     ),
-                                    Container(
-                                      width: 53.29,
-                                      height: 53.29,
-                                      decoration: BoxDecoration(
-                                        boxShadow: [
-                                          BoxShadow(
-                                            blurRadius: 8.0,
-                                            color: Color(0xFF32ADE6),
-                                            offset: Offset(
-                                              0.0,
-                                              2.0,
-                                            ),
-                                            spreadRadius: 8.0,
-                                          )
-                                        ],
-                                        gradient: LinearGradient(
-                                          colors: [
-                                            Color(0xFF32ADE6),
-                                            FlutterFlowTheme.of(context)
-                                                .secondary
+                                    InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        logFirebaseEvent(
+                                            'ENERGY_SCAN_VERSION5_Container_7vbhty3w_');
+                                        logFirebaseEvent(
+                                            'Container_bottom_sheet');
+                                        await showModalBottomSheet(
+                                          isScrollControlled: true,
+                                          backgroundColor: Colors.transparent,
+                                          context: context,
+                                          builder: (context) {
+                                            return GestureDetector(
+                                              onTap: () {
+                                                FocusScope.of(context)
+                                                    .unfocus();
+                                                FocusManager
+                                                    .instance.primaryFocus
+                                                    ?.unfocus();
+                                              },
+                                              child: Padding(
+                                                padding:
+                                                    MediaQuery.viewInsetsOf(
+                                                        context),
+                                                child:
+                                                    ThroatChakraMoodScanWidget(),
+                                              ),
+                                            );
+                                          },
+                                        ).then((value) => safeSetState(() {}));
+                                      },
+                                      child: Container(
+                                        width: 53.29,
+                                        height: 53.29,
+                                        decoration: BoxDecoration(
+                                          boxShadow: [
+                                            BoxShadow(
+                                              blurRadius: 8.0,
+                                              color: Color(0xFF32ADE6),
+                                              offset: Offset(
+                                                0.0,
+                                                2.0,
+                                              ),
+                                              spreadRadius: 8.0,
+                                            )
                                           ],
-                                          stops: [0.0, 1.0],
-                                          begin:
-                                              AlignmentDirectional(-1.0, -1.0),
-                                          end: AlignmentDirectional(1.0, 1.0),
+                                          gradient: LinearGradient(
+                                            colors: [
+                                              Color(0xFF32ADE6),
+                                              FlutterFlowTheme.of(context)
+                                                  .secondary
+                                            ],
+                                            stops: [0.0, 1.0],
+                                            begin: AlignmentDirectional(
+                                                -1.0, -1.0),
+                                            end: AlignmentDirectional(1.0, 1.0),
+                                          ),
+                                          shape: BoxShape.circle,
                                         ),
-                                        shape: BoxShape.circle,
-                                      ),
-                                      child: Align(
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0),
-                                        child: Icon(
-                                          Icons.auto_awesome,
-                                          color: Colors.white,
-                                          size: 24.0,
+                                        child: Align(
+                                          alignment:
+                                              AlignmentDirectional(0.0, 0.0),
+                                          child: Icon(
+                                            Icons.auto_awesome,
+                                            color: Colors.white,
+                                            size: 24.0,
+                                          ),
                                         ),
                                       ),
                                     ),
-                                    Container(
-                                      width: 54.12,
-                                      height: 54.12,
-                                      decoration: BoxDecoration(
-                                        boxShadow: [
-                                          BoxShadow(
-                                            blurRadius: 10.0,
-                                            color: Color(0xFF34C759),
-                                            offset: Offset(
-                                              0.0,
-                                              2.0,
-                                            ),
-                                            spreadRadius: 6.0,
-                                          )
-                                        ],
-                                        gradient: LinearGradient(
-                                          colors: [
-                                            Color(0xFF34C759),
-                                            FlutterFlowTheme.of(context)
-                                                .secondary
+                                    InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        logFirebaseEvent(
+                                            'ENERGY_SCAN_VERSION5_Container_qxqan8a7_');
+                                        logFirebaseEvent(
+                                            'Container_bottom_sheet');
+                                        await showModalBottomSheet(
+                                          isScrollControlled: true,
+                                          backgroundColor: Colors.transparent,
+                                          context: context,
+                                          builder: (context) {
+                                            return GestureDetector(
+                                              onTap: () {
+                                                FocusScope.of(context)
+                                                    .unfocus();
+                                                FocusManager
+                                                    .instance.primaryFocus
+                                                    ?.unfocus();
+                                              },
+                                              child: Padding(
+                                                padding:
+                                                    MediaQuery.viewInsetsOf(
+                                                        context),
+                                                child:
+                                                    HeartChakraBottomSheetMoodScanWidget(),
+                                              ),
+                                            );
+                                          },
+                                        ).then((value) => safeSetState(() {}));
+                                      },
+                                      child: Container(
+                                        width: 54.12,
+                                        height: 54.12,
+                                        decoration: BoxDecoration(
+                                          boxShadow: [
+                                            BoxShadow(
+                                              blurRadius: 10.0,
+                                              color: Color(0xFF34C759),
+                                              offset: Offset(
+                                                0.0,
+                                                2.0,
+                                              ),
+                                              spreadRadius: 6.0,
+                                            )
                                           ],
-                                          stops: [0.0, 1.0],
-                                          begin:
-                                              AlignmentDirectional(-1.0, -1.0),
-                                          end: AlignmentDirectional(1.0, 1.0),
+                                          gradient: LinearGradient(
+                                            colors: [
+                                              Color(0xFF34C759),
+                                              FlutterFlowTheme.of(context)
+                                                  .secondary
+                                            ],
+                                            stops: [0.0, 1.0],
+                                            begin: AlignmentDirectional(
+                                                -1.0, -1.0),
+                                            end: AlignmentDirectional(1.0, 1.0),
+                                          ),
+                                          shape: BoxShape.circle,
                                         ),
-                                        shape: BoxShape.circle,
-                                      ),
-                                      child: Align(
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0),
-                                        child: Icon(
-                                          Icons.auto_awesome,
-                                          color: Colors.white,
-                                          size: 24.0,
+                                        child: Align(
+                                          alignment:
+                                              AlignmentDirectional(0.0, 0.0),
+                                          child: Icon(
+                                            Icons.auto_awesome,
+                                            color: Colors.white,
+                                            size: 24.0,
+                                          ),
                                         ),
                                       ),
                                     ),
-                                    Container(
-                                      width: 44.43,
-                                      height: 44.43,
-                                      decoration: BoxDecoration(
-                                        boxShadow: [
-                                          BoxShadow(
-                                            blurRadius: 8.0,
-                                            color: Color(0xFFFFD60A),
-                                            offset: Offset(
-                                              0.0,
-                                              2.0,
-                                            ),
-                                            spreadRadius: 5.0,
-                                          )
-                                        ],
-                                        gradient: LinearGradient(
-                                          colors: [
-                                            Color(0xFFFFD60A),
-                                            FlutterFlowTheme.of(context)
-                                                .secondary
+                                    InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        logFirebaseEvent(
+                                            'ENERGY_SCAN_VERSION5_Container_q9csyhx9_');
+                                        logFirebaseEvent(
+                                            'Container_bottom_sheet');
+                                        await showModalBottomSheet(
+                                          isScrollControlled: true,
+                                          backgroundColor: Colors.transparent,
+                                          context: context,
+                                          builder: (context) {
+                                            return GestureDetector(
+                                              onTap: () {
+                                                FocusScope.of(context)
+                                                    .unfocus();
+                                                FocusManager
+                                                    .instance.primaryFocus
+                                                    ?.unfocus();
+                                              },
+                                              child: Padding(
+                                                padding:
+                                                    MediaQuery.viewInsetsOf(
+                                                        context),
+                                                child:
+                                                    SolarPlexusChakraMoodScannerCompWidget(),
+                                              ),
+                                            );
+                                          },
+                                        ).then((value) => safeSetState(() {}));
+                                      },
+                                      child: Container(
+                                        width: 44.43,
+                                        height: 44.43,
+                                        decoration: BoxDecoration(
+                                          boxShadow: [
+                                            BoxShadow(
+                                              blurRadius: 8.0,
+                                              color: Color(0xFFFFD60A),
+                                              offset: Offset(
+                                                0.0,
+                                                2.0,
+                                              ),
+                                              spreadRadius: 5.0,
+                                            )
                                           ],
-                                          stops: [0.0, 1.0],
-                                          begin:
-                                              AlignmentDirectional(-1.0, -1.0),
-                                          end: AlignmentDirectional(1.0, 1.0),
+                                          gradient: LinearGradient(
+                                            colors: [
+                                              Color(0xFFFFD60A),
+                                              FlutterFlowTheme.of(context)
+                                                  .secondary
+                                            ],
+                                            stops: [0.0, 1.0],
+                                            begin: AlignmentDirectional(
+                                                -1.0, -1.0),
+                                            end: AlignmentDirectional(1.0, 1.0),
+                                          ),
+                                          shape: BoxShape.circle,
                                         ),
-                                        shape: BoxShape.circle,
-                                      ),
-                                      child: Align(
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0),
-                                        child: Icon(
-                                          Icons.auto_awesome,
-                                          color: Colors.white,
-                                          size: 24.0,
+                                        child: Align(
+                                          alignment:
+                                              AlignmentDirectional(0.0, 0.0),
+                                          child: Icon(
+                                            Icons.auto_awesome,
+                                            color: Colors.white,
+                                            size: 24.0,
+                                          ),
                                         ),
                                       ),
                                     ),
-                                    Container(
-                                      width: 40.36,
-                                      height: 40.36,
-                                      decoration: BoxDecoration(
-                                        boxShadow: [
-                                          BoxShadow(
-                                            blurRadius: 10.0,
-                                            color: Color(0xFFFF9500),
-                                            offset: Offset(
-                                              0.0,
-                                              2.0,
-                                            ),
-                                            spreadRadius: 4.0,
-                                          )
-                                        ],
-                                        gradient: LinearGradient(
-                                          colors: [
-                                            Color(0xFFFF9500),
-                                            FlutterFlowTheme.of(context)
-                                                .tertiary
+                                    InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        logFirebaseEvent(
+                                            'ENERGY_SCAN_VERSION5_Container_4n74n4g5_');
+                                        logFirebaseEvent(
+                                            'Container_bottom_sheet');
+                                        await showModalBottomSheet(
+                                          isScrollControlled: true,
+                                          backgroundColor: Colors.transparent,
+                                          context: context,
+                                          builder: (context) {
+                                            return GestureDetector(
+                                              onTap: () {
+                                                FocusScope.of(context)
+                                                    .unfocus();
+                                                FocusManager
+                                                    .instance.primaryFocus
+                                                    ?.unfocus();
+                                              },
+                                              child: Padding(
+                                                padding:
+                                                    MediaQuery.viewInsetsOf(
+                                                        context),
+                                                child:
+                                                    SacralChakraMoodCompWidget(),
+                                              ),
+                                            );
+                                          },
+                                        ).then((value) => safeSetState(() {}));
+                                      },
+                                      child: Container(
+                                        width: 40.36,
+                                        height: 40.36,
+                                        decoration: BoxDecoration(
+                                          boxShadow: [
+                                            BoxShadow(
+                                              blurRadius: 10.0,
+                                              color: Color(0xFFFF9500),
+                                              offset: Offset(
+                                                0.0,
+                                                2.0,
+                                              ),
+                                              spreadRadius: 4.0,
+                                            )
                                           ],
-                                          stops: [0.0, 1.0],
-                                          begin:
-                                              AlignmentDirectional(-1.0, -1.0),
-                                          end: AlignmentDirectional(1.0, 1.0),
+                                          gradient: LinearGradient(
+                                            colors: [
+                                              Color(0xFFFF9500),
+                                              FlutterFlowTheme.of(context)
+                                                  .tertiary
+                                            ],
+                                            stops: [0.0, 1.0],
+                                            begin: AlignmentDirectional(
+                                                -1.0, -1.0),
+                                            end: AlignmentDirectional(1.0, 1.0),
+                                          ),
+                                          shape: BoxShape.circle,
                                         ),
-                                        shape: BoxShape.circle,
-                                      ),
-                                      child: Align(
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0),
-                                        child: Icon(
-                                          Icons.auto_awesome,
-                                          color: Colors.white,
-                                          size: 24.0,
+                                        child: Align(
+                                          alignment:
+                                              AlignmentDirectional(0.0, 0.0),
+                                          child: Icon(
+                                            Icons.auto_awesome,
+                                            color: Colors.white,
+                                            size: 24.0,
+                                          ),
                                         ),
                                       ),
                                     ),
-                                    Container(
-                                      width: 38.86,
-                                      height: 38.86,
-                                      decoration: BoxDecoration(
-                                        boxShadow: [
-                                          BoxShadow(
-                                            blurRadius: 10.0,
-                                            color: Colors.red,
-                                            offset: Offset(
-                                              0.0,
-                                              2.0,
-                                            ),
-                                            spreadRadius: 1.0,
-                                          )
-                                        ],
-                                        gradient: LinearGradient(
-                                          colors: [
-                                            Colors.red,
-                                            FlutterFlowTheme.of(context)
-                                                .secondaryBackground
+                                    InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        logFirebaseEvent(
+                                            'ENERGY_SCAN_VERSION5_Container_rlsyqr0m_');
+                                        logFirebaseEvent(
+                                            'Container_bottom_sheet');
+                                        await showModalBottomSheet(
+                                          isScrollControlled: true,
+                                          backgroundColor: Colors.transparent,
+                                          context: context,
+                                          builder: (context) {
+                                            return GestureDetector(
+                                              onTap: () {
+                                                FocusScope.of(context)
+                                                    .unfocus();
+                                                FocusManager
+                                                    .instance.primaryFocus
+                                                    ?.unfocus();
+                                              },
+                                              child: Padding(
+                                                padding:
+                                                    MediaQuery.viewInsetsOf(
+                                                        context),
+                                                child:
+                                                    RootChakraCompMoodScannerWidget(),
+                                              ),
+                                            );
+                                          },
+                                        ).then((value) => safeSetState(() {}));
+                                      },
+                                      child: Container(
+                                        width: 38.86,
+                                        height: 38.86,
+                                        decoration: BoxDecoration(
+                                          boxShadow: [
+                                            BoxShadow(
+                                              blurRadius: 10.0,
+                                              color: Colors.red,
+                                              offset: Offset(
+                                                0.0,
+                                                2.0,
+                                              ),
+                                              spreadRadius: 1.0,
+                                            )
                                           ],
-                                          stops: [0.0, 1.0],
-                                          begin:
-                                              AlignmentDirectional(-1.0, -1.0),
-                                          end: AlignmentDirectional(1.0, 1.0),
+                                          gradient: LinearGradient(
+                                            colors: [
+                                              Colors.red,
+                                              FlutterFlowTheme.of(context)
+                                                  .secondaryBackground
+                                            ],
+                                            stops: [0.0, 1.0],
+                                            begin: AlignmentDirectional(
+                                                -1.0, -1.0),
+                                            end: AlignmentDirectional(1.0, 1.0),
+                                          ),
+                                          shape: BoxShape.circle,
                                         ),
-                                        shape: BoxShape.circle,
-                                      ),
-                                      child: Align(
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0),
-                                        child: Icon(
-                                          Icons.auto_awesome,
-                                          color: Colors.white,
-                                          size: 24.0,
+                                        child: Align(
+                                          alignment:
+                                              AlignmentDirectional(0.0, 0.0),
+                                          child: Icon(
+                                            Icons.auto_awesome,
+                                            color: Colors.white,
+                                            size: 24.0,
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -562,23 +820,88 @@ class _EnergyScanVersion5WidgetState extends State<EnergyScanVersion5Widget> {
                                                     mainAxisSize:
                                                         MainAxisSize.max,
                                                     children: [
-                                                      Container(
-                                                        width: 40.0,
-                                                        height: 40.0,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: Colors.red,
-                                                          shape:
-                                                              BoxShape.circle,
-                                                        ),
-                                                        child: Align(
-                                                          alignment:
-                                                              AlignmentDirectional(
-                                                                  0.0, 0.0),
-                                                          child: Icon(
-                                                            Icons.add,
-                                                            color: Colors.white,
-                                                            size: 24.0,
+                                                      InkWell(
+                                                        splashColor:
+                                                            Colors.transparent,
+                                                        focusColor:
+                                                            Colors.transparent,
+                                                        hoverColor:
+                                                            Colors.transparent,
+                                                        highlightColor:
+                                                            Colors.transparent,
+                                                        onTap: () async {
+                                                          logFirebaseEvent(
+                                                              'ENERGY_SCAN_VERSION5_Container_pjs22xkh_');
+                                                          logFirebaseEvent(
+                                                              'Container_bottom_sheet');
+                                                          await showModalBottomSheet(
+                                                            isScrollControlled:
+                                                                true,
+                                                            backgroundColor:
+                                                                Colors
+                                                                    .transparent,
+                                                            context: context,
+                                                            builder: (context) {
+                                                              return GestureDetector(
+                                                                onTap: () {
+                                                                  FocusScope.of(
+                                                                          context)
+                                                                      .unfocus();
+                                                                  FocusManager
+                                                                      .instance
+                                                                      .primaryFocus
+                                                                      ?.unfocus();
+                                                                },
+                                                                child: Padding(
+                                                                  padding: MediaQuery
+                                                                      .viewInsetsOf(
+                                                                          context),
+                                                                  child:
+                                                                      RootChakraCompMoodScannerWidget(),
+                                                                ),
+                                                              );
+                                                            },
+                                                          ).then((value) =>
+                                                              safeSetState(
+                                                                  () {}));
+                                                        },
+                                                        child: Container(
+                                                          width: 40.0,
+                                                          height: 40.0,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Color(
+                                                                0x22FF3B30),
+                                                            boxShadow: [
+                                                              BoxShadow(
+                                                                blurRadius: 8.0,
+                                                                color: Color(
+                                                                    0x69FF3B30),
+                                                                offset: Offset(
+                                                                  0.0,
+                                                                  2.0,
+                                                                ),
+                                                                spreadRadius:
+                                                                    8.0,
+                                                              )
+                                                            ],
+                                                            shape:
+                                                                BoxShape.circle,
+                                                            border: Border.all(
+                                                              color: Color(
+                                                                  0xFF791C16),
+                                                            ),
+                                                          ),
+                                                          child: Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    0.0, 0.0),
+                                                            child: Icon(
+                                                              Icons.add,
+                                                              color:
+                                                                  Colors.white,
+                                                              size: 24.0,
+                                                            ),
                                                           ),
                                                         ),
                                                       ),
@@ -637,7 +960,7 @@ class _EnergyScanVersion5WidgetState extends State<EnergyScanVersion5Widget> {
                                                   Flexible(
                                                     flex: 1,
                                                     child: Container(
-                                                      height: 35.0,
+                                                      height: 42.1,
                                                       decoration: BoxDecoration(
                                                         color: Colors.red,
                                                         borderRadius:
@@ -773,7 +1096,7 @@ class _EnergyScanVersion5WidgetState extends State<EnergyScanVersion5Widget> {
                                                           fontFamily:
                                                               'WorkSans',
                                                           color:
-                                                              Color(0xFF90A4AE),
+                                                              Color(0xB6D0E3F7),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                         ),
@@ -824,23 +1147,88 @@ class _EnergyScanVersion5WidgetState extends State<EnergyScanVersion5Widget> {
                                                     mainAxisSize:
                                                         MainAxisSize.max,
                                                     children: [
-                                                      Container(
-                                                        width: 40.0,
-                                                        height: 40.0,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: Colors.orange,
-                                                          shape:
-                                                              BoxShape.circle,
-                                                        ),
-                                                        child: Align(
-                                                          alignment:
-                                                              AlignmentDirectional(
-                                                                  0.0, 0.0),
-                                                          child: Icon(
-                                                            Icons.add,
-                                                            color: Colors.white,
-                                                            size: 24.0,
+                                                      InkWell(
+                                                        splashColor:
+                                                            Colors.transparent,
+                                                        focusColor:
+                                                            Colors.transparent,
+                                                        hoverColor:
+                                                            Colors.transparent,
+                                                        highlightColor:
+                                                            Colors.transparent,
+                                                        onTap: () async {
+                                                          logFirebaseEvent(
+                                                              'ENERGY_SCAN_VERSION5_Container_c498t9la_');
+                                                          logFirebaseEvent(
+                                                              'Container_bottom_sheet');
+                                                          await showModalBottomSheet(
+                                                            isScrollControlled:
+                                                                true,
+                                                            backgroundColor:
+                                                                Colors
+                                                                    .transparent,
+                                                            context: context,
+                                                            builder: (context) {
+                                                              return GestureDetector(
+                                                                onTap: () {
+                                                                  FocusScope.of(
+                                                                          context)
+                                                                      .unfocus();
+                                                                  FocusManager
+                                                                      .instance
+                                                                      .primaryFocus
+                                                                      ?.unfocus();
+                                                                },
+                                                                child: Padding(
+                                                                  padding: MediaQuery
+                                                                      .viewInsetsOf(
+                                                                          context),
+                                                                  child:
+                                                                      SacralChakraMoodCompWidget(),
+                                                                ),
+                                                              );
+                                                            },
+                                                          ).then((value) =>
+                                                              safeSetState(
+                                                                  () {}));
+                                                        },
+                                                        child: Container(
+                                                          width: 40.0,
+                                                          height: 40.0,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Color(
+                                                                0x57FF9800),
+                                                            boxShadow: [
+                                                              BoxShadow(
+                                                                blurRadius: 8.0,
+                                                                color: Color(
+                                                                    0x57FF9800),
+                                                                offset: Offset(
+                                                                  0.0,
+                                                                  2.0,
+                                                                ),
+                                                                spreadRadius:
+                                                                    8.0,
+                                                              )
+                                                            ],
+                                                            shape:
+                                                                BoxShape.circle,
+                                                            border: Border.all(
+                                                              color: Color(
+                                                                  0x57422801),
+                                                            ),
+                                                          ),
+                                                          child: Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    0.0, 0.0),
+                                                            child: Icon(
+                                                              Icons.add,
+                                                              color:
+                                                                  Colors.white,
+                                                              size: 24.0,
+                                                            ),
                                                           ),
                                                         ),
                                                       ),
@@ -881,7 +1269,7 @@ class _EnergyScanVersion5WidgetState extends State<EnergyScanVersion5Widget> {
                                                   Flexible(
                                                     flex: 1,
                                                     child: Container(
-                                                      height: 35.0,
+                                                      height: 39.91,
                                                       decoration: BoxDecoration(
                                                         color: Colors.orange,
                                                         borderRadius:
@@ -1069,23 +1457,88 @@ class _EnergyScanVersion5WidgetState extends State<EnergyScanVersion5Widget> {
                                                     mainAxisSize:
                                                         MainAxisSize.max,
                                                     children: [
-                                                      Container(
-                                                        width: 40.0,
-                                                        height: 40.0,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: Colors.yellow,
-                                                          shape:
-                                                              BoxShape.circle,
-                                                        ),
-                                                        child: Align(
-                                                          alignment:
-                                                              AlignmentDirectional(
-                                                                  0.0, 0.0),
-                                                          child: Icon(
-                                                            Icons.add,
-                                                            color: Colors.white,
-                                                            size: 24.0,
+                                                      InkWell(
+                                                        splashColor:
+                                                            Colors.transparent,
+                                                        focusColor:
+                                                            Colors.transparent,
+                                                        hoverColor:
+                                                            Colors.transparent,
+                                                        highlightColor:
+                                                            Colors.transparent,
+                                                        onTap: () async {
+                                                          logFirebaseEvent(
+                                                              'ENERGY_SCAN_VERSION5_Container_7vq946d2_');
+                                                          logFirebaseEvent(
+                                                              'Container_bottom_sheet');
+                                                          await showModalBottomSheet(
+                                                            isScrollControlled:
+                                                                true,
+                                                            backgroundColor:
+                                                                Colors
+                                                                    .transparent,
+                                                            context: context,
+                                                            builder: (context) {
+                                                              return GestureDetector(
+                                                                onTap: () {
+                                                                  FocusScope.of(
+                                                                          context)
+                                                                      .unfocus();
+                                                                  FocusManager
+                                                                      .instance
+                                                                      .primaryFocus
+                                                                      ?.unfocus();
+                                                                },
+                                                                child: Padding(
+                                                                  padding: MediaQuery
+                                                                      .viewInsetsOf(
+                                                                          context),
+                                                                  child:
+                                                                      SolarPlexusChakraMoodScannerCompWidget(),
+                                                                ),
+                                                              );
+                                                            },
+                                                          ).then((value) =>
+                                                              safeSetState(
+                                                                  () {}));
+                                                        },
+                                                        child: Container(
+                                                          width: 40.0,
+                                                          height: 40.0,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Color(
+                                                                0x8AFFEB3B),
+                                                            boxShadow: [
+                                                              BoxShadow(
+                                                                blurRadius: 8.0,
+                                                                color: Color(
+                                                                    0x8AFFEB3B),
+                                                                offset: Offset(
+                                                                  0.0,
+                                                                  2.0,
+                                                                ),
+                                                                spreadRadius:
+                                                                    8.0,
+                                                              )
+                                                            ],
+                                                            shape:
+                                                                BoxShape.circle,
+                                                            border: Border.all(
+                                                              color: Color(
+                                                                  0x8A615A18),
+                                                            ),
+                                                          ),
+                                                          child: Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    0.0, 0.0),
+                                                            child: Icon(
+                                                              Icons.add,
+                                                              color:
+                                                                  Colors.white,
+                                                              size: 24.0,
+                                                            ),
                                                           ),
                                                         ),
                                                       ),
@@ -1144,7 +1597,7 @@ class _EnergyScanVersion5WidgetState extends State<EnergyScanVersion5Widget> {
                                                   Flexible(
                                                     flex: 1,
                                                     child: Container(
-                                                      height: 35.0,
+                                                      height: 36.82,
                                                       decoration: BoxDecoration(
                                                         color: Colors.yellow,
                                                         borderRadius:
@@ -1332,23 +1785,88 @@ class _EnergyScanVersion5WidgetState extends State<EnergyScanVersion5Widget> {
                                                     mainAxisSize:
                                                         MainAxisSize.max,
                                                     children: [
-                                                      Container(
-                                                        width: 40.0,
-                                                        height: 40.0,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: Colors.green,
-                                                          shape:
-                                                              BoxShape.circle,
-                                                        ),
-                                                        child: Align(
-                                                          alignment:
-                                                              AlignmentDirectional(
-                                                                  0.0, 0.0),
-                                                          child: Icon(
-                                                            Icons.add,
-                                                            color: Colors.white,
-                                                            size: 24.0,
+                                                      InkWell(
+                                                        splashColor:
+                                                            Colors.transparent,
+                                                        focusColor:
+                                                            Colors.transparent,
+                                                        hoverColor:
+                                                            Colors.transparent,
+                                                        highlightColor:
+                                                            Colors.transparent,
+                                                        onTap: () async {
+                                                          logFirebaseEvent(
+                                                              'ENERGY_SCAN_VERSION5_Container_psir4bhb_');
+                                                          logFirebaseEvent(
+                                                              'Container_bottom_sheet');
+                                                          await showModalBottomSheet(
+                                                            isScrollControlled:
+                                                                true,
+                                                            backgroundColor:
+                                                                Colors
+                                                                    .transparent,
+                                                            context: context,
+                                                            builder: (context) {
+                                                              return GestureDetector(
+                                                                onTap: () {
+                                                                  FocusScope.of(
+                                                                          context)
+                                                                      .unfocus();
+                                                                  FocusManager
+                                                                      .instance
+                                                                      .primaryFocus
+                                                                      ?.unfocus();
+                                                                },
+                                                                child: Padding(
+                                                                  padding: MediaQuery
+                                                                      .viewInsetsOf(
+                                                                          context),
+                                                                  child:
+                                                                      HeartChakraBottomSheetMoodScanWidget(),
+                                                                ),
+                                                              );
+                                                            },
+                                                          ).then((value) =>
+                                                              safeSetState(
+                                                                  () {}));
+                                                        },
+                                                        child: Container(
+                                                          width: 40.0,
+                                                          height: 40.0,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Color(
+                                                                0xAB4CAF50),
+                                                            boxShadow: [
+                                                              BoxShadow(
+                                                                blurRadius: 8.0,
+                                                                color: Color(
+                                                                    0xAB4CAF50),
+                                                                offset: Offset(
+                                                                  0.0,
+                                                                  2.0,
+                                                                ),
+                                                                spreadRadius:
+                                                                    8.0,
+                                                              )
+                                                            ],
+                                                            shape:
+                                                                BoxShape.circle,
+                                                            border: Border.all(
+                                                              color: Color(
+                                                                  0xAB1F4620),
+                                                            ),
+                                                          ),
+                                                          child: Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    0.0, 0.0),
+                                                            child: Icon(
+                                                              Icons.add,
+                                                              color:
+                                                                  Colors.white,
+                                                              size: 24.0,
+                                                            ),
                                                           ),
                                                         ),
                                                       ),
@@ -1407,7 +1925,7 @@ class _EnergyScanVersion5WidgetState extends State<EnergyScanVersion5Widget> {
                                                   Flexible(
                                                     flex: 1,
                                                     child: Container(
-                                                      height: 35.0,
+                                                      height: 37.87,
                                                       decoration: BoxDecoration(
                                                         color: Colors.green,
                                                         borderRadius:
@@ -1595,23 +2113,88 @@ class _EnergyScanVersion5WidgetState extends State<EnergyScanVersion5Widget> {
                                                     mainAxisSize:
                                                         MainAxisSize.max,
                                                     children: [
-                                                      Container(
-                                                        width: 40.0,
-                                                        height: 40.0,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: Colors.blue,
-                                                          shape:
-                                                              BoxShape.circle,
-                                                        ),
-                                                        child: Align(
-                                                          alignment:
-                                                              AlignmentDirectional(
-                                                                  0.0, 0.0),
-                                                          child: Icon(
-                                                            Icons.add,
-                                                            color: Colors.white,
-                                                            size: 24.0,
+                                                      InkWell(
+                                                        splashColor:
+                                                            Colors.transparent,
+                                                        focusColor:
+                                                            Colors.transparent,
+                                                        hoverColor:
+                                                            Colors.transparent,
+                                                        highlightColor:
+                                                            Colors.transparent,
+                                                        onTap: () async {
+                                                          logFirebaseEvent(
+                                                              'ENERGY_SCAN_VERSION5_Container_xn46hbpv_');
+                                                          logFirebaseEvent(
+                                                              'Container_bottom_sheet');
+                                                          await showModalBottomSheet(
+                                                            isScrollControlled:
+                                                                true,
+                                                            backgroundColor:
+                                                                Colors
+                                                                    .transparent,
+                                                            context: context,
+                                                            builder: (context) {
+                                                              return GestureDetector(
+                                                                onTap: () {
+                                                                  FocusScope.of(
+                                                                          context)
+                                                                      .unfocus();
+                                                                  FocusManager
+                                                                      .instance
+                                                                      .primaryFocus
+                                                                      ?.unfocus();
+                                                                },
+                                                                child: Padding(
+                                                                  padding: MediaQuery
+                                                                      .viewInsetsOf(
+                                                                          context),
+                                                                  child:
+                                                                      ThroatChakraMoodScanWidget(),
+                                                                ),
+                                                              );
+                                                            },
+                                                          ).then((value) =>
+                                                              safeSetState(
+                                                                  () {}));
+                                                        },
+                                                        child: Container(
+                                                          width: 40.0,
+                                                          height: 40.0,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Color(
+                                                                0xB52196F3),
+                                                            boxShadow: [
+                                                              BoxShadow(
+                                                                blurRadius: 8.0,
+                                                                color: Color(
+                                                                    0xB52196F3),
+                                                                offset: Offset(
+                                                                  0.0,
+                                                                  2.0,
+                                                                ),
+                                                                spreadRadius:
+                                                                    8.0,
+                                                              )
+                                                            ],
+                                                            shape:
+                                                                BoxShape.circle,
+                                                            border: Border.all(
+                                                              color: Color(
+                                                                  0xB5104C7B),
+                                                            ),
+                                                          ),
+                                                          child: Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    0.0, 0.0),
+                                                            child: Icon(
+                                                              Icons.add,
+                                                              color:
+                                                                  Colors.white,
+                                                              size: 24.0,
+                                                            ),
                                                           ),
                                                         ),
                                                       ),
@@ -1670,7 +2253,7 @@ class _EnergyScanVersion5WidgetState extends State<EnergyScanVersion5Widget> {
                                                   Flexible(
                                                     flex: 1,
                                                     child: Container(
-                                                      height: 35.0,
+                                                      height: 39.96,
                                                       decoration: BoxDecoration(
                                                         color: Colors.blue,
                                                         borderRadius:
@@ -1858,24 +2441,88 @@ class _EnergyScanVersion5WidgetState extends State<EnergyScanVersion5Widget> {
                                                     mainAxisSize:
                                                         MainAxisSize.max,
                                                     children: [
-                                                      Container(
-                                                        width: 40.0,
-                                                        height: 40.0,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color:
-                                                              Color(0xFF673AB7),
-                                                          shape:
-                                                              BoxShape.circle,
-                                                        ),
-                                                        child: Align(
-                                                          alignment:
-                                                              AlignmentDirectional(
-                                                                  0.0, 0.0),
-                                                          child: Icon(
-                                                            Icons.add,
-                                                            color: Colors.white,
-                                                            size: 24.0,
+                                                      InkWell(
+                                                        splashColor:
+                                                            Colors.transparent,
+                                                        focusColor:
+                                                            Colors.transparent,
+                                                        hoverColor:
+                                                            Colors.transparent,
+                                                        highlightColor:
+                                                            Colors.transparent,
+                                                        onTap: () async {
+                                                          logFirebaseEvent(
+                                                              'ENERGY_SCAN_VERSION5_Container_ruzude90_');
+                                                          logFirebaseEvent(
+                                                              'Container_bottom_sheet');
+                                                          await showModalBottomSheet(
+                                                            isScrollControlled:
+                                                                true,
+                                                            backgroundColor:
+                                                                Colors
+                                                                    .transparent,
+                                                            context: context,
+                                                            builder: (context) {
+                                                              return GestureDetector(
+                                                                onTap: () {
+                                                                  FocusScope.of(
+                                                                          context)
+                                                                      .unfocus();
+                                                                  FocusManager
+                                                                      .instance
+                                                                      .primaryFocus
+                                                                      ?.unfocus();
+                                                                },
+                                                                child: Padding(
+                                                                  padding: MediaQuery
+                                                                      .viewInsetsOf(
+                                                                          context),
+                                                                  child:
+                                                                      ThirdEyeChakraMoodScanWidget(),
+                                                                ),
+                                                              );
+                                                            },
+                                                          ).then((value) =>
+                                                              safeSetState(
+                                                                  () {}));
+                                                        },
+                                                        child: Container(
+                                                          width: 40.0,
+                                                          height: 40.0,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Color(
+                                                                0xC4673AB7),
+                                                            boxShadow: [
+                                                              BoxShadow(
+                                                                blurRadius: 8.0,
+                                                                color: Color(
+                                                                    0xB6673AB7),
+                                                                offset: Offset(
+                                                                  0.0,
+                                                                  2.0,
+                                                                ),
+                                                                spreadRadius:
+                                                                    8.0,
+                                                              )
+                                                            ],
+                                                            shape:
+                                                                BoxShape.circle,
+                                                            border: Border.all(
+                                                              color: Color(
+                                                                  0xB6311C57),
+                                                            ),
+                                                          ),
+                                                          child: Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    0.0, 0.0),
+                                                            child: Icon(
+                                                              Icons.add,
+                                                              color:
+                                                                  Colors.white,
+                                                              size: 24.0,
+                                                            ),
                                                           ),
                                                         ),
                                                       ),
@@ -1934,7 +2581,7 @@ class _EnergyScanVersion5WidgetState extends State<EnergyScanVersion5Widget> {
                                                   Flexible(
                                                     flex: 1,
                                                     child: Container(
-                                                      height: 35.0,
+                                                      height: 42.8,
                                                       decoration: BoxDecoration(
                                                         color:
                                                             Color(0xFF673AB7),
@@ -2124,24 +2771,71 @@ class _EnergyScanVersion5WidgetState extends State<EnergyScanVersion5Widget> {
                                                     mainAxisSize:
                                                         MainAxisSize.max,
                                                     children: [
-                                                      Container(
-                                                        width: 40.0,
-                                                        height: 40.0,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color:
-                                                              Color(0xFFAF52DE),
-                                                          shape:
-                                                              BoxShape.circle,
-                                                        ),
-                                                        child: Align(
-                                                          alignment:
-                                                              AlignmentDirectional(
-                                                                  0.0, 0.0),
-                                                          child: Icon(
-                                                            Icons.add,
-                                                            color: Colors.white,
-                                                            size: 24.0,
+                                                      InkWell(
+                                                        splashColor:
+                                                            Colors.transparent,
+                                                        focusColor:
+                                                            Colors.transparent,
+                                                        hoverColor:
+                                                            Colors.transparent,
+                                                        highlightColor:
+                                                            Colors.transparent,
+                                                        onTap: () async {
+                                                          logFirebaseEvent(
+                                                              'ENERGY_SCAN_VERSION5_Container_x2fjgebt_');
+                                                          logFirebaseEvent(
+                                                              'Container_bottom_sheet');
+                                                          await showModalBottomSheet(
+                                                            isScrollControlled:
+                                                                true,
+                                                            backgroundColor:
+                                                                Colors
+                                                                    .transparent,
+                                                            context: context,
+                                                            builder: (context) {
+                                                              return GestureDetector(
+                                                                onTap: () {
+                                                                  FocusScope.of(
+                                                                          context)
+                                                                      .unfocus();
+                                                                  FocusManager
+                                                                      .instance
+                                                                      .primaryFocus
+                                                                      ?.unfocus();
+                                                                },
+                                                                child: Padding(
+                                                                  padding: MediaQuery
+                                                                      .viewInsetsOf(
+                                                                          context),
+                                                                  child:
+                                                                      CrownChakraMoodScanCompWidget(),
+                                                                ),
+                                                              );
+                                                            },
+                                                          ).then((value) =>
+                                                              safeSetState(
+                                                                  () {}));
+                                                        },
+                                                        child: Container(
+                                                          width: 40.0,
+                                                          height: 40.0,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Color(
+                                                                0xFFAF52DE),
+                                                            shape:
+                                                                BoxShape.circle,
+                                                          ),
+                                                          child: Align(
+                                                            alignment:
+                                                                AlignmentDirectional(
+                                                                    0.0, 0.0),
+                                                            child: Icon(
+                                                              Icons.add,
+                                                              color:
+                                                                  Colors.white,
+                                                              size: 24.0,
+                                                            ),
                                                           ),
                                                         ),
                                                       ),
@@ -2200,7 +2894,7 @@ class _EnergyScanVersion5WidgetState extends State<EnergyScanVersion5Widget> {
                                                   Flexible(
                                                     flex: 1,
                                                     child: Container(
-                                                      height: 35.0,
+                                                      height: 40.62,
                                                       decoration: BoxDecoration(
                                                         color:
                                                             Color(0xFFAF52DE),
