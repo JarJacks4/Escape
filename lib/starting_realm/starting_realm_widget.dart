@@ -27,7 +27,6 @@ class _StartingRealmWidgetState extends State<StartingRealmWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'StartingRealm'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

@@ -47,8 +47,6 @@ class _SoundscapesHomeCompWidgetState extends State<SoundscapesHomeCompWidget>
         ],
       ),
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

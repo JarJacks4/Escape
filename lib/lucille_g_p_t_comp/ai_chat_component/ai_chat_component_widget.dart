@@ -23,8 +23,6 @@ class _AiChatComponentWidgetState extends State<AiChatComponentWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => AiChatComponentModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

@@ -94,8 +94,6 @@ class _RegistrationSuccessWidgetState extends State<RegistrationSuccessWidget>
         ],
       ),
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -231,7 +229,7 @@ class _RegistrationSuccessWidgetState extends State<RegistrationSuccessWidget>
                             context.pushNamed(
                               HomeVersion5Widget.routeName,
                               extra: <String, dynamic>{
-                                kTransitionInfoKey: TransitionInfo(
+                                '__transition_info__': TransitionInfo(
                                   hasTransition: true,
                                   transitionType: PageTransitionType.fade,
                                   duration: Duration(milliseconds: 2),
@@ -262,7 +260,7 @@ class _RegistrationSuccessWidgetState extends State<RegistrationSuccessWidget>
                           context.pushNamed(
                             FacialMoodAnalyzerChoiceLoginWidget.routeName,
                             extra: <String, dynamic>{
-                              kTransitionInfoKey: TransitionInfo(
+                              '__transition_info__': TransitionInfo(
                                 hasTransition: true,
                                 transitionType: PageTransitionType.fade,
                                 duration: Duration(milliseconds: 2),

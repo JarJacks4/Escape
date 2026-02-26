@@ -26,8 +26,6 @@ class _SampleCompWidgetState extends State<SampleCompWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => SampleCompModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

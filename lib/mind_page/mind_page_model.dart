@@ -1,4 +1,4 @@
-import '/components/mind_page_version5_widget.dart';
+import '/components/mind_page_version5_copy_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'mind_page_widget.dart' show MindPageWidget;
 import 'package:flutter/material.dart';
@@ -6,16 +6,17 @@ import 'package:flutter/material.dart';
 class MindPageModel extends FlutterFlowModel<MindPageWidget> {
   ///  State fields for stateful widgets in this page.
 
-  // Model for MindPageVersion5 component.
-  late MindPageVersion5Model mindPageVersion5Model;
+  // Model for MindPageVersion5Copy component.
+  late MindPageVersion5CopyModel mindPageVersion5CopyModel;
 
   @override
   void initState(BuildContext context) {
-    mindPageVersion5Model = createModel(context, () => MindPageVersion5Model());
+    mindPageVersion5CopyModel =
+        createModel(context, () => MindPageVersion5CopyModel());
   }
 
   @override
   void dispose() {
-    mindPageVersion5Model.dispose();
+    mindPageVersion5CopyModel.dispose();
   }
 }

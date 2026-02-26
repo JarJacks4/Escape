@@ -11,20 +11,20 @@ import 'package:ff_commons/flutter_flow/uploaded_file.dart';
 import '/backend/backend.dart';
 import "package:tiktokfeed_wz8en7/backend/schema/structs/index.dart"
     as tiktokfeed_wz8en7_data_schema;
-import "package:that_audio_player_5bjqer/backend/schema/structs/index.dart"
-    as that_audio_player_5bjqer_data_schema;
+import "package:that_audio_player_oo85ab/backend/schema/structs/index.dart"
+    as that_audio_player_oo85ab_data_schema;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '/backend/schema/structs/index.dart';
 import '/backend/schema/enums/enums.dart';
 import '/auth/firebase_auth/auth_util.dart';
 import "package:tiktokfeed_wz8en7/backend/schema/structs/index.dart"
     as tiktokfeed_wz8en7_data_schema;
-import "package:that_audio_player_5bjqer/backend/schema/structs/index.dart"
-    as that_audio_player_5bjqer_data_schema;
-import 'package:that_audio_player_5bjqer/flutter_flow/custom_functions.dart'
-    as that_audio_player_5bjqer_functions;
+import "package:that_audio_player_oo85ab/backend/schema/structs/index.dart"
+    as that_audio_player_oo85ab_data_schema;
+import 'package:that_audio_player_oo85ab/flutter_flow/custom_functions.dart'
+    as that_audio_player_oo85ab_functions;
 
-int? getMinutesSinceDateTimelastActivity(DateTime? lastActivity) {
+int? getMinutesSinceDateTimeLastActivity(DateTime? lastActivity) {
   int getMinutesSince(DateTime lastActivity) {
     return DateTime.now().difference(lastActivity).inMinutes;
   }
@@ -46,4 +46,29 @@ dynamic saveChatHistory(
 dynamic convertToJSON(String prompt) {
   // take the prompt and return a JSON with form [{"role": "user", "content": prompt}]
   return json.decode('{"role": "user", "content": "$prompt"}');
+}
+
+String formatSecondsToMinutes(
+  double seconds,
+  String format,
+) {
+  Duration duration = Duration(seconds: seconds.toInt());
+  int hours = duration.inHours;
+  int minutes = duration.inMinutes.remainder(60);
+  int secs = duration.inSeconds.remainder(60);
+
+  Map<String, String> formatMap = {
+    "HH": hours.toString().padLeft(2, '0'),
+    "H": hours.toString(),
+    "MM": minutes.toString().padLeft(2, '0'),
+    "M": minutes.toString(),
+    "SS": secs.toString().padLeft(2, '0'),
+    "S": secs.toString(),
+  };
+
+  formatMap.forEach((key, value) {
+    format = format.replaceAll(key, value);
+  });
+
+  return format;
 }

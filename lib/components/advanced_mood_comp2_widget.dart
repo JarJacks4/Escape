@@ -110,8 +110,6 @@ class _AdvancedMoodComp2WidgetState extends State<AdvancedMoodComp2Widget>
         ],
       ),
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

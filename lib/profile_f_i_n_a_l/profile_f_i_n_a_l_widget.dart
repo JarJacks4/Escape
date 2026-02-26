@@ -1,6 +1,5 @@
 import '/components/profile_page_version5_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'dart:ui';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'profile_f_i_n_a_l_model.dart';
@@ -28,7 +27,6 @@ class _ProfileFINALWidgetState extends State<ProfileFINALWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'profileFINAL'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -52,32 +50,18 @@ class _ProfileFINALWidgetState extends State<ProfileFINALWidget> {
           top: true,
           child: Stack(
             children: [
-              ScrollConfiguration(
-                behavior: ScrollConfiguration.of(context).copyWith(
-                  scrollbars: false,
-                  dragDevices: {
-                    PointerDeviceKind.mouse,
-                    PointerDeviceKind.touch,
-                    PointerDeviceKind.stylus,
-                    PointerDeviceKind.unknown,
-                  },
-                ),
-                child: Scrollbar(
-                  controller: _model.columnController,
-                  child: SingleChildScrollView(
-                    controller: _model.columnController,
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        wrapWithModel(
-                          model: _model.profilePageVersion5Model,
-                          updateCallback: () => safeSetState(() {}),
-                          child: ProfilePageVersion5Widget(),
-                        ),
-                      ],
+              SingleChildScrollView(
+                controller: _model.columnController,
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    wrapWithModel(
+                      model: _model.profilePageVersion5Model,
+                      updateCallback: () => safeSetState(() {}),
+                      child: ProfilePageVersion5Widget(),
                     ),
-                  ),
+                  ],
                 ),
               ),
             ],

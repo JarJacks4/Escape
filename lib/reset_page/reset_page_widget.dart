@@ -1,4 +1,4 @@
-import '/components/reset_version5_widget.dart';
+import '/components/reset_version5_copy_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +26,6 @@ class _ResetPageWidgetState extends State<ResetPageWidget> {
     _model = createModel(context, () => ResetPageModel());
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'ResetPage'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -46,15 +45,21 @@ class _ResetPageWidgetState extends State<ResetPageWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        body: SafeArea(
-          top: true,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Container(
+        body: Column(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 2.0, 0.0, 0.0),
+              child: Container(
                 width: double.infinity,
                 height: 872.8,
                 decoration: BoxDecoration(
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: Image.asset(
+                      'assets/images/Reset_All_Tab_(1).png',
+                    ).image,
+                  ),
                   gradient: LinearGradient(
                     colors: [
                       FlutterFlowTheme.of(context).primary,
@@ -66,13 +71,13 @@ class _ResetPageWidgetState extends State<ResetPageWidget> {
                   ),
                 ),
                 child: wrapWithModel(
-                  model: _model.resetVersion5Model,
+                  model: _model.resetVersion5CopyModel,
                   updateCallback: () => safeSetState(() {}),
-                  child: ResetVersion5Widget(),
+                  child: ResetVersion5CopyWidget(),
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

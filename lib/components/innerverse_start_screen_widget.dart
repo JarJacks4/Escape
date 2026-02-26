@@ -27,8 +27,6 @@ class _InnerverseStartScreenWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => InnerverseStartScreenModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

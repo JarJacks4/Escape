@@ -27,8 +27,6 @@ class _NewEnergyScanLoginCompWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => NewEnergyScanLoginCompModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

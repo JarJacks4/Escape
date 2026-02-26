@@ -24,8 +24,6 @@ class _QuickPromptsCompWidgetState extends State<QuickPromptsCompWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => QuickPromptsCompModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

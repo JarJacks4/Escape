@@ -28,8 +28,6 @@ class _CommunityTabInfoCompVersion5WidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => CommunityTabInfoCompVersion5Model());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

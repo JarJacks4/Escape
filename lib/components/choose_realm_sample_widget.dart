@@ -28,8 +28,6 @@ class _ChooseRealmSampleWidgetState extends State<ChooseRealmSampleWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ChooseRealmSampleModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

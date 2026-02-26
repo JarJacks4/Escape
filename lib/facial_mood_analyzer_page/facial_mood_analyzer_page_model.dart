@@ -12,10 +12,10 @@ class FacialMoodAnalyzerPageModel
 
   ///  State fields for stateful widgets in this page.
 
-  bool isDataUploading_aIUploadMoodPhoto = false;
-  FFUploadedFile uploadedLocalFile_aIUploadMoodPhoto =
+  bool isDataUploading_aIUploadMoodPhoto3 = false;
+  FFUploadedFile uploadedLocalFile_aIUploadMoodPhoto3 =
       FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
-  String uploadedFileUrl_aIUploadMoodPhoto = '';
+  String uploadedFileUrl_aIUploadMoodPhoto3 = '';
 
   // Stores action output result for [AI Agent - Send Message to LucilleMoodAnalyzerAgent] action in Button widget.
   String? aIMoodAnalyzeAction;

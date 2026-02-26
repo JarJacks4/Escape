@@ -97,6 +97,26 @@ class JournalRecord extends FirestoreRecord {
   List<String> get journalTags => _journalTags ?? const [];
   bool hasJournalTags() => _journalTags != null;
 
+  // "VoiceNoteContent" field.
+  String? _voiceNoteContent;
+  String get voiceNoteContent => _voiceNoteContent ?? '';
+  bool hasVoiceNoteContent() => _voiceNoteContent != null;
+
+  // "isAudioRecording" field.
+  bool? _isAudioRecording;
+  bool get isAudioRecording => _isAudioRecording ?? false;
+  bool hasIsAudioRecording() => _isAudioRecording != null;
+
+  // "isAudioStopped" field.
+  bool? _isAudioStopped;
+  bool get isAudioStopped => _isAudioStopped ?? false;
+  bool hasIsAudioStopped() => _isAudioStopped != null;
+
+  // "TranscribeText" field.
+  List<String>? _transcribeText;
+  List<String> get transcribeText => _transcribeText ?? const [];
+  bool hasTranscribeText() => _transcribeText != null;
+
   DocumentReference get parentReference => reference.parent.parent!;
 
   void _initializeFields() {
@@ -119,6 +139,10 @@ class JournalRecord extends FirestoreRecord {
     _journalVoiceNote = snapshotData['JournalVoiceNote'] as String?;
     _lucilleJournalPrompt = snapshotData['LucilleJournalPrompt'] as String?;
     _journalTags = getDataList(snapshotData['JournalTags']);
+    _voiceNoteContent = snapshotData['VoiceNoteContent'] as String?;
+    _isAudioRecording = snapshotData['isAudioRecording'] as bool?;
+    _isAudioStopped = snapshotData['isAudioStopped'] as bool?;
+    _transcribeText = getDataList(snapshotData['TranscribeText']);
   }
 
   static Query<Map<String, dynamic>> collection([DocumentReference? parent]) =>
@@ -176,6 +200,9 @@ Map<String, dynamic> createJournalRecordData({
   String? journalPhoto,
   String? journalVoiceNote,
   String? lucilleJournalPrompt,
+  String? voiceNoteContent,
+  bool? isAudioRecording,
+  bool? isAudioStopped,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -194,6 +221,9 @@ Map<String, dynamic> createJournalRecordData({
       'JournalPhoto': journalPhoto,
       'JournalVoiceNote': journalVoiceNote,
       'LucilleJournalPrompt': lucilleJournalPrompt,
+      'VoiceNoteContent': voiceNoteContent,
+      'isAudioRecording': isAudioRecording,
+      'isAudioStopped': isAudioStopped,
     }.withoutNulls,
   );
 
@@ -221,7 +251,11 @@ class JournalRecordDocumentEquality implements Equality<JournalRecord> {
         e1?.journalPhoto == e2?.journalPhoto &&
         e1?.journalVoiceNote == e2?.journalVoiceNote &&
         e1?.lucilleJournalPrompt == e2?.lucilleJournalPrompt &&
-        listEquality.equals(e1?.journalTags, e2?.journalTags);
+        listEquality.equals(e1?.journalTags, e2?.journalTags) &&
+        e1?.voiceNoteContent == e2?.voiceNoteContent &&
+        e1?.isAudioRecording == e2?.isAudioRecording &&
+        e1?.isAudioStopped == e2?.isAudioStopped &&
+        listEquality.equals(e1?.transcribeText, e2?.transcribeText);
   }
 
   @override
@@ -241,7 +275,11 @@ class JournalRecordDocumentEquality implements Equality<JournalRecord> {
         e?.journalPhoto,
         e?.journalVoiceNote,
         e?.lucilleJournalPrompt,
-        e?.journalTags
+        e?.journalTags,
+        e?.voiceNoteContent,
+        e?.isAudioRecording,
+        e?.isAudioStopped,
+        e?.transcribeText
       ]);
 
   @override

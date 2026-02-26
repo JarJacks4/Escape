@@ -17,6 +17,13 @@ class BuildShipStreamStruct extends FFFirebaseStruct {
     int? statusCode,
     int? messageCount,
     Role? message,
+    String? id,
+    String? exerciseTitle,
+    String? description,
+    String? actionType,
+    String? actionPayload,
+    int? priority,
+    bool? visible,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _data = data,
         _delta = delta,
@@ -24,6 +31,13 @@ class BuildShipStreamStruct extends FFFirebaseStruct {
         _statusCode = statusCode,
         _messageCount = messageCount,
         _message = message,
+        _id = id,
+        _exerciseTitle = exerciseTitle,
+        _description = description,
+        _actionType = actionType,
+        _actionPayload = actionPayload,
+        _priority = priority,
+        _visible = visible,
         super(firestoreUtilData);
 
   // "data" field.
@@ -73,6 +87,57 @@ class BuildShipStreamStruct extends FFFirebaseStruct {
 
   bool hasMessage() => _message != null;
 
+  // "id" field.
+  String? _id;
+  String get id => _id ?? '';
+  set id(String? val) => _id = val;
+
+  bool hasId() => _id != null;
+
+  // "exerciseTitle" field.
+  String? _exerciseTitle;
+  String get exerciseTitle => _exerciseTitle ?? '';
+  set exerciseTitle(String? val) => _exerciseTitle = val;
+
+  bool hasExerciseTitle() => _exerciseTitle != null;
+
+  // "description" field.
+  String? _description;
+  String get description => _description ?? '';
+  set description(String? val) => _description = val;
+
+  bool hasDescription() => _description != null;
+
+  // "actionType" field.
+  String? _actionType;
+  String get actionType => _actionType ?? '';
+  set actionType(String? val) => _actionType = val;
+
+  bool hasActionType() => _actionType != null;
+
+  // "actionPayload" field.
+  String? _actionPayload;
+  String get actionPayload => _actionPayload ?? '';
+  set actionPayload(String? val) => _actionPayload = val;
+
+  bool hasActionPayload() => _actionPayload != null;
+
+  // "priority" field.
+  int? _priority;
+  int get priority => _priority ?? 0;
+  set priority(int? val) => _priority = val;
+
+  void incrementPriority(int amount) => priority = priority + amount;
+
+  bool hasPriority() => _priority != null;
+
+  // "visible" field.
+  bool? _visible;
+  bool get visible => _visible ?? false;
+  set visible(bool? val) => _visible = val;
+
+  bool hasVisible() => _visible != null;
+
   static BuildShipStreamStruct fromMap(Map<String, dynamic> data) =>
       BuildShipStreamStruct(
         data: data['data'] as String?,
@@ -83,6 +148,13 @@ class BuildShipStreamStruct extends FFFirebaseStruct {
         message: data['Message'] is Role
             ? data['Message']
             : deserializeEnum<Role>(data['Message']),
+        id: data['id'] as String?,
+        exerciseTitle: data['exerciseTitle'] as String?,
+        description: data['description'] as String?,
+        actionType: data['actionType'] as String?,
+        actionPayload: data['actionPayload'] as String?,
+        priority: castToType<int>(data['priority']),
+        visible: data['visible'] as bool?,
       );
 
   static BuildShipStreamStruct? maybeFromMap(dynamic data) => data is Map
@@ -96,6 +168,13 @@ class BuildShipStreamStruct extends FFFirebaseStruct {
         'StatusCode': _statusCode,
         'MessageCount': _messageCount,
         'Message': _message?.serialize(),
+        'id': _id,
+        'exerciseTitle': _exerciseTitle,
+        'description': _description,
+        'actionType': _actionType,
+        'actionPayload': _actionPayload,
+        'priority': _priority,
+        'visible': _visible,
       }.withoutNulls;
 
   @override
@@ -123,6 +202,34 @@ class BuildShipStreamStruct extends FFFirebaseStruct {
         'Message': serializeParam(
           _message,
           ParamType.Enum,
+        ),
+        'id': serializeParam(
+          _id,
+          ParamType.String,
+        ),
+        'exerciseTitle': serializeParam(
+          _exerciseTitle,
+          ParamType.String,
+        ),
+        'description': serializeParam(
+          _description,
+          ParamType.String,
+        ),
+        'actionType': serializeParam(
+          _actionType,
+          ParamType.String,
+        ),
+        'actionPayload': serializeParam(
+          _actionPayload,
+          ParamType.String,
+        ),
+        'priority': serializeParam(
+          _priority,
+          ParamType.int,
+        ),
+        'visible': serializeParam(
+          _visible,
+          ParamType.bool,
         ),
       }.withoutNulls;
 
@@ -158,6 +265,41 @@ class BuildShipStreamStruct extends FFFirebaseStruct {
           ParamType.Enum,
           false,
         ),
+        id: deserializeParam(
+          data['id'],
+          ParamType.String,
+          false,
+        ),
+        exerciseTitle: deserializeParam(
+          data['exerciseTitle'],
+          ParamType.String,
+          false,
+        ),
+        description: deserializeParam(
+          data['description'],
+          ParamType.String,
+          false,
+        ),
+        actionType: deserializeParam(
+          data['actionType'],
+          ParamType.String,
+          false,
+        ),
+        actionPayload: deserializeParam(
+          data['actionPayload'],
+          ParamType.String,
+          false,
+        ),
+        priority: deserializeParam(
+          data['priority'],
+          ParamType.int,
+          false,
+        ),
+        visible: deserializeParam(
+          data['visible'],
+          ParamType.bool,
+          false,
+        ),
       );
 
   @override
@@ -171,12 +313,32 @@ class BuildShipStreamStruct extends FFFirebaseStruct {
         response == other.response &&
         statusCode == other.statusCode &&
         messageCount == other.messageCount &&
-        message == other.message;
+        message == other.message &&
+        id == other.id &&
+        exerciseTitle == other.exerciseTitle &&
+        description == other.description &&
+        actionType == other.actionType &&
+        actionPayload == other.actionPayload &&
+        priority == other.priority &&
+        visible == other.visible;
   }
 
   @override
-  int get hashCode => const ListEquality()
-      .hash([data, delta, response, statusCode, messageCount, message]);
+  int get hashCode => const ListEquality().hash([
+        data,
+        delta,
+        response,
+        statusCode,
+        messageCount,
+        message,
+        id,
+        exerciseTitle,
+        description,
+        actionType,
+        actionPayload,
+        priority,
+        visible
+      ]);
 }
 
 BuildShipStreamStruct createBuildShipStreamStruct({
@@ -186,6 +348,13 @@ BuildShipStreamStruct createBuildShipStreamStruct({
   int? statusCode,
   int? messageCount,
   Role? message,
+  String? id,
+  String? exerciseTitle,
+  String? description,
+  String? actionType,
+  String? actionPayload,
+  int? priority,
+  bool? visible,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
@@ -198,6 +367,13 @@ BuildShipStreamStruct createBuildShipStreamStruct({
       statusCode: statusCode,
       messageCount: messageCount,
       message: message,
+      id: id,
+      exerciseTitle: exerciseTitle,
+      description: description,
+      actionType: actionType,
+      actionPayload: actionPayload,
+      priority: priority,
+      visible: visible,
       firestoreUtilData: FirestoreUtilData(
         clearUnsetFields: clearUnsetFields,
         create: create,

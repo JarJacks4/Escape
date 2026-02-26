@@ -79,15 +79,13 @@ class _PushNotificationsHandlerState extends State<PushNotificationsHandler> {
 
   @override
   Widget build(BuildContext context) => _loading
-      ? isWeb
-          ? Container()
-          : Container(
-              color: Colors.transparent,
-              child: Image.asset(
-                'assets/images/Escape_Logo_White_and_Black_(1).png',
-                fit: BoxFit.cover,
-              ),
-            )
+      ? Container(
+          color: Colors.transparent,
+          child: Image.asset(
+            'assets/images/Welcome_to_Escape.gif',
+            fit: BoxFit.cover,
+          ),
+        )
       : widget.child;
 }
 
@@ -127,12 +125,10 @@ final parametersBuilderMap =
   'BasicBreathingGoalPage': ParameterData.none(),
   'CalmBreathing': ParameterData.none(),
   'MicrcosmicMeditationGoalPage': ParameterData.none(),
-  'LucilleHome': ParameterData.none(),
   'BoxBreathingMeditationPage': ParameterData.none(),
   'NatureMediationChoice': ParameterData.none(),
   'BinauralBeatsChoice': ParameterData.none(),
   'SleepMeditationsChoice': ParameterData.none(),
-  'CommunityHomeVersion5': ParameterData.none(),
   'MeditationPageFINAL': ParameterData.none(),
   'SleepVideosFINAL': ParameterData.none(),
   'DepressionVideosFINAL': ParameterData.none(),
@@ -150,16 +146,6 @@ final parametersBuilderMap =
   'IncreaseFocusGoal': ParameterData.none(),
   'ShortBreathingGoal': ParameterData.none(),
   'LongBreathingGoal': ParameterData.none(),
-  'CommunityHomeFINAL': (data) async => ParameterData(
-        allParams: {
-          'forYouIndex': getParameter<int>(data, 'forYouIndex'),
-          'breathingIndex': getParameter<int>(data, 'breathingIndex'),
-          'bodyIndex': getParameter<int>(data, 'bodyIndex'),
-          'initialTabIndex': getParameter<int>(data, 'initialTabIndex'),
-          'oldIndex': getParameter<int>(data, 'oldIndex'),
-          'newIndex': getParameter<int>(data, 'newIndex'),
-        },
-      ),
   'FacialMoodAnalyzerChoiceLogin': ParameterData.none(),
   'FacialMoodAnalyzerPage': ParameterData.none(),
   'MoodAnalyzerSuccess': ParameterData.none(),
@@ -167,11 +153,6 @@ final parametersBuilderMap =
   'FacialMoodAnalyzerChoiceLucilleCard': ParameterData.none(),
   'Settings': ParameterData.none(),
   'MeditationReorder': (data) async => ParameterData(
-        allParams: {
-          'tabIndex': getParameter<int>(data, 'tabIndex'),
-        },
-      ),
-  'FocusReorder': (data) async => ParameterData(
         allParams: {
           'tabIndex': getParameter<int>(data, 'tabIndex'),
         },
@@ -194,6 +175,11 @@ final parametersBuilderMap =
   'MusicPlayer': (data) async => ParameterData(
         allParams: {
           'initialSong': getParameter<String>(data, 'initialSong'),
+          'tracks': getParameter<String>(data, 'tracks'),
+          'trackAlbumArt': getParameter<String>(data, 'trackAlbumArt'),
+          'trackTime': getParameter<int>(data, 'trackTime'),
+          'songTitle': getParameter<String>(data, 'songTitle'),
+          'songGenre': getParameter<String>(data, 'songGenre'),
         },
       ),
   'AISoundscapesCopyCopy': (data) async => ParameterData(
@@ -215,7 +201,6 @@ final parametersBuilderMap =
   'AdvancedMoodTracker': ParameterData.none(),
   'Soundscapes': ParameterData.none(),
   'tabbar': ParameterData.none(),
-  'CommunityHomeVersion5Copy': ParameterData.none(),
   'HomeVersion5': ParameterData.none(),
   'ResetPage': ParameterData.none(),
   'MindPage': ParameterData.none(),
@@ -234,6 +219,50 @@ final parametersBuilderMap =
   'ConnectionCommunityStartPageVersion5': ParameterData.none(),
   'test_page1': ParameterData.none(),
   'EnergyScanVersion5': ParameterData.none(),
+  'sampleBlank': ParameterData.none(),
+  'sampple': ParameterData.none(),
+  'ProfileVersion5': ParameterData.none(),
+  'MindRootChakraVersion5': ParameterData.none(),
+  'MindSacralChakraVersion5': ParameterData.none(),
+  'MindSolarPlexusChakraVersion5': ParameterData.none(),
+  'MindHeartChakraVersion5': ParameterData.none(),
+  'MindThroatChakraVersion5': ParameterData.none(),
+  'MindThirdEyeChakraVersion5': ParameterData.none(),
+  'MindCrownChakraVersion5': ParameterData.none(),
+  'SoundscapeSample': ParameterData.none(),
+  'MusicPlayerCopy': (data) async => ParameterData(
+        allParams: {
+          'initialSong': getParameter<String>(data, 'initialSong'),
+          'trackAlbumArt': getParameter<String>(data, 'trackAlbumArt'),
+          'trackTime': getParameter<int>(data, 'trackTime'),
+          'songTitle': getParameter<String>(data, 'songTitle'),
+          'songGenre': getParameter<String>(data, 'songGenre'),
+          'songMood': getParameter<String>(data, 'songMood'),
+        },
+      ),
+  'EnergyScanVersion5Copy': ParameterData.none(),
+  'ExplorePageVersion5': ParameterData.none(),
+  'AISoundscapesCopyCopyCopy': (data) async => ParameterData(
+        allParams: {
+          'meditationaudio': getParameter<String>(data, 'meditationaudio'),
+        },
+      ),
+  'ResetPageCopy': ParameterData.none(),
+  'CreateAccountOnboardingFlow': ParameterData.none(),
+  'OnboardingPageView': ParameterData.none(),
+  'MoodScanVersion5': ParameterData.none(),
+  'TodaysHelpVersion5': ParameterData.none(),
+  'YoureAllSetPageVersion5': ParameterData.none(),
+  'CommunityGuidelines': ParameterData.none(),
+  'CommunityGuidelinesCopy': ParameterData.none(),
+  'EnergyCentersGuidance': ParameterData.none(),
+  'MeditationHelp': ParameterData.none(),
+  'ContactUsVersion5': ParameterData.none(),
+  'SelfCareGoalsVersion5': ParameterData.none(),
+  'ConfettiRewardBasic': ParameterData.none(),
+  'SplashHomeScreen': ParameterData.none(),
+  'ComingSoonBody': ParameterData.none(),
+  'ComingSoonMarketplace': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

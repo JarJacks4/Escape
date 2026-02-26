@@ -112,8 +112,6 @@ class _FacialMoodAnalyzerChoiceLucilleCardWidgetState
         ],
       ),
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -318,7 +316,8 @@ class _FacialMoodAnalyzerChoiceLucilleCardWidgetState
                                           FacialMoodAnalyzerPageWidget
                                               .routeName,
                                           extra: <String, dynamic>{
-                                            kTransitionInfoKey: TransitionInfo(
+                                            '__transition_info__':
+                                                TransitionInfo(
                                               hasTransition: true,
                                               transitionType: PageTransitionType
                                                   .rightToLeft,

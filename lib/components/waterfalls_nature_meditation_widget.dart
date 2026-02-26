@@ -84,8 +84,6 @@ class _WaterfallsNatureMeditationWidgetState
         ],
       ),
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -235,7 +233,7 @@ class _WaterfallsNatureMeditationWidgetState
                             context.pushNamed(
                               EscapingWithNatureSoundsGoalWidget.routeName,
                               extra: <String, dynamic>{
-                                kTransitionInfoKey: TransitionInfo(
+                                '__transition_info__': TransitionInfo(
                                   hasTransition: true,
                                   transitionType: PageTransitionType.fade,
                                   duration: Duration(milliseconds: 2),

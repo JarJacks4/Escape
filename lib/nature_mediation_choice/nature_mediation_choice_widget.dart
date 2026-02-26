@@ -29,7 +29,6 @@ class _NatureMediationChoiceWidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'NatureMediationChoice'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

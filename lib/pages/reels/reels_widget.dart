@@ -26,7 +26,6 @@ class _ReelsWidgetState extends State<ReelsWidget> {
     _model = createModel(context, () => ReelsModel());
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'reels'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

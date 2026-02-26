@@ -29,8 +29,6 @@ class _SleepChoiceCompWidgetState extends State<SleepChoiceCompWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => SleepChoiceCompModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

@@ -49,8 +49,6 @@ class _StartingRealmCompVersion5WidgetState
         ],
       ),
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

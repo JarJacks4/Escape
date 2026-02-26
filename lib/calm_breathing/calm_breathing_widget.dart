@@ -282,7 +282,9 @@ class _CalmBreathingWidgetState extends State<CalmBreathingWidget>
                               },
                               child: Padding(
                                 padding: MediaQuery.viewInsetsOf(context),
-                                child: ConfettiPageBasicCompWidget(),
+                                child: ConfettiPageBasicCompWidget(
+                                  exerciseTitle: 'Calm Breathing',
+                                ),
                               ),
                             );
                           },

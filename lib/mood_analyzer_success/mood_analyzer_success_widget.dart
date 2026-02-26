@@ -47,8 +47,6 @@ class _MoodAnalyzerSuccessWidgetState extends State<MoodAnalyzerSuccessWidget>
         ],
       ),
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

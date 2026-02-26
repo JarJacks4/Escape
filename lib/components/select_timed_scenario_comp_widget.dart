@@ -1,4 +1,3 @@
-import '/components/select_soundscape_duration_comp_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -50,8 +49,6 @@ class _SelectTimedScenarioCompWidgetState
         ],
       ),
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -263,41 +260,8 @@ class _SelectTimedScenarioCompWidgetState
                           ),
                         ),
                         FFButtonWidget(
-                          onPressed: () async {
-                            logFirebaseEvent(
-                                'SELECT_TIMED_SCENARIO_CONTINUE_BTN_ON_TA');
-                            logFirebaseEvent('Button_update_app_state');
-                            FFAppState().addToSoundscapeScenario(
-                                _model.choiceChipsValues!.length.toString());
-                            safeSetState(() {});
-                            logFirebaseEvent('Button_show_snack_bar');
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text(
-                                  'Environment Chosen!',
-                                  style: TextStyle(
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
-                                  ),
-                                ),
-                                duration: Duration(milliseconds: 4000),
-                                backgroundColor:
-                                    FlutterFlowTheme.of(context).secondary,
-                              ),
-                            );
-                            logFirebaseEvent('Button_bottom_sheet');
-                            await showModalBottomSheet(
-                              isScrollControlled: true,
-                              backgroundColor: Colors.transparent,
-                              enableDrag: false,
-                              context: context,
-                              builder: (context) {
-                                return Padding(
-                                  padding: MediaQuery.viewInsetsOf(context),
-                                  child: SelectSoundscapeDurationCompWidget(),
-                                );
-                              },
-                            ).then((value) => safeSetState(() {}));
+                          onPressed: () {
+                            print('Button pressed ...');
                           },
                           text: FFLocalizations.of(context).getText(
                             'vah0vnwa' /* Continue */,

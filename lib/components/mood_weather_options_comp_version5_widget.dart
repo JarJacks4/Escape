@@ -27,8 +27,6 @@ class _MoodWeatherOptionsCompVersion5WidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => MoodWeatherOptionsCompVersion5Model());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

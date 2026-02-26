@@ -3,11 +3,9 @@ import '/chat_g_p_t_component/empty_list_2/empty_list2_widget.dart';
 import '/chat_g_p_t_component/writing_indicator_1/writing_indicator1_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'dart:convert';
 import 'dart:ui';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:ff_commons/api_requests/api_streaming.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -37,8 +35,6 @@ class _AiChatComponent1WidgetState extends State<AiChatComponent1Widget> {
 
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -604,19 +600,6 @@ class _AiChatComponent1WidgetState extends State<AiChatComponent1Widget> {
                           logFirebaseEvent('IconButton_backend_call');
                           _model.chatGPTResponse =
                               await LucilleChatStreamCall.call();
-                          if (_model.chatGPTResponse?.succeeded ?? true) {
-                            final streamSubscription = _model
-                                .chatGPTResponse?.streamedResponse?.stream
-                                .transform(utf8.decoder)
-                                .transform(const LineSplitter())
-                                .transform(ServerSentEventLineTransformer())
-                                .map((m) => ResponseStreamMessage(message: m))
-                                .listen(
-                                  (onMessageInput) async {},
-                                  onError: (onErrorInput) async {},
-                                  onDone: () async {},
-                                );
-                          }
 
                           if ((_model.chatGPTResponse?.succeeded ?? true)) {
                             logFirebaseEvent(

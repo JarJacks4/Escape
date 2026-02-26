@@ -27,7 +27,6 @@ class _ChooseRealmsPageWidgetState extends State<ChooseRealmsPageWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'ChooseRealmsPage'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

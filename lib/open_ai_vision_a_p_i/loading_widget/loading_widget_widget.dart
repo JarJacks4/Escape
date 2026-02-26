@@ -54,8 +54,6 @@ class _LoadingWidgetWidgetState extends State<LoadingWidgetWidget>
         ],
       ),
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

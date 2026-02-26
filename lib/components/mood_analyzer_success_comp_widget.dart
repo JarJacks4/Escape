@@ -131,8 +131,6 @@ class _MoodAnalyzerSuccessCompWidgetState
         ],
       ),
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -355,7 +353,7 @@ class _MoodAnalyzerSuccessCompWidgetState
                                     context.pushNamed(
                                       HomeVersion5Widget.routeName,
                                       extra: <String, dynamic>{
-                                        kTransitionInfoKey: TransitionInfo(
+                                        '__transition_info__': TransitionInfo(
                                           hasTransition: true,
                                           transitionType:
                                               PageTransitionType.rightToLeft,

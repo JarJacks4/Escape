@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'deep_breathing_widget.dart' show DeepBreathingWidget;
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:flutter/material.dart';
+import 'package:just_audio/just_audio.dart';
 
 class DeepBreathingModel extends FlutterFlowModel<DeepBreathingWidget> {
   ///  State fields for stateful widgets in this page.
@@ -18,6 +19,8 @@ class DeepBreathingModel extends FlutterFlowModel<DeepBreathingWidget> {
   );
   FlutterFlowTimerController timerController =
       FlutterFlowTimerController(StopWatchTimer(mode: StopWatchMode.countDown));
+
+  AudioPlayer? soundPlayer;
 
   @override
   void initState(BuildContext context) {}

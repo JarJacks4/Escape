@@ -5,8 +5,12 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
-import 'package:that_audio_player_5bjqer/app_state.dart'
-    as that_audio_player_5bjqer_app_state;
+import 'package:confetti_modualo_library_b75kfy/app_state.dart'
+    as confetti_modualo_library_b75kfy_app_state;
+import 'package:cupertino_time_picker_hiuzb7/app_state.dart'
+    as cupertino_time_picker_hiuzb7_app_state;
+import 'package:that_audio_player_oo85ab/app_state.dart'
+    as that_audio_player_oo85ab_app_state;
 import 'package:tiktokfeed_wz8en7/app_state.dart'
     as tiktokfeed_wz8en7_app_state;
 import 'package:easy_debounce/easy_debounce.dart';
@@ -113,8 +117,10 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
+    context.watch<cupertino_time_picker_hiuzb7_app_state.FFAppState>();
     context.watch<tiktokfeed_wz8en7_app_state.FFAppState>();
-    context.watch<that_audio_player_5bjqer_app_state.FFAppState>();
+    context.watch<that_audio_player_oo85ab_app_state.FFAppState>();
+    context.watch<confetti_modualo_library_b75kfy_app_state.FFAppState>();
 
     return Container(
       width: double.infinity,
@@ -709,10 +715,11 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                       EdgeInsetsDirectional.fromSTEB(
                                           20.0, 24.0, 20.0, 24.0),
                                   suffixIcon: InkWell(
-                                    onTap: () => safeSetState(
-                                      () => _model.newPasswordVisibility =
-                                          !_model.newPasswordVisibility,
-                                    ),
+                                    onTap: () async {
+                                      safeSetState(() =>
+                                          _model.newPasswordVisibility =
+                                              !_model.newPasswordVisibility);
+                                    },
                                     focusNode: FocusNode(skipTraversal: true),
                                     child: Icon(
                                       _model.newPasswordVisibility
@@ -835,10 +842,11 @@ class _EditProfileWidgetState extends State<EditProfileWidget>
                                       EdgeInsetsDirectional.fromSTEB(
                                           20.0, 24.0, 20.0, 24.0),
                                   suffixIcon: InkWell(
-                                    onTap: () => safeSetState(
-                                      () => _model.confirmPasswordVisibility =
-                                          !_model.confirmPasswordVisibility,
-                                    ),
+                                    onTap: () async {
+                                      safeSetState(() => _model
+                                              .confirmPasswordVisibility =
+                                          !_model.confirmPasswordVisibility);
+                                    },
                                     focusNode: FocusNode(skipTraversal: true),
                                     child: Icon(
                                       _model.confirmPasswordVisibility

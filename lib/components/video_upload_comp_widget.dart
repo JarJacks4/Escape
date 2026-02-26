@@ -24,8 +24,6 @@ class _VideoUploadCompWidgetState extends State<VideoUploadCompWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => VideoUploadCompModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

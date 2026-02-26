@@ -2,11 +2,15 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'journal_page1_version5_widget.dart' show JournalPage1Version5Widget;
 import 'package:flutter/material.dart';
+import 'package:just_audio/just_audio.dart';
 
 class JournalPage1Version5Model
     extends FlutterFlowModel<JournalPage1Version5Widget> {
   ///  State fields for stateful widgets in this component.
 
+  // State field(s) for Column widget.
+  ScrollController? columnController;
+  AudioPlayer? soundPlayer;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode1;
   TextEditingController? textController1;
@@ -26,10 +30,13 @@ class JournalPage1Version5Model
   String uploadedFileUrl_uploadJournalMood = '';
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    columnController = ScrollController();
+  }
 
   @override
   void dispose() {
+    columnController?.dispose();
     textFieldFocusNode1?.dispose();
     textController1?.dispose();
 
