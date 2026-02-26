@@ -42,30 +42,20 @@ post_install do |installer|
     flutter_additional_ios_build_settings(target)
     target.build_configurations.each do |config|
       config.build_settings.delete 'IPHONEOS_DEPLOYMENT_TARGET'
+
+      # ✅ Force Swift 5 (Fix Swift 6 Cloud Build Failure)
+      config.build_settings['SWIFT_VERSION'] = '5.0'
+      config.build_settings['SWIFT_STRICT_CONCURRENCY'] = 'minimal'
+
       config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= [
         '$(inherited)',
 
-         # dart: [PermissionGroup.location, PermissionGroup.locationAlways, PermissionGroup.locationWhenInUse]
         'PERMISSION_LOCATION=1',
-
-        # dart: PermissionGroup.camera
         'PERMISSION_CAMERA=1',
-
-        # dart: PermissionGroup.photos
         'PERMISSION_PHOTOS=1',
-
-        # dart: PermissionGroup.microphone
         'PERMISSION_MICROPHONE=1',
-
-        # dart: PermissionGroup.notification
         'PERMISSION_NOTIFICATIONS=1',
       ]
     end
   end
-end
-
-target 'ImageNotification' do
-  use_frameworks! :linkage => :static
-  pod 'Firebase/Messaging'
-  pod 'GoogleUtilities'
 end
