@@ -30,7 +30,6 @@ class _DestinationDetailsUnrealEngineVersion5WidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'DestinationDetailsUnrealEngineVersion5'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

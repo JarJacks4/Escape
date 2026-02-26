@@ -19,7 +19,7 @@ import '/index.dart';
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
 
-const kTransitionInfoKey = '__transition_info__';
+const kTransitionInfoKey = '__transition_info__tiktokfeed_wz8en7';
 
 GlobalKey<NavigatorState> appNavigatorKey = GlobalKey<NavigatorState>();
 
@@ -217,6 +217,7 @@ class FFRoute {
           return transitionInfo.hasTransition
               ? CustomTransitionPage(
                   key: state.pageKey,
+                  name: state.name,
                   child: child,
                   transitionDuration: transitionInfo.duration,
                   transitionsBuilder:
@@ -234,7 +235,8 @@ class FFRoute {
                     child,
                   ),
                 )
-              : MaterialPage(key: state.pageKey, child: child);
+              : MaterialPage(
+                  key: state.pageKey, name: state.name, child: child);
         },
         routes: routes,
       );

@@ -24,8 +24,6 @@ class _OnboardingButtonWidgetState extends State<OnboardingButtonWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => OnboardingButtonModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

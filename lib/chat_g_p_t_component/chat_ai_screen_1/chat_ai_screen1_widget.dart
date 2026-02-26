@@ -37,8 +37,6 @@ class _ChatAiScreen1WidgetState extends State<ChatAiScreen1Widget> {
       _model.aiResponding = false;
       safeSetState(() {});
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -99,7 +97,7 @@ class _ChatAiScreen1WidgetState extends State<ChatAiScreen1Widget> {
                         context.pushNamed(
                           ChatAiScreen1Widget.routeName,
                           extra: <String, dynamic>{
-                            kTransitionInfoKey: TransitionInfo(
+                            '__transition_info__': TransitionInfo(
                               hasTransition: true,
                               transitionType: PageTransitionType.fade,
                             ),

@@ -63,8 +63,6 @@ class _BodyCardWidgetState extends State<BodyCardWidget>
         ],
       ),
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

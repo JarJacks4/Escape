@@ -46,8 +46,6 @@ class _MinimizedMusicPlayerWidgetState extends State<MinimizedMusicPlayerWidget>
         ],
       ),
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

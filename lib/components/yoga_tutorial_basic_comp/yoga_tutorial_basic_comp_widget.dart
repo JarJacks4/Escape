@@ -280,8 +280,6 @@ class _YogaTutorialBasicCompWidgetState
         ],
       ),
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

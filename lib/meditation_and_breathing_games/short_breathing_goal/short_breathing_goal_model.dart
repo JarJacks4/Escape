@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'short_breathing_goal_widget.dart' show ShortBreathingGoalWidget;
 import 'package:flutter/material.dart';
+import 'package:just_audio/just_audio.dart';
 
 class ShortBreathingGoalModel
     extends FlutterFlowModel<ShortBreathingGoalWidget> {
@@ -19,6 +20,8 @@ class ShortBreathingGoalModel
   );
   FlutterFlowTimerController timerController =
       FlutterFlowTimerController(StopWatchTimer(mode: StopWatchMode.countDown));
+
+  AudioPlayer? soundPlayer;
 
   @override
   void initState(BuildContext context) {}

@@ -32,8 +32,6 @@ class _NewLoginCompWidgetState extends State<NewLoginCompWidget> {
 
     _model.textController2 ??= TextEditingController();
     _model.textFieldFocusNode2 ??= FocusNode();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -194,10 +192,10 @@ class _NewLoginCompWidgetState extends State<NewLoginCompWidget> {
                       filled: true,
                       fillColor: FlutterFlowTheme.of(context).primaryBackground,
                       suffixIcon: InkWell(
-                        onTap: () => safeSetState(
-                          () => _model.passwordVisibility =
-                              !_model.passwordVisibility,
-                        ),
+                        onTap: () async {
+                          safeSetState(() => _model.passwordVisibility =
+                              !_model.passwordVisibility);
+                        },
                         focusNode: FocusNode(skipTraversal: true),
                         child: Icon(
                           _model.passwordVisibility

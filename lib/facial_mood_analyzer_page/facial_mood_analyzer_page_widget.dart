@@ -114,8 +114,6 @@ class _FacialMoodAnalyzerPageWidgetState
         ],
       ),
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -258,9 +256,10 @@ class _FacialMoodAnalyzerPageWidgetState
                                         logFirebaseEvent('Button_navigate_to');
 
                                         context.pushNamed(
-                                          HomeVersion4Widget.routeName,
+                                          HomeVersion5Widget.routeName,
                                           extra: <String, dynamic>{
-                                            kTransitionInfoKey: TransitionInfo(
+                                            '__transition_info__':
+                                                TransitionInfo(
                                               hasTransition: true,
                                               transitionType:
                                                   PageTransitionType.fade,
@@ -329,7 +328,7 @@ class _FacialMoodAnalyzerPageWidgetState
                                                 validateFileFormat(
                                                     m.storagePath, context))) {
                                           safeSetState(() => _model
-                                                  .isDataUploading_aIUploadMoodPhoto =
+                                                  .isDataUploading_aIUploadMoodPhoto3 =
                                               true);
                                           var selectedUploadedFiles =
                                               <FFUploadedFile>[];
@@ -363,7 +362,7 @@ class _FacialMoodAnalyzerPageWidgetState
                                                 .map((u) => u!)
                                                 .toList();
                                           } finally {
-                                            _model.isDataUploading_aIUploadMoodPhoto =
+                                            _model.isDataUploading_aIUploadMoodPhoto3 =
                                                 false;
                                           }
                                           if (selectedUploadedFiles.length ==
@@ -371,9 +370,9 @@ class _FacialMoodAnalyzerPageWidgetState
                                               downloadUrls.length ==
                                                   selectedMedia.length) {
                                             safeSetState(() {
-                                              _model.uploadedLocalFile_aIUploadMoodPhoto =
+                                              _model.uploadedLocalFile_aIUploadMoodPhoto3 =
                                                   selectedUploadedFiles.first;
-                                              _model.uploadedFileUrl_aIUploadMoodPhoto =
+                                              _model.uploadedFileUrl_aIUploadMoodPhoto3 =
                                                   downloadUrls.first;
                                             });
                                           } else {
@@ -416,13 +415,13 @@ class _FacialMoodAnalyzerPageWidgetState
                                           prompt:
                                               'Analyze the users picture to generate a single text word that describes the mood analyzed in the photo.',
                                           imageUrl: _model
-                                              .uploadedFileUrl_aIUploadMoodPhoto,
+                                              .uploadedFileUrl_aIUploadMoodPhoto3,
                                           threadId: '1',
                                           agentCloudFunctionName:
                                               'lucilleMoodAnalyzerAgent',
                                           provider: 'GOOGLE',
                                           agentJson:
-                                              '{\"status\":\"LIVE\",\"identifier\":{\"name\":\"lucilleMoodAnalyzerAgent\",\"key\":\"qs0vq\"},\"name\":\"LucilleMoodAnalyzerAgent\",\"description\":\"This Self-Care agent is for primarily giving a one word response to \\\"What is the user\'s mood, according to their uploaded photo?\\\"\",\"aiModel\":{\"provider\":\"GOOGLE\",\"model\":\"gemini-2.0-flash\",\"parameters\":{\"temperature\":{\"inputValue\":1},\"maxTokens\":{\"inputValue\":8192},\"topP\":{\"inputValue\":0.95}},\"messages\":[{\"role\":\"SYSTEM\",\"text\":\"You are a Self-Care agent for the AI Self Care company Escapeapp.ai and you are here to give a one word response to their uploaded photo. The response should be the mood that you analyze from the photo, as a completely one word response.\"},{\"role\":\"USER\",\"text\":\"What is the my mood today, in one word, according to the photo they just uploaded for text-to-image mood analyzation?\"}]},\"requestOptions\":{\"requestTypes\":[\"PLAINTEXT\"]},\"responseOptions\":{\"responseType\":\"PLAINTEXT\"}}',
+                                              '{\"status\":\"LIVE\",\"identifier\":{\"name\":\"lucilleMoodAnalyzerAgent\",\"key\":\"qs0vq\"},\"name\":\"LucilleMoodAnalyzerAgent\",\"description\":\"This Self-Care agent is for primarily giving a one word response to \\\"What is the user\'s mood, according to their uploaded photo?\\\"\",\"aiModel\":{\"provider\":\"GOOGLE\",\"model\":\"gemini-2.5-flash-lite\",\"parameters\":{\"temperature\":{\"inputValue\":1},\"maxTokens\":{\"inputValue\":65535},\"topP\":{\"inputValue\":0.95}},\"messages\":[{\"role\":\"SYSTEM\",\"text\":\"You are a Self-Care agent for the AI Self Care company Escapeapp.ai and you are here to give a one word response to their uploaded photo. The response should be the mood that you analyze from the photo, as a completely one word response.\"},{\"role\":\"USER\",\"text\":\"What is the my mood today, in one word, according to the photo they just uploaded for text-to-image mood analyzation?\"}]},\"requestOptions\":{\"requestTypes\":[\"PLAINTEXT\",\"IMAGE\"]},\"responseOptions\":{\"responseType\":\"PLAINTEXT\"}}',
                                           responseType: 'PLAINTEXT',
                                         ).then((generatedText) {
                                           safeSetState(() =>
@@ -437,7 +436,7 @@ class _FacialMoodAnalyzerPageWidgetState
                                           currentMood:
                                               _model.aIMoodAnalyzeAction,
                                           currentMoodPhoto: _model
-                                              .uploadedFileUrl_aIUploadMoodPhoto,
+                                              .uploadedFileUrl_aIUploadMoodPhoto3,
                                           timeStamp: getCurrentTimestamp,
                                           createdTime: getCurrentTimestamp,
                                           uid: 'user1',
@@ -447,7 +446,8 @@ class _FacialMoodAnalyzerPageWidgetState
                                         context.pushNamed(
                                           AdvancedMoodTrackerWidget.routeName,
                                           extra: <String, dynamic>{
-                                            kTransitionInfoKey: TransitionInfo(
+                                            '__transition_info__':
+                                                TransitionInfo(
                                               hasTransition: true,
                                               transitionType:
                                                   PageTransitionType.fade,

@@ -56,8 +56,6 @@ class _CopingToolsCompWidgetState extends State<CopingToolsCompWidget>
         ],
       ),
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

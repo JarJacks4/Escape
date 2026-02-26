@@ -32,7 +32,6 @@ class _EscapingWithNatureSoundsGoalWidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'EscapingWithNatureSoundsGoal'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -213,7 +212,9 @@ Water Sounds */
                               },
                               child: Padding(
                                 padding: MediaQuery.viewInsetsOf(context),
-                                child: ConfettiPageBasicCompWidget(),
+                                child: ConfettiPageBasicCompWidget(
+                                  exerciseTitle: 'Water Sounds',
+                                ),
                               ),
                             );
                           },

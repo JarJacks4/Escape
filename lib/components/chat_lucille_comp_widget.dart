@@ -8,8 +8,12 @@ import 'dart:convert';
 import '/backend/schema/structs/index.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/permissions_util.dart';
-import 'package:that_audio_player_5bjqer/app_state.dart'
-    as that_audio_player_5bjqer_app_state;
+import 'package:confetti_modualo_library_b75kfy/app_state.dart'
+    as confetti_modualo_library_b75kfy_app_state;
+import 'package:cupertino_time_picker_hiuzb7/app_state.dart'
+    as cupertino_time_picker_hiuzb7_app_state;
+import 'package:that_audio_player_oo85ab/app_state.dart'
+    as that_audio_player_oo85ab_app_state;
 import 'package:tiktokfeed_wz8en7/app_state.dart'
     as tiktokfeed_wz8en7_app_state;
 import 'package:ff_commons/api_requests/api_streaming.dart';
@@ -48,8 +52,6 @@ class _ChatLucilleCompWidgetState extends State<ChatLucilleCompWidget>
       length: 2,
       initialIndex: 0,
     )..addListener(() => safeSetState(() {}));
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -62,8 +64,10 @@ class _ChatLucilleCompWidgetState extends State<ChatLucilleCompWidget>
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
+    context.watch<cupertino_time_picker_hiuzb7_app_state.FFAppState>();
     context.watch<tiktokfeed_wz8en7_app_state.FFAppState>();
-    context.watch<that_audio_player_5bjqer_app_state.FFAppState>();
+    context.watch<that_audio_player_oo85ab_app_state.FFAppState>();
+    context.watch<confetti_modualo_library_b75kfy_app_state.FFAppState>();
 
     return Container(
       decoration: BoxDecoration(
@@ -287,47 +291,15 @@ class _ChatLucilleCompWidgetState extends State<ChatLucilleCompWidget>
                                           safeSetState(() {});
                                           logFirebaseEvent(
                                               'LottieAnimation_backend_call');
-                                          _model.apiResult80y =
-                                              await LucilleSelfCareAILLMGroup
-                                                  .getChatHistoryCall
-                                                  .call(
-                                            sessionId:
-                                                FFAppState().chatSessionId,
-                                          );
-
-                                          logFirebaseEvent(
-                                              'LottieAnimation_backend_call');
                                           _model.voiceChatLucilleResponse1 =
-                                              await LucilleSelfCareAILLMGroup
-                                                  .chatCall
-                                                  .call(
+                                              await LucilleChatStreamCall.call(
                                             sessionId:
                                                 FFAppState().chatSessionId,
                                             message: _model.returnedVoiceText,
                                           );
-                                          if (_model.voiceChatLucilleResponse1
-                                                  ?.succeeded ??
-                                              true) {
-                                            final streamSubscription = _model
-                                                .voiceChatLucilleResponse1
-                                                ?.streamedResponse
-                                                ?.stream
-                                                .transform(utf8.decoder)
-                                                .transform(const LineSplitter())
-                                                .transform(
-                                                    ServerSentEventLineTransformer())
-                                                .map((m) =>
-                                                    ResponseStreamMessage(
-                                                        message: m))
-                                                .listen(
-                                                  (onMessageInput) async {},
-                                                  onError:
-                                                      (onErrorInput) async {},
-                                                  onDone: () async {},
-                                                );
-                                          }
 
-                                          if ((_model.apiResult80y?.succeeded ??
+                                          if ((_model.voiceChatLucilleResponse2
+                                                  ?.succeeded ??
                                               true)) {
                                             logFirebaseEvent(
                                                 'LottieAnimation_custom_action');
@@ -341,30 +313,22 @@ class _ChatLucilleCompWidgetState extends State<ChatLucilleCompWidget>
                                           } else {
                                             logFirebaseEvent(
                                                 'LottieAnimation_backend_call');
-                                            _model.sessionIDVoiceChat =
-                                                await LucilleSelfCareAILLMGroup
-                                                    .createSessionCall
-                                                    .call();
-
-                                            logFirebaseEvent(
-                                                'LottieAnimation_backend_call');
-                                            _model.voiceChatLucilleResponse2 =
-                                                await LucilleSelfCareAILLMGroup
-                                                    .chatCall
+                                            _model.sessionIDVoiceChat2 =
+                                                await LucilleStreamingGroup
+                                                    .lucilleStreamingResponseCall
                                                     .call(
-                                              sessionId: LucilleChatStruct
-                                                      .maybeFromMap((_model
-                                                              .sessionIDVoiceChat
-                                                              ?.jsonBody ??
-                                                          ''))
-                                                  ?.sessionId,
+                                              sessionID: (_model
+                                                          .sessionIDVoiceChat2
+                                                          ?.jsonBody ??
+                                                      '')
+                                                  .toString(),
                                               message: _model.returnedVoiceText,
                                             );
-                                            if (_model.voiceChatLucilleResponse2
+                                            if (_model.sessionIDVoiceChat2
                                                     ?.succeeded ??
                                                 true) {
                                               final streamSubscription = _model
-                                                  .voiceChatLucilleResponse2
+                                                  .sessionIDVoiceChat2
                                                   ?.streamedResponse
                                                   ?.stream
                                                   .transform(utf8.decoder)
@@ -382,6 +346,20 @@ class _ChatLucilleCompWidgetState extends State<ChatLucilleCompWidget>
                                                     onDone: () async {},
                                                   );
                                             }
+
+                                            logFirebaseEvent(
+                                                'LottieAnimation_backend_call');
+                                            _model.voiceChatLucilleResponse2 =
+                                                await LucilleStreamingGroup
+                                                    .lucilleHealthCheckCall
+                                                    .call(
+                                              sessionID: (_model
+                                                          .sessionIDVoiceChat2
+                                                          ?.jsonBody ??
+                                                      '')
+                                                  .toString(),
+                                              message: _model.returnedVoiceText,
+                                            );
 
                                             if ((_model.voiceChatLucilleResponse2
                                                         ?.succeeded ??

@@ -1,10 +1,6 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'dart:ui';
-import '/index.dart';
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -111,8 +107,6 @@ class _DepressionVideosFINALWidgetState
         ],
       ),
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -132,361 +126,116 @@ class _DepressionVideosFINALWidgetState
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        appBar: responsiveVisibility(
-          context: context,
-          tablet: false,
-          tabletLandscape: false,
-          desktop: false,
-        )
-            ? AppBar(
-                backgroundColor: FlutterFlowTheme.of(context).primary,
-                automaticallyImplyLeading: false,
-                actions: [],
-                flexibleSpace: FlexibleSpaceBar(
-                  background: Container(
-                    width: double.infinity,
-                    height: 52.0,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).primaryBackground,
+        body: SafeArea(
+          top: true,
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Expanded(
+                child: Container(
+                  width: double.infinity,
+                  height: double.infinity,
+                  decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: Image.network(
+                        'https://images.unsplash.com/photo-1523250217488-ab35967e9840?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwxMHx8Y2FsbSUyMHdoaXRlJTIwYmFja2dyb3VuZHxlbnwwfHx8fDE3MjExMzQ3ODF8MA&ixlib=rb-4.0.3&q=80&w=1080',
+                      ).image,
                     ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Expanded(
-                          flex: 1,
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                15.0, 0.0, 0.0, 0.0),
-                            child: AuthUserStreamWidget(
-                              builder: (context) => AutoSizeText(
-                                'Hello, ${currentUserDisplayName}'
-                                    .maybeHandleOverflow(
-                                  maxChars: 10,
-                                  replacement: '…',
+                  ),
+                  child: Container(
+                    width: 100.0,
+                    height: 67.0,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          FlutterFlowTheme.of(context).primary,
+                          FlutterFlowTheme.of(context).secondary
+                        ],
+                        stops: [0.0, 1.0],
+                        begin: AlignmentDirectional(0.0, -1.0),
+                        end: AlignmentDirectional(0, 1.0),
+                      ),
+                    ),
+                    child: SingleChildScrollView(
+                      controller: _model.columnController1,
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Align(
+                            alignment: AlignmentDirectional(-1.0, -1.0),
+                            child: Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: FlutterFlowIconButton(
+                                borderRadius: 25.0,
+                                buttonSize: 40.0,
+                                fillColor: FlutterFlowTheme.of(context).primary,
+                                icon: Icon(
+                                  Icons.arrow_back,
+                                  color: FlutterFlowTheme.of(context).accent1,
+                                  size: 24.0,
                                 ),
-                                textAlign: TextAlign.start,
+                                onPressed: () async {
+                                  logFirebaseEvent(
+                                      'DEPRESSION_VIDEOS_F_I_N_A_L_arrow_back_I');
+                                  logFirebaseEvent('IconButton_navigate_back');
+                                  context.safePop();
+                                },
+                              ),
+                            ),
+                          ),
+                          Align(
+                            alignment: AlignmentDirectional(-1.0, -1.0),
+                            child: Padding(
+                              padding: EdgeInsets.all(15.0),
+                              child: Text(
+                                FFLocalizations.of(context).getText(
+                                  'a3n6xadj' /* Depression */,
+                                ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'The Seasons',
-                                      fontSize: 24.0,
+                                      color: FlutterFlowTheme.of(context)
+                                          .alternate,
+                                      fontSize: 28.0,
                                       letterSpacing: 0.0,
+                                      fontWeight: FontWeight.bold,
                                     ),
                               ),
                             ),
                           ),
-                        ),
-                        Align(
-                          alignment: AlignmentDirectional(1.0, 0.0),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                120.0, 0.0, 8.0, 0.0),
-                            child: InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                logFirebaseEvent(
-                                    'DEPRESSION_VIDEOS_F_I_N_A_L_Image_74embh');
-                                logFirebaseEvent('Image_navigate_to');
-
-                                context.pushNamed(HomeVersion4Widget.routeName);
-                              },
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
-                                child: Image.asset(
-                                  'assets/images/Logo_ESCAPE_DarkBlue.png',
-                                  width: MediaQuery.sizeOf(context).width * 0.3,
-                                  height: 300.0,
-                                  fit: BoxFit.contain,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                centerTitle: true,
-                elevation: 0.0,
-              )
-            : null,
-        body: Column(
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            Expanded(
-              child: Container(
-                width: double.infinity,
-                height: double.infinity,
-                decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).secondaryBackground,
-                  image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: Image.network(
-                      'https://images.unsplash.com/photo-1523250217488-ab35967e9840?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwxMHx8Y2FsbSUyMHdoaXRlJTIwYmFja2dyb3VuZHxlbnwwfHx8fDE3MjExMzQ3ODF8MA&ixlib=rb-4.0.3&q=80&w=1080',
-                    ).image,
-                  ),
-                ),
-                child: Container(
-                  width: 100.0,
-                  height: 67.0,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [
-                        FlutterFlowTheme.of(context).primary,
-                        FlutterFlowTheme.of(context).secondary
-                      ],
-                      stops: [0.0, 1.0],
-                      begin: AlignmentDirectional(0.0, -1.0),
-                      end: AlignmentDirectional(0, 1.0),
-                    ),
-                  ),
-                  child: ScrollConfiguration(
-                    behavior: ScrollConfiguration.of(context).copyWith(
-                      scrollbars: false,
-                      dragDevices: {
-                        PointerDeviceKind.mouse,
-                        PointerDeviceKind.touch,
-                        PointerDeviceKind.stylus,
-                        PointerDeviceKind.unknown,
-                      },
-                    ),
-                    child: Scrollbar(
-                      controller: _model.columnController1,
-                      child: SingleChildScrollView(
-                        controller: _model.columnController1,
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Align(
-                              alignment: AlignmentDirectional(-1.0, -1.0),
-                              child: Padding(
-                                padding: EdgeInsets.all(8.0),
-                                child: FlutterFlowIconButton(
-                                  borderRadius: 25.0,
-                                  buttonSize: 40.0,
-                                  fillColor:
-                                      FlutterFlowTheme.of(context).primary,
-                                  icon: Icon(
-                                    Icons.arrow_back,
-                                    color: FlutterFlowTheme.of(context).accent1,
-                                    size: 24.0,
-                                  ),
-                                  onPressed: () async {
-                                    logFirebaseEvent(
-                                        'DEPRESSION_VIDEOS_F_I_N_A_L_arrow_back_I');
-                                    logFirebaseEvent(
-                                        'IconButton_navigate_back');
-                                    context.safePop();
-                                  },
-                                ),
-                              ),
-                            ),
-                            Align(
-                              alignment: AlignmentDirectional(-1.0, -1.0),
-                              child: Padding(
-                                padding: EdgeInsets.all(15.0),
-                                child: Text(
-                                  FFLocalizations.of(context).getText(
-                                    'a3n6xadj' /* Depression */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'The Seasons',
-                                        color: FlutterFlowTheme.of(context)
-                                            .alternate,
-                                        fontSize: 28.0,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                ),
-                              ),
-                            ),
-                            Container(
+                          Container(
+                            width: double.infinity,
+                            height: 604.0,
+                            decoration: BoxDecoration(),
+                            child: Container(
                               width: double.infinity,
-                              height: 604.0,
+                              height: double.infinity,
                               decoration: BoxDecoration(),
-                              child: Container(
-                                width: double.infinity,
-                                height: double.infinity,
-                                decoration: BoxDecoration(),
-                                child: ScrollConfiguration(
-                                  behavior:
-                                      ScrollConfiguration.of(context).copyWith(
-                                    scrollbars: false,
-                                    dragDevices: {
-                                      PointerDeviceKind.mouse,
-                                      PointerDeviceKind.touch,
-                                      PointerDeviceKind.stylus,
-                                      PointerDeviceKind.unknown,
-                                    },
-                                  ),
-                                  child: Scrollbar(
-                                    controller: _model.columnController2,
-                                    child: SingleChildScrollView(
-                                      controller: _model.columnController2,
+                              child: SingleChildScrollView(
+                                controller: _model.columnController2,
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 10.0, 0.0, 0.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 10.0, 0.0, 0.0),
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(10.0, 25.0,
-                                                          10.0, 0.0),
-                                                  child: Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          'ce7m14hr' /* New Videos */,
-                                                        ),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'The Seasons',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .alternate,
-                                                                  fontSize:
-                                                                      20.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                                Expanded(
-                                                  flex: 1,
-                                                  child: Container(
-                                                    width: double.infinity,
-                                                    height: 236.0,
-                                                    decoration: BoxDecoration(
-                                                      color: Colors.transparent,
-                                                    ),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Flexible(
-                                                          flex: 1,
-                                                          child: Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0.0,
-                                                                        8.0,
-                                                                        0.0,
-                                                                        8.0),
-                                                            child: ListView(
-                                                              padding:
-                                                                  EdgeInsets
-                                                                      .zero,
-                                                              scrollDirection:
-                                                                  Axis.horizontal,
-                                                              children: [
-                                                                Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          10.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                  child:
-                                                                      Container(
-                                                                    width:
-                                                                        168.0,
-                                                                    height:
-                                                                        110.0,
-                                                                    decoration:
-                                                                        BoxDecoration(
-                                                                      color: Colors
-                                                                          .transparent,
-                                                                    ),
-                                                                    child:
-                                                                        Column(
-                                                                      mainAxisSize:
-                                                                          MainAxisSize
-                                                                              .max,
-                                                                      crossAxisAlignment:
-                                                                          CrossAxisAlignment
-                                                                              .center,
-                                                                      children: [
-                                                                        Container(
-                                                                          width:
-                                                                              168.0,
-                                                                          height:
-                                                                              142.0,
-                                                                          decoration:
-                                                                              BoxDecoration(),
-                                                                        ),
-                                                                        Align(
-                                                                          alignment: AlignmentDirectional(
-                                                                              -1.0,
-                                                                              0.0),
-                                                                          child:
-                                                                              Padding(
-                                                                            padding:
-                                                                                EdgeInsets.all(15.0),
-                                                                            child:
-                                                                                Text(
-                                                                              FFLocalizations.of(context).getText(
-                                                                                '31yl15hk' /*  */,
-                                                                              ),
-                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    fontFamily: 'WorkSans',
-                                                                                    color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                    fontSize: 16.0,
-                                                                                    letterSpacing: 0.0,
-                                                                                    fontWeight: FontWeight.normal,
-                                                                                  ),
-                                                                            ),
-                                                                          ),
-                                                                        ),
-                                                                      ],
-                                                                    ),
-                                                                  ).animateOnPageLoad(
-                                                                          animationsMap[
-                                                                              'containerOnPageLoadAnimation1']!),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding: EdgeInsets.all(10.0),
+                                                    10.0, 25.0, 10.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
                                               children: [
                                                 Text(
                                                   FFLocalizations.of(context)
                                                       .getText(
-                                                    '54mkjffa' /* Trending */,
+                                                    'ce7m14hr' /* New Videos */,
                                                   ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -500,268 +249,103 @@ class _DepressionVideosFINALWidgetState
                                                                 .alternate,
                                                         fontSize: 20.0,
                                                         letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w300,
                                                       ),
                                                 ),
-                                                Icon(
-                                                  Icons
-                                                      .keyboard_control_outlined,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryText,
-                                                  size: 24.0,
-                                                ),
                                               ],
                                             ),
                                           ),
-                                          Padding(
-                                            padding: EdgeInsets.all(10.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Expanded(
-                                                  flex: 1,
-                                                  child: Container(
-                                                    width: double.infinity,
-                                                    height: 236.0,
-                                                    decoration: BoxDecoration(
-                                                      color: Colors.transparent,
-                                                    ),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Flexible(
-                                                          flex: 1,
-                                                          child: Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0.0,
-                                                                        8.0,
-                                                                        0.0,
-                                                                        8.0),
-                                                            child: ListView(
-                                                              padding:
-                                                                  EdgeInsets
-                                                                      .zero,
-                                                              scrollDirection:
-                                                                  Axis.horizontal,
-                                                              children: [
-                                                                Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          10.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                  child:
-                                                                      Container(
-                                                                    width:
-                                                                        168.0,
-                                                                    height:
-                                                                        110.0,
-                                                                    decoration:
-                                                                        BoxDecoration(
-                                                                      color: Colors
-                                                                          .transparent,
-                                                                    ),
-                                                                    child:
-                                                                        Column(
-                                                                      mainAxisSize:
-                                                                          MainAxisSize
-                                                                              .max,
-                                                                      crossAxisAlignment:
-                                                                          CrossAxisAlignment
-                                                                              .center,
-                                                                      children: [
-                                                                        Container(
-                                                                          width:
-                                                                              168.0,
-                                                                          height:
-                                                                              142.0,
-                                                                          decoration:
-                                                                              BoxDecoration(),
-                                                                        ),
-                                                                        Align(
-                                                                          alignment: AlignmentDirectional(
-                                                                              -1.0,
-                                                                              0.0),
-                                                                          child:
-                                                                              Padding(
-                                                                            padding:
-                                                                                EdgeInsets.all(15.0),
-                                                                            child:
-                                                                                Text(
-                                                                              FFLocalizations.of(context).getText(
-                                                                                '0816xw97' /*  */,
-                                                                              ),
-                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    fontFamily: 'WorkSans',
-                                                                                    color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                    fontSize: 16.0,
-                                                                                    letterSpacing: 0.0,
-                                                                                    fontWeight: FontWeight.normal,
-                                                                                  ),
-                                                                            ),
-                                                                          ),
-                                                                        ),
-                                                                      ],
-                                                                    ),
-                                                                  ).animateOnPageLoad(
-                                                                          animationsMap[
-                                                                              'containerOnPageLoadAnimation2']!),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding: EdgeInsets.all(10.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Text(
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'hauczjno' /* Recent Played */,
-                                                  ),
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'The Seasons',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .alternate,
-                                                        fontSize: 20.0,
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FontWeight.w300,
-                                                      ),
-                                                ),
-                                                Icon(
-                                                  Icons
-                                                      .keyboard_control_outlined,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryText,
-                                                  size: 24.0,
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                          Flexible(
+                                          Expanded(
                                             flex: 1,
-                                            child: Padding(
-                                              padding: EdgeInsets.all(10.0),
+                                            child: Container(
+                                              width: double.infinity,
+                                              height: 236.0,
+                                              decoration: BoxDecoration(
+                                                color: Colors.transparent,
+                                              ),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
-                                                  Expanded(
+                                                  Flexible(
                                                     flex: 1,
-                                                    child: Container(
-                                                      width: double.infinity,
-                                                      height: 236.0,
-                                                      decoration: BoxDecoration(
-                                                        color:
-                                                            Colors.transparent,
-                                                      ),
-                                                      child: Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  8.0,
+                                                                  0.0,
+                                                                  8.0),
+                                                      child: ListView(
+                                                        padding:
+                                                            EdgeInsets.zero,
+                                                        scrollDirection:
+                                                            Axis.horizontal,
                                                         children: [
-                                                          Flexible(
-                                                            flex: 1,
-                                                            child: Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          8.0,
-                                                                          0.0,
-                                                                          8.0),
-                                                              child: ListView(
-                                                                padding:
-                                                                    EdgeInsets
-                                                                        .zero,
-                                                                scrollDirection:
-                                                                    Axis.horizontal,
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        10.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            child: Container(
+                                                              width: 168.0,
+                                                              height: 110.0,
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                color: Colors
+                                                                    .transparent,
+                                                              ),
+                                                              child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .center,
                                                                 children: [
-                                                                  Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            10.0,
-                                                                            0.0,
-                                                                            0.0,
+                                                                  Container(
+                                                                    width:
+                                                                        168.0,
+                                                                    height:
+                                                                        142.0,
+                                                                    decoration:
+                                                                        BoxDecoration(),
+                                                                  ),
+                                                                  Align(
+                                                                    alignment:
+                                                                        AlignmentDirectional(
+                                                                            -1.0,
                                                                             0.0),
                                                                     child:
-                                                                        Container(
-                                                                      width:
-                                                                          168.0,
-                                                                      height:
-                                                                          110.0,
-                                                                      decoration:
-                                                                          BoxDecoration(
-                                                                        color: Colors
-                                                                            .transparent,
-                                                                      ),
+                                                                        Padding(
+                                                                      padding:
+                                                                          EdgeInsets.all(
+                                                                              15.0),
                                                                       child:
-                                                                          Column(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.max,
-                                                                        crossAxisAlignment:
-                                                                            CrossAxisAlignment.center,
-                                                                        children: [
-                                                                          Container(
-                                                                            width:
-                                                                                168.0,
-                                                                            height:
-                                                                                142.0,
-                                                                            decoration:
-                                                                                BoxDecoration(),
-                                                                          ),
-                                                                          Align(
-                                                                            alignment:
-                                                                                AlignmentDirectional(-1.0, 0.0),
-                                                                            child:
-                                                                                Padding(
-                                                                              padding: EdgeInsets.all(15.0),
-                                                                              child: Text(
-                                                                                FFLocalizations.of(context).getText(
-                                                                                  '1kb5xp5l' /*  */,
-                                                                                ),
-                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                      fontFamily: 'WorkSans',
-                                                                                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                                                                                      fontSize: 16.0,
-                                                                                      letterSpacing: 0.0,
-                                                                                      fontWeight: FontWeight.normal,
-                                                                                    ),
-                                                                              ),
+                                                                          Text(
+                                                                        FFLocalizations.of(context)
+                                                                            .getText(
+                                                                          '31yl15hk' /*  */,
+                                                                        ),
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'WorkSans',
+                                                                              color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                              fontSize: 16.0,
+                                                                              letterSpacing: 0.0,
+                                                                              fontWeight: FontWeight.normal,
                                                                             ),
-                                                                          ),
-                                                                        ],
                                                                       ),
-                                                                    ).animateOnPageLoad(
-                                                                            animationsMap['containerOnPageLoadAnimation3']!),
+                                                                    ),
                                                                   ),
                                                                 ],
                                                               ),
-                                                            ),
+                                                            ).animateOnPageLoad(
+                                                                animationsMap[
+                                                                    'containerOnPageLoadAnimation1']!),
                                                           ),
                                                         ],
                                                       ),
@@ -774,37 +358,322 @@ class _DepressionVideosFINALWidgetState
                                         ],
                                       ),
                                     ),
-                                  ),
+                                    Padding(
+                                      padding: EdgeInsets.all(10.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            FFLocalizations.of(context).getText(
+                                              '54mkjffa' /* Trending */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'The Seasons',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .alternate,
+                                                  fontSize: 20.0,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w300,
+                                                ),
+                                          ),
+                                          Icon(
+                                            Icons.keyboard_control_outlined,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                            size: 24.0,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.all(10.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Expanded(
+                                            flex: 1,
+                                            child: Container(
+                                              width: double.infinity,
+                                              height: 236.0,
+                                              decoration: BoxDecoration(
+                                                color: Colors.transparent,
+                                              ),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Flexible(
+                                                    flex: 1,
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  8.0,
+                                                                  0.0,
+                                                                  8.0),
+                                                      child: ListView(
+                                                        padding:
+                                                            EdgeInsets.zero,
+                                                        scrollDirection:
+                                                            Axis.horizontal,
+                                                        children: [
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        10.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            child: Container(
+                                                              width: 168.0,
+                                                              height: 110.0,
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                color: Colors
+                                                                    .transparent,
+                                                              ),
+                                                              child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .center,
+                                                                children: [
+                                                                  Container(
+                                                                    width:
+                                                                        168.0,
+                                                                    height:
+                                                                        142.0,
+                                                                    decoration:
+                                                                        BoxDecoration(),
+                                                                  ),
+                                                                  Align(
+                                                                    alignment:
+                                                                        AlignmentDirectional(
+                                                                            -1.0,
+                                                                            0.0),
+                                                                    child:
+                                                                        Padding(
+                                                                      padding:
+                                                                          EdgeInsets.all(
+                                                                              15.0),
+                                                                      child:
+                                                                          Text(
+                                                                        FFLocalizations.of(context)
+                                                                            .getText(
+                                                                          '0816xw97' /*  */,
+                                                                        ),
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'WorkSans',
+                                                                              color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                              fontSize: 16.0,
+                                                                              letterSpacing: 0.0,
+                                                                              fontWeight: FontWeight.normal,
+                                                                            ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ).animateOnPageLoad(
+                                                                animationsMap[
+                                                                    'containerOnPageLoadAnimation2']!),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.all(10.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            FFLocalizations.of(context).getText(
+                                              'hauczjno' /* Recent Played */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'The Seasons',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .alternate,
+                                                  fontSize: 20.0,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w300,
+                                                ),
+                                          ),
+                                          Icon(
+                                            Icons.keyboard_control_outlined,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                            size: 24.0,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Flexible(
+                                      flex: 1,
+                                      child: Padding(
+                                        padding: EdgeInsets.all(10.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Expanded(
+                                              flex: 1,
+                                              child: Container(
+                                                width: double.infinity,
+                                                height: 236.0,
+                                                decoration: BoxDecoration(
+                                                  color: Colors.transparent,
+                                                ),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Flexible(
+                                                      flex: 1,
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    8.0,
+                                                                    0.0,
+                                                                    8.0),
+                                                        child: ListView(
+                                                          padding:
+                                                              EdgeInsets.zero,
+                                                          scrollDirection:
+                                                              Axis.horizontal,
+                                                          children: [
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          10.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Container(
+                                                                width: 168.0,
+                                                                height: 110.0,
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Colors
+                                                                      .transparent,
+                                                                ),
+                                                                child: Column(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  crossAxisAlignment:
+                                                                      CrossAxisAlignment
+                                                                          .center,
+                                                                  children: [
+                                                                    Container(
+                                                                      width:
+                                                                          168.0,
+                                                                      height:
+                                                                          142.0,
+                                                                      decoration:
+                                                                          BoxDecoration(),
+                                                                    ),
+                                                                    Align(
+                                                                      alignment:
+                                                                          AlignmentDirectional(
+                                                                              -1.0,
+                                                                              0.0),
+                                                                      child:
+                                                                          Padding(
+                                                                        padding:
+                                                                            EdgeInsets.all(15.0),
+                                                                        child:
+                                                                            Text(
+                                                                          FFLocalizations.of(context)
+                                                                              .getText(
+                                                                            '1kb5xp5l' /*  */,
+                                                                          ),
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .override(
+                                                                                fontFamily: 'WorkSans',
+                                                                                color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                fontSize: 16.0,
+                                                                                letterSpacing: 0.0,
+                                                                                fontWeight: FontWeight.normal,
+                                                                              ),
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              ).animateOnPageLoad(
+                                                                  animationsMap[
+                                                                      'containerOnPageLoadAnimation3']!),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  8.0, 25.0, 8.0, 8.0),
-                              child: Hero(
-                                tag: 'BackgroundPicture',
-                                transitionOnUserGestures: true,
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  child: Image.asset(
-                                    'assets/images/Logo_ESCAPE_Black.png',
-                                    width: 200.0,
-                                    height: 200.0,
-                                    fit: BoxFit.contain,
-                                  ),
+                          ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                8.0, 25.0, 8.0, 8.0),
+                            child: Hero(
+                              tag: 'BackgroundPicture',
+                              transitionOnUserGestures: true,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(8.0),
+                                child: Image.asset(
+                                  'assets/images/Logo_ESCAPE_Black.png',
+                                  width: 200.0,
+                                  height: 200.0,
+                                  fit: BoxFit.contain,
                                 ),
                               ),
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
-                    ),
-                  ).animateOnPageLoad(
-                      animationsMap['columnOnPageLoadAnimation']!),
+                    ).animateOnPageLoad(
+                        animationsMap['columnOnPageLoadAnimation']!),
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

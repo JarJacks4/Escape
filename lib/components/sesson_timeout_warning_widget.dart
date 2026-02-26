@@ -30,8 +30,6 @@ class _SessonTimeoutWarningWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => SessonTimeoutWarningModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

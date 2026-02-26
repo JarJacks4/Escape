@@ -62,6 +62,61 @@ class JournalRecord extends FirestoreRecord {
   String get thoughtsOfGratitude => _thoughtsOfGratitude ?? '';
   bool hasThoughtsOfGratitude() => _thoughtsOfGratitude != null;
 
+  // "DisplayName" field.
+  DocumentReference? _displayName;
+  DocumentReference? get displayName => _displayName;
+  bool hasDisplayName() => _displayName != null;
+
+  // "JournalTitle" field.
+  String? _journalTitle;
+  String get journalTitle => _journalTitle ?? '';
+  bool hasJournalTitle() => _journalTitle != null;
+
+  // "JournalContent" field.
+  String? _journalContent;
+  String get journalContent => _journalContent ?? '';
+  bool hasJournalContent() => _journalContent != null;
+
+  // "JournalPhoto" field.
+  String? _journalPhoto;
+  String get journalPhoto => _journalPhoto ?? '';
+  bool hasJournalPhoto() => _journalPhoto != null;
+
+  // "JournalVoiceNote" field.
+  String? _journalVoiceNote;
+  String get journalVoiceNote => _journalVoiceNote ?? '';
+  bool hasJournalVoiceNote() => _journalVoiceNote != null;
+
+  // "LucilleJournalPrompt" field.
+  String? _lucilleJournalPrompt;
+  String get lucilleJournalPrompt => _lucilleJournalPrompt ?? '';
+  bool hasLucilleJournalPrompt() => _lucilleJournalPrompt != null;
+
+  // "JournalTags" field.
+  List<String>? _journalTags;
+  List<String> get journalTags => _journalTags ?? const [];
+  bool hasJournalTags() => _journalTags != null;
+
+  // "VoiceNoteContent" field.
+  String? _voiceNoteContent;
+  String get voiceNoteContent => _voiceNoteContent ?? '';
+  bool hasVoiceNoteContent() => _voiceNoteContent != null;
+
+  // "isAudioRecording" field.
+  bool? _isAudioRecording;
+  bool get isAudioRecording => _isAudioRecording ?? false;
+  bool hasIsAudioRecording() => _isAudioRecording != null;
+
+  // "isAudioStopped" field.
+  bool? _isAudioStopped;
+  bool get isAudioStopped => _isAudioStopped ?? false;
+  bool hasIsAudioStopped() => _isAudioStopped != null;
+
+  // "TranscribeText" field.
+  List<String>? _transcribeText;
+  List<String> get transcribeText => _transcribeText ?? const [];
+  bool hasTranscribeText() => _transcribeText != null;
+
   DocumentReference get parentReference => reference.parent.parent!;
 
   void _initializeFields() {
@@ -77,6 +132,17 @@ class JournalRecord extends FirestoreRecord {
     _numberOfBodyCompleted =
         castToType<int>(snapshotData['NumberOfBodyCompleted']);
     _thoughtsOfGratitude = snapshotData['ThoughtsOfGratitude'] as String?;
+    _displayName = snapshotData['DisplayName'] as DocumentReference?;
+    _journalTitle = snapshotData['JournalTitle'] as String?;
+    _journalContent = snapshotData['JournalContent'] as String?;
+    _journalPhoto = snapshotData['JournalPhoto'] as String?;
+    _journalVoiceNote = snapshotData['JournalVoiceNote'] as String?;
+    _lucilleJournalPrompt = snapshotData['LucilleJournalPrompt'] as String?;
+    _journalTags = getDataList(snapshotData['JournalTags']);
+    _voiceNoteContent = snapshotData['VoiceNoteContent'] as String?;
+    _isAudioRecording = snapshotData['isAudioRecording'] as bool?;
+    _isAudioStopped = snapshotData['isAudioStopped'] as bool?;
+    _transcribeText = getDataList(snapshotData['TranscribeText']);
   }
 
   static Query<Map<String, dynamic>> collection([DocumentReference? parent]) =>
@@ -128,6 +194,15 @@ Map<String, dynamic> createJournalRecordData({
   int? numberOfMentalCompleted,
   int? numberOfBodyCompleted,
   String? thoughtsOfGratitude,
+  DocumentReference? displayName,
+  String? journalTitle,
+  String? journalContent,
+  String? journalPhoto,
+  String? journalVoiceNote,
+  String? lucilleJournalPrompt,
+  String? voiceNoteContent,
+  bool? isAudioRecording,
+  bool? isAudioStopped,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -140,6 +215,15 @@ Map<String, dynamic> createJournalRecordData({
       'NumberOfMentalCompleted': numberOfMentalCompleted,
       'NumberOfBodyCompleted': numberOfBodyCompleted,
       'ThoughtsOfGratitude': thoughtsOfGratitude,
+      'DisplayName': displayName,
+      'JournalTitle': journalTitle,
+      'JournalContent': journalContent,
+      'JournalPhoto': journalPhoto,
+      'JournalVoiceNote': journalVoiceNote,
+      'LucilleJournalPrompt': lucilleJournalPrompt,
+      'VoiceNoteContent': voiceNoteContent,
+      'isAudioRecording': isAudioRecording,
+      'isAudioStopped': isAudioStopped,
     }.withoutNulls,
   );
 
@@ -151,6 +235,7 @@ class JournalRecordDocumentEquality implements Equality<JournalRecord> {
 
   @override
   bool equals(JournalRecord? e1, JournalRecord? e2) {
+    const listEquality = ListEquality();
     return e1?.improvingThoughts == e2?.improvingThoughts &&
         e1?.moods == e2?.moods &&
         e1?.moodPhoto == e2?.moodPhoto &&
@@ -159,7 +244,18 @@ class JournalRecordDocumentEquality implements Equality<JournalRecord> {
         e1?.numberOfMeditationsCompleted == e2?.numberOfMeditationsCompleted &&
         e1?.numberOfMentalCompleted == e2?.numberOfMentalCompleted &&
         e1?.numberOfBodyCompleted == e2?.numberOfBodyCompleted &&
-        e1?.thoughtsOfGratitude == e2?.thoughtsOfGratitude;
+        e1?.thoughtsOfGratitude == e2?.thoughtsOfGratitude &&
+        e1?.displayName == e2?.displayName &&
+        e1?.journalTitle == e2?.journalTitle &&
+        e1?.journalContent == e2?.journalContent &&
+        e1?.journalPhoto == e2?.journalPhoto &&
+        e1?.journalVoiceNote == e2?.journalVoiceNote &&
+        e1?.lucilleJournalPrompt == e2?.lucilleJournalPrompt &&
+        listEquality.equals(e1?.journalTags, e2?.journalTags) &&
+        e1?.voiceNoteContent == e2?.voiceNoteContent &&
+        e1?.isAudioRecording == e2?.isAudioRecording &&
+        e1?.isAudioStopped == e2?.isAudioStopped &&
+        listEquality.equals(e1?.transcribeText, e2?.transcribeText);
   }
 
   @override
@@ -172,7 +268,18 @@ class JournalRecordDocumentEquality implements Equality<JournalRecord> {
         e?.numberOfMeditationsCompleted,
         e?.numberOfMentalCompleted,
         e?.numberOfBodyCompleted,
-        e?.thoughtsOfGratitude
+        e?.thoughtsOfGratitude,
+        e?.displayName,
+        e?.journalTitle,
+        e?.journalContent,
+        e?.journalPhoto,
+        e?.journalVoiceNote,
+        e?.lucilleJournalPrompt,
+        e?.journalTags,
+        e?.voiceNoteContent,
+        e?.isAudioRecording,
+        e?.isAudioStopped,
+        e?.transcribeText
       ]);
 
   @override

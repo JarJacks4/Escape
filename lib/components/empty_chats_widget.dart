@@ -44,8 +44,6 @@ class _EmptyChatsWidgetState extends State<EmptyChatsWidget>
         ],
       ),
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

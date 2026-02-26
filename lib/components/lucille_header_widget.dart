@@ -76,8 +76,6 @@ class _LucilleHeaderWidgetState extends State<LucilleHeaderWidget>
         ],
       ),
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

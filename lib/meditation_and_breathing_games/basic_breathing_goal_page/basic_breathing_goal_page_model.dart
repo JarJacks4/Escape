@@ -4,6 +4,7 @@ import 'basic_breathing_goal_page_widget.dart'
     show BasicBreathingGoalPageWidget;
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:flutter/material.dart';
+import 'package:just_audio/just_audio.dart';
 
 class BasicBreathingGoalPageModel
     extends FlutterFlowModel<BasicBreathingGoalPageWidget> {
@@ -20,6 +21,8 @@ class BasicBreathingGoalPageModel
   );
   FlutterFlowTimerController timerController =
       FlutterFlowTimerController(StopWatchTimer(mode: StopWatchMode.countDown));
+
+  AudioPlayer? soundPlayer;
 
   @override
   void initState(BuildContext context) {}

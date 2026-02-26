@@ -30,8 +30,6 @@ class _MeditateChoiceCompWidgetState extends State<MeditateChoiceCompWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => MeditateChoiceCompModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

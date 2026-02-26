@@ -52,8 +52,6 @@ class _BreathingChoiceCompWidgetState extends State<BreathingChoiceCompWidget>
         ],
       ),
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

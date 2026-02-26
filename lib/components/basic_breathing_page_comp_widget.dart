@@ -96,8 +96,6 @@ class _BasicBreathingPageCompWidgetState
         ],
       ),
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -262,7 +260,7 @@ class _BasicBreathingPageCompWidgetState
                               context.pushNamed(
                                 BasicBreathingGoalPageWidget.routeName,
                                 extra: <String, dynamic>{
-                                  kTransitionInfoKey: TransitionInfo(
+                                  '__transition_info__': TransitionInfo(
                                     hasTransition: true,
                                     transitionType: PageTransitionType.fade,
                                     duration: Duration(milliseconds: 2),

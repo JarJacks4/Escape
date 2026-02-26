@@ -28,8 +28,6 @@ class _MoodChoiceChipsLoginCompWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => MoodChoiceChipsLoginCompModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

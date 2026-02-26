@@ -1,5 +1,4 @@
 import 'package:provider/provider.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -17,10 +16,14 @@ import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'index.dart';
 
+import 'package:cupertino_time_picker_hiuzb7/app_state.dart'
+    as cupertino_time_picker_hiuzb7_app_state;
 import 'package:tiktokfeed_wz8en7/app_state.dart'
     as tiktokfeed_wz8en7_app_state;
-import 'package:that_audio_player_5bjqer/app_state.dart'
-    as that_audio_player_5bjqer_app_state;
+import 'package:that_audio_player_oo85ab/app_state.dart'
+    as that_audio_player_oo85ab_app_state;
+import 'package:confetti_modualo_library_b75kfy/app_state.dart'
+    as confetti_modualo_library_b75kfy_app_state;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -34,12 +37,20 @@ void main() async {
   final appState = FFAppState(); // Initialize FFAppState
   await appState.initializePersistedState();
 
+  final cupertino_time_picker_hiuzb7AppState =
+      cupertino_time_picker_hiuzb7_app_state.FFAppState();
+  await cupertino_time_picker_hiuzb7AppState.initializePersistedState();
+
   final tiktokfeed_wz8en7AppState = tiktokfeed_wz8en7_app_state.FFAppState();
   await tiktokfeed_wz8en7AppState.initializePersistedState();
 
-  final that_audio_player_5bjqerAppState =
-      that_audio_player_5bjqer_app_state.FFAppState();
-  await that_audio_player_5bjqerAppState.initializePersistedState();
+  final that_audio_player_oo85abAppState =
+      that_audio_player_oo85ab_app_state.FFAppState();
+  await that_audio_player_oo85abAppState.initializePersistedState();
+
+  final confetti_modualo_library_b75kfyAppState =
+      confetti_modualo_library_b75kfy_app_state.FFAppState();
+  await confetti_modualo_library_b75kfyAppState.initializePersistedState();
 
   if (!kIsWeb) {
     FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
@@ -51,10 +62,16 @@ void main() async {
         create: (context) => appState,
       ),
       ChangeNotifierProvider(
+        create: (context) => cupertino_time_picker_hiuzb7AppState,
+      ),
+      ChangeNotifierProvider(
         create: (context) => tiktokfeed_wz8en7AppState,
       ),
       ChangeNotifierProvider(
-        create: (context) => that_audio_player_5bjqerAppState,
+        create: (context) => that_audio_player_oo85abAppState,
+      ),
+      ChangeNotifierProvider(
+        create: (context) => confetti_modualo_library_b75kfyAppState,
       ),
     ],
     child: MyApp(),
@@ -68,14 +85,6 @@ class MyApp extends StatefulWidget {
 
   static _MyAppState of(BuildContext context) =>
       context.findAncestorStateOfType<_MyAppState>()!;
-}
-
-class MyAppScrollBehavior extends MaterialScrollBehavior {
-  @override
-  Set<PointerDeviceKind> get dragDevices => {
-        PointerDeviceKind.touch,
-        PointerDeviceKind.mouse,
-      };
 }
 
 class _MyAppState extends State<MyApp> {
@@ -115,7 +124,7 @@ class _MyAppState extends State<MyApp> {
       });
     jwtTokenStream.listen((_) {});
     Future.delayed(
-      Duration(milliseconds: isWeb ? 0 : 5),
+      Duration(milliseconds: 9),
       () => _appStateNotifier.stopShowingSplashImage(),
     );
   }
@@ -141,7 +150,6 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       title: 'Escape',
-      scrollBehavior: MyAppScrollBehavior(),
       localizationsDelegates: [
         FFLocalizationsDelegate(),
         GlobalMaterialLocalizations.delegate,
@@ -169,14 +177,15 @@ class _MyAppState extends State<MyApp> {
         brightness: Brightness.light,
         scrollbarTheme: ScrollbarThemeData(
           interactive: true,
+          thickness: WidgetStateProperty.all(0.2),
           thumbColor: WidgetStateProperty.resolveWith((states) {
             if (states.contains(WidgetState.dragged)) {
               return Color(4293952282);
             }
             if (states.contains(WidgetState.hovered)) {
-              return Color(4281946527);
+              return Color(3053241442);
             }
-            return Color(4280034372);
+            return Color(2082219076);
           }),
         ),
       ),
@@ -204,7 +213,7 @@ class NavBarPage extends StatefulWidget {
 
 /// This is the private State class that goes with NavBarPage.
 class _NavBarPageState extends State<NavBarPage> {
-  String _currentPageName = 'HomeVersion4';
+  String _currentPageName = 'HomeVersion5';
   late Widget? _currentPage;
 
   @override
@@ -217,11 +226,12 @@ class _NavBarPageState extends State<NavBarPage> {
   @override
   Widget build(BuildContext context) {
     final tabs = {
-      'HomeVersion4': HomeVersion4Widget(),
-      'SelfCarePlanPage': SelfCarePlanPageWidget(),
-      'LucilleHome': LucilleHomeWidget(),
-      'CommunityHomeFINAL': CommunityHomeFINALWidget(),
-      'profileFINAL': ProfileFINALWidget(),
+      'HomeVersion5': HomeVersion5Widget(),
+      'AISoundscapesCopyCopyCopy': AISoundscapesCopyCopyCopyWidget(),
+      'ExplorePageVersion5': ExplorePageVersion5Widget(),
+      'ConnectionCommunityStartPageVersion5':
+          ConnectionCommunityStartPageVersion5Widget(),
+      'ChatWithLucilleVersion5': ChatWithLucilleVersion5Widget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -241,9 +251,9 @@ class _NavBarPageState extends State<NavBarPage> {
             _currentPage = null;
             _currentPageName = tabs.keys.toList()[i];
           }),
-          backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+          backgroundColor: Color(0xBDEDF1F7),
           selectedItemColor: FlutterFlowTheme.of(context).accent1,
-          unselectedItemColor: Color(0xACD0E3F7),
+          unselectedItemColor: Color(0xA55A5C60),
           showSelectedLabels: true,
           showUnselectedLabels: true,
           type: BottomNavigationBarType.fixed,
@@ -251,53 +261,56 @@ class _NavBarPageState extends State<NavBarPage> {
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.home_outlined,
-                size: 28.0,
+                size: 24.0,
+              ),
+              label: FFLocalizations.of(context).getText(
+                '27epkhem' /* Home */,
+              ),
+              tooltip: '',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                FFIcons.kmusic1,
               ),
               activeIcon: Icon(
-                Icons.home,
-                size: 28.0,
+                Icons.surround_sound,
               ),
               label: FFLocalizations.of(context).getText(
-                '1fs38btr' /* Home */,
+                's8tgji9v' /* Sound */,
               ),
               tooltip: '',
             ),
             BottomNavigationBarItem(
               icon: Icon(
-                FFIcons.kplans,
-              ),
-              label: FFLocalizations.of(context).getText(
-                'py6c4427' /* Plan */,
-              ),
-              tooltip: '',
-            ),
-            BottomNavigationBarItem(
-              icon: FaIcon(
-                FontAwesomeIcons.robot,
+                Icons.explore,
                 size: 24.0,
               ),
               label: FFLocalizations.of(context).getText(
-                '6ozwyngp' /* Lucille */,
+                'ur65wcp8' /* Explore */,
               ),
               tooltip: '',
             ),
             BottomNavigationBarItem(
               icon: Icon(
-                FFIcons.kgroupPeopleAccountsUserPersonProfile,
+                Icons.people_outline,
+                size: 24.0,
+              ),
+              activeIcon: FaIcon(
+                FontAwesomeIcons.peopleCarry,
                 size: 24.0,
               ),
               label: FFLocalizations.of(context).getText(
-                '9h261j1i' /* Community */,
+                'ix1ij3ho' /* Community */,
               ),
               tooltip: '',
             ),
             BottomNavigationBarItem(
               icon: Icon(
-                FFIcons.kprofile,
-                size: 28.0,
+                FFIcons.ksparkleStarAi,
+                size: 24.0,
               ),
               label: FFLocalizations.of(context).getText(
-                'fu6l3npq' /* Profile */,
+                'vpri7wqm' /* Lucille */,
               ),
               tooltip: '',
             )

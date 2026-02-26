@@ -49,8 +49,6 @@ class _PrimaryButtonWidgetState extends State<PrimaryButtonWidget>
         ],
       ),
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
