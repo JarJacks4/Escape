@@ -29,7 +29,6 @@ class _DeepWorkModesVersion5PageWidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'DeepWorkModesVersion5Page'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

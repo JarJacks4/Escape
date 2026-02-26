@@ -3,7 +3,7 @@ description: FlutterFlow Theme Package
 
 publish_to: 'none'
 
-version: 1.0.4+155
+version: 1.0.5+5
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
@@ -13,7 +13,7 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  google_fonts: 6.1.0
+  google_fonts: 6.3.3
   path_provider: 2.1.4
   path_provider_android: 2.2.10
   path_provider_foundation: 2.4.0

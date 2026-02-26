@@ -28,7 +28,6 @@ class _BreathingChoicePageWidgetState extends State<BreathingChoicePageWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'BreathingChoicePage'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

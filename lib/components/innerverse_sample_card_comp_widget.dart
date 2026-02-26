@@ -28,8 +28,6 @@ class _InnerverseSampleCardCompWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => InnerverseSampleCardCompModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

@@ -83,8 +83,6 @@ class _DeepBreathingCompWidgetState extends State<DeepBreathingCompWidget>
         ],
       ),
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -231,7 +229,7 @@ class _DeepBreathingCompWidgetState extends State<DeepBreathingCompWidget>
                             context.pushNamed(
                               DeepBreathingWidget.routeName,
                               extra: <String, dynamic>{
-                                kTransitionInfoKey: TransitionInfo(
+                                '__transition_info__': TransitionInfo(
                                   hasTransition: true,
                                   transitionType: PageTransitionType.fade,
                                   duration: Duration(milliseconds: 2),

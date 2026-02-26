@@ -26,8 +26,6 @@ class _MoodTrackingCardWidgetState extends State<MoodTrackingCardWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => MoodTrackingCardModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -101,7 +99,7 @@ class _MoodTrackingCardWidgetState extends State<MoodTrackingCardWidget> {
                           context.pushNamed(
                             FacialMoodAnalyzerChoiceLoginWidget.routeName,
                             extra: <String, dynamic>{
-                              kTransitionInfoKey: TransitionInfo(
+                              '__transition_info__': TransitionInfo(
                                 hasTransition: true,
                                 transitionType: PageTransitionType.fade,
                                 duration: Duration(milliseconds: 0),

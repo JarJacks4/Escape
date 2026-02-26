@@ -4,6 +4,7 @@ import 'micrcosmic_meditation_goal_page_widget.dart'
     show MicrcosmicMeditationGoalPageWidget;
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:flutter/material.dart';
+import 'package:just_audio/just_audio.dart';
 
 class MicrcosmicMeditationGoalPageModel
     extends FlutterFlowModel<MicrcosmicMeditationGoalPageWidget> {
@@ -20,6 +21,8 @@ class MicrcosmicMeditationGoalPageModel
   );
   FlutterFlowTimerController timerController =
       FlutterFlowTimerController(StopWatchTimer(mode: StopWatchMode.countDown));
+
+  AudioPlayer? soundPlayer;
 
   @override
   void initState(BuildContext context) {}

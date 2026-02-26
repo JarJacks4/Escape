@@ -31,12 +31,18 @@ class RitualSparkJournalRecord extends FirestoreRecord {
   List<String> get tags => _tags ?? const [];
   bool hasTags() => _tags != null;
 
+  // "RitualSparkPhoto" field.
+  String? _ritualSparkPhoto;
+  String get ritualSparkPhoto => _ritualSparkPhoto ?? '';
+  bool hasRitualSparkPhoto() => _ritualSparkPhoto != null;
+
   DocumentReference get parentReference => reference.parent.parent!;
 
   void _initializeFields() {
     _ritualSparkTitle = snapshotData['RitualSparkTitle'] as String?;
     _ritualSparkContent = snapshotData['RitualSparkContent'] as String?;
     _tags = getDataList(snapshotData['tags']);
+    _ritualSparkPhoto = snapshotData['RitualSparkPhoto'] as String?;
   }
 
   static Query<Map<String, dynamic>> collection([DocumentReference? parent]) =>
@@ -82,11 +88,13 @@ class RitualSparkJournalRecord extends FirestoreRecord {
 Map<String, dynamic> createRitualSparkJournalRecordData({
   String? ritualSparkTitle,
   String? ritualSparkContent,
+  String? ritualSparkPhoto,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'RitualSparkTitle': ritualSparkTitle,
       'RitualSparkContent': ritualSparkContent,
+      'RitualSparkPhoto': ritualSparkPhoto,
     }.withoutNulls,
   );
 
@@ -102,12 +110,17 @@ class RitualSparkJournalRecordDocumentEquality
     const listEquality = ListEquality();
     return e1?.ritualSparkTitle == e2?.ritualSparkTitle &&
         e1?.ritualSparkContent == e2?.ritualSparkContent &&
-        listEquality.equals(e1?.tags, e2?.tags);
+        listEquality.equals(e1?.tags, e2?.tags) &&
+        e1?.ritualSparkPhoto == e2?.ritualSparkPhoto;
   }
 
   @override
-  int hash(RitualSparkJournalRecord? e) => const ListEquality()
-      .hash([e?.ritualSparkTitle, e?.ritualSparkContent, e?.tags]);
+  int hash(RitualSparkJournalRecord? e) => const ListEquality().hash([
+        e?.ritualSparkTitle,
+        e?.ritualSparkContent,
+        e?.tags,
+        e?.ritualSparkPhoto
+      ]);
 
   @override
   bool isValidKey(Object? o) => o is RitualSparkJournalRecord;

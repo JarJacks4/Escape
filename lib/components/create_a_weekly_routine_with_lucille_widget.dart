@@ -27,8 +27,6 @@ class _CreateAWeeklyRoutineWithLucilleWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => CreateAWeeklyRoutineWithLucilleModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

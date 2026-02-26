@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'dart:async';
-import 'dart:ui';
 import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
@@ -82,8 +81,6 @@ class _InterestsPageWidgetState extends State<InterestsPageWidget>
         ],
       ),
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -178,139 +175,117 @@ class _InterestsPageWidgetState extends State<InterestsPageWidget>
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     12.0, 50.0, 12.0, 0.0),
-                                child: ScrollConfiguration(
-                                  behavior:
-                                      ScrollConfiguration.of(context).copyWith(
-                                    scrollbars: false,
-                                    dragDevices: {
-                                      PointerDeviceKind.mouse,
-                                      PointerDeviceKind.touch,
-                                      PointerDeviceKind.stylus,
-                                      PointerDeviceKind.unknown,
-                                    },
-                                  ),
-                                  child: Scrollbar(
-                                    controller: _model.columnController,
-                                    child: SingleChildScrollView(
-                                      controller: _model.columnController,
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    12.0, 32.0, 0.0, 8.0),
-                                            child: Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                '0zdkl67a' /* Pick Your Interests */,
-                                              ),
-                                              textAlign: TextAlign.start,
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .displayMedium
-                                                  .override(
-                                                    fontFamily: 'The Seasons',
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .alternate,
-                                                    letterSpacing: 0.0,
-                                                  ),
-                                            ).animateOnPageLoad(animationsMap[
-                                                'textOnPageLoadAnimation']!),
+                                child: SingleChildScrollView(
+                                  controller: _model.columnController,
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            12.0, 32.0, 0.0, 8.0),
+                                        child: Text(
+                                          FFLocalizations.of(context).getText(
+                                            '0zdkl67a' /* Pick Your Interests */,
                                           ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    12.0, 0.0, 0.0, 12.0),
-                                            child: Text(
+                                          textAlign: TextAlign.start,
+                                          style: FlutterFlowTheme.of(context)
+                                              .displayMedium
+                                              .override(
+                                                fontFamily: 'The Seasons',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .alternate,
+                                                letterSpacing: 0.0,
+                                              ),
+                                        ).animateOnPageLoad(animationsMap[
+                                            'textOnPageLoadAnimation']!),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            12.0, 0.0, 0.0, 12.0),
+                                        child: Text(
+                                          FFLocalizations.of(context).getText(
+                                            '176c8g0x' /* Your interests will be used th... */,
+                                          ),
+                                          textAlign: TextAlign.start,
+                                          style: FlutterFlowTheme.of(context)
+                                              .labelLarge
+                                              .override(
+                                                fontFamily: 'WorkSans',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .tertiary,
+                                                letterSpacing: 0.0,
+                                              ),
+                                        ),
+                                      ),
+                                      Flexible(
+                                        flex: 1,
+                                        child: Padding(
+                                          padding: EdgeInsets.all(15.0),
+                                          child: FlutterFlowCheckboxGroup(
+                                            options: [
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                '176c8g0x' /* Your interests will be used th... */,
+                                                'dfhkcnzc' /* Pilates */,
                                               ),
-                                              textAlign: TextAlign.start,
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .labelLarge
-                                                      .override(
-                                                        fontFamily: 'WorkSans',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .tertiary,
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                '9gueolqz' /* Yoga */,
+                                              ),
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'c5fo5j3n' /* Escape Innerverse */,
+                                              ),
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'b33ppehl' /* Peace */,
+                                              ),
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'b8pz562k' /* Tai Chi */,
+                                              ),
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'o1afr5fd' /* Meditation */,
+                                              ),
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'bi8yvquk' /* Breathing */,
+                                              ),
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                '1r2zq5jn' /* Restting Bad Moods */,
+                                              )
+                                            ],
+                                            onChanged: (val) => safeSetState(
+                                                () => _model
+                                                    .checkboxGroupValues = val),
+                                            controller: _model
+                                                    .checkboxGroupValueController ??=
+                                                FormFieldController<
+                                                    List<String>>(
+                                              List.from([
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                      '1v6l1fsz' /* Escape Innerverse */,
+                                                    )
+                                                  ] ??
+                                                  []),
                                             ),
-                                          ),
-                                          Flexible(
-                                            flex: 1,
-                                            child: Padding(
-                                              padding: EdgeInsets.all(15.0),
-                                              child: FlutterFlowCheckboxGroup(
-                                                options: [
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'dfhkcnzc' /* Pilates */,
-                                                  ),
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    '9gueolqz' /* Yoga */,
-                                                  ),
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'c5fo5j3n' /* Calmness */,
-                                                  ),
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'b33ppehl' /* Peace */,
-                                                  ),
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'b8pz562k' /* Tai Chi */,
-                                                  ),
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'o1afr5fd' /* Meditation */,
-                                                  ),
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    'bi8yvquk' /* Breathing */,
-                                                  ),
-                                                  FFLocalizations.of(context)
-                                                      .getText(
-                                                    '1r2zq5jn' /* Metaphysics */,
-                                                  )
-                                                ],
-                                                onChanged: (val) =>
-                                                    safeSetState(() => _model
-                                                            .checkboxGroupValues =
-                                                        val),
-                                                controller: _model
-                                                        .checkboxGroupValueController ??=
-                                                    FormFieldController<
-                                                        List<String>>(
-                                                  List.from([
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          '1v6l1fsz' /* Calmness */,
-                                                        )
-                                                      ] ??
-                                                      []),
-                                                ),
-                                                activeColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .alternate,
-                                                checkColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .accent1,
-                                                checkboxBorderColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .alternate,
-                                                textStyle: FlutterFlowTheme.of(
-                                                        context)
+                                            activeColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .alternate,
+                                            checkColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .accent1,
+                                            checkboxBorderColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .alternate,
+                                            textStyle:
+                                                FlutterFlowTheme.of(context)
                                                     .bodyMedium
                                                     .override(
                                                       fontFamily: 'WorkSans',
@@ -321,55 +296,52 @@ class _InterestsPageWidgetState extends State<InterestsPageWidget>
                                                       fontSize: 22.0,
                                                       letterSpacing: 0.0,
                                                     ),
-                                                unselectedTextStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'WorkSans',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
+                                            unselectedTextStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      fontFamily: 'WorkSans',
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
                                                               .alternate,
-                                                          fontSize: 18.0,
-                                                          letterSpacing: 0.0,
-                                                          lineHeight: 1.5,
-                                                        ),
-                                                checkboxBorderRadius:
-                                                    BorderRadius.circular(4.0),
-                                                initialized: _model
-                                                        .checkboxGroupValues !=
+                                                      fontSize: 18.0,
+                                                      letterSpacing: 0.0,
+                                                      lineHeight: 1.5,
+                                                    ),
+                                            checkboxBorderRadius:
+                                                BorderRadius.circular(4.0),
+                                            initialized:
+                                                _model.checkboxGroupValues !=
                                                     null,
+                                          ),
+                                        ),
+                                      ),
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(0.0, 1.0),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 235.0, 0.0, 0.0),
+                                          child: Hero(
+                                            tag: 'onboarding',
+                                            transitionOnUserGestures: true,
+                                            child: ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                              child: Image.asset(
+                                                'assets/images/Logo_ESCAPE_White.png',
+                                                width: 200.0,
+                                                height: 102.08,
+                                                fit: BoxFit.contain,
                                               ),
                                             ),
-                                          ),
-                                          Align(
-                                            alignment:
-                                                AlignmentDirectional(0.0, 1.0),
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 235.0, 0.0, 0.0),
-                                              child: Hero(
-                                                tag: 'onboarding',
-                                                transitionOnUserGestures: true,
-                                                child: ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
-                                                  child: Image.asset(
-                                                    'assets/images/Logo_ESCAPE_White.png',
-                                                    width: 200.0,
-                                                    height: 102.08,
-                                                    fit: BoxFit.contain,
-                                                  ),
-                                                ),
-                                              ).animateOnPageLoad(animationsMap[
-                                                  'imageOnPageLoadAnimation']!),
-                                            ),
-                                          ),
-                                        ],
+                                          ).animateOnPageLoad(animationsMap[
+                                              'imageOnPageLoadAnimation']!),
+                                        ),
                                       ),
-                                    ),
+                                    ],
                                   ),
                                 ),
                               ),
@@ -395,7 +367,7 @@ class _InterestsPageWidgetState extends State<InterestsPageWidget>
                                     context.pushNamed(
                                       SelfCareGoalsWidget.routeName,
                                       extra: <String, dynamic>{
-                                        kTransitionInfoKey: TransitionInfo(
+                                        '__transition_info__': TransitionInfo(
                                           hasTransition: true,
                                           transitionType:
                                               PageTransitionType.fade,

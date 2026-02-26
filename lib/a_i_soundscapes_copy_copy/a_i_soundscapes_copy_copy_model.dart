@@ -1,5 +1,6 @@
 import '/components/nav_bar_version5_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/index.dart';
 import 'a_i_soundscapes_copy_copy_widget.dart' show AISoundscapesCopyCopyWidget;
 import 'package:flutter/material.dart';
 
@@ -16,24 +17,14 @@ class AISoundscapesCopyCopyModel
   int get tabBarPreviousIndex =>
       tabBarController != null ? tabBarController!.previousIndex : 0;
 
-  // State field(s) for ListView widget.
-  ScrollController? listViewController1;
   // State field(s) for Column widget.
   ScrollController? columnController2;
-  // State field(s) for ListView widget.
-  ScrollController? listViewController2;
   // State field(s) for Column widget.
   ScrollController? columnController3;
-  // State field(s) for ListView widget.
-  ScrollController? listViewController3;
   // State field(s) for Column widget.
   ScrollController? columnController4;
-  // State field(s) for ListView widget.
-  ScrollController? listViewController4;
   // State field(s) for Column widget.
   ScrollController? columnController5;
-  // State field(s) for ListView widget.
-  ScrollController? listViewController5;
   // State field(s) for Column widget.
   ScrollController? columnController6;
   // Model for NavBarVersion5 component.
@@ -42,15 +33,10 @@ class AISoundscapesCopyCopyModel
   @override
   void initState(BuildContext context) {
     columnController1 = ScrollController();
-    listViewController1 = ScrollController();
     columnController2 = ScrollController();
-    listViewController2 = ScrollController();
     columnController3 = ScrollController();
-    listViewController3 = ScrollController();
     columnController4 = ScrollController();
-    listViewController4 = ScrollController();
     columnController5 = ScrollController();
-    listViewController5 = ScrollController();
     columnController6 = ScrollController();
     navBarVersion5Model = createModel(context, () => NavBarVersion5Model());
   }
@@ -59,15 +45,10 @@ class AISoundscapesCopyCopyModel
   void dispose() {
     columnController1?.dispose();
     tabBarController?.dispose();
-    listViewController1?.dispose();
     columnController2?.dispose();
-    listViewController2?.dispose();
     columnController3?.dispose();
-    listViewController3?.dispose();
     columnController4?.dispose();
-    listViewController4?.dispose();
     columnController5?.dispose();
-    listViewController5?.dispose();
     columnController6?.dispose();
     navBarVersion5Model.dispose();
   }

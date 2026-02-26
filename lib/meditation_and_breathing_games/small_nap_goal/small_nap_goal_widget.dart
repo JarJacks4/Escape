@@ -30,7 +30,6 @@ class _SmallNapGoalWidgetState extends State<SmallNapGoalWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'SmallNapGoal'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -203,7 +202,9 @@ class _SmallNapGoalWidgetState extends State<SmallNapGoalWidget> {
                               },
                               child: Padding(
                                 padding: MediaQuery.viewInsetsOf(context),
-                                child: ConfettiPageBasicCompWidget(),
+                                child: ConfettiPageBasicCompWidget(
+                                  exerciseTitle: 'Small Nap',
+                                ),
                               ),
                             );
                           },

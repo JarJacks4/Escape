@@ -3,7 +3,10 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:just_audio/just_audio.dart';
 import 'package:lottie/lottie.dart';
 import 'splash_screen_version5_model.dart';
 export 'splash_screen_version5_model.dart';
@@ -34,7 +37,62 @@ class _SplashScreenVersion5WidgetState extends State<SplashScreenVersion5Widget>
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'splashScreenVersion5'});
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('SPLASH_SCREEN_VERSION5_splashScreenVersi');
+      logFirebaseEvent('splashScreenVersion5_haptic_feedback');
+      HapticFeedback.vibrate();
+    });
+
     animationsMap.addAll({
+      'stackOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeIn,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'imageOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeIn,
+            delay: 0.0.ms,
+            duration: 1610.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeIn,
+            delay: 0.0.ms,
+            duration: 1490.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'columnOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 1730.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
       'textOnPageLoadAnimation': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
@@ -48,8 +106,6 @@ class _SplashScreenVersion5WidgetState extends State<SplashScreenVersion5Widget>
         ],
       ),
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -84,6 +140,19 @@ class _SplashScreenVersion5WidgetState extends State<SplashScreenVersion5Widget>
                   onTap: () async {
                     logFirebaseEvent(
                         'SPLASH_SCREEN_VERSION5_Image_xd31kjpi_ON');
+                    logFirebaseEvent('Image_haptic_feedback');
+                    HapticFeedback.heavyImpact();
+                    logFirebaseEvent('Image_play_sound');
+                    _model.soundPlayer ??= AudioPlayer();
+                    if (_model.soundPlayer!.playing) {
+                      await _model.soundPlayer!.stop();
+                    }
+                    _model.soundPlayer!.setVolume(0.57);
+                    _model.soundPlayer!
+                        .setAsset(
+                            'assets/audios/lucadialessandro-calm-ambient-intro-490646.mp3')
+                        .then((_) => _model.soundPlayer!.play());
+
                     logFirebaseEvent('Image_navigate_to');
 
                     context.pushNamed(
@@ -95,7 +164,7 @@ class _SplashScreenVersion5WidgetState extends State<SplashScreenVersion5Widget>
                         ),
                       }.withoutNulls,
                       extra: <String, dynamic>{
-                        kTransitionInfoKey: TransitionInfo(
+                        '__transition_info__': TransitionInfo(
                           hasTransition: true,
                           transitionType: PageTransitionType.fade,
                           duration: Duration(milliseconds: 9),
@@ -116,7 +185,7 @@ class _SplashScreenVersion5WidgetState extends State<SplashScreenVersion5Widget>
                       ),
                     ),
                   ),
-                ),
+                ).animateOnPageLoad(animationsMap['imageOnPageLoadAnimation']!),
               ),
               Opacity(
                 opacity: 0.7,
@@ -124,7 +193,7 @@ class _SplashScreenVersion5WidgetState extends State<SplashScreenVersion5Widget>
                   alignment: AlignmentDirectional(0.0, 1.0),
                   child: Container(
                     width: double.infinity,
-                    height: 219.08,
+                    height: 219.1,
                     decoration: BoxDecoration(
                       boxShadow: [
                         BoxShadow(
@@ -153,7 +222,8 @@ class _SplashScreenVersion5WidgetState extends State<SplashScreenVersion5Widget>
                         topRight: Radius.circular(0.0),
                       ),
                     ),
-                  ),
+                  ).animateOnPageLoad(
+                      animationsMap['containerOnPageLoadAnimation']!),
                 ),
               ),
               Align(
@@ -189,7 +259,7 @@ class _SplashScreenVersion5WidgetState extends State<SplashScreenVersion5Widget>
                             color: FlutterFlowTheme.of(context).alternate,
                             fontSize: 18.0,
                             letterSpacing: 0.0,
-                            fontWeight: FontWeight.bold,
+                            fontWeight: FontWeight.w300,
                             shadows: [
                               Shadow(
                                 color: FlutterFlowTheme.of(context).primary,
@@ -210,12 +280,13 @@ class _SplashScreenVersion5WidgetState extends State<SplashScreenVersion5Widget>
                             animationsMap['textOnPageLoadAnimation']!),
                       ),
                     ].divide(SizedBox(height: 12.0)),
-                  ),
+                  ).animateOnPageLoad(
+                      animationsMap['columnOnPageLoadAnimation']!),
                 ),
               ),
             ],
           ),
-        ),
+        ).animateOnPageLoad(animationsMap['stackOnPageLoadAnimation']!),
       ),
     );
   }

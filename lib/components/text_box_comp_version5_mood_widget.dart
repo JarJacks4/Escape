@@ -27,8 +27,6 @@ class _TextBoxCompVersion5MoodWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => TextBoxCompVersion5MoodModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

@@ -47,8 +47,6 @@ class _SubscriptionWidgetState extends State<SubscriptionWidget>
         ],
       ),
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

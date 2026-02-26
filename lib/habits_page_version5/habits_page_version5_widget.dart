@@ -28,7 +28,6 @@ class _HabitsPageVersion5WidgetState extends State<HabitsPageVersion5Widget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'HabitsPageVersion5'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

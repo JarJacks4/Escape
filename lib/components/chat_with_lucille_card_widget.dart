@@ -54,8 +54,6 @@ class _ChatWithLucilleCardWidgetState extends State<ChatWithLucilleCardWidget>
         ],
       ),
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -127,7 +125,7 @@ class _ChatWithLucilleCardWidgetState extends State<ChatWithLucilleCardWidget>
                           context.pushNamed(
                             ChatWithLucilleVersion5Widget.routeName,
                             extra: <String, dynamic>{
-                              kTransitionInfoKey: TransitionInfo(
+                              '__transition_info__': TransitionInfo(
                                 hasTransition: true,
                                 transitionType: PageTransitionType.fade,
                                 duration: Duration(milliseconds: 3),

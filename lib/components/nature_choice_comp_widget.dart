@@ -49,8 +49,6 @@ class _NatureChoiceCompWidgetState extends State<NatureChoiceCompWidget>
         ],
       ),
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

@@ -29,7 +29,6 @@ class _MeditationChoicePageWidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'MeditationChoicePage'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

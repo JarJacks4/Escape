@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import 'meditation_help_comp_widget.dart' show MeditationHelpCompWidget;
 import 'package:flutter/material.dart';
+import 'package:just_audio/just_audio.dart';
 
 class MeditationHelpCompModel
     extends FlutterFlowModel<MeditationHelpCompWidget> {
@@ -14,6 +15,7 @@ class MeditationHelpCompModel
           pageViewController!.page != null
       ? pageViewController!.page!.round()
       : 0;
+  AudioPlayer? soundPlayer;
 
   @override
   void initState(BuildContext context) {}

@@ -32,8 +32,6 @@ class _InterestDialogueboxWidgetState extends State<InterestDialogueboxWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => InterestDialogueboxModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

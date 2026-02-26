@@ -29,7 +29,6 @@ class _ChooseYourRealmVersion5PageWidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'ChooseYourRealmVersion5Page'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

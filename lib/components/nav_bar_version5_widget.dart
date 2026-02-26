@@ -104,8 +104,6 @@ class _NavBarVersion5WidgetState extends State<NavBarVersion5Widget>
           !anim.applyInitialState),
       this,
     );
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -157,7 +155,7 @@ class _NavBarVersion5WidgetState extends State<NavBarVersion5Widget>
                     context.pushNamed(
                       HomeVersion5Widget.routeName,
                       extra: <String, dynamic>{
-                        kTransitionInfoKey: TransitionInfo(
+                        '__transition_info__': TransitionInfo(
                           hasTransition: true,
                           transitionType: PageTransitionType.fade,
                           duration: Duration(milliseconds: 9),
@@ -243,7 +241,7 @@ class _NavBarVersion5WidgetState extends State<NavBarVersion5Widget>
                     context.pushNamed(
                       ExplorePageWidget.routeName,
                       extra: <String, dynamic>{
-                        kTransitionInfoKey: TransitionInfo(
+                        '__transition_info__': TransitionInfo(
                           hasTransition: true,
                           transitionType: PageTransitionType.fade,
                           duration: Duration(milliseconds: 9),
@@ -326,7 +324,7 @@ class _NavBarVersion5WidgetState extends State<NavBarVersion5Widget>
                     context.pushNamed(
                       EscapeInnerVerseWidget.routeName,
                       extra: <String, dynamic>{
-                        kTransitionInfoKey: TransitionInfo(
+                        '__transition_info__': TransitionInfo(
                           hasTransition: true,
                           transitionType: PageTransitionType.fade,
                           duration: Duration(milliseconds: 9),
@@ -364,7 +362,7 @@ class _NavBarVersion5WidgetState extends State<NavBarVersion5Widget>
                         child: Align(
                           alignment: AlignmentDirectional(0.0, 0.0),
                           child: Icon(
-                            FFIcons.kworldwide1,
+                            FFIcons.kmusical,
                             color: FlutterFlowTheme.of(context).accent2,
                             size: 25.0,
                           ),
@@ -377,7 +375,7 @@ class _NavBarVersion5WidgetState extends State<NavBarVersion5Widget>
                             EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                         child: Text(
                           FFLocalizations.of(context).getText(
-                            'nfszks14' /* Innerverse */,
+                            'nfszks14' /* Sounds */,
                           ),
                           style:
                               FlutterFlowTheme.of(context).bodyLarge.override(
@@ -406,14 +404,15 @@ class _NavBarVersion5WidgetState extends State<NavBarVersion5Widget>
                     safeSetState(() {});
                     logFirebaseEvent('Column_navigate_to');
 
-                    context.pushNamed(CommunityHomeFINALWidget.routeName);
+                    context.pushNamed(
+                        ConnectionCommunityStartPageVersion5Widget.routeName);
 
                     logFirebaseEvent('Column_widget_animation');
                     if (animationsMap['containerOnActionTriggerAnimation4'] !=
                         null) {
                       await animationsMap['containerOnActionTriggerAnimation4']!
                           .controller
-                          .forward(from: 0.0);
+                          .forward();
                     }
                   },
                   child: Column(
@@ -481,9 +480,9 @@ class _NavBarVersion5WidgetState extends State<NavBarVersion5Widget>
                     logFirebaseEvent('Column_navigate_to');
 
                     context.pushNamed(
-                      LucilleHomeWidget.routeName,
+                      ChatWithLucilleVersion5Widget.routeName,
                       extra: <String, dynamic>{
-                        kTransitionInfoKey: TransitionInfo(
+                        '__transition_info__': TransitionInfo(
                           hasTransition: true,
                           transitionType: PageTransitionType.fade,
                           duration: Duration(milliseconds: 9),

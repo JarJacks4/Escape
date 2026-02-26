@@ -1,7 +1,10 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:just_audio/just_audio.dart';
 import 'package:lottie/lottie.dart';
 import 'community_starter_page_version5_model.dart';
 export 'community_starter_page_version5_model.dart';
@@ -29,8 +32,6 @@ class _CommunityStarterPageVersion5WidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => CommunityStarterPageVersion5Model());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -306,8 +307,26 @@ class _CommunityStarterPageVersion5WidgetState
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   FFButtonWidget(
-                    onPressed: () {
-                      print('Button pressed ...');
+                    onPressed: () async {
+                      logFirebaseEvent(
+                          'COMMUNITY_STARTER_VERSION5_SPARK_CONNECT');
+                      logFirebaseEvent('Button_haptic_feedback');
+                      HapticFeedback.lightImpact();
+                      logFirebaseEvent('Button_play_sound');
+                      _model.soundPlayer1 ??= AudioPlayer();
+                      if (_model.soundPlayer1!.playing) {
+                        await _model.soundPlayer1!.stop();
+                      }
+                      _model.soundPlayer1!.setVolume(1.0);
+                      _model.soundPlayer1!
+                          .setAsset(
+                              'assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3')
+                          .then((_) => _model.soundPlayer1!.play());
+
+                      logFirebaseEvent('Button_update_app_state');
+                      FFAppState().isFirstTimeUserLucille =
+                          !(FFAppState().isFirstTimeUserLucille ?? true);
+                      FFAppState().update(() {});
                     },
                     text: FFLocalizations.of(context).getText(
                       'u8zxctoc' /* Spark Connections */,
@@ -333,8 +352,34 @@ class _CommunityStarterPageVersion5WidgetState
                     ),
                   ),
                   FFButtonWidget(
-                    onPressed: () {
-                      print('Button pressed ...');
+                    onPressed: () async {
+                      logFirebaseEvent(
+                          'COMMUNITY_STARTER_VERSION5_SOLO_FIRST_BT');
+                      logFirebaseEvent('Button_haptic_feedback');
+                      HapticFeedback.mediumImpact();
+                      logFirebaseEvent('Button_play_sound');
+                      _model.soundPlayer2 ??= AudioPlayer();
+                      if (_model.soundPlayer2!.playing) {
+                        await _model.soundPlayer2!.stop();
+                      }
+                      _model.soundPlayer2!.setVolume(1.0);
+                      _model.soundPlayer2!
+                          .setAsset(
+                              'assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3')
+                          .then((_) => _model.soundPlayer2!.play());
+
+                      logFirebaseEvent('Button_navigate_to');
+
+                      context.pushNamed(
+                        HomeVersion5Widget.routeName,
+                        extra: <String, dynamic>{
+                          '__transition_info__': TransitionInfo(
+                            hasTransition: true,
+                            transitionType: PageTransitionType.fade,
+                            duration: Duration(milliseconds: 1),
+                          ),
+                        },
+                      );
                     },
                     text: FFLocalizations.of(context).getText(
                       'bjlr6v27' /* Solo First */,
@@ -363,6 +408,22 @@ class _CommunityStarterPageVersion5WidgetState
                     ),
                   ),
                 ].divide(SizedBox(height: 12.0)),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
+              child: Hero(
+                tag: 'LucilleLogo',
+                transitionOnUserGestures: true,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(8.0),
+                  child: Image.asset(
+                    'assets/images/Logo_ESCAPE_White.png',
+                    width: 200.0,
+                    height: 47.5,
+                    fit: BoxFit.contain,
+                  ),
+                ),
               ),
             ),
           ].divide(SizedBox(height: 24.0)),

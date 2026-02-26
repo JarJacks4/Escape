@@ -149,10 +149,40 @@ class LucilleChatResponseCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
-      isStreamingApi: true,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
+
+  String? sessionID(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.session_id''',
+      ));
+  String? response(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.response''',
+      ));
+  List<String>? convo(dynamic response) => (getJsonField(
+        response,
+        r'''$.conversation''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  String? status(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.status''',
+      ));
+  String? timeStamp(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.timestamp''',
+      ));
+  int? messageCount(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.message_count''',
+      ));
 }
 
 class LucilleStreamingResponseCall {
@@ -228,8 +258,7 @@ class LucilleChatStreamCall {
     final ffApiRequestBody = '''
 {
   "message": "What is mindfulness?",
-  "session_id": "stream-test-001",
-  "stream": true
+  "session_id": "stream-test-001"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'Lucille Chat Stream',
@@ -237,7 +266,6 @@ class LucilleChatStreamCall {
       callType: ApiCallType.POST,
       headers: {
         'Content-Type': 'application/json',
-        'Accept': 'text/event-stream',
       },
       params: {},
       body: ffApiRequestBody,
@@ -246,7 +274,7 @@ class LucilleChatStreamCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: true,
-      isStreamingApi: true,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }

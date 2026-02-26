@@ -27,8 +27,6 @@ class _ResetVersion5WidgetState extends State<ResetVersion5Widget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ResetVersion5Model());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

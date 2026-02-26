@@ -29,7 +29,6 @@ class _SleepMeditationsChoiceWidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'SleepMeditationsChoice'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

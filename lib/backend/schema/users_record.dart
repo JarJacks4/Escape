@@ -212,6 +212,26 @@ class UsersRecord extends FirestoreRecord {
   bool get isRecording => _isRecording ?? false;
   bool hasIsRecording() => _isRecording != null;
 
+  // "LastJournal" field.
+  DocumentReference? _lastJournal;
+  DocumentReference? get lastJournal => _lastJournal;
+  bool hasLastJournal() => _lastJournal != null;
+
+  // "Pronouns" field.
+  String? _pronouns;
+  String get pronouns => _pronouns ?? '';
+  bool hasPronouns() => _pronouns != null;
+
+  // "OnboardingGoals" field.
+  List<String>? _onboardingGoals;
+  List<String> get onboardingGoals => _onboardingGoals ?? const [];
+  bool hasOnboardingGoals() => _onboardingGoals != null;
+
+  // "coinsEarned" field.
+  int? _coinsEarned;
+  int get coinsEarned => _coinsEarned ?? 0;
+  bool hasCoinsEarned() => _coinsEarned != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _photoUrl = snapshotData['photo_url'] as String?;
@@ -258,6 +278,10 @@ class UsersRecord extends FirestoreRecord {
     _higherChakraMood = snapshotData['HigherChakraMood'] as String?;
     _ascendedMood = snapshotData['AscendedMood'] as String?;
     _isRecording = snapshotData['isRecording'] as bool?;
+    _lastJournal = snapshotData['LastJournal'] as DocumentReference?;
+    _pronouns = snapshotData['Pronouns'] as String?;
+    _onboardingGoals = getDataList(snapshotData['OnboardingGoals']);
+    _coinsEarned = castToType<int>(snapshotData['coinsEarned']);
   }
 
   static CollectionReference get collection =>
@@ -333,6 +357,9 @@ Map<String, dynamic> createUsersRecordData({
   String? higherChakraMood,
   String? ascendedMood,
   bool? isRecording,
+  DocumentReference? lastJournal,
+  String? pronouns,
+  int? coinsEarned,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -375,6 +402,9 @@ Map<String, dynamic> createUsersRecordData({
       'HigherChakraMood': higherChakraMood,
       'AscendedMood': ascendedMood,
       'isRecording': isRecording,
+      'LastJournal': lastJournal,
+      'Pronouns': pronouns,
+      'coinsEarned': coinsEarned,
     }.withoutNulls,
   );
 
@@ -390,6 +420,7 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
 
   @override
   bool equals(UsersRecord? e1, UsersRecord? e2) {
+    const listEquality = ListEquality();
     return e1?.email == e2?.email &&
         e1?.photoUrl == e2?.photoUrl &&
         e1?.uid == e2?.uid &&
@@ -428,7 +459,11 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.middleChakraMood == e2?.middleChakraMood &&
         e1?.higherChakraMood == e2?.higherChakraMood &&
         e1?.ascendedMood == e2?.ascendedMood &&
-        e1?.isRecording == e2?.isRecording;
+        e1?.isRecording == e2?.isRecording &&
+        e1?.lastJournal == e2?.lastJournal &&
+        e1?.pronouns == e2?.pronouns &&
+        listEquality.equals(e1?.onboardingGoals, e2?.onboardingGoals) &&
+        e1?.coinsEarned == e2?.coinsEarned;
   }
 
   @override
@@ -471,7 +506,11 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.middleChakraMood,
         e?.higherChakraMood,
         e?.ascendedMood,
-        e?.isRecording
+        e?.isRecording,
+        e?.lastJournal,
+        e?.pronouns,
+        e?.onboardingGoals,
+        e?.coinsEarned
       ]);
 
   @override

@@ -28,7 +28,6 @@ class _BinauralBeatsChoiceWidgetState extends State<BinauralBeatsChoiceWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'BinauralBeatsChoice'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

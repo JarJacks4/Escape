@@ -1,4 +1,4 @@
-import '/components/focus_modes_and_concentration_widget.dart';
+import '/components/focus_and_concentration_comp_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +27,6 @@ class _FocusModesPageWidgetState extends State<FocusModesPageWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'FocusModesPage'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -47,36 +46,30 @@ class _FocusModesPageWidgetState extends State<FocusModesPageWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        body: SafeArea(
-          top: true,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Container(
-                width: double.infinity,
-                height: 871.68,
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      FlutterFlowTheme.of(context).primary,
-                      FlutterFlowTheme.of(context).secondary
-                    ],
-                    stops: [0.0, 1.0],
-                    begin: AlignmentDirectional(0.0, -1.0),
-                    end: AlignmentDirectional(0, 1.0),
-                  ),
-                ),
-                child: Padding(
-                  padding: EdgeInsets.all(16.0),
-                  child: wrapWithModel(
-                    model: _model.focusModesAndConcentrationModel,
-                    updateCallback: () => safeSetState(() {}),
-                    child: FocusModesAndConcentrationWidget(),
-                  ),
+        body: Column(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Container(
+              width: double.infinity,
+              height: 871.68,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    FlutterFlowTheme.of(context).primary,
+                    FlutterFlowTheme.of(context).secondary
+                  ],
+                  stops: [0.0, 1.0],
+                  begin: AlignmentDirectional(0.0, -1.0),
+                  end: AlignmentDirectional(0, 1.0),
                 ),
               ),
-            ],
-          ),
+              child: wrapWithModel(
+                model: _model.focusAndConcentrationCompModel,
+                updateCallback: () => safeSetState(() {}),
+                child: FocusAndConcentrationCompWidget(),
+              ),
+            ),
+          ],
         ),
       ),
     );

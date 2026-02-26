@@ -25,8 +25,6 @@ class _CommunityAppBarWidgetState extends State<CommunityAppBarWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => CommunityAppBarModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

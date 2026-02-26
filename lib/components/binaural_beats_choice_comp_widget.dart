@@ -50,8 +50,6 @@ class _BinauralBeatsChoiceCompWidgetState
         ],
       ),
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

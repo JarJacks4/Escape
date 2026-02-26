@@ -34,8 +34,6 @@ class _MoodWeatherVersion5CompWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => MoodWeatherVersion5CompModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -327,7 +325,7 @@ class _MoodWeatherVersion5CompWidgetState
                                   RitualSparkJournalPageVersion5Widget
                                       .routeName,
                                   extra: <String, dynamic>{
-                                    kTransitionInfoKey: TransitionInfo(
+                                    '__transition_info__': TransitionInfo(
                                       hasTransition: true,
                                       transitionType: PageTransitionType.fade,
                                       duration: Duration(milliseconds: 9),
@@ -401,7 +399,7 @@ class _MoodWeatherVersion5CompWidgetState
                             context.pushNamed(
                               MindPageWidget.routeName,
                               extra: <String, dynamic>{
-                                kTransitionInfoKey: TransitionInfo(
+                                '__transition_info__': TransitionInfo(
                                   hasTransition: true,
                                   transitionType:
                                       PageTransitionType.rightToLeft,
@@ -469,7 +467,7 @@ class _MoodWeatherVersion5CompWidgetState
                             context.pushNamed(
                               BodyPageVersion5Widget.routeName,
                               extra: <String, dynamic>{
-                                kTransitionInfoKey: TransitionInfo(
+                                '__transition_info__': TransitionInfo(
                                   hasTransition: true,
                                   transitionType:
                                       PageTransitionType.rightToLeft,
@@ -537,7 +535,7 @@ class _MoodWeatherVersion5CompWidgetState
                             context.pushNamed(
                               ResetPageWidget.routeName,
                               extra: <String, dynamic>{
-                                kTransitionInfoKey: TransitionInfo(
+                                '__transition_info__': TransitionInfo(
                                   hasTransition: true,
                                   transitionType:
                                       PageTransitionType.rightToLeft,
@@ -611,7 +609,7 @@ class _MoodWeatherVersion5CompWidgetState
                             context.pushNamed(
                               JournalPageVersion5Widget.routeName,
                               extra: <String, dynamic>{
-                                kTransitionInfoKey: TransitionInfo(
+                                '__transition_info__': TransitionInfo(
                                   hasTransition: true,
                                   transitionType:
                                       PageTransitionType.rightToLeft,
@@ -679,7 +677,7 @@ class _MoodWeatherVersion5CompWidgetState
                             context.pushNamed(
                               ChooseRealmsPageWidget.routeName,
                               extra: <String, dynamic>{
-                                kTransitionInfoKey: TransitionInfo(
+                                '__transition_info__': TransitionInfo(
                                   hasTransition: true,
                                   transitionType:
                                       PageTransitionType.rightToLeft,
@@ -734,70 +732,48 @@ class _MoodWeatherVersion5CompWidgetState
                             ),
                           ),
                         ),
-                        InkWell(
-                          splashColor: Colors.transparent,
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () async {
-                            logFirebaseEvent(
-                                'MOOD_WEATHER_VERSION5_Container_zr7xjk5w');
-                            logFirebaseEvent('Container_navigate_to');
-
-                            context.pushNamed(
-                              CommunityHomeVersion5CopyWidget.routeName,
-                              extra: <String, dynamic>{
-                                kTransitionInfoKey: TransitionInfo(
-                                  hasTransition: true,
-                                  transitionType: PageTransitionType.fade,
-                                  duration: Duration(milliseconds: 9),
+                        Container(
+                          width: 107.6,
+                          height: 80.0,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(16.0),
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                12.0, 12.0, 12.0, 12.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Container(
+                                  width: 32.0,
+                                  height: 32.0,
+                                  clipBehavior: Clip.antiAlias,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: Image.asset(
+                                    'assets/images/global-connection.gif',
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
-                              },
-                            );
-                          },
-                          child: Container(
-                            width: 107.6,
-                            height: 80.0,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(16.0),
-                            ),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  12.0, 12.0, 12.0, 12.0),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    width: 32.0,
-                                    height: 32.0,
-                                    clipBehavior: Clip.antiAlias,
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                    ),
-                                    child: Image.asset(
-                                      'assets/images/global-connection.gif',
-                                      fit: BoxFit.cover,
-                                    ),
+                                Text(
+                                  FFLocalizations.of(context).getText(
+                                    'aquulcc5' /* Community */,
                                   ),
-                                  Text(
-                                    FFLocalizations.of(context).getText(
-                                      'aquulcc5' /* Community */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'WorkSans',
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryText,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                  ),
-                                ].divide(SizedBox(height: 8.0)),
-                              ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'WorkSans',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                ),
+                              ].divide(SizedBox(height: 8.0)),
                             ),
                           ),
                         ),
