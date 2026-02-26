@@ -11,8 +11,8 @@ import 'package:geolocator/geolocator.dart';
 import 'package:intl/intl.dart';
 import 'package:json_path/json_path.dart';
 import 'package:timeago/timeago.dart' as timeago;
+import 'package:tutorial_coach_mark/tutorial_coach_mark.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:map_launcher/map_launcher.dart';
 import 'package:cross_file/cross_file.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:record/record.dart';
@@ -95,34 +95,6 @@ Color colorFromCssString(String color, {Color? defaultColor}) {
     return fromCssColor(color);
   } catch (_) {}
   return defaultColor ?? Colors.black;
-}
-
-Future launchMap({
-  MapType? mapType,
-  LatLng? location,
-  String? address,
-  required title,
-}) async {
-  final coords = location != null
-      ? Coords(location.latitude, location.longitude)
-      : Coords(0, 0);
-  final extraParams = address != null ? {'q': address} : null;
-  final noMap =
-      mapType == null || !(await MapLauncher.isMapAvailable(mapType) ?? false);
-  if (noMap) {
-    final installedMaps = await MapLauncher.installedMaps;
-    return installedMaps.first.showMarker(
-      coords: coords,
-      title: title,
-      extraParams: extraParams,
-    );
-  }
-  return MapLauncher.showMarker(
-    mapType: mapType,
-    coords: coords,
-    title: title,
-    extraParams: extraParams,
-  );
 }
 
 enum FormatType {
@@ -486,6 +458,24 @@ extension StatefulWidgetExtensions on State<StatefulWidget> {
       // ignore: invalid_use_of_protected_member
       setState(fn);
     }
+  }
+}
+
+extension WalkthroughWrapperExtension on Widget {
+  Widget addWalkthrough(
+    GlobalKey walkthroughKey,
+    TutorialCoachMark? controller, {
+    int? listIndex,
+  }) {
+    if (listIndex != null && listIndex != 0) {
+      return this;
+    }
+    return controller != null
+        ? KeyedSubtree(
+            key: walkthroughKey,
+            child: this,
+          )
+        : this;
   }
 }
 

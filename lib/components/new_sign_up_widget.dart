@@ -37,8 +37,6 @@ class _NewSignUpWidgetState extends State<NewSignUpWidget> {
 
     _model.textController4 ??= TextEditingController();
     _model.textFieldFocusNode4 ??= FocusNode();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -238,10 +236,10 @@ class _NewSignUpWidgetState extends State<NewSignUpWidget> {
                         contentPadding: EdgeInsetsDirectional.fromSTEB(
                             16.0, 16.0, 16.0, 16.0),
                         suffixIcon: InkWell(
-                          onTap: () => safeSetState(
-                            () => _model.passwordVisibility1 =
-                                !_model.passwordVisibility1,
-                          ),
+                          onTap: () async {
+                            safeSetState(() => _model.passwordVisibility1 =
+                                !_model.passwordVisibility1);
+                          },
                           focusNode: FocusNode(skipTraversal: true),
                           child: Icon(
                             _model.passwordVisibility1
@@ -288,10 +286,10 @@ class _NewSignUpWidgetState extends State<NewSignUpWidget> {
                         contentPadding: EdgeInsetsDirectional.fromSTEB(
                             16.0, 16.0, 16.0, 16.0),
                         suffixIcon: InkWell(
-                          onTap: () => safeSetState(
-                            () => _model.passwordVisibility2 =
-                                !_model.passwordVisibility2,
-                          ),
+                          onTap: () async {
+                            safeSetState(() => _model.passwordVisibility2 =
+                                !_model.passwordVisibility2);
+                          },
                           focusNode: FocusNode(skipTraversal: true),
                           child: Icon(
                             _model.passwordVisibility2

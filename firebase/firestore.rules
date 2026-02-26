@@ -127,6 +127,20 @@ service cloud.firestore {
     }
 
 
+    match /Users/{parent}/RitualSparkJournal/{document} {
+      allow create: if request.auth.uid == parent;
+      allow read: if request.auth.uid == parent;
+      allow write: if request.auth.uid == parent;
+      allow delete: if request.auth.uid == parent;
+    }
+
+    match /user_agent_state/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if false;
+      allow delete: if false;
+    }
+
     match /ff_user_push_notifications/{id} {
       allow read, update, delete: if false;
       allow create: if /databases/$(database)/documents/Users/$(request.auth.uid) == request.resource.data.sender;

@@ -1,11 +1,16 @@
 export '/backend/schema/util/schema_util.dart';
 
+export 'build_ship_stream_struct.dart';
 export 'epidemic_sound_struct.dart';
 export 'image_helper_struct.dart';
 export 'lucille_chat_struct.dart';
+export 'lucille_message_struct.dart';
+export 'lucille_stream_f_i_n_a_l_struct.dart';
 export 'message_struct.dart';
 export 'model_configuration_struct.dart';
+export 'onboarding_goals_struct.dart';
 export 'playlist_struct.dart';
+export 'soundscapes_struct.dart';
 export 'user_profile_struct.dart';
 export 'you_tube_data_a_p_i_struct.dart';
 export 'chat_struct.dart';

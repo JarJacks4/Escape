@@ -1,6 +1,5 @@
 import '/components/breathing_choice_comp_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/index.dart';
 import 'breathing_choice_page_widget.dart' show BreathingChoicePageWidget;
 import 'package:flutter/material.dart';
 

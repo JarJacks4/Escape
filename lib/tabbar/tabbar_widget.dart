@@ -25,7 +25,6 @@ class _TabbarWidgetState extends State<TabbarWidget> {
     _model = createModel(context, () => TabbarModel());
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'tabbar'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

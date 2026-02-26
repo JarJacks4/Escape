@@ -277,7 +277,9 @@ class _BoxBreathingMeditationPageWidgetState
                                 },
                                 child: Padding(
                                   padding: MediaQuery.viewInsetsOf(context),
-                                  child: ConfettiPageBasicCompWidget(),
+                                  child: ConfettiPageBasicCompWidget(
+                                    exerciseTitle: 'Box Breathing',
+                                  ),
                                 ),
                               );
                             },

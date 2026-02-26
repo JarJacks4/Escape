@@ -35,8 +35,6 @@ class _AiChatComponent1WidgetState extends State<AiChatComponent1Widget> {
 
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -600,7 +598,8 @@ class _AiChatComponent1WidgetState extends State<AiChatComponent1Widget> {
                           safeSetState(() {});
                           // The "chatHistory" is the generated JSON -- we send the whole chat history to AI in order for it to understand context.
                           logFirebaseEvent('IconButton_backend_call');
-                          _model.chatGPTResponse = await LucilleChatCall.call();
+                          _model.chatGPTResponse =
+                              await LucilleChatStreamCall.call();
 
                           if ((_model.chatGPTResponse?.succeeded ?? true)) {
                             logFirebaseEvent(

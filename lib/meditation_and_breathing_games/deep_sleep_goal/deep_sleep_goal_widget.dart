@@ -5,6 +5,8 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:just_audio/just_audio.dart';
 import 'deep_sleep_goal_model.dart';
 export 'deep_sleep_goal_model.dart';
 
@@ -30,7 +32,6 @@ class _DeepSleepGoalWidgetState extends State<DeepSleepGoalWidget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'DeepSleepGoal'});
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -186,50 +187,77 @@ class _DeepSleepGoalWidgetState extends State<DeepSleepGoalWidget> {
                         playInBackground: PlayInBackground.disabledPause,
                       ),
                     ),
-                    FFButtonWidget(
-                      onPressed: () async {
-                        logFirebaseEvent(
-                            'DEEP_SLEEP_GOAL_TAP_TO_FINISH_BTN_ON_TAP');
-                        logFirebaseEvent('Button_bottom_sheet');
-                        await showModalBottomSheet(
-                          isScrollControlled: true,
-                          backgroundColor: Colors.transparent,
-                          context: context,
-                          builder: (context) {
-                            return GestureDetector(
-                              onTap: () {
-                                FocusScope.of(context).unfocus();
-                                FocusManager.instance.primaryFocus?.unfocus();
-                              },
-                              child: Padding(
-                                padding: MediaQuery.viewInsetsOf(context),
-                                child: ConfettiPageIntermediateCompWidget(),
-                              ),
-                            );
-                          },
-                        ).then((value) => safeSetState(() {}));
-                      },
-                      text: FFLocalizations.of(context).getText(
-                        '3yn49u3l' /* Tap to Finish */,
-                      ),
-                      options: FFButtonOptions(
-                        width: double.infinity,
-                        height: 49.4,
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            16.0, 0.0, 16.0, 0.0),
-                        iconPadding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).accent1,
-                        textStyle:
-                            FlutterFlowTheme.of(context).titleSmall.override(
-                                  fontFamily: 'WorkSans',
-                                  color: Colors.white,
-                                  fontSize: 16.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FontWeight.w600,
+                    Builder(
+                      builder: (context) => FFButtonWidget(
+                        onPressed: () async {
+                          logFirebaseEvent(
+                              'DEEP_SLEEP_GOAL_TAP_TO_FINISH_BTN_ON_TAP');
+                          logFirebaseEvent('Button_haptic_feedback');
+                          HapticFeedback.vibrate();
+                          logFirebaseEvent('Button_play_sound');
+                          _model.soundPlayer ??= AudioPlayer();
+                          if (_model.soundPlayer!.playing) {
+                            await _model.soundPlayer!.stop();
+                          }
+                          _model.soundPlayer!.setVolume(0.76);
+                          await _model.soundPlayer!
+                              .setAsset(
+                                  'assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3')
+                              .then((_) => _model.soundPlayer!.play());
+
+                          logFirebaseEvent('Button_update_app_state');
+                          FFAppState().pointsEarned =
+                              FFAppState().pointsEarned + 100;
+                          FFAppState().pointsEarnedPercentage =
+                              FFAppState().pointsEarnedPercentage + 0.1;
+                          safeSetState(() {});
+                          logFirebaseEvent('Button_alert_dialog');
+                          await showDialog(
+                            barrierColor: Color(0xC7000000),
+                            context: context,
+                            builder: (dialogContext) {
+                              return Dialog(
+                                elevation: 0,
+                                insetPadding: EdgeInsets.zero,
+                                backgroundColor: Colors.transparent,
+                                alignment: AlignmentDirectional(0.0, 0.0)
+                                    .resolve(Directionality.of(context)),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    FocusScope.of(dialogContext).unfocus();
+                                    FocusManager.instance.primaryFocus
+                                        ?.unfocus();
+                                  },
+                                  child: ConfettiPageIntermediateCompWidget(
+                                    exerciseTitle: 'Deep Breathing',
+                                  ),
                                 ),
-                        elevation: 8.0,
-                        borderRadius: BorderRadius.circular(15.0),
+                              );
+                            },
+                          );
+                        },
+                        text: FFLocalizations.of(context).getText(
+                          '3yn49u3l' /* Tap to Finish */,
+                        ),
+                        options: FFButtonOptions(
+                          width: double.infinity,
+                          height: 49.4,
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              16.0, 0.0, 16.0, 0.0),
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          color: FlutterFlowTheme.of(context).accent1,
+                          textStyle:
+                              FlutterFlowTheme.of(context).titleSmall.override(
+                                    fontFamily: 'WorkSans',
+                                    color: Colors.white,
+                                    fontSize: 16.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                          elevation: 8.0,
+                          borderRadius: BorderRadius.circular(15.0),
+                        ),
                       ),
                     ),
                   ],

@@ -131,8 +131,6 @@ class _MoodAnalyzerSuccessCompWidgetState
         ],
       ),
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -353,9 +351,9 @@ class _MoodAnalyzerSuccessCompWidgetState
                                     logFirebaseEvent('Button_navigate_to');
 
                                     context.pushNamed(
-                                      HomeVersion4Widget.routeName,
+                                      HomeVersion5Widget.routeName,
                                       extra: <String, dynamic>{
-                                        kTransitionInfoKey: TransitionInfo(
+                                        '__transition_info__': TransitionInfo(
                                           hasTransition: true,
                                           transitionType:
                                               PageTransitionType.rightToLeft,
