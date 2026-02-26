@@ -1,7 +1,6 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
-import '/components/lucille_home_comp_version5_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/lucille_g_p_t_comp/writing_indicator/writing_indicator_widget.dart';
 import 'chat_with_lucille_version5_widget.dart'
@@ -68,8 +67,6 @@ class ChatWithLucilleVersion5Model
 
   // State field(s) for Column widget.
   ScrollController? columnController;
-  // Model for LucilleHomeCompVersion5 component.
-  late LucilleHomeCompVersion5Model lucilleHomeCompVersion5Model;
   // State field(s) for TabBar widget.
   TabController? tabBarController;
   int get tabBarCurrentIndex =>
@@ -101,8 +98,6 @@ class ChatWithLucilleVersion5Model
   @override
   void initState(BuildContext context) {
     columnController = ScrollController();
-    lucilleHomeCompVersion5Model =
-        createModel(context, () => LucilleHomeCompVersion5Model());
     listViewController = ScrollController();
     writingIndicatorModel = createModel(context, () => WritingIndicatorModel());
   }
@@ -110,7 +105,6 @@ class ChatWithLucilleVersion5Model
   @override
   void dispose() {
     columnController?.dispose();
-    lucilleHomeCompVersion5Model.dispose();
     tabBarController?.dispose();
     listViewController?.dispose();
     writingIndicatorModel.dispose();
