@@ -39,24 +39,18 @@ post_install do |installer|
     target.build_configurations.each do |config|
       config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
 
-      # Force Swift 5
+      # Force Swift 5 (avoid Swift 6 mode)
       config.build_settings['SWIFT_VERSION'] = '5.0'
-
-      # Disable Swift 6 strict concurrency
       config.build_settings['SWIFT_STRICT_CONCURRENCY'] = 'minimal'
       config.build_settings['SWIFT_ENABLE_EXPERIMENTAL_CONCURRENCY'] = 'NO'
 
-      # Critical: Disable concurrency checks completely
-      config.build_settings['OTHER_SWIFT_FLAGS'] = [
-        '$(inherited)',
-        '-Xfrontend', '-disable-availability-checking',
-        '-Xfrontend', '-warn-concurrency'
-      ]
+      # Append flags instead of replacing them
+      existing_flags = config.build_settings['OTHER_SWIFT_FLAGS'] || '$(inherited)'
+      config.build_settings['OTHER_SWIFT_FLAGS'] = "#{existing_flags} -Xfrontend -disable-availability-checking"
 
-      # Do NOT treat warnings as errors
+      # Ensure warnings are NOT treated as errors
       config.build_settings['GCC_TREAT_WARNINGS_AS_ERRORS'] = 'NO'
       config.build_settings['SWIFT_TREAT_WARNINGS_AS_ERRORS'] = 'NO'
-      config.build_settings['WARNING_CFLAGS'] = ['$(inherited)']
     end
   end
 end
