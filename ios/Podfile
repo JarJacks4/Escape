@@ -34,7 +34,7 @@ end
 
 target 'ImageNotification' do
   use_frameworks! :linkage => :static
-  inherit! :complete
+  inherit! :search_paths
 
   pod 'Firebase/Messaging'
 end
