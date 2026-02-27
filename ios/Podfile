@@ -39,7 +39,13 @@ post_install do |installer|
     target.build_configurations.each do |config|
       config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
       config.build_settings['SWIFT_VERSION'] = '5.0'
+
+      # 🔥 THIS IS THE IMPORTANT PART
       config.build_settings['SWIFT_STRICT_CONCURRENCY'] = 'minimal'
+      config.build_settings['SWIFT_ENABLE_EXPERIMENTAL_CONCURRENCY'] = 'NO'
+      config.build_settings['SWIFT_DISABLE_REQUIRED_WARNINGS'] = 'YES'
+
+      # Prevent warnings from failing archive
       config.build_settings['GCC_TREAT_WARNINGS_AS_ERRORS'] = 'NO'
       config.build_settings['SWIFT_TREAT_WARNINGS_AS_ERRORS'] = 'NO'
     end
