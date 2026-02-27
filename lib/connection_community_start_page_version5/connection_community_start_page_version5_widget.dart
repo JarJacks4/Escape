@@ -6,8 +6,6 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_button_tabbar.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
-import "package:tiktokfeed_wz8en7/backend/schema/structs/index.dart"
-    as tiktokfeed_wz8en7_data_schema;
 import 'package:confetti_modualo_library_b75kfy/app_state.dart'
     as confetti_modualo_library_b75kfy_app_state;
 import 'package:cupertino_time_picker_hiuzb7/app_state.dart'
@@ -668,16 +666,9 @@ class _ConnectionCommunityStartPageVersion5WidgetState
                                                                   0.82,
                                                               userID:
                                                                   currentUserUid,
-                                                              data: (tiktokfeed_wz8en7_app_state.FFAppState()
-                                                                      .BreathingTikTok
-                                                                      .lastOrNull!
-                                                                      .toMap()
-                                                                      .toList()
-                                                                      .map<tiktokfeed_wz8en7_data_schema.TiktokPageStruct?>(tiktokfeed_wz8en7_data_schema
-                                                                          .TiktokPageStruct
-                                                                          .maybeFromMap)
-                                                                      .toList() as Iterable<tiktokfeed_wz8en7_data_schema.TiktokPageStruct?>)
-                                                                  .withoutNulls,
+                                                              data: tiktokfeed_wz8en7_app_state
+                                                                      .FFAppState()
+                                                                  .BreathingTikTok,
                                                               likerebuidpage:
                                                                   () async {},
                                                               bookedrebuidpage:
