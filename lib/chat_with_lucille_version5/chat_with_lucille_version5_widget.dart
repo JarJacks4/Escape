@@ -43,8 +43,8 @@ class ChatWithLucilleVersion5Widget extends StatefulWidget {
 }
 
 class _ChatWithLucilleVersion5WidgetState
-    extends State<ChatWithLucilleVersion5Widget> with TickerProviderStateMixin {}
-  late ChatWithLucilleVersion5Model _model;
+    extends State<ChatWithLucilleVersion5Widget>
+    with TickerProviderStateMixin {}
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
