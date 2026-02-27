@@ -28,16 +28,14 @@ flutter_ios_podfile_setup
 
 target 'Runner' do
   use_frameworks! :linkage => :static
-  use_modular_headers!
 
   flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
-
-  # Keep your Firestore override
   pod 'FirebaseFirestore', :git => 'https://github.com/invertase/firestore-ios-sdk-frameworks.git', :tag => '11.13.0'
 end
 
 target 'ImageNotification' do
-  inherit! :search_paths
+  use_frameworks! :linkage => :static
+  inherit! :complete
 
   pod 'Firebase/Messaging'
 end
