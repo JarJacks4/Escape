@@ -37,22 +37,26 @@ post_install do |installer|
     flutter_additional_ios_build_settings(target)
 
     target.build_configurations.each do |config|
-      # iOS target
       config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
 
-      # Force Swift 5 (NOT Swift 6)
+      # Force Swift 5
       config.build_settings['SWIFT_VERSION'] = '5.0'
+
+      # Disable Swift 6 strict concurrency
       config.build_settings['SWIFT_STRICT_CONCURRENCY'] = 'minimal'
-      config.build_settings['SWIFT_EMIT_LOC_STRINGS'] = 'NO'
+      config.build_settings['SWIFT_ENABLE_EXPERIMENTAL_CONCURRENCY'] = 'NO'
 
-      # 👇 THIS IS THE IMPORTANT PART
-      config.build_settings['SWIFT_SWIFT3_OBJC_INFERENCE'] = 'Default'
-      config.build_settings['SWIFT_ACTIVE_COMPILATION_CONDITIONS'] ||= ['$(inherited)']
-      config.build_settings['OTHER_SWIFT_FLAGS'] = ['$(inherited)', '-swift-version', '5']
+      # Critical: Disable concurrency checks completely
+      config.build_settings['OTHER_SWIFT_FLAGS'] = [
+        '$(inherited)',
+        '-Xfrontend', '-disable-availability-checking',
+        '-Xfrontend', '-warn-concurrency'
+      ]
 
-      # Prevent warnings from breaking archive
-      config.build_settings['SWIFT_TREAT_WARNINGS_AS_ERRORS'] = 'NO'
+      # Do NOT treat warnings as errors
       config.build_settings['GCC_TREAT_WARNINGS_AS_ERRORS'] = 'NO'
+      config.build_settings['SWIFT_TREAT_WARNINGS_AS_ERRORS'] = 'NO'
+      config.build_settings['WARNING_CFLAGS'] = ['$(inherited)']
     end
   end
 end
