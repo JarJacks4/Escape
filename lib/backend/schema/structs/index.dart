@@ -6,6 +6,7 @@ export 'image_helper_struct.dart';
 export 'lucille_chat_struct.dart';
 export 'lucille_message_struct.dart';
 export 'lucille_stream_f_i_n_a_l_struct.dart';
+export 'media_struct.dart';
 export 'message_struct.dart';
 export 'model_configuration_struct.dart';
 export 'onboarding_goals_struct.dart';

@@ -1,4 +1,5 @@
-import '/components/music_bottom_sheet_sleep_tab_widget.dart';
+import '/backend/schema/structs/index.dart';
+import '/components/music_bottom_sheet_all_tab_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -19,7 +20,12 @@ import 'player_page_f_i_n_a_l_all_tab_model.dart';
 export 'player_page_f_i_n_a_l_all_tab_model.dart';
 
 class PlayerPageFINALAllTabWidget extends StatefulWidget {
-  const PlayerPageFINALAllTabWidget({super.key});
+  const PlayerPageFINALAllTabWidget({
+    super.key,
+    this.currentSong,
+  });
+
+  final MediaStruct? currentSong;
 
   static String routeName = 'PlayerPageFINALAllTab';
   static String routePath = '/playerPageFINALAllTab';
@@ -201,13 +207,13 @@ class _PlayerPageFINALAllTabWidgetState
                                         decoration: BoxDecoration(
                                           boxShadow: [
                                             BoxShadow(
-                                              blurRadius: 8.0,
-                                              color: Color(0xA1D0E3F7),
+                                              blurRadius: 10.0,
+                                              color: Color(0xCAF9B058),
                                               offset: Offset(
                                                 0.0,
-                                                2.0,
+                                                0.0,
                                               ),
-                                              spreadRadius: 3.0,
+                                              spreadRadius: 10.0,
                                             )
                                           ],
                                           shape: BoxShape.circle,
@@ -450,7 +456,7 @@ class _PlayerPageFINALAllTabWidgetState
                                             borderRadius: 8.0,
                                             buttonSize: 54.0,
                                             icon: Icon(
-                                              Icons.shuffle_on_rounded,
+                                              Icons.skip_previous,
                                               color: Color(0xA4FFFFFF),
                                               size: 36.0,
                                             ),
@@ -498,7 +504,7 @@ class _PlayerPageFINALAllTabWidgetState
                                             borderRadius: 8.0,
                                             buttonSize: 54.0,
                                             icon: Icon(
-                                              Icons.shuffle_on_rounded,
+                                              Icons.skip_next,
                                               color: Color(0xA4FFFFFF),
                                               size: 36.0,
                                             ),
@@ -581,7 +587,7 @@ class _PlayerPageFINALAllTabWidgetState
                                             padding: MediaQuery.viewInsetsOf(
                                                 context),
                                             child:
-                                                MusicBottomSheetSleepTabWidget(),
+                                                MusicBottomSheetAllTabWidget(),
                                           ),
                                         );
                                       },
@@ -595,14 +601,6 @@ class _PlayerPageFINALAllTabWidgetState
                                   ),
                                 ),
                               ],
-                            ),
-                            Container(
-                              width: double.infinity,
-                              height: MediaQuery.sizeOf(context).height * 0.2,
-                              child: custom_widgets.ThatAudioPlayer(
-                                width: double.infinity,
-                                height: MediaQuery.sizeOf(context).height * 0.2,
-                              ),
                             ),
                           ].divide(SizedBox(height: 45.0)),
                         ),

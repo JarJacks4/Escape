@@ -217,16 +217,21 @@ class _SideNavWidgetState extends State<SideNavWidget>
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(8.0),
-                                      child: Image.asset(
-                                        'assets/images/ESCAPE_Logo_Clear.png',
-                                        width: 246.8,
-                                        height: 237.0,
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ).animateOnPageLoad(animationsMap[
-                                        'imageOnPageLoadAnimation']!),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 25.0, 0.0, 0.0),
+                                      child: ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        child: Image.asset(
+                                          'assets/images/ESCAPE_Logo_Clear.png',
+                                          width: 246.8,
+                                          height: 237.0,
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ).animateOnPageLoad(animationsMap[
+                                          'imageOnPageLoadAnimation']!),
+                                    ),
                                   ],
                                 ),
                               ),
@@ -1029,36 +1034,41 @@ class _SideNavWidgetState extends State<SideNavWidget>
                         ),
                       ),
                       Align(
-                        alignment: AlignmentDirectional(0.91, -0.98),
-                        child: FlutterFlowIconButton(
-                          borderColor: Color(0x3CEDF1F7),
-                          borderRadius: 50.0,
-                          buttonSize: 40.0,
-                          fillColor: Color(0x62EDF1F7),
-                          icon: Icon(
-                            Icons.cancel,
-                            color: FlutterFlowTheme.of(context).primary,
-                            size: 24.0,
-                          ),
-                          onPressed: () async {
-                            logFirebaseEvent('SIDE_NAV_COMP_cancel_ICN_ON_TAP');
-                            logFirebaseEvent('IconButton_haptic_feedback');
-                            HapticFeedback.lightImpact();
-                            logFirebaseEvent('IconButton_play_sound');
-                            _model.soundPlayer7 ??= AudioPlayer();
-                            if (_model.soundPlayer7!.playing) {
-                              await _model.soundPlayer7!.stop();
-                            }
-                            _model.soundPlayer7!.setVolume(1.0);
-                            _model.soundPlayer7!
-                                .setAsset(
-                                    'assets/audios/ES_Notification,_Attention,_Text,_Reveal,_Positive_01_-_Epidemic_Sound_-_2170-2760.wav')
-                                .then((_) => _model.soundPlayer7!.play());
+                        alignment: AlignmentDirectional(-0.88, -0.95),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 15.0, 0.0, 0.0),
+                          child: FlutterFlowIconButton(
+                            borderColor: Color(0x3CEDF1F7),
+                            borderRadius: 50.0,
+                            buttonSize: 40.0,
+                            fillColor: Color(0x62EDF1F7),
+                            icon: Icon(
+                              Icons.cancel,
+                              color: FlutterFlowTheme.of(context).primary,
+                              size: 24.0,
+                            ),
+                            onPressed: () async {
+                              logFirebaseEvent(
+                                  'SIDE_NAV_COMP_cancel_ICN_ON_TAP');
+                              logFirebaseEvent('IconButton_haptic_feedback');
+                              HapticFeedback.lightImpact();
+                              logFirebaseEvent('IconButton_play_sound');
+                              _model.soundPlayer7 ??= AudioPlayer();
+                              if (_model.soundPlayer7!.playing) {
+                                await _model.soundPlayer7!.stop();
+                              }
+                              _model.soundPlayer7!.setVolume(1.0);
+                              _model.soundPlayer7!
+                                  .setAsset(
+                                      'assets/audios/ES_Notification,_Attention,_Text,_Reveal,_Positive_01_-_Epidemic_Sound_-_2170-2760.wav')
+                                  .then((_) => _model.soundPlayer7!.play());
 
-                            logFirebaseEvent(
-                                'IconButton_close_dialog_drawer_etc');
-                            Navigator.pop(context);
-                          },
+                              logFirebaseEvent(
+                                  'IconButton_close_dialog_drawer_etc');
+                              Navigator.pop(context);
+                            },
+                          ),
                         ),
                       ),
                     ],
