@@ -169,7 +169,7 @@ class _MusicBottomSheetAllTabWidgetState
             Flexible(
               flex: 1,
               child: LinearPercentIndicator(
-                percent: 0.5,
+                percent: FFAppState().currentPositionOfAudioInSeconds,
                 lineHeight: 3.0,
                 animation: true,
                 animateFromLastPercent: true,

@@ -139,8 +139,8 @@ class _CreateAccountOnboardingFlowWidgetState
     context.watch<FFAppState>();
     context.watch<cupertino_time_picker_hiuzb7_app_state.FFAppState>();
     context.watch<tiktokfeed_wz8en7_app_state.FFAppState>();
-    context.watch<that_audio_player_oo85ab_app_state.FFAppState>();
     context.watch<confetti_modualo_library_b75kfy_app_state.FFAppState>();
+    context.watch<that_audio_player_oo85ab_app_state.FFAppState>();
 
     return GestureDetector(
       onTap: () {
@@ -397,7 +397,7 @@ class _CreateAccountOnboardingFlowWidgetState
                                                           ),
                                                           child: Hero(
                                                             tag: _model
-                                                                .uploadedFileUrl_profilePictureUpload1,
+                                                                .profilePicture!,
                                                             transitionOnUserGestures:
                                                                 true,
                                                             child: ClipRRect(
@@ -416,7 +416,7 @@ class _CreateAccountOnboardingFlowWidgetState
                                                                         milliseconds:
                                                                             800),
                                                                 imageUrl: _model
-                                                                    .uploadedFileUrl_profilePictureUpload1,
+                                                                    .profilePicture!,
                                                                 width: 200.0,
                                                                 height: 200.0,
                                                                 fit: BoxFit
@@ -608,18 +608,18 @@ class _CreateAccountOnboardingFlowWidgetState
                                                                   }
 
                                                                   logFirebaseEvent(
-                                                                      'IconButton_update_app_state');
-                                                                  FFAppState()
-                                                                          .ProfilePicture =
+                                                                      'IconButton_update_page_state');
+                                                                  _model.profilePicture =
                                                                       _model
                                                                           .uploadedFileUrl_profilePictureUpload1;
                                                                   safeSetState(
                                                                       () {});
                                                                   logFirebaseEvent(
-                                                                      'IconButton_update_page_state');
-                                                                  _model.profilePicture =
+                                                                      'IconButton_update_app_state');
+                                                                  FFAppState()
+                                                                          .ProfilePicture =
                                                                       _model
-                                                                          .uploadedFileUrl_profilePictureUpload1;
+                                                                          .profilePicture!;
                                                                   safeSetState(
                                                                       () {});
                                                                 },

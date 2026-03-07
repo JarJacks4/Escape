@@ -12,6 +12,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart'
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:just_audio/just_audio.dart';
@@ -46,6 +47,23 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'NewSignInVersion5'});
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('NEW_SIGN_IN_VERSION5_NewSignInVersion5_O');
+      logFirebaseEvent('NewSignInVersion5_haptic_feedback');
+      HapticFeedback.vibrate();
+      logFirebaseEvent('NewSignInVersion5_play_sound');
+      _model.soundPlayer1 ??= AudioPlayer();
+      if (_model.soundPlayer1!.playing) {
+        await _model.soundPlayer1!.stop();
+      }
+      _model.soundPlayer1!.setVolume(1.0);
+      _model.soundPlayer1!
+          .setAsset(
+              'assets/audios/lucadialessandro-calm-ambient-intro-490646.mp3')
+          .then((_) => _model.soundPlayer1!.play());
+    });
+
     _model.loginEmailTextController ??= TextEditingController();
     _model.loginEmailFocusNode ??= FocusNode();
 
@@ -650,25 +668,25 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                         .lightImpact();
                                                                     logFirebaseEvent(
                                                                         'Button_play_sound');
-                                                                    _model.soundPlayer1 ??=
+                                                                    _model.soundPlayer2 ??=
                                                                         AudioPlayer();
                                                                     if (_model
-                                                                        .soundPlayer1!
+                                                                        .soundPlayer2!
                                                                         .playing) {
                                                                       await _model
-                                                                          .soundPlayer1!
+                                                                          .soundPlayer2!
                                                                           .stop();
                                                                     }
                                                                     _model
-                                                                        .soundPlayer1!
+                                                                        .soundPlayer2!
                                                                         .setVolume(
                                                                             1.0);
                                                                     _model
-                                                                        .soundPlayer1!
+                                                                        .soundPlayer2!
                                                                         .setAsset(
                                                                             'assets/audios/ES_Pings,_Tings,_Generic,_High,_Tings_-_Epidemic_Sound.mp3')
                                                                         .then((_) => _model
-                                                                            .soundPlayer1!
+                                                                            .soundPlayer2!
                                                                             .play());
 
                                                                     logFirebaseEvent(
@@ -772,20 +790,20 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                               .lightImpact();
                                                                           logFirebaseEvent(
                                                                               'Button_play_sound');
-                                                                          _model.soundPlayer2 ??=
+                                                                          _model.soundPlayer3 ??=
                                                                               AudioPlayer();
                                                                           if (_model
-                                                                              .soundPlayer2!
+                                                                              .soundPlayer3!
                                                                               .playing) {
-                                                                            await _model.soundPlayer2!.stop();
+                                                                            await _model.soundPlayer3!.stop();
                                                                           }
                                                                           _model
-                                                                              .soundPlayer2!
+                                                                              .soundPlayer3!
                                                                               .setVolume(1.0);
                                                                           _model
-                                                                              .soundPlayer2!
+                                                                              .soundPlayer3!
                                                                               .setAsset('assets/audios/ES_Pings,_Tings,_Generic,_High,_Tings_-_Epidemic_Sound.mp3')
-                                                                              .then((_) => _model.soundPlayer2!.play());
+                                                                              .then((_) => _model.soundPlayer3!.play());
 
                                                                           logFirebaseEvent(
                                                                               'Button_auth');
@@ -912,22 +930,22 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                               .heavyImpact();
                                                           logFirebaseEvent(
                                                               'Text_play_sound');
-                                                          _model.soundPlayer3 ??=
+                                                          _model.soundPlayer4 ??=
                                                               AudioPlayer();
                                                           if (_model
-                                                              .soundPlayer3!
+                                                              .soundPlayer4!
                                                               .playing) {
                                                             await _model
-                                                                .soundPlayer3!
+                                                                .soundPlayer4!
                                                                 .stop();
                                                           }
-                                                          _model.soundPlayer3!
+                                                          _model.soundPlayer4!
                                                               .setVolume(1.0);
-                                                          _model.soundPlayer3!
+                                                          _model.soundPlayer4!
                                                               .setAsset(
                                                                   'assets/audios/ES_Sci_Fi_Games,_UI_Menu,_Very_Short,_Open_10_-_Epidemic_Sound.mp3')
                                                               .then((_) => _model
-                                                                  .soundPlayer3!
+                                                                  .soundPlayer4!
                                                                   .play());
 
                                                           logFirebaseEvent(
@@ -1007,7 +1025,7 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                           logFirebaseEvent(
                                                               'Button_haptic_feedback');
                                                           HapticFeedback
-                                                              .mediumImpact();
+                                                              .heavyImpact();
                                                           logFirebaseEvent(
                                                               'Button_validate_form');
                                                           _model.validateLogin2 =
@@ -1043,22 +1061,22 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
 
                                                           logFirebaseEvent(
                                                               'Button_play_sound');
-                                                          _model.soundPlayer4 ??=
+                                                          _model.soundPlayer5 ??=
                                                               AudioPlayer();
                                                           if (_model
-                                                              .soundPlayer4!
+                                                              .soundPlayer5!
                                                               .playing) {
                                                             await _model
-                                                                .soundPlayer4!
+                                                                .soundPlayer5!
                                                                 .stop();
                                                           }
-                                                          _model.soundPlayer4!
+                                                          _model.soundPlayer5!
                                                               .setVolume(1.0);
-                                                          _model.soundPlayer4!
+                                                          _model.soundPlayer5!
                                                               .setAsset(
                                                                   'assets/audios/ES_Game,_Jingle,_Chime,_Positive_01_-_Epidemic_Sound_-_3038-4627.wav')
                                                               .then((_) => _model
-                                                                  .soundPlayer4!
+                                                                  .soundPlayer5!
                                                                   .play());
 
                                                           logFirebaseEvent(
@@ -2437,20 +2455,20 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                 );
                                                 logFirebaseEvent(
                                                     'Button_play_sound');
-                                                _model.soundPlayer5 ??=
+                                                _model.soundPlayer6 ??=
                                                     AudioPlayer();
                                                 if (_model
-                                                    .soundPlayer5!.playing) {
-                                                  await _model.soundPlayer5!
+                                                    .soundPlayer6!.playing) {
+                                                  await _model.soundPlayer6!
                                                       .stop();
                                                 }
-                                                _model.soundPlayer5!
+                                                _model.soundPlayer6!
                                                     .setVolume(1.0);
-                                                await _model.soundPlayer5!
+                                                await _model.soundPlayer6!
                                                     .setAsset(
                                                         'assets/audios/ES_Game,_Jingle,_Chime,_Positive_01_-_Epidemic_Sound_-_3038-4627.wav')
                                                     .then((_) => _model
-                                                        .soundPlayer5!
+                                                        .soundPlayer6!
                                                         .play());
 
                                                 logFirebaseEvent(
@@ -2554,20 +2572,20 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                   HapticFeedback.lightImpact();
                                                   logFirebaseEvent(
                                                       'Text_play_sound');
-                                                  _model.soundPlayer6 ??=
+                                                  _model.soundPlayer7 ??=
                                                       AudioPlayer();
                                                   if (_model
-                                                      .soundPlayer6!.playing) {
-                                                    await _model.soundPlayer6!
+                                                      .soundPlayer7!.playing) {
+                                                    await _model.soundPlayer7!
                                                         .stop();
                                                   }
-                                                  _model.soundPlayer6!
+                                                  _model.soundPlayer7!
                                                       .setVolume(1.0);
-                                                  _model.soundPlayer6!
+                                                  _model.soundPlayer7!
                                                       .setAsset(
                                                           'assets/audios/ES_Pops,_Wobble,_Bloop,_Pops_-_Epidemic_Sound.mp3')
                                                       .then((_) => _model
-                                                          .soundPlayer6!
+                                                          .soundPlayer7!
                                                           .play());
 
                                                   logFirebaseEvent(

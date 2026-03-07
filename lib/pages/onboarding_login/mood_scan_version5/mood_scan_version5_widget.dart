@@ -81,8 +81,8 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
     context.watch<FFAppState>();
     context.watch<cupertino_time_picker_hiuzb7_app_state.FFAppState>();
     context.watch<tiktokfeed_wz8en7_app_state.FFAppState>();
-    context.watch<that_audio_player_oo85ab_app_state.FFAppState>();
     context.watch<confetti_modualo_library_b75kfy_app_state.FFAppState>();
+    context.watch<that_audio_player_oo85ab_app_state.FFAppState>();
 
     return GestureDetector(
       onTap: () {
@@ -358,30 +358,6 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                         0.8,
                                                     height: 100.0,
                                                     decoration: BoxDecoration(
-                                                      boxShadow: [
-                                                        BoxShadow(
-                                                          blurRadius: 40.0,
-                                                          color: valueOrDefault<
-                                                              Color>(
-                                                            FFAppState()
-                                                                    .isOnboardingFinished
-                                                                ? FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .accent3
-                                                                : FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .accent1,
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .accent3,
-                                                          ),
-                                                          offset: Offset(
-                                                            0.0,
-                                                            2.0,
-                                                          ),
-                                                          spreadRadius: 4.0,
-                                                        )
-                                                      ],
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                               24.0),
@@ -391,128 +367,101 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                         if (FFAppState()
                                                                 .isMoodScanned ==
                                                             false) {
-                                                          return Align(
-                                                            alignment:
-                                                                AlignmentDirectional(
-                                                                    0.0, 0.0),
-                                                            child:
-                                                                FFButtonWidget(
-                                                              onPressed:
-                                                                  () async {
-                                                                logFirebaseEvent(
-                                                                    'MOOD_SCAN_VERSION5_SCAN_MOOD_BTN_ON_TAP');
-                                                                logFirebaseEvent(
-                                                                    'Button_haptic_feedback');
-                                                                HapticFeedback
-                                                                    .lightImpact();
-                                                                logFirebaseEvent(
-                                                                    'Button_upload_media_to_firebase');
-                                                                final selectedMedia =
-                                                                    await selectMediaWithSourceBottomSheet(
-                                                                  context:
-                                                                      context,
-                                                                  allowPhoto:
-                                                                      true,
-                                                                );
-                                                                if (selectedMedia !=
-                                                                        null &&
-                                                                    selectedMedia.every((m) =>
-                                                                        validateFileFormat(
-                                                                            m.storagePath,
-                                                                            context))) {
-                                                                  safeSetState(() =>
-                                                                      _model.isDataUploading_mdPhoto =
-                                                                          true);
-                                                                  var selectedUploadedFiles =
-                                                                      <FFUploadedFile>[];
-
-                                                                  var downloadUrls =
-                                                                      <String>[];
-                                                                  try {
-                                                                    showUploadMessage(
-                                                                      context,
-                                                                      'Uploading file...',
-                                                                      showLoading:
-                                                                          true,
-                                                                    );
-                                                                    selectedUploadedFiles = selectedMedia
-                                                                        .map((m) => FFUploadedFile(
-                                                                              name: m.storagePath.split('/').last,
-                                                                              bytes: m.bytes,
-                                                                              height: m.dimensions?.height,
-                                                                              width: m.dimensions?.width,
-                                                                              blurHash: m.blurHash,
-                                                                              originalFilename: m.originalFilename,
-                                                                            ))
-                                                                        .toList();
-
-                                                                    downloadUrls = (await Future
-                                                                            .wait(
-                                                                      selectedMedia
-                                                                          .map(
-                                                                        (m) async => await uploadData(
-                                                                            m.storagePath,
-                                                                            m.bytes),
-                                                                      ),
-                                                                    ))
-                                                                        .where((u) =>
-                                                                            u !=
-                                                                            null)
-                                                                        .map((u) =>
-                                                                            u!)
-                                                                        .toList();
-                                                                  } finally {
-                                                                    ScaffoldMessenger.of(
-                                                                            context)
-                                                                        .hideCurrentSnackBar();
-                                                                    _model.isDataUploading_mdPhoto =
-                                                                        false;
-                                                                  }
-                                                                  if (selectedUploadedFiles
-                                                                              .length ==
-                                                                          selectedMedia
-                                                                              .length &&
-                                                                      downloadUrls
-                                                                              .length ==
-                                                                          selectedMedia
-                                                                              .length) {
-                                                                    safeSetState(
-                                                                        () {
-                                                                      _model.uploadedLocalFile_mdPhoto =
-                                                                          selectedUploadedFiles
-                                                                              .first;
-                                                                      _model.uploadedFileUrl_mdPhoto =
-                                                                          downloadUrls
-                                                                              .first;
-                                                                    });
-                                                                    showUploadMessage(
-                                                                        context,
-                                                                        'Success!');
-                                                                  } else {
-                                                                    safeSetState(
-                                                                        () {});
-                                                                    showUploadMessage(
-                                                                        context,
-                                                                        'Failed to upload data');
-                                                                    return;
-                                                                  }
-                                                                }
-
-                                                                logFirebaseEvent(
-                                                                    'Button_show_snack_bar');
-                                                                ScaffoldMessenger.of(
-                                                                        context)
-                                                                    .clearSnackBars();
-                                                                ScaffoldMessenger.of(
-                                                                        context)
-                                                                    .showSnackBar(
-                                                                  SnackBar(
-                                                                    content:
-                                                                        Text(
-                                                                      'Mood photo has been saved! Please wait while I analyze your mood...',
-                                                                      style: FlutterFlowTheme.of(
+                                                          return Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .spaceBetween,
+                                                            children: [
+                                                              Container(
+                                                                width: 150.0,
+                                                                height: 60.0,
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  boxShadow: [
+                                                                    BoxShadow(
+                                                                      blurRadius:
+                                                                          40.0,
+                                                                      color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .labelLarge
+                                                                          .primary,
+                                                                      offset:
+                                                                          Offset(
+                                                                        0.0,
+                                                                        2.0,
+                                                                      ),
+                                                                      spreadRadius:
+                                                                          4.0,
+                                                                    )
+                                                                  ],
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              24.0),
+                                                                ),
+                                                                child: Align(
+                                                                  alignment:
+                                                                      AlignmentDirectional(
+                                                                          0.0,
+                                                                          0.0),
+                                                                  child:
+                                                                      FFButtonWidget(
+                                                                    onPressed:
+                                                                        () async {
+                                                                      logFirebaseEvent(
+                                                                          'MOOD_SCAN_VERSION5_GO_HOME_BTN_ON_TAP');
+                                                                      logFirebaseEvent(
+                                                                          'Button_haptic_feedback');
+                                                                      HapticFeedback
+                                                                          .lightImpact();
+                                                                      logFirebaseEvent(
+                                                                          'Button_navigate_to');
+
+                                                                      context
+                                                                          .pushNamed(
+                                                                        HomeVersion5Widget
+                                                                            .routeName,
+                                                                        extra: <String,
+                                                                            dynamic>{
+                                                                          '__transition_info__':
+                                                                              TransitionInfo(
+                                                                            hasTransition:
+                                                                                true,
+                                                                            transitionType:
+                                                                                PageTransitionType.rightToLeft,
+                                                                            duration:
+                                                                                Duration(milliseconds: 1),
+                                                                          ),
+                                                                        },
+                                                                      );
+                                                                    },
+                                                                    text: FFLocalizations.of(
+                                                                            context)
+                                                                        .getText(
+                                                                      '1qul9kc4' /* Go Home */,
+                                                                    ),
+                                                                    options:
+                                                                        FFButtonOptions(
+                                                                      width: double
+                                                                          .infinity,
+                                                                      height:
+                                                                          50.0,
+                                                                      padding:
+                                                                          EdgeInsets.all(
+                                                                              8.0),
+                                                                      iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .alternate,
+                                                                      textStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .titleMedium
                                                                           .override(
                                                                             fontFamily:
                                                                                 'WorkSans',
@@ -521,117 +470,269 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                                             letterSpacing:
                                                                                 0.0,
                                                                           ),
+                                                                      elevation:
+                                                                          3.0,
+                                                                      borderSide:
+                                                                          BorderSide(
+                                                                        color: Color(
+                                                                            0x4CEDF1F7),
+                                                                      ),
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              24.0),
                                                                     ),
-                                                                    duration: Duration(
-                                                                        milliseconds:
-                                                                            4000),
-                                                                    backgroundColor:
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .accent1,
                                                                   ),
-                                                                );
-                                                                logFirebaseEvent(
-                                                                    'Button_a_i_agent');
-                                                                await callAiAgent(
-                                                                  context:
-                                                                      context,
-                                                                  prompt:
-                                                                      'Analyze the users picture to generate a single text word that describes the mood analyzed in the photo.',
-                                                                  imageUrl: _model
-                                                                      .uploadedFileUrl_mdPhoto,
-                                                                  threadId: '1',
-                                                                  agentCloudFunctionName:
-                                                                      'lucilleMoodAnalyzerAgent',
-                                                                  provider:
-                                                                      'GOOGLE',
-                                                                  agentJson:
-                                                                      '{\"status\":\"LIVE\",\"identifier\":{\"name\":\"lucilleMoodAnalyzerAgent\",\"key\":\"qs0vq\"},\"name\":\"LucilleMoodAnalyzerAgent\",\"description\":\"This Self-Care agent is for primarily giving a one word response to \\\"What is the user\'s mood, according to their uploaded photo?\\\"\",\"aiModel\":{\"provider\":\"GOOGLE\",\"model\":\"gemini-2.5-flash-lite\",\"parameters\":{\"temperature\":{\"inputValue\":1},\"maxTokens\":{\"inputValue\":65535},\"topP\":{\"inputValue\":0.95}},\"messages\":[{\"role\":\"SYSTEM\",\"text\":\"You are a Self-Care agent for the AI Self Care company Escapeapp.ai and you are here to give a one word response to their uploaded photo. The response should be the mood that you analyze from the photo, as a completely one word response.\"},{\"role\":\"USER\",\"text\":\"What is the my mood today, in one word, according to the photo they just uploaded for text-to-image mood analyzation?\"}]},\"requestOptions\":{\"requestTypes\":[\"PLAINTEXT\",\"IMAGE\"]},\"responseOptions\":{\"responseType\":\"PLAINTEXT\"}}',
-                                                                  responseType:
-                                                                      'PLAINTEXT',
-                                                                ).then(
-                                                                    (generatedText) {
-                                                                  safeSetState(() =>
-                                                                      _model.aIMoodAnalyzeAction =
-                                                                          generatedText);
-                                                                });
-
-                                                                logFirebaseEvent(
-                                                                    'Button_backend_call');
-
-                                                                await currentUserReference!
-                                                                    .update(
-                                                                        createUsersRecordData(
-                                                                  currentMood:
-                                                                      _model
-                                                                          .aIMoodAnalyzeAction,
-                                                                  timeStamp:
-                                                                      getCurrentTimestamp,
-                                                                  createdTime:
-                                                                      getCurrentTimestamp,
-                                                                  uid: 'user1',
-                                                                ));
-                                                                logFirebaseEvent(
-                                                                    'Button_page_view');
-                                                                await _model
-                                                                    .pageViewController
-                                                                    ?.nextPage(
-                                                                  duration: Duration(
-                                                                      milliseconds:
-                                                                          300),
-                                                                  curve: Curves
-                                                                      .ease,
-                                                                );
-
-                                                                safeSetState(
-                                                                    () {});
-                                                              },
-                                                              text: FFLocalizations
-                                                                      .of(context)
-                                                                  .getText(
-                                                                'tmu4yytp' /* Scan Mood */,
-                                                              ),
-                                                              options:
-                                                                  FFButtonOptions(
-                                                                width: double
-                                                                    .infinity,
-                                                                height: 50.0,
-                                                                padding:
-                                                                    EdgeInsets
-                                                                        .all(
-                                                                            8.0),
-                                                                iconPadding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                color: Color(
-                                                                    0xD7F0831A),
-                                                                textStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'WorkSans',
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primary,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                    ),
-                                                                elevation: 3.0,
-                                                                borderSide:
-                                                                    BorderSide(
-                                                                  color: Color(
-                                                                      0x4CEDF1F7),
                                                                 ),
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            24.0),
                                                               ),
-                                                            ),
+                                                              Container(
+                                                                width: 150.0,
+                                                                height: 60.0,
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  boxShadow: [
+                                                                    BoxShadow(
+                                                                      blurRadius:
+                                                                          40.0,
+                                                                      color: valueOrDefault<
+                                                                          Color>(
+                                                                        FFAppState().isOnboardingFinished
+                                                                            ? FlutterFlowTheme.of(context).accent3
+                                                                            : FlutterFlowTheme.of(context).accent1,
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .accent3,
+                                                                      ),
+                                                                      offset:
+                                                                          Offset(
+                                                                        0.0,
+                                                                        2.0,
+                                                                      ),
+                                                                      spreadRadius:
+                                                                          4.0,
+                                                                    )
+                                                                  ],
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              24.0),
+                                                                ),
+                                                                child: Align(
+                                                                  alignment:
+                                                                      AlignmentDirectional(
+                                                                          0.0,
+                                                                          0.0),
+                                                                  child:
+                                                                      FFButtonWidget(
+                                                                    onPressed:
+                                                                        () async {
+                                                                      logFirebaseEvent(
+                                                                          'MOOD_SCAN_VERSION5_SCAN_MOOD_BTN_ON_TAP');
+                                                                      logFirebaseEvent(
+                                                                          'Button_haptic_feedback');
+                                                                      HapticFeedback
+                                                                          .lightImpact();
+                                                                      logFirebaseEvent(
+                                                                          'Button_upload_media_to_firebase');
+                                                                      final selectedMedia =
+                                                                          await selectMediaWithSourceBottomSheet(
+                                                                        context:
+                                                                            context,
+                                                                        allowPhoto:
+                                                                            true,
+                                                                      );
+                                                                      if (selectedMedia !=
+                                                                              null &&
+                                                                          selectedMedia.every((m) => validateFileFormat(
+                                                                              m.storagePath,
+                                                                              context))) {
+                                                                        safeSetState(() =>
+                                                                            _model.isDataUploading_mdPhoto =
+                                                                                true);
+                                                                        var selectedUploadedFiles =
+                                                                            <FFUploadedFile>[];
+
+                                                                        var downloadUrls =
+                                                                            <String>[];
+                                                                        try {
+                                                                          showUploadMessage(
+                                                                            context,
+                                                                            'Uploading file...',
+                                                                            showLoading:
+                                                                                true,
+                                                                          );
+                                                                          selectedUploadedFiles = selectedMedia
+                                                                              .map((m) => FFUploadedFile(
+                                                                                    name: m.storagePath.split('/').last,
+                                                                                    bytes: m.bytes,
+                                                                                    height: m.dimensions?.height,
+                                                                                    width: m.dimensions?.width,
+                                                                                    blurHash: m.blurHash,
+                                                                                    originalFilename: m.originalFilename,
+                                                                                  ))
+                                                                              .toList();
+
+                                                                          downloadUrls = (await Future.wait(
+                                                                            selectedMedia.map(
+                                                                              (m) async => await uploadData(m.storagePath, m.bytes),
+                                                                            ),
+                                                                          ))
+                                                                              .where((u) => u != null)
+                                                                              .map((u) => u!)
+                                                                              .toList();
+                                                                        } finally {
+                                                                          ScaffoldMessenger.of(context)
+                                                                              .hideCurrentSnackBar();
+                                                                          _model.isDataUploading_mdPhoto =
+                                                                              false;
+                                                                        }
+                                                                        if (selectedUploadedFiles.length == selectedMedia.length &&
+                                                                            downloadUrls.length ==
+                                                                                selectedMedia.length) {
+                                                                          safeSetState(
+                                                                              () {
+                                                                            _model.uploadedLocalFile_mdPhoto =
+                                                                                selectedUploadedFiles.first;
+                                                                            _model.uploadedFileUrl_mdPhoto =
+                                                                                downloadUrls.first;
+                                                                          });
+                                                                          showUploadMessage(
+                                                                              context,
+                                                                              'Success!');
+                                                                        } else {
+                                                                          safeSetState(
+                                                                              () {});
+                                                                          showUploadMessage(
+                                                                              context,
+                                                                              'Failed to upload data');
+                                                                          return;
+                                                                        }
+                                                                      }
+
+                                                                      logFirebaseEvent(
+                                                                          'Button_show_snack_bar');
+                                                                      ScaffoldMessenger.of(
+                                                                              context)
+                                                                          .clearSnackBars();
+                                                                      ScaffoldMessenger.of(
+                                                                              context)
+                                                                          .showSnackBar(
+                                                                        SnackBar(
+                                                                          content:
+                                                                              Text(
+                                                                            'Mood photo has been saved! Please wait while I analyze your mood...',
+                                                                            style: FlutterFlowTheme.of(context).labelLarge.override(
+                                                                                  fontFamily: 'WorkSans',
+                                                                                  color: FlutterFlowTheme.of(context).primary,
+                                                                                  letterSpacing: 0.0,
+                                                                                ),
+                                                                          ),
+                                                                          duration:
+                                                                              Duration(milliseconds: 4000),
+                                                                          backgroundColor:
+                                                                              FlutterFlowTheme.of(context).accent1,
+                                                                        ),
+                                                                      );
+                                                                      logFirebaseEvent(
+                                                                          'Button_a_i_agent');
+                                                                      await callAiAgent(
+                                                                        context:
+                                                                            context,
+                                                                        prompt:
+                                                                            'Analyze the users picture to generate a single text word that describes the mood analyzed in the photo.',
+                                                                        imageUrl:
+                                                                            _model.uploadedFileUrl_mdPhoto,
+                                                                        threadId:
+                                                                            '1',
+                                                                        agentCloudFunctionName:
+                                                                            'lucilleMoodAnalyzerAgent',
+                                                                        provider:
+                                                                            'GOOGLE',
+                                                                        agentJson:
+                                                                            '{\"status\":\"LIVE\",\"identifier\":{\"name\":\"lucilleMoodAnalyzerAgent\",\"key\":\"qs0vq\"},\"name\":\"LucilleMoodAnalyzerAgent\",\"description\":\"This Self-Care agent is for primarily giving a one word response to \\\"What is the user\'s mood, according to their uploaded photo?\\\"\",\"aiModel\":{\"provider\":\"GOOGLE\",\"model\":\"gemini-2.5-flash-lite\",\"parameters\":{\"temperature\":{\"inputValue\":1},\"maxTokens\":{\"inputValue\":65535},\"topP\":{\"inputValue\":0.95}},\"messages\":[{\"role\":\"SYSTEM\",\"text\":\"You are a Self-Care agent for the AI Self Care company Escapeapp.ai and you are here to give a one word response to their uploaded photo. The response should be the mood that you analyze from the photo, as a completely one word response.\"},{\"role\":\"USER\",\"text\":\"What is the my mood today, in one word, according to the photo they just uploaded for text-to-image mood analyzation?\"}]},\"requestOptions\":{\"requestTypes\":[\"PLAINTEXT\",\"IMAGE\"]},\"responseOptions\":{\"responseType\":\"PLAINTEXT\"}}',
+                                                                        responseType:
+                                                                            'PLAINTEXT',
+                                                                      ).then(
+                                                                          (generatedText) {
+                                                                        safeSetState(() =>
+                                                                            _model.aIMoodAnalyzeAction =
+                                                                                generatedText);
+                                                                      });
+
+                                                                      logFirebaseEvent(
+                                                                          'Button_backend_call');
+
+                                                                      await currentUserReference!
+                                                                          .update(
+                                                                              createUsersRecordData(
+                                                                        currentMood:
+                                                                            _model.aIMoodAnalyzeAction,
+                                                                        timeStamp:
+                                                                            getCurrentTimestamp,
+                                                                        createdTime:
+                                                                            getCurrentTimestamp,
+                                                                        uid:
+                                                                            'user1',
+                                                                      ));
+                                                                      logFirebaseEvent(
+                                                                          'Button_page_view');
+                                                                      await _model
+                                                                          .pageViewController
+                                                                          ?.nextPage(
+                                                                        duration:
+                                                                            Duration(milliseconds: 300),
+                                                                        curve: Curves
+                                                                            .ease,
+                                                                      );
+
+                                                                      safeSetState(
+                                                                          () {});
+                                                                    },
+                                                                    text: FFLocalizations.of(
+                                                                            context)
+                                                                        .getText(
+                                                                      '7pkuuegx' /* Scan Mood */,
+                                                                    ),
+                                                                    options:
+                                                                        FFButtonOptions(
+                                                                      width: double
+                                                                          .infinity,
+                                                                      height:
+                                                                          50.0,
+                                                                      padding:
+                                                                          EdgeInsets.all(
+                                                                              8.0),
+                                                                      iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                      color: Color(
+                                                                          0xD7F0831A),
+                                                                      textStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .titleMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'WorkSans',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).primary,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
+                                                                      elevation:
+                                                                          3.0,
+                                                                      borderSide:
+                                                                          BorderSide(
+                                                                        color: Color(
+                                                                            0x4CEDF1F7),
+                                                                      ),
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              24.0),
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ],
                                                           );
                                                         } else {
                                                           return Align(

@@ -477,26 +477,29 @@ class _MindPageVersion5CopyWidgetState extends State<MindPageVersion5CopyWidget>
                                                                             .bold,
                                                                   ),
                                                             ),
-                                                            Text(
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                                'fg74f04m' /* Exercises to Help 
+                                                            Flexible(
+                                                              flex: 1,
+                                                              child: Text(
+                                                                FFLocalizations.of(
+                                                                        context)
+                                                                    .getText(
+                                                                  'fg74f04m' /* Exercises to Help 
 Hone Your S... */
-                                                                ,
+                                                                  ,
+                                                                ),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodySmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'WorkSans',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .alternate,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                               ),
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodySmall
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'WorkSans',
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .alternate,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                  ),
                                                             ),
                                                           ].divide(SizedBox(
                                                               height: 4.0)),
@@ -660,26 +663,29 @@ Hone Your S... */
                                                                             .bold,
                                                                   ),
                                                             ),
-                                                            Text(
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                                'vqb3lzf6' /* Increase Your Ability to 
+                                                            Flexible(
+                                                              flex: 1,
+                                                              child: Text(
+                                                                FFLocalizations.of(
+                                                                        context)
+                                                                    .getText(
+                                                                  'vqb3lzf6' /* Increase Your Ability to 
 Calm... */
-                                                                ,
+                                                                  ,
+                                                                ),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodySmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'WorkSans',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .alternate,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                               ),
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodySmall
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'WorkSans',
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .alternate,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                  ),
                                                             ),
                                                           ].divide(SizedBox(
                                                               height: 4.0)),
@@ -831,26 +837,29 @@ Calm... */
                                                                             .bold,
                                                                   ),
                                                             ),
-                                                            Text(
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                                'n7ike8u4' /* Brainwave Sounds to 
+                                                            Flexible(
+                                                              flex: 1,
+                                                              child: Text(
+                                                                FFLocalizations.of(
+                                                                        context)
+                                                                    .getText(
+                                                                  'n7ike8u4' /* Brainwave Sounds to 
 Help Calm... */
-                                                                ,
+                                                                  ,
+                                                                ),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodySmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'WorkSans',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .alternate,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                               ),
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodySmall
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'WorkSans',
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .alternate,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                  ),
                                                             ),
                                                           ].divide(SizedBox(
                                                               height: 4.0)),
@@ -1013,24 +1022,27 @@ Help Calm... */
                                                                             .bold,
                                                                   ),
                                                             ),
-                                                            Text(
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                                'jytrido8' /* Daily prompts to Help You Keep... */,
+                                                            Flexible(
+                                                              flex: 1,
+                                                              child: Text(
+                                                                FFLocalizations.of(
+                                                                        context)
+                                                                    .getText(
+                                                                  'jytrido8' /* Daily prompts to Help You Keep... */,
+                                                                ),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodySmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'WorkSans',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .alternate,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
                                                               ),
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodySmall
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'WorkSans',
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .alternate,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                  ),
                                                             ),
                                                           ].divide(SizedBox(
                                                               height: 4.0)),
@@ -1201,9 +1213,8 @@ Help Calm... */
                                                                 .override(
                                                                   fontFamily:
                                                                       'WorkSans',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .success,
+                                                                  color: Color(
+                                                                      0xFF06633E),
                                                                   letterSpacing:
                                                                       0.0,
                                                                 ),
