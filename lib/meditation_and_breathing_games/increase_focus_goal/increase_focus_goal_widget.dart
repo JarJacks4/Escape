@@ -3,10 +3,22 @@ import '/flutter_flow/flutter_flow_audio_player.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:ui';
+import 'package:confetti_modualo_library_b75kfy/app_state.dart'
+    as confetti_modualo_library_b75kfy_app_state;
+import 'package:cupertino_time_picker_hiuzb7/app_state.dart'
+    as cupertino_time_picker_hiuzb7_app_state;
+import 'package:that_audio_player_oo85ab/app_state.dart'
+    as that_audio_player_oo85ab_app_state;
+import 'package:tiktokfeed_wz8en7/app_state.dart'
+    as tiktokfeed_wz8en7_app_state;
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:provider/provider.dart';
 import 'increase_focus_goal_model.dart';
 export 'increase_focus_goal_model.dart';
 
@@ -38,7 +50,6 @@ class _IncreaseFocusGoalWidgetState extends State<IncreaseFocusGoalWidget> {
   @override
   void dispose() {
     _model.dispose();
-
     super.dispose();
   }
 
@@ -54,6 +65,7 @@ class _IncreaseFocusGoalWidgetState extends State<IncreaseFocusGoalWidget> {
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: Stack(
           children: [
+            // ── Background GIF ───────────────────────────────────────────────
             Opacity(
               opacity: 0.7,
               child: ClipRRect(
@@ -66,128 +78,103 @@ class _IncreaseFocusGoalWidgetState extends State<IncreaseFocusGoalWidget> {
                 ),
               ),
             ),
-            Align(
-              alignment: AlignmentDirectional(0.0, 0.0),
+            // ── Content ──────────────────────────────────────────────────────
+            SafeArea(
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20.0, 30.0, 20.0, 0.0),
+                padding:
+                    EdgeInsetsDirectional.fromSTEB(20.0, 16.0, 20.0, 24.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
-                      child: Stack(
-                        children: [
-                          Column(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      8.0, 0.0, 0.0, 0.0),
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      '8loqmiw2' /* Increase Focus */,
-                                    ),
-                                    textAlign: TextAlign.center,
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'The Seasons',
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
-                                          fontSize: 22.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                  ),
-                                ),
-                              ),
-                              Expanded(
-                                flex: 1,
-                                child: Align(
-                                  alignment: AlignmentDirectional(0.0, 0.0),
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      'tuy2its7' /* Binaural Beats are brainwave s... */,
-                                    ),
-                                    textAlign: TextAlign.center,
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'WorkSans',
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondary,
-                                          fontSize: 14.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w300,
-                                          lineHeight: 1.5,
-                                        ),
-                                  ),
-                                ),
-                              ),
-                            ].divide(SizedBox(height: 6.0)),
-                          ),
-                          Align(
-                            alignment: AlignmentDirectional(-1.0, 0.0),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 15.0, 0.0),
-                              child: FlutterFlowIconButton(
-                                borderRadius: 8.0,
-                                buttonSize: 40.0,
-                                icon: Icon(
-                                  Icons.arrow_back,
-                                  color: FlutterFlowTheme.of(context).info,
-                                  size: 24.0,
-                                ),
-                                onPressed: () async {
-                                  logFirebaseEvent(
-                                      'INCREASE_FOCUS_GOAL_arrow_back_ICN_ON_TA');
-                                  logFirebaseEvent('IconButton_navigate_back');
-                                  context.safePop();
-                                },
-                              ),
+                    // ── Header row with back button + title ──────────────────
+                    Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        Align(
+                          alignment: AlignmentDirectional(-1.0, 0.0),
+                          child: FlutterFlowIconButton(
+                            borderRadius: 8.0,
+                            buttonSize: 40.0,
+                            icon: Icon(
+                              Icons.arrow_back,
+                              color: FlutterFlowTheme.of(context).info,
+                              size: 24.0,
                             ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 425.0, 0.0, 15.0),
-                      child: FlutterFlowAudioPlayer(
-                        audio: Audio.network(
-                          'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/ES_Binaural%20Cloud%20(Alpha%207%20Hz)%20-%20Syntropy.mp3?alt=media&token=68c213c6-1d70-40b1-9998-25aa64093d13',
-                          metas: Metas(
-                            id: 'ES_Binaural%20Cloud%20(Alpha%207%20Hz)%20-%20Syntropy.mp3?alt=media&token=68c213c6-1d70-40b1-9998-25aa64093d13-8c2813e6',
-                            title: 'Binaural Cloud (Alpha 7 Hz) - Syntropy',
+                            onPressed: () async {
+                              logFirebaseEvent(
+                                  'INCREASE_FOCUS_GOAL_arrow_back_ICN_ON_TA');
+                              logFirebaseEvent('IconButton_navigate_back');
+                              context.safePop();
+                            },
                           ),
                         ),
-                        titleTextStyle:
-                            FlutterFlowTheme.of(context).titleLarge.override(
-                                  fontFamily: 'The Seasons',
-                                  color: FlutterFlowTheme.of(context).secondary,
-                                  letterSpacing: 0.0,
-                                ),
-                        playbackDurationTextStyle:
-                            FlutterFlowTheme.of(context).labelMedium.override(
-                                  fontFamily: 'WorkSans',
-                                  color: FlutterFlowTheme.of(context).primary,
-                                  letterSpacing: 0.0,
-                                ),
-                        fillColor: Color(0x4ED0E3F7),
-                        playbackButtonColor:
-                            FlutterFlowTheme.of(context).accent1,
-                        activeTrackColor: FlutterFlowTheme.of(context).accent1,
-                        inactiveTrackColor:
-                            FlutterFlowTheme.of(context).primary,
-                        elevation: 0.0,
-                        playInBackground: PlayInBackground.disabledPause,
-                      ),
+                        Text(
+                          FFLocalizations.of(context).getText(
+                            '8loqmiw2' /* Increase Focus */,
+                          ),
+                          textAlign: TextAlign.center,
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'The Seasons',
+                                color: FlutterFlowTheme.of(context).primary,
+                                fontSize: 22.0,
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.bold,
+                              ),
+                        ),
+                      ],
                     ),
+                    SizedBox(height: 12.0),
+                    // ── Subtitle ─────────────────────────────────────────────
+                    Text(
+                      FFLocalizations.of(context).getText(
+                        'tuy2its7' /* Binaural Beats are brainwave s... */,
+                      ),
+                      textAlign: TextAlign.center,
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'WorkSans',
+                            color: FlutterFlowTheme.of(context).secondary,
+                            fontSize: 14.0,
+                            letterSpacing: 0.0,
+                            fontWeight: FontWeight.w300,
+                            lineHeight: 1.5,
+                          ),
+                    ),
+                    // ── Spacer pushes player + button to bottom ───────────────
+                    Spacer(),
+                    // ── Audio Player ─────────────────────────────────────────
+                    FlutterFlowAudioPlayer(
+                      audio: Audio.network(
+                        'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/ES_Binaural%20Cloud%20(Alpha%207%20Hz)%20-%20Syntropy.mp3?alt=media&token=68c213c6-1d70-40b1-9998-25aa64093d13',
+                        metas: Metas(
+                          id: 'ES_Binaural%20Cloud%20(Alpha%207%20Hz)%20-%20Syntropy.mp3?alt=media&token=68c213c6-1d70-40b1-9998-25aa64093d13-8c2813e6',
+                          title: 'Binaural Cloud (Alpha 7 Hz) - Syntropy',
+                        ),
+                      ),
+                      titleTextStyle:
+                          FlutterFlowTheme.of(context).titleLarge.override(
+                                fontFamily: 'The Seasons',
+                                color: FlutterFlowTheme.of(context).secondary,
+                                letterSpacing: 0.0,
+                              ),
+                      playbackDurationTextStyle:
+                          FlutterFlowTheme.of(context).labelMedium.override(
+                                fontFamily: 'WorkSans',
+                                color: FlutterFlowTheme.of(context).primary,
+                                letterSpacing: 0.0,
+                              ),
+                      fillColor: Color(0x4ED0E3F7),
+                      playbackButtonColor:
+                          FlutterFlowTheme.of(context).accent1,
+                      activeTrackColor: FlutterFlowTheme.of(context).accent1,
+                      inactiveTrackColor:
+                          FlutterFlowTheme.of(context).primary,
+                      elevation: 0.0,
+                      playInBackground: PlayInBackground.disabledPause,
+                    ),
+                    SizedBox(height: 16.0),
+                    // ── Tap to Finish button ──────────────────────────────────
                     Builder(
                       builder: (context) => FFButtonWidget(
                         onPressed: () async {
