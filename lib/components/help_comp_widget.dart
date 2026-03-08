@@ -85,6 +85,7 @@ class _HelpCompWidgetState extends State<HelpCompWidget> {
                   padding: EdgeInsets.all(15.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Flexible(
@@ -386,18 +387,21 @@ class _HelpCompWidgetState extends State<HelpCompWidget> {
                                             fontWeight: FontWeight.bold,
                                           ),
                                     ),
-                                    Text(
-                                      FFLocalizations.of(context).getText(
-                                        'um94kga5' /* Start your first guided medita... */,
+                                    Flexible(
+                                      flex: 1,
+                                      child: Text(
+                                        FFLocalizations.of(context).getText(
+                                          'um94kga5' /* Start your first guided medita... */,
+                                        ),
+                                        textAlign: TextAlign.start,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodySmall
+                                            .override(
+                                              fontFamily: 'WorkSans',
+                                              color: Colors.white,
+                                              letterSpacing: 0.0,
+                                            ),
                                       ),
-                                      textAlign: TextAlign.start,
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodySmall
-                                          .override(
-                                            fontFamily: 'WorkSans',
-                                            color: Colors.white,
-                                            letterSpacing: 0.0,
-                                          ),
                                     ),
                                   ],
                                 ),
@@ -447,7 +451,7 @@ class _HelpCompWidgetState extends State<HelpCompWidget> {
                             },
                             child: Container(
                               width: 320.0,
-                              height: 100.0,
+                              height: 150.0,
                               decoration: BoxDecoration(
                                 color: Color(0x869B9BB0),
                                 borderRadius: BorderRadius.circular(16.0),
@@ -482,7 +486,7 @@ class _HelpCompWidgetState extends State<HelpCompWidget> {
                                           0.0, 2.0, 0.0, 0.0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
-                                          'ejng84zj' /* Sacn your mood and energy for ... */,
+                                          'ejng84zj' /* Scan your mood and energy for ... */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodySmall
@@ -491,6 +495,7 @@ class _HelpCompWidgetState extends State<HelpCompWidget> {
                                               color: Colors.white,
                                               letterSpacing: 0.0,
                                             ),
+                                        overflow: TextOverflow.fade,
                                       ),
                                     ),
                                   ],
@@ -561,17 +566,20 @@ class _HelpCompWidgetState extends State<HelpCompWidget> {
                                               fontWeight: FontWeight.bold,
                                             ),
                                       ),
-                                      Text(
-                                        FFLocalizations.of(context).getText(
-                                          'kry1gg9b' /* See Intro Walkthrough for Help */,
+                                      Flexible(
+                                        flex: 1,
+                                        child: Text(
+                                          FFLocalizations.of(context).getText(
+                                            'kry1gg9b' /* See Intro Walkthrough for Help */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodySmall
+                                              .override(
+                                                fontFamily: 'WorkSans',
+                                                color: Colors.white,
+                                                letterSpacing: 0.0,
+                                              ),
                                         ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodySmall
-                                            .override(
-                                              fontFamily: 'WorkSans',
-                                              color: Colors.white,
-                                              letterSpacing: 0.0,
-                                            ),
                                       ),
                                     ],
                                   ),
@@ -639,17 +647,20 @@ class _HelpCompWidgetState extends State<HelpCompWidget> {
                                             fontWeight: FontWeight.bold,
                                           ),
                                     ),
-                                    Text(
-                                      FFLocalizations.of(context).getText(
-                                        'pzjvvihx' /* Learn how to connect safely */,
+                                    Flexible(
+                                      flex: 1,
+                                      child: Text(
+                                        FFLocalizations.of(context).getText(
+                                          'pzjvvihx' /* Learn how to connect safely */,
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodySmall
+                                            .override(
+                                              fontFamily: 'WorkSans',
+                                              color: Colors.white,
+                                              letterSpacing: 0.0,
+                                            ),
                                       ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodySmall
-                                          .override(
-                                            fontFamily: 'WorkSans',
-                                            color: Colors.white,
-                                            letterSpacing: 0.0,
-                                          ),
                                     ),
                                   ],
                                 ),
@@ -716,17 +727,20 @@ class _HelpCompWidgetState extends State<HelpCompWidget> {
                                             fontWeight: FontWeight.bold,
                                           ),
                                     ),
-                                    Text(
-                                      FFLocalizations.of(context).getText(
-                                        '01qtbemd' /* Get help with technical issues */,
+                                    Flexible(
+                                      flex: 1,
+                                      child: Text(
+                                        FFLocalizations.of(context).getText(
+                                          '01qtbemd' /* Get help with technical issues */,
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodySmall
+                                            .override(
+                                              fontFamily: 'WorkSans',
+                                              color: Colors.white,
+                                              letterSpacing: 0.0,
+                                            ),
                                       ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodySmall
-                                          .override(
-                                            fontFamily: 'WorkSans',
-                                            color: Colors.white,
-                                            letterSpacing: 0.0,
-                                          ),
                                     ),
                                   ],
                                 ),

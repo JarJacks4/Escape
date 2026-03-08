@@ -82,7 +82,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: PlayerPageFINALAllTabWidget.routeName,
           path: PlayerPageFINALAllTabWidget.routePath,
-          builder: (context, params) => PlayerPageFINALAllTabWidget(),
+          builder: (context, params) => PlayerPageFINALAllTabWidget(
+            currentSong: params.getParam(
+              'currentSong',
+              ParamType.DataStruct,
+              isList: false,
+              structBuilder: MediaStruct.fromSerializableMap,
+            ),
+          ),
         ),
         FFRoute(
           name: SampleWidget.routeName,

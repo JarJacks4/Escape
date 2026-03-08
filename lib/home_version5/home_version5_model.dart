@@ -13,25 +13,26 @@ class HomeVersion5Model extends FlutterFlowModel<HomeVersion5Widget> {
   ///  State fields for stateful widgets in this page.
 
   TutorialCoachMark? introWalkthroughController;
+  AudioPlayer? soundPlayer1;
   // Stores action output result for [Backend Call - API (Create New Session)] action in HomeVersion5 widget.
   ApiCallResponse? createSession;
   // State field(s) for Column widget.
   ScrollController? columnController;
-  AudioPlayer? soundPlayer1;
   AudioPlayer? soundPlayer2;
   AudioPlayer? soundPlayer3;
+  AudioPlayer? soundPlayer4;
   // Model for LucilleFirstRecommendationCompCopy component.
   late LucilleFirstRecommendationCompCopyModel
       lucilleFirstRecommendationCompCopyModel;
   // State field(s) for Row widget.
   ScrollController? rowController;
-  AudioPlayer? soundPlayer4;
   AudioPlayer? soundPlayer5;
   AudioPlayer? soundPlayer6;
   AudioPlayer? soundPlayer7;
   AudioPlayer? soundPlayer8;
   AudioPlayer? soundPlayer9;
   AudioPlayer? soundPlayer10;
+  AudioPlayer? soundPlayer11;
   // Model for SideNav component.
   late SideNavModel sideNavModel;
 

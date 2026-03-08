@@ -81,8 +81,8 @@ class _ProgressBarFinalWidgetState extends State<ProgressBarFinalWidget>
     context.watch<FFAppState>();
     context.watch<cupertino_time_picker_hiuzb7_app_state.FFAppState>();
     context.watch<tiktokfeed_wz8en7_app_state.FFAppState>();
-    context.watch<that_audio_player_oo85ab_app_state.FFAppState>();
     context.watch<confetti_modualo_library_b75kfy_app_state.FFAppState>();
+    context.watch<that_audio_player_oo85ab_app_state.FFAppState>();
 
     return Container(
       width: double.infinity,

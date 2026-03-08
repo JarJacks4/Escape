@@ -1,24 +1,14 @@
-import '/components/confetti_page_basic_comp_widget.dart';
-import '/components/confetti_page_expert_comp_widget.dart';
-import '/components/confetti_page_intermediate_comp_widget.dart';
 import '/components/explore_screen_widget.dart';
 import '/components/side_nav_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
-import 'package:confetti_modualo_library_b75kfy/app_state.dart'
-    as confetti_modualo_library_b75kfy_app_state;
-import 'package:cupertino_time_picker_hiuzb7/app_state.dart'
-    as cupertino_time_picker_hiuzb7_app_state;
-import 'package:that_audio_player_oo85ab/app_state.dart'
-    as that_audio_player_oo85ab_app_state;
-import 'package:tiktokfeed_wz8en7/app_state.dart'
-    as tiktokfeed_wz8en7_app_state;
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:provider/provider.dart';
+import 'package:just_audio/just_audio.dart';
 import 'explore_page_version5_model.dart';
 export 'explore_page_version5_model.dart';
 
@@ -51,84 +41,18 @@ class _ExplorePageVersion5WidgetState extends State<ExplorePageVersion5Widget>
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('EXPLORE_VERSION5_ExplorePageVersion5_ON_');
-      if (FFAppState().pointsEarned <= 50) {
-        logFirebaseEvent('ExplorePageVersion5_bottom_sheet');
-        await showModalBottomSheet(
-          isScrollControlled: true,
-          backgroundColor: Colors.transparent,
-          context: context,
-          builder: (context) {
-            return GestureDetector(
-              onTap: () {
-                FocusScope.of(context).unfocus();
-                FocusManager.instance.primaryFocus?.unfocus();
-              },
-              child: Padding(
-                padding: MediaQuery.viewInsetsOf(context),
-                child: ConfettiPageBasicCompWidget(
-                  exerciseTitle: '',
-                ),
-              ),
-            );
-          },
-        ).then((value) => safeSetState(() {}));
-      } else if (FFAppState().pointsEarned <= 100) {
-        logFirebaseEvent('ExplorePageVersion5_bottom_sheet');
-        await showModalBottomSheet(
-          isScrollControlled: true,
-          backgroundColor: Colors.transparent,
-          context: context,
-          builder: (context) {
-            return GestureDetector(
-              onTap: () {
-                FocusScope.of(context).unfocus();
-                FocusManager.instance.primaryFocus?.unfocus();
-              },
-              child: Padding(
-                padding: MediaQuery.viewInsetsOf(context),
-                child: ConfettiPageIntermediateCompWidget(
-                  exerciseTitle: '',
-                ),
-              ),
-            );
-          },
-        ).then((value) => safeSetState(() {}));
-      } else if (FFAppState().pointsEarned <= 200) {
-        logFirebaseEvent('ExplorePageVersion5_bottom_sheet');
-        await showModalBottomSheet(
-          isScrollControlled: true,
-          backgroundColor: Colors.transparent,
-          context: context,
-          builder: (context) {
-            return GestureDetector(
-              onTap: () {
-                FocusScope.of(context).unfocus();
-                FocusManager.instance.primaryFocus?.unfocus();
-              },
-              child: Padding(
-                padding: MediaQuery.viewInsetsOf(context),
-                child: ConfettiPageExpertCompWidget(
-                  exerciseTitle: '',
-                ),
-              ),
-            );
-          },
-        ).then((value) => safeSetState(() {}));
-      } else {
-        logFirebaseEvent('ExplorePageVersion5_show_snack_bar');
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(
-              'Escape Coins have been earned from your past exercises! Please take the time to get more Escape Coins for more incentives!',
-              style: TextStyle(
-                color: FlutterFlowTheme.of(context).primaryText,
-              ),
-            ),
-            duration: Duration(milliseconds: 4000),
-            backgroundColor: FlutterFlowTheme.of(context).secondary,
-          ),
-        );
+      logFirebaseEvent('ExplorePageVersion5_haptic_feedback');
+      HapticFeedback.vibrate();
+      logFirebaseEvent('ExplorePageVersion5_play_sound');
+      _model.soundPlayer ??= AudioPlayer();
+      if (_model.soundPlayer!.playing) {
+        await _model.soundPlayer!.stop();
       }
+      _model.soundPlayer!.setVolume(1.0);
+      _model.soundPlayer!
+          .setAsset(
+              'assets/audios/lucadialessandro-calm-ambient-intro-490646.mp3')
+          .then((_) => _model.soundPlayer!.play());
     });
 
     animationsMap.addAll({
@@ -169,12 +93,6 @@ class _ExplorePageVersion5WidgetState extends State<ExplorePageVersion5Widget>
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-    context.watch<cupertino_time_picker_hiuzb7_app_state.FFAppState>();
-    context.watch<tiktokfeed_wz8en7_app_state.FFAppState>();
-    context.watch<that_audio_player_oo85ab_app_state.FFAppState>();
-    context.watch<confetti_modualo_library_b75kfy_app_state.FFAppState>();
-
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();

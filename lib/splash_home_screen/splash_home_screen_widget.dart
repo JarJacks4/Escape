@@ -49,7 +49,7 @@ class _SplashHomeScreenWidgetState extends State<SplashHomeScreenWidget> {
       logFirebaseEvent('SplashHomeScreen_wait__delay');
       await Future.delayed(
         Duration(
-          milliseconds: 700,
+          milliseconds: 8000,
         ),
       );
       logFirebaseEvent('SplashHomeScreen_navigate_to');

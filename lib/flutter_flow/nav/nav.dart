@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '/backend/backend.dart';
+import "package:that_audio_player_oo85ab/backend/schema/structs/index.dart"
+    as that_audio_player_oo85ab_data_schema;
 import '/backend/schema/structs/index.dart';
 
 import '/auth/base_auth_user_provider.dart';
@@ -14,10 +16,10 @@ import '/index.dart';
 import 'package:cupertino_time_picker_hiuzb7/index.dart'
     as $cupertino_time_picker_hiuzb7;
 import 'package:tiktokfeed_wz8en7/index.dart' as $tiktokfeed_wz8en7;
-import 'package:that_audio_player_oo85ab/index.dart'
-    as $that_audio_player_oo85ab;
 import 'package:confetti_modualo_library_b75kfy/index.dart'
     as $confetti_modualo_library_b75kfy;
+import 'package:that_audio_player_oo85ab/index.dart'
+    as $that_audio_player_oo85ab;
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
@@ -94,6 +96,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
     reelsWidgetPath: 'Reels',
   );
 
+  $confetti_modualo_library_b75kfy.initializeRoutes(
+    homePageWidgetName: 'confetti_modualo_library_b75kfy.HomePage',
+    homePageWidgetPath: 'homePage1215',
+  );
+
   $that_audio_player_oo85ab.initializeRoutes(
     homePageWidgetName: 'that_audio_player_oo85ab.HomePage',
     homePageWidgetPath: 'homePage',
@@ -113,11 +120,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
     playerPageFINALAllTabWidgetPath: 'playerPageFINALAllTab',
     sampleWidgetName: 'that_audio_player_oo85ab.sample',
     sampleWidgetPath: 'sample',
-  );
-
-  $confetti_modualo_library_b75kfy.initializeRoutes(
-    homePageWidgetName: 'confetti_modualo_library_b75kfy.HomePage',
-    homePageWidgetPath: 'homePage1215',
   );
 
   return GoRouter(
@@ -815,6 +817,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             builder: (context, params) => $tiktokfeed_wz8en7.ReelsWidget(),
           ),
           FFRoute(
+            name: $confetti_modualo_library_b75kfy.HomePageWidget.routeName,
+            path: $confetti_modualo_library_b75kfy.HomePageWidget.routePath,
+            builder: (context, params) =>
+                $confetti_modualo_library_b75kfy.HomePageWidget(),
+          ),
+          FFRoute(
             name: $that_audio_player_oo85ab.HomePageWidget.routeName,
             path: $that_audio_player_oo85ab.HomePageWidget.routePath,
             builder: (context, params) =>
@@ -858,19 +866,21 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             path:
                 $that_audio_player_oo85ab.PlayerPageFINALAllTabWidget.routePath,
             builder: (context, params) =>
-                $that_audio_player_oo85ab.PlayerPageFINALAllTabWidget(),
+                $that_audio_player_oo85ab.PlayerPageFINALAllTabWidget(
+              currentSong: params.getParam(
+                'currentSong',
+                ParamType.DataStruct,
+                isList: false,
+                structBuilder: that_audio_player_oo85ab_data_schema
+                    .MediaStruct.fromSerializableMap,
+              ),
+            ),
           ),
           FFRoute(
             name: $that_audio_player_oo85ab.SampleWidget.routeName,
             path: $that_audio_player_oo85ab.SampleWidget.routePath,
             builder: (context, params) =>
                 $that_audio_player_oo85ab.SampleWidget(),
-          ),
-          FFRoute(
-            name: $confetti_modualo_library_b75kfy.HomePageWidget.routeName,
-            path: $confetti_modualo_library_b75kfy.HomePageWidget.routePath,
-            builder: (context, params) =>
-                $confetti_modualo_library_b75kfy.HomePageWidget(),
           )
         ].map((r) => r.toRoute(appStateNotifier)).toList(),
       ),
@@ -958,8 +968,8 @@ extension _GoRouterStateExtensions on GoRouterState {
       '__transition_info__',
       '__transition_info__cupertino_time_picker_hiuzb7',
       '__transition_info__tiktokfeed_wz8en7',
-      '__transition_info__that_audio_player_oo85ab',
-      '__transition_info__confetti_modualo_library_b75kfy'
+      '__transition_info__confetti_modualo_library_b75kfy',
+      '__transition_info__that_audio_player_oo85ab'
     ];
     for (final key in possibleKeys) {
       if (extraMap.containsKey(key)) {

@@ -14,20 +14,28 @@ class EnergyScanVersion5CopyModel
   ScrollController? columnController1;
   // State field(s) for Column widget.
   ScrollController? columnController2;
+  // State field(s) for Column widget.
+  ScrollController? columnController3;
   AudioPlayer? soundPlayer2;
   AudioPlayer? soundPlayer3;
   AudioPlayer? soundPlayer4;
   AudioPlayer? soundPlayer5;
+  // State field(s) for Column widget.
+  ScrollController? columnController4;
 
   @override
   void initState(BuildContext context) {
     columnController1 = ScrollController();
     columnController2 = ScrollController();
+    columnController3 = ScrollController();
+    columnController4 = ScrollController();
   }
 
   @override
   void dispose() {
     columnController1?.dispose();
     columnController2?.dispose();
+    columnController3?.dispose();
+    columnController4?.dispose();
   }
 }

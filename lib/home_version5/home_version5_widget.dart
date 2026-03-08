@@ -58,6 +58,19 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('HOME_VERSION5_HomeVersion5_ON_INIT_STATE');
+      logFirebaseEvent('HomeVersion5_haptic_feedback');
+      HapticFeedback.vibrate();
+      logFirebaseEvent('HomeVersion5_play_sound');
+      _model.soundPlayer1 ??= AudioPlayer();
+      if (_model.soundPlayer1!.playing) {
+        await _model.soundPlayer1!.stop();
+      }
+      _model.soundPlayer1!.setVolume(0.86);
+      _model.soundPlayer1!
+          .setAsset(
+              'assets/audios/lucadialessandro-calm-ambient-intro-490646.mp3')
+          .then((_) => _model.soundPlayer1!.play());
+
       if (FFAppState().isFinishedIntroWalkthrough) {
         logFirebaseEvent('HomeVersion5_show_snack_bar');
         ScaffoldMessenger.of(context).showSnackBar(
@@ -228,8 +241,8 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
     context.watch<FFAppState>();
     context.watch<cupertino_time_picker_hiuzb7_app_state.FFAppState>();
     context.watch<tiktokfeed_wz8en7_app_state.FFAppState>();
-    context.watch<that_audio_player_oo85ab_app_state.FFAppState>();
     context.watch<confetti_modualo_library_b75kfy_app_state.FFAppState>();
+    context.watch<that_audio_player_oo85ab_app_state.FFAppState>();
 
     return GestureDetector(
       onTap: () {
@@ -445,24 +458,24 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                             .lightImpact();
                                                                         logFirebaseEvent(
                                                                             'Icon_play_sound');
-                                                                        _model.soundPlayer1 ??=
+                                                                        _model.soundPlayer2 ??=
                                                                             AudioPlayer();
                                                                         if (_model
-                                                                            .soundPlayer1!
+                                                                            .soundPlayer2!
                                                                             .playing) {
                                                                           await _model
-                                                                              .soundPlayer1!
+                                                                              .soundPlayer2!
                                                                               .stop();
                                                                         }
                                                                         _model
-                                                                            .soundPlayer1!
+                                                                            .soundPlayer2!
                                                                             .setVolume(0.62);
                                                                         _model
-                                                                            .soundPlayer1!
+                                                                            .soundPlayer2!
                                                                             .setAsset(
                                                                                 'assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3')
                                                                             .then((_) =>
-                                                                                _model.soundPlayer1!.play());
+                                                                                _model.soundPlayer2!.play());
 
                                                                         logFirebaseEvent(
                                                                             'Icon_bottom_sheet');
@@ -567,14 +580,14 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                             logFirebaseEvent('LottieAnimation_haptic_feedback');
                                                                             HapticFeedback.lightImpact();
                                                                             logFirebaseEvent('LottieAnimation_play_sound');
-                                                                            _model.soundPlayer2 ??=
+                                                                            _model.soundPlayer3 ??=
                                                                                 AudioPlayer();
-                                                                            if (_model.soundPlayer2!.playing) {
-                                                                              await _model.soundPlayer2!.stop();
+                                                                            if (_model.soundPlayer3!.playing) {
+                                                                              await _model.soundPlayer3!.stop();
                                                                             }
-                                                                            _model.soundPlayer2!.setVolume(0.67);
-                                                                            _model.soundPlayer2!.setAsset('assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3').then((_) =>
-                                                                                _model.soundPlayer2!.play());
+                                                                            _model.soundPlayer3!.setVolume(0.67);
+                                                                            _model.soundPlayer3!.setAsset('assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3').then((_) =>
+                                                                                _model.soundPlayer3!.play());
 
                                                                             logFirebaseEvent('LottieAnimation_bottom_sheet');
                                                                             await showModalBottomSheet(
@@ -800,12 +813,12 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                                 logFirebaseEvent('Container_haptic_feedback');
                                                                                 HapticFeedback.vibrate();
                                                                                 logFirebaseEvent('Container_play_sound');
-                                                                                _model.soundPlayer3 ??= AudioPlayer();
-                                                                                if (_model.soundPlayer3!.playing) {
-                                                                                  await _model.soundPlayer3!.stop();
+                                                                                _model.soundPlayer4 ??= AudioPlayer();
+                                                                                if (_model.soundPlayer4!.playing) {
+                                                                                  await _model.soundPlayer4!.stop();
                                                                                 }
-                                                                                _model.soundPlayer3!.setVolume(1.0);
-                                                                                _model.soundPlayer3!.setAsset('assets/audios/ES_Game,_Jingle,_Chime,_Positive_01_-_Epidemic_Sound_-_0000-1106.wav').then((_) => _model.soundPlayer3!.play());
+                                                                                _model.soundPlayer4!.setVolume(1.0);
+                                                                                _model.soundPlayer4!.setAsset('assets/audios/ES_Game,_Jingle,_Chime,_Positive_01_-_Epidemic_Sound_-_0000-1106.wav').then((_) => _model.soundPlayer4!.play());
                                                                                                                                                             },
                                                                               child: Material(
                                                                                 color: Colors.transparent,
@@ -894,14 +907,14 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                             logFirebaseEvent('Container_haptic_feedback');
                                                                             HapticFeedback.lightImpact();
                                                                             logFirebaseEvent('Container_play_sound');
-                                                                            _model.soundPlayer4 ??=
+                                                                            _model.soundPlayer5 ??=
                                                                                 AudioPlayer();
-                                                                            if (_model.soundPlayer4!.playing) {
-                                                                              await _model.soundPlayer4!.stop();
+                                                                            if (_model.soundPlayer5!.playing) {
+                                                                              await _model.soundPlayer5!.stop();
                                                                             }
-                                                                            _model.soundPlayer4!.setVolume(1.0);
-                                                                            _model.soundPlayer4!.setAsset('assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3').then((_) =>
-                                                                                _model.soundPlayer4!.play());
+                                                                            _model.soundPlayer5!.setVolume(1.0);
+                                                                            _model.soundPlayer5!.setAsset('assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3').then((_) =>
+                                                                                _model.soundPlayer5!.play());
 
                                                                             logFirebaseEvent('Container_navigate_to');
 
@@ -935,7 +948,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                                   color: FlutterFlowTheme.of(context).secondary,
                                                                                   offset: Offset(
                                                                                     0.0,
-                                                                                    2.0,
+                                                                                    0.0,
                                                                                   ),
                                                                                   spreadRadius: 3.0,
                                                                                 )
@@ -986,14 +999,14 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                             logFirebaseEvent('Container_haptic_feedback');
                                                                             HapticFeedback.lightImpact();
                                                                             logFirebaseEvent('Container_play_sound');
-                                                                            _model.soundPlayer5 ??=
+                                                                            _model.soundPlayer6 ??=
                                                                                 AudioPlayer();
-                                                                            if (_model.soundPlayer5!.playing) {
-                                                                              await _model.soundPlayer5!.stop();
+                                                                            if (_model.soundPlayer6!.playing) {
+                                                                              await _model.soundPlayer6!.stop();
                                                                             }
-                                                                            _model.soundPlayer5!.setVolume(1.0);
-                                                                            _model.soundPlayer5!.setAsset('assets/audios/ES_Notification,_Attention,_Text,_Reveal,_Positive_01_-_Epidemic_Sound_-_2170-2760.wav').then((_) =>
-                                                                                _model.soundPlayer5!.play());
+                                                                            _model.soundPlayer6!.setVolume(1.0);
+                                                                            _model.soundPlayer6!.setAsset('assets/audios/ES_Notification,_Attention,_Text,_Reveal,_Positive_01_-_Epidemic_Sound_-_2170-2760.wav').then((_) =>
+                                                                                _model.soundPlayer6!.play());
 
                                                                             logFirebaseEvent('Container_navigate_to');
 
@@ -1082,14 +1095,14 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                             logFirebaseEvent('Container_haptic_feedback');
                                                                             HapticFeedback.lightImpact();
                                                                             logFirebaseEvent('Container_play_sound');
-                                                                            _model.soundPlayer6 ??=
+                                                                            _model.soundPlayer7 ??=
                                                                                 AudioPlayer();
-                                                                            if (_model.soundPlayer6!.playing) {
-                                                                              await _model.soundPlayer6!.stop();
+                                                                            if (_model.soundPlayer7!.playing) {
+                                                                              await _model.soundPlayer7!.stop();
                                                                             }
-                                                                            _model.soundPlayer6!.setVolume(1.0);
-                                                                            _model.soundPlayer6!.setAsset('assets/audios/ES_Game,_Jingle,_Chime,_Positive_01_-_Epidemic_Sound_-_3038-4627.wav').then((_) =>
-                                                                                _model.soundPlayer6!.play());
+                                                                            _model.soundPlayer7!.setVolume(1.0);
+                                                                            _model.soundPlayer7!.setAsset('assets/audios/ES_Game,_Jingle,_Chime,_Positive_01_-_Epidemic_Sound_-_3038-4627.wav').then((_) =>
+                                                                                _model.soundPlayer7!.play());
 
                                                                             logFirebaseEvent('Container_navigate_to');
 
@@ -1184,14 +1197,14 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                             logFirebaseEvent('Container_haptic_feedback');
                                                                             HapticFeedback.lightImpact();
                                                                             logFirebaseEvent('Container_play_sound');
-                                                                            _model.soundPlayer7 ??=
+                                                                            _model.soundPlayer8 ??=
                                                                                 AudioPlayer();
-                                                                            if (_model.soundPlayer7!.playing) {
-                                                                              await _model.soundPlayer7!.stop();
+                                                                            if (_model.soundPlayer8!.playing) {
+                                                                              await _model.soundPlayer8!.stop();
                                                                             }
-                                                                            _model.soundPlayer7!.setVolume(1.0);
-                                                                            _model.soundPlayer7!.setAsset('assets/audios/ES_Game,_Jingle,_Chime,_Positive_01_-_Epidemic_Sound_-_3038-4627.wav').then((_) =>
-                                                                                _model.soundPlayer7!.play());
+                                                                            _model.soundPlayer8!.setVolume(1.0);
+                                                                            _model.soundPlayer8!.setAsset('assets/audios/ES_Game,_Jingle,_Chime,_Positive_01_-_Epidemic_Sound_-_3038-4627.wav').then((_) =>
+                                                                                _model.soundPlayer8!.play());
 
                                                                             logFirebaseEvent('Container_navigate_to');
 
@@ -1276,14 +1289,14 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                             logFirebaseEvent('Container_haptic_feedback');
                                                                             HapticFeedback.lightImpact();
                                                                             logFirebaseEvent('Container_play_sound');
-                                                                            _model.soundPlayer8 ??=
+                                                                            _model.soundPlayer9 ??=
                                                                                 AudioPlayer();
-                                                                            if (_model.soundPlayer8!.playing) {
-                                                                              await _model.soundPlayer8!.stop();
+                                                                            if (_model.soundPlayer9!.playing) {
+                                                                              await _model.soundPlayer9!.stop();
                                                                             }
-                                                                            _model.soundPlayer8!.setVolume(1.0);
-                                                                            _model.soundPlayer8!.setAsset('assets/audios/ES_Ding,_Complex,_Shine_-_Epidemic_Sound.mp3').then((_) =>
-                                                                                _model.soundPlayer8!.play());
+                                                                            _model.soundPlayer9!.setVolume(1.0);
+                                                                            _model.soundPlayer9!.setAsset('assets/audios/ES_Ding,_Complex,_Shine_-_Epidemic_Sound.mp3').then((_) =>
+                                                                                _model.soundPlayer9!.play());
 
                                                                             logFirebaseEvent('Container_navigate_to');
 
@@ -1499,12 +1512,12 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                                         logFirebaseEvent('Button_haptic_feedback');
                                                                                         HapticFeedback.lightImpact();
                                                                                         logFirebaseEvent('Button_play_sound');
-                                                                                        _model.soundPlayer9 ??= AudioPlayer();
-                                                                                        if (_model.soundPlayer9!.playing) {
-                                                                                          await _model.soundPlayer9!.stop();
+                                                                                        _model.soundPlayer10 ??= AudioPlayer();
+                                                                                        if (_model.soundPlayer10!.playing) {
+                                                                                          await _model.soundPlayer10!.stop();
                                                                                         }
-                                                                                        _model.soundPlayer9!.setVolume(0.62);
-                                                                                        _model.soundPlayer9!.setAsset('assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3').then((_) => _model.soundPlayer9!.play());
+                                                                                        _model.soundPlayer10!.setVolume(0.62);
+                                                                                        _model.soundPlayer10!.setAsset('assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3').then((_) => _model.soundPlayer10!.play());
 
                                                                                         logFirebaseEvent('Button_navigate_to');
 
@@ -1712,12 +1725,12 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                                 logFirebaseEvent('Button_haptic_feedback');
                                                                                 HapticFeedback.lightImpact();
                                                                                 logFirebaseEvent('Button_play_sound');
-                                                                                _model.soundPlayer10 ??= AudioPlayer();
-                                                                                if (_model.soundPlayer10!.playing) {
-                                                                                  await _model.soundPlayer10!.stop();
+                                                                                _model.soundPlayer11 ??= AudioPlayer();
+                                                                                if (_model.soundPlayer11!.playing) {
+                                                                                  await _model.soundPlayer11!.stop();
                                                                                 }
-                                                                                _model.soundPlayer10!.setVolume(1.0);
-                                                                                _model.soundPlayer10!.setAsset('assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3').then((_) => _model.soundPlayer10!.play());
+                                                                                _model.soundPlayer11!.setVolume(1.0);
+                                                                                _model.soundPlayer11!.setAsset('assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3').then((_) => _model.soundPlayer11!.play());
 
                                                                                 logFirebaseEvent('Button_navigate_to');
 
