@@ -225,6 +225,7 @@ class _LucilleHelpCompWidgetState extends State<LucilleHelpCompWidget>
                             ),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Row(
                                   mainAxisSize: MainAxisSize.max,

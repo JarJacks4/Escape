@@ -42,6 +42,16 @@ class _SplashScreenVersion5WidgetState extends State<SplashScreenVersion5Widget>
       logFirebaseEvent('SPLASH_SCREEN_VERSION5_splashScreenVersi');
       logFirebaseEvent('splashScreenVersion5_haptic_feedback');
       HapticFeedback.vibrate();
+      logFirebaseEvent('splashScreenVersion5_play_sound');
+      _model.soundPlayer ??= AudioPlayer();
+      if (_model.soundPlayer!.playing) {
+        await _model.soundPlayer!.stop();
+      }
+      _model.soundPlayer!.setVolume(1.0);
+      _model.soundPlayer!
+          .setAsset(
+              'assets/audios/samuelfjohanns-aeolian-futuristics-atmo-track-119821.mp3')
+          .then((_) => _model.soundPlayer!.play());
     });
 
     animationsMap.addAll({
@@ -142,17 +152,8 @@ class _SplashScreenVersion5WidgetState extends State<SplashScreenVersion5Widget>
                         'SPLASH_SCREEN_VERSION5_Image_xd31kjpi_ON');
                     logFirebaseEvent('Image_haptic_feedback');
                     HapticFeedback.heavyImpact();
-                    logFirebaseEvent('Image_play_sound');
-                    _model.soundPlayer ??= AudioPlayer();
-                    if (_model.soundPlayer!.playing) {
-                      await _model.soundPlayer!.stop();
-                    }
-                    _model.soundPlayer!.setVolume(0.57);
-                    _model.soundPlayer!
-                        .setAsset(
-                            'assets/audios/lucadialessandro-calm-ambient-intro-490646.mp3')
-                        .then((_) => _model.soundPlayer!.play());
-
+                    logFirebaseEvent('Image_stop_sound');
+                    _model.soundPlayer?.stop();
                     logFirebaseEvent('Image_navigate_to');
 
                     context.pushNamed(

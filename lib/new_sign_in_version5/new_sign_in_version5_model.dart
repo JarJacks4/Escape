@@ -10,6 +10,7 @@ class NewSignInVersion5Model extends FlutterFlowModel<NewSignInVersion5Widget> {
 
   final formKey2 = GlobalKey<FormState>();
   final formKey1 = GlobalKey<FormState>();
+  AudioPlayer? soundPlayer1;
   // State field(s) for PageView widget.
   PageController? pageViewController;
 
@@ -45,12 +46,12 @@ class NewSignInVersion5Model extends FlutterFlowModel<NewSignInVersion5Widget> {
     return null;
   }
 
-  AudioPlayer? soundPlayer1;
   AudioPlayer? soundPlayer2;
   AudioPlayer? soundPlayer3;
+  AudioPlayer? soundPlayer4;
   // Stores action output result for [Validate Form] action in Button widget.
   bool? validateLogin2;
-  AudioPlayer? soundPlayer4;
+  AudioPlayer? soundPlayer5;
   // State field(s) for DisplayName widget.
   FocusNode? displayNameFocusNode;
   TextEditingController? displayNameTextController;
@@ -165,8 +166,8 @@ class NewSignInVersion5Model extends FlutterFlowModel<NewSignInVersion5Widget> {
       crownChakraMoodsValueController?.value = val != null ? [val] : [];
   // Stores action output result for [Validate Form] action in Button widget.
   bool? createAccountValidation;
-  AudioPlayer? soundPlayer5;
   AudioPlayer? soundPlayer6;
+  AudioPlayer? soundPlayer7;
 
   @override
   void initState(BuildContext context) {

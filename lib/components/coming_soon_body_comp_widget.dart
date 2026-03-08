@@ -144,17 +144,17 @@ class _ComingSoonBodyCompWidgetState extends State<ComingSoonBodyCompWidget> {
                                   0.0, 0.0, 0.0, 15.0),
                               child: Text(
                                 FFLocalizations.of(context).getText(
-                                  'xucls0v4' /* All your information is secure... */,
+                                  'xucls0v4' /* We have more coming soon for t... */,
                                 ),
                                 textAlign: TextAlign.center,
                                 style: FlutterFlowTheme.of(context)
                                     .bodyLarge
                                     .override(
                                       fontFamily: 'WorkSans',
-                                      color: FlutterFlowTheme.of(context)
-                                          .alternate,
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
                                       letterSpacing: 0.0,
-                                      fontWeight: FontWeight.w600,
+                                      fontWeight: FontWeight.w300,
                                     ),
                               ),
                             ),

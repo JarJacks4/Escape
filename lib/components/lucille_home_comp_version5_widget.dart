@@ -333,6 +333,9 @@ Your Expl... */
                     onPressed: () async {
                       logFirebaseEvent(
                           'LUCILLE_HOME_VERSION5_CHAT_WITH_LUCILLE_');
+                      logFirebaseEvent('Button_update_app_state');
+                      FFAppState().isFirstTimeUserLucille = false;
+                      _model.updatePage(() {});
                       logFirebaseEvent('Button_navigate_to');
 
                       context.pushNamed(

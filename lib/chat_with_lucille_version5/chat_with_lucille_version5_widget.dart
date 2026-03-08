@@ -1,6 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
-import '/backend/schema/enums/enums.dart';
 import '/backend/schema/structs/index.dart';
 import '/components/empty_chats_widget.dart';
 import '/components/side_nav_widget.dart';
@@ -88,7 +87,7 @@ class _ChatWithLucilleVersion5WidgetState
           FadeEffect(
             curve: Curves.easeIn,
             delay: 220.0.ms,
-            duration: 690.0.ms,
+            duration: 1090.0.ms,
             begin: 0.0,
             end: 1.0,
           ),
@@ -669,6 +668,11 @@ class _ChatWithLucilleVersion5WidgetState
                                                                           25.0),
                                                             ),
                                                           ),
+                                                          elevation: 8.0,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      25.0),
                                                         ),
                                                       ),
                                                     ],
@@ -939,7 +943,7 @@ class _ChatWithLucilleVersion5WidgetState
                                                                                                                       ),
                                                                                                                     ],
                                                                                                                   ),
-                                                                                                                ),
+                                                                                                                ],
                                                                                                               ),
                                                                                                             ),
                                                                                                           ),
@@ -1197,6 +1201,42 @@ class _ChatWithLucilleVersion5WidgetState
                                                                             }),
                                                                         ],
                                                                       ),
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyLarge
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'WorkSans',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).primary,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
+                                                                      maxLines:
+                                                                          8,
+                                                                      minLines:
+                                                                          1,
+                                                                      keyboardType:
+                                                                          TextInputType
+                                                                              .multiline,
+                                                                      cursorColor:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .primary,
+                                                                      validator: _model
+                                                                          .textControllerValidator
+                                                                          .asValidator(
+                                                                              context),
+                                                                      inputFormatters: [
+                                                                        if (!isAndroid &&
+                                                                            !isiOS)
+                                                                          TextInputFormatter.withFunction((oldValue,
+                                                                              newValue) {
+                                                                            return TextEditingValue(
+                                                                              selection: newValue.selection,
+                                                                              text: newValue.text.toCapitalization(TextCapitalization.sentences),
+                                                                            );
+                                                                          }),
+                                                                      ],
                                                                     ),
                                                                   ),
                                                                   Align(
@@ -1385,7 +1425,18 @@ class _ChatWithLucilleVersion5WidgetState
                                                             ),
                                                         ],
                                                       ),
-                                                    ),
+                                                      if (responsiveVisibility(
+                                                        context: context,
+                                                        phone: false,
+                                                        tablet: false,
+                                                      ))
+                                                        Container(
+                                                          width: 100.0,
+                                                          height: 60.0,
+                                                          decoration:
+                                                              BoxDecoration(),
+                                                        ),
+                                                    ],
                                                   ),
                                                 ),
                                               ],

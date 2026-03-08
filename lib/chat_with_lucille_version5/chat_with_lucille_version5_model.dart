@@ -13,15 +13,6 @@ class ChatWithLucilleVersion5Model
 
   bool aiIsResponsing = true;
 
-  List<LucilleChatStruct> chats = [];
-  void addToChats(LucilleChatStruct item) => chats.add(item);
-  void removeFromChats(LucilleChatStruct item) => chats.remove(item);
-  void removeAtIndexFromChats(int index) => chats.removeAt(index);
-  void insertAtIndexInChats(int index, LucilleChatStruct item) =>
-      chats.insert(index, item);
-  void updateChatsAtIndex(int index, Function(LucilleChatStruct) updateFn) =>
-      chats[index] = updateFn(chats[index]);
-
   String userInput = 'userResponse';
 
   String? streamedResponse;
@@ -39,16 +30,6 @@ class ChatWithLucilleVersion5Model
 
   String? sessionID;
 
-  List<BuildShipStreamStruct> messages = [];
-  void addToMessages(BuildShipStreamStruct item) => messages.add(item);
-  void removeFromMessages(BuildShipStreamStruct item) => messages.remove(item);
-  void removeAtIndexFromMessages(int index) => messages.removeAt(index);
-  void insertAtIndexInMessages(int index, BuildShipStreamStruct item) =>
-      messages.insert(index, item);
-  void updateMessagesAtIndex(
-          int index, Function(BuildShipStreamStruct) updateFn) =>
-      messages[index] = updateFn(messages[index]);
-
   List<LucilleStreamFINALStruct> streamMessages = [];
   void addToStreamMessages(LucilleStreamFINALStruct item) =>
       streamMessages.add(item);
@@ -62,6 +43,10 @@ class ChatWithLucilleVersion5Model
   void updateStreamMessagesAtIndex(
           int index, Function(LucilleStreamFINALStruct) updateFn) =>
       streamMessages[index] = updateFn(streamMessages[index]);
+
+  String? accumulatedResponse;
+
+  int? aiMessageIndex = 0;
 
   ///  State fields for stateful widgets in this page.
 

@@ -224,7 +224,7 @@ class _EnergyScanDialogueCompCopyWidgetState
                                                       HapticFeedback
                                                           .lightImpact();
                                                       logFirebaseEvent(
-                                                          'IconButton_bottom_sheet');
+                                                          'IconButton_dismiss_dialog');
                                                       Navigator.pop(context);
                                                     },
                                                   ),

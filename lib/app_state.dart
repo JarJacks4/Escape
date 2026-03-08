@@ -81,6 +81,11 @@ class FFAppState extends ChangeNotifier {
           await secureStorage.getBool('ff_chakraRewardShown') ??
               _chakraRewardShown;
     });
+    await _safeInitAsync(() async {
+      _isFirstTimeUsingEnergyScan =
+          await secureStorage.getBool('ff_isFirstTimeUsingEnergyScan') ??
+              _isFirstTimeUsingEnergyScan;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -1789,6 +1794,17 @@ class FFAppState extends ChangeNotifier {
 
   void deleteChakraRewardShown() {
     secureStorage.delete(key: 'ff_chakraRewardShown');
+  }
+
+  bool _isFirstTimeUsingEnergyScan = false;
+  bool get isFirstTimeUsingEnergyScan => _isFirstTimeUsingEnergyScan;
+  set isFirstTimeUsingEnergyScan(bool value) {
+    _isFirstTimeUsingEnergyScan = value;
+    secureStorage.setBool('ff_isFirstTimeUsingEnergyScan', value);
+  }
+
+  void deleteIsFirstTimeUsingEnergyScan() {
+    secureStorage.delete(key: 'ff_isFirstTimeUsingEnergyScan');
   }
 }
 
