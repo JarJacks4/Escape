@@ -27,16 +27,18 @@ import 'journal_page1_version5_model.dart';
 export 'journal_page1_version5_model.dart';
 
 /// New Component Gen
-class JournalPage1Version5Widget extends StatefulWidget {
-  const JournalPage1Version5Widget({super.key});
+class JournalPageVersion5Widget extends StatefulWidget {
+  const JournalPageVersion5Widget({super.key});
+  static String routeName = 'JournalPageVersion5';
+  static String routePath = '/journalPageVersion5';
 
   @override
-  State<JournalPage1Version5Widget> createState() =>
-      _JournalPage1Version5WidgetState();
+  State<JournalPageVersion5Widget> createState() =>
+      _JournalPageVersion5WidgetState();
 }
 
-class _JournalPage1Version5WidgetState
-    extends State<JournalPage1Version5Widget> {
+class _JournalPageVersion5WidgetState
+    extends State<JournalPageVersion5Widget> {
   late JournalPage1Version5Model _model;
 
   @override
