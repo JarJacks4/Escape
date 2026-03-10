@@ -17,16 +17,18 @@ import 'solar_plexus_chakra_mood_scanner_comp_model.dart';
 export 'solar_plexus_chakra_mood_scanner_comp_model.dart';
 
 /// New Component Gen
-class SolarPlexusChakraMoodScannerCompWidget extends StatefulWidget {
-  const SolarPlexusChakraMoodScannerCompWidget({super.key});
+class MindSolarPlexusChakraVersion5Widget extends StatefulWidget {
+  const MindSolarPlexusChakraVersion5Widget({super.key});
+  static String routeName = 'MindSolarPlexusChakraVersion5';
+  static String routePath = '/mindSolarPlexusChakraVersion5';
 
   @override
-  State<SolarPlexusChakraMoodScannerCompWidget> createState() =>
-      _SolarPlexusChakraMoodScannerCompWidgetState();
+  State<MindSolarPlexusChakraVersion5Widget> createState() =>
+      _MindSolarPlexusChakraVersion5WidgetState();
 }
 
-class _SolarPlexusChakraMoodScannerCompWidgetState
-    extends State<SolarPlexusChakraMoodScannerCompWidget>
+class _MindSolarPlexusChakraVersion5WidgetState
+    extends State<MindSolarPlexusChakraVersion5Widget>
     with TickerProviderStateMixin {
   late SolarPlexusChakraMoodScannerCompModel _model;
 
