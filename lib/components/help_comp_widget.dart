@@ -329,6 +329,98 @@ class _HelpCompWidgetState extends State<HelpCompWidget> {
                           ),
                         ),
                       ),
+                      Align(
+                        alignment: AlignmentDirectional(1.0, 0.0),
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            logFirebaseEvent(
+                                'HELP_COMP_COMP_Container_7zyyrefr_ON_TAP');
+                            logFirebaseEvent('Container_haptic_feedback');
+                            HapticFeedback.lightImpact();
+                            logFirebaseEvent('Container_play_sound');
+                            _model.soundPlayer2 ??= AudioPlayer();
+                            if (_model.soundPlayer2!.playing) {
+                              await _model.soundPlayer2!.stop();
+                            }
+                            _model.soundPlayer2!.setVolume(1.0);
+                            _model.soundPlayer2!
+                                .setAsset(
+                                    'assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3')
+                                .then((_) => _model.soundPlayer2!.play());
+
+                            logFirebaseEvent('Container_navigate_to');
+
+                            context.pushNamed(
+                              MoodScanVersion5Widget.routeName,
+                              extra: <String, dynamic>{
+                                '__transition_info__': TransitionInfo(
+                                  hasTransition: true,
+                                  transitionType:
+                                      PageTransitionType.rightToLeft,
+                                  duration: Duration(milliseconds: 1),
+                                ),
+                              },
+                            );
+                          },
+                          child: Container(
+                            width: 320.0,
+                            height: 106.7,
+                            decoration: BoxDecoration(
+                              color: Color(0x869B9BB0),
+                              borderRadius: BorderRadius.circular(16.0),
+                              border: Border.all(
+                                color: Color(0x48EDF1F7),
+                              ),
+                            ),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 16.0, 16.0, 16.0),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    FFLocalizations.of(context).getText(
+                                      'l918btbp' /* Mood Scanner */,
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyLarge
+                                        .override(
+                                          fontFamily: 'The Seasons',
+                                          color: Colors.white,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 2.0, 0.0, 0.0),
+                                    child: Text(
+                                      FFLocalizations.of(context).getText(
+                                        'ejng84zj' /* Scan your mood and energy for ... */,
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodySmall
+                                          .override(
+                                            fontFamily: 'WorkSans',
+                                            color: Colors.white,
+                                            letterSpacing: 0.0,
+                                          ),
+                                      overflow: TextOverflow.fade,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
                       Flexible(
                         flex: 1,
                         child: Align(
@@ -401,101 +493,6 @@ class _HelpCompWidgetState extends State<HelpCompWidget> {
                                               color: Colors.white,
                                               letterSpacing: 0.0,
                                             ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Flexible(
-                        flex: 1,
-                        child: Align(
-                          alignment: AlignmentDirectional(1.0, 0.0),
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              logFirebaseEvent(
-                                  'HELP_COMP_COMP_Container_7zyyrefr_ON_TAP');
-                              logFirebaseEvent('Container_haptic_feedback');
-                              HapticFeedback.lightImpact();
-                              logFirebaseEvent('Container_play_sound');
-                              _model.soundPlayer2 ??= AudioPlayer();
-                              if (_model.soundPlayer2!.playing) {
-                                await _model.soundPlayer2!.stop();
-                              }
-                              _model.soundPlayer2!.setVolume(1.0);
-                              _model.soundPlayer2!
-                                  .setAsset(
-                                      'assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3')
-                                  .then((_) => _model.soundPlayer2!.play());
-
-                              logFirebaseEvent('Container_navigate_to');
-
-                              context.pushNamed(
-                                MoodScanVersion5Widget.routeName,
-                                extra: <String, dynamic>{
-                                  '__transition_info__': TransitionInfo(
-                                    hasTransition: true,
-                                    transitionType:
-                                        PageTransitionType.rightToLeft,
-                                    duration: Duration(milliseconds: 1),
-                                  ),
-                                },
-                              );
-                            },
-                            child: Container(
-                              width: 320.0,
-                              height: 150.0,
-                              decoration: BoxDecoration(
-                                color: Color(0x869B9BB0),
-                                borderRadius: BorderRadius.circular(16.0),
-                                border: Border.all(
-                                  color: Color(0x48EDF1F7),
-                                ),
-                              ),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 16.0, 16.0, 16.0),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      FFLocalizations.of(context).getText(
-                                        'l918btbp' /* Mood Scanner */,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyLarge
-                                          .override(
-                                            fontFamily: 'The Seasons',
-                                            color: Colors.white,
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 2.0, 0.0, 0.0),
-                                      child: Text(
-                                        FFLocalizations.of(context).getText(
-                                          'ejng84zj' /* Scan your mood and energy for ... */,
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodySmall
-                                            .override(
-                                              fontFamily: 'WorkSans',
-                                              color: Colors.white,
-                                              letterSpacing: 0.0,
-                                            ),
-                                        overflow: TextOverflow.fade,
                                       ),
                                     ),
                                   ],

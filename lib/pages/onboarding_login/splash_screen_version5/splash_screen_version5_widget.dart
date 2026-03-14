@@ -234,18 +234,18 @@ class _SplashScreenVersion5WidgetState extends State<SplashScreenVersion5Widget>
                       EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 50.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
                         width: 238.5,
-                        height: 176.89,
+                        height: 176.9,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(50.0),
                         ),
                         child: Lottie.asset(
                           'assets/jsons/Untitled_file_(1).json',
                           width: 200.0,
-                          height: 191.61,
+                          height: 154.51,
                           fit: BoxFit.cover,
                           repeat: false,
                           animate: true,

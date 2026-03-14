@@ -487,7 +487,7 @@ class _ConfettiPageExpertCompWidgetState
                               child: FFButtonWidget(
                                 onPressed: () async {
                                   logFirebaseEvent(
-                                      'CONFETTI_EXPERT_I_WANT_TO_DO_MORE_BTN_ON');
+                                      'CONFETTI_EXPERT_SEE_EXPLORE_BTN_ON_TAP');
                                   logFirebaseEvent('Button_haptic_feedback');
                                   HapticFeedback.mediumImpact();
                                   logFirebaseEvent('Button_play_sound');
@@ -538,7 +538,7 @@ class _ConfettiPageExpertCompWidgetState
                                   );
                                 },
                                 text: FFLocalizations.of(context).getText(
-                                  'g5f7i4rn' /* I Want To Do More! */,
+                                  'g5f7i4rn' /* See Explore Page! */,
                                 ),
                                 icon: Icon(
                                   Icons.arrow_forward,

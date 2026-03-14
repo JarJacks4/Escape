@@ -262,7 +262,7 @@ class _NavBarPageState extends State<NavBarPage> {
                 size: 24.0,
               ),
               label: FFLocalizations.of(context).getText(
-                '27epkhem' /* Home */,
+                'vq4xsokl' /* Home */,
               ),
               tooltip: '',
             ),
@@ -298,7 +298,7 @@ class _NavBarPageState extends State<NavBarPage> {
                 size: 24.0,
               ),
               label: FFLocalizations.of(context).getText(
-                'ix1ij3ho' /* Community */,
+                'cly8mku8' /* Community */,
               ),
               tooltip: '',
             ),
@@ -308,7 +308,7 @@ class _NavBarPageState extends State<NavBarPage> {
                 size: 24.0,
               ),
               label: FFLocalizations.of(context).getText(
-                'vpri7wqm' /* Lucille */,
+                'ueplikou' /* Lucille */,
               ),
               tooltip: '',
             )

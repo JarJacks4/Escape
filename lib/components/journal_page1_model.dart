@@ -1,6 +1,8 @@
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'journal_page1_widget.dart' show JournalPage1Widget;
 import 'package:flutter/material.dart';
+import 'package:just_audio/just_audio.dart';
 import 'package:record/record.dart';
 
 class JournalPage1Model extends FlutterFlowModel<JournalPage1Widget> {
@@ -38,12 +40,13 @@ class JournalPage1Model extends FlutterFlowModel<JournalPage1Widget> {
 
   // State field(s) for Column widget.
   ScrollController? columnController;
+  AudioPlayer? soundPlayer;
   AudioRecorder? audioRecorder;
   String? audioJournalRecording;
   FFUploadedFile recordedFileBytes =
       FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
-  // Stores action output result for [AI Agent - Send Message to Lucille Journal Transcription] action in LottieAnimation widget.
-  String? voiceTranscription;
+  // Stores action output result for [Backend Call - API (Escape AudioScript)] action in LottieAnimation widget.
+  ApiCallResponse? gorqTranscriptionResult;
 
   @override
   void initState(BuildContext context) {

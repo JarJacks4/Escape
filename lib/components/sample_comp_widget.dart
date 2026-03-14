@@ -77,7 +77,7 @@ class _SampleCompWidgetState extends State<SampleCompWidget> {
                   children: [
                     Text(
                       FFLocalizations.of(context).getText(
-                        '0dsbwk46' /* Immerse yourself in a personal... */,
+                        '27wufdp7' /* Immerse yourself in a personal... */,
                       ),
                       style: FlutterFlowTheme.of(context).bodyLarge.override(
                             fontFamily: 'WorkSans',
@@ -93,7 +93,7 @@ class _SampleCompWidgetState extends State<SampleCompWidget> {
                         print('Button pressed ...');
                       },
                       text: FFLocalizations.of(context).getText(
-                        '12qfe994' /* Enter World */,
+                        'kb7xjgw7' /* Enter World */,
                       ),
                       options: FFButtonOptions(
                         width: 280.0,
@@ -117,7 +117,7 @@ class _SampleCompWidgetState extends State<SampleCompWidget> {
                     ),
                     Text(
                       FFLocalizations.of(context).getText(
-                        'ookqc5ux' /* Innerverse Launching Soon */,
+                        '4ft3y4o6' /* Innerverse Launching Soon */,
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'WorkSans',

@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
+import 'dart:async';
 import 'dart:ui';
 import '/index.dart';
 import 'package:confetti_modualo_library_b75kfy/app_state.dart'
@@ -54,7 +55,44 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'MoodScanVersion5'});
     animationsMap.addAll({
-      'containerOnPageLoadAnimation': AnimationInfo(
+      'stackOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeIn,
+            delay: 0.0.ms,
+            duration: 1360.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'imageOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1.ms),
+          FadeEffect(
+            curve: Curves.easeIn,
+            delay: 0.0.ms,
+            duration: 1080.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation1': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeIn,
+            delay: 0.0.ms,
+            duration: 1840.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'containerOnPageLoadAnimation2': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           FadeEffect(
@@ -107,7 +145,7 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                     height: double.infinity,
                     fit: BoxFit.cover,
                   ),
-                ),
+                ).animateOnPageLoad(animationsMap['imageOnPageLoadAnimation']!),
               ),
               Container(
                 width: double.infinity,
@@ -116,7 +154,7 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                   color: Colors.transparent,
                 ),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(25.0),
+                  borderRadius: BorderRadius.circular(0.0),
                   child: BackdropFilter(
                     filter: ImageFilter.blur(
                       sigmaX: 30.0,
@@ -342,7 +380,7 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                       ),
                                                     ),
                                                   ).animateOnPageLoad(animationsMap[
-                                                      'containerOnPageLoadAnimation']!),
+                                                      'containerOnPageLoadAnimation2']!),
                                                 ),
                                                 Align(
                                                   alignment:
@@ -529,7 +567,7 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                                       logFirebaseEvent(
                                                                           'Button_haptic_feedback');
                                                                       HapticFeedback
-                                                                          .lightImpact();
+                                                                          .heavyImpact();
                                                                       logFirebaseEvent(
                                                                           'Button_upload_media_to_firebase');
                                                                       final selectedMedia =
@@ -632,6 +670,20 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                                         ),
                                                                       );
                                                                       logFirebaseEvent(
+                                                                          'Button_page_view');
+                                                                      unawaited(
+                                                                        () async {
+                                                                          await _model
+                                                                              .pageViewController
+                                                                              ?.nextPage(
+                                                                            duration:
+                                                                                Duration(milliseconds: 300),
+                                                                            curve:
+                                                                                Curves.ease,
+                                                                          );
+                                                                        }(),
+                                                                      );
+                                                                      logFirebaseEvent(
                                                                           'Button_a_i_agent');
                                                                       await callAiAgent(
                                                                         context:
@@ -672,16 +724,6 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                                         uid:
                                                                             'user1',
                                                                       ));
-                                                                      logFirebaseEvent(
-                                                                          'Button_page_view');
-                                                                      await _model
-                                                                          .pageViewController
-                                                                          ?.nextPage(
-                                                                        duration:
-                                                                            Duration(milliseconds: 300),
-                                                                        curve: Curves
-                                                                            .ease,
-                                                                      );
 
                                                                       safeSetState(
                                                                           () {});
@@ -1536,10 +1578,11 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                     ),
                   ),
                 ),
-              ),
+              ).animateOnPageLoad(
+                  animationsMap['containerOnPageLoadAnimation1']!),
             ],
           ),
-        ),
+        ).animateOnPageLoad(animationsMap['stackOnPageLoadAnimation']!),
       ),
     );
   }

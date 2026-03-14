@@ -151,7 +151,7 @@ class _CrownChakraEnergyCenterGuideCompWidgetState
                             children: [
                               Text(
                                 FFLocalizations.of(context).getText(
-                                  'zd48yys6' /* LOCATION */,
+                                  'o2xgs4fy' /* LOCATION */,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .labelSmall
@@ -208,7 +208,7 @@ class _CrownChakraEnergyCenterGuideCompWidgetState
                               children: [
                                 Text(
                                   FFLocalizations.of(context).getText(
-                                    'pxlpye9h' /* ELEMENT */,
+                                    'wyz4xgus' /* ELEMENT */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .labelSmall
@@ -255,7 +255,7 @@ class _CrownChakraEnergyCenterGuideCompWidgetState
                   children: [
                     Text(
                       FFLocalizations.of(context).getText(
-                        '3b3vv8wn' /* KEY PRACTICES */,
+                        '69604hxa' /* KEY PRACTICES */,
                       ),
                       style: FlutterFlowTheme.of(context).labelMedium.override(
                             fontFamily: 'The Seasons',
@@ -476,7 +476,7 @@ class _CrownChakraEnergyCenterGuideCompWidgetState
                     children: [
                       Text(
                         FFLocalizations.of(context).getText(
-                          'ywf0lh7x' /* BENEFITS */,
+                          'xtnfzstq' /* BENEFITS */,
                         ),
                         style:
                             FlutterFlowTheme.of(context).labelMedium.override(

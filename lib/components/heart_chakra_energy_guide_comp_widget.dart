@@ -196,7 +196,7 @@ class _HeartChakraEnergyGuideCompWidgetState
                     children: [
                       Text(
                         FFLocalizations.of(context).getText(
-                          'ivsuytwd' /* KEY PRACTICES */,
+                          'c0d3s9ln' /* KEY PRACTICES */,
                         ),
                         style: FlutterFlowTheme.of(context).labelSmall.override(
                               fontFamily: 'WorkSans',

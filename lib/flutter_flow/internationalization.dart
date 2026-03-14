@@ -3395,7 +3395,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '扫描心情',
       'zh_Hant': '掃描心情',
     },
-    '7j4gx0oe': {
+    'o202hguc': {
       'en': 'Home',
       'ar': 'بيت',
       'de': 'Heim',
@@ -4682,7 +4682,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'mqt2x8w2': {
+    '8m2fnbiu': {
       'en': 'Home',
       'ar': 'بيت',
       'de': 'Heim',
@@ -4783,7 +4783,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'vpri7wqm': {
+    'ueplikou': {
       'en': 'Lucille',
       'ar': 'بيت',
       'de': 'Heim',
@@ -5080,7 +5080,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'plwjq0es': {
+    '0r53lakj': {
       'en': 'Please choose an option from the dropdown',
       'ar': '',
       'de': '',
@@ -5108,7 +5108,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '0wmnx17e': {
+    '67ffhlj2': {
       'en': 'Please choose an option from the dropdown',
       'ar': '',
       'de': '',
@@ -5136,7 +5136,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'ckbryurf': {
+    'zyxy3tfz': {
       'en': 'Please choose an option from the dropdown',
       'ar': '',
       'de': '',
@@ -5164,7 +5164,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'zyxy3tfz': {
+    'c6cqwhtu': {
       'en': 'Please choose an option from the dropdown',
       'ar': '',
       'de': '',
@@ -5332,7 +5332,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'q1hgmmtz': {
+    '7j4gx0oe': {
       'en': 'Home',
       'ar': 'بيت',
       'de': 'Heim',
@@ -6049,7 +6049,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '04umfzwe': {
+    'aljbqdyd': {
       'en': 'Home',
       'ar': 'بيت',
       'de': 'Heim',
@@ -6066,7 +6066,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // DestinationDetailsUnrealEngineVersion5
   {
-    'jqm1qdnn': {
+    'ldi9qx1s': {
       'en': 'Home',
       'ar': 'بيت',
       'de': 'Heim',
@@ -6097,7 +6097,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'qk4t3p3g': {
+    'ejfxb3fq': {
       'en': 'Home',
       'ar': 'بيت',
       'de': 'Heim',
@@ -7011,7 +7011,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'jhkftl61': {
+    'lppx0gzs': {
       'en': 'Home',
       'ar': 'بيت',
       'de': 'Heim',
@@ -7252,7 +7252,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'b9yrsahw': {
+    'c6f7ob9y': {
       'en': 'Home',
       'ar': 'بيت',
       'de': 'Heim',
@@ -7269,7 +7269,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // tabbar
   {
-    'r6q41txi': {
+    'dr9zhb0g': {
       'en': 'Home',
       'ar': 'بيت',
       'de': 'Heim',
@@ -7581,7 +7581,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '27epkhem': {
+    'vq4xsokl': {
       'en': 'Home',
       'ar': 'بيت',
       'de': 'Heim',
@@ -8495,776 +8495,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'pakyaq75': {
-      'en': 'Soundscapes',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'p6zq7n47': {
-      'en': 'Good Morning',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    '8r3qseig': {
-      'en': 'Quick Access',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'jz0beswi': {
-      'en': 'All',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'gepu1v85': {
-      'en': 'Featured for You',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    '5lnvzolx': {
-      'en': 'Discover your perfect soundscape',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    '1ztn09wh': {
-      'en': 'See all',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    '1etyx07a': {
-      'en': 'Find Your Mood',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'kx9a70is': {
-      'en': 'See all',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'z4nfo0sz': {
-      'en': 'Relax',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    '6iz17cus': {
-      'en': 'Melt away stress with calming \nsounds and peaceful melodies',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    '1unlu5j6': {
-      'en': 'Focus',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'jcbolaa6': {
-      'en': 'Enhance concentration with \nambient soundscapes',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    '6jai734j': {
-      'en': 'Energize',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'rwsadwg0': {
-      'en': 'Uplift your spirit with vibrant \nnatural sounds',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'g1rlh36f': {
-      'en': 'Sleep',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'oc5ocgpk': {
-      'en': 'Drift into peaceful slumber with \nsoothing night sounds',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'b6gzoan7': {
-      'en': 'Music Mediations',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    '5uf6o1yo': {
-      'en': 'Music For You',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'gr6vdnzc': {
-      'en': 'Discover your perfect soundscape',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'jj1tpekk': {
-      'en': 'See all',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'rqmz8rlb': {
-      'en': 'Find Your Mood',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'xn541fd1': {
-      'en': 'See all',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'y4u1rffm': {
-      'en': 'Relax',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    '1jl34e2d': {
-      'en': 'Melt away stress with calming \nsounds and peaceful melodies',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    '72gmqjnt': {
-      'en': 'Energize',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    '3xjobojj': {
-      'en': 'Uplift your spirit with vibrant \nnatural sounds',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    '5yev19xy': {
-      'en': 'Nature',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'w26v2zlr': {
-      'en': 'Nature Sounds',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'njimf991': {
-      'en': 'Discover your perfect soundscape',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    '1rsq9u19': {
-      'en': 'See all',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'fs7dcvgi': {
-      'en': 'Find Your Mood',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'qt778tew': {
-      'en': 'See all',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'uhi93zsu': {
-      'en': 'Energize',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    '7t0dw4v7': {
-      'en': 'Uplift your spirit with vibrant \nnatural sounds',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'n9rjp9ky': {
-      'en': 'Focus',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    '48fjkhrh': {
-      'en': 'Concentration Flow',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'fyu4tzkf': {
-      'en': 'Discover your perfect soundscape',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    '6vkzua0i': {
-      'en': 'See all',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    '65xbd00j': {
-      'en': 'Find Your Mood',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    '7zma4z4s': {
-      'en': 'See all',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'dd10hamj': {
-      'en': 'Relax',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'w137rq82': {
-      'en': 'Melt away stress with calming \nsounds and peaceful melodies',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'abkdjuhh': {
-      'en': 'Energize',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'qinnq3a1': {
-      'en': 'Uplift your spirit with vibrant \nnatural sounds',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'noqw8xu1': {
-      'en': 'Sleep',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'jga0sai5': {
-      'en': 'Sleep Soundscapes',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'wjdm5gv5': {
-      'en': 'Discover your perfect soundscape',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'r2mjh4g2': {
-      'en': 'See all',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'ho8yfwql': {
-      'en': 'Find Your Mood',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'or7apxjo': {
-      'en': 'See all',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'qukz7yws': {
-      'en': 'Relax',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'u8tfs1ha': {
-      'en': 'Melt away stress with calming \nsounds and peaceful melodies',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'nlbdprwt': {
-      'en': 'Energize',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    '63i1ilg3': {
-      'en': 'Uplift your spirit with vibrant \nnatural sounds',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
     'a2ddepb8': {
       'en': 'Body',
       'ar': '',
@@ -9279,7 +8509,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'ix1ij3ho': {
+    'cly8mku8': {
       'en': 'Community',
       'ar': 'بيت',
       'de': 'Heim',
@@ -9296,7 +8526,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // test_page1
   {
-    'j23dlg0j': {
+    '4zo23mto': {
       'en': 'Home',
       'ar': 'بيت',
       'de': 'Heim',
@@ -9958,7 +9188,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '6hqj8ltb': {
+    'kqb67hvv': {
       'en': 'Home',
       'ar': 'بيت',
       'de': 'Heim',
@@ -10059,7 +9289,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '1jtp40vl': {
+    'bho9cnyy': {
       'en': 'Home',
       'ar': 'بيت',
       'de': 'Heim',
@@ -10076,7 +9306,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // sampple
   {
-    'pdxv8pgi': {
+    'od6lbm8i': {
       'en': 'Home',
       'ar': 'بيت',
       'de': 'Heim',
@@ -10345,7 +9575,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '7b29kf54': {
+    '4j1q4xxt': {
       'en': 'Home',
       'ar': 'بيت',
       'de': 'Heim',
@@ -10671,7 +9901,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'y2g178tw': {
+    'ft5bomaj': {
       'en': 'Home',
       'ar': 'بيت',
       'de': 'Heim',
@@ -12628,23 +11858,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'zjowid56': {
-      'en': 'Home',
-      'ar': 'بيت',
-      'de': 'Heim',
-      'es': 'Hogar',
-      'fr': 'Maison',
-      'it': 'Casa',
-      'ja': '家',
-      'ko': '집',
-      'ru': 'Дом',
-      'uk': 'Дім',
-      'zh_Hans': '家',
-      'zh_Hant': '家',
-    },
-  },
-  // SoundscapeSample
-  {
-    '4yciyi1k': {
       'en': 'Home',
       'ar': 'بيت',
       'de': 'Heim',
@@ -14997,7 +14210,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '3vfxiwf1': {
+    'pd1w7a4y': {
       'en': 'Home',
       'ar': 'بيت',
       'de': 'Heim',
@@ -15655,7 +14868,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'fr8wcnem': {
+    '5iptaf99': {
       'en': 'Home',
       'ar': 'بيت',
       'de': 'Heim',
@@ -15723,7 +14936,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // MeditationHelp
   {
-    '5r1ohy1p': {
+    '6elx1yp5': {
       'en': 'Home',
       'ar': 'بيت',
       'de': 'Heim',
@@ -15740,7 +14953,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // ContactUsVersion5
   {
-    'd3r8m21c': {
+    '6o5ir93c': {
       'en': 'Home',
       'ar': 'بيت',
       'de': 'Heim',
@@ -15757,7 +14970,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // SelfCareGoalsVersion5
   {
-    '3ejywi8c': {
+    'cfs0dqkm': {
       'en': 'Home',
       'ar': 'بيت',
       'de': 'Heim',
@@ -15944,7 +15157,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'h3oyjcto': {
-      'en': 'I Want To Do More!',
+      'en': 'See Explore Page!',
       'ar': '',
       'de': '',
       'es': '',
@@ -15971,7 +15184,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'mxxom224': {
+    'bxk25whp': {
       'en': 'Home',
       'ar': 'بيت',
       'de': 'Heim',
@@ -15988,7 +15201,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // SplashHomeScreen
   {
-    'm5bvkc1y': {
+    'cfz8re3r': {
       'en': 'Home',
       'ar': 'بيت',
       'de': 'Heim',
@@ -16005,7 +15218,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // ComingSoonBody
   {
-    'z6ghicdz': {
+    'ug87r1v3': {
       'en': 'Home',
       'ar': 'بيت',
       'de': 'Heim',
@@ -16716,7 +15929,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'c6cqwhtu': {
+    '57nh9imm': {
       'en': 'Please choose an option from the dropdown',
       'ar': '',
       'de': '',
@@ -21336,7 +20549,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'xenq55q9': {
-      'en': 'I Want To Do More!',
+      'en': 'See Explore Page!',
       'ar': '',
       'de': '',
       'es': '',
@@ -21522,7 +20735,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'g5f7i4rn': {
-      'en': 'I Want To Do More!',
+      'en': 'See Explore Page!',
       'ar': '',
       'de': '',
       'es': '',
@@ -28954,7 +28167,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'aq46o9nt': {
+    's4u88ude': {
       'en': 'Growth',
       'ar': '',
       'de': '',
@@ -31628,7 +30841,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // SampleComp
   {
-    '0dsbwk46': {
+    '27wufdp7': {
       'en':
           'Immerse yourself in a personalized therapeutic world designed for deep healing and growth.',
       'ar': '',
@@ -31643,7 +30856,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '12qfe994': {
+    'kb7xjgw7': {
       'en': 'Enter World',
       'ar': '',
       'de': '',
@@ -31657,7 +30870,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'ookqc5ux': {
+    '4ft3y4o6': {
       'en': 'Innerverse Launching Soon',
       'ar': '',
       'de': '',
@@ -34811,7 +34024,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'c80rim4a': {
+    '20eafkkz': {
       'en': '100',
       'ar': '',
       'de': '',
@@ -34839,7 +34052,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'vlnu0w5o': {
+    'vzhvs7bi': {
       'en': 'Lucille\'s Energy Scan Highlights',
       'ar': '',
       'de': '',
@@ -35039,7 +34252,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'kjf1s0ez': {
+    'l8hai72s': {
       'en': '100',
       'ar': '',
       'de': '',
@@ -35137,7 +34350,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '4ahnupca': {
+    'hqy5vype': {
       'en': 'Interpretation',
       'ar': '',
       'de': '',
@@ -35166,7 +34379,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '7ku6k188': {
+    '4vbdco65': {
       'en': 'Suggested Actions',
       'ar': '',
       'de': '',
@@ -35295,7 +34508,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'hly4oynh': {
+    'a3yc193h': {
       'en': '100',
       'ar': '',
       'de': '',
@@ -35323,7 +34536,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'u7kh13m9': {
+    'wly2reqg': {
       'en': 'Why Lucille Thinks This',
       'ar': '',
       'de': '',
@@ -35379,7 +34592,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '9avdbtip': {
+    '5o48eubj': {
       'en': 'Interpretation',
       'ar': '',
       'de': '',
@@ -35408,7 +34621,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'chuee8pe': {
+    'rf7qb3wc': {
       'en': 'Suggested Actions',
       'ar': '',
       'de': '',
@@ -35436,7 +34649,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'bp4j4jz7': {
+    'si0wus36': {
       'en': 'Start Brainwave Music Exercise',
       'ar': '',
       'de': '',
@@ -39799,7 +39012,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '6a3ls66j': {
+    'smqou1xp': {
       'en': 'Any',
       'ar': '',
       'de': '',
@@ -39914,7 +39127,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '9rit2p6b': {
+    'lm8ah7ef': {
       'en': 'Guided breathing to \nmelt away tension',
       'ar': '',
       'de': '',
@@ -40026,7 +39239,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'fstfw9wv': {
+    'zmg31unl': {
       'en': 'Soothing rainfall sounds',
       'ar': '',
       'de': '',
@@ -40040,7 +39253,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'ub87b18p': {
+    '7ab8yge4': {
       'en': '100 Coins',
       'ar': '',
       'de': '',
@@ -40096,7 +39309,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '9709npom': {
+    '5nwsuj46': {
       'en': '100 Coins',
       'ar': '',
       'de': '',
@@ -40152,7 +39365,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'hfp4qml6': {
+    '0zu8cq5u': {
       'en': '50 Coins',
       'ar': '',
       'de': '',
@@ -40208,7 +39421,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '0arhvidl': {
+    '8iw8qeh9': {
       'en': '50 Coins',
       'ar': '',
       'de': '',
@@ -40264,7 +39477,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '4xjbgbfk': {
+    'diysogrz': {
       'en': '50 Coins',
       'ar': '',
       'de': '',
@@ -40379,7 +39592,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '7cpuxuc6': {
+    'dbqsj9bj': {
       'en': 'Any',
       'ar': '',
       'de': '',
@@ -40407,7 +39620,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'a3ui4r5f': {
+    'mp7ddkus': {
       'en': 'Mindful journal practice',
       'ar': '',
       'de': '',
@@ -40421,7 +39634,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'azywtjoo': {
+    'zhdcbvs9': {
       'en': 'Any',
       'ar': '',
       'de': '',
@@ -40477,7 +39690,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'uxoy4lu3': {
+    'm400h3lc': {
       'en': 'Get a great nights rest with \npeaceful music',
       'ar': '',
       'de': '',
@@ -40491,7 +39704,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'a5gi6ld6': {
+    'h50lt8hp': {
       'en': '100 Coins',
       'ar': '',
       'de': '',
@@ -40519,7 +39732,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'bbv43cgq': {
+    'k5m0918v': {
       'en': 'Learn to breathe in a slower pace',
       'ar': '',
       'de': '',
@@ -40533,7 +39746,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'c7s4ekx7': {
+    'trzzso44': {
       'en': '50 Coins',
       'ar': '',
       'de': '',
@@ -40547,7 +39760,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'aqix4i3r': {
+    'p4yswaln': {
       'en': 'Overthinking and Stress Relief',
       'ar': '',
       'de': '',
@@ -40561,7 +39774,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'c9tv9g8j': {
+    '03afigyb': {
       'en':
           'Alleviate anxiety and gain coins\nfor your Solar Plexus Energy Center',
       'ar': '',
@@ -40576,7 +39789,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '1ktk53z8': {
+    'wjl2dqe3': {
       'en': '100 Coins',
       'ar': '',
       'de': '',
@@ -40632,7 +39845,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'ycx1y937': {
+    '4ape5vl3': {
       'en': 'Have a peaceful day \nwith a wiritng goal',
       'ar': '',
       'de': '',
@@ -40646,7 +39859,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'h4zv8yfu': {
+    '2poje8r7': {
       'en': 'Any',
       'ar': '',
       'de': '',
@@ -40674,7 +39887,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'e8v67jgx': {
+    '4pdvf20e': {
       'en': 'End your day with personal \ncommunication',
       'ar': '',
       'de': '',
@@ -40688,7 +39901,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'hbdwy8x7': {
+    'o30k8mrs': {
       'en': 'Any',
       'ar': '',
       'de': '',
@@ -40803,7 +40016,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '9w90ajis': {
+    '9ga29hxh': {
       'en': 'Guided breathing to melt away tension',
       'ar': '',
       'de': '',
@@ -40887,7 +40100,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '80js63xc': {
+    '5ikdthcz': {
       'en': 'Mindful sipping practice',
       'ar': '',
       'de': '',
@@ -40943,7 +40156,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'z2z651a8': {
+    'kwqtg2xx': {
       'en': 'Release physical tension gently',
       'ar': '',
       'de': '',
@@ -40985,7 +40198,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'ckgfql34': {
+    'riuyeb8j': {
       'en': 'Release through writing',
       'ar': '',
       'de': '',
@@ -41027,7 +40240,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'maushv68': {
+    'rt9eqkqn': {
       'en': 'End your day with peace',
       'ar': '',
       'de': '',
@@ -50120,7 +49333,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'i3eumc06': {
+    'non0pkbp': {
       'en': 'KEY PRACTICES',
       'ar': '',
       'de': '',
@@ -50404,7 +49617,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'xu3bbyc4': {
+    '6vkrlz8n': {
       'en': 'KEY PRACTICES',
       'ar': '',
       'de': '',
@@ -50474,7 +49687,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '14vz6o4q': {
+    '2jmt5hx4': {
       'en': 'BENEFITS',
       'ar': '',
       'de': '',
@@ -50689,7 +49902,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'ivsuytwd': {
+    'c0d3s9ln': {
       'en': 'KEY PRACTICES',
       'ar': '',
       'de': '',
@@ -51242,7 +50455,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'wfuv0bfx': {
+    'txky1irc': {
       'en': 'LOCATION',
       'ar': '',
       'de': '',
@@ -51270,7 +50483,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'c1xpwxhz': {
+    'tpdwhzlp': {
       'en': 'ELEMENT',
       'ar': '',
       'de': '',
@@ -51313,7 +50526,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'thxetg8v': {
+    '19glalim': {
       'en': 'KEY PRACTICES',
       'ar': '',
       'de': '',
@@ -51383,7 +50596,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'udo5duo0': {
+    '7u4mjjoz': {
       'en': 'BENEFITS',
       'ar': '',
       'de': '',
@@ -51540,7 +50753,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'zd48yys6': {
+    'o2xgs4fy': {
       'en': 'LOCATION',
       'ar': '',
       'de': '',
@@ -51568,7 +50781,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'pxlpye9h': {
+    'wyz4xgus': {
       'en': 'ELEMENT',
       'ar': '',
       'de': '',
@@ -51611,7 +50824,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '3b3vv8wn': {
+    '69604hxa': {
       'en': 'KEY PRACTICES',
       'ar': '',
       'de': '',
@@ -51709,7 +50922,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'ywf0lh7x': {
+    'xtnfzstq': {
       'en': 'BENEFITS',
       'ar': '',
       'de': '',
@@ -51895,34 +51108,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'gme20n8b': {
-      'en': 'How to Meditate',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'um94kga5': {
-      'en': 'Start your first guided meditation',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
     'l918btbp': {
       'en': 'Mood Scanner',
       'ar': '',
@@ -51939,6 +51124,34 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'ejng84zj': {
       'en': 'Scan your mood and energy for the day for emotional insights',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+    'gme20n8b': {
+      'en': 'How to Meditate',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+    'um94kga5': {
+      'en': 'Start your first guided meditation',
       'ar': '',
       'de': '',
       'es': '',
@@ -53772,6 +52985,20 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
+    '7zjup13p': {
+      'en': '2 of 7',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
     'p8ywpu2l': {
       'en': 'Back',
       'ar': '',
@@ -53817,6 +53044,20 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'mjum14y3': {
       'en':
           'Whether you need a quick Reset, want to Journal your thoughts, explore immersive Worlds, or connect with our Community, I\'ll help you find the right tool for whatever you\'re experiencing.',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+    'z808sfcb': {
+      'en': '3 of 7',
       'ar': '',
       'de': '',
       'es': '',
@@ -53886,6 +53127,20 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
+    '88bu0fbe': {
+      'en': '4 of 7',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
     'q2jofmoy': {
       'en': 'Back',
       'ar': '',
@@ -53931,6 +53186,20 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'uth8pp13': {
       'en':
           'Explore themed meditation collections like Morning Clarity, Deep Sleep, Stress Relief, and Gratitude Flow. Each collection is designed for specific moments and needs in your day.',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+    'ltchw6ti': {
+      'en': '5 of 7',
       'ar': '',
       'de': '',
       'es': '',
@@ -54000,6 +53269,20 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
+    'oktdn6eh': {
+      'en': '6 of 7',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
     'w4iz4c0c': {
       'en': 'Back',
       'ar': '',
@@ -54045,6 +53328,20 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'ykd35hrk': {
       'en':
           'Tap any collection or category to begin. Remember, there\'s no perfect way to meditate—just your way. Let Lucille guide you to discover what works best for you.',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+    'rz4qpafr': {
+      'en': '7 of 7',
       'ar': '',
       'de': '',
       'es': '',
@@ -55766,7 +55063,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // tabbar2
   {
-    'sycy9eot': {
+    '6i0dubil': {
       'en': 'This week',
       'ar': '',
       'de': '',
@@ -55780,7 +55077,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'swq0dqx6': {
+    'j858t0dt': {
       'en': 'This week',
       'ar': '',
       'de': '',
@@ -55794,7 +55091,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'cqycy5zi': {
+    'f4gxm5dj': {
       'en': 'This quarter',
       'ar': '',
       'de': '',
@@ -55808,7 +55105,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'h4z0nzi5': {
+    'v6eo9rl8': {
       'en': 'this quarter',
       'ar': '',
       'de': '',
@@ -55822,7 +55119,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '1u1vo6jk': {
+    'hrgo53i5': {
       'en': 'All time',
       'ar': '',
       'de': '',
@@ -55836,7 +55133,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'w10jk0nf': {
+    'fvk6p0o1': {
       'en': 'All time',
       'ar': '',
       'de': '',
@@ -55850,7 +55147,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'zxbc9fl4': {
+    'iwccy2a6': {
       'en': 'Custom Value',
       'ar': '',
       'de': '',
@@ -55864,7 +55161,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'l77brlgd': {
+    'ekngrl64': {
       'en': 'Custom Value',
       'ar': '',
       'de': '',
@@ -55937,7 +55234,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    '09lixunh': {
+    'uwdbemdm': {
       'en': 'Duration',
       'ar': '',
       'de': '',
@@ -56037,7 +55334,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'fp5dmqc8': {
-      'en': 'I Want To Do More!',
+      'en': 'See Explore Page!',
       'ar': '',
       'de': '',
       'es': '',

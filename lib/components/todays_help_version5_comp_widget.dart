@@ -571,7 +571,7 @@ class _TodaysHelpVersion5CompWidgetState
                       Container(
                         width: double.infinity,
                         decoration: BoxDecoration(
-                          color: Color(0xFF4D6BB3),
+                          color: Color(0x894D6BB3),
                           borderRadius: BorderRadius.circular(16.0),
                           border: Border.all(
                             color: Colors.white,
@@ -679,7 +679,7 @@ class _TodaysHelpVersion5CompWidgetState
                       Container(
                         width: double.infinity,
                         decoration: BoxDecoration(
-                          color: Color(0xFF4DB3A3),
+                          color: Color(0x7A4DB3A3),
                           borderRadius: BorderRadius.circular(16.0),
                           border: Border.all(
                             color: Colors.white,
@@ -787,7 +787,7 @@ class _TodaysHelpVersion5CompWidgetState
                       Container(
                         width: double.infinity,
                         decoration: BoxDecoration(
-                          color: Color(0xFF9B6BB3),
+                          color: Color(0x9E9B6BB3),
                           borderRadius: BorderRadius.circular(16.0),
                           border: Border.all(
                             color: Colors.white,

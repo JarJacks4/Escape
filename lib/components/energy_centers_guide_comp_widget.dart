@@ -195,6 +195,7 @@ class _EnergyCentersGuideCompWidgetState
                         EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 20.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Row(
@@ -616,7 +617,10 @@ class _EnergyCentersGuideCompWidgetState
                     height: MediaQuery.sizeOf(context).height * 0.156,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
-                        colors: [Color(0xFFD4A574), Color(0xFFB8A0D4)],
+                        colors: [
+                          Color(0xFFD4A574),
+                          FlutterFlowTheme.of(context).accent1
+                        ],
                         stops: [0.0, 1.0],
                         begin: AlignmentDirectional(0.0, -1.0),
                         end: AlignmentDirectional(0, 1.0),
@@ -627,7 +631,7 @@ class _EnergyCentersGuideCompWidgetState
                       padding: EdgeInsets.all(25.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Row(
@@ -834,39 +838,37 @@ class _EnergyCentersGuideCompWidgetState
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Flexible(
-                                      child: Align(
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0),
-                                        child: Container(
-                                          height: 32.0,
-                                          decoration: BoxDecoration(
-                                            color: Colors.white,
-                                            borderRadius:
-                                                BorderRadius.circular(16.0),
-                                          ),
-                                          child: Align(
-                                            alignment:
-                                                AlignmentDirectional(0.0, 0.0),
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      12.0, 4.0, 12.0, 4.0),
-                                              child: Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'iork9bya' /* Creative Expression */,
-                                                ),
-                                                textAlign: TextAlign.center,
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodySmall
-                                                    .override(
-                                                      fontFamily: 'WorkSans',
-                                                      color: Color(0xFFD4A574),
-                                                      fontSize: 11.0,
-                                                      letterSpacing: 0.0,
-                                                    ),
+                                      child: Container(
+                                        height: 33.79,
+                                        decoration: BoxDecoration(
+                                          color: Color(0xA4FFFFFF),
+                                          borderRadius:
+                                              BorderRadius.circular(16.0),
+                                        ),
+                                        child: Align(
+                                          alignment:
+                                              AlignmentDirectional(0.0, 0.0),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 4.0, 12.0, 4.0),
+                                            child: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'iork9bya' /* Creative Expression */,
                                               ),
+                                              textAlign: TextAlign.center,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodySmall
+                                                      .override(
+                                                        fontFamily: 'WorkSans',
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
+                                                        fontSize: 11.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
                                             ),
                                           ),
                                         ),
@@ -874,39 +876,37 @@ class _EnergyCentersGuideCompWidgetState
                                     ),
                                     Flexible(
                                       flex: 1,
-                                      child: Align(
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0),
-                                        child: Container(
-                                          height: 32.0,
-                                          decoration: BoxDecoration(
-                                            color: Colors.white,
-                                            borderRadius:
-                                                BorderRadius.circular(16.0),
-                                          ),
-                                          child: Align(
-                                            alignment:
-                                                AlignmentDirectional(0.0, 0.0),
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      12.0, 4.0, 12.0, 4.0),
-                                              child: Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  '7q1zyapj' /* Hip-Opening Yoga */,
-                                                ),
-                                                textAlign: TextAlign.center,
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodySmall
-                                                    .override(
-                                                      fontFamily: 'WorkSans',
-                                                      color: Color(0xFFD4A574),
-                                                      fontSize: 11.0,
-                                                      letterSpacing: 0.0,
-                                                    ),
+                                      child: Container(
+                                        height: 34.23,
+                                        decoration: BoxDecoration(
+                                          color: Color(0xA4FFFFFF),
+                                          borderRadius:
+                                              BorderRadius.circular(16.0),
+                                        ),
+                                        child: Align(
+                                          alignment:
+                                              AlignmentDirectional(0.0, 0.0),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 4.0, 12.0, 4.0),
+                                            child: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                '7q1zyapj' /* Hip-Opening Yoga */,
                                               ),
+                                              textAlign: TextAlign.center,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodySmall
+                                                      .override(
+                                                        fontFamily: 'WorkSans',
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
+                                                        fontSize: 11.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
                                             ),
                                           ),
                                         ),
@@ -918,39 +918,37 @@ class _EnergyCentersGuideCompWidgetState
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Flexible(
-                                      child: Align(
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0),
-                                        child: Container(
-                                          height: 32.0,
-                                          decoration: BoxDecoration(
-                                            color: Colors.white,
-                                            borderRadius:
-                                                BorderRadius.circular(16.0),
-                                          ),
-                                          child: Align(
-                                            alignment:
-                                                AlignmentDirectional(0.0, 0.0),
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      12.0, 4.0, 12.0, 4.0),
-                                              child: Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'g88xqqnb' /* Emotional Release */,
-                                                ),
-                                                textAlign: TextAlign.center,
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodySmall
-                                                    .override(
-                                                      fontFamily: 'WorkSans',
-                                                      color: Color(0xFFD4A574),
-                                                      fontSize: 11.0,
-                                                      letterSpacing: 0.0,
-                                                    ),
+                                      child: Container(
+                                        height: 32.0,
+                                        decoration: BoxDecoration(
+                                          color: Color(0xA4FFFFFF),
+                                          borderRadius:
+                                              BorderRadius.circular(16.0),
+                                        ),
+                                        child: Align(
+                                          alignment:
+                                              AlignmentDirectional(0.0, 0.0),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 4.0, 12.0, 4.0),
+                                            child: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'g88xqqnb' /* Emotional Release */,
                                               ),
+                                              textAlign: TextAlign.center,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodySmall
+                                                      .override(
+                                                        fontFamily: 'WorkSans',
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
+                                                        fontSize: 11.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
                                             ),
                                           ),
                                         ),
@@ -958,38 +956,36 @@ class _EnergyCentersGuideCompWidgetState
                                     ),
                                     Flexible(
                                       flex: 1,
-                                      child: Align(
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0),
-                                        child: Container(
-                                          height: 32.0,
-                                          decoration: BoxDecoration(
-                                            color: Colors.white,
-                                            borderRadius:
-                                                BorderRadius.circular(16.0),
-                                          ),
-                                          child: Align(
-                                            alignment:
-                                                AlignmentDirectional(0.0, 0.0),
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      12.0, 4.0, 12.0, 4.0),
-                                              child: Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'auxpvdxs' /* Water Meditation */,
-                                                ),
-                                                style: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodySmall
-                                                    .override(
-                                                      fontFamily: 'WorkSans',
-                                                      color: Color(0xFFD4A574),
-                                                      fontSize: 11.0,
-                                                      letterSpacing: 0.0,
-                                                    ),
+                                      child: Container(
+                                        height: 32.0,
+                                        decoration: BoxDecoration(
+                                          color: Color(0xA4FFFFFF),
+                                          borderRadius:
+                                              BorderRadius.circular(16.0),
+                                        ),
+                                        child: Align(
+                                          alignment:
+                                              AlignmentDirectional(0.0, 0.0),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 4.0, 12.0, 4.0),
+                                            child: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'auxpvdxs' /* Water Meditation */,
                                               ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodySmall
+                                                      .override(
+                                                        fontFamily: 'WorkSans',
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
+                                                        fontSize: 11.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
                                             ),
                                           ),
                                         ),
@@ -1121,17 +1117,17 @@ class _EnergyCentersGuideCompWidgetState
                               ].divide(SizedBox(height: 8.0)),
                             ),
                           ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 15.0, 0.0, 0.0),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 25.0, 0.0, 0.0),
-                                  child: Material(
+                          Flexible(
+                            flex: 1,
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 15.0, 0.0, 0.0),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Material(
                                     color: Colors.transparent,
                                     elevation: 3.0,
                                     shape: RoundedRectangleBorder(
@@ -1197,8 +1193,8 @@ class _EnergyCentersGuideCompWidgetState
                                       ),
                                     ),
                                   ),
-                                ),
-                              ].divide(SizedBox(height: 8.0)),
+                                ].divide(SizedBox(height: 8.0)),
+                              ),
                             ),
                           ),
                         ].divide(SizedBox(height: 16.0)),
@@ -1209,146 +1205,89 @@ class _EnergyCentersGuideCompWidgetState
               ),
               Flexible(
                 flex: 1,
-                child: Align(
-                  alignment: AlignmentDirectional(0.0, 0.0),
-                  child: Container(
-                    width: 300.0,
-                    height: 690.2,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [Color(0xFF9B7CB6), Color(0xFFD4AF37)],
-                        stops: [0.0, 1.0],
-                        begin: AlignmentDirectional(0.0, -1.0),
-                        end: AlignmentDirectional(0, 1.0),
-                      ),
-                      borderRadius: BorderRadius.circular(20.0),
+                child: Container(
+                  width: 300.0,
+                  height: 690.2,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [Color(0xFFA86B06), Color(0xFFD4AF37)],
+                      stops: [0.0, 1.0],
+                      begin: AlignmentDirectional(0.0, -1.0),
+                      end: AlignmentDirectional(0, 1.0),
                     ),
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          20.0, 20.0, 20.0, 20.0),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Icon(
-                                Icons.wb_sunny,
-                                color: Colors.white,
-                                size: 32.0,
-                              ),
-                              Column(
-                                mainAxisSize: MainAxisSize.max,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    FFLocalizations.of(context).getText(
-                                      'xcda3lug' /* Solar Plexus Chakra */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .headlineSmall
-                                        .override(
-                                          fontFamily: 'The Seasons',
-                                          color: Colors.white,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                  ),
-                                  Text(
-                                    FFLocalizations.of(context).getText(
-                                      'pxq3zh7z' /* Manipura */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodySmall
-                                        .override(
-                                          fontFamily: 'The Seasons',
-                                          color: Colors.white,
-                                          letterSpacing: 0.0,
-                                        ),
-                                  ),
-                                  Text(
-                                    FFLocalizations.of(context).getText(
-                                      'sjqzremw' /* Personal Power & Confidence */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .labelSmall
-                                        .override(
-                                          fontFamily: 'WorkSans',
-                                          color: Colors.white,
-                                          letterSpacing: 0.0,
-                                        ),
-                                  ),
-                                ],
-                              ),
-                            ].divide(SizedBox(width: 12.0)),
-                          ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 8.0, 0.0, 0.0),
-                            child: Row(
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 20.0),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Icon(
+                              Icons.wb_sunny,
+                              color: Colors.white,
+                              size: 32.0,
+                            ),
+                            Column(
                               mainAxisSize: MainAxisSize.max,
-                              crossAxisAlignment: CrossAxisAlignment.end,
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Container(
-                                  height: 19.2,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(16.0),
+                                Text(
+                                  FFLocalizations.of(context).getText(
+                                    'xcda3lug' /* Solar Plexus Chakra */,
                                   ),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 4.0, 12.0, 4.0),
-                                    child: Text(
-                                      FFLocalizations.of(context).getText(
-                                        'ajmp4v43' /* LOCATION */,
+                                  style: FlutterFlowTheme.of(context)
+                                      .headlineSmall
+                                      .override(
+                                        fontFamily: 'The Seasons',
+                                        color: Colors.white,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.bold,
                                       ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .labelSmall
-                                          .override(
-                                            fontFamily: 'WorkSans',
-                                            color: Colors.white,
-                                            fontSize: 10.0,
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.w600,
-                                          ),
-                                    ),
-                                  ),
                                 ),
-                                Container(
-                                  height: 20.13,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(16.0),
+                                Text(
+                                  FFLocalizations.of(context).getText(
+                                    'pxq3zh7z' /* Manipura */,
                                   ),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        12.0, 4.0, 12.0, 4.0),
-                                    child: Text(
-                                      FFLocalizations.of(context).getText(
-                                        'njrw0q24' /* ELEMENT */,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodySmall
+                                      .override(
+                                        fontFamily: 'The Seasons',
+                                        color: Colors.white,
+                                        letterSpacing: 0.0,
                                       ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .labelSmall
-                                          .override(
-                                            fontFamily: 'WorkSans',
-                                            color: Colors.white,
-                                            fontSize: 10.0,
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.w600,
-                                          ),
-                                    ),
-                                  ),
                                 ),
-                              ].divide(SizedBox(width: 12.0)),
+                                Text(
+                                  FFLocalizations.of(context).getText(
+                                    'sjqzremw' /* Personal Power & Confidence */,
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .labelSmall
+                                      .override(
+                                        fontFamily: 'WorkSans',
+                                        color: Colors.white,
+                                        letterSpacing: 0.0,
+                                      ),
+                                ),
+                              ],
                             ),
-                          ),
-                          Row(
+                          ].divide(SizedBox(width: 12.0)),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 8.0, 0.0, 0.0),
+                          child: Row(
                             mainAxisSize: MainAxisSize.max,
+                            crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
                               Container(
-                                height: 19.79,
+                                height: 19.2,
                                 decoration: BoxDecoration(
-                                  color: Color(0xFFD4AF37),
                                   borderRadius: BorderRadius.circular(16.0),
                                 ),
                                 child: Padding(
@@ -1356,7 +1295,7 @@ class _EnergyCentersGuideCompWidgetState
                                       12.0, 4.0, 12.0, 4.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
-                                      '2gskxrfk' /* Upper Abdomen */,
+                                      'ajmp4v43' /* LOCATION */,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .labelSmall
@@ -1365,14 +1304,14 @@ class _EnergyCentersGuideCompWidgetState
                                           color: Colors.white,
                                           fontSize: 10.0,
                                           letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w600,
                                         ),
                                   ),
                                 ),
                               ),
                               Container(
-                                height: 20.95,
+                                height: 20.13,
                                 decoration: BoxDecoration(
-                                  color: Color(0xFFD4AF37),
                                   borderRadius: BorderRadius.circular(16.0),
                                 ),
                                 child: Padding(
@@ -1380,7 +1319,7 @@ class _EnergyCentersGuideCompWidgetState
                                       12.0, 4.0, 12.0, 4.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
-                                      'gwhxteyx' /* Fire */,
+                                      'njrw0q24' /* ELEMENT */,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .labelSmall
@@ -1389,223 +1328,279 @@ class _EnergyCentersGuideCompWidgetState
                                           color: Colors.white,
                                           fontSize: 10.0,
                                           letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w600,
                                         ),
                                   ),
                                 ),
                               ),
                             ].divide(SizedBox(width: 12.0)),
                           ),
-                          Text(
+                        ),
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Container(
+                              height: 19.79,
+                              decoration: BoxDecoration(
+                                color: Color(0xFFD4AF37),
+                                borderRadius: BorderRadius.circular(16.0),
+                              ),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    12.0, 4.0, 12.0, 4.0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    '2gskxrfk' /* Upper Abdomen */,
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .labelSmall
+                                      .override(
+                                        fontFamily: 'WorkSans',
+                                        color: Colors.white,
+                                        fontSize: 10.0,
+                                        letterSpacing: 0.0,
+                                      ),
+                                ),
+                              ),
+                            ),
+                            Container(
+                              height: 20.95,
+                              decoration: BoxDecoration(
+                                color: Color(0xFFD4AF37),
+                                borderRadius: BorderRadius.circular(16.0),
+                              ),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    12.0, 4.0, 12.0, 4.0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    'gwhxteyx' /* Fire */,
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .labelSmall
+                                      .override(
+                                        fontFamily: 'WorkSans',
+                                        color: Colors.white,
+                                        fontSize: 10.0,
+                                        letterSpacing: 0.0,
+                                      ),
+                                ),
+                              ),
+                            ),
+                          ].divide(SizedBox(width: 12.0)),
+                        ),
+                        Text(
+                          FFLocalizations.of(context).getText(
+                            '7w8fqhdh' /* The Solar Plexus Chakra is you... */,
+                          ),
+                          style:
+                              FlutterFlowTheme.of(context).bodySmall.override(
+                                    fontFamily: 'WorkSans',
+                                    color: Colors.white,
+                                    fontSize: 12.0,
+                                    letterSpacing: 0.0,
+                                  ),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 8.0, 0.0, 0.0),
+                          child: Text(
                             FFLocalizations.of(context).getText(
-                              '7w8fqhdh' /* The Solar Plexus Chakra is you... */,
+                              'spfn1180' /* KEY PRACTICES */,
                             ),
-                            style:
-                                FlutterFlowTheme.of(context).bodySmall.override(
-                                      fontFamily: 'WorkSans',
-                                      color: Colors.white,
-                                      fontSize: 12.0,
-                                      letterSpacing: 0.0,
-                                    ),
+                            style: FlutterFlowTheme.of(context)
+                                .labelMedium
+                                .override(
+                                  fontFamily: 'WorkSans',
+                                  color: Colors.white,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w600,
+                                ),
                           ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 8.0, 0.0, 0.0),
-                            child: Text(
+                        ),
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Container(
+                              height: 25.0,
+                              decoration: BoxDecoration(
+                                color: Color(0xFFD4AF37),
+                                borderRadius: BorderRadius.circular(16.0),
+                              ),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    12.0, 4.0, 12.0, 4.0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    '3dt7fpbk' /* Power Breathwork */,
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .labelSmall
+                                      .override(
+                                        fontFamily: 'WorkSans',
+                                        color: Colors.white,
+                                        fontSize: 10.0,
+                                        letterSpacing: 0.0,
+                                      ),
+                                ),
+                              ),
+                            ),
+                            Container(
+                              height: 25.0,
+                              decoration: BoxDecoration(
+                                color: Color(0xFFD4AF37),
+                                borderRadius: BorderRadius.circular(16.0),
+                              ),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    12.0, 4.0, 12.0, 4.0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    'dxyuzmb8' /* Core Strengthening */,
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .labelSmall
+                                      .override(
+                                        fontFamily: 'WorkSans',
+                                        color: Colors.white,
+                                        fontSize: 10.0,
+                                        letterSpacing: 0.0,
+                                      ),
+                                ),
+                              ),
+                            ),
+                          ].divide(SizedBox(width: 12.0)),
+                        ),
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Container(
+                              height: 25.0,
+                              decoration: BoxDecoration(
+                                color: Color(0xFFD4AF37),
+                                borderRadius: BorderRadius.circular(16.0),
+                              ),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    12.0, 4.0, 12.0, 4.0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    'kyibqrb3' /* Confidence Building */,
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .labelSmall
+                                      .override(
+                                        fontFamily: 'WorkSans',
+                                        color: Colors.white,
+                                        fontSize: 10.0,
+                                        letterSpacing: 0.0,
+                                      ),
+                                ),
+                              ),
+                            ),
+                            Container(
+                              height: 25.0,
+                              decoration: BoxDecoration(
+                                color: Color(0xFFD4AF37),
+                                borderRadius: BorderRadius.circular(16.0),
+                              ),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    12.0, 4.0, 12.0, 4.0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    'bsnh5kwz' /* Fire Visualization */,
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .labelSmall
+                                      .override(
+                                        fontFamily: 'WorkSans',
+                                        color: Colors.white,
+                                        fontSize: 10.0,
+                                        letterSpacing: 0.0,
+                                      ),
+                                ),
+                              ),
+                            ),
+                          ].divide(SizedBox(width: 12.0)),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 25.0, 0.0, 0.0),
+                          child: Text(
+                            FFLocalizations.of(context).getText(
+                              '0t5r3a49' /* BENEFITS */,
+                            ),
+                            style: FlutterFlowTheme.of(context)
+                                .labelMedium
+                                .override(
+                                  fontFamily: 'WorkSans',
+                                  color: Colors.white,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                          ),
+                        ),
+                        Column(
+                          mainAxisSize: MainAxisSize.max,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
                               FFLocalizations.of(context).getText(
-                                'spfn1180' /* KEY PRACTICES */,
+                                '4wj5z3yu' /* • Increased self-confidence */,
                               ),
                               style: FlutterFlowTheme.of(context)
-                                  .labelMedium
+                                  .bodySmall
                                   .override(
                                     fontFamily: 'WorkSans',
                                     color: Colors.white,
+                                    fontSize: 12.0,
                                     letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w600,
                                   ),
                             ),
-                          ),
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Container(
-                                height: 25.0,
-                                decoration: BoxDecoration(
-                                  color: Color(0xFFD4AF37),
-                                  borderRadius: BorderRadius.circular(16.0),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      12.0, 4.0, 12.0, 4.0),
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      '3dt7fpbk' /* Power Breathwork */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .labelSmall
-                                        .override(
-                                          fontFamily: 'WorkSans',
-                                          color: Colors.white,
-                                          fontSize: 10.0,
-                                          letterSpacing: 0.0,
-                                        ),
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                height: 25.0,
-                                decoration: BoxDecoration(
-                                  color: Color(0xFFD4AF37),
-                                  borderRadius: BorderRadius.circular(16.0),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      12.0, 4.0, 12.0, 4.0),
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      'dxyuzmb8' /* Core Strengthening */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .labelSmall
-                                        .override(
-                                          fontFamily: 'WorkSans',
-                                          color: Colors.white,
-                                          fontSize: 10.0,
-                                          letterSpacing: 0.0,
-                                        ),
-                                  ),
-                                ),
-                              ),
-                            ].divide(SizedBox(width: 12.0)),
-                          ),
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Container(
-                                height: 25.0,
-                                decoration: BoxDecoration(
-                                  color: Color(0xFFD4AF37),
-                                  borderRadius: BorderRadius.circular(16.0),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      12.0, 4.0, 12.0, 4.0),
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      'kyibqrb3' /* Confidence Building */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .labelSmall
-                                        .override(
-                                          fontFamily: 'WorkSans',
-                                          color: Colors.white,
-                                          fontSize: 10.0,
-                                          letterSpacing: 0.0,
-                                        ),
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                height: 25.0,
-                                decoration: BoxDecoration(
-                                  color: Color(0xFFD4AF37),
-                                  borderRadius: BorderRadius.circular(16.0),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      12.0, 4.0, 12.0, 4.0),
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      'bsnh5kwz' /* Fire Visualization */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .labelSmall
-                                        .override(
-                                          fontFamily: 'WorkSans',
-                                          color: Colors.white,
-                                          fontSize: 10.0,
-                                          letterSpacing: 0.0,
-                                        ),
-                                  ),
-                                ),
-                              ),
-                            ].divide(SizedBox(width: 12.0)),
-                          ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 25.0, 0.0, 0.0),
-                            child: Text(
+                            Text(
                               FFLocalizations.of(context).getText(
-                                '0t5r3a49' /* BENEFITS */,
+                                'wwup3ruc' /* • Enhanced personal power */,
                               ),
                               style: FlutterFlowTheme.of(context)
-                                  .labelMedium
+                                  .bodySmall
                                   .override(
                                     fontFamily: 'WorkSans',
                                     color: Colors.white,
+                                    fontSize: 12.0,
                                     letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w600,
                                   ),
                             ),
-                          ),
-                          Column(
-                            mainAxisSize: MainAxisSize.max,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                FFLocalizations.of(context).getText(
-                                  '4wj5z3yu' /* • Increased self-confidence */,
-                                ),
-                                style: FlutterFlowTheme.of(context)
-                                    .bodySmall
-                                    .override(
-                                      fontFamily: 'WorkSans',
-                                      color: Colors.white,
-                                      fontSize: 12.0,
-                                      letterSpacing: 0.0,
-                                    ),
+                            Text(
+                              FFLocalizations.of(context).getText(
+                                '2ex9m7zv' /* • Better decision-making */,
                               ),
-                              Text(
-                                FFLocalizations.of(context).getText(
-                                  'wwup3ruc' /* • Enhanced personal power */,
-                                ),
-                                style: FlutterFlowTheme.of(context)
-                                    .bodySmall
-                                    .override(
-                                      fontFamily: 'WorkSans',
-                                      color: Colors.white,
-                                      fontSize: 12.0,
-                                      letterSpacing: 0.0,
-                                    ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodySmall
+                                  .override(
+                                    fontFamily: 'WorkSans',
+                                    color: Colors.white,
+                                    fontSize: 12.0,
+                                    letterSpacing: 0.0,
+                                  ),
+                            ),
+                            Text(
+                              FFLocalizations.of(context).getText(
+                                '93mm65g9' /* • Strong sense of purpose */,
                               ),
-                              Text(
-                                FFLocalizations.of(context).getText(
-                                  '2ex9m7zv' /* • Better decision-making */,
-                                ),
-                                style: FlutterFlowTheme.of(context)
-                                    .bodySmall
-                                    .override(
-                                      fontFamily: 'WorkSans',
-                                      color: Colors.white,
-                                      fontSize: 12.0,
-                                      letterSpacing: 0.0,
-                                    ),
-                              ),
-                              Text(
-                                FFLocalizations.of(context).getText(
-                                  '93mm65g9' /* • Strong sense of purpose */,
-                                ),
-                                style: FlutterFlowTheme.of(context)
-                                    .bodySmall
-                                    .override(
-                                      fontFamily: 'WorkSans',
-                                      color: Colors.white,
-                                      fontSize: 12.0,
-                                      letterSpacing: 0.0,
-                                    ),
-                              ),
-                            ].divide(SizedBox(height: 4.0)),
-                          ),
-                          Padding(
+                              style: FlutterFlowTheme.of(context)
+                                  .bodySmall
+                                  .override(
+                                    fontFamily: 'WorkSans',
+                                    color: Colors.white,
+                                    fontSize: 12.0,
+                                    letterSpacing: 0.0,
+                                  ),
+                            ),
+                          ].divide(SizedBox(height: 4.0)),
+                        ),
+                        Flexible(
+                          child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 25.0, 0.0, 0.0),
                             child: Material(
@@ -1625,6 +1620,7 @@ class _EnergyCentersGuideCompWidgetState
                                       12.0, 12.0, 12.0, 12.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.center,
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
@@ -1666,8 +1662,8 @@ class _EnergyCentersGuideCompWidgetState
                               ),
                             ),
                           ),
-                        ].divide(SizedBox(height: 16.0)),
-                      ),
+                        ),
+                      ].divide(SizedBox(height: 16.0)),
                     ),
                   ),
                 ),
@@ -1681,7 +1677,7 @@ class _EnergyCentersGuideCompWidgetState
                     height: 739.8,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
-                        colors: [Colors.purple, Colors.green],
+                        colors: [Color(0xFF11540A), Colors.green],
                         stops: [0.0, 1.0],
                         begin: AlignmentDirectional(1.0, -1.0),
                         end: AlignmentDirectional(-1.0, 1.0),
@@ -1693,6 +1689,7 @@ class _EnergyCentersGuideCompWidgetState
                           20.0, 20.0, 20.0, 20.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Row(
@@ -1990,133 +1987,142 @@ class _EnergyCentersGuideCompWidgetState
                               ].divide(SizedBox(height: 12.0)),
                             ),
                           ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 8.0, 0.0, 0.0),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  FFLocalizations.of(context).getText(
-                                    '68lkpntp' /* BENEFITS */,
+                          Flexible(
+                            flex: 1,
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 8.0, 0.0, 0.0),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    FFLocalizations.of(context).getText(
+                                      '68lkpntp' /* BENEFITS */,
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .labelSmall
+                                        .override(
+                                          fontFamily: 'WorkSans',
+                                          color: Colors.white,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w600,
+                                        ),
                                   ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .labelSmall
-                                      .override(
-                                        fontFamily: 'WorkSans',
-                                        color: Colors.white,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                ),
-                                Text(
-                                  FFLocalizations.of(context).getText(
-                                    '323t0s26' /* • Greater self-love */,
+                                  Text(
+                                    FFLocalizations.of(context).getText(
+                                      '323t0s26' /* • Greater self-love */,
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodySmall
+                                        .override(
+                                          fontFamily: 'WorkSans',
+                                          color: Colors.white,
+                                          letterSpacing: 0.0,
+                                        ),
                                   ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodySmall
-                                      .override(
-                                        fontFamily: 'WorkSans',
-                                        color: Colors.white,
-                                        letterSpacing: 0.0,
-                                      ),
-                                ),
-                                Text(
-                                  FFLocalizations.of(context).getText(
-                                    'jjyzw5td' /* • Deeper compassion */,
+                                  Text(
+                                    FFLocalizations.of(context).getText(
+                                      'jjyzw5td' /* • Deeper compassion */,
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodySmall
+                                        .override(
+                                          fontFamily: 'WorkSans',
+                                          color: Colors.white,
+                                          letterSpacing: 0.0,
+                                        ),
                                   ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodySmall
-                                      .override(
-                                        fontFamily: 'WorkSans',
-                                        color: Colors.white,
-                                        letterSpacing: 0.0,
-                                      ),
-                                ),
-                                Text(
-                                  FFLocalizations.of(context).getText(
-                                    'h2mx4t9g' /* • Emotional healing */,
+                                  Text(
+                                    FFLocalizations.of(context).getText(
+                                      'h2mx4t9g' /* • Emotional healing */,
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodySmall
+                                        .override(
+                                          fontFamily: 'WorkSans',
+                                          color: Colors.white,
+                                          letterSpacing: 0.0,
+                                        ),
                                   ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodySmall
-                                      .override(
-                                        fontFamily: 'WorkSans',
-                                        color: Colors.white,
-                                        letterSpacing: 0.0,
-                                      ),
-                                ),
-                                Text(
-                                  FFLocalizations.of(context).getText(
-                                    'uvncwsuz' /* • Harmonious relationships */,
+                                  Text(
+                                    FFLocalizations.of(context).getText(
+                                      'uvncwsuz' /* • Harmonious relationships */,
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodySmall
+                                        .override(
+                                          fontFamily: 'WorkSans',
+                                          color: Colors.white,
+                                          letterSpacing: 0.0,
+                                        ),
                                   ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodySmall
-                                      .override(
-                                        fontFamily: 'WorkSans',
-                                        color: Colors.white,
-                                        letterSpacing: 0.0,
-                                      ),
-                                ),
-                              ].divide(SizedBox(height: 8.0)),
+                                ].divide(SizedBox(height: 8.0)),
+                              ),
                             ),
                           ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 25.0, 0.0, 0.0),
-                            child: Material(
-                              color: Colors.transparent,
-                              elevation: 3.0,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(12.0),
-                              ),
-                              child: Container(
-                                width: double.infinity,
-                                decoration: BoxDecoration(
-                                  color: Color(0x478BC34A),
+                          Flexible(
+                            flex: 1,
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 25.0, 0.0, 0.0),
+                              child: Material(
+                                color: Colors.transparent,
+                                elevation: 3.0,
+                                shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(12.0),
                                 ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      12.0, 12.0, 12.0, 12.0),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        FFLocalizations.of(context).getText(
-                                          'y1uojo7c' /* AFFIRMATION */,
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .labelSmall
-                                            .override(
-                                              fontFamily: 'WorkSans',
-                                              color: Colors.white,
-                                              fontSize: 10.0,
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 15.0, 0.0, 0.0),
-                                        child: Text(
+                                child: Container(
+                                  width: double.infinity,
+                                  decoration: BoxDecoration(
+                                    color: Color(0x478BC34A),
+                                    borderRadius: BorderRadius.circular(12.0),
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        12.0, 12.0, 12.0, 12.0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
                                           FFLocalizations.of(context).getText(
-                                            'hhtmrvoe' /* "I give and recieve unconditio... */,
+                                            'y1uojo7c' /* AFFIRMATION */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
-                                              .bodySmall
+                                              .labelSmall
                                               .override(
                                                 fontFamily: 'WorkSans',
                                                 color: Colors.white,
-                                                fontSize: 12.0,
+                                                fontSize: 10.0,
                                                 letterSpacing: 0.0,
-                                                fontStyle: FontStyle.italic,
+                                                fontWeight: FontWeight.w600,
                                               ),
                                         ),
-                                      ),
-                                    ],
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 15.0, 0.0, 0.0),
+                                          child: Text(
+                                            FFLocalizations.of(context).getText(
+                                              'hhtmrvoe' /* "I give and recieve unconditio... */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodySmall
+                                                .override(
+                                                  fontFamily: 'WorkSans',
+                                                  color: Colors.white,
+                                                  fontSize: 12.0,
+                                                  letterSpacing: 0.0,
+                                                  fontStyle: FontStyle.italic,
+                                                ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
@@ -2137,7 +2143,7 @@ class _EnergyCentersGuideCompWidgetState
                     height: 688.2,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
-                        colors: [Color(0xFF9C88FF), Color(0xFF6EB5FF)],
+                        colors: [Color(0xFF6877A5), Color(0xFF6EB5FF)],
                         stops: [0.0, 1.0],
                         begin: AlignmentDirectional(0.0, -1.0),
                         end: AlignmentDirectional(0, 1.0),
@@ -2149,6 +2155,7 @@ class _EnergyCentersGuideCompWidgetState
                           20.0, 20.0, 20.0, 20.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Row(
@@ -2619,9 +2626,8 @@ class _EnergyCentersGuideCompWidgetState
                               ),
                             ].divide(SizedBox(height: 8.0)),
                           ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 25.0, 0.0, 0.0),
+                          Flexible(
+                            flex: 1,
                             child: Material(
                               color: Colors.transparent,
                               elevation: 3.0,
@@ -2639,6 +2645,7 @@ class _EnergyCentersGuideCompWidgetState
                                       12.0, 12.0, 12.0, 12.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.center,
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
@@ -2694,7 +2701,7 @@ class _EnergyCentersGuideCompWidgetState
                     width: 300.0,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
-                        colors: [Color(0xFF9C7AE8), Color(0xFF6BA3F5)],
+                        colors: [Color(0xFF2E0EF3), Color(0xFF6BA3F5)],
                         stops: [0.0, 1.0],
                         begin: AlignmentDirectional(0.0, -1.0),
                         end: AlignmentDirectional(0, 1.0),
@@ -2706,6 +2713,7 @@ class _EnergyCentersGuideCompWidgetState
                           24.0, 24.0, 24.0, 24.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Row(
@@ -2713,7 +2721,7 @@ class _EnergyCentersGuideCompWidgetState
                             children: [
                               Icon(
                                 Icons.visibility,
-                                color: Colors.white,
+                                color: FlutterFlowTheme.of(context).primary,
                                 size: 32.0,
                               ),
                               Column(
@@ -3146,63 +3154,58 @@ class _EnergyCentersGuideCompWidgetState
                               ].divide(SizedBox(height: 8.0)),
                             ),
                           ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 25.0, 0.0, 0.0),
-                            child: Material(
-                              color: Colors.transparent,
-                              elevation: 3.0,
-                              shape: RoundedRectangleBorder(
+                          Material(
+                            color: Colors.transparent,
+                            elevation: 3.0,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12.0),
+                            ),
+                            child: Container(
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                color: Color(0x9B3D20FF),
                                 borderRadius: BorderRadius.circular(12.0),
                               ),
-                              child: Container(
-                                width: double.infinity,
-                                decoration: BoxDecoration(
-                                  color: Color(0x9B3D20FF),
-                                  borderRadius: BorderRadius.circular(12.0),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      12.0, 12.0, 12.0, 12.0),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    12.0, 12.0, 12.0, 12.0),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      FFLocalizations.of(context).getText(
+                                        '9kdn3fza' /* AFFIRMATION */,
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .labelSmall
+                                          .override(
+                                            fontFamily: 'WorkSans',
+                                            color: Colors.white,
+                                            fontSize: 10.0,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 15.0, 0.0, 0.0),
+                                      child: Text(
                                         FFLocalizations.of(context).getText(
-                                          '9kdn3fza' /* AFFIRMATION */,
+                                          'rz526p1f' /* "I trust my intuition and see ... */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .labelSmall
+                                            .bodySmall
                                             .override(
                                               fontFamily: 'WorkSans',
                                               color: Colors.white,
-                                              fontSize: 10.0,
+                                              fontSize: 12.0,
                                               letterSpacing: 0.0,
-                                              fontWeight: FontWeight.w600,
+                                              fontStyle: FontStyle.italic,
                                             ),
                                       ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 15.0, 0.0, 0.0),
-                                        child: Text(
-                                          FFLocalizations.of(context).getText(
-                                            'rz526p1f' /* "I trust my intuition and see ... */,
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodySmall
-                                              .override(
-                                                fontFamily: 'WorkSans',
-                                                color: Colors.white,
-                                                fontSize: 12.0,
-                                                letterSpacing: 0.0,
-                                                fontStyle: FontStyle.italic,
-                                              ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ),
@@ -3215,96 +3218,223 @@ class _EnergyCentersGuideCompWidgetState
               ),
               Flexible(
                 flex: 1,
-                child: Align(
-                  alignment: AlignmentDirectional(0.0, 0.0),
-                  child: Container(
-                    width: 300.0,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [Colors.purple, Color(0xFFE1BEE7)],
-                        stops: [0.0, 1.0],
-                        begin: AlignmentDirectional(0.0, -1.0),
-                        end: AlignmentDirectional(0, 1.0),
-                      ),
-                      borderRadius: BorderRadius.circular(20.0),
+                child: Container(
+                  width: 300.0,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [Colors.purple, Color(0xFFE1BEE7)],
+                      stops: [0.0, 1.0],
+                      begin: AlignmentDirectional(0.0, -1.0),
+                      end: AlignmentDirectional(0, 1.0),
                     ),
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          24.0, 24.0, 24.0, 24.0),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 24.0),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Icon(
+                              Icons.auto_awesome,
+                              color: Colors.white,
+                              size: 32.0,
+                            ),
+                            Text(
+                              FFLocalizations.of(context).getText(
+                                'ikgzgb29' /* Crown Chakra */,
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .headlineMedium
+                                  .override(
+                                    fontFamily: 'The Seasons',
+                                    color: Colors.white,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                            ),
+                          ].divide(SizedBox(width: 12.0)),
+                        ),
+                        Column(
+                          mainAxisSize: MainAxisSize.max,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              FFLocalizations.of(context).getText(
+                                'd3yhnvfx' /* Sahasrara */,
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'The Seasons',
+                                    color: Colors.white,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                            ),
+                            Text(
+                              FFLocalizations.of(context).getText(
+                                'vl849pzz' /* Spiritual Connection & */,
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodySmall
+                                  .override(
+                                    fontFamily: 'WorkSans',
+                                    color: Colors.white,
+                                    letterSpacing: 0.0,
+                                  ),
+                            ),
+                            Text(
+                              FFLocalizations.of(context).getText(
+                                '3dodvnjb' /* Enlightenment */,
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodySmall
+                                  .override(
+                                    fontFamily: 'WorkSans',
+                                    color: Colors.white,
+                                    letterSpacing: 0.0,
+                                  ),
+                            ),
+                          ].divide(SizedBox(height: 8.0)),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 8.0, 0.0, 8.0),
+                          child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
-                              Icon(
-                                Icons.auto_awesome,
-                                color: Colors.white,
-                                size: 32.0,
-                              ),
-                              Text(
-                                FFLocalizations.of(context).getText(
-                                  'ikgzgb29' /* Crown Chakra */,
+                              Container(
+                                width: 120.0,
+                                height: 60.0,
+                                decoration: BoxDecoration(
+                                  color: Color(0x66FFFFFF),
+                                  borderRadius: BorderRadius.circular(12.0),
                                 ),
-                                style: FlutterFlowTheme.of(context)
-                                    .headlineMedium
-                                    .override(
-                                      fontFamily: 'The Seasons',
-                                      color: Colors.white,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      8.0, 8.0, 8.0, 8.0),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        FFLocalizations.of(context).getText(
+                                          'biq67fzz' /* LOCATION */,
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .labelSmall
+                                            .override(
+                                              fontFamily: 'WorkSans',
+                                              color: Colors.white,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                      ),
+                                      Text(
+                                        FFLocalizations.of(context).getText(
+                                          'ehlm23rn' /* Top of head */,
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodySmall
+                                            .override(
+                                              fontFamily: 'WorkSans',
+                                              color: Colors.white,
+                                              letterSpacing: 0.0,
+                                            ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
                               ),
-                            ].divide(SizedBox(width: 12.0)),
+                              Flexible(
+                                flex: 1,
+                                child: Container(
+                                  width: 120.0,
+                                  height: 60.0,
+                                  decoration: BoxDecoration(
+                                    color: Color(0x66FFFFFF),
+                                    borderRadius: BorderRadius.circular(12.0),
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        8.0, 8.0, 8.0, 8.0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          FFLocalizations.of(context).getText(
+                                            'ymc7fvqa' /* ELEMENT */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .labelSmall
+                                              .override(
+                                                fontFamily: 'WorkSans',
+                                                color: Colors.white,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.w600,
+                                              ),
+                                        ),
+                                        Text(
+                                          FFLocalizations.of(context).getText(
+                                            '8d1nfvjk' /* Consciousness */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodySmall
+                                              .override(
+                                                fontFamily: 'WorkSans',
+                                                color: Colors.white,
+                                                letterSpacing: 0.0,
+                                              ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ].divide(SizedBox(width: 16.0)),
                           ),
-                          Column(
-                            mainAxisSize: MainAxisSize.max,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                FFLocalizations.of(context).getText(
-                                  'd3yhnvfx' /* Sahasrara */,
-                                ),
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'The Seasons',
-                                      color: Colors.white,
-                                      letterSpacing: 0.0,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                              ),
-                              Text(
-                                FFLocalizations.of(context).getText(
-                                  'vl849pzz' /* Spiritual Connection & */,
-                                ),
-                                style: FlutterFlowTheme.of(context)
-                                    .bodySmall
-                                    .override(
-                                      fontFamily: 'WorkSans',
-                                      color: Colors.white,
-                                      letterSpacing: 0.0,
-                                    ),
-                              ),
-                              Text(
-                                FFLocalizations.of(context).getText(
-                                  '3dodvnjb' /* Enlightenment */,
-                                ),
-                                style: FlutterFlowTheme.of(context)
-                                    .bodySmall
-                                    .override(
-                                      fontFamily: 'WorkSans',
-                                      color: Colors.white,
-                                      letterSpacing: 0.0,
-                                    ),
-                              ),
-                            ].divide(SizedBox(height: 8.0)),
+                        ),
+                        Text(
+                          FFLocalizations.of(context).getText(
+                            '10l07lpo' /* The Crown Chakra is your conne... */,
                           ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 8.0, 0.0, 8.0),
-                            child: Row(
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'WorkSans',
+                                    color: Colors.white,
+                                    letterSpacing: 0.0,
+                                  ),
+                        ),
+                        Column(
+                          mainAxisSize: MainAxisSize.max,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              FFLocalizations.of(context).getText(
+                                'n7eluavf' /* KEY PRACTICES */,
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .labelMedium
+                                  .override(
+                                    fontFamily: 'The Seasons',
+                                    color: Colors.white,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                            ),
+                            Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Container(
@@ -3326,20 +3456,19 @@ class _EnergyCentersGuideCompWidgetState
                                       children: [
                                         Text(
                                           FFLocalizations.of(context).getText(
-                                            'biq67fzz' /* LOCATION */,
+                                            'ie89w66t' /* Meditation & */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
-                                              .labelSmall
+                                              .bodySmall
                                               .override(
                                                 fontFamily: 'WorkSans',
                                                 color: Colors.white,
                                                 letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w600,
                                               ),
                                         ),
                                         Text(
                                           FFLocalizations.of(context).getText(
-                                            'ehlm23rn' /* Top of head */,
+                                            'l2ryckug' /* Prayer */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodySmall
@@ -3353,77 +3482,136 @@ class _EnergyCentersGuideCompWidgetState
                                     ),
                                   ),
                                 ),
-                                Flexible(
-                                  flex: 1,
-                                  child: Container(
-                                    width: 120.0,
-                                    height: 60.0,
-                                    decoration: BoxDecoration(
-                                      color: Color(0x66FFFFFF),
-                                      borderRadius: BorderRadius.circular(12.0),
-                                    ),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          8.0, 8.0, 8.0, 8.0),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            FFLocalizations.of(context).getText(
-                                              'ymc7fvqa' /* ELEMENT */,
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .labelSmall
-                                                .override(
-                                                  fontFamily: 'WorkSans',
-                                                  color: Colors.white,
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.w600,
-                                                ),
+                                Container(
+                                  width: 120.0,
+                                  height: 60.0,
+                                  decoration: BoxDecoration(
+                                    color: Color(0x66FFFFFF),
+                                    borderRadius: BorderRadius.circular(12.0),
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        8.0, 8.0, 8.0, 8.0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          FFLocalizations.of(context).getText(
+                                            'i2kn80no' /* Spiritual Study */,
                                           ),
-                                          Text(
-                                            FFLocalizations.of(context).getText(
-                                              '8d1nfvjk' /* Consciousness */,
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodySmall
-                                                .override(
-                                                  fontFamily: 'WorkSans',
-                                                  color: Colors.white,
-                                                  letterSpacing: 0.0,
-                                                ),
-                                          ),
-                                        ],
-                                      ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodySmall
+                                              .override(
+                                                fontFamily: 'WorkSans',
+                                                color: Colors.white,
+                                                letterSpacing: 0.0,
+                                              ),
+                                        ),
+                                      ],
                                     ),
                                   ),
                                 ),
-                              ].divide(SizedBox(width: 16.0)),
+                              ].divide(SizedBox(width: 12.0)),
                             ),
-                          ),
-                          Text(
-                            FFLocalizations.of(context).getText(
-                              '10l07lpo' /* The Crown Chakra is your conne... */,
-                            ),
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'WorkSans',
-                                  color: Colors.white,
-                                  letterSpacing: 0.0,
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Container(
+                                  width: 120.0,
+                                  height: 60.0,
+                                  decoration: BoxDecoration(
+                                    color: Color(0x66FFFFFF),
+                                    borderRadius: BorderRadius.circular(12.0),
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        8.0, 8.0, 8.0, 8.0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          FFLocalizations.of(context).getText(
+                                            'j673x4rr' /* Silent */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodySmall
+                                              .override(
+                                                fontFamily: 'WorkSans',
+                                                color: Colors.white,
+                                                letterSpacing: 0.0,
+                                              ),
+                                        ),
+                                        Text(
+                                          FFLocalizations.of(context).getText(
+                                            'h7ktxh26' /* Contemplation */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodySmall
+                                              .override(
+                                                fontFamily: 'WorkSans',
+                                                color: Colors.white,
+                                                letterSpacing: 0.0,
+                                              ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
                                 ),
-                          ),
-                          Column(
+                                Container(
+                                  width: 120.0,
+                                  height: 60.0,
+                                  decoration: BoxDecoration(
+                                    color: Color(0x66FFFFFF),
+                                    borderRadius: BorderRadius.circular(12.0),
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        8.0, 8.0, 8.0, 8.0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          FFLocalizations.of(context).getText(
+                                            'q508i2n3' /* Energy Healing */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodySmall
+                                              .override(
+                                                fontFamily: 'WorkSans',
+                                                color: Colors.white,
+                                                letterSpacing: 0.0,
+                                              ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ].divide(SizedBox(width: 12.0)),
+                            ),
+                          ].divide(SizedBox(height: 12.0)),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 8.0, 0.0, 0.0),
+                          child: Column(
                             mainAxisSize: MainAxisSize.max,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
                                 FFLocalizations.of(context).getText(
-                                  'n7eluavf' /* KEY PRACTICES */,
+                                  'f5lbied2' /* BENEFITS */,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .labelMedium
@@ -3434,311 +3622,121 @@ class _EnergyCentersGuideCompWidgetState
                                       fontWeight: FontWeight.bold,
                                     ),
                               ),
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Container(
-                                    width: 120.0,
-                                    height: 60.0,
-                                    decoration: BoxDecoration(
-                                      color: Color(0x66FFFFFF),
-                                      borderRadius: BorderRadius.circular(12.0),
+                              Text(
+                                FFLocalizations.of(context).getText(
+                                  'ky5dvoya' /* • Spiritual connection */,
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodySmall
+                                    .override(
+                                      fontFamily: 'WorkSans',
+                                      color: Colors.white,
+                                      letterSpacing: 0.0,
                                     ),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          8.0, 8.0, 8.0, 8.0),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            FFLocalizations.of(context).getText(
-                                              'ie89w66t' /* Meditation & */,
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodySmall
-                                                .override(
-                                                  fontFamily: 'WorkSans',
-                                                  color: Colors.white,
-                                                  letterSpacing: 0.0,
-                                                ),
-                                          ),
-                                          Text(
-                                            FFLocalizations.of(context).getText(
-                                              'l2ryckug' /* Prayer */,
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodySmall
-                                                .override(
-                                                  fontFamily: 'WorkSans',
-                                                  color: Colors.white,
-                                                  letterSpacing: 0.0,
-                                                ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                  Container(
-                                    width: 120.0,
-                                    height: 60.0,
-                                    decoration: BoxDecoration(
-                                      color: Color(0x66FFFFFF),
-                                      borderRadius: BorderRadius.circular(12.0),
-                                    ),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          8.0, 8.0, 8.0, 8.0),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            FFLocalizations.of(context).getText(
-                                              'i2kn80no' /* Spiritual Study */,
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodySmall
-                                                .override(
-                                                  fontFamily: 'WorkSans',
-                                                  color: Colors.white,
-                                                  letterSpacing: 0.0,
-                                                ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ].divide(SizedBox(width: 12.0)),
                               ),
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Container(
-                                    width: 120.0,
-                                    height: 60.0,
-                                    decoration: BoxDecoration(
-                                      color: Color(0x66FFFFFF),
-                                      borderRadius: BorderRadius.circular(12.0),
+                              Text(
+                                FFLocalizations.of(context).getText(
+                                  'npluqii4' /* • Inner peace */,
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodySmall
+                                    .override(
+                                      fontFamily: 'WorkSans',
+                                      color: Colors.white,
+                                      letterSpacing: 0.0,
                                     ),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          8.0, 8.0, 8.0, 8.0),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            FFLocalizations.of(context).getText(
-                                              'j673x4rr' /* Silent */,
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodySmall
-                                                .override(
-                                                  fontFamily: 'WorkSans',
-                                                  color: Colors.white,
-                                                  letterSpacing: 0.0,
-                                                ),
-                                          ),
-                                          Text(
-                                            FFLocalizations.of(context).getText(
-                                              'h7ktxh26' /* Contemplation */,
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodySmall
-                                                .override(
-                                                  fontFamily: 'WorkSans',
-                                                  color: Colors.white,
-                                                  letterSpacing: 0.0,
-                                                ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                  Container(
-                                    width: 120.0,
-                                    height: 60.0,
-                                    decoration: BoxDecoration(
-                                      color: Color(0x66FFFFFF),
-                                      borderRadius: BorderRadius.circular(12.0),
-                                    ),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          8.0, 8.0, 8.0, 8.0),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            FFLocalizations.of(context).getText(
-                                              'q508i2n3' /* Energy Healing */,
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodySmall
-                                                .override(
-                                                  fontFamily: 'WorkSans',
-                                                  color: Colors.white,
-                                                  letterSpacing: 0.0,
-                                                ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ].divide(SizedBox(width: 12.0)),
                               ),
-                            ].divide(SizedBox(height: 12.0)),
+                              Text(
+                                FFLocalizations.of(context).getText(
+                                  'oix7i8d1' /* • Higher consciousness */,
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodySmall
+                                    .override(
+                                      fontFamily: 'WorkSans',
+                                      color: Colors.white,
+                                      letterSpacing: 0.0,
+                                    ),
+                              ),
+                              Text(
+                                FFLocalizations.of(context).getText(
+                                  '0b6801g4' /* • Sense of unity */,
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodySmall
+                                    .override(
+                                      fontFamily: 'WorkSans',
+                                      color: Colors.white,
+                                      letterSpacing: 0.0,
+                                    ),
+                              ),
+                            ].divide(SizedBox(height: 8.0)),
                           ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 8.0, 0.0, 0.0),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  FFLocalizations.of(context).getText(
-                                    'f5lbied2' /* BENEFITS */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .labelMedium
-                                      .override(
-                                        fontFamily: 'The Seasons',
-                                        color: Colors.white,
-                                        letterSpacing: 0.0,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                ),
-                                Text(
-                                  FFLocalizations.of(context).getText(
-                                    'ky5dvoya' /* • Spiritual connection */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodySmall
-                                      .override(
-                                        fontFamily: 'WorkSans',
-                                        color: Colors.white,
-                                        letterSpacing: 0.0,
-                                      ),
-                                ),
-                                Text(
-                                  FFLocalizations.of(context).getText(
-                                    'npluqii4' /* • Inner peace */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodySmall
-                                      .override(
-                                        fontFamily: 'WorkSans',
-                                        color: Colors.white,
-                                        letterSpacing: 0.0,
-                                      ),
-                                ),
-                                Text(
-                                  FFLocalizations.of(context).getText(
-                                    'oix7i8d1' /* • Higher consciousness */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodySmall
-                                      .override(
-                                        fontFamily: 'WorkSans',
-                                        color: Colors.white,
-                                        letterSpacing: 0.0,
-                                      ),
-                                ),
-                                Text(
-                                  FFLocalizations.of(context).getText(
-                                    '0b6801g4' /* • Sense of unity */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodySmall
-                                      .override(
-                                        fontFamily: 'WorkSans',
-                                        color: Colors.white,
-                                        letterSpacing: 0.0,
-                                      ),
-                                ),
-                              ].divide(SizedBox(height: 8.0)),
-                            ),
+                        ),
+                        Container(
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            color: Color(0x66FFFFFF),
+                            borderRadius: BorderRadius.circular(12.0),
                           ),
-                          Container(
-                            width: double.infinity,
-                            decoration: BoxDecoration(
-                              color: Color(0x66FFFFFF),
+                          child: Material(
+                            color: Colors.transparent,
+                            elevation: 3.0,
+                            shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(12.0),
                             ),
-                            child: Material(
-                              color: Colors.transparent,
-                              elevation: 3.0,
-                              shape: RoundedRectangleBorder(
+                            child: Container(
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                color: Color(0x51E850EE),
                                 borderRadius: BorderRadius.circular(12.0),
                               ),
-                              child: Container(
-                                width: double.infinity,
-                                decoration: BoxDecoration(
-                                  color: Color(0x51E850EE),
-                                  borderRadius: BorderRadius.circular(12.0),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      12.0, 12.0, 12.0, 12.0),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    12.0, 12.0, 12.0, 12.0),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      FFLocalizations.of(context).getText(
+                                        'hqd88mx5' /* AFFIRMATION */,
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .labelSmall
+                                          .override(
+                                            fontFamily: 'WorkSans',
+                                            color: Colors.white,
+                                            fontSize: 10.0,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 15.0, 0.0, 0.0),
+                                      child: Text(
                                         FFLocalizations.of(context).getText(
-                                          'hqd88mx5' /* AFFIRMATION */,
+                                          '14lzqk37' /* "I am connected to the divine ... */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .labelSmall
+                                            .bodySmall
                                             .override(
                                               fontFamily: 'WorkSans',
                                               color: Colors.white,
-                                              fontSize: 10.0,
+                                              fontSize: 12.0,
                                               letterSpacing: 0.0,
-                                              fontWeight: FontWeight.w600,
+                                              fontStyle: FontStyle.italic,
                                             ),
                                       ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 15.0, 0.0, 0.0),
-                                        child: Text(
-                                          FFLocalizations.of(context).getText(
-                                            '14lzqk37' /* "I am connected to the divine ... */,
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodySmall
-                                              .override(
-                                                fontFamily: 'WorkSans',
-                                                color: Colors.white,
-                                                fontSize: 12.0,
-                                                letterSpacing: 0.0,
-                                                fontStyle: FontStyle.italic,
-                                              ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ),
                           ),
-                        ].divide(SizedBox(height: 20.0)),
-                      ),
+                        ),
+                      ].divide(SizedBox(height: 20.0)),
                     ),
                   ),
                 ),
