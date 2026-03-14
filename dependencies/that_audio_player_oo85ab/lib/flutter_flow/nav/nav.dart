@@ -42,22 +42,17 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       navigatorKey: appNavigatorKey,
-      errorBuilder: (context, state) => PlayerPageAllWidget(),
+      errorBuilder: (context, state) => HomePageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => PlayerPageAllWidget(),
+          builder: (context, _) => HomePageWidget(),
         ),
         FFRoute(
           name: HomePageWidget.routeName,
           path: HomePageWidget.routePath,
           builder: (context, params) => HomePageWidget(),
-        ),
-        FFRoute(
-          name: PlayerPageAllWidget.routeName,
-          path: PlayerPageAllWidget.routePath,
-          builder: (context, params) => PlayerPageAllWidget(),
         ),
         FFRoute(
           name: PlayerPageFocusWidget.routeName,
@@ -102,8 +97,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
 void initializeRoutes({
   String? homePageWidgetName,
   String? homePageWidgetPath,
-  String? playerPageAllWidgetName,
-  String? playerPageAllWidgetPath,
   String? playerPageFocusWidgetName,
   String? playerPageFocusWidgetPath,
   String? playerPageSleepWidgetName,
@@ -119,8 +112,6 @@ void initializeRoutes({
 }) {
   HomePageWidget.maybeSetRouteName(homePageWidgetName);
   HomePageWidget.maybeSetRoutePath(homePageWidgetPath);
-  PlayerPageAllWidget.maybeSetRouteName(playerPageAllWidgetName);
-  PlayerPageAllWidget.maybeSetRoutePath(playerPageAllWidgetPath);
   PlayerPageFocusWidget.maybeSetRouteName(playerPageFocusWidgetName);
   PlayerPageFocusWidget.maybeSetRoutePath(playerPageFocusWidgetPath);
   PlayerPageSleepWidget.maybeSetRouteName(playerPageSleepWidgetName);

@@ -234,7 +234,7 @@ class _SolarPlexusEnergyGuideCompWidgetState
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                   child: Text(
                     FFLocalizations.of(context).getText(
-                      'i3eumc06' /* KEY PRACTICES */,
+                      'non0pkbp' /* KEY PRACTICES */,
                     ),
                     style: FlutterFlowTheme.of(context).labelMedium.override(
                           fontFamily: 'WorkSans',

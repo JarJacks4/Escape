@@ -262,7 +262,7 @@ class _ConfettiBeginnerExericesWidgetState
                                 children: [
                                   Text(
                                     FFLocalizations.of(context).getText(
-                                      '09lixunh' /* Duration */,
+                                      'uwdbemdm' /* Duration */,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -428,7 +428,7 @@ class _ConfettiBeginnerExericesWidgetState
                           child: FFButtonWidget(
                             onPressed: () async {
                               logFirebaseEvent(
-                                  'CONFETTI_BEGINNER_EXERICES_I_WANT_TO_DO_');
+                                  'CONFETTI_BEGINNER_EXERICES_SEE_EXPLORE_B');
                               logFirebaseEvent('Button_haptic_feedback');
                               HapticFeedback.mediumImpact();
                               logFirebaseEvent('Button_update_app_state');
@@ -468,7 +468,7 @@ class _ConfettiBeginnerExericesWidgetState
                               );
                             },
                             text: FFLocalizations.of(context).getText(
-                              'fp5dmqc8' /* I Want To Do More! */,
+                              'fp5dmqc8' /* See Explore Page! */,
                             ),
                             icon: Icon(
                               Icons.arrow_forward,

@@ -691,7 +691,7 @@ class _JournalPage1Version5WidgetState
                                 FormFieldController<List<String>>(
                               [
                                 FFLocalizations.of(context).getText(
-                                  'aq46o9nt' /* Growth */,
+                                  's4u88ude' /* Growth */,
                                 )
                               ],
                             ),

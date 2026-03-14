@@ -341,6 +341,55 @@ class LucilleStreamingBuildShipCall {
       ));
 }
 
+class EscapeAudioScriptCall {
+  static Future<ApiCallResponse> call({
+    String? model = 'whisper-large-v3',
+    FFUploadedFile? file,
+    String? responseFormat = 'verbose_json',
+    String? gorqKey =
+        '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',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'Escape AudioScript',
+      apiUrl: 'https://api.groq.com/openai/v1/audio/transcriptions',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer \${gorpKey}',
+      },
+      params: {
+        'file': file,
+        'model': "whisper-large-v3",
+        'response_format': "verbose_json",
+      },
+      bodyType: BodyType.MULTIPART,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static dynamic error(dynamic response) => getJsonField(
+        response,
+        r'''$.error''',
+      );
+  static String? errorMessage(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.error.message''',
+      ));
+  static String? errorType(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.error.type''',
+      ));
+  static String? errorCode(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.error.code''',
+      ));
+}
+
 String _toEncodable(dynamic item) {
   if (item is DocumentReference) {
     return item.path;

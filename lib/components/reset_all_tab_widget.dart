@@ -92,7 +92,7 @@ class _ResetAllTabWidgetState extends State<ResetAllTabWidget> {
                           ),
                           Text(
                             FFLocalizations.of(context).getText(
-                              '9rit2p6b' /* Guided breathing to 
+                              'lm8ah7ef' /* Guided breathing to 
 melt away... */
                               ,
                             ),
@@ -376,7 +376,7 @@ melt away... */
                               ),
                               Text(
                                 FFLocalizations.of(context).getText(
-                                  'fstfw9wv' /* Soothing rainfall sounds */,
+                                  'zmg31unl' /* Soothing rainfall sounds */,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
@@ -401,7 +401,7 @@ melt away... */
                                       ),
                                       Text(
                                         FFLocalizations.of(context).getText(
-                                          'ub87b18p' /* 100 Coins */,
+                                          '7ab8yge4' /* 100 Coins */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodySmall
@@ -546,7 +546,7 @@ melt away... */
                                     ),
                                     Text(
                                       FFLocalizations.of(context).getText(
-                                        '9709npom' /* 100 Coins */,
+                                        '5nwsuj46' /* 100 Coins */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodySmall
@@ -695,7 +695,7 @@ melt away... */
                                       ),
                                       Text(
                                         FFLocalizations.of(context).getText(
-                                          'hfp4qml6' /* 50 Coins */,
+                                          '0zu8cq5u' /* 50 Coins */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodySmall
@@ -847,7 +847,7 @@ melt away... */
                                       ),
                                       Text(
                                         FFLocalizations.of(context).getText(
-                                          '0arhvidl' /* 50 Coins */,
+                                          '8iw8qeh9' /* 50 Coins */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodySmall
@@ -999,7 +999,7 @@ melt away... */
                                       ),
                                       Text(
                                         FFLocalizations.of(context).getText(
-                                          '4xjbgbfk' /* 50 Coins */,
+                                          'diysogrz' /* 50 Coins */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodySmall

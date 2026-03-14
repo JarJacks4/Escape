@@ -148,8 +148,6 @@ export '/mind_third_eye_chakra_version5/mind_third_eye_chakra_version5_widget.da
     show MindThirdEyeChakraVersion5Widget;
 export '/mind_crown_chakra_version5/mind_crown_chakra_version5_widget.dart'
     show MindCrownChakraVersion5Widget;
-export '/soundscape_sample/soundscape_sample_widget.dart'
-    show SoundscapeSampleWidget;
 export '/music_player_copy/music_player_copy_widget.dart'
     show MusicPlayerCopyWidget;
 export '/energy_scan_version5_copy/energy_scan_version5_copy_widget.dart'

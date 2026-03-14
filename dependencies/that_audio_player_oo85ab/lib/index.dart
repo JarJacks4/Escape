@@ -1,6 +1,5 @@
 // Export pages
 export '/pages/home_page/home_page_widget.dart' show HomePageWidget;
-export '/player_page_all/player_page_all_widget.dart' show PlayerPageAllWidget;
 export '/player_page_focus/player_page_focus_widget.dart'
     show PlayerPageFocusWidget;
 export '/player_page_sleep/player_page_sleep_widget.dart'

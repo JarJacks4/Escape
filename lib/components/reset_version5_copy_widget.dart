@@ -4929,7 +4929,7 @@ fire o... */
                                                                             Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
-                                                                              8.0,
+                                                                              5.0,
                                                                               0.0,
                                                                               0.0),
                                                                           child:
@@ -5184,40 +5184,45 @@ fire o... */
                                                                         CrossAxisAlignment
                                                                             .start,
                                                                     children: [
-                                                                      Text(
-                                                                        FFLocalizations.of(context)
-                                                                            .getText(
-                                                                          'rwv6v6qm' /* Journal Reset */,
-                                                                        ),
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodyLarge
-                                                                            .override(
-                                                                              fontFamily: 'WorkSans',
-                                                                              color: FlutterFlowTheme.of(context).primaryText,
-                                                                              letterSpacing: 0.0,
-                                                                            ),
-                                                                      ),
-                                                                      Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0.0,
-                                                                            8.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                      Flexible(
+                                                                        flex: 1,
                                                                         child:
                                                                             Text(
                                                                           FFLocalizations.of(context)
                                                                               .getText(
-                                                                            'rvrejotp' /* Have a peaceful day 
-with a wi... */
-                                                                            ,
+                                                                            'rwv6v6qm' /* Journal Reset */,
                                                                           ),
                                                                           style: FlutterFlowTheme.of(context)
-                                                                              .bodySmall
+                                                                              .bodyLarge
                                                                               .override(
                                                                                 fontFamily: 'WorkSans',
-                                                                                color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                color: FlutterFlowTheme.of(context).primaryText,
                                                                                 letterSpacing: 0.0,
                                                                               ),
+                                                                        ),
+                                                                      ),
+                                                                      Flexible(
+                                                                        flex: 1,
+                                                                        child:
+                                                                            Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              8.0,
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              Text(
+                                                                            FFLocalizations.of(context).getText(
+                                                                              'rvrejotp' /* Have a peaceful day 
+with a wi... */
+                                                                              ,
+                                                                            ),
+                                                                            style: FlutterFlowTheme.of(context).bodySmall.override(
+                                                                                  fontFamily: 'WorkSans',
+                                                                                  color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                  letterSpacing: 0.0,
+                                                                                ),
+                                                                          ),
                                                                         ),
                                                                       ),
                                                                     ],
@@ -5375,40 +5380,45 @@ with a wi... */
                                                                         CrossAxisAlignment
                                                                             .start,
                                                                     children: [
-                                                                      Text(
-                                                                        FFLocalizations.of(context)
-                                                                            .getText(
-                                                                          '4edztejw' /* Ritual Spark */,
-                                                                        ),
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodyLarge
-                                                                            .override(
-                                                                              fontFamily: 'WorkSans',
-                                                                              color: FlutterFlowTheme.of(context).primaryText,
-                                                                              letterSpacing: 0.0,
-                                                                            ),
-                                                                      ),
-                                                                      Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0.0,
-                                                                            8.0,
-                                                                            0.0,
-                                                                            0.0),
+                                                                      Flexible(
+                                                                        flex: 1,
                                                                         child:
                                                                             Text(
                                                                           FFLocalizations.of(context)
                                                                               .getText(
-                                                                            'xtq7ct8u' /* End your day with personal 
-co... */
-                                                                            ,
+                                                                            '4edztejw' /* Ritual Spark */,
                                                                           ),
                                                                           style: FlutterFlowTheme.of(context)
-                                                                              .bodySmall
+                                                                              .bodyLarge
                                                                               .override(
                                                                                 fontFamily: 'WorkSans',
-                                                                                color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                color: FlutterFlowTheme.of(context).primaryText,
                                                                                 letterSpacing: 0.0,
                                                                               ),
+                                                                        ),
+                                                                      ),
+                                                                      Flexible(
+                                                                        flex: 1,
+                                                                        child:
+                                                                            Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              5.0,
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              Text(
+                                                                            FFLocalizations.of(context).getText(
+                                                                              'xtq7ct8u' /* End your day with personal 
+co... */
+                                                                              ,
+                                                                            ),
+                                                                            style: FlutterFlowTheme.of(context).bodySmall.override(
+                                                                                  fontFamily: 'WorkSans',
+                                                                                  color: FlutterFlowTheme.of(context).secondaryText,
+                                                                                  letterSpacing: 0.0,
+                                                                                ),
+                                                                          ),
                                                                         ),
                                                                       ),
                                                                     ],

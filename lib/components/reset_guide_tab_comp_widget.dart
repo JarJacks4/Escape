@@ -1069,7 +1069,7 @@ class _ResetGuideTabCompWidgetState extends State<ResetGuideTabCompWidget> {
                                   ),
                                   Text(
                                     FFLocalizations.of(context).getText(
-                                      '6a3ls66j' /* Any */,
+                                      'smqou1xp' /* Any */,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodySmall

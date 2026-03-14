@@ -135,6 +135,18 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
           ),
         ],
       ),
+      'iconOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeIn,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
       'imageOnPageLoadAnimation2': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
@@ -143,6 +155,18 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
             curve: Curves.easeIn,
             delay: 0.0.ms,
             duration: 1780.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'lottieAnimationOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeIn,
+            delay: 0.0.ms,
+            duration: 320.0.ms,
             begin: 0.0,
             end: 1.0,
           ),
@@ -174,6 +198,19 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
         ],
       ),
       'textOnPageLoadAnimation3': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1.ms),
+          FadeEffect(
+            curve: Curves.easeIn,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'textOnPageLoadAnimation4': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           VisibilityEffect(duration: 330.ms),
@@ -209,6 +246,19 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
             delay: 840.0.ms,
             duration: 600.0.ms,
             begin: 0.15,
+            end: 1.0,
+          ),
+        ],
+      ),
+      'lucilleFirstRecommendationCompCopyOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1.ms),
+          FadeEffect(
+            curve: Curves.easeIn,
+            delay: 0.0.ms,
+            duration: 1740.0.ms,
+            begin: 0.0,
             end: 1.0,
           ),
         ],
@@ -511,7 +561,8 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                         size:
                                                                             24.0,
                                                                       ),
-                                                                    ),
+                                                                    ).animateOnPageLoad(
+                                                                            animationsMap['iconOnPageLoadAnimation']!),
                                                                   ),
                                                                   Hero(
                                                                     tag: 'logo',
@@ -564,8 +615,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                           shape:
                                                                               BoxShape.circle,
                                                                         ),
-                                                                        child:
-                                                                            InkWell(
+                                                                        child: InkWell(
                                                                           splashColor:
                                                                               Colors.transparent,
                                                                           focusColor:
@@ -623,11 +673,12 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                             animate:
                                                                                 true,
                                                                           ),
-                                                                        ).addWalkthrough(
-                                                                          lottieAnimationOiibrsns,
-                                                                          _model
-                                                                              .introWalkthroughController,
-                                                                        ),
+                                                                        )
+                                                                            .addWalkthrough(
+                                                                              lottieAnimationOiibrsns,
+                                                                              _model.introWalkthroughController,
+                                                                            )
+                                                                            .animateOnPageLoad(animationsMap['lottieAnimationOnPageLoadAnimation']!),
                                                                       ),
                                                                     ].divide(SizedBox(
                                                                         width:
@@ -780,7 +831,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                               Text(
                                                                             valueOrDefault<String>(
                                                                               currentUserDisplayName,
-                                                                              'Sarah',
+                                                                              'Escape',
                                                                             ),
                                                                             style: FlutterFlowTheme.of(context).bodyLarge.override(
                                                                                   fontFamily: 'The Seasons',
@@ -788,7 +839,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                                   letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.bold,
                                                                                 ),
-                                                                          ),
+                                                                          ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation3']!),
                                                                         ),
                                                                         Row(
                                                                           mainAxisSize:
@@ -806,7 +857,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                                     letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.w600,
                                                                                   ),
-                                                                            ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation3']!),
+                                                                            ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation4']!),
                                                                             GestureDetector(
                                                                               onPanStart: (details) async {
                                                                                 logFirebaseEvent('HOME_VERSION5_Container_3pfz0dsz_ON_PAN_');
@@ -861,11 +912,15 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                   true,
                                                               child:
                                                                   LucilleFirstRecommendationCompCopyWidget(),
-                                                            ).addWalkthrough(
-                                                              containerIurmljfr,
-                                                              _model
-                                                                  .introWalkthroughController,
-                                                            ),
+                                                            )
+                                                                .addWalkthrough(
+                                                                  containerIurmljfr,
+                                                                  _model
+                                                                      .introWalkthroughController,
+                                                                )
+                                                                .animateOnPageLoad(
+                                                                    animationsMap[
+                                                                        'lucilleFirstRecommendationCompCopyOnPageLoadAnimation']!),
                                                             Flexible(
                                                               flex: 1,
                                                               child:

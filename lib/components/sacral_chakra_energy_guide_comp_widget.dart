@@ -240,7 +240,7 @@ class _SacralChakraEnergyGuideCompWidgetState
                     children: [
                       Text(
                         FFLocalizations.of(context).getText(
-                          'xu3bbyc4' /* KEY PRACTICES */,
+                          '6vkrlz8n' /* KEY PRACTICES */,
                         ),
                         style: FlutterFlowTheme.of(context).labelSmall.override(
                               fontFamily: 'The Seasons',
@@ -403,7 +403,7 @@ class _SacralChakraEnergyGuideCompWidgetState
                     children: [
                       Text(
                         FFLocalizations.of(context).getText(
-                          '14vz6o4q' /* BENEFITS */,
+                          '2jmt5hx4' /* BENEFITS */,
                         ),
                         style: FlutterFlowTheme.of(context).labelSmall.override(
                               fontFamily: 'The Seasons',

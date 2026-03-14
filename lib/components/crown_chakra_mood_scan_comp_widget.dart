@@ -312,7 +312,7 @@ Center */
                           ),
                           Text(
                             FFLocalizations.of(context).getText(
-                              'hly4oynh' /* 100 */,
+                              'a3yc193h' /* 100 */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .titleLarge
@@ -365,7 +365,7 @@ Center */
                   children: [
                     Text(
                       FFLocalizations.of(context).getText(
-                        'u7kh13m9' /* Why Lucille Thinks This */,
+                        'wly2reqg' /* Why Lucille Thinks This */,
                       ),
                       style:
                           FlutterFlowTheme.of(context).headlineSmall.override(
@@ -487,7 +487,7 @@ Center */
                   children: [
                     Text(
                       FFLocalizations.of(context).getText(
-                        '9avdbtip' /* Interpretation */,
+                        '5o48eubj' /* Interpretation */,
                       ),
                       style:
                           FlutterFlowTheme.of(context).headlineSmall.override(
@@ -517,7 +517,7 @@ Center */
                   children: [
                     Text(
                       FFLocalizations.of(context).getText(
-                        'chuee8pe' /* Suggested Actions */,
+                        'rf7qb3wc' /* Suggested Actions */,
                       ),
                       style:
                           FlutterFlowTheme.of(context).headlineSmall.override(
@@ -613,7 +613,7 @@ Center */
                                   Expanded(
                                     child: Text(
                                       FFLocalizations.of(context).getText(
-                                        'bp4j4jz7' /* Start Brainwave Music Exercise */,
+                                        'si0wus36' /* Start Brainwave Music Exercise */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium

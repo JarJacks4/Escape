@@ -249,7 +249,7 @@ class _ResetLevelTabCompWidgetState extends State<ResetLevelTabCompWidget> {
                                 ),
                                 Text(
                                   FFLocalizations.of(context).getText(
-                                    '7cpuxuc6' /* Any */,
+                                    'dbqsj9bj' /* Any */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
@@ -315,7 +315,7 @@ class _ResetLevelTabCompWidgetState extends State<ResetLevelTabCompWidget> {
                                       0.0, 8.0, 0.0, 0.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
-                                      'a3ui4r5f' /* Mindful journal practice */,
+                                      'mp7ddkus' /* Mindful journal practice */,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodySmall
@@ -341,7 +341,7 @@ class _ResetLevelTabCompWidgetState extends State<ResetLevelTabCompWidget> {
                               ),
                               Text(
                                 FFLocalizations.of(context).getText(
-                                  'azywtjoo' /* Any */,
+                                  'zhdcbvs9' /* Any */,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodySmall
@@ -469,7 +469,7 @@ class _ResetLevelTabCompWidgetState extends State<ResetLevelTabCompWidget> {
                                         0.0, 8.0, 0.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
-                                        'uxoy4lu3' /* Get a great nights rest with 
+                                        'm400h3lc' /* Get a great nights rest with 
 ... */
                                         ,
                                       ),
@@ -496,7 +496,7 @@ class _ResetLevelTabCompWidgetState extends State<ResetLevelTabCompWidget> {
                                 ),
                                 Text(
                                   FFLocalizations.of(context).getText(
-                                    'a5gi6ld6' /* 100 Coins */,
+                                    'h50lt8hp' /* 100 Coins */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
@@ -583,7 +583,7 @@ class _ResetLevelTabCompWidgetState extends State<ResetLevelTabCompWidget> {
                                         0.0, 8.0, 0.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
-                                        'bbv43cgq' /* Learn to breathe in a slower p... */,
+                                        'k5m0918v' /* Learn to breathe in a slower p... */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodySmall
@@ -608,7 +608,7 @@ class _ResetLevelTabCompWidgetState extends State<ResetLevelTabCompWidget> {
                                 ),
                                 Text(
                                   FFLocalizations.of(context).getText(
-                                    'c7s4ekx7' /* 50 Coins */,
+                                    'trzzso44' /* 50 Coins */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
@@ -658,7 +658,7 @@ class _ResetLevelTabCompWidgetState extends State<ResetLevelTabCompWidget> {
                               children: [
                                 Text(
                                   FFLocalizations.of(context).getText(
-                                    'aqix4i3r' /* Overthinking and Stress Relief */,
+                                    'p4yswaln' /* Overthinking and Stress Relief */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyLarge
@@ -674,7 +674,7 @@ class _ResetLevelTabCompWidgetState extends State<ResetLevelTabCompWidget> {
                                       0.0, 8.0, 0.0, 0.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
-                                      'c9tv9g8j' /* Alleviate anxiety and gain coi... */,
+                                      '03afigyb' /* Alleviate anxiety and gain coi... */,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodySmall
@@ -699,7 +699,7 @@ class _ResetLevelTabCompWidgetState extends State<ResetLevelTabCompWidget> {
                               ),
                               Text(
                                 FFLocalizations.of(context).getText(
-                                  '1ktk53z8' /* 100 Coins */,
+                                  'wjl2dqe3' /* 100 Coins */,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodySmall
@@ -827,7 +827,7 @@ class _ResetLevelTabCompWidgetState extends State<ResetLevelTabCompWidget> {
                                         0.0, 8.0, 0.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
-                                        'ycx1y937' /* Have a peaceful day 
+                                        '4ape5vl3' /* Have a peaceful day 
 with a wi... */
                                         ,
                                       ),
@@ -855,7 +855,7 @@ with a wi... */
                                 ),
                                 Text(
                                   FFLocalizations.of(context).getText(
-                                    'h4zv8yfu' /* Any */,
+                                    '2poje8r7' /* Any */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
@@ -934,7 +934,7 @@ with a wi... */
                                         0.0, 8.0, 0.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
-                                        'e8v67jgx' /* End your day with personal 
+                                        '4pdvf20e' /* End your day with personal 
 co... */
                                         ,
                                       ),
@@ -962,7 +962,7 @@ co... */
                                 ),
                                 Text(
                                   FFLocalizations.of(context).getText(
-                                    'hbdwy8x7' /* Any */,
+                                    'o30k8mrs' /* Any */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall

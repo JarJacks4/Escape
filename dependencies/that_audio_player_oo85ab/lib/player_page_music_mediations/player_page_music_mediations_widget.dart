@@ -203,7 +203,7 @@ class _PlayerPageMusicMediationsWidgetState
                                           boxShadow: [
                                             BoxShadow(
                                               blurRadius: 8.0,
-                                              color: Color(0xA1D0E3F7),
+                                              color: Color(0x4CEF39EC),
                                               offset: Offset(
                                                 0.0,
                                                 2.0,
@@ -451,8 +451,10 @@ class _PlayerPageMusicMediationsWidgetState
                                             borderRadius: 8.0,
                                             buttonSize: 54.0,
                                             icon: Icon(
-                                              Icons.shuffle_on_rounded,
-                                              color: Color(0xA4FFFFFF),
+                                              Icons.skip_previous_sharp,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
                                               size: 36.0,
                                             ),
                                             onPressed: () async {
@@ -497,8 +499,10 @@ class _PlayerPageMusicMediationsWidgetState
                                             borderRadius: 8.0,
                                             buttonSize: 54.0,
                                             icon: Icon(
-                                              Icons.shuffle_on_rounded,
-                                              color: Color(0xA4FFFFFF),
+                                              Icons.skip_next,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
                                               size: 36.0,
                                             ),
                                             onPressed: () async {

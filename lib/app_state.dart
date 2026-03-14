@@ -86,6 +86,18 @@ class FFAppState extends ChangeNotifier {
           await secureStorage.getBool('ff_isFirstTimeUsingEnergyScan') ??
               _isFirstTimeUsingEnergyScan;
     });
+    await _safeInitAsync(() async {
+      _gorqKey = await secureStorage.getString('ff_gorqKey') ?? _gorqKey;
+    });
+    await _safeInitAsync(() async {
+      _NewReorderedIndex = await secureStorage.getInt('ff_NewReorderedIndex') ??
+          _NewReorderedIndex;
+    });
+    await _safeInitAsync(() async {
+      _ReorderedVideosIndex =
+          await secureStorage.getInt('ff_ReorderedVideosIndex') ??
+              _ReorderedVideosIndex;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -1805,6 +1817,39 @@ class FFAppState extends ChangeNotifier {
 
   void deleteIsFirstTimeUsingEnergyScan() {
     secureStorage.delete(key: 'ff_isFirstTimeUsingEnergyScan');
+  }
+
+  String _gorqKey = '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';
+  String get gorqKey => _gorqKey;
+  set gorqKey(String value) {
+    _gorqKey = value;
+    secureStorage.setString('ff_gorqKey', value);
+  }
+
+  void deleteGorqKey() {
+    secureStorage.delete(key: 'ff_gorqKey');
+  }
+
+  int _NewReorderedIndex = 0;
+  int get NewReorderedIndex => _NewReorderedIndex;
+  set NewReorderedIndex(int value) {
+    _NewReorderedIndex = value;
+    secureStorage.setInt('ff_NewReorderedIndex', value);
+  }
+
+  void deleteNewReorderedIndex() {
+    secureStorage.delete(key: 'ff_NewReorderedIndex');
+  }
+
+  int _ReorderedVideosIndex = 0;
+  int get ReorderedVideosIndex => _ReorderedVideosIndex;
+  set ReorderedVideosIndex(int value) {
+    _ReorderedVideosIndex = value;
+    secureStorage.setInt('ff_ReorderedVideosIndex', value);
+  }
+
+  void deleteReorderedVideosIndex() {
+    secureStorage.delete(key: 'ff_ReorderedVideosIndex');
   }
 }
 

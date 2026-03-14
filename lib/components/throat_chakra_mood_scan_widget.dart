@@ -343,7 +343,7 @@ Energy Center */
                             ),
                             Text(
                               FFLocalizations.of(context).getText(
-                                'kjf1s0ez' /* 100 */,
+                                'l8hai72s' /* 100 */,
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .titleLarge
@@ -540,7 +540,7 @@ Energy Center */
                   children: [
                     Text(
                       FFLocalizations.of(context).getText(
-                        '4ahnupca' /* Interpretation */,
+                        'hqy5vype' /* Interpretation */,
                       ),
                       style:
                           FlutterFlowTheme.of(context).headlineSmall.override(
@@ -570,7 +570,7 @@ Energy Center */
                   children: [
                     Text(
                       FFLocalizations.of(context).getText(
-                        '7ku6k188' /* Suggested Actions */,
+                        '4vbdco65' /* Suggested Actions */,
                       ),
                       style:
                           FlutterFlowTheme.of(context).headlineSmall.override(
