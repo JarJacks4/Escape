@@ -316,6 +316,7 @@ class _LucilleFirstRecommendationCompCopyWidgetState
                                             color: Color(0xC81C2444),
                                             fontSize: 12.0,
                                             letterSpacing: 0.0,
+                                            fontWeight: FontWeight.w900,
                                           ),
                                     ),
                                   ),

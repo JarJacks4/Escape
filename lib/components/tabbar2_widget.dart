@@ -78,22 +78,22 @@ class _Tabbar2WidgetState extends State<Tabbar2Widget>
                 tabs: [
                   Tab(
                     text: FFLocalizations.of(context).getText(
-                      'sycy9eot' /* This week */,
+                      '6i0dubil' /* This week */,
                     ),
                   ),
                   Tab(
                     text: FFLocalizations.of(context).getText(
-                      'cqycy5zi' /* This quarter */,
+                      'f4gxm5dj' /* This quarter */,
                     ),
                   ),
                   Tab(
                     text: FFLocalizations.of(context).getText(
-                      '1u1vo6jk' /* All time */,
+                      'hrgo53i5' /* All time */,
                     ),
                   ),
                   Tab(
                     text: FFLocalizations.of(context).getText(
-                      'zxbc9fl4' /* Custom Value */,
+                      'iwccy2a6' /* Custom Value */,
                     ),
                   ),
                 ],
@@ -111,7 +111,7 @@ class _Tabbar2WidgetState extends State<Tabbar2Widget>
                     alignment: AlignmentDirectional(0.0, 0.0),
                     child: Text(
                       FFLocalizations.of(context).getText(
-                        'swq0dqx6' /* This week */,
+                        'j858t0dt' /* This week */,
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'WorkSans',
@@ -124,7 +124,7 @@ class _Tabbar2WidgetState extends State<Tabbar2Widget>
                     alignment: AlignmentDirectional(0.0, 0.0),
                     child: Text(
                       FFLocalizations.of(context).getText(
-                        'h4z0nzi5' /* this quarter */,
+                        'v6eo9rl8' /* this quarter */,
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'WorkSans',
@@ -137,7 +137,7 @@ class _Tabbar2WidgetState extends State<Tabbar2Widget>
                     alignment: AlignmentDirectional(0.0, 0.0),
                     child: Text(
                       FFLocalizations.of(context).getText(
-                        'w10jk0nf' /* All time */,
+                        'fvk6p0o1' /* All time */,
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'WorkSans',
@@ -150,7 +150,7 @@ class _Tabbar2WidgetState extends State<Tabbar2Widget>
                     alignment: AlignmentDirectional(0.0, 0.0),
                     child: Text(
                       FFLocalizations.of(context).getText(
-                        'l77brlgd' /* Custom Value */,
+                        'ekngrl64' /* Custom Value */,
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'WorkSans',

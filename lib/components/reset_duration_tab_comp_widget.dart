@@ -223,7 +223,7 @@ class _ResetDurationTabCompWidgetState
                               ),
                               Text(
                                 FFLocalizations.of(context).getText(
-                                  '9w90ajis' /* Guided breathing to melt away ... */,
+                                  '9ga29hxh' /* Guided breathing to melt away ... */,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodySmall
@@ -399,7 +399,7 @@ class _ResetDurationTabCompWidgetState
                               ),
                               Text(
                                 FFLocalizations.of(context).getText(
-                                  '80js63xc' /* Mindful sipping practice */,
+                                  '5ikdthcz' /* Mindful sipping practice */,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodySmall
@@ -504,7 +504,7 @@ class _ResetDurationTabCompWidgetState
                               ),
                               Text(
                                 FFLocalizations.of(context).getText(
-                                  'z2z651a8' /* Release physical tension gentl... */,
+                                  'kwqtg2xx' /* Release physical tension gentl... */,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodySmall
@@ -592,7 +592,7 @@ class _ResetDurationTabCompWidgetState
                               ),
                               Text(
                                 FFLocalizations.of(context).getText(
-                                  'ckgfql34' /* Release through writing */,
+                                  'riuyeb8j' /* Release through writing */,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodySmall
@@ -679,7 +679,7 @@ class _ResetDurationTabCompWidgetState
                               ),
                               Text(
                                 FFLocalizations.of(context).getText(
-                                  'maushv68' /* End your day with peace */,
+                                  'rt9eqkqn' /* End your day with peace */,
                                 ),
                                 style: FlutterFlowTheme.of(context)
                                     .bodySmall

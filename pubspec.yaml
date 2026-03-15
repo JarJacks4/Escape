@@ -15,7 +15,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.0.5+9
+version: 1.0.5+10
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
@@ -69,9 +69,9 @@ dependencies:
   fetch_api: 2.2.0
   fetch_client: 1.1.2
   ff_commons:
-    path: ./dependencies/ff_commons # 1.0.5+9
+    path: ./dependencies/ff_commons # 1.0.5+10
   ff_theme:
-    path: ./dependencies/ff_theme # 1.0.5+9
+    path: ./dependencies/ff_theme # 1.0.5+10
   file_picker: 10.1.9
   firebase_analytics: 11.5.0
   firebase_analytics_platform_interface: 4.4.0
@@ -202,7 +202,7 @@ dependencies:
   stream_transform: 2.1.0
   synchronized: 3.4.0
   that_audio_player_oo85ab:
-    path: ./dependencies/that_audio_player_oo85ab # 0.0.7
+    path: ./dependencies/that_audio_player_oo85ab # 0.0.8
   tiktokfeed_wz8en7:
     path: ./dependencies/tiktokfeed_wz8en7 # current
   timeago: 3.7.1

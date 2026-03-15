@@ -1,16 +1,27 @@
-import '/backend/ai_agents/ai_agent.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
+import 'package:confetti_modualo_library_b75kfy/app_state.dart'
+    as confetti_modualo_library_b75kfy_app_state;
+import 'package:cupertino_time_picker_hiuzb7/app_state.dart'
+    as cupertino_time_picker_hiuzb7_app_state;
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:that_audio_player_oo85ab/app_state.dart'
+    as that_audio_player_oo85ab_app_state;
+import 'package:tiktokfeed_wz8en7/app_state.dart'
+    as tiktokfeed_wz8en7_app_state;
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:just_audio/just_audio.dart';
 import 'package:lottie/lottie.dart';
+import 'package:provider/provider.dart';
 import 'package:record/record.dart';
 import 'journal_page1_model.dart';
 export 'journal_page1_model.dart';
@@ -23,8 +34,11 @@ class JournalPage1Widget extends StatefulWidget {
   State<JournalPage1Widget> createState() => _JournalPage1WidgetState();
 }
 
-class _JournalPage1WidgetState extends State<JournalPage1Widget> {
+class _JournalPage1WidgetState extends State<JournalPage1Widget>
+    with TickerProviderStateMixin {
   late JournalPage1Model _model;
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void setState(VoidCallback callback) {
@@ -36,6 +50,22 @@ class _JournalPage1WidgetState extends State<JournalPage1Widget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => JournalPage1Model());
+
+    animationsMap.addAll({
+      'textOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          VisibilityEffect(duration: 1.ms),
+          FadeEffect(
+            curve: Curves.easeIn,
+            delay: 0.0.ms,
+            duration: 320.0.ms,
+            begin: 0.0,
+            end: 1.0,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -47,6 +77,12 @@ class _JournalPage1WidgetState extends State<JournalPage1Widget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+    context.watch<cupertino_time_picker_hiuzb7_app_state.FFAppState>();
+    context.watch<tiktokfeed_wz8en7_app_state.FFAppState>();
+    context.watch<confetti_modualo_library_b75kfy_app_state.FFAppState>();
+    context.watch<that_audio_player_oo85ab_app_state.FFAppState>();
+
     return Container(
       child: Padding(
         padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
@@ -205,6 +241,22 @@ class _JournalPage1WidgetState extends State<JournalPage1Widget> {
                                     logFirebaseEvent(
                                         'JOURNAL_PAGE1_LottieAnimation_kukw10w1_O');
                                     logFirebaseEvent(
+                                        'LottieAnimation_haptic_feedback');
+                                    HapticFeedback.heavyImpact();
+                                    logFirebaseEvent(
+                                        'LottieAnimation_play_sound');
+                                    _model.soundPlayer ??= AudioPlayer();
+                                    if (_model.soundPlayer!.playing) {
+                                      await _model.soundPlayer!.stop();
+                                    }
+                                    _model.soundPlayer!.setVolume(1.0);
+                                    _model.soundPlayer!
+                                        .setAsset(
+                                            'assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3')
+                                        .then(
+                                            (_) => _model.soundPlayer!.play());
+
+                                    logFirebaseEvent(
                                         'LottieAnimation_start_audio_recording');
                                     await startAudioRecording(
                                       context,
@@ -224,6 +276,9 @@ class _JournalPage1WidgetState extends State<JournalPage1Widget> {
                                     logFirebaseEvent(
                                         'JOURNAL_PAGE1_LottieAnimation_kukw10w1_O');
                                     logFirebaseEvent(
+                                        'LottieAnimation_haptic_feedback');
+                                    HapticFeedback.heavyImpact();
+                                    logFirebaseEvent(
                                         'LottieAnimation_stop_audio_recording');
                                     await stopAudioRecording(
                                       audioRecorder: _model.audioRecorder,
@@ -242,36 +297,28 @@ class _JournalPage1WidgetState extends State<JournalPage1Widget> {
                                         _model.audioJournalRecording;
                                     safeSetState(() {});
                                     logFirebaseEvent(
-                                        'LottieAnimation_a_i_agent');
-                                    await callAiAgent(
-                                      context: context,
-                                      prompt:
-                                          'Transcribe this audio recording exactly as spoken.\nPreserve natural pauses.\nDo not summarize.\nReturn only the raw transcription text.',
-                                      audioUrl: _model.voiceNote,
-                                      threadId: '1',
-                                      agentCloudFunctionName:
-                                          'lucilleJournalTranscription',
-                                      provider: 'GOOGLE',
-                                      agentJson:
-                                          '{\"status\":\"LIVE\",\"identifier\":{\"name\":\"lucilleJournalTranscription\",\"key\":\"yzabi\"},\"name\":\"Lucille Journal Transcription\",\"description\":\"Lucille AI Agent for carrying out transcription of text\",\"aiModel\":{\"provider\":\"GOOGLE\",\"model\":\"gemini-2.5-flash-lite\",\"parameters\":{\"temperature\":{\"inputValue\":0.2},\"maxTokens\":{\"inputValue\":8637},\"topP\":{\"inputValue\":0.5}},\"messages\":[{\"role\":\"SYSTEM\",\"text\":\"Transcribe this audio recording exactly as spoken.\\r\\nPreserve natural pauses.\\r\\nDo not summarize.\\r\\nReturn only the raw transcription text.\"}]},\"requestOptions\":{\"requestTypes\":[\"PLAINTEXT\",\"AUDIO\"]},\"responseOptions\":{\"responseType\":\"PLAINTEXT\"}}',
-                                      responseType: 'PLAINTEXT',
-                                    ).then((generatedText) {
-                                      safeSetState(() => _model
-                                          .voiceTranscription = generatedText);
-                                    });
+                                        'LottieAnimation_backend_call');
+                                    _model.gorqTranscriptionResult =
+                                        await EscapeAudioScriptCall.call(
+                                      file: _model.voiceNoteFile,
+                                      gorqKey: FFAppState().gorqKey,
+                                    );
 
                                     logFirebaseEvent(
                                         'LottieAnimation_update_component_state');
                                     _model.voiceNoteFile =
                                         _model.recordedFileBytes;
-                                    _model.voiceNoteText =
-                                        _model.voiceTranscription;
                                     _model.updateTranscriptWordsAtIndex(
                                       _model.currentWordIndex!,
-                                      (_) => _model.voiceTranscription!,
+                                      (_) => (_model.gorqTranscriptionResult
+                                                  ?.jsonBody ??
+                                              '')
+                                          .toString(),
                                     );
-                                    _model.visibleText =
-                                        _model.voiceTranscription;
+                                    _model.visibleText = (_model
+                                            .gorqTranscriptionResult
+                                            ?.bodyText ??
+                                        '');
                                     _model.isTyping =
                                         !(_model.isTyping ?? true);
                                     safeSetState(() {});
@@ -296,6 +343,48 @@ class _JournalPage1WidgetState extends State<JournalPage1Widget> {
                                         },
                                       ),
                                     });
+                                    if ((_model.gorqTranscriptionResult
+                                            ?.succeeded ??
+                                        true)) {
+                                      logFirebaseEvent(
+                                          'LottieAnimation_backend_call');
+
+                                      await columnJournalRecord.reference
+                                          .update({
+                                        ...mapToFirestore(
+                                          {
+                                            'TranscribeText':
+                                                FieldValue.arrayUnion([
+                                              (_model.gorqTranscriptionResult
+                                                          ?.jsonBody ??
+                                                      '')
+                                                  .toString()
+                                            ]),
+                                          },
+                                        ),
+                                      });
+                                    } else {
+                                      logFirebaseEvent(
+                                          'LottieAnimation_show_snack_bar');
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
+                                        SnackBar(
+                                          content: Text(
+                                            'Trannscrip',
+                                            style: TextStyle(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                            ),
+                                          ),
+                                          duration:
+                                              Duration(milliseconds: 4000),
+                                          backgroundColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .secondary,
+                                        ),
+                                      );
+                                    }
 
                                     safeSetState(() {});
                                   },
@@ -374,7 +463,7 @@ class _JournalPage1WidgetState extends State<JournalPage1Widget> {
                                       color: Color(0xF0D0E3F7),
                                       letterSpacing: 0.0,
                                     ),
-                                duration: Duration(milliseconds: 270),
+                                duration: Duration(milliseconds: 795),
                                 curve: Curves.easeIn,
                                 child: Text(
                                   valueOrDefault<String>(
@@ -384,7 +473,8 @@ class _JournalPage1WidgetState extends State<JournalPage1Widget> {
                                   textAlign: TextAlign.center,
                                   overflow: TextOverflow.fade,
                                 ),
-                              ),
+                              ).animateOnPageLoad(
+                                  animationsMap['textOnPageLoadAnimation']!),
                             ),
                             if (_model.isTyping ?? true)
                               AnimatedOpacity(
@@ -416,28 +506,43 @@ class _JournalPage1WidgetState extends State<JournalPage1Widget> {
                   ),
                 ),
               ),
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  FlutterFlowIconButton(
-                    borderRadius: 24.0,
-                    buttonSize: 48.0,
-                    fillColor: Color(0xFFE0E0E0),
-                    icon: Icon(
-                      Icons.delete,
-                      color: FlutterFlowTheme.of(context).error,
-                      size: 24.0,
+              InkWell(
+                splashColor: Colors.transparent,
+                focusColor: Colors.transparent,
+                hoverColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                onTap: () async {
+                  logFirebaseEvent('JOURNAL_PAGE1_COMP_Row_3ff5bhws_ON_TAP');
+                  logFirebaseEvent('Row_delete_data');
+                  await FirebaseStorage.instance
+                      .refFromURL(_model.voiceNoteText!)
+                      .delete();
+                },
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    FlutterFlowIconButton(
+                      borderRadius: 24.0,
+                      buttonSize: 48.0,
+                      fillColor: Color(0xFFE0E0E0),
+                      icon: Icon(
+                        Icons.delete,
+                        color: FlutterFlowTheme.of(context).error,
+                        size: 24.0,
+                      ),
+                      onPressed: () async {
+                        logFirebaseEvent(
+                            'JOURNAL_PAGE1_COMP_delete_ICN_ON_TAP');
+                        logFirebaseEvent('IconButton_delete_data');
+                        await FirebaseStorage.instance
+                            .refFromURL(
+                                _model.recordedFileBytes.originalFilename)
+                            .delete();
+                      },
                     ),
-                    onPressed: () async {
-                      logFirebaseEvent('JOURNAL_PAGE1_COMP_delete_ICN_ON_TAP');
-                      logFirebaseEvent('IconButton_delete_data');
-                      await FirebaseStorage.instance
-                          .refFromURL(_model.recordedFileBytes.originalFilename)
-                          .delete();
-                    },
-                  ),
-                ].divide(SizedBox(width: 24.0)),
+                  ].divide(SizedBox(width: 24.0)),
+                ),
               ),
               FFButtonWidget(
                 onPressed: () async {

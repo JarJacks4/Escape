@@ -113,7 +113,15 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   );
 
                                   context.pushNamed(
-                                    PlayerPageAllWidget.routeName,
+                                    PlayerPageFINALAllTabWidget.routeName,
+                                    queryParameters: {
+                                      'currentSong': serializeParam(
+                                        MediaStruct(
+                                          mediaUrl: mediaItemsItem.mediaUrl,
+                                        ),
+                                        ParamType.DataStruct,
+                                      ),
+                                    }.withoutNulls,
                                     extra: <String, dynamic>{
                                       '__transition_info__': TransitionInfo(
                                         hasTransition: true,
@@ -131,7 +139,15 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   );
 
                                   context.pushNamed(
-                                    PlayerPageAllWidget.routeName,
+                                    PlayerPageFINALAllTabWidget.routeName,
+                                    queryParameters: {
+                                      'currentSong': serializeParam(
+                                        MediaStruct(
+                                          mediaUrl: mediaItemsItem.mediaUrl,
+                                        ),
+                                        ParamType.DataStruct,
+                                      ),
+                                    }.withoutNulls,
                                     extra: <String, dynamic>{
                                       '__transition_info__': TransitionInfo(
                                         hasTransition: true,

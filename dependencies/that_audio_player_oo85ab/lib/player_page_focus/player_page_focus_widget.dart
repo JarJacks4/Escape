@@ -187,7 +187,9 @@ class _PlayerPageFocusWidgetState extends State<PlayerPageFocusWidget>
                                           boxShadow: [
                                             BoxShadow(
                                               blurRadius: 8.0,
-                                              color: Color(0xA1D0E3F7),
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .tertiary,
                                               offset: Offset(
                                                 0.0,
                                                 2.0,
@@ -430,7 +432,7 @@ class _PlayerPageFocusWidgetState extends State<PlayerPageFocusWidget>
                                             borderRadius: 8.0,
                                             buttonSize: 54.0,
                                             icon: Icon(
-                                              Icons.shuffle_on_rounded,
+                                              Icons.skip_previous,
                                               color: Color(0xA4FFFFFF),
                                               size: 36.0,
                                             ),
@@ -476,7 +478,7 @@ class _PlayerPageFocusWidgetState extends State<PlayerPageFocusWidget>
                                             borderRadius: 8.0,
                                             buttonSize: 54.0,
                                             icon: Icon(
-                                              Icons.shuffle_on_rounded,
+                                              Icons.skip_next,
                                               color: Color(0xA4FFFFFF),
                                               size: 36.0,
                                             ),

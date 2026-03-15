@@ -104,8 +104,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
   $that_audio_player_oo85ab.initializeRoutes(
     homePageWidgetName: 'that_audio_player_oo85ab.HomePage',
     homePageWidgetPath: 'homePage',
-    playerPageAllWidgetName: 'that_audio_player_oo85ab.PlayerPageAll',
-    playerPageAllWidgetPath: 'playerPageAll',
     playerPageFocusWidgetName: 'that_audio_player_oo85ab.PlayerPageFocus',
     playerPageFocusWidgetPath: 'playerPageFocus',
     playerPageSleepWidgetName: 'that_audio_player_oo85ab.PlayerPageSleep',
@@ -640,11 +638,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             builder: (context, params) => MindCrownChakraVersion5Widget(),
           ),
           FFRoute(
-            name: SoundscapeSampleWidget.routeName,
-            path: SoundscapeSampleWidget.routePath,
-            builder: (context, params) => SoundscapeSampleWidget(),
-          ),
-          FFRoute(
             name: MusicPlayerCopyWidget.routeName,
             path: MusicPlayerCopyWidget.routePath,
             builder: (context, params) => MusicPlayerCopyWidget(
@@ -695,17 +688,19 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
                       page: ExplorePageVersion5Widget(),
                     )),
           FFRoute(
-            name: AISoundscapesCopyCopyCopyWidget.routeName,
-            path: AISoundscapesCopyCopyCopyWidget.routePath,
-            builder: (context, params) => params.isEmpty
-                ? NavBarPage(initialPage: 'AISoundscapesCopyCopyCopy')
-                : AISoundscapesCopyCopyCopyWidget(
-                    meditationaudio: params.getParam(
-                      'meditationaudio',
-                      ParamType.String,
-                    ),
-                  ),
-          ),
+              name: AISoundscapesCopyCopyCopyWidget.routeName,
+              path: AISoundscapesCopyCopyCopyWidget.routePath,
+              builder: (context, params) => params.isEmpty
+                  ? NavBarPage(initialPage: 'AISoundscapesCopyCopyCopy')
+                  : NavBarPage(
+                      initialPage: 'AISoundscapesCopyCopyCopy',
+                      page: AISoundscapesCopyCopyCopyWidget(
+                        meditationaudio: params.getParam(
+                          'meditationaudio',
+                          ParamType.String,
+                        ),
+                      ),
+                    )),
           FFRoute(
             name: ResetPageCopyWidget.routeName,
             path: ResetPageCopyWidget.routePath,
@@ -827,12 +822,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             path: $that_audio_player_oo85ab.HomePageWidget.routePath,
             builder: (context, params) =>
                 $that_audio_player_oo85ab.HomePageWidget(),
-          ),
-          FFRoute(
-            name: $that_audio_player_oo85ab.PlayerPageAllWidget.routeName,
-            path: $that_audio_player_oo85ab.PlayerPageAllWidget.routePath,
-            builder: (context, params) =>
-                $that_audio_player_oo85ab.PlayerPageAllWidget(),
           ),
           FFRoute(
             name: $that_audio_player_oo85ab.PlayerPageFocusWidget.routeName,

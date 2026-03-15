@@ -320,7 +320,7 @@ Energy Center */
                           ),
                           Text(
                             FFLocalizations.of(context).getText(
-                              'c80rim4a' /* 100 */,
+                              '20eafkkz' /* 100 */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .headlineLarge
@@ -376,7 +376,7 @@ Energy Center */
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                       child: Text(
                         FFLocalizations.of(context).getText(
-                          'vlnu0w5o' /* Lucille's Energy Scan Highligh... */,
+                          'vzhvs7bi' /* Lucille's Energy Scan Highligh... */,
                         ),
                         style:
                             FlutterFlowTheme.of(context).headlineSmall.override(

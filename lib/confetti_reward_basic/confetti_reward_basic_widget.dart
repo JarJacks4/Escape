@@ -517,7 +517,7 @@ class _ConfettiRewardBasicWidgetState extends State<ConfettiRewardBasicWidget> {
                                         child: FFButtonWidget(
                                           onPressed: () async {
                                             logFirebaseEvent(
-                                                'CONFETTI_REWARD_BASIC_I_WANT_TO_DO_MORE_');
+                                                'CONFETTI_REWARD_BASIC_SEE_EXPLORE_BTN_ON');
                                             logFirebaseEvent(
                                                 'Button_haptic_feedback');
                                             HapticFeedback.mediumImpact();
@@ -586,7 +586,7 @@ class _ConfettiRewardBasicWidgetState extends State<ConfettiRewardBasicWidget> {
                                           },
                                           text: FFLocalizations.of(context)
                                               .getText(
-                                            'h3oyjcto' /* I Want To Do More! */,
+                                            'h3oyjcto' /* See Explore Page! */,
                                           ),
                                           icon: Icon(
                                             Icons.arrow_forward,

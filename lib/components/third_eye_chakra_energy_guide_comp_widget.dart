@@ -120,7 +120,7 @@ class _ThirdEyeChakraEnergyGuideCompWidgetState
                         children: [
                           Text(
                             FFLocalizations.of(context).getText(
-                              'wfuv0bfx' /* LOCATION */,
+                              'txky1irc' /* LOCATION */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .labelSmall
@@ -151,7 +151,7 @@ class _ThirdEyeChakraEnergyGuideCompWidgetState
                         children: [
                           Text(
                             FFLocalizations.of(context).getText(
-                              'c1xpwxhz' /* ELEMENT */,
+                              'tpdwhzlp' /* ELEMENT */,
                             ),
                             style: FlutterFlowTheme.of(context)
                                 .labelSmall
@@ -197,7 +197,7 @@ class _ThirdEyeChakraEnergyGuideCompWidgetState
                     children: [
                       Text(
                         FFLocalizations.of(context).getText(
-                          'thxetg8v' /* KEY PRACTICES */,
+                          '19glalim' /* KEY PRACTICES */,
                         ),
                         style: FlutterFlowTheme.of(context).labelSmall.override(
                               fontFamily: 'The Seasons',
@@ -353,7 +353,7 @@ class _ThirdEyeChakraEnergyGuideCompWidgetState
                     children: [
                       Text(
                         FFLocalizations.of(context).getText(
-                          'udo5duo0' /* BENEFITS */,
+                          '7u4mjjoz' /* BENEFITS */,
                         ),
                         style: FlutterFlowTheme.of(context).labelSmall.override(
                               fontFamily: 'The Seasons',

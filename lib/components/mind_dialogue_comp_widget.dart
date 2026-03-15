@@ -488,7 +488,10 @@ class _MindDialogueCompWidgetState extends State<MindDialogueCompWidget>
                                                   Duration(milliseconds: 465),
                                               curve: Curves.easeIn,
                                               child: Text(
-                                                '${_model.pageViewCurrentIndex.toString()} of 7',
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  '7zjup13p' /* 2 of 7 */,
+                                                ),
                                               ),
                                             ),
                                             Align(
@@ -784,7 +787,10 @@ class _MindDialogueCompWidgetState extends State<MindDialogueCompWidget>
                                                       milliseconds: 465),
                                                   curve: Curves.easeIn,
                                                   child: Text(
-                                                    '${_model.pageViewCurrentIndex.toString()} of 7',
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                      'z808sfcb' /* 3 of 7 */,
+                                                    ),
                                                   ),
                                                 ),
                                                 Align(
@@ -1097,7 +1103,10 @@ class _MindDialogueCompWidgetState extends State<MindDialogueCompWidget>
                                                     Duration(milliseconds: 465),
                                                 curve: Curves.easeIn,
                                                 child: Text(
-                                                  '${_model.pageViewCurrentIndex.toString()} of 7',
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    '88bu0fbe' /* 4 of 7 */,
+                                                  ),
                                                 ),
                                               ),
                                               Align(
@@ -1394,7 +1403,10 @@ class _MindDialogueCompWidgetState extends State<MindDialogueCompWidget>
                                                   Duration(milliseconds: 465),
                                               curve: Curves.easeIn,
                                               child: Text(
-                                                '${_model.pageViewCurrentIndex.toString()} of 7',
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'ltchw6ti' /* 5 of 7 */,
+                                                ),
                                               ),
                                             ),
                                             Align(
@@ -1682,7 +1694,10 @@ class _MindDialogueCompWidgetState extends State<MindDialogueCompWidget>
                                                   Duration(milliseconds: 465),
                                               curve: Curves.easeIn,
                                               child: Text(
-                                                '${_model.pageViewCurrentIndex.toString()} of 7',
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'oktdn6eh' /* 6 of 7 */,
+                                                ),
                                               ),
                                             ),
                                             Align(
@@ -1974,7 +1989,10 @@ class _MindDialogueCompWidgetState extends State<MindDialogueCompWidget>
                                                   Duration(milliseconds: 465),
                                               curve: Curves.easeIn,
                                               child: Text(
-                                                '${_model.pageViewCurrentIndex.toString()} of 7',
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'rz4qpafr' /* 7 of 7 */,
+                                                ),
                                               ),
                                             ),
                                             Align(

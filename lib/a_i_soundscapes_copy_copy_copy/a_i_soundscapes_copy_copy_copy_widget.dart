@@ -20,6 +20,7 @@ import 'package:that_audio_player_oo85ab/index.dart'
     as $that_audio_player_oo85ab;
 import 'package:tiktokfeed_wz8en7/app_state.dart'
     as tiktokfeed_wz8en7_app_state;
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -142,7 +143,7 @@ class _AISoundscapesCopyCopyCopyWidgetState
           FadeEffect(
             curve: Curves.easeIn,
             delay: 190.0.ms,
-            duration: 1220.0.ms,
+            duration: 1740.0.ms,
             begin: 0.0,
             end: 1.0,
           ),
@@ -256,47 +257,42 @@ class _AISoundscapesCopyCopyCopyWidgetState
                       Opacity(
                         opacity: 0.5,
                         child: Hero(
-                          tag: valueOrDefault<String>(
-                            () {
-                              if (FFAppState().isAllTab) {
-                                return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2F922f59d7455e56aacdec50df5571bcd744c166a0_(1)_(1)%20(2).gif?alt=media&token=373daaa0-a029-49d1-9c24-b59c6d69e0d9';
-                              } else if (FFAppState().isMusicMeditationsTab) {
-                                return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2Fe085865feb0fb5cd989c30fa6b384526.gif?alt=media&token=adf4bee7-8bca-4508-b01a-9dfe15967736';
-                              } else if (FFAppState().isNatureTab) {
-                                return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2Fdownload_(26)%20(1).gif?alt=media&token=77372ba9-5080-46ce-95fd-dbc17982ec56';
-                              } else if (FFAppState().isFocusTab) {
-                                return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2Fe085865feb0fb5cd989c30fa6b384526.gif?alt=media&token=adf4bee7-8bca-4508-b01a-9dfe15967736';
-                              } else if (FFAppState().isSleepTab) {
-                                return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2F90ac6093fb40e1d7398371b1d61a4e4a.gif?alt=media&token=3351172e-47e6-40e2-9ed4-fb4d549c64f5';
-                              } else {
-                                return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2F89779ebdad6cda0831f05a306eebf7cd.gif?alt=media&token=fd2b83e9-a9a0-48a0-80e1-ddb769e137ee';
-                              }
-                            }(),
-                            'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2F922f59d7455e56aacdec50df5571bcd744c166a0_(1)_(1)%20(2).gif?alt=media&token=373daaa0-a029-49d1-9c24-b59c6d69e0d9',
-                          ),
+                          tag: () {
+                            if (FFAppState().isAllTab) {
+                              return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2F922f59d7455e56aacdec50df5571bcd744c166a0_(1)_(1)%20(2).gif?alt=media&token=373daaa0-a029-49d1-9c24-b59c6d69e0d9';
+                            } else if (FFAppState().isMusicMeditationsTab) {
+                              return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2Fe085865feb0fb5cd989c30fa6b384526.gif?alt=media&token=adf4bee7-8bca-4508-b01a-9dfe15967736';
+                            } else if (FFAppState().isNatureTab) {
+                              return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2Fdownload_(26)%20(1).gif?alt=media&token=77372ba9-5080-46ce-95fd-dbc17982ec56';
+                            } else if (FFAppState().isFocusTab) {
+                              return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2Fe085865feb0fb5cd989c30fa6b384526.gif?alt=media&token=adf4bee7-8bca-4508-b01a-9dfe15967736';
+                            } else if (FFAppState().isSleepTab) {
+                              return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2F90ac6093fb40e1d7398371b1d61a4e4a.gif?alt=media&token=3351172e-47e6-40e2-9ed4-fb4d549c64f5';
+                            } else {
+                              return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2F89779ebdad6cda0831f05a306eebf7cd.gif?alt=media&token=fd2b83e9-a9a0-48a0-80e1-ddb769e137ee';
+                            }
+                          }(),
                           transitionOnUserGestures: true,
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
-                            child: Image.network(
-                              valueOrDefault<String>(
-                                () {
-                                  if (FFAppState().isAllTab) {
-                                    return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2F922f59d7455e56aacdec50df5571bcd744c166a0_(1)_(1)%20(2).gif?alt=media&token=373daaa0-a029-49d1-9c24-b59c6d69e0d9';
-                                  } else if (FFAppState()
-                                      .isMusicMeditationsTab) {
-                                    return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2Fe085865feb0fb5cd989c30fa6b384526.gif?alt=media&token=adf4bee7-8bca-4508-b01a-9dfe15967736';
-                                  } else if (FFAppState().isNatureTab) {
-                                    return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2Fdownload_(26)%20(1).gif?alt=media&token=77372ba9-5080-46ce-95fd-dbc17982ec56';
-                                  } else if (FFAppState().isFocusTab) {
-                                    return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2Fe085865feb0fb5cd989c30fa6b384526.gif?alt=media&token=adf4bee7-8bca-4508-b01a-9dfe15967736';
-                                  } else if (FFAppState().isSleepTab) {
-                                    return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2F90ac6093fb40e1d7398371b1d61a4e4a.gif?alt=media&token=3351172e-47e6-40e2-9ed4-fb4d549c64f5';
-                                  } else {
-                                    return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2F89779ebdad6cda0831f05a306eebf7cd.gif?alt=media&token=fd2b83e9-a9a0-48a0-80e1-ddb769e137ee';
-                                  }
-                                }(),
-                                'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2F922f59d7455e56aacdec50df5571bcd744c166a0_(1)_(1)%20(2).gif?alt=media&token=373daaa0-a029-49d1-9c24-b59c6d69e0d9',
-                              ),
+                            child: CachedNetworkImage(
+                              fadeInDuration: Duration(milliseconds: 2000),
+                              fadeOutDuration: Duration(milliseconds: 2000),
+                              imageUrl: () {
+                                if (FFAppState().isAllTab) {
+                                  return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2F922f59d7455e56aacdec50df5571bcd744c166a0_(1)_(1)%20(2).gif?alt=media&token=373daaa0-a029-49d1-9c24-b59c6d69e0d9';
+                                } else if (FFAppState().isMusicMeditationsTab) {
+                                  return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2Fe085865feb0fb5cd989c30fa6b384526.gif?alt=media&token=adf4bee7-8bca-4508-b01a-9dfe15967736';
+                                } else if (FFAppState().isNatureTab) {
+                                  return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2Fdownload_(26)%20(1).gif?alt=media&token=77372ba9-5080-46ce-95fd-dbc17982ec56';
+                                } else if (FFAppState().isFocusTab) {
+                                  return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2Fe085865feb0fb5cd989c30fa6b384526.gif?alt=media&token=adf4bee7-8bca-4508-b01a-9dfe15967736';
+                                } else if (FFAppState().isSleepTab) {
+                                  return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2F90ac6093fb40e1d7398371b1d61a4e4a.gif?alt=media&token=3351172e-47e6-40e2-9ed4-fb4d549c64f5';
+                                } else {
+                                  return 'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/Gifs%2F89779ebdad6cda0831f05a306eebf7cd.gif?alt=media&token=fd2b83e9-a9a0-48a0-80e1-ddb769e137ee';
+                                }
+                              }(),
                               width: 409.6,
                               height: 876.8,
                               fit: BoxFit.cover,
@@ -389,7 +385,7 @@ class _AISoundscapesCopyCopyCopyWidgetState
                                                                 0.0, 0.0),
                                                     child: Container(
                                                       width: double.infinity,
-                                                      height: 872.0,
+                                                      height: 908.8,
                                                       decoration: BoxDecoration(
                                                         gradient:
                                                             LinearGradient(
@@ -1071,7 +1067,13 @@ class _AISoundscapesCopyCopyCopyWidgetState
                                                                                                         logFirebaseEvent('Text_navigate_to');
 
                                                                                                         context.pushNamed(
-                                                                                                          $that_audio_player_oo85ab.PlayerPageAllWidget.routeName,
+                                                                                                          $that_audio_player_oo85ab.PlayerPageFINALAllTabWidget.routeName,
+                                                                                                          queryParameters: {
+                                                                                                            'currentSong': that_audio_player_oo85ab_serialization_util.serializeParam(
+                                                                                                              that_audio_player_oo85ab_app_state.FFAppState().currentMediaAllTab.firstOrNull,
+                                                                                                              that_audio_player_oo85ab_serialization_util.ParamType.DataStruct,
+                                                                                                            ),
+                                                                                                          }.withoutNulls,
                                                                                                           extra: <String, dynamic>{
                                                                                                             '__transition_info__that_audio_player_oo85ab': TransitionInfo(
                                                                                                               hasTransition: true,
@@ -3220,7 +3222,13 @@ am... */
                                                                                                   logFirebaseEvent('Text_navigate_to');
 
                                                                                                   context.pushNamed(
-                                                                                                    $that_audio_player_oo85ab.PlayerPageAllWidget.routeName,
+                                                                                                    $that_audio_player_oo85ab.PlayerPageFINALAllTabWidget.routeName,
+                                                                                                    queryParameters: {
+                                                                                                      'currentSong': that_audio_player_oo85ab_serialization_util.serializeParam(
+                                                                                                        that_audio_player_oo85ab_app_state.FFAppState().currentMediaAllTab.firstOrNull,
+                                                                                                        that_audio_player_oo85ab_serialization_util.ParamType.DataStruct,
+                                                                                                      ),
+                                                                                                    }.withoutNulls,
                                                                                                     extra: <String, dynamic>{
                                                                                                       '__transition_info__that_audio_player_oo85ab': TransitionInfo(
                                                                                                         hasTransition: true,
