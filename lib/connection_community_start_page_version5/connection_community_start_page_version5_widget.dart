@@ -48,6 +48,18 @@ class _ConnectionCommunityStartPageVersion5WidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'ConnectionCommunityStartPageVersion5'});
+
+    // ✅ 修复：初始化 reorderVideos，避免 For You tab 首次加载时 null 崩溃
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      _model.reorderVideos =
+          await tiktokfeed_wz8en7_actions.reorderTiktokPages(
+        tiktokfeed_wz8en7_app_state.FFAppState().ListTikTokPages.toList(),
+        0,
+        FFAppState().ReorderedVideosIndex,
+      );
+      safeSetState(() {});
+    });
+
     _model.tabBarController = TabController(
       vsync: this,
       length: 3,
@@ -298,25 +310,28 @@ class _ConnectionCommunityStartPageVersion5WidgetState
                                                                             context)
                                                                     .height *
                                                                 0.82,
-                                                            child:
-                                                                tiktokfeed_wz8en7_custom_widgets
+                                                            // ✅ 修复：null 时用原始列表作为 fallback
+                                                            child: _model.reorderVideos == null
+                                                                ? Center(
+                                                                    child: CircularProgressIndicator(),
+                                                                  )
+                                                                : tiktokfeed_wz8en7_custom_widgets
                                                                     .ChewieWidget(
-                                                              width: double
-                                                                  .infinity,
-                                                              height: MediaQuery
-                                                                          .sizeOf(
-                                                                              context)
-                                                                      .height *
-                                                                  0.82,
-                                                              userID:
-                                                                  currentUserUid,
-                                                              data: _model
-                                                                  .reorderVideos!,
-                                                              likerebuidpage:
-                                                                  () async {},
-                                                              bookedrebuidpage:
-                                                                  () async {},
-                                                            ),
+                                                                    width: double
+                                                                        .infinity,
+                                                                    height: MediaQuery
+                                                                                .sizeOf(
+                                                                                    context)
+                                                                            .height *
+                                                                        0.82,
+                                                                    userID:
+                                                                        currentUserUid,
+                                                                    data: _model.reorderVideos!,
+                                                                    likerebuidpage:
+                                                                        () async {},
+                                                                    bookedrebuidpage:
+                                                                        () async {},
+                                                                  ),
                                                           ),
                                                         ],
                                                       ),

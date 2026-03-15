@@ -201,7 +201,6 @@ class _JournalPage1WidgetState extends State<JournalPage1Widget>
                       singleRecord: true,
                     ),
                     builder: (context, snapshot) {
-                      // Customize what your widget looks like when it's loading.
                       if (!snapshot.hasData) {
                         return Center(
                           child: SizedBox(
@@ -266,7 +265,6 @@ class _JournalPage1WidgetState extends State<JournalPage1Widget>
 
                                     logFirebaseEvent(
                                         'LottieAnimation_backend_call');
-
                                     await columnJournalRecord!.reference
                                         .update(createJournalRecordData(
                                       isAudioRecording: true,
@@ -296,6 +294,11 @@ class _JournalPage1WidgetState extends State<JournalPage1Widget>
                                     _model.voiceNote =
                                         _model.audioJournalRecording;
                                     safeSetState(() {});
+
+                                    // ✅ 修复：先赋值 voiceNoteFile，再调用转录 API
+                                    _model.voiceNoteFile =
+                                        _model.recordedFileBytes;
+
                                     logFirebaseEvent(
                                         'LottieAnimation_backend_call');
                                     _model.gorqTranscriptionResult =
@@ -306,8 +309,6 @@ class _JournalPage1WidgetState extends State<JournalPage1Widget>
 
                                     logFirebaseEvent(
                                         'LottieAnimation_update_component_state');
-                                    _model.voiceNoteFile =
-                                        _model.recordedFileBytes;
                                     _model.updateTranscriptWordsAtIndex(
                                       _model.currentWordIndex!,
                                       (_) => (_model.gorqTranscriptionResult
@@ -370,7 +371,7 @@ class _JournalPage1WidgetState extends State<JournalPage1Widget>
                                           .showSnackBar(
                                         SnackBar(
                                           content: Text(
-                                            'Trannscrip',
+                                            'Transcription failed, please try again.',
                                             style: TextStyle(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -578,7 +579,6 @@ class _JournalPage1WidgetState extends State<JournalPage1Widget>
                     ),
                   );
                   logFirebaseEvent('Button_navigate_to');
-
                   context.pushNamed(
                     HomeVersion5Widget.routeName,
                     extra: <String, dynamic>{

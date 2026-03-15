@@ -23,14 +23,14 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:provider/provider.dart';
-import 'journal_page1_version5_model.dart';
-export 'journal_page1_version5_model.dart';
+import '/components/journal_page1_version5_model.dart';
+export '/components/journal_page1_version5_model.dart';
 
 /// New Component Gen
 class JournalPageVersion5Widget extends StatefulWidget {
   const JournalPageVersion5Widget({super.key});
   static String routeName = 'JournalPageVersion5';
-  static String routePath = '/journalPageVersion5';
+  static String routePath = 'journalPageVersion5';
 
   @override
   State<JournalPageVersion5Widget> createState() =>

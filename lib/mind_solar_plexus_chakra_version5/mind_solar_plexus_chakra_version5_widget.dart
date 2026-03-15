@@ -13,14 +13,14 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:provider/provider.dart';
-import 'solar_plexus_chakra_mood_scanner_comp_model.dart';
-export 'solar_plexus_chakra_mood_scanner_comp_model.dart';
+import '/components/solar_plexus_chakra_mood_scanner_comp_model.dart';
+export '/components/solar_plexus_chakra_mood_scanner_comp_model.dart';
 
 /// New Component Gen
 class MindSolarPlexusChakraVersion5Widget extends StatefulWidget {
   const MindSolarPlexusChakraVersion5Widget({super.key});
   static String routeName = 'MindSolarPlexusChakraVersion5';
-  static String routePath = '/mindSolarPlexusChakraVersion5';
+  static String routePath = 'mindSolarPlexusChakraVersion5';
 
   @override
   State<MindSolarPlexusChakraVersion5Widget> createState() =>

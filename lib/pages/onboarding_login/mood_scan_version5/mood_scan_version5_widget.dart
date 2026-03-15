@@ -450,13 +450,8 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                                         () async {
                                                                       logFirebaseEvent(
                                                                           'MOOD_SCAN_VERSION5_GO_HOME_BTN_ON_TAP');
-                                                                      logFirebaseEvent(
-                                                                          'Button_haptic_feedback');
                                                                       HapticFeedback
                                                                           .lightImpact();
-                                                                      logFirebaseEvent(
-                                                                          'Button_navigate_to');
-
                                                                       context
                                                                           .pushNamed(
                                                                         HomeVersion5Widget
@@ -564,12 +559,10 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                                         () async {
                                                                       logFirebaseEvent(
                                                                           'MOOD_SCAN_VERSION5_SCAN_MOOD_BTN_ON_TAP');
-                                                                      logFirebaseEvent(
-                                                                          'Button_haptic_feedback');
                                                                       HapticFeedback
                                                                           .heavyImpact();
-                                                                      logFirebaseEvent(
-                                                                          'Button_upload_media_to_firebase');
+
+                                                                      // 上传图片
                                                                       final selectedMedia =
                                                                           await selectMediaWithSourceBottomSheet(
                                                                         context:
@@ -587,7 +580,6 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                                                 true);
                                                                         var selectedUploadedFiles =
                                                                             <FFUploadedFile>[];
-
                                                                         var downloadUrls =
                                                                             <String>[];
                                                                         try {
@@ -607,7 +599,6 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                                                     originalFilename: m.originalFilename,
                                                                                   ))
                                                                               .toList();
-
                                                                           downloadUrls = (await Future.wait(
                                                                             selectedMedia.map(
                                                                               (m) async => await uploadData(m.storagePath, m.bytes),
@@ -622,7 +613,8 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                                           _model.isDataUploading_mdPhoto =
                                                                               false;
                                                                         }
-                                                                        if (selectedUploadedFiles.length == selectedMedia.length &&
+                                                                        if (selectedUploadedFiles.length ==
+                                                                                selectedMedia.length &&
                                                                             downloadUrls.length ==
                                                                                 selectedMedia.length) {
                                                                           safeSetState(
@@ -645,8 +637,6 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                                         }
                                                                       }
 
-                                                                      logFirebaseEvent(
-                                                                          'Button_show_snack_bar');
                                                                       ScaffoldMessenger.of(
                                                                               context)
                                                                           .clearSnackBars();
@@ -669,22 +659,18 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                                               FlutterFlowTheme.of(context).accent1,
                                                                         ),
                                                                       );
-                                                                      logFirebaseEvent(
-                                                                          'Button_page_view');
-                                                                      unawaited(
-                                                                        () async {
-                                                                          await _model
-                                                                              .pageViewController
-                                                                              ?.nextPage(
-                                                                            duration:
-                                                                                Duration(milliseconds: 300),
-                                                                            curve:
-                                                                                Curves.ease,
-                                                                          );
-                                                                        }(),
+
+                                                                      // 先跳到第2页（等待页）
+                                                                      await _model
+                                                                          .pageViewController
+                                                                          ?.nextPage(
+                                                                        duration:
+                                                                            Duration(milliseconds: 300),
+                                                                        curve: Curves
+                                                                            .ease,
                                                                       );
-                                                                      logFirebaseEvent(
-                                                                          'Button_a_i_agent');
+
+                                                                      // ✅ 修复：等 AI 分析完再写入 Firebase
                                                                       await callAiAgent(
                                                                         context:
                                                                             context,
@@ -703,27 +689,37 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                                         responseType:
                                                                             'PLAINTEXT',
                                                                       ).then(
-                                                                          (generatedText) {
+                                                                          (generatedText) async {
+                                                                        // ✅ 修复：在 .then() 里赋值并写入 Firebase
                                                                         safeSetState(() =>
                                                                             _model.aIMoodAnalyzeAction =
                                                                                 generatedText);
+
+                                                                        await currentUserReference!
+                                                                            .update(createUsersRecordData(
+                                                                          currentMood:
+                                                                              generatedText,
+                                                                          timeStamp:
+                                                                              getCurrentTimestamp,
+                                                                          createdTime:
+                                                                              getCurrentTimestamp,
+                                                                          uid:
+                                                                              'user1',
+                                                                        ));
+
+                                                                        safeSetState(
+                                                                            () {});
+
+                                                                        // ✅ 修复：AI 完成后自动跳到结果页
+                                                                        await _model
+                                                                            .pageViewController
+                                                                            ?.nextPage(
+                                                                          duration:
+                                                                              Duration(milliseconds: 300),
+                                                                          curve:
+                                                                              Curves.ease,
+                                                                        );
                                                                       });
-
-                                                                      logFirebaseEvent(
-                                                                          'Button_backend_call');
-
-                                                                      await currentUserReference!
-                                                                          .update(
-                                                                              createUsersRecordData(
-                                                                        currentMood:
-                                                                            _model.aIMoodAnalyzeAction,
-                                                                        timeStamp:
-                                                                            getCurrentTimestamp,
-                                                                        createdTime:
-                                                                            getCurrentTimestamp,
-                                                                        uid:
-                                                                            'user1',
-                                                                      ));
 
                                                                       safeSetState(
                                                                           () {});
@@ -787,12 +783,8 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                                   () async {
                                                                 logFirebaseEvent(
                                                                     'MOOD_SCAN_VERSION5_FINISH_CREATE_PROFILE');
-                                                                logFirebaseEvent(
-                                                                    'Button_haptic_feedback');
                                                                 HapticFeedback
                                                                     .lightImpact();
-                                                                logFirebaseEvent(
-                                                                    'Button_page_view');
                                                                 await _model
                                                                     .pageViewController
                                                                     ?.nextPage(
@@ -962,66 +954,40 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 120.0, 0.0, 0.0),
-                                      child: InkWell(
-                                        splashColor: Colors.transparent,
-                                        focusColor: Colors.transparent,
-                                        hoverColor: Colors.transparent,
-                                        highlightColor: Colors.transparent,
-                                        onTap: () async {
-                                          logFirebaseEvent(
-                                              'MOOD_SCAN_VERSION5_Container_ou80qa5d_ON');
-                                          logFirebaseEvent(
-                                              'Container_haptic_feedback');
-                                          HapticFeedback.lightImpact();
-                                          logFirebaseEvent(
-                                              'Container_page_view');
-                                          await _model.pageViewController
-                                              ?.nextPage(
-                                            duration:
-                                                Duration(milliseconds: 300),
-                                            curve: Curves.ease,
-                                          );
-                                        },
-                                        child: Container(
-                                          width: 363.58,
-                                          height: 100.0,
-                                          decoration: BoxDecoration(
-                                            boxShadow: [
-                                              BoxShadow(
-                                                blurRadius: 40.0,
-                                                color: Color(0xC0D0E3F7),
-                                                offset: Offset(
-                                                  0.0,
-                                                  2.0,
-                                                ),
-                                                spreadRadius: 10.0,
-                                              )
-                                            ],
-                                            borderRadius:
-                                                BorderRadius.circular(25.0),
-                                          ),
-                                          child: Align(
-                                            alignment:
-                                                AlignmentDirectional(0.0, 0.0),
-                                            child: Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                '622np64k' /* Tap Here to Continue */,
-                                              ),
-                                              textAlign: TextAlign.center,
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    fontFamily: 'WorkSans',
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .tertiary,
-                                                    fontSize: 18.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.w300,
-                                                  ),
+                                      child: Container(
+                                        width: 363.58,
+                                        height: 100.0,
+                                        decoration: BoxDecoration(
+                                          boxShadow: [
+                                            BoxShadow(
+                                              blurRadius: 40.0,
+                                              color: Color(0xC0D0E3F7),
+                                              offset: Offset(0.0, 2.0),
+                                              spreadRadius: 10.0,
+                                            )
+                                          ],
+                                          borderRadius:
+                                              BorderRadius.circular(25.0),
+                                        ),
+                                        child: Align(
+                                          alignment:
+                                              AlignmentDirectional(0.0, 0.0),
+                                          child: Text(
+                                            FFLocalizations.of(context).getText(
+                                              '622np64k' /* Tap Here to Continue */,
                                             ),
+                                            textAlign: TextAlign.center,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'WorkSans',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .tertiary,
+                                                  fontSize: 18.0,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w300,
+                                                ),
                                           ),
                                         ),
                                       ),
@@ -1131,10 +1097,7 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                 BoxShadow(
                                                   blurRadius: 80.0,
                                                   color: Color(0xC1EDF1F7),
-                                                  offset: Offset(
-                                                    0.0,
-                                                    2.0,
-                                                  ),
+                                                  offset: Offset(0.0, 2.0),
                                                   spreadRadius: 20.0,
                                                 )
                                               ],
@@ -1201,40 +1164,35 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                         EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 40.0,
                                                                 0.0, 12.0),
-                                                    child: AuthUserStreamWidget(
-                                                      builder: (context) =>
-                                                          AnimatedDefaultTextStyle(
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .labelLarge
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'WorkSans',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondaryBackground,
-                                                                  fontSize:
-                                                                      22.0,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .bold,
-                                                                ),
-                                                        duration: Duration(
-                                                            milliseconds: 990),
-                                                        curve: Curves.easeIn,
-                                                        child: Text(
-                                                          valueOrDefault(
-                                                              currentUserDocument
-                                                                  ?.currentMood,
-                                                              ''),
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                          overflow:
-                                                              TextOverflow.fade,
+                                                    child: AnimatedDefaultTextStyle(
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .labelLarge
+                                                          .override(
+                                                            fontFamily:
+                                                                'WorkSans',
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondaryBackground,
+                                                            fontSize: 22.0,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                          ),
+                                                      duration: Duration(
+                                                          milliseconds: 990),
+                                                      curve: Curves.easeIn,
+                                                      // ✅ 修复：直接用 model 里的值显示，不依赖 Firebase 读取延迟
+                                                      child: Text(
+                                                        valueOrDefault<String>(
+                                                          _model
+                                                              .aIMoodAnalyzeAction,
+                                                          '',
                                                         ),
+                                                        textAlign:
+                                                            TextAlign.center,
+                                                        overflow:
+                                                            TextOverflow.fade,
                                                       ),
                                                     ),
                                                   ),
@@ -1276,10 +1234,7 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                                 context)
                                                             .accent3,
                                                       ),
-                                                      offset: Offset(
-                                                        0.0,
-                                                        2.0,
-                                                      ),
+                                                      offset: Offset(0.0, 2.0),
                                                       spreadRadius: 4.0,
                                                     )
                                                   ],
@@ -1287,246 +1242,103 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                       BorderRadius.circular(
                                                           24.0),
                                                 ),
-                                                child: Builder(
-                                                  builder: (context) {
-                                                    if (_model
-                                                            .pageViewCurrentIndex <
-                                                        2) {
-                                                      return Align(
-                                                        alignment:
-                                                            AlignmentDirectional(
-                                                                0.0, 0.0),
-                                                        child: FFButtonWidget(
-                                                          onPressed: () async {
-                                                            logFirebaseEvent(
-                                                                'MOOD_SCAN_VERSION5_CONTINUE_BTN_ON_TAP');
-                                                            logFirebaseEvent(
-                                                                'Button_haptic_feedback');
-                                                            HapticFeedback
-                                                                .lightImpact();
-                                                            logFirebaseEvent(
-                                                                'Button_update_page_state');
-                                                            _model.mood = _model
-                                                                .aIMoodAnalyzeAction;
-                                                            safeSetState(() {});
-                                                            logFirebaseEvent(
-                                                                'Button_backend_call');
+                                                child: Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          0.0, 0.0),
+                                                  child: FFButtonWidget(
+                                                    onPressed: () async {
+                                                      logFirebaseEvent(
+                                                          'MOOD_SCAN_VERSION5_CONTINUE_BTN_ON_TAP');
+                                                      HapticFeedback
+                                                          .lightImpact();
+                                                      _model.mood = _model
+                                                          .aIMoodAnalyzeAction;
+                                                      safeSetState(() {});
 
-                                                            await currentUserReference!
-                                                                .update(
-                                                                    createUsersRecordData(
-                                                              currentMood:
-                                                                  _model.mood,
-                                                            ));
-                                                            logFirebaseEvent(
-                                                                'Button_play_sound');
-                                                            _model.soundPlayer2 ??=
-                                                                AudioPlayer();
-                                                            if (_model
-                                                                .soundPlayer2!
-                                                                .playing) {
-                                                              await _model
-                                                                  .soundPlayer2!
-                                                                  .stop();
-                                                            }
-                                                            _model.soundPlayer2!
-                                                                .setVolume(1.0);
-                                                            _model.soundPlayer2!
-                                                                .setAsset(
-                                                                    'assets/audios/ES_Game,_Jingle,_Chime,_Positive_01_-_Epidemic_Sound_-_3038-4627.wav')
-                                                                .then((_) => _model
-                                                                    .soundPlayer2!
-                                                                    .play());
+                                                      await currentUserReference!
+                                                          .update(
+                                                              createUsersRecordData(
+                                                        currentMood: _model.mood,
+                                                      ));
 
-                                                            logFirebaseEvent(
-                                                                'Button_navigate_to');
+                                                      _model.soundPlayer2 ??=
+                                                          AudioPlayer();
+                                                      if (_model.soundPlayer2!
+                                                          .playing) {
+                                                        await _model
+                                                            .soundPlayer2!
+                                                            .stop();
+                                                      }
+                                                      _model.soundPlayer2!
+                                                          .setVolume(1.0);
+                                                      _model.soundPlayer2!
+                                                          .setAsset(
+                                                              'assets/audios/ES_Game,_Jingle,_Chime,_Positive_01_-_Epidemic_Sound_-_3038-4627.wav')
+                                                          .then((_) => _model
+                                                              .soundPlayer2!
+                                                              .play());
 
-                                                            context.pushNamed(
-                                                              EnergyScanVersion5CopyWidget
-                                                                  .routeName,
-                                                              extra: <String,
-                                                                  dynamic>{
-                                                                '__transition_info__':
-                                                                    TransitionInfo(
-                                                                  hasTransition:
-                                                                      true,
-                                                                  transitionType:
-                                                                      PageTransitionType
-                                                                          .rightToLeft,
-                                                                  duration: Duration(
-                                                                      milliseconds:
-                                                                          2),
-                                                                ),
-                                                              },
-                                                            );
-                                                          },
-                                                          text: FFLocalizations
-                                                                  .of(context)
-                                                              .getText(
-                                                            'yp8mxgiq' /* Continue */,
+                                                      context.pushNamed(
+                                                        EnergyScanVersion5CopyWidget
+                                                            .routeName,
+                                                        extra: <String,
+                                                            dynamic>{
+                                                          '__transition_info__':
+                                                              TransitionInfo(
+                                                            hasTransition: true,
+                                                            transitionType:
+                                                                PageTransitionType
+                                                                    .rightToLeft,
+                                                            duration: Duration(
+                                                                milliseconds:
+                                                                    2),
                                                           ),
-                                                          options:
-                                                              FFButtonOptions(
-                                                            width:
-                                                                double.infinity,
-                                                            height: 50.0,
-                                                            padding:
-                                                                EdgeInsets.all(
-                                                                    8.0),
-                                                            iconPadding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            color: Color(
-                                                                0xD7F0831A),
-                                                            textStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'WorkSans',
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primary,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                    ),
-                                                            elevation: 3.0,
-                                                            borderSide:
-                                                                BorderSide(
-                                                              color: Color(
-                                                                  0x4CEDF1F7),
-                                                            ),
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        24.0),
-                                                          ),
-                                                        ),
+                                                        },
                                                       );
-                                                    } else {
-                                                      return Align(
-                                                        alignment:
-                                                            AlignmentDirectional(
-                                                                0.0, 0.0),
-                                                        child: FFButtonWidget(
-                                                          onPressed: () async {
-                                                            logFirebaseEvent(
-                                                                'MOOD_SCAN_VERSION5_CONTINUE_TO_ENERGY_SC');
-                                                            logFirebaseEvent(
-                                                                'Button_haptic_feedback');
-                                                            HapticFeedback
-                                                                .lightImpact();
-                                                            logFirebaseEvent(
-                                                                'Button_update_page_state');
-                                                            _model.mood = _model
-                                                                .aIMoodAnalyzeAction;
-                                                            safeSetState(() {});
-                                                            logFirebaseEvent(
-                                                                'Button_backend_call');
-
-                                                            await currentUserReference!
-                                                                .update(
-                                                                    createUsersRecordData(
-                                                              currentMood:
-                                                                  _model.mood,
-                                                            ));
-                                                            logFirebaseEvent(
-                                                                'Button_play_sound');
-                                                            _model.soundPlayer3 ??=
-                                                                AudioPlayer();
-                                                            if (_model
-                                                                .soundPlayer3!
-                                                                .playing) {
-                                                              await _model
-                                                                  .soundPlayer3!
-                                                                  .stop();
-                                                            }
-                                                            _model.soundPlayer3!
-                                                                .setVolume(1.0);
-                                                            _model.soundPlayer3!
-                                                                .setAsset(
-                                                                    'assets/audios/ES_Game,_Jingle,_Chime,_Positive_01_-_Epidemic_Sound_-_3038-4627.wav')
-                                                                .then((_) => _model
-                                                                    .soundPlayer3!
-                                                                    .play());
-
-                                                            logFirebaseEvent(
-                                                                'Button_navigate_to');
-
-                                                            context.pushNamed(
-                                                              EnergyScanVersion5CopyWidget
-                                                                  .routeName,
-                                                              extra: <String,
-                                                                  dynamic>{
-                                                                '__transition_info__':
-                                                                    TransitionInfo(
-                                                                  hasTransition:
-                                                                      true,
-                                                                  transitionType:
-                                                                      PageTransitionType
-                                                                          .rightToLeft,
-                                                                  duration: Duration(
-                                                                      milliseconds:
-                                                                          2),
-                                                                ),
-                                                              },
-                                                            );
-                                                          },
-                                                          text: FFLocalizations
-                                                                  .of(context)
-                                                              .getText(
-                                                            '2oxyw93v' /* Continue To Energy Scan */,
-                                                          ),
-                                                          options:
-                                                              FFButtonOptions(
-                                                            width:
-                                                                double.infinity,
-                                                            height: 50.0,
-                                                            padding:
-                                                                EdgeInsets.all(
-                                                                    8.0),
-                                                            iconPadding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            color: Color(
-                                                                0xD7F0831A),
-                                                            textStyle:
-                                                                FlutterFlowTheme.of(
+                                                    },
+                                                    text: FFLocalizations.of(
+                                                            context)
+                                                        .getText(
+                                                      'yp8mxgiq' /* Continue */,
+                                                    ),
+                                                    options: FFButtonOptions(
+                                                      width: double.infinity,
+                                                      height: 50.0,
+                                                      padding:
+                                                          EdgeInsets.all(8.0),
+                                                      iconPadding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      color:
+                                                          Color(0xD7F0831A),
+                                                      textStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'WorkSans',
+                                                                color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .titleMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'WorkSans',
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primary,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                    ),
-                                                            elevation: 3.0,
-                                                            borderSide:
-                                                                BorderSide(
-                                                              color: Color(
-                                                                  0x4CEDF1F7),
-                                                            ),
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        24.0),
-                                                          ),
-                                                        ),
-                                                      );
-                                                    }
-                                                  },
+                                                                    .primary,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
+                                                      elevation: 3.0,
+                                                      borderSide: BorderSide(
+                                                        color:
+                                                            Color(0x4CEDF1F7),
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              24.0),
+                                                    ),
+                                                  ),
                                                 ),
                                               ),
                                             ),

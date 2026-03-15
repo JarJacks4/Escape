@@ -111,6 +111,15 @@ class ChatWithLucilleVersion5Model
 
   /// Whether a UI update is pending for the throttle timer.
   bool needsTextUpdate = false;
+
+  /// Aliases used by widget file
+  String? get accumulatedResponse =>
+      accumulatedTextResponse.isEmpty ? null : accumulatedTextResponse;
+  set accumulatedResponse(String? val) =>
+      accumulatedTextResponse = val ?? '';
+
+  /// Index tracking the current AI message position in streamMessages.
+  int? aiMessageIndex;
   // ──────────────────────────────────────────────────────────────────────────
 
   @override
