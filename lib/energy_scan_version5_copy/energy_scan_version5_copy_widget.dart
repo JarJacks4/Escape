@@ -346,79 +346,71 @@ Cen... */
                                               ],
                                               shape: BoxShape.circle,
                                             ),
-                                            child: Builder(
-                                              builder: (context) => InkWell(
-                                                splashColor: Colors.transparent,
-                                                focusColor: Colors.transparent,
-                                                hoverColor: Colors.transparent,
-                                                highlightColor:
-                                                    Colors.transparent,
-                                                onTap: () async {
-                                                  logFirebaseEvent(
-                                                      'ENERGY_SCAN_VERSION5_COPY_LottieAnimatio');
-                                                  logFirebaseEvent(
-                                                      'LottieAnimation_haptic_feedback');
-                                                  HapticFeedback.lightImpact();
-                                                  logFirebaseEvent(
-                                                      'LottieAnimation_play_sound');
-                                                  _model.soundPlayer3 ??=
-                                                      AudioPlayer();
-                                                  if (_model
-                                                      .soundPlayer3!.playing) {
-                                                    await _model.soundPlayer3!
-                                                        .stop();
-                                                  }
-                                                  _model.soundPlayer3!
-                                                      .setVolume(1.0);
-                                                  _model.soundPlayer3!
-                                                      .setAsset(
-                                                          'assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3')
-                                                      .then((_) => _model
-                                                          .soundPlayer3!
-                                                          .play());
+                                            child: InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                logFirebaseEvent(
+                                                    'ENERGY_SCAN_VERSION5_COPY_LottieAnimatio');
+                                                logFirebaseEvent(
+                                                    'LottieAnimation_haptic_feedback');
+                                                HapticFeedback.lightImpact();
+                                                logFirebaseEvent(
+                                                    'LottieAnimation_play_sound');
+                                                _model.soundPlayer3 ??=
+                                                    AudioPlayer();
+                                                if (_model
+                                                    .soundPlayer3!.playing) {
+                                                  await _model.soundPlayer3!
+                                                      .stop();
+                                                }
+                                                _model.soundPlayer3!
+                                                    .setVolume(1.0);
+                                                _model.soundPlayer3!
+                                                    .setAsset(
+                                                        'assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3')
+                                                    .then((_) => _model
+                                                        .soundPlayer3!
+                                                        .play());
 
-                                                  logFirebaseEvent(
-                                                      'LottieAnimation_alert_dialog');
-                                                  await showDialog(
-                                                    context: context,
-                                                    builder: (dialogContext) {
-                                                      return Dialog(
-                                                        elevation: 0,
-                                                        insetPadding:
-                                                            EdgeInsets.zero,
-                                                        backgroundColor:
-                                                            Colors.transparent,
-                                                        alignment:
-                                                            AlignmentDirectional(
-                                                                    0.0, 0.0)
-                                                                .resolve(
-                                                                    Directionality.of(
-                                                                        context)),
-                                                        child: GestureDetector(
-                                                          onTap: () {
-                                                            FocusScope.of(
-                                                                    dialogContext)
-                                                                .unfocus();
-                                                            FocusManager
-                                                                .instance
-                                                                .primaryFocus
-                                                                ?.unfocus();
-                                                          },
-                                                          child:
-                                                              EnergyScanDialogueCompCopyWidget(),
-                                                        ),
-                                                      );
-                                                    },
-                                                  );
-                                                },
-                                                child: Lottie.asset(
-                                                  'assets/jsons/question_mark_blue.json',
-                                                  width: 200.0,
-                                                  height: 200.0,
-                                                  fit: BoxFit.contain,
-                                                  repeat: false,
-                                                  animate: true,
-                                                ),
+                                                logFirebaseEvent(
+                                                    'LottieAnimation_bottom_sheet');
+                                                await showModalBottomSheet(
+                                                  isScrollControlled: true,
+                                                  backgroundColor:
+                                                      Colors.transparent,
+                                                  context: context,
+                                                  builder: (context) {
+                                                    return GestureDetector(
+                                                      onTap: () {
+                                                        FocusScope.of(context)
+                                                            .unfocus();
+                                                        FocusManager.instance
+                                                            .primaryFocus
+                                                            ?.unfocus();
+                                                      },
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child:
+                                                            EnergyScanDialogueCompCopyWidget(),
+                                                      ),
+                                                    );
+                                                  },
+                                                ).then((value) =>
+                                                    safeSetState(() {}));
+                                              },
+                                              child: Lottie.asset(
+                                                'assets/jsons/question_mark_blue.json',
+                                                width: 200.0,
+                                                height: 200.0,
+                                                fit: BoxFit.contain,
+                                                repeat: false,
+                                                animate: true,
                                               ),
                                             ),
                                           ),

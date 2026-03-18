@@ -224,7 +224,7 @@ class _EnergyScanDialogueCompCopyWidgetState
                                                       HapticFeedback
                                                           .lightImpact();
                                                       logFirebaseEvent(
-                                                          'IconButton_dismiss_dialog');
+                                                          'IconButton_bottom_sheet');
                                                       Navigator.pop(context);
                                                     },
                                                   ),
@@ -475,7 +475,7 @@ class _EnergyScanDialogueCompCopyWidgetState
                                                       HapticFeedback
                                                           .lightImpact();
                                                       logFirebaseEvent(
-                                                          'IconButton_dismiss_dialog');
+                                                          'IconButton_bottom_sheet');
                                                       Navigator.pop(context);
                                                     },
                                                   ),
@@ -796,7 +796,7 @@ class _EnergyScanDialogueCompCopyWidgetState
                                                       'IconButton_haptic_feedback');
                                                   HapticFeedback.lightImpact();
                                                   logFirebaseEvent(
-                                                      'IconButton_dismiss_dialog');
+                                                      'IconButton_bottom_sheet');
                                                   Navigator.pop(context);
                                                 },
                                               ),
@@ -1105,7 +1105,7 @@ class _EnergyScanDialogueCompCopyWidgetState
                                                       HapticFeedback
                                                           .lightImpact();
                                                       logFirebaseEvent(
-                                                          'IconButton_dismiss_dialog');
+                                                          'IconButton_bottom_sheet');
                                                       Navigator.pop(context);
                                                     },
                                                   ),
@@ -1437,7 +1437,7 @@ class _EnergyScanDialogueCompCopyWidgetState
                                                       HapticFeedback
                                                           .lightImpact();
                                                       logFirebaseEvent(
-                                                          'IconButton_dismiss_dialog');
+                                                          'IconButton_bottom_sheet');
                                                       Navigator.pop(context);
                                                     },
                                                   ),
@@ -1769,7 +1769,7 @@ class _EnergyScanDialogueCompCopyWidgetState
                                                       HapticFeedback
                                                           .lightImpact();
                                                       logFirebaseEvent(
-                                                          'IconButton_dismiss_dialog');
+                                                          'IconButton_bottom_sheet');
                                                       Navigator.pop(context);
                                                     },
                                                   ),
@@ -2101,7 +2101,7 @@ class _EnergyScanDialogueCompCopyWidgetState
                                                       HapticFeedback
                                                           .lightImpact();
                                                       logFirebaseEvent(
-                                                          'IconButton_dismiss_dialog');
+                                                          'IconButton_bottom_sheet');
                                                       Navigator.pop(context);
                                                     },
                                                   ),

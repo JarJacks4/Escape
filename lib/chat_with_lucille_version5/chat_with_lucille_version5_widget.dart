@@ -1,6 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
-import '/backend/schema/enums/enums.dart';
 import '/backend/schema/structs/index.dart';
 import '/components/empty_chats_widget.dart';
 import '/components/side_nav_widget.dart';
@@ -89,7 +88,7 @@ class _ChatWithLucilleVersion5WidgetState
           FadeEffect(
             curve: Curves.easeIn,
             delay: 220.0.ms,
-            duration: 690.0.ms,
+            duration: 1090.0.ms,
             begin: 0.0,
             end: 1.0,
           ),
@@ -107,6 +106,7 @@ class _ChatWithLucilleVersion5WidgetState
   @override
   void dispose() {
     _model.dispose();
+
     super.dispose();
   }
 
@@ -652,6 +652,11 @@ class _ChatWithLucilleVersion5WidgetState
                                                               )
                                                             ],
                                                           ),
+                                                          elevation: 8.0,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      25.0),
                                                         ),
                                                       ),
                                                     ),
@@ -829,18 +834,9 @@ class _ChatWithLucilleVersion5WidgetState
                                                                                                                 topLeft: Radius.circular(12.0),
                                                                                                                 topRight: Radius.circular(12.0),
                                                                                                               ),
-                                                                                                              decoration: BoxDecoration(
-                                                                                                                color: FlutterFlowTheme.of(context).secondary,
-                                                                                                                borderRadius: BorderRadius.only(
-                                                                                                                  bottomLeft: Radius.circular(0.0),
-                                                                                                                  bottomRight: Radius.circular(12.0),
-                                                                                                                  topLeft: Radius.circular(12.0),
-                                                                                                                  topRight: Radius.circular(12.0),
-                                                                                                                ),
-                                                                                                                border: Border.all(
-                                                                                                                  color: FlutterFlowTheme.of(context).primary,
-                                                                                                                  width: 2.0,
-                                                                                                                ),
+                                                                                                              border: Border.all(
+                                                                                                                color: FlutterFlowTheme.of(context).primary,
+                                                                                                                width: 2.0,
                                                                                                               ),
                                                                                                             ),
                                                                                                             child: Padding(
@@ -866,8 +862,8 @@ class _ChatWithLucilleVersion5WidgetState
                                                                                                                             letterSpacing: 0.0,
                                                                                                                           ),
                                                                                                                     ),
-                                                                                                                  ],
-                                                                                                                ),
+                                                                                                                  ),
+                                                                                                                ],
                                                                                                               ),
                                                                                                             ),
                                                                                                           ),
@@ -1175,6 +1171,42 @@ class _ChatWithLucilleVersion5WidgetState
                                                                             70.0,
                                                                             24.0),
                                                                       ),
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyLarge
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'WorkSans',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).primary,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
+                                                                      maxLines:
+                                                                          8,
+                                                                      minLines:
+                                                                          1,
+                                                                      keyboardType:
+                                                                          TextInputType
+                                                                              .multiline,
+                                                                      cursorColor:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .primary,
+                                                                      validator: _model
+                                                                          .textControllerValidator
+                                                                          .asValidator(
+                                                                              context),
+                                                                      inputFormatters: [
+                                                                        if (!isAndroid &&
+                                                                            !isiOS)
+                                                                          TextInputFormatter.withFunction((oldValue,
+                                                                              newValue) {
+                                                                            return TextEditingValue(
+                                                                              selection: newValue.selection,
+                                                                              text: newValue.text.toCapitalization(TextCapitalization.sentences),
+                                                                            );
+                                                                          }),
+                                                                      ],
                                                                     ),
                                                                   ),
                                                                   Align(
@@ -1197,8 +1229,7 @@ class _ChatWithLucilleVersion5WidgetState
                                                                           Icon(
                                                                         Icons
                                                                             .send_rounded,
-                                                                        color: FlutterFlowTheme.of(
-                                                                                context)
+                                                                        color: FlutterFlowTheme.of(context)
                                                                             .primary,
                                                                         size:
                                                                             30.0,
@@ -1240,10 +1271,9 @@ class _ChatWithLucilleVersion5WidgetState
                                                                             () {});
                                                                         logFirebaseEvent(
                                                                             'IconButton_backend_call');
-                                                                        _model.lucilleStreamChat =
-                                                                            await LucilleStreamingGroup
-                                                                                .lucilleStreamingResponseCall
-                                                                                .call(
+                                                                        _model.lucilleStreamChat = await LucilleStreamingGroup
+                                                                            .lucilleStreamingResponseCall
+                                                                            .call(
                                                                           sessionID:
                                                                               FFAppState().chatSessionId,
                                                                           message: _model
@@ -1406,7 +1436,18 @@ class _ChatWithLucilleVersion5WidgetState
                                                           ),
                                                         ),
                                                       ),
-                                                    ),
+                                                      if (responsiveVisibility(
+                                                        context: context,
+                                                        phone: false,
+                                                        tablet: false,
+                                                      ))
+                                                        Container(
+                                                          width: 100.0,
+                                                          height: 60.0,
+                                                          decoration:
+                                                              BoxDecoration(),
+                                                        ),
+                                                    ],
                                                   ),
                                                 ),
                                               ),
