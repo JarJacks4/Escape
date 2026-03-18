@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
@@ -200,10 +201,13 @@ class _JournalPage1WidgetState extends State<JournalPage1Widget>
                   padding: EdgeInsets.all(16.0),
                   child: StreamBuilder<List<JournalRecord>>(
                     stream: queryJournalRecord(
+                      parent: currentUserReference,
                       singleRecord: true,
                     ),
                     builder: (context, snapshot) {
-                      if (!snapshot.hasData) {
+                      // ✅ 加载中但还没数据时显示加载
+                      if (snapshot.connectionState == ConnectionState.waiting &&
+                          !snapshot.hasData) {
                         return Center(
                           child: SizedBox(
                             width: 100.0,
@@ -215,11 +219,11 @@ class _JournalPage1WidgetState extends State<JournalPage1Widget>
                           ),
                         );
                       }
-                      List<JournalRecord> columnJournalRecordList =
-                          snapshot.data!;
+
+                      // ✅ 无论有没有数据都渲染，没有数据传 null
                       final columnJournalRecord =
-                          columnJournalRecordList.isNotEmpty
-                              ? columnJournalRecordList.first
+                          (snapshot.data?.isNotEmpty ?? false)
+                              ? snapshot.data!.first
                               : null;
 
                       return Column(
@@ -257,10 +261,12 @@ class _JournalPage1WidgetState extends State<JournalPage1Widget>
                                       audioRecorder: _model.audioRecorder ??=
                                           AudioRecorder(),
                                     );
-                                    await columnJournalRecord!.reference
-                                        .update(createJournalRecordData(
-                                      isAudioRecording: true,
-                                    ));
+                                    if (columnJournalRecord != null) {
+                                      await columnJournalRecord.reference
+                                          .update(createJournalRecordData(
+                                        isAudioRecording: true,
+                                      ));
+                                    }
                                   },
                                   onDoubleTap: () async {
                                     logFirebaseEvent(
@@ -286,74 +292,92 @@ class _JournalPage1WidgetState extends State<JournalPage1Widget>
                                       file: _model.voiceNoteFile,
                                       gorqKey: FFAppState().gorqKey,
                                     );
-                                    _model.updateTranscriptWordsAtIndex(
-                                      _model.currentWordIndex!,
-                                      (_) => (_model.gorqTranscriptionResult
-                                                  ?.jsonBody ??
-                                              '')
-                                          .toString(),
-                                    );
-                                    _model.visibleText = (_model
-                                            .gorqTranscriptionResult
-                                            ?.bodyText ??
-                                        '');
+                                    // ✅ Groq API 返回的转录文本在 $.text 字段
+                                    final transcriptText = (_model
+                                                .gorqTranscriptionResult
+                                                ?.jsonBody ??
+                                            '')
+                                        .toString();
+                                    // 尝试从 jsonBody 解析 text 字段
+                                    String displayText = transcriptText;
+                                    try {
+                                      final jsonBody = _model
+                                          .gorqTranscriptionResult?.jsonBody;
+                                      if (jsonBody is Map &&
+                                          jsonBody['text'] != null) {
+                                        displayText =
+                                            jsonBody['text'].toString();
+                                      }
+                                    } catch (_) {}
+                                    if (_model.transcriptWords.isEmpty) {
+                                      _model.addToTranscriptWords(displayText);
+                                    } else {
+                                      _model.updateTranscriptWordsAtIndex(
+                                        _model.currentWordIndex!,
+                                        (_) => displayText,
+                                      );
+                                    }
+                                    _model.visibleText = displayText;
                                     _model.isTyping =
                                         !(_model.isTyping ?? true);
                                     safeSetState(() {});
-                                    await columnJournalRecord!.reference
-                                        .update({
-                                      ...createJournalRecordData(
-                                        voiceNoteContent: _model.voiceNoteText,
-                                        isAudioStopped: true,
-                                        isAudioRecording: false,
-                                      ),
-                                      ...mapToFirestore(
-                                        {
-                                          'TranscribeText':
-                                              FieldValue.arrayUnion([
-                                            _model.transcriptWords
-                                                .elementAtOrNull(
-                                                    _model.currentWordIndex!)
-                                          ]),
-                                        },
-                                      ),
-                                    });
-                                    if ((_model.gorqTranscriptionResult
-                                            ?.succeeded ??
-                                        true)) {
+                                    if (columnJournalRecord != null) {
                                       await columnJournalRecord.reference
                                           .update({
+                                        ...createJournalRecordData(
+                                          voiceNoteContent:
+                                              _model.voiceNoteText,
+                                          isAudioStopped: true,
+                                          isAudioRecording: false,
+                                        ),
                                         ...mapToFirestore(
                                           {
                                             'TranscribeText':
                                                 FieldValue.arrayUnion([
-                                              (_model.gorqTranscriptionResult
-                                                          ?.jsonBody ??
-                                                      '')
-                                                  .toString()
+                                              _model.transcriptWords
+                                                  .elementAtOrNull(
+                                                      _model.currentWordIndex!)
                                             ]),
                                           },
                                         ),
                                       });
-                                    } else {
-                                      ScaffoldMessenger.of(context)
-                                          .showSnackBar(
-                                        SnackBar(
-                                          content: Text(
-                                            'Transcription failed, please try again.',
-                                            style: TextStyle(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
-                                            ),
+                                      if ((_model.gorqTranscriptionResult
+                                              ?.succeeded ??
+                                          true)) {
+                                        await columnJournalRecord.reference
+                                            .update({
+                                          ...mapToFirestore(
+                                            {
+                                              'TranscribeText':
+                                                  FieldValue.arrayUnion([
+                                                (_model.gorqTranscriptionResult
+                                                            ?.jsonBody ??
+                                                        '')
+                                                    .toString()
+                                              ]),
+                                            },
                                           ),
-                                          duration:
-                                              Duration(milliseconds: 4000),
-                                          backgroundColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .secondary,
-                                        ),
-                                      );
+                                        });
+                                      } else {
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          SnackBar(
+                                            content: Text(
+                                              'Transcription failed, please try again.',
+                                              style: TextStyle(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                              ),
+                                            ),
+                                            duration:
+                                                Duration(milliseconds: 4000),
+                                            backgroundColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .secondary,
+                                          ),
+                                        );
+                                      }
                                     }
                                     safeSetState(() {});
                                   },
@@ -448,7 +472,7 @@ class _JournalPage1WidgetState extends State<JournalPage1Widget>
                             if (_model.isTyping ?? true)
                               AnimatedOpacity(
                                 opacity: _model.isTyping! ? 0.0 : 1.0,
-                                duration: _model.fadeStartIndex!.ms,
+                                duration: (_model.fadeStartIndex ?? 300).ms,
                                 curve: Curves.easeOut,
                                 child: Text(
                                   valueOrDefault<String>(

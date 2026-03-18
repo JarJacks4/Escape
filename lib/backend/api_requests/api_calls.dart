@@ -354,7 +354,7 @@ class EscapeAudioScriptCall {
       apiUrl: 'https://api.groq.com/openai/v1/audio/transcriptions',
       callType: ApiCallType.POST,
       headers: {
-        'Authorization': 'Bearer \${gorpKey}',
+        'Authorization': 'Bearer ${gorqKey}',
       },
       params: {
         'file': file,
