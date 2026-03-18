@@ -720,13 +720,13 @@ class _ProfileVersion5WidgetState extends State<ProfileVersion5Widget> {
                                                           backgroundColor:
                                                               Color(0xB4D0E3F7),
                                                           center: Text(
-                                                            '${formatNumber(
+                                                            formatNumber(
                                                               FFAppState()
                                                                   .pointsEarnedPercentage,
                                                               formatType:
                                                                   FormatType
                                                                       .percent,
-                                                            )}%',
+                                                            ),
                                                             textAlign: TextAlign
                                                                 .center,
                                                             style: FlutterFlowTheme

@@ -363,6 +363,23 @@ class _FFFocusIndicatorState extends State<FFFocusIndicator> {
 
   void _onFocusChange() {
     if (mounted) {
+      if (_focusNode.hasFocus) {
+        // Flutter's FocusTraversalPolicy uses keepVisibleAtEnd for all forward
+        // traversal — including wrap-around (last → first). keepVisibleAtEnd
+        // refuses to scroll backward, so when the first widget is above the
+        // viewport after wrap-around, no scroll occurs. We fix this by
+        // explicitly ensuring the widget is visible using keepVisibleAtStart,
+        // which scrolls UP when needed but is a no-op when the widget is
+        // already visible (the normal forward-traversal case).
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          if (mounted && _focusNode.hasFocus) {
+            Scrollable.ensureVisible(
+              context,
+              alignmentPolicy: ScrollPositionAlignmentPolicy.keepVisibleAtStart,
+            );
+          }
+        });
+      }
       setState(() {
         _hasFocus = _focusNode.hasFocus;
       });

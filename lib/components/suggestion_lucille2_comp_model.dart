@@ -1,9 +1,9 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'chat_with_lucille_card_widget.dart' show ChatWithLucilleCardWidget;
+import 'suggestion_lucille2_comp_widget.dart' show SuggestionLucille2CompWidget;
 import 'package:flutter/material.dart';
 
-class ChatWithLucilleCardModel
-    extends FlutterFlowModel<ChatWithLucilleCardWidget> {
+class SuggestionLucille2CompModel
+    extends FlutterFlowModel<SuggestionLucille2CompWidget> {
   @override
   void initState(BuildContext context) {}
 
