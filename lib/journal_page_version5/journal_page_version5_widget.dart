@@ -1,6 +1,7 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
+import '/components/journal_page1_widget.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -26,7 +27,6 @@ import 'package:provider/provider.dart';
 import '/components/journal_page1_version5_model.dart';
 export '/components/journal_page1_version5_model.dart';
 
-/// New Component Gen
 class JournalPageVersion5Widget extends StatefulWidget {
   const JournalPageVersion5Widget({super.key});
   static String routeName = 'JournalPageVersion5';
@@ -62,41 +62,75 @@ class _JournalPageVersion5WidgetState
   @override
   void dispose() {
     _model.maybeDispose();
-
     super.dispose();
+  }
+
+  Future<void> _saveJournal(RitualSparkJournalRecord? existingRecord) async {
+    if (existingRecord != null) {
+      await existingRecord.reference.update({
+        ...createRitualSparkJournalRecordData(
+          ritualSparkTitle: _model.textController1.text,
+          ritualSparkContent: _model.textController2.text,
+        ),
+        ...mapToFirestore({
+          'tags': FieldValue.arrayUnion([
+            _model.choiceChipsValues
+                ?.take(5)
+                .toList()
+                ?.contains(_model.choiceChipsValues?.firstOrNull)
+                ?.toString()
+          ]),
+        }),
+      });
+    } else {
+      final docRef = RitualSparkJournalRecord.createDoc(currentUserReference!);
+      await docRef.set(
+        createRitualSparkJournalRecordData(
+          ritualSparkTitle: _model.textController1.text,
+          ritualSparkContent: _model.textController2.text,
+        ),
+      );
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<List<RitualSparkJournalRecord>>(
       stream: queryRitualSparkJournalRecord(
+        parent: currentUserReference,
         singleRecord: true,
       ),
       builder: (context, snapshot) {
-        if (!snapshot.hasData) {
-          return Center(
-            child: SizedBox(
-              width: 100.0,
-              height: 100.0,
+        if (snapshot.connectionState == ConnectionState.waiting &&
+            !snapshot.hasData) {
+          return Scaffold(
+            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+            body: Center(
               child: SpinKitWave(
                 color: FlutterFlowTheme.of(context).accent1,
-                size: 100.0,
+                size: 60.0,
               ),
             ),
           );
         }
-        List<RitualSparkJournalRecord> containerRitualSparkJournalRecordList =
-            snapshot.data!;
-        if (snapshot.data!.isEmpty) {
-          return Container();
+
+        if (snapshot.hasError) {
+          return Scaffold(
+            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+            body: Center(
+              child: Text('Error: ${snapshot.error}'),
+            ),
+          );
         }
+
         final containerRitualSparkJournalRecord =
-            containerRitualSparkJournalRecordList.isNotEmpty
-                ? containerRitualSparkJournalRecordList.first
+            (snapshot.data?.isNotEmpty ?? false)
+                ? snapshot.data!.first
                 : null;
 
-        return Container(
-          child: Padding(
+        return Scaffold(
+          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+          body: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
             child: SingleChildScrollView(
               controller: _model.columnController,
@@ -771,19 +805,19 @@ class _JournalPageVersion5WidgetState
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                         ),
+                        // ✅ 修复：Voice Note 用 bottom sheet 弹出语音组件
                         FFButtonWidget(
                           onPressed: () async {
                             logFirebaseEvent(
                                 'JOURNAL_PAGE1_VERSION5_VOICE_NOTE_BTN_ON');
                             HapticFeedback.selectionClick();
-                            // ✅ 修复: 跳转到语音录制页面
                             context.pushNamed(
-                              JournalPageVersion5Widget.routeName,
+                              JournalPage1Widget.routeName,
                               extra: <String, dynamic>{
                                 kTransitionInfoKey: TransitionInfo(
                                   hasTransition: true,
                                   transitionType: PageTransitionType.fade,
-                                  duration: Duration(milliseconds: 2),
+                                  duration: Duration(milliseconds: 300),
                                 ),
                               },
                             );
@@ -860,29 +894,8 @@ class _JournalPageVersion5WidgetState
                           onPressed: () async {
                             logFirebaseEvent(
                                 'JOURNAL_PAGE1_VERSION5_SAVE_RITUAL_BTN_O');
-                            if (containerRitualSparkJournalRecord != null) {
-                              await containerRitualSparkJournalRecord.reference
-                                  .update({
-                                ...createRitualSparkJournalRecordData(
-                                  ritualSparkTitle:
-                                      _model.textController1.text,
-                                  ritualSparkContent:
-                                      _model.textController2.text,
-                                ),
-                                ...mapToFirestore(
-                                  {
-                                    'tags': FieldValue.arrayUnion([
-                                      _model.choiceChipsValues
-                                          ?.take(5)
-                                          .toList()
-                                          ?.contains(_model
-                                              .choiceChipsValues?.firstOrNull)
-                                          ?.toString()
-                                    ]),
-                                  },
-                                ),
-                              });
-                            }
+                            await _saveJournal(
+                                containerRitualSparkJournalRecord);
                             ScaffoldMessenger.of(context).clearSnackBars();
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(

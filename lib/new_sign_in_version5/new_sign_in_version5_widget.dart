@@ -1138,6 +1138,17 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                             ),
                                                           );
 
+                                                          context.pushNamedAuth(
+                                                            MoodScanVersion5Widget.routeName,
+                                                            context.mounted,
+                                                            extra: <String, dynamic>{
+                                                              '__transition_info__': TransitionInfo(
+                                                                hasTransition: true,
+                                                                transitionType: PageTransitionType.rightToLeft,
+                                                                duration: Duration(milliseconds: 300),
+                                                              ),
+                                                            },
+                                                          );
                                                           safeSetState(() {});
                                                         },
                                                         text:

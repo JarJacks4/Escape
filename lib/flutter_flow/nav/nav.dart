@@ -563,6 +563,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
                 RitualSparkJournalPageVersion5Widget(),
           ),
           FFRoute(
+            name: JournalPage1Widget.routeName,
+            path: JournalPage1Widget.routePath,
+            builder: (context, params) => JournalPage1Widget(),
+            ),
+          FFRoute(
             name: QuestsPageWidget.routeName,
             path: QuestsPageWidget.routePath,
             builder: (context, params) => QuestsPageWidget(),

@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
@@ -7,6 +8,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
 import '/index.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +21,13 @@ export 'journal_page1_version5_model.dart';
 
 /// New Component Gen
 class JournalPage1Version5Widget extends StatefulWidget {
-  const JournalPage1Version5Widget({super.key});
+  const JournalPage1Version5Widget({
+    super.key,
+    this.onVoiceNoteTap,
+  });
+
+  // ✅ 回调：让父页面处理跳转
+  final VoidCallback? onVoiceNoteTap;
 
   @override
   State<JournalPage1Version5Widget> createState() =>
@@ -51,19 +59,51 @@ class _JournalPage1Version5WidgetState
   @override
   void dispose() {
     _model.maybeDispose();
-
     super.dispose();
+  }
+
+  // ✅ 修复：新建或更新日记
+  Future<void> _saveJournal(RitualSparkJournalRecord? existingRecord) async {
+    if (existingRecord != null) {
+      await existingRecord.reference.update({
+        ...createRitualSparkJournalRecordData(
+          ritualSparkTitle: _model.textController1.text,
+          ritualSparkContent: _model.textController2.text,
+        ),
+        ...mapToFirestore({
+          'tags': FieldValue.arrayUnion([
+            _model.choiceChipsValues
+                ?.take(5)
+                .toList()
+                .contains(_model.choiceChipsValues?.firstOrNull)
+                .toString()
+          ]),
+        }),
+      });
+    } else {
+      // ✅ 没有记录则新建，挂在当前用户下
+      final docRef = RitualSparkJournalRecord.createDoc(currentUserReference!);
+      await docRef.set(
+        createRitualSparkJournalRecordData(
+          ritualSparkTitle: _model.textController1.text,
+          ritualSparkContent: _model.textController2.text,
+        ),
+      );
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<List<RitualSparkJournalRecord>>(
       stream: queryRitualSparkJournalRecord(
+        // ✅ 修复：传入当前用户作为父文档，防止永久加载
+        parent: currentUserReference,
         singleRecord: true,
       ),
       builder: (context, snapshot) {
-        // Customize what your widget looks like when it's loading.
-        if (!snapshot.hasData) {
+        // 加载中
+        if (snapshot.connectionState == ConnectionState.waiting &&
+            !snapshot.hasData) {
           return Center(
             child: SizedBox(
               width: 100.0,
@@ -75,18 +115,16 @@ class _JournalPage1Version5WidgetState
             ),
           );
         }
-        List<RitualSparkJournalRecord> containerRitualSparkJournalRecordList =
-            snapshot.data!;
-        // Return an empty Container when the item does not exist.
-        if (snapshot.data!.isEmpty) {
-          return Container();
-        }
+
+        // ✅ 修复：无论有没有数据都渲染表单
         final containerRitualSparkJournalRecord =
-            containerRitualSparkJournalRecordList.isNotEmpty
-                ? containerRitualSparkJournalRecordList.first
+            (snapshot.data?.isNotEmpty ?? false)
+                ? snapshot.data!.first
                 : null;
 
+        // ✅ 修复：加 color 防止黑色背景
         return Container(
+          color: FlutterFlowTheme.of(context).primaryBackground,
           child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
             child: SingleChildScrollView(
@@ -123,7 +161,6 @@ class _JournalPage1Version5WidgetState
                                 .setAsset(
                                     'assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3')
                                 .then((_) => _model.soundPlayer!.play());
-
                             logFirebaseEvent('IconButton_navigate_back');
                             context.safePop();
                           },
@@ -166,10 +203,7 @@ class _JournalPage1Version5WidgetState
                         BoxShadow(
                           blurRadius: 4.0,
                           color: Color(0x0E00000D),
-                          offset: Offset(
-                            0.0,
-                            4.0,
-                          ),
+                          offset: Offset(0.0, 4.0),
                         )
                       ],
                       borderRadius: BorderRadius.circular(12.0),
@@ -446,13 +480,14 @@ class _JournalPage1Version5WidgetState
                           FFLocalizations.of(context).getText(
                             '6h50mk7d' /* How are you feeling? */,
                           ),
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'WorkSans',
-                                    fontSize: 16.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'WorkSans',
+                                fontSize: 16.0,
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.bold,
+                              ),
                         ),
                         Row(
                           mainAxisSize: MainAxisSize.max,
@@ -466,7 +501,6 @@ class _JournalPage1Version5WidgetState
                               onTap: () async {
                                 logFirebaseEvent(
                                     'JOURNAL_PAGE1_VERSION5_Container_doyr4mg');
-                                logFirebaseEvent('Container_haptic_feedback');
                                 HapticFeedback.selectionClick();
                               },
                               child: Container(
@@ -475,9 +509,9 @@ class _JournalPage1Version5WidgetState
                                 decoration: BoxDecoration(
                                   image: DecorationImage(
                                     fit: BoxFit.cover,
-                                    image: Image.asset(
-                                      'assets/images/image_85.png',
-                                    ).image,
+                                    image:
+                                        Image.asset('assets/images/image_85.png')
+                                            .image,
                                   ),
                                   shape: BoxShape.circle,
                                 ),
@@ -491,7 +525,6 @@ class _JournalPage1Version5WidgetState
                               onTap: () async {
                                 logFirebaseEvent(
                                     'JOURNAL_PAGE1_VERSION5_Container_n313j3d');
-                                logFirebaseEvent('Container_haptic_feedback');
                                 HapticFeedback.selectionClick();
                               },
                               child: Container(
@@ -502,8 +535,8 @@ class _JournalPage1Version5WidgetState
                                   image: DecorationImage(
                                     fit: BoxFit.cover,
                                     image: Image.asset(
-                                      'assets/images/happy-face.png',
-                                    ).image,
+                                            'assets/images/happy-face.png')
+                                        .image,
                                   ),
                                   shape: BoxShape.circle,
                                 ),
@@ -517,7 +550,6 @@ class _JournalPage1Version5WidgetState
                               onTap: () async {
                                 logFirebaseEvent(
                                     'JOURNAL_PAGE1_VERSION5_Container_xdr2hgf');
-                                logFirebaseEvent('Container_haptic_feedback');
                                 HapticFeedback.selectionClick();
                               },
                               child: Container(
@@ -527,9 +559,9 @@ class _JournalPage1Version5WidgetState
                                   color: FlutterFlowTheme.of(context).tertiary,
                                   image: DecorationImage(
                                     fit: BoxFit.cover,
-                                    image: Image.asset(
-                                      'assets/images/image_58.png',
-                                    ).image,
+                                    image:
+                                        Image.asset('assets/images/image_58.png')
+                                            .image,
                                   ),
                                   shape: BoxShape.circle,
                                 ),
@@ -543,7 +575,6 @@ class _JournalPage1Version5WidgetState
                               onTap: () async {
                                 logFirebaseEvent(
                                     'JOURNAL_PAGE1_VERSION5_Container_ktf3xba');
-                                logFirebaseEvent('Container_haptic_feedback');
                                 HapticFeedback.selectionClick();
                               },
                               child: Container(
@@ -553,8 +584,8 @@ class _JournalPage1Version5WidgetState
                                   image: DecorationImage(
                                     fit: BoxFit.cover,
                                     image: Image.asset(
-                                      'assets/images/image_1777.png',
-                                    ).image,
+                                            'assets/images/image_1777.png')
+                                        .image,
                                   ),
                                   shape: BoxShape.circle,
                                 ),
@@ -568,7 +599,6 @@ class _JournalPage1Version5WidgetState
                               onTap: () async {
                                 logFirebaseEvent(
                                     'JOURNAL_PAGE1_VERSION5_Container_yevq48o');
-                                logFirebaseEvent('Container_haptic_feedback');
                                 HapticFeedback.selectionClick();
                               },
                               child: Container(
@@ -577,9 +607,9 @@ class _JournalPage1Version5WidgetState
                                 decoration: BoxDecoration(
                                   image: DecorationImage(
                                     fit: BoxFit.cover,
-                                    image: Image.asset(
-                                      'assets/images/image_99.png',
-                                    ).image,
+                                    image:
+                                        Image.asset('assets/images/image_99.png')
+                                            .image,
                                   ),
                                   shape: BoxShape.circle,
                                 ),
@@ -601,54 +631,48 @@ class _JournalPage1Version5WidgetState
                           FFLocalizations.of(context).getText(
                             'imvzs29l' /* Add tags */,
                           ),
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'WorkSans',
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'WorkSans',
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.bold,
+                              ),
                         ),
                         Expanded(
                           flex: 1,
                           child: FlutterFlowChoiceChips(
                             options: [
                               ChipData(
-                                  FFLocalizations.of(context).getText(
-                                    'lccc5b3u' /* Gratitude */,
-                                  ),
+                                  FFLocalizations.of(context)
+                                      .getText('lccc5b3u' /* Gratitude */),
                                   FontAwesomeIcons.gratipay),
                               ChipData(
-                                  FFLocalizations.of(context).getText(
-                                    'iq445vos' /* Mindfulness */,
-                                  ),
+                                  FFLocalizations.of(context)
+                                      .getText('iq445vos' /* Mindfulness */),
                                   FontAwesomeIcons.brain),
                               ChipData(
-                                  FFLocalizations.of(context).getText(
-                                    'izfsa1lx' /* Goals */,
-                                  ),
+                                  FFLocalizations.of(context)
+                                      .getText('izfsa1lx' /* Goals */),
                                   FFIcons.kgoal),
                               ChipData(
-                                  FFLocalizations.of(context).getText(
-                                    '038apdss' /* Reflection */,
-                                  ),
+                                  FFLocalizations.of(context)
+                                      .getText('038apdss' /* Reflection */),
                                   FFIcons.kmirror),
                               ChipData(
-                                  FFLocalizations.of(context).getText(
-                                    '19mi3ilr' /* Growth */,
-                                  ),
+                                  FFLocalizations.of(context)
+                                      .getText('19mi3ilr' /* Growth */),
                                   Icons.north),
                               ChipData(
-                                  FFLocalizations.of(context).getText(
-                                    'lg2yhk8w' /* Wellness */,
-                                  ),
-                                  FFIcons.khealthUp)
+                                  FFLocalizations.of(context)
+                                      .getText('lg2yhk8w' /* Wellness */),
+                                  FFIcons.khealthUp),
                             ],
                             onChanged: (val) async {
                               safeSetState(
                                   () => _model.choiceChipsValues = val);
                               logFirebaseEvent(
                                   'JOURNAL_PAGE1_VERSION5_ChoiceChips_jsvbh');
-                              logFirebaseEvent('ChoiceChips_haptic_feedback');
                               HapticFeedback.selectionClick();
                             },
                             selectedChipStyle: ChipStyle(
@@ -690,9 +714,8 @@ class _JournalPage1Version5WidgetState
                             controller: _model.choiceChipsValueController ??=
                                 FormFieldController<List<String>>(
                               [
-                                FFLocalizations.of(context).getText(
-                                  's4u88ude' /* Growth */,
-                                )
+                                FFLocalizations.of(context)
+                                    .getText('s4u88ude' /* Growth */)
                               ],
                             ),
                             wrapped: true,
@@ -702,8 +725,8 @@ class _JournalPage1Version5WidgetState
                     ),
                   ),
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(15.0, 25.0, 15.0, 25.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(
+                        15.0, 25.0, 15.0, 25.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -726,14 +749,10 @@ class _JournalPage1Version5WidgetState
                               safeSetState(() => _model
                                   .isDataUploading_uploadJournalMood = true);
                               var selectedUploadedFiles = <FFUploadedFile>[];
-
                               var downloadUrls = <String>[];
                               try {
-                                showUploadMessage(
-                                  context,
-                                  'Uploading file...',
-                                  showLoading: true,
-                                );
+                                showUploadMessage(context, 'Uploading file...',
+                                    showLoading: true);
                                 selectedUploadedFiles = selectedMedia
                                     .map((m) => FFUploadedFile(
                                           name: m.storagePath.split('/').last,
@@ -744,7 +763,6 @@ class _JournalPage1Version5WidgetState
                                           originalFilename: m.originalFilename,
                                         ))
                                     .toList();
-
                                 downloadUrls = (await Future.wait(
                                   selectedMedia.map(
                                     (m) async => await uploadData(
@@ -778,13 +796,9 @@ class _JournalPage1Version5WidgetState
                               }
                             }
                           },
-                          text: FFLocalizations.of(context).getText(
-                            'hkbe4620' /* Add Photo */,
-                          ),
-                          icon: Icon(
-                            Icons.photo_camera,
-                            size: 15.0,
-                          ),
+                          text: FFLocalizations.of(context)
+                              .getText('hkbe4620' /* Add Photo */),
+                          icon: Icon(Icons.photo_camera, size: 15.0),
                           options: FFButtonOptions(
                             height: 44.0,
                             padding: EdgeInsets.all(8.0),
@@ -801,7 +815,8 @@ class _JournalPage1Version5WidgetState
                                 ),
                             elevation: 0.0,
                             borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).secondaryText,
+                              color:
+                                  FlutterFlowTheme.of(context).secondaryText,
                             ),
                             borderRadius: BorderRadius.circular(8.0),
                           ),
@@ -812,26 +827,14 @@ class _JournalPage1Version5WidgetState
                                 'JOURNAL_PAGE1_VERSION5_VOICE_NOTE_BTN_ON');
                             logFirebaseEvent('Button_haptic_feedback');
                             HapticFeedback.selectionClick();
-                            logFirebaseEvent('Button_navigate_to');
-
-                            context.pushNamed(
-                              RitualSparkJournalPageVersion5Widget.routeName,
-                              extra: <String, dynamic>{
-                                '__transition_info__': TransitionInfo(
-                                  hasTransition: true,
-                                  transitionType: PageTransitionType.fade,
-                                  duration: Duration(milliseconds: 2),
-                                ),
-                              },
-                            );
+                            // ✅ 通过回调让父页面执行跳转
+                            if (widget.onVoiceNoteTap != null) {
+                              widget.onVoiceNoteTap!();
+                            }
                           },
-                          text: FFLocalizations.of(context).getText(
-                            'pmbe37iu' /* Voice Note */,
-                          ),
-                          icon: Icon(
-                            Icons.mic,
-                            size: 15.0,
-                          ),
+                          text: FFLocalizations.of(context)
+                              .getText('pmbe37iu' /* Voice Note */),
+                          icon: Icon(Icons.mic, size: 15.0),
                           options: FFButtonOptions(
                             height: 44.0,
                             padding: EdgeInsets.all(8.0),
@@ -848,7 +851,8 @@ class _JournalPage1Version5WidgetState
                                 ),
                             elevation: 0.0,
                             borderSide: BorderSide(
-                              color: FlutterFlowTheme.of(context).secondaryText,
+                              color:
+                                  FlutterFlowTheme.of(context).secondaryText,
                             ),
                             borderRadius: BorderRadius.circular(8.0),
                           ),
@@ -865,7 +869,6 @@ class _JournalPage1Version5WidgetState
                             logFirebaseEvent(
                                 'JOURNAL_PAGE1_VERSION5_SAVE_AS_DRAFT_BTN');
                             logFirebaseEvent('Button_navigate_to');
-
                             context.pushNamed(
                               HomeVersion5Widget.routeName,
                               extra: <String, dynamic>{
@@ -877,9 +880,8 @@ class _JournalPage1Version5WidgetState
                               },
                             );
                           },
-                          text: FFLocalizations.of(context).getText(
-                            'mbml99d6' /* Save as Draft */,
-                          ),
+                          text: FFLocalizations.of(context)
+                              .getText('mbml99d6' /* Save as Draft */),
                           options: FFButtonOptions(
                             height: 56.0,
                             padding: EdgeInsets.all(8.0),
@@ -903,27 +905,9 @@ class _JournalPage1Version5WidgetState
                           onPressed: () async {
                             logFirebaseEvent(
                                 'JOURNAL_PAGE1_VERSION5_SAVE_RITUAL_BTN_O');
-                            logFirebaseEvent('Button_backend_call');
-
-                            await containerRitualSparkJournalRecord!.reference
-                                .update({
-                              ...createRitualSparkJournalRecordData(
-                                ritualSparkTitle: _model.textController1.text,
-                                ritualSparkContent: _model.textController2.text,
-                              ),
-                              ...mapToFirestore(
-                                {
-                                  'tags': FieldValue.arrayUnion([
-                                    _model.choiceChipsValues
-                                        ?.take(5)
-                                        .toList()
-                                        .contains(_model
-                                            .choiceChipsValues?.firstOrNull)
-                                        .toString()
-                                  ]),
-                                },
-                              ),
-                            });
+                            // ✅ 修复：新建或更新
+                            await _saveJournal(
+                                containerRitualSparkJournalRecord);
                             logFirebaseEvent('Button_show_snack_bar');
                             ScaffoldMessenger.of(context).clearSnackBars();
                             ScaffoldMessenger.of(context).showSnackBar(
@@ -959,9 +943,8 @@ class _JournalPage1Version5WidgetState
                               ),
                             );
                           },
-                          text: FFLocalizations.of(context).getText(
-                            '7go1rzs7' /* Save Ritual */,
-                          ),
+                          text: FFLocalizations.of(context)
+                              .getText('7go1rzs7' /* Save Ritual */),
                           options: FFButtonOptions(
                             height: 56.0,
                             padding: EdgeInsets.all(8.0),

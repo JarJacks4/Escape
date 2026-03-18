@@ -30,6 +30,10 @@ export 'journal_page1_model.dart';
 class JournalPage1Widget extends StatefulWidget {
   const JournalPage1Widget({super.key});
 
+  // ✅ 新增路由信息，让这个组件可以作为独立页面被导航
+  static String routeName = 'JournalPage1';
+  static String routePath = 'journalPage1';
+
   @override
   State<JournalPage1Widget> createState() => _JournalPage1WidgetState();
 }
@@ -71,7 +75,6 @@ class _JournalPage1WidgetState extends State<JournalPage1Widget>
   @override
   void dispose() {
     _model.maybeDispose();
-
     super.dispose();
   }
 
@@ -83,8 +86,10 @@ class _JournalPage1WidgetState extends State<JournalPage1Widget>
     context.watch<confetti_modualo_library_b75kfy_app_state.FFAppState>();
     context.watch<that_audio_player_oo85ab_app_state.FFAppState>();
 
-    return Container(
-      child: Padding(
+    // ✅ 加 Scaffold 防止黑色背景
+    return Scaffold(
+      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+      body: Padding(
         padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
         child: SingleChildScrollView(
           controller: _model.columnController,
@@ -185,10 +190,7 @@ class _JournalPage1WidgetState extends State<JournalPage1Widget>
                     BoxShadow(
                       blurRadius: 40.0,
                       color: Color(0xFAEDF1F7),
-                      offset: Offset(
-                        0.0,
-                        0.0,
-                      ),
+                      offset: Offset(0.0, 0.0),
                       spreadRadius: 20.0,
                     )
                   ],
@@ -239,11 +241,7 @@ class _JournalPage1WidgetState extends State<JournalPage1Widget>
                                   onTap: () async {
                                     logFirebaseEvent(
                                         'JOURNAL_PAGE1_LottieAnimation_kukw10w1_O');
-                                    logFirebaseEvent(
-                                        'LottieAnimation_haptic_feedback');
                                     HapticFeedback.heavyImpact();
-                                    logFirebaseEvent(
-                                        'LottieAnimation_play_sound');
                                     _model.soundPlayer ??= AudioPlayer();
                                     if (_model.soundPlayer!.playing) {
                                       await _model.soundPlayer!.stop();
@@ -252,19 +250,13 @@ class _JournalPage1WidgetState extends State<JournalPage1Widget>
                                     _model.soundPlayer!
                                         .setAsset(
                                             'assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3')
-                                        .then(
-                                            (_) => _model.soundPlayer!.play());
-
-                                    logFirebaseEvent(
-                                        'LottieAnimation_start_audio_recording');
+                                        .then((_) =>
+                                            _model.soundPlayer!.play());
                                     await startAudioRecording(
                                       context,
                                       audioRecorder: _model.audioRecorder ??=
                                           AudioRecorder(),
                                     );
-
-                                    logFirebaseEvent(
-                                        'LottieAnimation_backend_call');
                                     await columnJournalRecord!.reference
                                         .update(createJournalRecordData(
                                       isAudioRecording: true,
@@ -273,11 +265,7 @@ class _JournalPage1WidgetState extends State<JournalPage1Widget>
                                   onDoubleTap: () async {
                                     logFirebaseEvent(
                                         'JOURNAL_PAGE1_LottieAnimation_kukw10w1_O');
-                                    logFirebaseEvent(
-                                        'LottieAnimation_haptic_feedback');
                                     HapticFeedback.heavyImpact();
-                                    logFirebaseEvent(
-                                        'LottieAnimation_stop_audio_recording');
                                     await stopAudioRecording(
                                       audioRecorder: _model.audioRecorder,
                                       audioName: 'recordedFileBytes',
@@ -288,27 +276,16 @@ class _JournalPage1WidgetState extends State<JournalPage1Widget>
                                         _model.recordedFileBytes = audioBytes;
                                       },
                                     );
-
-                                    logFirebaseEvent(
-                                        'LottieAnimation_update_component_state');
                                     _model.voiceNote =
                                         _model.audioJournalRecording;
                                     safeSetState(() {});
-
-                                    // ✅ 修复：先赋值 voiceNoteFile，再调用转录 API
                                     _model.voiceNoteFile =
                                         _model.recordedFileBytes;
-
-                                    logFirebaseEvent(
-                                        'LottieAnimation_backend_call');
                                     _model.gorqTranscriptionResult =
                                         await EscapeAudioScriptCall.call(
                                       file: _model.voiceNoteFile,
                                       gorqKey: FFAppState().gorqKey,
                                     );
-
-                                    logFirebaseEvent(
-                                        'LottieAnimation_update_component_state');
                                     _model.updateTranscriptWordsAtIndex(
                                       _model.currentWordIndex!,
                                       (_) => (_model.gorqTranscriptionResult
@@ -323,9 +300,6 @@ class _JournalPage1WidgetState extends State<JournalPage1Widget>
                                     _model.isTyping =
                                         !(_model.isTyping ?? true);
                                     safeSetState(() {});
-                                    logFirebaseEvent(
-                                        'LottieAnimation_backend_call');
-
                                     await columnJournalRecord!.reference
                                         .update({
                                       ...createJournalRecordData(
@@ -347,9 +321,6 @@ class _JournalPage1WidgetState extends State<JournalPage1Widget>
                                     if ((_model.gorqTranscriptionResult
                                             ?.succeeded ??
                                         true)) {
-                                      logFirebaseEvent(
-                                          'LottieAnimation_backend_call');
-
                                       await columnJournalRecord.reference
                                           .update({
                                         ...mapToFirestore(
@@ -365,8 +336,6 @@ class _JournalPage1WidgetState extends State<JournalPage1Widget>
                                         ),
                                       });
                                     } else {
-                                      logFirebaseEvent(
-                                          'LottieAnimation_show_snack_bar');
                                       ScaffoldMessenger.of(context)
                                           .showSnackBar(
                                         SnackBar(
@@ -386,7 +355,6 @@ class _JournalPage1WidgetState extends State<JournalPage1Widget>
                                         ),
                                       );
                                     }
-
                                     safeSetState(() {});
                                   },
                                   child: Lottie.asset(
@@ -420,8 +388,8 @@ class _JournalPage1WidgetState extends State<JournalPage1Widget>
                     borderRadius: BorderRadius.circular(16.0),
                   ),
                   child: Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(
+                        16.0, 16.0, 16.0, 16.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -469,7 +437,7 @@ class _JournalPage1WidgetState extends State<JournalPage1Widget>
                                 child: Text(
                                   valueOrDefault<String>(
                                     _model.transcriptWords.firstOrNull,
-                                    'Today I\'m feeling grateful for the small moments that brought me joy. The morning coffee tasted especially good, and I noticed how the sunlight filtered through my window in such a beautiful way.',
+                                    'Today I\'m feeling grateful for the small moments that brought me joy.',
                                   ),
                                   textAlign: TextAlign.center,
                                   overflow: TextOverflow.fade,
@@ -486,7 +454,7 @@ class _JournalPage1WidgetState extends State<JournalPage1Widget>
                                   valueOrDefault<String>(
                                     _model.transcriptWords.elementAtOrNull(
                                         _model.currentWordIndex!),
-                                    'I think what I\'m learning is that happiness isn\'t always about the big achievements, but about being present for these quiet, peaceful moments...',
+                                    'I think what I\'m learning is that happiness isn\'t always about the big achievements...',
                                   ),
                                   textAlign: TextAlign.center,
                                   style: FlutterFlowTheme.of(context)
@@ -514,7 +482,6 @@ class _JournalPage1WidgetState extends State<JournalPage1Widget>
                 highlightColor: Colors.transparent,
                 onTap: () async {
                   logFirebaseEvent('JOURNAL_PAGE1_COMP_Row_3ff5bhws_ON_TAP');
-                  logFirebaseEvent('Row_delete_data');
                   await FirebaseStorage.instance
                       .refFromURL(_model.voiceNoteText!)
                       .delete();
@@ -535,7 +502,6 @@ class _JournalPage1WidgetState extends State<JournalPage1Widget>
                       onPressed: () async {
                         logFirebaseEvent(
                             'JOURNAL_PAGE1_COMP_delete_ICN_ON_TAP');
-                        logFirebaseEvent('IconButton_delete_data');
                         await FirebaseStorage.instance
                             .refFromURL(
                                 _model.recordedFileBytes.originalFilename)
@@ -548,7 +514,6 @@ class _JournalPage1WidgetState extends State<JournalPage1Widget>
               FFButtonWidget(
                 onPressed: () async {
                   logFirebaseEvent('JOURNAL_PAGE1_FINISH_RECORDING_BTN_ON_TA');
-                  logFirebaseEvent('Button_show_snack_bar');
                   ScaffoldMessenger.of(context).clearSnackBars();
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
@@ -578,7 +543,6 @@ class _JournalPage1WidgetState extends State<JournalPage1Widget>
                       ),
                     ),
                   );
-                  logFirebaseEvent('Button_navigate_to');
                   context.pushNamed(
                     HomeVersion5Widget.routeName,
                     extra: <String, dynamic>{
@@ -593,10 +557,7 @@ class _JournalPage1WidgetState extends State<JournalPage1Widget>
                 text: FFLocalizations.of(context).getText(
                   'xwlxogy0' /* Finish Recording */,
                 ),
-                icon: Icon(
-                  Icons.check,
-                  size: 15.0,
-                ),
+                icon: Icon(Icons.check, size: 15.0),
                 options: FFButtonOptions(
                   width: double.infinity,
                   height: 50.0,
@@ -605,11 +566,13 @@ class _JournalPage1WidgetState extends State<JournalPage1Widget>
                       EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                   iconColor: FlutterFlowTheme.of(context).primary,
                   color: Colors.orange,
-                  textStyle: FlutterFlowTheme.of(context).titleMedium.override(
-                        fontFamily: 'WorkSans',
-                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                        letterSpacing: 0.0,
-                      ),
+                  textStyle:
+                      FlutterFlowTheme.of(context).titleMedium.override(
+                            fontFamily: 'WorkSans',
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            letterSpacing: 0.0,
+                          ),
                   elevation: 0.0,
                   borderRadius: BorderRadius.circular(25.0),
                 ),

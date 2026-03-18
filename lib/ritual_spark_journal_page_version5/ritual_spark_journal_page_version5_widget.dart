@@ -1,5 +1,6 @@
 import '/components/journal_page1_version5_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/index.dart';
 import 'dart:ui';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +36,6 @@ class _RitualSparkJournalPageVersion5WidgetState
   @override
   void dispose() {
     _model.dispose();
-
     super.dispose();
   }
 
@@ -90,7 +90,20 @@ class _RitualSparkJournalPageVersion5WidgetState
                       child: wrapWithModel(
                         model: _model.journalPage1Version5Model,
                         updateCallback: () => safeSetState(() {}),
-                        child: JournalPage1Version5Widget(),
+                        child: JournalPage1Version5Widget(
+                          onVoiceNoteTap: () {
+                            context.pushNamed(
+                              JournalPageVersion5Widget.routeName,
+                              extra: <String, dynamic>{
+                                '__transition_info__': TransitionInfo(
+                                  hasTransition: true,
+                                  transitionType: PageTransitionType.fade,
+                                  duration: Duration(milliseconds: 2),
+                                ),
+                              },
+                            );
+                          },
+                        ),
                       ),
                     ),
                   ),

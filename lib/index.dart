@@ -1,4 +1,5 @@
 // Export pages
+export 'components/journal_page1_widget.dart';
 export '/pages/onboarding_login/registration_success/registration_success_widget.dart'
     show RegistrationSuccessWidget;
 export '/classes_page/classes_page_widget.dart' show ClassesPageWidget;
