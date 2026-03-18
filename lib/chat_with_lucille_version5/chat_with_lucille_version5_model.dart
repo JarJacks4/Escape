@@ -5,23 +5,13 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/lucille_g_p_t_comp/writing_indicator/writing_indicator_widget.dart';
 import 'chat_with_lucille_version5_widget.dart'
     show ChatWithLucilleVersion5Widget;
-import 'dart:async';
 import 'package:flutter/material.dart';
 
 class ChatWithLucilleVersion5Model
     extends FlutterFlowModel<ChatWithLucilleVersion5Widget> {
   ///  Local state fields for this page.
 
-  bool aiIsResponsing = false;
-
-  List<LucilleChatStruct> chats = [];
-  void addToChats(LucilleChatStruct item) => chats.add(item);
-  void removeFromChats(LucilleChatStruct item) => chats.remove(item);
-  void removeAtIndexFromChats(int index) => chats.removeAt(index);
-  void insertAtIndexInChats(int index, LucilleChatStruct item) =>
-      chats.insert(index, item);
-  void updateChatsAtIndex(int index, Function(LucilleChatStruct) updateFn) =>
-      chats[index] = updateFn(chats[index]);
+  bool aiIsResponsing = true;
 
   String userInput = 'userResponse';
 
@@ -40,16 +30,6 @@ class ChatWithLucilleVersion5Model
 
   String? sessionID;
 
-  List<BuildShipStreamStruct> messages = [];
-  void addToMessages(BuildShipStreamStruct item) => messages.add(item);
-  void removeFromMessages(BuildShipStreamStruct item) => messages.remove(item);
-  void removeAtIndexFromMessages(int index) => messages.removeAt(index);
-  void insertAtIndexInMessages(int index, BuildShipStreamStruct item) =>
-      messages.insert(index, item);
-  void updateMessagesAtIndex(
-          int index, Function(BuildShipStreamStruct) updateFn) =>
-      messages[index] = updateFn(messages[index]);
-
   List<LucilleStreamFINALStruct> streamMessages = [];
   void addToStreamMessages(LucilleStreamFINALStruct item) =>
       streamMessages.add(item);
@@ -63,6 +43,10 @@ class ChatWithLucilleVersion5Model
   void updateStreamMessagesAtIndex(
           int index, Function(LucilleStreamFINALStruct) updateFn) =>
       streamMessages[index] = updateFn(streamMessages[index]);
+
+  String? accumulatedResponse;
+
+  int? aiMessageIndex = 0;
 
   ///  State fields for stateful widgets in this page.
 
@@ -96,23 +80,6 @@ class ChatWithLucilleVersion5Model
   // Stores action output result for [Backend Call - API (Lucille Streaming Response)] action in IconButton widget.
   ApiCallResponse? lucilleStreamChat;
 
-  // ── Lifted stream/timer state ──────────────────────────────────────────────
-  /// Timer used to throttle UI rebuilds while text is streaming in.
-  Timer? updateTimer;
-
-  /// Active subscription for the text-chat stream.
-  StreamSubscription? textStreamSubscription;
-
-  /// Active subscription for the voice-chat stream.
-  StreamSubscription? voiceStreamSubscription;
-
-  /// Accumulated AI response text during streaming (text chat).
-  String accumulatedTextResponse = '';
-
-  /// Whether a UI update is pending for the throttle timer.
-  bool needsTextUpdate = false;
-  // ──────────────────────────────────────────────────────────────────────────
-
   @override
   void initState(BuildContext context) {
     columnController = ScrollController();
@@ -122,9 +89,6 @@ class ChatWithLucilleVersion5Model
 
   @override
   void dispose() {
-    updateTimer?.cancel();
-    textStreamSubscription?.cancel();
-    voiceStreamSubscription?.cancel();
     columnController?.dispose();
     tabBarController?.dispose();
     listViewController?.dispose();

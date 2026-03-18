@@ -988,11 +988,13 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                           decoration: BoxDecoration(
                                             boxShadow: [
                                               BoxShadow(
-                                                blurRadius: 40.0,
-                                                color: Color(0xC0D0E3F7),
+                                                blurRadius: 80.0,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .accent3,
                                                 offset: Offset(
                                                   0.0,
-                                                  2.0,
+                                                  0.0,
                                                 ),
                                                 spreadRadius: 10.0,
                                               )
@@ -1016,10 +1018,10 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                     fontFamily: 'WorkSans',
                                                     color: FlutterFlowTheme.of(
                                                             context)
-                                                        .tertiary,
+                                                        .alternate,
                                                     fontSize: 18.0,
                                                     letterSpacing: 0.0,
-                                                    fontWeight: FontWeight.w300,
+                                                    fontWeight: FontWeight.bold,
                                                   ),
                                             ),
                                           ),
@@ -1149,7 +1151,7 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                     height: 232.6,
                                                     decoration: BoxDecoration(),
                                                     child: Lottie.asset(
-                                                      'assets/jsons/Animation_-_1738955750147.json',
+                                                      'assets/jsons/body_man.json',
                                                       width: 200.0,
                                                       height: 200.0,
                                                       fit: BoxFit.contain,
