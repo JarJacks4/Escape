@@ -14,7 +14,7 @@ import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 final rowF58gzr5e = GlobalKey();
 final containerQxoadm15 = GlobalKey();
 final container42rk8lms = GlobalKey();
-final containerIurmljfr = GlobalKey();
+final placeholderWidgetY074q3xn = GlobalKey();
 final buttonUkofocq2 = GlobalKey();
 final lottieAnimationOiibrsns = GlobalKey();
 final containerI9znmkfb = GlobalKey();
@@ -28,7 +28,7 @@ List<TargetFocus> createWalkthroughTargets(BuildContext context) => [
         keyTarget: rowF58gzr5e,
         enableOverlayTab: true,
         alignSkip: Alignment.topRight,
-        shape: ShapeLightFocus.RRect,
+        shape: ShapeLightFocus.Circle,
         color: Color(0x461C2444),
         contents: [
           TargetContent(
@@ -48,7 +48,9 @@ List<TargetFocus> createWalkthroughTargets(BuildContext context) => [
         contents: [
           TargetContent(
             align: ContentAlign.top,
-            builder: (context, __) => IntroWalkthrough2Widget(),
+            builder: (context, __) => IntroWalkthrough2Widget(
+              parameter1: '',
+            ),
           ),
         ],
       ),
@@ -63,22 +65,26 @@ List<TargetFocus> createWalkthroughTargets(BuildContext context) => [
         contents: [
           TargetContent(
             align: ContentAlign.top,
-            builder: (context, __) => IntroWalkthrough3Widget(),
+            builder: (context, __) => IntroWalkthrough3Widget(
+              parameter1: '',
+            ),
           ),
         ],
       ),
 
       /// Step 4
       TargetFocus(
-        keyTarget: containerIurmljfr,
+        keyTarget: placeholderWidgetY074q3xn,
         enableOverlayTab: true,
-        alignSkip: Alignment.bottomRight,
+        alignSkip: Alignment.bottomCenter,
         shape: ShapeLightFocus.RRect,
         color: FlutterFlowTheme.of(context).alternate,
         contents: [
           TargetContent(
             align: ContentAlign.top,
-            builder: (context, __) => IntroWalkthrough4Widget(),
+            builder: (context, __) => IntroWalkthrough4Widget(
+              parameter1: '',
+            ),
           ),
         ],
       ),
@@ -93,7 +99,9 @@ List<TargetFocus> createWalkthroughTargets(BuildContext context) => [
         contents: [
           TargetContent(
             align: ContentAlign.top,
-            builder: (context, __) => IntroWalkthrough5Widget(),
+            builder: (context, __) => IntroWalkthrough5Widget(
+              parameter1: '',
+            ),
           ),
         ],
       ),
@@ -108,7 +116,9 @@ List<TargetFocus> createWalkthroughTargets(BuildContext context) => [
         contents: [
           TargetContent(
             align: ContentAlign.bottom,
-            builder: (context, __) => IntroWalkthrough6Widget(),
+            builder: (context, __) => IntroWalkthrough6Widget(
+              parameter1: '',
+            ),
           ),
         ],
       ),
@@ -118,12 +128,14 @@ List<TargetFocus> createWalkthroughTargets(BuildContext context) => [
         keyTarget: containerI9znmkfb,
         enableOverlayTab: true,
         alignSkip: Alignment.bottomRight,
-        shape: ShapeLightFocus.RRect,
+        shape: ShapeLightFocus.Circle,
         color: FlutterFlowTheme.of(context).alternate,
         contents: [
           TargetContent(
             align: ContentAlign.top,
-            builder: (context, __) => IntroWalkthrough7Widget(),
+            builder: (context, __) => IntroWalkthrough7Widget(
+              parameter1: '',
+            ),
           ),
         ],
       ),

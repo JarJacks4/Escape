@@ -15,7 +15,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.0.5+12
+version: 1.0.5+14
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
@@ -69,9 +69,9 @@ dependencies:
   fetch_api: 2.2.0
   fetch_client: 1.1.2
   ff_commons:
-    path: ./dependencies/ff_commons # 1.0.5+12
+    path: ./dependencies/ff_commons # 1.0.5+14
   ff_theme:
-    path: ./dependencies/ff_theme # 1.0.5+12
+    path: ./dependencies/ff_theme # 1.0.5+14
   file_picker: 10.1.9
   firebase_analytics: 11.5.0
   firebase_analytics_platform_interface: 4.4.0
@@ -202,7 +202,9 @@ dependencies:
   stream_transform: 2.1.0
   synchronized: 3.4.0
   that_audio_player_oo85ab:
-    path: ./dependencies/that_audio_player_oo85ab # 0.0.8
+    path: ./dependencies/that_audio_player_oo85ab # current
+  that_slideable_list_item_mrpo3s:
+    path: ./dependencies/that_slideable_list_item_mrpo3s # 0.0.1
   tiktokfeed_wz8en7:
     path: ./dependencies/tiktokfeed_wz8en7 # current
   timeago: 3.7.1
@@ -216,6 +218,8 @@ dependencies:
   url_launcher_platform_interface: 2.3.2
   url_launcher_web: 2.4.1
   url_launcher_windows: 3.1.4
+  utility_functions_library_8g4bud:
+    path: ./dependencies/utility_functions_library_8g4bud # 0.0.8
   video_player: 2.10.0
   video_player_android: 2.8.7
   video_player_avfoundation: 2.7.1

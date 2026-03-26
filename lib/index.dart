@@ -186,3 +186,13 @@ export '/coming_soon_body/coming_soon_body_widget.dart'
     show ComingSoonBodyWidget;
 export '/coming_soon_marketplace/coming_soon_marketplace_widget.dart'
     show ComingSoonMarketplaceWidget;
+export '/lucille_suggestions/lucille_suggestions_widget.dart'
+    show LucilleSuggestionsWidget;
+export '/lucille_suggestion_splash_page/lucille_suggestion_splash_page_widget.dart'
+    show LucilleSuggestionSplashPageWidget;
+export '/rewards_splash_page/rewards_splash_page_widget.dart'
+    show RewardsSplashPageWidget;
+export '/general_transiton_spalsh_page/general_transiton_spalsh_page_widget.dart'
+    show GeneralTransitonSpalshPageWidget;
+export '/meditation_and_breathing_games/lucille_suggestion_page/lucille_suggestion_page_widget.dart'
+    show LucilleSuggestionPageWidget;

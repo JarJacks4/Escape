@@ -1,5 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
-import '/components/lucille_help_comp_widget.dart';
+import '/components/lucille_soundscape_suggestion_widget.dart';
 import '/components/soundscapes_starter_page_version5_copy_copy_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_button_tabbar.dart';
@@ -546,7 +546,6 @@ class _AISoundscapesCopyCopyCopyWidgetState
                                                                             await showModalBottomSheet(
                                                                               isScrollControlled: true,
                                                                               backgroundColor: Colors.transparent,
-                                                                              enableDrag: false,
                                                                               context: context,
                                                                               builder: (context) {
                                                                                 return GestureDetector(
@@ -556,7 +555,7 @@ class _AISoundscapesCopyCopyCopyWidgetState
                                                                                   },
                                                                                   child: Padding(
                                                                                     padding: MediaQuery.viewInsetsOf(context),
-                                                                                    child: LucilleHelpCompWidget(),
+                                                                                    child: LucilleSoundscapeSuggestionWidget(),
                                                                                   ),
                                                                                 );
                                                                               },
