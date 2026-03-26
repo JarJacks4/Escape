@@ -24,3 +24,4 @@ export 'pause_audio.dart' show pauseAudio;
 export 'play_audio.dart' show playAudio;
 export 'initialize_that_audio_player_for_single_audio.dart'
     show initializeThatAudioPlayerForSingleAudio;
+export 'base64_to_audio_file.dart' show base64ToAudioFile;

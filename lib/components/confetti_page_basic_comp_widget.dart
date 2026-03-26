@@ -608,7 +608,7 @@ class _ConfettiPageBasicCompWidgetState
                                           context.pop();
                                         }
                                         context.pushNamed(
-                                          ExplorePageVersion5Widget.routeName,
+                                          RewardsSplashPageWidget.routeName,
                                           extra: <String, dynamic>{
                                             '__transition_info__':
                                                 TransitionInfo(
@@ -616,7 +616,7 @@ class _ConfettiPageBasicCompWidgetState
                                               transitionType:
                                                   PageTransitionType.fade,
                                               duration:
-                                                  Duration(milliseconds: 2),
+                                                  Duration(milliseconds: 3),
                                             ),
                                           },
                                         );

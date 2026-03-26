@@ -479,7 +479,7 @@ class _ConfettiPageIntermediateCompWidgetState
                                   logFirebaseEvent(
                                       'CONFETTI_INTERMEDIATE_SEE_EXPLORE_BTN_ON');
                                   logFirebaseEvent('Button_haptic_feedback');
-                                  HapticFeedback.mediumImpact();
+                                  HapticFeedback.heavyImpact();
                                   logFirebaseEvent('Button_play_sound');
                                   _model.soundPlayer2 ??= AudioPlayer();
                                   if (_model.soundPlayer2!.playing) {
@@ -516,12 +516,12 @@ class _ConfettiPageIntermediateCompWidgetState
                                     context.pop();
                                   }
                                   context.pushNamed(
-                                    ExplorePageVersion5Widget.routeName,
+                                    RewardsSplashPageWidget.routeName,
                                     extra: <String, dynamic>{
                                       '__transition_info__': TransitionInfo(
                                         hasTransition: true,
                                         transitionType: PageTransitionType.fade,
-                                        duration: Duration(milliseconds: 2),
+                                        duration: Duration(milliseconds: 3),
                                       ),
                                     },
                                   );

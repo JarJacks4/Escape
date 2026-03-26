@@ -11,6 +11,8 @@ export '/player_page_music_mediations/player_page_music_mediations_widget.dart'
 export '/player_page_f_i_n_a_l_all_tab/player_page_f_i_n_a_l_all_tab_widget.dart'
     show PlayerPageFINALAllTabWidget;
 export '/sample/sample_widget.dart' show SampleWidget;
+export '/player_page_lucille/player_page_lucille_widget.dart'
+    show PlayerPageLucilleWidget;
 
 // Export initializeRoutes for route overrides
 export '/flutter_flow/nav/nav.dart' show initializeRoutes;

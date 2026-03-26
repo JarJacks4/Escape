@@ -392,7 +392,8 @@ class _ResetVersion5CopyWidgetState extends State<ResetVersion5CopyWidget>
                                                             ),
                                                           ),
                                                         ),
-                                                        Expanded(
+                                                        Flexible(
+                                                          flex: 1,
                                                           child: Column(
                                                             mainAxisSize:
                                                                 MainAxisSize
@@ -590,7 +591,7 @@ melt away... */
                                             },
                                             child: Container(
                                               width: 335.0,
-                                              height: 131.5,
+                                              height: 150.7,
                                               decoration: BoxDecoration(
                                                 image: DecorationImage(
                                                   fit: BoxFit.none,
@@ -637,7 +638,8 @@ melt away... */
                                                         ),
                                                       ),
                                                     ),
-                                                    Expanded(
+                                                    Flexible(
+                                                      flex: 1,
                                                       child: Column(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -691,83 +693,94 @@ melt away... */
                                                                       0.0,
                                                                 ),
                                                           ),
-                                                          Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            children: [
-                                                              Row(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                children: [
-                                                                  Icon(
-                                                                    FFIcons
-                                                                        .kcoin,
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .accent1,
-                                                                    size: 22.0,
-                                                                  ),
-                                                                  Text(
-                                                                    FFLocalizations.of(
-                                                                            context)
-                                                                        .getText(
-                                                                      '7yzlgb27' /* +50 Coins */,
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        8.0),
+                                                            child: Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              children: [
+                                                                Row(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  children: [
+                                                                    Icon(
+                                                                      FFIcons
+                                                                          .kcoin,
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .accent1,
+                                                                      size:
+                                                                          22.0,
                                                                     ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodySmall
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'WorkSans',
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).tertiary,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                        ),
-                                                                  ),
-                                                                ].divide(SizedBox(
-                                                                    width:
-                                                                        4.0)),
-                                                              ),
-                                                              Row(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                children: [
-                                                                  Icon(
-                                                                    Icons
-                                                                        .signal_cellular_alt,
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .accent3,
-                                                                    size: 16.0,
-                                                                  ),
-                                                                  Text(
-                                                                    FFLocalizations.of(
-                                                                            context)
-                                                                        .getText(
-                                                                      '2zd796vm' /* Beginner */,
+                                                                    Text(
+                                                                      FFLocalizations.of(
+                                                                              context)
+                                                                          .getText(
+                                                                        '7yzlgb27' /* +50 Coins */,
+                                                                      ),
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodySmall
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'WorkSans',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).tertiary,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
                                                                     ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodySmall
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'WorkSans',
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).tertiary,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                        ),
-                                                                  ),
-                                                                ].divide(SizedBox(
-                                                                    width:
-                                                                        4.0)),
-                                                              ),
-                                                            ].divide(SizedBox(
-                                                                width: 16.0)),
+                                                                  ].divide(SizedBox(
+                                                                      width:
+                                                                          4.0)),
+                                                                ),
+                                                                Row(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  children: [
+                                                                    Icon(
+                                                                      Icons
+                                                                          .signal_cellular_alt,
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .accent3,
+                                                                      size:
+                                                                          16.0,
+                                                                    ),
+                                                                    Text(
+                                                                      FFLocalizations.of(
+                                                                              context)
+                                                                          .getText(
+                                                                        '2zd796vm' /* Beginner */,
+                                                                      ),
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodySmall
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'WorkSans',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).tertiary,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                          ),
+                                                                    ),
+                                                                  ].divide(SizedBox(
+                                                                      width:
+                                                                          4.0)),
+                                                                ),
+                                                              ].divide(SizedBox(
+                                                                  width: 16.0)),
+                                                            ),
                                                           ),
                                                         ].divide(SizedBox(
                                                             height: 8.0)),
@@ -881,7 +894,8 @@ melt away... */
                                                         ),
                                                       ),
                                                     ),
-                                                    Expanded(
+                                                    Flexible(
+                                                      flex: 1,
                                                       child: Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
@@ -1134,7 +1148,8 @@ melt away... */
                                                         ),
                                                       ),
                                                     ),
-                                                    Expanded(
+                                                    Flexible(
+                                                      flex: 1,
                                                       child: Column(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -1376,7 +1391,8 @@ melt away... */
                                                         ),
                                                       ),
                                                     ),
-                                                    Expanded(
+                                                    Flexible(
+                                                      flex: 1,
                                                       child: Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
@@ -1629,7 +1645,8 @@ melt away... */
                                                         ),
                                                       ),
                                                     ),
-                                                    Expanded(
+                                                    Flexible(
+                                                      flex: 1,
                                                       child: Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
@@ -1850,7 +1867,8 @@ melt away... */
                                                         ),
                                                       ),
                                                     ),
-                                                    Expanded(
+                                                    Flexible(
+                                                      flex: 1,
                                                       child: Padding(
                                                         padding:
                                                             EdgeInsetsDirectional

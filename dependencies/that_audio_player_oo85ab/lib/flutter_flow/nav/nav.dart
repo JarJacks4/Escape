@@ -90,6 +90,38 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: SampleWidget.routeName,
           path: SampleWidget.routePath,
           builder: (context, params) => SampleWidget(),
+        ),
+        FFRoute(
+          name: PlayerPageLucilleWidget.routeName,
+          path: PlayerPageLucilleWidget.routePath,
+          builder: (context, params) => PlayerPageLucilleWidget(
+            currentSong: params.getParam(
+              'currentSong',
+              ParamType.DataStruct,
+              isList: false,
+              structBuilder: MediaStruct.fromSerializableMap,
+            ),
+            lucilleAudioUrl: params.getParam(
+              'lucilleAudioUrl',
+              ParamType.String,
+            ),
+            soundscapeTitle: params.getParam(
+              'soundscapeTitle',
+              ParamType.String,
+            ),
+            soundscapeID: params.getParam(
+              'soundscapeID',
+              ParamType.String,
+            ),
+            soundscapeCategory: params.getParam(
+              'soundscapeCategory',
+              ParamType.String,
+            ),
+            sessionID: params.getParam(
+              'sessionID',
+              ParamType.String,
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -109,6 +141,8 @@ void initializeRoutes({
   String? playerPageFINALAllTabWidgetPath,
   String? sampleWidgetName,
   String? sampleWidgetPath,
+  String? playerPageLucilleWidgetName,
+  String? playerPageLucilleWidgetPath,
 }) {
   HomePageWidget.maybeSetRouteName(homePageWidgetName);
   HomePageWidget.maybeSetRoutePath(homePageWidgetPath);
@@ -128,6 +162,8 @@ void initializeRoutes({
       playerPageFINALAllTabWidgetPath);
   SampleWidget.maybeSetRouteName(sampleWidgetName);
   SampleWidget.maybeSetRoutePath(sampleWidgetPath);
+  PlayerPageLucilleWidget.maybeSetRouteName(playerPageLucilleWidgetName);
+  PlayerPageLucilleWidget.maybeSetRoutePath(playerPageLucilleWidgetPath);
 }
 
 extension NavParamExtensions on Map<String, String?> {

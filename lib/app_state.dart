@@ -27,6 +27,10 @@ class FFAppState extends ChangeNotifier {
           await secureStorage.getInt('ff_pointsEarned') ?? _pointsEarned;
     });
     await _safeInitAsync(() async {
+      _chatSessionId =
+          await secureStorage.getString('ff_chatSessionId') ?? _chatSessionId;
+    });
+    await _safeInitAsync(() async {
       _ProfilePicture =
           await secureStorage.getString('ff_ProfilePicture') ?? _ProfilePicture;
     });
@@ -54,6 +58,10 @@ class FFAppState extends ChangeNotifier {
       _isMiniPlayerVisible =
           await secureStorage.getBool('ff_isMiniPlayerVisible') ??
               _isMiniPlayerVisible;
+    });
+    await _safeInitAsync(() async {
+      _isFirstTimeUser =
+          await secureStorage.getBool('ff_isFirstTimeUser') ?? _isFirstTimeUser;
     });
     await _safeInitAsync(() async {
       _hasCleansedRoot =
@@ -97,6 +105,36 @@ class FFAppState extends ChangeNotifier {
       _ReorderedVideosIndex =
           await secureStorage.getInt('ff_ReorderedVideosIndex') ??
               _ReorderedVideosIndex;
+    });
+    await _safeInitAsync(() async {
+      _activeExerciseSessionID =
+          await secureStorage.getString('ff_activeExerciseSessionID') ??
+              _activeExerciseSessionID;
+    });
+    await _safeInitAsync(() async {
+      _currentSoundscapeID =
+          await secureStorage.getString('ff_currentSoundscapeID') ??
+              _currentSoundscapeID;
+    });
+    await _safeInitAsync(() async {
+      _exerciseID =
+          await secureStorage.getString('ff_exerciseID') ?? _exerciseID;
+    });
+    await _safeInitAsync(() async {
+      _messagesTheoryOfMind =
+          (await secureStorage.getStringList('ff_messagesTheoryOfMind'))
+                  ?.map((x) {
+                    try {
+                      return TheoryOfMindLucilleStreamChatStruct
+                          .fromSerializableMap(jsonDecode(x));
+                    } catch (e) {
+                      print("Can't decode persisted data type. Error: $e.");
+                      return null;
+                    }
+                  })
+                  .withoutNulls
+                  .toList() ??
+              _messagesTheoryOfMind;
     });
   }
 
@@ -360,6 +398,11 @@ class FFAppState extends ChangeNotifier {
   String get chatSessionId => _chatSessionId;
   set chatSessionId(String value) {
     _chatSessionId = value;
+    secureStorage.setString('ff_chatSessionId', value);
+  }
+
+  void deleteChatSessionId() {
+    secureStorage.delete(key: 'ff_chatSessionId');
   }
 
   List<String> _MusicPlayerBackgrounds = [];
@@ -1681,6 +1724,11 @@ class FFAppState extends ChangeNotifier {
   bool get isFirstTimeUser => _isFirstTimeUser;
   set isFirstTimeUser(bool value) {
     _isFirstTimeUser = value;
+    secureStorage.setBool('ff_isFirstTimeUser', value);
+  }
+
+  void deleteIsFirstTimeUser() {
+    secureStorage.delete(key: 'ff_isFirstTimeUser');
   }
 
   bool _isFirstTimeUserLucille = false;
@@ -1850,6 +1898,89 @@ class FFAppState extends ChangeNotifier {
 
   void deleteReorderedVideosIndex() {
     secureStorage.delete(key: 'ff_ReorderedVideosIndex');
+  }
+
+  String _activeExerciseSessionID = '';
+  String get activeExerciseSessionID => _activeExerciseSessionID;
+  set activeExerciseSessionID(String value) {
+    _activeExerciseSessionID = value;
+    secureStorage.setString('ff_activeExerciseSessionID', value);
+  }
+
+  void deleteActiveExerciseSessionID() {
+    secureStorage.delete(key: 'ff_activeExerciseSessionID');
+  }
+
+  String _currentSoundscapeID = '';
+  String get currentSoundscapeID => _currentSoundscapeID;
+  set currentSoundscapeID(String value) {
+    _currentSoundscapeID = value;
+    secureStorage.setString('ff_currentSoundscapeID', value);
+  }
+
+  void deleteCurrentSoundscapeID() {
+    secureStorage.delete(key: 'ff_currentSoundscapeID');
+  }
+
+  String _exerciseID = '';
+  String get exerciseID => _exerciseID;
+  set exerciseID(String value) {
+    _exerciseID = value;
+    secureStorage.setString('ff_exerciseID', value);
+  }
+
+  void deleteExerciseID() {
+    secureStorage.delete(key: 'ff_exerciseID');
+  }
+
+  List<TheoryOfMindLucilleStreamChatStruct> _messagesTheoryOfMind = [];
+  List<TheoryOfMindLucilleStreamChatStruct> get messagesTheoryOfMind =>
+      _messagesTheoryOfMind;
+  set messagesTheoryOfMind(List<TheoryOfMindLucilleStreamChatStruct> value) {
+    _messagesTheoryOfMind = value;
+    secureStorage.setStringList(
+        'ff_messagesTheoryOfMind', value.map((x) => x.serialize()).toList());
+  }
+
+  void deleteMessagesTheoryOfMind() {
+    secureStorage.delete(key: 'ff_messagesTheoryOfMind');
+  }
+
+  void addToMessagesTheoryOfMind(TheoryOfMindLucilleStreamChatStruct value) {
+    messagesTheoryOfMind.add(value);
+    secureStorage.setStringList('ff_messagesTheoryOfMind',
+        _messagesTheoryOfMind.map((x) => x.serialize()).toList());
+  }
+
+  void removeFromMessagesTheoryOfMind(
+      TheoryOfMindLucilleStreamChatStruct value) {
+    messagesTheoryOfMind.remove(value);
+    secureStorage.setStringList('ff_messagesTheoryOfMind',
+        _messagesTheoryOfMind.map((x) => x.serialize()).toList());
+  }
+
+  void removeAtIndexFromMessagesTheoryOfMind(int index) {
+    messagesTheoryOfMind.removeAt(index);
+    secureStorage.setStringList('ff_messagesTheoryOfMind',
+        _messagesTheoryOfMind.map((x) => x.serialize()).toList());
+  }
+
+  void updateMessagesTheoryOfMindAtIndex(
+    int index,
+    TheoryOfMindLucilleStreamChatStruct Function(
+            TheoryOfMindLucilleStreamChatStruct)
+        updateFn,
+  ) {
+    messagesTheoryOfMind[index] = updateFn(_messagesTheoryOfMind[index]);
+    secureStorage.setStringList('ff_messagesTheoryOfMind',
+        _messagesTheoryOfMind.map((x) => x.serialize()).toList());
+  }
+
+  void insertAtIndexInMessagesTheoryOfMind(
+      int index, TheoryOfMindLucilleStreamChatStruct value) {
+    messagesTheoryOfMind.insert(index, value);
+    secureStorage.setStringList('ff_messagesTheoryOfMind',
+        _messagesTheoryOfMind.map((x) => x.serialize()).toList());
   }
 }
 

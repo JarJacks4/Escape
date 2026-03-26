@@ -18,6 +18,10 @@ import 'package:cupertino_time_picker_hiuzb7/index.dart'
 import 'package:tiktokfeed_wz8en7/index.dart' as $tiktokfeed_wz8en7;
 import 'package:confetti_modualo_library_b75kfy/index.dart'
     as $confetti_modualo_library_b75kfy;
+import 'package:that_slideable_list_item_mrpo3s/index.dart'
+    as $that_slideable_list_item_mrpo3s;
+import 'package:utility_functions_library_8g4bud/index.dart'
+    as $utility_functions_library_8g4bud;
 import 'package:that_audio_player_oo85ab/index.dart'
     as $that_audio_player_oo85ab;
 
@@ -101,6 +105,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
     homePageWidgetPath: 'homePage1215',
   );
 
+  $that_slideable_list_item_mrpo3s.initializeRoutes(
+    homePageWidgetName: 'that_slideable_list_item_mrpo3s.HomePage',
+    homePageWidgetPath: 'homePage4',
+  );
+
+  $utility_functions_library_8g4bud.initializeRoutes(
+    testPageWidgetName: 'utility_functions_library_8g4bud.TestPage',
+    testPageWidgetPath: 'testUtilityPage',
+  );
+
   $that_audio_player_oo85ab.initializeRoutes(
     homePageWidgetName: 'that_audio_player_oo85ab.HomePage',
     homePageWidgetPath: 'homePage',
@@ -118,6 +132,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
     playerPageFINALAllTabWidgetPath: 'playerPageFINALAllTab',
     sampleWidgetName: 'that_audio_player_oo85ab.sample',
     sampleWidgetPath: 'sample',
+    playerPageLucilleWidgetName: 'that_audio_player_oo85ab.PlayerPageLucille',
+    playerPageLucilleWidgetPath: 'playerPageLucille',
   );
 
   return GoRouter(
@@ -782,6 +798,48 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             builder: (context, params) => ComingSoonMarketplaceWidget(),
           ),
           FFRoute(
+            name: LucilleSuggestionsWidget.routeName,
+            path: LucilleSuggestionsWidget.routePath,
+            builder: (context, params) => LucilleSuggestionsWidget(),
+          ),
+          FFRoute(
+            name: LucilleSuggestionSplashPageWidget.routeName,
+            path: LucilleSuggestionSplashPageWidget.routePath,
+            builder: (context, params) => LucilleSuggestionSplashPageWidget(),
+          ),
+          FFRoute(
+            name: RewardsSplashPageWidget.routeName,
+            path: RewardsSplashPageWidget.routePath,
+            builder: (context, params) => RewardsSplashPageWidget(),
+          ),
+          FFRoute(
+            name: GeneralTransitonSpalshPageWidget.routeName,
+            path: GeneralTransitonSpalshPageWidget.routePath,
+            builder: (context, params) => GeneralTransitonSpalshPageWidget(),
+          ),
+          FFRoute(
+            name: LucilleSuggestionPageWidget.routeName,
+            path: LucilleSuggestionPageWidget.routePath,
+            builder: (context, params) => LucilleSuggestionPageWidget(
+              exerciseTitle: params.getParam(
+                'exerciseTitle',
+                ParamType.String,
+              ),
+              exerciseDescription: params.getParam(
+                'exerciseDescription',
+                ParamType.String,
+              ),
+              exerciseDuration: params.getParam(
+                'exerciseDuration',
+                ParamType.double,
+              ),
+              exersiseSoundscape: params.getParam(
+                'exersiseSoundscape',
+                ParamType.String,
+              ),
+            ),
+          ),
+          FFRoute(
             name: $cupertino_time_picker_hiuzb7.HomePageWidget.routeName,
             path: $cupertino_time_picker_hiuzb7.HomePageWidget.routePath,
             builder: (context, params) =>
@@ -816,6 +874,18 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             path: $confetti_modualo_library_b75kfy.HomePageWidget.routePath,
             builder: (context, params) =>
                 $confetti_modualo_library_b75kfy.HomePageWidget(),
+          ),
+          FFRoute(
+            name: $that_slideable_list_item_mrpo3s.HomePageWidget.routeName,
+            path: $that_slideable_list_item_mrpo3s.HomePageWidget.routePath,
+            builder: (context, params) =>
+                $that_slideable_list_item_mrpo3s.HomePageWidget(),
+          ),
+          FFRoute(
+            name: $utility_functions_library_8g4bud.TestPageWidget.routeName,
+            path: $utility_functions_library_8g4bud.TestPageWidget.routePath,
+            builder: (context, params) =>
+                $utility_functions_library_8g4bud.TestPageWidget(),
           ),
           FFRoute(
             name: $that_audio_player_oo85ab.HomePageWidget.routeName,
@@ -870,6 +940,40 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             path: $that_audio_player_oo85ab.SampleWidget.routePath,
             builder: (context, params) =>
                 $that_audio_player_oo85ab.SampleWidget(),
+          ),
+          FFRoute(
+            name: $that_audio_player_oo85ab.PlayerPageLucilleWidget.routeName,
+            path: $that_audio_player_oo85ab.PlayerPageLucilleWidget.routePath,
+            builder: (context, params) =>
+                $that_audio_player_oo85ab.PlayerPageLucilleWidget(
+              currentSong: params.getParam(
+                'currentSong',
+                ParamType.DataStruct,
+                isList: false,
+                structBuilder: that_audio_player_oo85ab_data_schema
+                    .MediaStruct.fromSerializableMap,
+              ),
+              lucilleAudioUrl: params.getParam(
+                'lucilleAudioUrl',
+                ParamType.String,
+              ),
+              soundscapeTitle: params.getParam(
+                'soundscapeTitle',
+                ParamType.String,
+              ),
+              soundscapeID: params.getParam(
+                'soundscapeID',
+                ParamType.String,
+              ),
+              soundscapeCategory: params.getParam(
+                'soundscapeCategory',
+                ParamType.String,
+              ),
+              sessionID: params.getParam(
+                'sessionID',
+                ParamType.String,
+              ),
+            ),
           )
         ].map((r) => r.toRoute(appStateNotifier)).toList(),
       ),
@@ -958,6 +1062,8 @@ extension _GoRouterStateExtensions on GoRouterState {
       '__transition_info__cupertino_time_picker_hiuzb7',
       '__transition_info__tiktokfeed_wz8en7',
       '__transition_info__confetti_modualo_library_b75kfy',
+      '__transition_info__that_slideable_list_item_mrpo3s',
+      '__transition_info__utility_functions_library_8g4bud',
       '__transition_info__that_audio_player_oo85ab'
     ];
     for (final key in possibleKeys) {
