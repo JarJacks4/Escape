@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/backend/schema/enums/enums.dart';
@@ -94,19 +95,19 @@ class _CreateAccountOnboardingFlowWidgetState
           ),
         ],
       ),
-      'conditionalBuilderOnPageLoadAnimation': AnimationInfo(
+      'buttonOnPageLoadAnimation1': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           FadeEffect(
-            curve: Curves.easeInOut,
+            curve: Curves.easeIn,
             delay: 0.0.ms,
-            duration: 600.0.ms,
+            duration: 730.0.ms,
             begin: 0.0,
             end: 1.0,
           ),
         ],
       ),
-      'buttonOnPageLoadAnimation': AnimationInfo(
+      'buttonOnPageLoadAnimation2': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           FadeEffect(
@@ -2338,13 +2339,10 @@ personalized n... */
                                               ),
                                             ),
                                           ),
-                                          Align(
-                                            alignment:
-                                                AlignmentDirectional(0.0, 0.0),
-                                            child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 60.0, 0.0, 0.0),
+                                          if (FFAppState().isOnboardingFinished)
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  0.0, 0.0),
                                               child: AnimatedContainer(
                                                 duration:
                                                     Duration(milliseconds: 550),
@@ -2353,7 +2351,173 @@ personalized n... */
                                                     MediaQuery.sizeOf(context)
                                                             .width *
                                                         0.8,
-                                                height: 100.0,
+                                                height: 54.18,
+                                                decoration: BoxDecoration(
+                                                  boxShadow: [
+                                                    BoxShadow(
+                                                      blurRadius: 40.0,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primary,
+                                                      offset: Offset(
+                                                        0.0,
+                                                        0.0,
+                                                      ),
+                                                      spreadRadius: 10.0,
+                                                    )
+                                                  ],
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          24.0),
+                                                ),
+                                                child: Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          0.0, 0.0),
+                                                  child: FFButtonWidget(
+                                                    onPressed: () async {
+                                                      logFirebaseEvent(
+                                                          'CREATE_ACCOUNT_ONBOARDING_FLOW_TAP_TO_GI');
+                                                      logFirebaseEvent(
+                                                          'Button_haptic_feedback');
+                                                      HapticFeedback
+                                                          .heavyImpact();
+                                                      logFirebaseEvent(
+                                                          'Button_play_sound');
+                                                      _model.soundPlayer7 ??=
+                                                          AudioPlayer();
+                                                      if (_model.soundPlayer7!
+                                                          .playing) {
+                                                        await _model
+                                                            .soundPlayer7!
+                                                            .stop();
+                                                      }
+                                                      _model.soundPlayer7!
+                                                          .setVolume(0.78);
+                                                      _model.soundPlayer7!
+                                                          .setAsset(
+                                                              'assets/audios/ES_Game,_Jingle,_Chime,_Positive_01_-_Epidemic_Sound_-_0000-1106.wav')
+                                                          .then((_) => _model
+                                                              .soundPlayer7!
+                                                              .play());
+
+                                                      logFirebaseEvent(
+                                                          'Button_request_permissions');
+                                                      await requestPermission(
+                                                          notificationsPermission);
+                                                      if (await getPermissionStatus(
+                                                          notificationsPermission)) {
+                                                        logFirebaseEvent(
+                                                            'Button_show_snack_bar');
+                                                        ScaffoldMessenger.of(
+                                                                context)
+                                                            .showSnackBar(
+                                                          SnackBar(
+                                                            content: Text(
+                                                              'Notifications permissions allowed! Thank You!',
+                                                              style: TextStyle(
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
+                                                              ),
+                                                            ),
+                                                            duration: Duration(
+                                                                milliseconds:
+                                                                    4000),
+                                                            backgroundColor:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondary,
+                                                          ),
+                                                        );
+                                                      } else {
+                                                        logFirebaseEvent(
+                                                            'Button_show_snack_bar');
+                                                        ScaffoldMessenger.of(
+                                                                context)
+                                                            .showSnackBar(
+                                                          SnackBar(
+                                                            content: Text(
+                                                              'Error. Please refer to your iPhone or Android Permission sectin of your settings to give Escape permission to send you Notifications.',
+                                                              style: TextStyle(
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
+                                                              ),
+                                                            ),
+                                                            duration: Duration(
+                                                                milliseconds:
+                                                                    4000),
+                                                            backgroundColor:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondary,
+                                                          ),
+                                                        );
+                                                      }
+                                                    },
+                                                    text: FFLocalizations.of(
+                                                            context)
+                                                        .getText(
+                                                      '52xpc8zp' /* Tap to Give Notifications Perm... */,
+                                                    ),
+                                                    options: FFButtonOptions(
+                                                      width: double.infinity,
+                                                      height: 50.0,
+                                                      padding:
+                                                          EdgeInsets.all(8.0),
+                                                      iconPadding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .alternate,
+                                                      textStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'WorkSans',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primary,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
+                                                      elevation: 3.0,
+                                                      borderSide: BorderSide(
+                                                        color:
+                                                            Color(0x4CEDF1F7),
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              24.0),
+                                                    ),
+                                                  ).animateOnPageLoad(animationsMap[
+                                                      'buttonOnPageLoadAnimation1']!),
+                                                ),
+                                              ),
+                                            ),
+                                          if (FFAppState().isOnboardingFinished)
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  0.0, 0.0),
+                                              child: AnimatedContainer(
+                                                duration:
+                                                    Duration(milliseconds: 550),
+                                                curve: Curves.easeIn,
+                                                width:
+                                                    MediaQuery.sizeOf(context)
+                                                            .width *
+                                                        0.8,
+                                                height: 70.0,
                                                 decoration: BoxDecoration(
                                                   boxShadow: [
                                                     BoxShadow(
@@ -2376,252 +2540,180 @@ personalized n... */
                                                         0.0,
                                                         2.0,
                                                       ),
-                                                      spreadRadius: 4.0,
+                                                      spreadRadius: 15.0,
                                                     )
                                                   ],
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           24.0),
                                                 ),
-                                                child: Builder(
-                                                  builder: (context) {
-                                                    if (_model
-                                                            .pageViewCurrentIndex <
-                                                        3) {
-                                                      return Align(
-                                                        alignment:
-                                                            AlignmentDirectional(
-                                                                0.0, 0.0),
-                                                        child: FFButtonWidget(
-                                                          onPressed: () async {
-                                                            logFirebaseEvent(
-                                                                'CREATE_ACCOUNT_ONBOARDING_FLOW_FINISH_BT');
-                                                            logFirebaseEvent(
-                                                                'Button_haptic_feedback');
-                                                            HapticFeedback
-                                                                .lightImpact();
-                                                            logFirebaseEvent(
-                                                                'Button_play_sound');
-                                                            _model.soundPlayer7 ??=
-                                                                AudioPlayer();
-                                                            if (_model
-                                                                .soundPlayer7!
-                                                                .playing) {
-                                                              await _model
-                                                                  .soundPlayer7!
-                                                                  .stop();
-                                                            }
-                                                            _model.soundPlayer7!
-                                                                .setVolume(
-                                                                    0.79);
-                                                            _model.soundPlayer7!
-                                                                .setAsset(
-                                                                    'assets/audios/ES_Game,_Jingle,_Chime,_Positive_01_-_Epidemic_Sound_-_0000-1106.wav')
-                                                                .then((_) => _model
-                                                                    .soundPlayer7!
-                                                                    .play());
+                                                child: Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          0.0, 0.0),
+                                                  child: FFButtonWidget(
+                                                    onPressed: () async {
+                                                      logFirebaseEvent(
+                                                          'CREATE_ACCOUNT_ONBOARDING_FLOW_FINISH_PR');
+                                                      logFirebaseEvent(
+                                                          'Button_haptic_feedback');
+                                                      HapticFeedback
+                                                          .lightImpact();
+                                                      logFirebaseEvent(
+                                                          'Button_play_sound');
+                                                      _model.soundPlayer8 ??=
+                                                          AudioPlayer();
+                                                      if (_model.soundPlayer8!
+                                                          .playing) {
+                                                        await _model
+                                                            .soundPlayer8!
+                                                            .stop();
+                                                      }
+                                                      _model.soundPlayer8!
+                                                          .setVolume(0.78);
+                                                      _model.soundPlayer8!
+                                                          .setAsset(
+                                                              'assets/audios/ES_Game,_Jingle,_Chime,_Positive_01_-_Epidemic_Sound_-_0000-1106.wav')
+                                                          .then((_) => _model
+                                                              .soundPlayer8!
+                                                              .play());
 
-                                                            logFirebaseEvent(
-                                                                'Button_navigate_to');
+                                                      logFirebaseEvent(
+                                                          'Button_request_permissions');
+                                                      await requestPermission(
+                                                          notificationsPermission);
+                                                      logFirebaseEvent(
+                                                          'Button_backend_call');
+                                                      _model.onboardingLucille1 =
+                                                          await TheoryOfMindOnboardingGroup
+                                                              .onboardingUserCall
+                                                              .call(
+                                                        responses: _model
+                                                            .checkboxGroupValues
+                                                            ?.contains((_model
+                                                                            .checkboxGroupValues !=
+                                                                        null &&
+                                                                    (_model.checkboxGroupValues)!
+                                                                        .isNotEmpty)
+                                                                .toString())
+                                                            .toString(),
+                                                      );
 
-                                                            context.pushNamed(
-                                                                OnboardingPageViewWidget
-                                                                    .routeName);
-                                                          },
-                                                          text: FFLocalizations
-                                                                  .of(context)
-                                                              .getText(
-                                                            'f3zm2diu' /* Finish */,
-                                                          ),
-                                                          options:
-                                                              FFButtonOptions(
-                                                            width:
-                                                                double.infinity,
-                                                            height: 50.0,
-                                                            padding:
-                                                                EdgeInsets.all(
-                                                                    8.0),
-                                                            iconPadding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            color: Color(
-                                                                0xD7F0831A),
-                                                            textStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'WorkSans',
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primary,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                    ),
-                                                            elevation: 3.0,
-                                                            borderSide:
-                                                                BorderSide(
-                                                              color: Color(
-                                                                  0x4CEDF1F7),
-                                                            ),
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        24.0),
-                                                          ),
+                                                      logFirebaseEvent(
+                                                          'Button_backend_call');
+                                                      _model.onboardingLucilleMemory4 =
+                                                          await LucilleMemoriesGroup
+                                                              .createMemoryCall
+                                                              .call(
+                                                        memoryType:
+                                                            LucilleMemories
+                                                                .Episodic.name,
+                                                        content: (_model.checkboxGroupValues !=
+                                                                    null &&
+                                                                (_model.checkboxGroupValues)!
+                                                                    .isNotEmpty)
+                                                            .toString(),
+                                                        importance: 8,
+                                                      );
+
+                                                      logFirebaseEvent(
+                                                          'Button_backend_call');
+
+                                                      await currentUserReference!
+                                                          .update({
+                                                        ...createUsersRecordData(
+                                                          photoUrl: _model
+                                                              .profilePicture,
+                                                          displayName: _model
+                                                              .textController
+                                                              .text,
+                                                          pronouns: _model
+                                                              .dropDownValue
+                                                              ?.firstOrNull,
                                                         ),
-                                                      );
-                                                    } else {
-                                                      return Align(
-                                                        alignment:
-                                                            AlignmentDirectional(
-                                                                0.0, 0.0),
-                                                        child: FFButtonWidget(
-                                                          onPressed: () async {
-                                                            logFirebaseEvent(
-                                                                'CREATE_ACCOUNT_ONBOARDING_FLOW_FINISH_PR');
-                                                            logFirebaseEvent(
-                                                                'Button_haptic_feedback');
-                                                            HapticFeedback
-                                                                .lightImpact();
-                                                            logFirebaseEvent(
-                                                                'Button_play_sound');
-                                                            _model.soundPlayer8 ??=
-                                                                AudioPlayer();
-                                                            if (_model
-                                                                .soundPlayer8!
-                                                                .playing) {
-                                                              await _model
-                                                                  .soundPlayer8!
-                                                                  .stop();
-                                                            }
-                                                            _model.soundPlayer8!
-                                                                .setVolume(
-                                                                    0.78);
-                                                            _model.soundPlayer8!
-                                                                .setAsset(
-                                                                    'assets/audios/ES_Game,_Jingle,_Chime,_Positive_01_-_Epidemic_Sound_-_0000-1106.wav')
-                                                                .then((_) => _model
-                                                                    .soundPlayer8!
-                                                                    .play());
-
-                                                            logFirebaseEvent(
-                                                                'Button_request_permissions');
-                                                            await requestPermission(
-                                                                notificationsPermission);
-                                                            logFirebaseEvent(
-                                                                'Button_backend_call');
-
-                                                            await currentUserReference!
-                                                                .update({
-                                                              ...createUsersRecordData(
-                                                                photoUrl: _model
-                                                                    .profilePicture,
-                                                                displayName: _model
-                                                                    .textController
-                                                                    .text,
-                                                                pronouns: _model
-                                                                    .dropDownValue
-                                                                    ?.firstOrNull,
-                                                              ),
-                                                              ...mapToFirestore(
-                                                                {
-                                                                  'OnboardingGoals':
-                                                                      _model
-                                                                          .checkboxGroupValues,
-                                                                },
-                                                              ),
-                                                            });
-                                                            logFirebaseEvent(
-                                                                'Button_update_app_state');
-                                                            FFAppState()
-                                                                    .isOnboardingFinished =
-                                                                true;
-                                                            safeSetState(() {});
-                                                            logFirebaseEvent(
-                                                                'Button_navigate_to');
-
-                                                            context.pushNamed(
-                                                              OnboardingPageViewWidget
-                                                                  .routeName,
-                                                              extra: <String,
-                                                                  dynamic>{
-                                                                '__transition_info__':
-                                                                    TransitionInfo(
-                                                                  hasTransition:
-                                                                      true,
-                                                                  transitionType:
-                                                                      PageTransitionType
-                                                                          .fade,
-                                                                  duration: Duration(
-                                                                      milliseconds:
-                                                                          2),
-                                                                ),
-                                                              },
-                                                            );
+                                                        ...mapToFirestore(
+                                                          {
+                                                            'OnboardingGoals':
+                                                                _model
+                                                                    .checkboxGroupValues,
                                                           },
-                                                          text: FFLocalizations
-                                                                  .of(context)
-                                                              .getText(
-                                                            'tp3kl9d1' /* Finish Profile Creation */,
+                                                        ),
+                                                      });
+                                                      logFirebaseEvent(
+                                                          'Button_update_app_state');
+                                                      FFAppState()
+                                                              .isOnboardingFinished =
+                                                          true;
+                                                      FFAppState()
+                                                          .update(() {});
+                                                      logFirebaseEvent(
+                                                          'Button_navigate_to');
+
+                                                      context.pushNamed(
+                                                        OnboardingPageViewWidget
+                                                            .routeName,
+                                                        extra: <String,
+                                                            dynamic>{
+                                                          '__transition_info__':
+                                                              TransitionInfo(
+                                                            hasTransition: true,
+                                                            transitionType:
+                                                                PageTransitionType
+                                                                    .fade,
+                                                            duration: Duration(
+                                                                milliseconds:
+                                                                    2),
                                                           ),
-                                                          options:
-                                                              FFButtonOptions(
-                                                            width:
-                                                                double.infinity,
-                                                            height: 50.0,
-                                                            padding:
-                                                                EdgeInsets.all(
-                                                                    8.0),
-                                                            iconPadding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            color: Color(
-                                                                0xD7F0831A),
-                                                            textStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .titleMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'WorkSans',
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primary,
-                                                                      letterSpacing:
-                                                                          0.0,
-                                                                    ),
-                                                            elevation: 3.0,
-                                                            borderSide:
-                                                                BorderSide(
-                                                              color: Color(
-                                                                  0x4CEDF1F7),
-                                                            ),
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        24.0),
-                                                          ),
-                                                        ).animateOnPageLoad(
-                                                            animationsMap[
-                                                                'buttonOnPageLoadAnimation']!),
+                                                        },
                                                       );
-                                                    }
-                                                  },
-                                                ).animateOnPageLoad(animationsMap[
-                                                    'conditionalBuilderOnPageLoadAnimation']!),
+
+                                                      safeSetState(() {});
+                                                    },
+                                                    text: FFLocalizations.of(
+                                                            context)
+                                                        .getText(
+                                                      'y72v45zi' /* Finish Profile Creation */,
+                                                    ),
+                                                    options: FFButtonOptions(
+                                                      width: double.infinity,
+                                                      height: 50.0,
+                                                      padding:
+                                                          EdgeInsets.all(8.0),
+                                                      iconPadding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      color: Color(0xD7F0831A),
+                                                      textStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'WorkSans',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primary,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
+                                                      elevation: 3.0,
+                                                      borderSide: BorderSide(
+                                                        color:
+                                                            Color(0x4CEDF1F7),
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              24.0),
+                                                    ),
+                                                  ).animateOnPageLoad(animationsMap[
+                                                      'buttonOnPageLoadAnimation2']!),
+                                                ),
                                               ),
                                             ),
-                                          ),
                                         ].divide(SizedBox(height: 32.0)),
                                       ),
                                     ),

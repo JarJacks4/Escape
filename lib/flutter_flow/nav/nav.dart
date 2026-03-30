@@ -840,6 +840,56 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             ),
           ),
           FFRoute(
+            name: MoodSaverWidget.routeName,
+            path: MoodSaverWidget.routePath,
+            builder: (context, params) => MoodSaverWidget(),
+          ),
+          FFRoute(
+            name: MoodScanHelpWidget.routeName,
+            path: MoodScanHelpWidget.routePath,
+            builder: (context, params) => MoodScanHelpWidget(),
+          ),
+          FFRoute(
+            name: BeginSessionPageWidget.routeName,
+            path: BeginSessionPageWidget.routePath,
+            builder: (context, params) => BeginSessionPageWidget(),
+          ),
+          FFRoute(
+            name: RespirationPageWidget.routeName,
+            path: RespirationPageWidget.routePath,
+            builder: (context, params) => RespirationPageWidget(),
+          ),
+          FFRoute(
+            name: LucilleBody1PageWidget.routeName,
+            path: LucilleBody1PageWidget.routePath,
+            builder: (context, params) => LucilleBody1PageWidget(),
+          ),
+          FFRoute(
+            name: CoachingSessionPageWidget.routeName,
+            path: CoachingSessionPageWidget.routePath,
+            builder: (context, params) => CoachingSessionPageWidget(),
+          ),
+          FFRoute(
+            name: MoodSaverPageWidget.routeName,
+            path: MoodSaverPageWidget.routePath,
+            builder: (context, params) => MoodSaverPageWidget(),
+          ),
+          FFRoute(
+            name: MoodScannerPageWidget.routeName,
+            path: MoodScannerPageWidget.routePath,
+            builder: (context, params) => MoodScannerPageWidget(),
+          ),
+          FFRoute(
+            name: ScanMoodLaodingPageWidget.routeName,
+            path: ScanMoodLaodingPageWidget.routePath,
+            builder: (context, params) => ScanMoodLaodingPageWidget(),
+          ),
+          FFRoute(
+            name: MoodResultPageWidget.routeName,
+            path: MoodResultPageWidget.routePath,
+            builder: (context, params) => MoodResultPageWidget(),
+          ),
+          FFRoute(
             name: $cupertino_time_picker_hiuzb7.HomePageWidget.routeName,
             path: $cupertino_time_picker_hiuzb7.HomePageWidget.routePath,
             builder: (context, params) =>

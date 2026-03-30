@@ -1,22 +1,9 @@
 import 'dart:convert';
-import 'dart:typed_data';
-import '../schema/structs/index.dart';
-import "package:tiktokfeed_wz8en7/backend/schema/structs/index.dart"
-    as tiktokfeed_wz8en7_data_schema;
-import "package:that_audio_player_oo85ab/backend/schema/structs/index.dart"
-    as that_audio_player_oo85ab_data_schema;
-import "package:that_slideable_list_item_mrpo3s/backend/schema/structs/index.dart"
-    as that_slideable_list_item_mrpo3s_data_schema;
-import "package:utility_functions_library_8g4bud/backend/schema/structs/index.dart"
-    as utility_functions_library_8g4bud_data_schema;
-import 'package:utility_functions_library_8g4bud/app_constants.dart'
-    as utility_functions_library_8g4bud_app_constant;
 import 'package:flutter/foundation.dart';
 
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:ff_commons/api_requests/api_manager.dart';
 
-import 'package:ff_commons/api_requests/api_paging_params.dart';
 
 export 'package:ff_commons/api_requests/api_manager.dart' show ApiCallResponse;
 
@@ -167,11 +154,11 @@ class ChatStreamCall {
     final baseUrl = TheoryOfMindLucilleGroup.getBaseUrl();
 
     final ffApiRequestBody = '''
-    {
-    "message": ${jsonEncode(message)},
-    "session_id": ${jsonEncode(sessionID)},
-    "user_id": ${jsonEncode(userID)}
-    }''';
+{
+  "message": "I've been feeling anxious about work lately",
+  "session_id": "optional-uuid (auto-generated if omitted)",
+  "user_id": "optional-user-id (enables personalization)"
+}''';
     return ApiManager.instance.makeApiCall(
       callName: 'ChatStream',
       apiUrl: '${baseUrl}/chat/stream',
@@ -834,7 +821,7 @@ class OnboardingUserCall {
 
 class UserCompleteProfileCall {
   Future<ApiCallResponse> call({
-    String? userID = 'c3eca5fe-5c1a-449d-8de4-b7f096e429ad',
+    String? userID = '5a1d1e85-17be-4e3a-a719-5eb7ee9d57a1',
   }) async {
     final baseUrl = TheoryOfMindOnboardingGroup.getBaseUrl();
 
@@ -1055,11 +1042,11 @@ class CreateMemoryCall {
         response,
         r'''$.detail[:].ctx.error''',
       ));
-  dynamic? ctx(dynamic response) => getJsonField(
+  dynamic ctx(dynamic response) => getJsonField(
         response,
         r'''$.detail[:].ctx''',
       );
-  dynamic? input(dynamic response) => getJsonField(
+  dynamic input(dynamic response) => getJsonField(
         response,
         r'''$.detail[:].input''',
       );
@@ -1261,7 +1248,7 @@ class GetExercisesCall {
       ));
   List<int>? stepCount(dynamic response) => (getJsonField(
         response,
-        r'''$.exercises[:].step_count''',
+        r'''$.step_count''',
         true,
       ) as List?)
           ?.withoutNulls
@@ -1270,7 +1257,7 @@ class GetExercisesCall {
           .toList();
   List<int>? durationMinutes(dynamic response) => (getJsonField(
         response,
-        r'''$.exercises[:].duration_minutes''',
+        r'''$.duration_minutes''',
         true,
       ) as List?)
           ?.withoutNulls
@@ -1279,7 +1266,7 @@ class GetExercisesCall {
           .toList();
   List<String>? difficulty(dynamic response) => (getJsonField(
         response,
-        r'''$.exercises[:].difficulty''',
+        r'''$.difficulty''',
         true,
       ) as List?)
           ?.withoutNulls
@@ -1288,7 +1275,7 @@ class GetExercisesCall {
           .toList();
   List<String>? description(dynamic response) => (getJsonField(
         response,
-        r'''$.exercises[:].description''',
+        r'''$.description''',
         true,
       ) as List?)
           ?.withoutNulls
@@ -1297,7 +1284,7 @@ class GetExercisesCall {
           .toList();
   List<String>? title(dynamic response) => (getJsonField(
         response,
-        r'''$.exercises[:].title''',
+        r'''$.title''',
         true,
       ) as List?)
           ?.withoutNulls
@@ -1306,7 +1293,7 @@ class GetExercisesCall {
           .toList();
   List<String>? modality(dynamic response) => (getJsonField(
         response,
-        r'''$.exercises[:].modality''',
+        r'''$.modality''',
         true,
       ) as List?)
           ?.withoutNulls
@@ -1315,7 +1302,7 @@ class GetExercisesCall {
           .toList();
   List<String>? exerciseID(dynamic response) => (getJsonField(
         response,
-        r'''$.exercises[:].exercise_id''',
+        r'''$.exercise_id''',
         true,
       ) as List?)
           ?.withoutNulls
@@ -1389,7 +1376,7 @@ class RecommendedExercisesCall {
       ));
   List<int>? duration(dynamic response) => (getJsonField(
         response,
-        r'''$.recommendations[:].duration_minutes''',
+        r'''$.duration_minutes''',
         true,
       ) as List?)
           ?.withoutNulls
@@ -1398,7 +1385,7 @@ class RecommendedExercisesCall {
           .toList();
   List<String>? reason(dynamic response) => (getJsonField(
         response,
-        r'''$.recommendations[:].reason''',
+        r'''$.reason''',
         true,
       ) as List?)
           ?.withoutNulls
@@ -1411,12 +1398,12 @@ class RecommendedExercisesCall {
       ));
   List? rLMeta(dynamic response) => getJsonField(
         response,
-        r'''$.recommendations[:].rl_meta''',
+        r'''$.rl_meta''',
         true,
       ) as List?;
   List<String>? difficulty(dynamic response) => (getJsonField(
         response,
-        r'''$.recommendations[:].difficulty''',
+        r'''$.difficulty''',
         true,
       ) as List?)
           ?.withoutNulls
@@ -1425,7 +1412,7 @@ class RecommendedExercisesCall {
           .toList();
   List<String>? description(dynamic response) => (getJsonField(
         response,
-        r'''$.recommendations[:].description''',
+        r'''$.description''',
         true,
       ) as List?)
           ?.withoutNulls
@@ -1434,7 +1421,7 @@ class RecommendedExercisesCall {
           .toList();
   List<String>? title(dynamic response) => (getJsonField(
         response,
-        r'''$.recommendations[:].title''',
+        r'''$.title''',
         true,
       ) as List?)
           ?.withoutNulls
@@ -1443,7 +1430,7 @@ class RecommendedExercisesCall {
           .toList();
   List<String>? modality(dynamic response) => (getJsonField(
         response,
-        r'''$.recommendations[:].modality''',
+        r'''$.modality''',
         true,
       ) as List?)
           ?.withoutNulls
@@ -1452,7 +1439,7 @@ class RecommendedExercisesCall {
           .toList();
   List<String>? exerciseID(dynamic response) => (getJsonField(
         response,
-        r'''$.recommendations[:].exercise_id''',
+        r'''$.exercise_id''',
         true,
       ) as List?)
           ?.withoutNulls
@@ -1855,7 +1842,7 @@ class GetProgressSummaryCall {
         response,
         r'''$.progress.current_streak_days''',
       ));
-  dynamic? modalityCounts(dynamic response) => getJsonField(
+  dynamic modalityCounts(dynamic response) => getJsonField(
         response,
         r'''$.progress.modality_counts''',
       );
@@ -1885,7 +1872,7 @@ class GetProgressSummaryCall {
         response,
         r'''$.progress.user_id''',
       ));
-  dynamic? progress(dynamic response) => getJsonField(
+  dynamic progress(dynamic response) => getJsonField(
         response,
         r'''$.progress''',
       );
@@ -2084,15 +2071,15 @@ class EffectivenessCall {
         response,
         r'''$.effectiveness.total_outcomes''',
       ));
-  dynamic? modalityMoodDeltas(dynamic response) => getJsonField(
+  dynamic modalityMoodDeltas(dynamic response) => getJsonField(
         response,
         r'''$.effectiveness.modality_mood_deltas''',
       );
-  dynamic? exerciseScores(dynamic response) => getJsonField(
+  dynamic exerciseScores(dynamic response) => getJsonField(
         response,
         r'''$.effectiveness.exercise_scores''',
       );
-  dynamic? modalityScores(dynamic response) => getJsonField(
+  dynamic modalityScores(dynamic response) => getJsonField(
         response,
         r'''$.effectiveness.modality_scores''',
       );
@@ -2101,7 +2088,7 @@ class EffectivenessCall {
         response,
         r'''$.effectiveness.user_id''',
       ));
-  dynamic? effectiveness(dynamic response) => getJsonField(
+  dynamic effectiveness(dynamic response) => getJsonField(
         response,
         r'''$.effectiveness''',
       );
@@ -2302,7 +2289,7 @@ class CategoriesCall {
         response,
         r'''$.categories.nature''',
       ));
-  dynamic? categories(dynamic response) => getJsonField(
+  dynamic categories(dynamic response) => getJsonField(
         response,
         r'''$.categories''',
       );
@@ -2737,7 +2724,7 @@ class SafetyCheckCall {
         response,
         r'''$.result.risk_level''',
       ));
-  dynamic? result(dynamic response) => getJsonField(
+  dynamic result(dynamic response) => getJsonField(
         response,
         r'''$.result''',
       );
@@ -2872,7 +2859,7 @@ class GenerateReviewCall {
         response,
         r'''$.status''',
       ));
-  dynamic? review(dynamic response) => getJsonField(
+  dynamic review(dynamic response) => getJsonField(
         response,
         r'''$.review''',
       );
@@ -2892,7 +2879,7 @@ class GenerateReviewCall {
         response,
         r'''$.review.review_period_end''',
       ));
-  dynamic? progressSummary(dynamic response) => getJsonField(
+  dynamic progressSummary(dynamic response) => getJsonField(
         response,
         r'''$.review.progress_summary''',
       );
@@ -2922,7 +2909,7 @@ class GenerateReviewCall {
         response,
         r'''$.review.progress_summary.current_streak_days''',
       ));
-  dynamic? modalityCounts(dynamic response) => getJsonField(
+  dynamic modalityCounts(dynamic response) => getJsonField(
         response,
         r'''$.review.progress_summary.modality_counts''',
       );
@@ -2964,7 +2951,7 @@ class GenerateReviewCall {
         response,
         r'''$.review.progress_summary.average_helpfulness''',
       ));
-  dynamic? effectivenessSummary(dynamic response) => getJsonField(
+  dynamic effectivenessSummary(dynamic response) => getJsonField(
         response,
         r'''$.review.effectiveness_summary''',
       );
@@ -2973,15 +2960,15 @@ class GenerateReviewCall {
         response,
         r'''$.review.effectiveness_summary.user_id''',
       ));
-  dynamic? summaryModalityScores(dynamic response) => getJsonField(
+  dynamic summaryModalityScores(dynamic response) => getJsonField(
         response,
         r'''$.review.effectiveness_summary.modality_scores''',
       );
-  dynamic? exerciseScores(dynamic response) => getJsonField(
+  dynamic exerciseScores(dynamic response) => getJsonField(
         response,
         r'''$.review.effectiveness_summary.exercise_scores''',
       );
-  dynamic? modalityMoodDeltas(dynamic response) => getJsonField(
+  dynamic modalityMoodDeltas(dynamic response) => getJsonField(
         response,
         r'''$.review.effectiveness_summary.modality_mood_deltas''',
       );
@@ -3003,7 +2990,7 @@ class GenerateReviewCall {
         response,
         r'''$.review.effectiveness_summary.computed_at''',
       ));
-  dynamic? safetySummary(dynamic response) => getJsonField(
+  dynamic safetySummary(dynamic response) => getJsonField(
         response,
         r'''$.review.safety_summary''',
       );
@@ -3011,15 +2998,15 @@ class GenerateReviewCall {
         response,
         r'''$.review.safety_summary.total_events''',
       ));
-  dynamic? byRiskLevel(dynamic response) => getJsonField(
+  dynamic byRiskLevel(dynamic response) => getJsonField(
         response,
         r'''$.review.safety_summary.by_risk_level''',
       );
-  dynamic? byEventType(dynamic response) => getJsonField(
+  dynamic byEventType(dynamic response) => getJsonField(
         response,
         r'''$.review.safety_summary.by_event_type''',
       );
-  dynamic? healthSummary(dynamic response) => getJsonField(
+  dynamic healthSummary(dynamic response) => getJsonField(
         response,
         r'''$.review.health_summary''',
       );
@@ -3066,11 +3053,11 @@ class GenerateReviewCall {
         response,
         r'''$.review.health_summary.timestamp''',
       ));
-  dynamic? engagementSummary(dynamic response) => getJsonField(
+  dynamic engagementSummary(dynamic response) => getJsonField(
         response,
         r'''$.review.engagement_summary''',
       );
-  dynamic? reviewRLInsights(dynamic response) => getJsonField(
+  dynamic reviewRLInsights(dynamic response) => getJsonField(
         response,
         r'''$.review.rl_insights''',
       );
@@ -3187,7 +3174,7 @@ class EscapeAudioScriptCall {
     );
   }
 
-  static dynamic? error(dynamic response) => getJsonField(
+  static dynamic error(dynamic response) => getJsonField(
         response,
         r'''$.error''',
       );

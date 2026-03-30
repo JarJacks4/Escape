@@ -59,8 +59,6 @@ class ChatWithLucilleVersion5Model
 
   ///  State fields for stateful widgets in this page.
 
-  // State field(s) for Column widget.
-  ScrollController? columnController1;
   // State field(s) for TabBar widget.
   TabController? tabBarController;
   int get tabBarCurrentIndex =>
@@ -83,7 +81,11 @@ class ChatWithLucilleVersion5Model
   // State field(s) for ListView widget.
   ScrollController? listViewController;
   // State field(s) for Column widget.
+  ScrollController? columnController1;
+  // State field(s) for Column widget.
   ScrollController? columnController2;
+  // State field(s) for Column widget.
+  ScrollController? columnController3;
   // Model for writingIndicator component.
   late WritingIndicatorModel writingIndicatorModel;
   // State field(s) for TextField widget.
@@ -97,18 +99,20 @@ class ChatWithLucilleVersion5Model
 
   @override
   void initState(BuildContext context) {
-    columnController1 = ScrollController();
     listViewController = ScrollController();
+    columnController1 = ScrollController();
     columnController2 = ScrollController();
+    columnController3 = ScrollController();
     writingIndicatorModel = createModel(context, () => WritingIndicatorModel());
   }
 
   @override
   void dispose() {
-    columnController1?.dispose();
     tabBarController?.dispose();
     listViewController?.dispose();
+    columnController1?.dispose();
     columnController2?.dispose();
+    columnController3?.dispose();
     writingIndicatorModel.dispose();
     textFieldFocusNode?.dispose();
     textController?.dispose();

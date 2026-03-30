@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'flutter_flow/request_manager.dart';
 import '/backend/backend.dart';
 import "package:tiktokfeed_wz8en7/backend/schema/structs/index.dart"
     as tiktokfeed_wz8en7_data_schema;
+import 'package:ff_commons/api_requests/api_manager.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:csv/csv.dart';
 import 'package:synchronized/synchronized.dart';
@@ -135,6 +137,11 @@ class FFAppState extends ChangeNotifier {
                   .withoutNulls
                   .toList() ??
               _messagesTheoryOfMind;
+    });
+    await _safeInitAsync(() async {
+      _hasSeenOnboarding =
+          await secureStorage.getBool('ff_hasSeenOnboarding') ??
+              _hasSeenOnboarding;
     });
   }
 
@@ -1982,6 +1989,34 @@ class FFAppState extends ChangeNotifier {
     secureStorage.setStringList('ff_messagesTheoryOfMind',
         _messagesTheoryOfMind.map((x) => x.serialize()).toList());
   }
+
+  bool _hasSeenOnboarding = false;
+  bool get hasSeenOnboarding => _hasSeenOnboarding;
+  set hasSeenOnboarding(bool value) {
+    _hasSeenOnboarding = value;
+    secureStorage.setBool('ff_hasSeenOnboarding', value);
+  }
+
+  void deleteHasSeenOnboarding() {
+    secureStorage.delete(key: 'ff_hasSeenOnboarding');
+  }
+
+  final _lucilleSuggestedExercisesManager =
+      FutureRequestManager<ApiCallResponse>();
+  Future<ApiCallResponse> lucilleSuggestedExercises({
+    String? uniqueQueryKey,
+    bool? overrideCache,
+    required Future<ApiCallResponse> Function() requestFn,
+  }) =>
+      _lucilleSuggestedExercisesManager.performRequest(
+        uniqueQueryKey: uniqueQueryKey,
+        overrideCache: overrideCache,
+        requestFn: requestFn,
+      );
+  void clearLucilleSuggestedExercisesCache() =>
+      _lucilleSuggestedExercisesManager.clear();
+  void clearLucilleSuggestedExercisesCacheKey(String? uniqueKey) =>
+      _lucilleSuggestedExercisesManager.clearRequest(uniqueKey);
 }
 
 void _safeInit(Function() initializeField) {

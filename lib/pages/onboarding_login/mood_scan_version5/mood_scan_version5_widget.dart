@@ -2,6 +2,7 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/ai_agents/ai_agent.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
+import '/components/mood_slider_component_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -915,7 +916,7 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                   child: Text(
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                      'z4ym17nf' /* Please Wait... */,
+                                                      'z4ym17nf' /* Mood Has Been Scanned! */,
                                                     ),
                                                     textAlign: TextAlign.center,
                                                     style: FlutterFlowTheme.of(
@@ -958,6 +959,11 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                           ].divide(SizedBox(height: 32.0)),
                                         ),
                                       ),
+                                    ),
+                                    wrapWithModel(
+                                      model: _model.moodSliderComponentModel,
+                                      updateCallback: () => safeSetState(() {}),
+                                      child: MoodSliderComponentWidget(),
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(

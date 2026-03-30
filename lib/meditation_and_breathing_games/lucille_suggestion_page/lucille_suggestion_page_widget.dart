@@ -191,9 +191,9 @@ class _LucilleSuggestionPageWidgetState
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 0.0, 0.0, 0.0),
                                             child: Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                'zllgowd8' /* Stress and Anxiety Relief */,
+                                              valueOrDefault<String>(
+                                                widget.exerciseTitle,
+                                                'Stress and Anxiety Relief',
                                               ),
                                               textAlign: TextAlign.center,
                                               style: FlutterFlowTheme.of(
@@ -217,9 +217,9 @@ class _LucilleSuggestionPageWidgetState
                                           child: Padding(
                                             padding: EdgeInsets.all(15.0),
                                             child: Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                'd33oapkg' /* Binaural Beats are brainwave s... */,
+                                              valueOrDefault<String>(
+                                                widget.exerciseDescription,
+                                                'Binaural Beats are brainwave sounds used to help occasions like overthinking and loss off groundedness. Tap Finish when done!',
                                               ),
                                               textAlign: TextAlign.center,
                                               style:
@@ -237,6 +237,7 @@ class _LucilleSuggestionPageWidgetState
                                                             FontWeight.normal,
                                                         lineHeight: 1.5,
                                                       ),
+                                              overflow: TextOverflow.fade,
                                             ),
                                           ),
                                         ),
@@ -437,58 +438,64 @@ class _LucilleSuggestionPageWidgetState
                                   ),
                                 ),
                               ),
-                              Flexible(
-                                flex: 1,
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 8.0),
-                                  child: FlutterFlowAudioPlayer(
-                                    audio: Audio.network(
-                                      'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/ES_A%20Prayer%20for%20Light%20-%20Sayuri%20Hayashi%20Egnell.mp3?alt=media&token=01416c12-7b48-425a-8001-2d315409650f',
-                                      metas: Metas(
-                                        id: 'ES_A%20Prayer%20for%20Light%20-%20Sayuri%20Hayashi%20Egnell.mp3?alt=media&token=01416c12-7b48-425a-8001-2d315409650f-a395745e',
-                                        title:
-                                            'A Prayer for Light - Sayuri Hayashi Egnell',
-                                      ),
-                                    ),
-                                    titleTextStyle: FlutterFlowTheme.of(context)
-                                        .titleLarge
-                                        .override(
-                                          fontFamily: 'The Seasons',
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
-                                          letterSpacing: 0.0,
+                              if (widget.exersiseSoundscape == null ||
+                                      widget.exersiseSoundscape == ''
+                                  ? false
+                                  : true)
+                                Flexible(
+                                  flex: 1,
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 8.0),
+                                    child: FlutterFlowAudioPlayer(
+                                      audio: Audio.network(
+                                        'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/ES_A%20Prayer%20for%20Light%20-%20Sayuri%20Hayashi%20Egnell.mp3?alt=media&token=01416c12-7b48-425a-8001-2d315409650f',
+                                        metas: Metas(
+                                          id: 'ES_A%20Prayer%20for%20Light%20-%20Sayuri%20Hayashi%20Egnell.mp3?alt=media&token=01416c12-7b48-425a-8001-2d315409650f-a395745e',
+                                          title:
+                                              'A Prayer for Light - Sayuri Hayashi Egnell',
                                         ),
-                                    playbackDurationTextStyle:
-                                        FlutterFlowTheme.of(context)
-                                            .labelMedium
-                                            .override(
-                                      fontFamily: 'WorkSans',
-                                      color: FlutterFlowTheme.of(context)
-                                          .alternate,
-                                      letterSpacing: 0.0,
-                                      shadows: [
-                                        Shadow(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
-                                          offset: Offset(2.0, 2.0),
-                                          blurRadius: 8.0,
-                                        )
-                                      ],
+                                      ),
+                                      titleTextStyle:
+                                          FlutterFlowTheme.of(context)
+                                              .titleLarge
+                                              .override(
+                                                fontFamily: 'The Seasons',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                letterSpacing: 0.0,
+                                              ),
+                                      playbackDurationTextStyle:
+                                          FlutterFlowTheme.of(context)
+                                              .labelMedium
+                                              .override(
+                                        fontFamily: 'WorkSans',
+                                        color: FlutterFlowTheme.of(context)
+                                            .alternate,
+                                        letterSpacing: 0.0,
+                                        shadows: [
+                                          Shadow(
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
+                                            offset: Offset(2.0, 2.0),
+                                            blurRadius: 8.0,
+                                          )
+                                        ],
+                                      ),
+                                      fillColor: Color(0x4ED0E3F7),
+                                      playbackButtonColor:
+                                          FlutterFlowTheme.of(context).accent1,
+                                      activeTrackColor:
+                                          FlutterFlowTheme.of(context).accent1,
+                                      inactiveTrackColor:
+                                          FlutterFlowTheme.of(context).primary,
+                                      elevation: 0.0,
+                                      playInBackground:
+                                          PlayInBackground.disabledPause,
                                     ),
-                                    fillColor: Color(0x4ED0E3F7),
-                                    playbackButtonColor:
-                                        FlutterFlowTheme.of(context).accent1,
-                                    activeTrackColor:
-                                        FlutterFlowTheme.of(context).accent1,
-                                    inactiveTrackColor:
-                                        FlutterFlowTheme.of(context).primary,
-                                    elevation: 0.0,
-                                    playInBackground:
-                                        PlayInBackground.disabledPause,
                                   ),
                                 ),
-                              ),
                               Builder(
                                 builder: (context) => FFButtonWidget(
                                   onPressed: () async {
@@ -515,6 +522,18 @@ class _LucilleSuggestionPageWidgetState
                                         FFAppState().pointsEarnedPercentage +
                                             0.15;
                                     safeSetState(() {});
+                                    logFirebaseEvent('Button_backend_call');
+                                    _model.memory = await LucilleMemoriesGroup
+                                        .createMemoryCall
+                                        .call(
+                                      content:
+                                          lucilleSuggestionPageGetExerciseDetailResponse
+                                              .jsonBody
+                                              .toString(),
+                                      memoryType: 'Episodic',
+                                      importance: 5,
+                                    );
+
                                     logFirebaseEvent('Button_alert_dialog');
                                     await showDialog(
                                       barrierColor: Color(0xC7000000),
@@ -542,6 +561,8 @@ class _LucilleSuggestionPageWidgetState
                                         );
                                       },
                                     );
+
+                                    safeSetState(() {});
                                   },
                                   text: FFLocalizations.of(context).getText(
                                     'cmatewob' /* Tap to Finish */,

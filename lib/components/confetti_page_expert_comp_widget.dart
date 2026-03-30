@@ -211,8 +211,9 @@ class _ConfettiPageExpertCompWidgetState
                                       ),
                                 ),
                                 Text(
-                                  FFLocalizations.of(context).getText(
-                                    'l621y2re' /* Forest Walk */,
+                                  valueOrDefault<String>(
+                                    widget.exerciseTitle,
+                                    'Forest Walk',
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium

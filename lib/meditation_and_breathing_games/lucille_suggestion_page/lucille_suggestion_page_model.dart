@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'lucille_suggestion_page_widget.dart' show LucilleSuggestionPageWidget;
@@ -22,6 +23,8 @@ class LucilleSuggestionPageModel
       FlutterFlowTimerController(StopWatchTimer(mode: StopWatchMode.countDown));
 
   AudioPlayer? soundPlayer;
+  // Stores action output result for [Backend Call - API (Create Memory)] action in Button widget.
+  ApiCallResponse? memory;
 
   @override
   void initState(BuildContext context) {}
