@@ -13993,8 +13993,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '您想要个性化通知吗？',
       'zh_Hant': '您想要個人化通知嗎？',
     },
-    'f3zm2diu': {
-      'en': 'Finish',
+    '52xpc8zp': {
+      'en': 'Tap to Give Notifications Permission',
       'ar': '',
       'de': '',
       'es': '',
@@ -14007,7 +14007,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
       'zh_Hant': '',
     },
-    'tp3kl9d1': {
+    'y72v45zi': {
       'en': 'Finish Profile Creation',
       'ar': '',
       'de': '',
@@ -14355,7 +14355,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
     'z4ym17nf': {
-      'en': 'Please Wait...',
+      'en': 'Mood Has Been Scanned!',
       'ar': '',
       'de': '',
       'es': '',
@@ -15559,43 +15559,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // LucilleSuggestionPage
   {
-    'zllgowd8': {
-      'en': 'Stress and Anxiety Relief',
-      'ar': 'تخفيف القلق',
-      'de': 'Linderung von Angstzuständen',
-      'es': 'Alivio de la ansiedad',
-      'fr': 'Soulagement de l\'anxiété',
-      'it': 'Sollievo dall\'ansia',
-      'ja': '不安の緩和',
-      'ko': '불안 완화',
-      'ru': 'Снятие тревоги',
-      'uk': 'Полегшення тривоги',
-      'zh_Hans': '缓解焦虑',
-      'zh_Hant': '緩解焦慮',
-    },
-    'd33oapkg': {
-      'en':
-          'Binaural Beats are brainwave sounds used to help occasions like overthinking and loss off groundedness.\n\nTap Finish when done!',
-      'ar':
-          'النبضات الثنائية هي أصوات موجات دماغية تُستخدم للمساعدة في حالات مثل الإفراط في التفكير وفقدان التوازن.\n\nانقر على \"إنهاء\" عند الانتهاء!',
-      'de':
-          'Binaurale Beats sind Gehirnwellen-Klänge, die bei Grübelei und Orientierungsverlust helfen.\n\nTippen Sie auf „Fertig“, wenn Sie fertig sind!',
-      'es':
-          'Los sonidos binaurales son ondas cerebrales que se utilizan para aliviar situaciones como pensar demasiado y perder el equilibrio.\n\n¡Pulsa \"Finalizar\" cuando hayas terminado!',
-      'fr':
-          'Les battements binauraux sont des ondes cérébrales utilisées pour soulager les pensées excessives et la perte d\'ancrage.\n\nAppuyez sur Terminer lorsque vous avez terminé !',
-      'it':
-          'I battiti binaurali sono onde cerebrali utilizzate per aiutare in situazioni come il rimuginare troppo e la perdita di equilibrio.\n\nTocca \"Fine\" al termine!',
-      'ja': 'バイノーラルビートは、考えすぎや集中力の喪失といった症状の改善に役立つ脳波音です。\n\n完了したら「完了」をタップしてください。',
-      'ko':
-          '바이노럴 비트는 생각이 과하거나 집중력이 떨어질 때 도움을 주는 뇌파 소리입니다.\n\n완료되면 \'완료\'를 탭하세요!',
-      'ru':
-          'Бинауральные ритмы — это звуки мозговых волн, которые помогают в таких ситуациях, как переосмысление и потеря устойчивости.\n\nНажмите «Завершить», когда закончите!',
-      'uk':
-          'Бінауральні ритми – це звуки мозкових хвиль, які використовуються для покращення таких ситуацій, як надмірне обдумування та втрата рівноваги.\n\nНатисніть «Завершити», коли закінчите!',
-      'zh_Hans': '双耳节拍是一种脑波声音，用于缓解过度思考和失去平衡等情况。\n\n完成后点击“完成”！',
-      'zh_Hant': '雙耳節拍是一種腦波聲音，用於緩解過度思考和失去平衡等情況。\n\n完成後點選「完成」！',
-    },
     'cmatewob': {
       'en': 'Tap to Finish',
       'ar': 'انقر لإنهاء',
@@ -15611,6 +15574,176 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '點擊完成',
     },
     'vdjnor9t': {
+      'en': 'Home',
+      'ar': 'بيت',
+      'de': 'Heim',
+      'es': 'Hogar',
+      'fr': 'Maison',
+      'it': 'Casa',
+      'ja': '家',
+      'ko': '집',
+      'ru': 'Дом',
+      'uk': 'Дім',
+      'zh_Hans': '家',
+      'zh_Hant': '家',
+    },
+  },
+  // MoodSaver
+  {
+    '04umfzwe': {
+      'en': 'Home',
+      'ar': 'بيت',
+      'de': 'Heim',
+      'es': 'Hogar',
+      'fr': 'Maison',
+      'it': 'Casa',
+      'ja': '家',
+      'ko': '집',
+      'ru': 'Дом',
+      'uk': 'Дім',
+      'zh_Hans': '家',
+      'zh_Hant': '家',
+    },
+  },
+  // MoodScanHelp
+  {
+    'z6pqq8r7': {
+      'en': 'Home',
+      'ar': 'بيت',
+      'de': 'Heim',
+      'es': 'Hogar',
+      'fr': 'Maison',
+      'it': 'Casa',
+      'ja': '家',
+      'ko': '집',
+      'ru': 'Дом',
+      'uk': 'Дім',
+      'zh_Hans': '家',
+      'zh_Hant': '家',
+    },
+  },
+  // BeginSessionPage
+  {
+    'jqm1qdnn': {
+      'en': 'Home',
+      'ar': 'بيت',
+      'de': 'Heim',
+      'es': 'Hogar',
+      'fr': 'Maison',
+      'it': 'Casa',
+      'ja': '家',
+      'ko': '집',
+      'ru': 'Дом',
+      'uk': 'Дім',
+      'zh_Hans': '家',
+      'zh_Hant': '家',
+    },
+  },
+  // RespirationPage
+  {
+    'qk4t3p3g': {
+      'en': 'Home',
+      'ar': 'بيت',
+      'de': 'Heim',
+      'es': 'Hogar',
+      'fr': 'Maison',
+      'it': 'Casa',
+      'ja': '家',
+      'ko': '집',
+      'ru': 'Дом',
+      'uk': 'Дім',
+      'zh_Hans': '家',
+      'zh_Hant': '家',
+    },
+  },
+  // LucilleBody1Page
+  {
+    'jhkftl61': {
+      'en': 'Home',
+      'ar': 'بيت',
+      'de': 'Heim',
+      'es': 'Hogar',
+      'fr': 'Maison',
+      'it': 'Casa',
+      'ja': '家',
+      'ko': '집',
+      'ru': 'Дом',
+      'uk': 'Дім',
+      'zh_Hans': '家',
+      'zh_Hant': '家',
+    },
+  },
+  // coachingSessionPage
+  {
+    'b9yrsahw': {
+      'en': 'Home',
+      'ar': 'بيت',
+      'de': 'Heim',
+      'es': 'Hogar',
+      'fr': 'Maison',
+      'it': 'Casa',
+      'ja': '家',
+      'ko': '집',
+      'ru': 'Дом',
+      'uk': 'Дім',
+      'zh_Hans': '家',
+      'zh_Hant': '家',
+    },
+  },
+  // moodSaverPage
+  {
+    'r6q41txi': {
+      'en': 'Home',
+      'ar': 'بيت',
+      'de': 'Heim',
+      'es': 'Hogar',
+      'fr': 'Maison',
+      'it': 'Casa',
+      'ja': '家',
+      'ko': '집',
+      'ru': 'Дом',
+      'uk': 'Дім',
+      'zh_Hans': '家',
+      'zh_Hant': '家',
+    },
+  },
+  // MoodScannerPage
+  {
+    '27epkhem': {
+      'en': 'Home',
+      'ar': 'بيت',
+      'de': 'Heim',
+      'es': 'Hogar',
+      'fr': 'Maison',
+      'it': 'Casa',
+      'ja': '家',
+      'ko': '집',
+      'ru': 'Дом',
+      'uk': 'Дім',
+      'zh_Hans': '家',
+      'zh_Hant': '家',
+    },
+  },
+  // ScanMoodLaodingPage
+  {
+    'j23dlg0j': {
+      'en': 'Home',
+      'ar': 'بيت',
+      'de': 'Heim',
+      'es': 'Hogar',
+      'fr': 'Maison',
+      'it': 'Casa',
+      'ja': '家',
+      'ko': '집',
+      'ru': 'Дом',
+      'uk': 'Дім',
+      'zh_Hans': '家',
+      'zh_Hant': '家',
+    },
+  },
+  // MoodResultPage
+  {
+    '6hqj8ltb': {
       'en': 'Home',
       'ar': 'بيت',
       'de': 'Heim',
@@ -20927,20 +21060,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'q42ult4m': {
       'en': 'You completed',
-      'ar': '',
-      'de': '',
-      'es': '',
-      'fr': '',
-      'it': '',
-      'ja': '',
-      'ko': '',
-      'ru': '',
-      'uk': '',
-      'zh_Hans': '',
-      'zh_Hant': '',
-    },
-    'l621y2re': {
-      'en': 'Forest Walk',
       'ar': '',
       'de': '',
       'es': '',
@@ -58738,6 +58857,2194 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'a1uv4v4b': {
       'en': 'Ask Lucille to create something new',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+  },
+  // MoodSliderComponent
+  {
+    '4refjnjb': {
+      'en': 'Balanced',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+    'i4erhk81': {
+      'en': 'Elevated',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+  },
+  // beginSession
+  {
+    'h5se0u3k': {
+      'en': 'Move with the flow.',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+    '5p7h5xgz': {
+      'en': 'Begin  Session',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+  },
+  // RespirationComponent
+  {
+    'y2n71ziy': {
+      'en': 'Slower',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+    'sis8l1hk': {
+      'en': 'Next Pose',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+    'ozk220a1': {
+      'en': 'Faster',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+    'zo5sk8kz': {
+      'en': 'Enable Coaching',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+    'cjptj4z4': {
+      'en': 'End',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+  },
+  // coachingSession
+  {
+    'ddrv6io4': {
+      'en': '0:04',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+    'z35kmx1e': {
+      'en': 'ALIGNMENT',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+    '4alui0ki': {
+      'en': '66%',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+    'prmsbe0s': {
+      'en': 'Find Your  Center',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+    'imxzyglp': {
+      'en': 'End Session',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+  },
+  // moodSaverComponent
+  {
+    'z431hkoa': {
+      'en': 'Notice your state.',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+    'hy1yzk2m': {
+      'en': 'Save Mood',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+    'e7gehqun': {
+      'en': 'Finish',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+  },
+  // balancePage
+  {
+    '01t2w1ed': {
+      'en': 'How do you feel?',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+    'xehttu5h': {
+      'en': 'Low energy',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+    '5g0bojif': {
+      'en': 'Balanced',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+    '1ybc075f': {
+      'en': 'Elevated',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+    'x2shunmj': {
+      'en': 'Balanced',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+    'y60lf37n': {
+      'en': 'Save & Continue',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+  },
+  // MoodScanHelpComp
+  {
+    'ygacaet3': {
+      'en': 'Step 1',
+      'ar': 'الخطوة 1',
+      'de': 'Schritt 1',
+      'es': 'Paso 1',
+      'fr': 'Étape 1',
+      'it': 'Passo 1',
+      'ja': 'ステップ1',
+      'ko': '1단계',
+      'ru': 'Шаг 1',
+      'uk': 'Крок 1',
+      'zh_Hans': '步骤 1',
+      'zh_Hant': '步驟 1',
+    },
+    'ri15vevc': {
+      'en': 'Scan Your Mood',
+      'ar': 'ابحث عن وضعيتك',
+      'de': 'Finden Sie Ihre Haltung',
+      'es': 'Encuentra tu postura',
+      'fr': 'Trouvez votre posture',
+      'it': 'Trova la tua postura',
+      'ja': '自分の姿勢を見つける',
+      'ko': '자세를 찾으세요',
+      'ru': 'Найдите свою осанку',
+      'uk': 'Знайдіть свою поставу',
+      'zh_Hans': '找到你的姿势',
+      'zh_Hant': '找到你的姿勢',
+    },
+    'o1iblx3e': {
+      'en':
+          'Let Lucille instantly understand how you feel. Use text, voice, or visual input to capture your current emotional state.',
+      'ar':
+          'عندما تجد مكانك الهادئ، اجلس وظهرك مستقيمًا وأسفل ظهرك مسترخيًا. قبل البدء بأي تأمل، من المهم الحفاظ على وضعية الجسم والتركيز على التنفس.\n\nمرر للبدأ!',
+      'de':
+          'Sobald du deinen Ruhepol gefunden hast, setz dich mit geradem Rücken und entspanntem unteren Rücken hin. Bevor du mit der Meditation beginnst, ist die richtige Haltung wichtig, um Atem und Körper zu zentrieren.\n\nZum Starten wischen!',
+      'es':
+          'Una vez que encuentres tu espacio de paz, siéntate con la espalda recta y la zona lumbar relajada. Antes de comenzar la meditación, la postura es importante para centrar la respiración y el cuerpo.\n\n¡Desliza para comenzar!',
+      'fr':
+          'Une fois votre espace de paix trouvé, asseyez-vous, le dos droit et le bas du dos détendu. Avant toute méditation, il est important de bien se tenir pour centrer sa respiration et son corps.\n\nSwipez pour commencer !',
+      'it':
+          'Una volta trovato il tuo spazio di pace, siediti con la schiena dritta e la parte bassa della schiena rilassata. Prima di iniziare qualsiasi meditazione, la postura è importante per centrare il respiro e il corpo.\n\nScorri per iniziare!',
+      'ja':
+          '落ち着いた空間を見つけたら、背筋を伸ばして腰をリラックスさせ、座りましょう。瞑想に入る前に、呼吸と体を集中させる姿勢が大切です。\n\nスワイプしてスタート！',
+      'ko':
+          '평화로운 공간을 찾으면 등을 곧게 펴고 허리를 편안하게 한 채 자리에 앉으세요. 명상에 들어가기 전에는 호흡과 몸의 중심을 잡는 자세가 중요합니다.\n\n스와이프하여 시작하세요!',
+      'ru':
+          'Как только вы найдете свое спокойное место, сядьте, выпрямив спину и расслабив поясницу. Перед тем, как приступить к любой медитации, осанка важна для центрирования дыхания и тела.\n\nПроведите пальцем, чтобы начать!',
+      'uk':
+          'Як тільки ви знайдете своє спокійне місце, сядьте, тримаючи спину прямо, а поперек розслабленим. Перш ніж переходити до будь-якої медитації, важлива постава для зосередження дихання та тіла.\n\nПроведіть пальцем, щоб почати!',
+      'zh_Hans':
+          '找到平静的空间后，请坐下来，保持背部挺直，放松下背部。在开始任何冥想之前，姿势对于集中呼吸和身体至关重要。\n\n滑动即可开始！',
+      'zh_Hant':
+          '找到平靜的空間後，請坐下來，保持背部挺直，放鬆下背部。在開始任何冥想之前，姿勢對於集中呼吸和身體至關重要。\n\n滑動即可開始！',
+    },
+    '9dtmorz4': {
+      'en': 'Step 2',
+      'ar': 'الخطوة 1',
+      'de': 'Schritt 1',
+      'es': 'Paso 1',
+      'fr': 'Étape 1',
+      'it': 'Passo 1',
+      'ja': 'ステップ1',
+      'ko': '1단계',
+      'ru': 'Шаг 1',
+      'uk': 'Крок 1',
+      'zh_Hans': '步骤 1',
+      'zh_Hant': '步驟 1',
+    },
+    'ajo9mqod': {
+      'en': 'Emotion, Understood',
+      'ar': 'ابحث عن وضعيتك',
+      'de': 'Finden Sie Ihre Haltung',
+      'es': 'Encuentra tu postura',
+      'fr': 'Trouvez votre posture',
+      'it': 'Trova la tua postura',
+      'ja': '自分の姿勢を見つける',
+      'ko': '자세를 찾으세요',
+      'ru': 'Найдите свою осанку',
+      'uk': 'Знайдіть свою поставу',
+      'zh_Hans': '找到你的姿势',
+      'zh_Hant': '找到你的姿勢',
+    },
+    'uvinmekk': {
+      'en':
+          'Advanced AI analyzes your mood, patterns, and context—giving you deeper insight into what you\'re experiencing.',
+      'ar':
+          'عندما تجد مكانك الهادئ، اجلس وظهرك مستقيمًا وأسفل ظهرك مسترخيًا. قبل البدء بأي تأمل، من المهم الحفاظ على وضعية الجسم والتركيز على التنفس.\n\nمرر للبدأ!',
+      'de':
+          'Sobald du deinen Ruhepol gefunden hast, setz dich mit geradem Rücken und entspanntem unteren Rücken hin. Bevor du mit der Meditation beginnst, ist die richtige Haltung wichtig, um Atem und Körper zu zentrieren.\n\nZum Starten wischen!',
+      'es':
+          'Una vez que encuentres tu espacio de paz, siéntate con la espalda recta y la zona lumbar relajada. Antes de comenzar la meditación, la postura es importante para centrar la respiración y el cuerpo.\n\n¡Desliza para comenzar!',
+      'fr':
+          'Une fois votre espace de paix trouvé, asseyez-vous, le dos droit et le bas du dos détendu. Avant toute méditation, il est important de bien se tenir pour centrer sa respiration et son corps.\n\nSwipez pour commencer !',
+      'it':
+          'Una volta trovato il tuo spazio di pace, siediti con la schiena dritta e la parte bassa della schiena rilassata. Prima di iniziare qualsiasi meditazione, la postura è importante per centrare il respiro e il corpo.\n\nScorri per iniziare!',
+      'ja':
+          '落ち着いた空間を見つけたら、背筋を伸ばして腰をリラックスさせ、座りましょう。瞑想に入る前に、呼吸と体を集中させる姿勢が大切です。\n\nスワイプしてスタート！',
+      'ko':
+          '평화로운 공간을 찾으면 등을 곧게 펴고 허리를 편안하게 한 채 자리에 앉으세요. 명상에 들어가기 전에는 호흡과 몸의 중심을 잡는 자세가 중요합니다.\n\n스와이프하여 시작하세요!',
+      'ru':
+          'Как только вы найдете свое спокойное место, сядьте, выпрямив спину и расслабив поясницу. Перед тем, как приступить к любой медитации, осанка важна для центрирования дыхания и тела.\n\nПроведите пальцем, чтобы начать!',
+      'uk':
+          'Як тільки ви знайдете своє спокійне місце, сядьте, тримаючи спину прямо, а поперек розслабленим. Перш ніж переходити до будь-якої медитації, важлива постава для зосередження дихання та тіла.\n\nПроведіть пальцем, щоб почати!',
+      'zh_Hans':
+          '找到平静的空间后，请坐下来，保持背部挺直，放松下背部。在开始任何冥想之前，姿势对于集中呼吸和身体至关重要。\n\n滑动即可开始！',
+      'zh_Hant':
+          '找到平靜的空間後，請坐下來，保持背部挺直，放鬆下背部。在開始任何冥想之前，姿勢對於集中呼吸和身體至關重要。\n\n滑動即可開始！',
+    },
+    'lgc3wvyc': {
+      'en': 'Step 3',
+      'ar': 'الخطوة 1',
+      'de': 'Schritt 1',
+      'es': 'Paso 1',
+      'fr': 'Étape 1',
+      'it': 'Passo 1',
+      'ja': 'ステップ1',
+      'ko': '1단계',
+      'ru': 'Шаг 1',
+      'uk': 'Крок 1',
+      'zh_Hans': '步骤 1',
+      'zh_Hant': '步驟 1',
+    },
+    '2yj24d9t': {
+      'en': 'Guidance That Adapts',
+      'ar': 'ابحث عن وضعيتك',
+      'de': 'Finden Sie Ihre Haltung',
+      'es': 'Encuentra tu postura',
+      'fr': 'Trouvez votre posture',
+      'it': 'Trova la tua postura',
+      'ja': '自分の姿勢を見つける',
+      'ko': '자세를 찾으세요',
+      'ru': 'Найдите свою осанку',
+      'uk': 'Знайдіть свою поставу',
+      'zh_Hans': '找到你的姿势',
+      'zh_Hant': '找到你的姿勢',
+    },
+    '56dnadqc': {
+      'en':
+          'Everything adjusts to you—exercises, soundscapes, and experiences tailored in real time.',
+      'ar':
+          'عندما تجد مكانك الهادئ، اجلس وظهرك مستقيمًا وأسفل ظهرك مسترخيًا. قبل البدء بأي تأمل، من المهم الحفاظ على وضعية الجسم والتركيز على التنفس.\n\nمرر للبدأ!',
+      'de':
+          'Sobald du deinen Ruhepol gefunden hast, setz dich mit geradem Rücken und entspanntem unteren Rücken hin. Bevor du mit der Meditation beginnst, ist die richtige Haltung wichtig, um Atem und Körper zu zentrieren.\n\nZum Starten wischen!',
+      'es':
+          'Una vez que encuentres tu espacio de paz, siéntate con la espalda recta y la zona lumbar relajada. Antes de comenzar la meditación, la postura es importante para centrar la respiración y el cuerpo.\n\n¡Desliza para comenzar!',
+      'fr':
+          'Une fois votre espace de paix trouvé, asseyez-vous, le dos droit et le bas du dos détendu. Avant toute méditation, il est important de bien se tenir pour centrer sa respiration et son corps.\n\nSwipez pour commencer !',
+      'it':
+          'Una volta trovato il tuo spazio di pace, siediti con la schiena dritta e la parte bassa della schiena rilassata. Prima di iniziare qualsiasi meditazione, la postura è importante per centrare il respiro e il corpo.\n\nScorri per iniziare!',
+      'ja':
+          '落ち着いた空間を見つけたら、背筋を伸ばして腰をリラックスさせ、座りましょう。瞑想に入る前に、呼吸と体を集中させる姿勢が大切です。\n\nスワイプしてスタート！',
+      'ko':
+          '평화로운 공간을 찾으면 등을 곧게 펴고 허리를 편안하게 한 채 자리에 앉으세요. 명상에 들어가기 전에는 호흡과 몸의 중심을 잡는 자세가 중요합니다.\n\n스와이프하여 시작하세요!',
+      'ru':
+          'Как только вы найдете свое спокойное место, сядьте, выпрямив спину и расслабив поясницу. Перед тем, как приступить к любой медитации, осанка важна для центрирования дыхания и тела.\n\nПроведите пальцем, чтобы начать!',
+      'uk':
+          'Як тільки ви знайдете своє спокійне місце, сядьте, тримаючи спину прямо, а поперек розслабленим. Перш ніж переходити до будь-якої медитації, важлива постава для зосередження дихання та тіла.\n\nПроведіть пальцем, щоб почати!',
+      'zh_Hans':
+          '找到平静的空间后，请坐下来，保持背部挺直，放松下背部。在开始任何冥想之前，姿势对于集中呼吸和身体至关重要。\n\n滑动即可开始！',
+      'zh_Hant':
+          '找到平靜的空間後，請坐下來，保持背部挺直，放鬆下背部。在開始任何冥想之前，姿勢對於集中呼吸和身體至關重要。\n\n滑動即可開始！',
+    },
+    'ln1241vh': {
+      'en': 'Start Mood Scanner',
+      'ar': 'نهاية البرنامج التعليمي',
+      'de': 'Tutorial beenden',
+      'es': 'Fin del tutorial',
+      'fr': 'Fin du tutoriel',
+      'it': 'Fine del tutorial',
+      'ja': 'チュートリアル終了',
+      'ko': '튜토리얼 종료',
+      'ru': 'Конец урока',
+      'uk': 'Закінчити навчальний посібник',
+      'zh_Hans': '结束教程',
+      'zh_Hant': '結束教程',
+    },
+  },
+  // FirstTimeResetWalkthroughComp
+  {
+    'p2ohd53w': {
+      'en': 'Step 1',
+      'ar': 'الخطوة 1',
+      'de': 'Schritt 1',
+      'es': 'Paso 1',
+      'fr': 'Étape 1',
+      'it': 'Passo 1',
+      'ja': 'ステップ1',
+      'ko': '1단계',
+      'ru': 'Шаг 1',
+      'uk': 'Крок 1',
+      'zh_Hans': '步骤 1',
+      'zh_Hant': '步驟 1',
+    },
+    'th8gjucw': {
+      'en': 'Find Your Posture',
+      'ar': 'ابحث عن وضعيتك',
+      'de': 'Finden Sie Ihre Haltung',
+      'es': 'Encuentra tu postura',
+      'fr': 'Trouvez votre posture',
+      'it': 'Trova la tua postura',
+      'ja': '自分の姿勢を見つける',
+      'ko': '자세를 찾으세요',
+      'ru': 'Найдите свою осанку',
+      'uk': 'Знайдіть свою поставу',
+      'zh_Hans': '找到你的姿势',
+      'zh_Hant': '找到你的姿勢',
+    },
+    '51hqgjtm': {
+      'en':
+          'Once you find your peaceful space, take a seat with your back straight and lower back relaxed. Before moving into any meditation, posture is important when centering the breath and body.\n\nSwipe to Start!',
+      'ar':
+          'عندما تجد مكانك الهادئ، اجلس وظهرك مستقيمًا وأسفل ظهرك مسترخيًا. قبل البدء بأي تأمل، من المهم الحفاظ على وضعية الجسم والتركيز على التنفس.\n\nمرر للبدأ!',
+      'de':
+          'Sobald du deinen Ruhepol gefunden hast, setz dich mit geradem Rücken und entspanntem unteren Rücken hin. Bevor du mit der Meditation beginnst, ist die richtige Haltung wichtig, um Atem und Körper zu zentrieren.\n\nZum Starten wischen!',
+      'es':
+          'Una vez que encuentres tu espacio de paz, siéntate con la espalda recta y la zona lumbar relajada. Antes de comenzar la meditación, la postura es importante para centrar la respiración y el cuerpo.\n\n¡Desliza para comenzar!',
+      'fr':
+          'Une fois votre espace de paix trouvé, asseyez-vous, le dos droit et le bas du dos détendu. Avant toute méditation, il est important de bien se tenir pour centrer sa respiration et son corps.\n\nSwipez pour commencer !',
+      'it':
+          'Una volta trovato il tuo spazio di pace, siediti con la schiena dritta e la parte bassa della schiena rilassata. Prima di iniziare qualsiasi meditazione, la postura è importante per centrare il respiro e il corpo.\n\nScorri per iniziare!',
+      'ja':
+          '落ち着いた空間を見つけたら、背筋を伸ばして腰をリラックスさせ、座りましょう。瞑想に入る前に、呼吸と体を集中させる姿勢が大切です。\n\nスワイプしてスタート！',
+      'ko':
+          '평화로운 공간을 찾으면 등을 곧게 펴고 허리를 편안하게 한 채 자리에 앉으세요. 명상에 들어가기 전에는 호흡과 몸의 중심을 잡는 자세가 중요합니다.\n\n스와이프하여 시작하세요!',
+      'ru':
+          'Как только вы найдете свое спокойное место, сядьте, выпрямив спину и расслабив поясницу. Перед тем, как приступить к любой медитации, осанка важна для центрирования дыхания и тела.\n\nПроведите пальцем, чтобы начать!',
+      'uk':
+          'Як тільки ви знайдете своє спокійне місце, сядьте, тримаючи спину прямо, а поперек розслабленим. Перш ніж переходити до будь-якої медитації, важлива постава для зосередження дихання та тіла.\n\nПроведіть пальцем, щоб почати!',
+      'zh_Hans':
+          '找到平静的空间后，请坐下来，保持背部挺直，放松下背部。在开始任何冥想之前，姿势对于集中呼吸和身体至关重要。\n\n滑动即可开始！',
+      'zh_Hant':
+          '找到平靜的空間後，請坐下來，保持背部挺直，放鬆下背部。在開始任何冥想之前，姿勢對於集中呼吸和身體至關重要。\n\n滑動即可開始！',
+    },
+    'rmgzi8bl': {
+      'en': 'Step 2',
+      'ar': 'الخطوة 1',
+      'de': 'Schritt 1',
+      'es': 'Paso 1',
+      'fr': 'Étape 1',
+      'it': 'Passo 1',
+      'ja': 'ステップ1',
+      'ko': '1단계',
+      'ru': 'Шаг 1',
+      'uk': 'Крок 1',
+      'zh_Hans': '步骤 1',
+      'zh_Hant': '步驟 1',
+    },
+    '6r6awlbs': {
+      'en': 'Find Your Posture',
+      'ar': 'ابحث عن وضعيتك',
+      'de': 'Finden Sie Ihre Haltung',
+      'es': 'Encuentra tu postura',
+      'fr': 'Trouvez votre posture',
+      'it': 'Trova la tua postura',
+      'ja': '自分の姿勢を見つける',
+      'ko': '자세를 찾으세요',
+      'ru': 'Найдите свою осанку',
+      'uk': 'Знайдіть свою поставу',
+      'zh_Hans': '找到你的姿势',
+      'zh_Hant': '找到你的姿勢',
+    },
+    'v56amfv5': {
+      'en':
+          'Once you find your peaceful space, take a seat with your back straight and lower back relaxed. Before moving into any meditation, posture is important when centering the breath and body.\n\nSwipe to Start!',
+      'ar':
+          'عندما تجد مكانك الهادئ، اجلس وظهرك مستقيمًا وأسفل ظهرك مسترخيًا. قبل البدء بأي تأمل، من المهم الحفاظ على وضعية الجسم والتركيز على التنفس.\n\nمرر للبدأ!',
+      'de':
+          'Sobald du deinen Ruhepol gefunden hast, setz dich mit geradem Rücken und entspanntem unteren Rücken hin. Bevor du mit der Meditation beginnst, ist die richtige Haltung wichtig, um Atem und Körper zu zentrieren.\n\nZum Starten wischen!',
+      'es':
+          'Una vez que encuentres tu espacio de paz, siéntate con la espalda recta y la zona lumbar relajada. Antes de comenzar la meditación, la postura es importante para centrar la respiración y el cuerpo.\n\n¡Desliza para comenzar!',
+      'fr':
+          'Une fois votre espace de paix trouvé, asseyez-vous, le dos droit et le bas du dos détendu. Avant toute méditation, il est important de bien se tenir pour centrer sa respiration et son corps.\n\nSwipez pour commencer !',
+      'it':
+          'Una volta trovato il tuo spazio di pace, siediti con la schiena dritta e la parte bassa della schiena rilassata. Prima di iniziare qualsiasi meditazione, la postura è importante per centrare il respiro e il corpo.\n\nScorri per iniziare!',
+      'ja':
+          '落ち着いた空間を見つけたら、背筋を伸ばして腰をリラックスさせ、座りましょう。瞑想に入る前に、呼吸と体を集中させる姿勢が大切です。\n\nスワイプしてスタート！',
+      'ko':
+          '평화로운 공간을 찾으면 등을 곧게 펴고 허리를 편안하게 한 채 자리에 앉으세요. 명상에 들어가기 전에는 호흡과 몸의 중심을 잡는 자세가 중요합니다.\n\n스와이프하여 시작하세요!',
+      'ru':
+          'Как только вы найдете свое спокойное место, сядьте, выпрямив спину и расслабив поясницу. Перед тем, как приступить к любой медитации, осанка важна для центрирования дыхания и тела.\n\nПроведите пальцем, чтобы начать!',
+      'uk':
+          'Як тільки ви знайдете своє спокійне місце, сядьте, тримаючи спину прямо, а поперек розслабленим. Перш ніж переходити до будь-якої медитації, важлива постава для зосередження дихання та тіла.\n\nПроведіть пальцем, щоб почати!',
+      'zh_Hans':
+          '找到平静的空间后，请坐下来，保持背部挺直，放松下背部。在开始任何冥想之前，姿势对于集中呼吸和身体至关重要。\n\n滑动即可开始！',
+      'zh_Hant':
+          '找到平靜的空間後，請坐下來，保持背部挺直，放鬆下背部。在開始任何冥想之前，姿勢對於集中呼吸和身體至關重要。\n\n滑動即可開始！',
+    },
+    'swsqss09': {
+      'en': 'Step 3',
+      'ar': 'الخطوة 1',
+      'de': 'Schritt 1',
+      'es': 'Paso 1',
+      'fr': 'Étape 1',
+      'it': 'Passo 1',
+      'ja': 'ステップ1',
+      'ko': '1단계',
+      'ru': 'Шаг 1',
+      'uk': 'Крок 1',
+      'zh_Hans': '步骤 1',
+      'zh_Hant': '步驟 1',
+    },
+    'l1dvh6ka': {
+      'en': 'Find Your Posture',
+      'ar': 'ابحث عن وضعيتك',
+      'de': 'Finden Sie Ihre Haltung',
+      'es': 'Encuentra tu postura',
+      'fr': 'Trouvez votre posture',
+      'it': 'Trova la tua postura',
+      'ja': '自分の姿勢を見つける',
+      'ko': '자세를 찾으세요',
+      'ru': 'Найдите свою осанку',
+      'uk': 'Знайдіть свою поставу',
+      'zh_Hans': '找到你的姿势',
+      'zh_Hant': '找到你的姿勢',
+    },
+    'eocnrrrf': {
+      'en':
+          'Once you find your peaceful space, take a seat with your back straight and lower back relaxed. Before moving into any meditation, posture is important when centering the breath and body.\n\nSwipe to Start!',
+      'ar':
+          'عندما تجد مكانك الهادئ، اجلس وظهرك مستقيمًا وأسفل ظهرك مسترخيًا. قبل البدء بأي تأمل، من المهم الحفاظ على وضعية الجسم والتركيز على التنفس.\n\nمرر للبدأ!',
+      'de':
+          'Sobald du deinen Ruhepol gefunden hast, setz dich mit geradem Rücken und entspanntem unteren Rücken hin. Bevor du mit der Meditation beginnst, ist die richtige Haltung wichtig, um Atem und Körper zu zentrieren.\n\nZum Starten wischen!',
+      'es':
+          'Una vez que encuentres tu espacio de paz, siéntate con la espalda recta y la zona lumbar relajada. Antes de comenzar la meditación, la postura es importante para centrar la respiración y el cuerpo.\n\n¡Desliza para comenzar!',
+      'fr':
+          'Une fois votre espace de paix trouvé, asseyez-vous, le dos droit et le bas du dos détendu. Avant toute méditation, il est important de bien se tenir pour centrer sa respiration et son corps.\n\nSwipez pour commencer !',
+      'it':
+          'Una volta trovato il tuo spazio di pace, siediti con la schiena dritta e la parte bassa della schiena rilassata. Prima di iniziare qualsiasi meditazione, la postura è importante per centrare il respiro e il corpo.\n\nScorri per iniziare!',
+      'ja':
+          '落ち着いた空間を見つけたら、背筋を伸ばして腰をリラックスさせ、座りましょう。瞑想に入る前に、呼吸と体を集中させる姿勢が大切です。\n\nスワイプしてスタート！',
+      'ko':
+          '평화로운 공간을 찾으면 등을 곧게 펴고 허리를 편안하게 한 채 자리에 앉으세요. 명상에 들어가기 전에는 호흡과 몸의 중심을 잡는 자세가 중요합니다.\n\n스와이프하여 시작하세요!',
+      'ru':
+          'Как только вы найдете свое спокойное место, сядьте, выпрямив спину и расслабив поясницу. Перед тем, как приступить к любой медитации, осанка важна для центрирования дыхания и тела.\n\nПроведите пальцем, чтобы начать!',
+      'uk':
+          'Як тільки ви знайдете своє спокійне місце, сядьте, тримаючи спину прямо, а поперек розслабленим. Перш ніж переходити до будь-якої медитації, важлива постава для зосередження дихання та тіла.\n\nПроведіть пальцем, щоб почати!',
+      'zh_Hans':
+          '找到平静的空间后，请坐下来，保持背部挺直，放松下背部。在开始任何冥想之前，姿势对于集中呼吸和身体至关重要。\n\n滑动即可开始！',
+      'zh_Hant':
+          '找到平靜的空間後，請坐下來，保持背部挺直，放鬆下背部。在開始任何冥想之前，姿勢對於集中呼吸和身體至關重要。\n\n滑動即可開始！',
+    },
+  },
+  // ResetMoodHelpComp
+  {
+    'gful7zjq': {
+      'en': 'Step 1',
+      'ar': 'الخطوة 1',
+      'de': 'Schritt 1',
+      'es': 'Paso 1',
+      'fr': 'Étape 1',
+      'it': 'Passo 1',
+      'ja': 'ステップ1',
+      'ko': '1단계',
+      'ru': 'Шаг 1',
+      'uk': 'Крок 1',
+      'zh_Hans': '步骤 1',
+      'zh_Hant': '步驟 1',
+    },
+    'ayd38c6f': {
+      'en': 'Reset Your Mood Instantly',
+      'ar': 'ابحث عن وضعيتك',
+      'de': 'Finden Sie Ihre Haltung',
+      'es': 'Encuentra tu postura',
+      'fr': 'Trouvez votre posture',
+      'it': 'Trova la tua postura',
+      'ja': '自分の姿勢を見つける',
+      'ko': '자세를 찾으세요',
+      'ru': 'Найдите свою осанку',
+      'uk': 'Знайдіть свою поставу',
+      'zh_Hans': '找到你的姿势',
+      'zh_Hant': '找到你的姿勢',
+    },
+    '3yr8lms7': {
+      'en':
+          '\nRough moment? Enter your reset state. Lucille delivers a personalized exercise to calm your mind and restore balance—fast.',
+      'ar':
+          'عندما تجد مكانك الهادئ، اجلس وظهرك مستقيمًا وأسفل ظهرك مسترخيًا. قبل البدء بأي تأمل، من المهم الحفاظ على وضعية الجسم والتركيز على التنفس.\n\nمرر للبدأ!',
+      'de':
+          'Sobald du deinen Ruhepol gefunden hast, setz dich mit geradem Rücken und entspanntem unteren Rücken hin. Bevor du mit der Meditation beginnst, ist die richtige Haltung wichtig, um Atem und Körper zu zentrieren.\n\nZum Starten wischen!',
+      'es':
+          'Una vez que encuentres tu espacio de paz, siéntate con la espalda recta y la zona lumbar relajada. Antes de comenzar la meditación, la postura es importante para centrar la respiración y el cuerpo.\n\n¡Desliza para comenzar!',
+      'fr':
+          'Une fois votre espace de paix trouvé, asseyez-vous, le dos droit et le bas du dos détendu. Avant toute méditation, il est important de bien se tenir pour centrer sa respiration et son corps.\n\nSwipez pour commencer !',
+      'it':
+          'Una volta trovato il tuo spazio di pace, siediti con la schiena dritta e la parte bassa della schiena rilassata. Prima di iniziare qualsiasi meditazione, la postura è importante per centrare il respiro e il corpo.\n\nScorri per iniziare!',
+      'ja':
+          '落ち着いた空間を見つけたら、背筋を伸ばして腰をリラックスさせ、座りましょう。瞑想に入る前に、呼吸と体を集中させる姿勢が大切です。\n\nスワイプしてスタート！',
+      'ko':
+          '평화로운 공간을 찾으면 등을 곧게 펴고 허리를 편안하게 한 채 자리에 앉으세요. 명상에 들어가기 전에는 호흡과 몸의 중심을 잡는 자세가 중요합니다.\n\n스와이프하여 시작하세요!',
+      'ru':
+          'Как только вы найдете свое спокойное место, сядьте, выпрямив спину и расслабив поясницу. Перед тем, как приступить к любой медитации, осанка важна для центрирования дыхания и тела.\n\nПроведите пальцем, чтобы начать!',
+      'uk':
+          'Як тільки ви знайдете своє спокійне місце, сядьте, тримаючи спину прямо, а поперек розслабленим. Перш ніж переходити до будь-якої медитації, важлива постава для зосередження дихання та тіла.\n\nПроведіть пальцем, щоб почати!',
+      'zh_Hans':
+          '找到平静的空间后，请坐下来，保持背部挺直，放松下背部。在开始任何冥想之前，姿势对于集中呼吸和身体至关重要。\n\n滑动即可开始！',
+      'zh_Hant':
+          '找到平靜的空間後，請坐下來，保持背部挺直，放鬆下背部。在開始任何冥想之前，姿勢對於集中呼吸和身體至關重要。\n\n滑動即可開始！',
+    },
+    'i1q9tguk': {
+      'en': 'Step 2',
+      'ar': 'الخطوة 2',
+      'de': 'Schritt 2',
+      'es': 'Paso 2',
+      'fr': 'Étape 2',
+      'it': 'Passo 2',
+      'ja': 'ステップ2',
+      'ko': '2단계',
+      'ru': 'Шаг 2',
+      'uk': 'Крок 2',
+      'zh_Hans': '第 2 步',
+      'zh_Hant': '第 2 步',
+    },
+    '427suyvm': {
+      'en': 'Guided Back to Balance',
+      'ar': 'تنفس ببطء لمدة 3 ثوان',
+      'de': 'Atmen Sie 3 Sekunden lang langsam ein',
+      'es': 'Respira lentamente durante 3 segundos',
+      'fr': 'Inspirez lentement pendant 3 secondes',
+      'it': 'Inspira lentamente per 3 secondi',
+      'ja': '3秒間ゆっくりと息を吸います',
+      'ko': '3초 동안 천천히 숨을 들이마세요',
+      'ru': 'Медленно вдыхайте в течение 3 секунд.',
+      'uk': 'Повільно вдихайте протягом 3 секунд',
+      'zh_Hans': '缓慢吸气3秒',
+      'zh_Hant': '緩慢吸氣3秒',
+    },
+    'c5c2uepz': {
+      'en':
+          '“Be guided step-by-step in real time. Breathe, release, and recenter with an experience tailored to how you feel.”',
+      'ar':
+          'الآن، خذ وقتك في التنفس ببطء شديد لمدة ثلاث ثوانٍ، مما يُبطئ نبضات قلبك وعقلك. عندما يهدأ نبض قلبك، تشعر بالحاجة إلى الزفير.\n\nمرر للخطوة التالية!',
+      'de':
+          'Atme nun drei Sekunden lang extrem langsam ein und entspanne so Geist und Herz. Sobald sich der Herzschlag beruhigt hat, entsteht das Bedürfnis auszuatmen.\n\nWischen Sie für den nächsten Schritt!',
+      'es':
+          'Ahora tómate el tiempo para respirar muy despacio durante tres segundos, llevando la mente y el corazón a un ritmo más lento. Cuando el ritmo cardíaco se haya ralentizado, surgirá la necesidad de exhalar.\n\n¡Desliza para ver el siguiente paso!',
+      'fr':
+          'Prenez maintenant le temps d\'inspirer très lentement pendant trois secondes, en ralentissant le rythme de votre esprit et de votre cœur. Lorsque le rythme cardiaque ralentit, le besoin d\'expirer se fait sentir.\n\nSwipez pour passer à l\'étape suivante !',
+      'it':
+          'Ora prenditi il tempo di inspirare molto lentamente per tre secondi, portando la mente e il cuore a un ritmo più lento. Quando il battito cardiaco rallenta, nasce il bisogno di espirare.\n\nScorri per il passaggio successivo!',
+      'ja':
+          '3秒間、ゆっくりと息を吸い込み、心と心臓の鼓動をゆっくりとしたペースにしましょう。心拍が落ち着くと、息を吐き出す必要性が生まれます。\n\n次のステップへはスワイプ！',
+      'ko':
+          '이제 3초 동안 아주 천천히 숨을 들이마시며 마음과 심장의 속도를 늦춰보세요. 심장 박동이 느려지면 숨을 내쉬고 싶은 욕구가 생깁니다.\n\n다음 단계로 넘어가려면 스와이프하세요!',
+      'ru':
+          'Теперь найдите время, чтобы сделать очень медленный вдох в течение трех медленных секунд, замедляя темп ума и сердца. Когда сердцебиение замедлится, возникает необходимость выдохнуть. \n\nПроведите пальцем для следующего шага!',
+      'uk':
+          'Тепер виділіть час, щоб надзвичайно повільно вдихати протягом трьох секунд, уповільнюючи темп розуму та серця. Коли серцебиття сповільниться, виникне потреба видихнути.\n\nПроведіть пальцем, щоб перейти до наступного кроку!',
+      'zh_Hans': '现在，花三秒钟极慢地吸气，让思绪和心跳也慢下来。当心跳慢下来时，呼气的需要就产生了。\n\n滑动查看下一步！',
+      'zh_Hant': '現在，花三秒鐘極慢地吸氣，讓思緒和心跳也慢下來。當心跳慢下來時，呼氣的需要就產生了。\n\n滑動查看下一步！',
+    },
+    'ctjsoh96': {
+      'en': 'Step 3',
+      'ar': 'الخطوة 3',
+      'de': 'Schritt 3',
+      'es': 'Paso 3',
+      'fr': 'Étape 3',
+      'it': 'Fase 3',
+      'ja': 'ステップ3',
+      'ko': '3단계',
+      'ru': 'Шаг 3',
+      'uk': 'Крок 3',
+      'zh_Hans': '步骤3',
+      'zh_Hant': '步驟3',
+    },
+    'tt1wvpds': {
+      'en': 'Smarter Every Session',
+      'ar': 'الزفير ببطء لمدة 7 ثوان',
+      'de': 'Atme 7 Sekunden lang langsam aus',
+      'es': 'Exhala lentamente durante 7 segundos',
+      'fr': 'Expirez lentement pendant 7 secondes',
+      'it': 'Espira lentamente per 7 secondi',
+      'ja': '7秒間ゆっくりと息を吐き出します',
+      'ko': '7초 동안 천천히 숨을 내쉬세요',
+      'ru': 'Медленно выдыхайте в течение 7 секунд.',
+      'uk': 'Повільно видихайте протягом 7 секунд',
+      'zh_Hans': '缓慢呼气7秒',
+      'zh_Hant': '緩慢呼氣7秒',
+    },
+    'kck7ykhl': {
+      'en':
+          '“Every session makes Lucille smarter. Your feedback refines each recommendation—so your reset gets better every time.”',
+      'ar':
+          'للخطوة الأخيرة، أطلق أنفاسك ببطء شديد وكرر الخطوات حتى تشعر بالرضا! عند الزفير، ستشعر بدفء يسري في ظهرك مع شعور متصاعد بالرفعة.\n\nارجع إلى هذا الدليل للحصول على مساعدة حول كيفية التأمل!',
+      'de':
+          'Atmen Sie im letzten Schritt ganz langsam aus und wiederholen Sie die Schritte, bis Sie zufrieden sind! Beim Ausatmen sollten Sie ein warmes Gefühl im Rücken spüren, gefolgt von einem aufsteigenden Gefühl der Erhabenheit.\n\nHier finden Sie weitere Informationen zum Meditieren!',
+      'es':
+          'Para el paso final, exhala muy lentamente y repite los pasos hasta que te sientas satisfecho. Al exhalar, deberías sentir una sensación cálida que te recorre la espalda y te eleva.\n\nConsulta esta guía para obtener ayuda sobre cómo meditar.',
+      'fr':
+          'Pour la dernière étape, expirez très lentement et répétez les étapes jusqu\'à satisfaction ! À l\'expiration, vous devriez ressentir une sensation de chaleur dans le dos, accompagnée d\'une sensation d\'élévation.\n\nReportez-vous à ce guide pour plus d\'aide sur la méditation !',
+      'it':
+          'Per l\'ultimo passaggio, rilascia il respiro molto lentamente e ripeti i passaggi fino a quando non sarai soddisfatto! Quando espiri, dovresti sentire una sensazione di calore lungo la schiena, seguita da una crescente sensazione di sollievo.\n\nConsulta questa guida per informazioni su come meditare!',
+      'ja':
+          '最後のステップでは、息をゆっくりと吐き出し、満足するまでこのステップを繰り返します。息を吐くと、背中に温かい感覚が伝わり、高揚感が湧き上がってくるのを感じるはずです。\n\n瞑想の方法についてはこちらのガイドをご覧ください。',
+      'ko':
+          '마지막 단계에서는 아주 천천히 숨을 내쉬고 만족스러울 때까지 반복하세요! 숨을 내쉴 때 따뜻한 느낌이 등을 타고 오르는 듯한 기분을 느껴야 합니다.\n\n명상 방법에 대한 도움말은 이 가이드를 참조하세요!',
+      'ru':
+          'Для последнего шага очень медленно выдохните и повторяйте шаги до тех пор, пока не будете удовлетворены! Когда вы выдыхаете, вы должны почувствовать теплое чувство, спускающееся по вашей спине с растущим чувством подъема. \n\nВернитесь к этому руководству для получения помощи о том, как медитировать!',
+      'uk':
+          'На останньому кроці надзвичайно повільно видихніть і повторюйте кроки, доки не відчуєте задоволення! Коли ви видихаєте, ви повинні відчути тепло, що проходить по спині, з наростаючим відчуттям піднесення.\n\nЗверніться до цього посібника, щоб отримати допомогу щодо медитації!',
+      'zh_Hans':
+          '最后一步，极其缓慢地呼气，重复这些步骤，直到满意为止！呼气时，你应该感到一股暖流顺着背部流淌，并伴有向上提升的感觉。\n\n请参阅本指南，了解如何冥想！',
+      'zh_Hant':
+          '最後一步，極度緩慢地呼氣，重複這些步驟，直到滿意為止！呼氣時，你應該感覺到一股暖流順著背部流淌，並伴隨著向上提升的感覺。\n\n請參閱本指南，了解如何冥想！',
+    },
+    'epyc7o99': {
+      'en': 'Start Reset Mood',
+      'ar': 'نهاية البرنامج التعليمي',
+      'de': 'Tutorial beenden',
+      'es': 'Fin del tutorial',
+      'fr': 'Fin du tutoriel',
+      'it': 'Fine del tutorial',
+      'ja': 'チュートリアル終了',
+      'ko': '튜토리얼 종료',
+      'ru': 'Конец урока',
+      'uk': 'Закінчити навчальний посібник',
+      'zh_Hans': '结束教程',
+      'zh_Hant': '結束教程',
+    },
+  },
+  // JournalHelpComp
+  {
+    'ne7jvqd3': {
+      'en': 'Step 1',
+      'ar': 'الخطوة 1',
+      'de': 'Schritt 1',
+      'es': 'Paso 1',
+      'fr': 'Étape 1',
+      'it': 'Passo 1',
+      'ja': 'ステップ1',
+      'ko': '1단계',
+      'ru': 'Шаг 1',
+      'uk': 'Крок 1',
+      'zh_Hans': '步骤 1',
+      'zh_Hant': '步驟 1',
+    },
+    'wh8zkiyf': {
+      'en': 'Express Without Limits',
+      'ar': 'ابحث عن وضعيتك',
+      'de': 'Finden Sie Ihre Haltung',
+      'es': 'Encuentra tu postura',
+      'fr': 'Trouvez votre posture',
+      'it': 'Trova la tua postura',
+      'ja': '自分の姿勢を見つける',
+      'ko': '자세를 찾으세요',
+      'ru': 'Найдите свою осанку',
+      'uk': 'Знайдіть свою поставу',
+      'zh_Hans': '找到你的姿势',
+      'zh_Hant': '找到你的姿勢',
+    },
+    'hnbk82kg': {
+      'en':
+          'Capture your thoughts your way—type it out or speak naturally with voice notes. No pressure, just release.\n\nSwipe to Start!',
+      'ar':
+          'عندما تجد مكانك الهادئ، اجلس وظهرك مستقيمًا وأسفل ظهرك مسترخيًا. قبل البدء بأي تأمل، من المهم الحفاظ على وضعية الجسم والتركيز على التنفس.\n\nمرر للبدأ!',
+      'de':
+          'Sobald du deinen Ruhepol gefunden hast, setz dich mit geradem Rücken und entspanntem unteren Rücken hin. Bevor du mit der Meditation beginnst, ist die richtige Haltung wichtig, um Atem und Körper zu zentrieren.\n\nZum Starten wischen!',
+      'es':
+          'Una vez que encuentres tu espacio de paz, siéntate con la espalda recta y la zona lumbar relajada. Antes de comenzar la meditación, la postura es importante para centrar la respiración y el cuerpo.\n\n¡Desliza para comenzar!',
+      'fr':
+          'Une fois votre espace de paix trouvé, asseyez-vous, le dos droit et le bas du dos détendu. Avant toute méditation, il est important de bien se tenir pour centrer sa respiration et son corps.\n\nSwipez pour commencer !',
+      'it':
+          'Una volta trovato il tuo spazio di pace, siediti con la schiena dritta e la parte bassa della schiena rilassata. Prima di iniziare qualsiasi meditazione, la postura è importante per centrare il respiro e il corpo.\n\nScorri per iniziare!',
+      'ja':
+          '落ち着いた空間を見つけたら、背筋を伸ばして腰をリラックスさせ、座りましょう。瞑想に入る前に、呼吸と体を集中させる姿勢が大切です。\n\nスワイプしてスタート！',
+      'ko':
+          '평화로운 공간을 찾으면 등을 곧게 펴고 허리를 편안하게 한 채 자리에 앉으세요. 명상에 들어가기 전에는 호흡과 몸의 중심을 잡는 자세가 중요합니다.\n\n스와이프하여 시작하세요!',
+      'ru':
+          'Как только вы найдете свое спокойное место, сядьте, выпрямив спину и расслабив поясницу. Перед тем, как приступить к любой медитации, осанка важна для центрирования дыхания и тела.\n\nПроведите пальцем, чтобы начать!',
+      'uk':
+          'Як тільки ви знайдете своє спокійне місце, сядьте, тримаючи спину прямо, а поперек розслабленим. Перш ніж переходити до будь-якої медитації, важлива постава для зосередження дихання та тіла.\n\nПроведіть пальцем, щоб почати!',
+      'zh_Hans':
+          '找到平静的空间后，请坐下来，保持背部挺直，放松下背部。在开始任何冥想之前，姿势对于集中呼吸和身体至关重要。\n\n滑动即可开始！',
+      'zh_Hant':
+          '找到平靜的空間後，請坐下來，保持背部挺直，放鬆下背部。在開始任何冥想之前，姿勢對於集中呼吸和身體至關重要。\n\n滑動即可開始！',
+    },
+    'w9isjfwc': {
+      'en': 'Step 2',
+      'ar': 'الخطوة 2',
+      'de': 'Schritt 2',
+      'es': 'Paso 2',
+      'fr': 'Étape 2',
+      'it': 'Passo 2',
+      'ja': 'ステップ2',
+      'ko': '2단계',
+      'ru': 'Шаг 2',
+      'uk': 'Крок 2',
+      'zh_Hans': '第 2 步',
+      'zh_Hant': '第 2 步',
+    },
+    'e4cglq6c': {
+      'en': 'Captured in Your Voice',
+      'ar': 'تنفس ببطء لمدة 3 ثوان',
+      'de': 'Atmen Sie 3 Sekunden lang langsam ein',
+      'es': 'Respira lentamente durante 3 segundos',
+      'fr': 'Inspirez lentement pendant 3 secondes',
+      'it': 'Inspira lentamente per 3 secondi',
+      'ja': '3秒間ゆっくりと息を吸います',
+      'ko': '3초 동안 천천히 숨을 들이마세요',
+      'ru': 'Медленно вдыхайте в течение 3 секунд.',
+      'uk': 'Повільно вдихайте протягом 3 секунд',
+      'zh_Hans': '缓慢吸气3秒',
+      'zh_Hant': '緩慢吸氣3秒',
+    },
+    '2grled0q': {
+      'en':
+          'Let your thoughts flow without judgment. Lucille helps you reflect, organize, and understand what’s beneath the surface.\n\nSwipe for the Next Step!',
+      'ar':
+          'الآن، خذ وقتك في التنفس ببطء شديد لمدة ثلاث ثوانٍ، مما يُبطئ نبضات قلبك وعقلك. عندما يهدأ نبض قلبك، تشعر بالحاجة إلى الزفير.\n\nمرر للخطوة التالية!',
+      'de':
+          'Atme nun drei Sekunden lang extrem langsam ein und entspanne so Geist und Herz. Sobald sich der Herzschlag beruhigt hat, entsteht das Bedürfnis auszuatmen.\n\nWischen Sie für den nächsten Schritt!',
+      'es':
+          'Ahora tómate el tiempo para respirar muy despacio durante tres segundos, llevando la mente y el corazón a un ritmo más lento. Cuando el ritmo cardíaco se haya ralentizado, surgirá la necesidad de exhalar.\n\n¡Desliza para ver el siguiente paso!',
+      'fr':
+          'Prenez maintenant le temps d\'inspirer très lentement pendant trois secondes, en ralentissant le rythme de votre esprit et de votre cœur. Lorsque le rythme cardiaque ralentit, le besoin d\'expirer se fait sentir.\n\nSwipez pour passer à l\'étape suivante !',
+      'it':
+          'Ora prenditi il tempo di inspirare molto lentamente per tre secondi, portando la mente e il cuore a un ritmo più lento. Quando il battito cardiaco rallenta, nasce il bisogno di espirare.\n\nScorri per il passaggio successivo!',
+      'ja':
+          '3秒間、ゆっくりと息を吸い込み、心と心臓の鼓動をゆっくりとしたペースにしましょう。心拍が落ち着くと、息を吐き出す必要性が生まれます。\n\n次のステップへはスワイプ！',
+      'ko':
+          '이제 3초 동안 아주 천천히 숨을 들이마시며 마음과 심장의 속도를 늦춰보세요. 심장 박동이 느려지면 숨을 내쉬고 싶은 욕구가 생깁니다.\n\n다음 단계로 넘어가려면 스와이프하세요!',
+      'ru':
+          'Теперь найдите время, чтобы сделать очень медленный вдох в течение трех медленных секунд, замедляя темп ума и сердца. Когда сердцебиение замедлится, возникает необходимость выдохнуть. \n\nПроведите пальцем для следующего шага!',
+      'uk':
+          'Тепер виділіть час, щоб надзвичайно повільно вдихати протягом трьох секунд, уповільнюючи темп розуму та серця. Коли серцебиття сповільниться, виникне потреба видихнути.\n\nПроведіть пальцем, щоб перейти до наступного кроку!',
+      'zh_Hans': '现在，花三秒钟极慢地吸气，让思绪和心跳也慢下来。当心跳慢下来时，呼气的需要就产生了。\n\n滑动查看下一步！',
+      'zh_Hant': '現在，花三秒鐘極慢地吸氣，讓思緒和心跳也慢下來。當心跳慢下來時，呼氣的需要就產生了。\n\n滑動查看下一步！',
+    },
+    'p6f30nk5': {
+      'en': 'Step 3',
+      'ar': 'الخطوة 3',
+      'de': 'Schritt 3',
+      'es': 'Paso 3',
+      'fr': 'Étape 3',
+      'it': 'Fase 3',
+      'ja': 'ステップ3',
+      'ko': '3단계',
+      'ru': 'Шаг 3',
+      'uk': 'Крок 3',
+      'zh_Hans': '步骤3',
+      'zh_Hant': '步驟3',
+    },
+    'v8fmtcgm': {
+      'en': 'Insight Over Time',
+      'ar': 'الزفير ببطء لمدة 7 ثوان',
+      'de': 'Atme 7 Sekunden lang langsam aus',
+      'es': 'Exhala lentamente durante 7 segundos',
+      'fr': 'Expirez lentement pendant 7 secondes',
+      'it': 'Espira lentamente per 7 secondi',
+      'ja': '7秒間ゆっくりと息を吐き出します',
+      'ko': '7초 동안 천천히 숨을 내쉬세요',
+      'ru': 'Медленно выдыхайте в течение 7 секунд.',
+      'uk': 'Повільно видихайте протягом 7 секунд',
+      'zh_Hans': '缓慢呼气7秒',
+      'zh_Hant': '緩慢呼氣7秒',
+    },
+    '8kcrj3kd': {
+      'en':
+          'Your entries become meaningful patterns over time—helping you track growth, triggers, and emotional progress.',
+      'ar':
+          'للخطوة الأخيرة، أطلق أنفاسك ببطء شديد وكرر الخطوات حتى تشعر بالرضا! عند الزفير، ستشعر بدفء يسري في ظهرك مع شعور متصاعد بالرفعة.\n\nارجع إلى هذا الدليل للحصول على مساعدة حول كيفية التأمل!',
+      'de':
+          'Atmen Sie im letzten Schritt ganz langsam aus und wiederholen Sie die Schritte, bis Sie zufrieden sind! Beim Ausatmen sollten Sie ein warmes Gefühl im Rücken spüren, gefolgt von einem aufsteigenden Gefühl der Erhabenheit.\n\nHier finden Sie weitere Informationen zum Meditieren!',
+      'es':
+          'Para el paso final, exhala muy lentamente y repite los pasos hasta que te sientas satisfecho. Al exhalar, deberías sentir una sensación cálida que te recorre la espalda y te eleva.\n\nConsulta esta guía para obtener ayuda sobre cómo meditar.',
+      'fr':
+          'Pour la dernière étape, expirez très lentement et répétez les étapes jusqu\'à satisfaction ! À l\'expiration, vous devriez ressentir une sensation de chaleur dans le dos, accompagnée d\'une sensation d\'élévation.\n\nReportez-vous à ce guide pour plus d\'aide sur la méditation !',
+      'it':
+          'Per l\'ultimo passaggio, rilascia il respiro molto lentamente e ripeti i passaggi fino a quando non sarai soddisfatto! Quando espiri, dovresti sentire una sensazione di calore lungo la schiena, seguita da una crescente sensazione di sollievo.\n\nConsulta questa guida per informazioni su come meditare!',
+      'ja':
+          '最後のステップでは、息をゆっくりと吐き出し、満足するまでこのステップを繰り返します。息を吐くと、背中に温かい感覚が伝わり、高揚感が湧き上がってくるのを感じるはずです。\n\n瞑想の方法についてはこちらのガイドをご覧ください。',
+      'ko':
+          '마지막 단계에서는 아주 천천히 숨을 내쉬고 만족스러울 때까지 반복하세요! 숨을 내쉴 때 따뜻한 느낌이 등을 타고 오르는 듯한 기분을 느껴야 합니다.\n\n명상 방법에 대한 도움말은 이 가이드를 참조하세요!',
+      'ru':
+          'Для последнего шага очень медленно выдохните и повторяйте шаги до тех пор, пока не будете удовлетворены! Когда вы выдыхаете, вы должны почувствовать теплое чувство, спускающееся по вашей спине с растущим чувством подъема. \n\nВернитесь к этому руководству для получения помощи о том, как медитировать!',
+      'uk':
+          'На останньому кроці надзвичайно повільно видихніть і повторюйте кроки, доки не відчуєте задоволення! Коли ви видихаєте, ви повинні відчути тепло, що проходить по спині, з наростаючим відчуттям піднесення.\n\nЗверніться до цього посібника, щоб отримати допомогу щодо медитації!',
+      'zh_Hans':
+          '最后一步，极其缓慢地呼气，重复这些步骤，直到满意为止！呼气时，你应该感到一股暖流顺着背部流淌，并伴有向上提升的感觉。\n\n请参阅本指南，了解如何冥想！',
+      'zh_Hant':
+          '最後一步，極度緩慢地呼氣，重複這些步驟，直到滿意為止！呼氣時，你應該感覺到一股暖流順著背部流淌，並伴隨著向上提升的感覺。\n\n請參閱本指南，了解如何冥想！',
+    },
+    'm125veyk': {
+      'en': 'Start Basic Breathing',
+      'ar': 'نهاية البرنامج التعليمي',
+      'de': 'Tutorial beenden',
+      'es': 'Fin del tutorial',
+      'fr': 'Fin du tutoriel',
+      'it': 'Fine del tutorial',
+      'ja': 'チュートリアル終了',
+      'ko': '튜토리얼 종료',
+      'ru': 'Конец урока',
+      'uk': 'Закінчити навчальний посібник',
+      'zh_Hans': '结束教程',
+      'zh_Hant': '結束教程',
+    },
+  },
+  // BodyHelpComp
+  {
+    'snxkcrq2': {
+      'en': 'Step 1',
+      'ar': 'الخطوة 1',
+      'de': 'Schritt 1',
+      'es': 'Paso 1',
+      'fr': 'Étape 1',
+      'it': 'Passo 1',
+      'ja': 'ステップ1',
+      'ko': '1단계',
+      'ru': 'Шаг 1',
+      'uk': 'Крок 1',
+      'zh_Hans': '步骤 1',
+      'zh_Hant': '步驟 1',
+    },
+    'itdj0fo8': {
+      'en': 'Enter the Physical Realm',
+      'ar': 'ابحث عن وضعيتك',
+      'de': 'Finden Sie Ihre Haltung',
+      'es': 'Encuentra tu postura',
+      'fr': 'Trouvez votre posture',
+      'it': 'Trova la tua postura',
+      'ja': '自分の姿勢を見つける',
+      'ko': '자세를 찾으세요',
+      'ru': 'Найдите свою осанку',
+      'uk': 'Знайдіть свою поставу',
+      'zh_Hans': '找到你的姿势',
+      'zh_Hant': '找到你的姿勢',
+    },
+    'aud3vcjk': {
+      'en':
+          'Activate immersive body-based experiences designed to bring you out of your mind and into movement.',
+      'ar':
+          'عندما تجد مكانك الهادئ، اجلس وظهرك مستقيمًا وأسفل ظهرك مسترخيًا. قبل البدء بأي تأمل، من المهم الحفاظ على وضعية الجسم والتركيز على التنفس.\n\nمرر للبدأ!',
+      'de':
+          'Sobald du deinen Ruhepol gefunden hast, setz dich mit geradem Rücken und entspanntem unteren Rücken hin. Bevor du mit der Meditation beginnst, ist die richtige Haltung wichtig, um Atem und Körper zu zentrieren.\n\nZum Starten wischen!',
+      'es':
+          'Una vez que encuentres tu espacio de paz, siéntate con la espalda recta y la zona lumbar relajada. Antes de comenzar la meditación, la postura es importante para centrar la respiración y el cuerpo.\n\n¡Desliza para comenzar!',
+      'fr':
+          'Une fois votre espace de paix trouvé, asseyez-vous, le dos droit et le bas du dos détendu. Avant toute méditation, il est important de bien se tenir pour centrer sa respiration et son corps.\n\nSwipez pour commencer !',
+      'it':
+          'Una volta trovato il tuo spazio di pace, siediti con la schiena dritta e la parte bassa della schiena rilassata. Prima di iniziare qualsiasi meditazione, la postura è importante per centrare il respiro e il corpo.\n\nScorri per iniziare!',
+      'ja':
+          '落ち着いた空間を見つけたら、背筋を伸ばして腰をリラックスさせ、座りましょう。瞑想に入る前に、呼吸と体を集中させる姿勢が大切です。\n\nスワイプしてスタート！',
+      'ko':
+          '평화로운 공간을 찾으면 등을 곧게 펴고 허리를 편안하게 한 채 자리에 앉으세요. 명상에 들어가기 전에는 호흡과 몸의 중심을 잡는 자세가 중요합니다.\n\n스와이프하여 시작하세요!',
+      'ru':
+          'Как только вы найдете свое спокойное место, сядьте, выпрямив спину и расслабив поясницу. Перед тем, как приступить к любой медитации, осанка важна для центрирования дыхания и тела.\n\nПроведите пальцем, чтобы начать!',
+      'uk':
+          'Як тільки ви знайдете своє спокійне місце, сядьте, тримаючи спину прямо, а поперек розслабленим. Перш ніж переходити до будь-якої медитації, важлива постава для зосередження дихання та тіла.\n\nПроведіть пальцем, щоб почати!',
+      'zh_Hans':
+          '找到平静的空间后，请坐下来，保持背部挺直，放松下背部。在开始任何冥想之前，姿势对于集中呼吸和身体至关重要。\n\n滑动即可开始！',
+      'zh_Hant':
+          '找到平靜的空間後，請坐下來，保持背部挺直，放鬆下背部。在開始任何冥想之前，姿勢對於集中呼吸和身體至關重要。\n\n滑動即可開始！',
+    },
+    'ee02j35f': {
+      'en': 'Step 2',
+      'ar': 'الخطوة 2',
+      'de': 'Schritt 2',
+      'es': 'Paso 2',
+      'fr': 'Étape 2',
+      'it': 'Passo 2',
+      'ja': 'ステップ2',
+      'ko': '2단계',
+      'ru': 'Шаг 2',
+      'uk': 'Крок 2',
+      'zh_Hans': '第 2 步',
+      'zh_Hant': '第 2 步',
+    },
+    'tbboc7lp': {
+      'en': 'Reality That Responds to You',
+      'ar': 'تنفس ببطء لمدة 3 ثوان',
+      'de': 'Atmen Sie 3 Sekunden lang langsam ein',
+      'es': 'Respira lentamente durante 3 segundos',
+      'fr': 'Inspirez lentement pendant 3 secondes',
+      'it': 'Inspira lentamente per 3 secondi',
+      'ja': '3秒間ゆっくりと息を吸います',
+      'ko': '3초 동안 천천히 숨을 들이마세요',
+      'ru': 'Медленно вдыхайте в течение 3 секунд.',
+      'uk': 'Повільно вдихайте протягом 3 секунд',
+      'zh_Hans': '缓慢吸气3秒',
+      'zh_Hant': '緩慢吸氣3秒',
+    },
+    'a9qfvoy2': {
+      'en':
+          'Your environment adapts in real time—guiding your motion through AI-powered AR and interactive visuals.',
+      'ar':
+          'الآن، خذ وقتك في التنفس ببطء شديد لمدة ثلاث ثوانٍ، مما يُبطئ نبضات قلبك وعقلك. عندما يهدأ نبض قلبك، تشعر بالحاجة إلى الزفير.\n\nمرر للخطوة التالية!',
+      'de':
+          'Atme nun drei Sekunden lang extrem langsam ein und entspanne so Geist und Herz. Sobald sich der Herzschlag beruhigt hat, entsteht das Bedürfnis auszuatmen.\n\nWischen Sie für den nächsten Schritt!',
+      'es':
+          'Ahora tómate el tiempo para respirar muy despacio durante tres segundos, llevando la mente y el corazón a un ritmo más lento. Cuando el ritmo cardíaco se haya ralentizado, surgirá la necesidad de exhalar.\n\n¡Desliza para ver el siguiente paso!',
+      'fr':
+          'Prenez maintenant le temps d\'inspirer très lentement pendant trois secondes, en ralentissant le rythme de votre esprit et de votre cœur. Lorsque le rythme cardiaque ralentit, le besoin d\'expirer se fait sentir.\n\nSwipez pour passer à l\'étape suivante !',
+      'it':
+          'Ora prenditi il tempo di inspirare molto lentamente per tre secondi, portando la mente e il cuore a un ritmo più lento. Quando il battito cardiaco rallenta, nasce il bisogno di espirare.\n\nScorri per il passaggio successivo!',
+      'ja':
+          '3秒間、ゆっくりと息を吸い込み、心と心臓の鼓動をゆっくりとしたペースにしましょう。心拍が落ち着くと、息を吐き出す必要性が生まれます。\n\n次のステップへはスワイプ！',
+      'ko':
+          '이제 3초 동안 아주 천천히 숨을 들이마시며 마음과 심장의 속도를 늦춰보세요. 심장 박동이 느려지면 숨을 내쉬고 싶은 욕구가 생깁니다.\n\n다음 단계로 넘어가려면 스와이프하세요!',
+      'ru':
+          'Теперь найдите время, чтобы сделать очень медленный вдох в течение трех медленных секунд, замедляя темп ума и сердца. Когда сердцебиение замедлится, возникает необходимость выдохнуть. \n\nПроведите пальцем для следующего шага!',
+      'uk':
+          'Тепер виділіть час, щоб надзвичайно повільно вдихати протягом трьох секунд, уповільнюючи темп розуму та серця. Коли серцебиття сповільниться, виникне потреба видихнути.\n\nПроведіть пальцем, щоб перейти до наступного кроку!',
+      'zh_Hans': '现在，花三秒钟极慢地吸气，让思绪和心跳也慢下来。当心跳慢下来时，呼气的需要就产生了。\n\n滑动查看下一步！',
+      'zh_Hant': '現在，花三秒鐘極慢地吸氣，讓思緒和心跳也慢下來。當心跳慢下來時，呼氣的需要就產生了。\n\n滑動查看下一步！',
+    },
+    '1azhpua4': {
+      'en': 'Step 3',
+      'ar': 'الخطوة 3',
+      'de': 'Schritt 3',
+      'es': 'Paso 3',
+      'fr': 'Étape 3',
+      'it': 'Fase 3',
+      'ja': 'ステップ3',
+      'ko': '3단계',
+      'ru': 'Шаг 3',
+      'uk': 'Крок 3',
+      'zh_Hans': '步骤3',
+      'zh_Hant': '步驟3',
+    },
+    'vrlia031': {
+      'en': 'Recalibrate Through Motion',
+      'ar': 'الزفير ببطء لمدة 7 ثوان',
+      'de': 'Atme 7 Sekunden lang langsam aus',
+      'es': 'Exhala lentamente durante 7 segundos',
+      'fr': 'Expirez lentement pendant 7 secondes',
+      'it': 'Espira lentamente per 7 secondi',
+      'ja': '7秒間ゆっくりと息を吐き出します',
+      'ko': '7초 동안 천천히 숨을 내쉬세요',
+      'ru': 'Медленно выдыхайте в течение 7 секунд.',
+      'uk': 'Повільно видихайте протягом 7 секунд',
+      'zh_Hans': '缓慢呼气7秒',
+      'zh_Hant': '緩慢呼氣7秒',
+    },
+    'iznw8n0c': {
+      'en':
+          'Release stress, restore balance, and reconnect with your body through guided, responsive movement.',
+      'ar':
+          'للخطوة الأخيرة، أطلق أنفاسك ببطء شديد وكرر الخطوات حتى تشعر بالرضا! عند الزفير، ستشعر بدفء يسري في ظهرك مع شعور متصاعد بالرفعة.\n\nارجع إلى هذا الدليل للحصول على مساعدة حول كيفية التأمل!',
+      'de':
+          'Atmen Sie im letzten Schritt ganz langsam aus und wiederholen Sie die Schritte, bis Sie zufrieden sind! Beim Ausatmen sollten Sie ein warmes Gefühl im Rücken spüren, gefolgt von einem aufsteigenden Gefühl der Erhabenheit.\n\nHier finden Sie weitere Informationen zum Meditieren!',
+      'es':
+          'Para el paso final, exhala muy lentamente y repite los pasos hasta que te sientas satisfecho. Al exhalar, deberías sentir una sensación cálida que te recorre la espalda y te eleva.\n\nConsulta esta guía para obtener ayuda sobre cómo meditar.',
+      'fr':
+          'Pour la dernière étape, expirez très lentement et répétez les étapes jusqu\'à satisfaction ! À l\'expiration, vous devriez ressentir une sensation de chaleur dans le dos, accompagnée d\'une sensation d\'élévation.\n\nReportez-vous à ce guide pour plus d\'aide sur la méditation !',
+      'it':
+          'Per l\'ultimo passaggio, rilascia il respiro molto lentamente e ripeti i passaggi fino a quando non sarai soddisfatto! Quando espiri, dovresti sentire una sensazione di calore lungo la schiena, seguita da una crescente sensazione di sollievo.\n\nConsulta questa guida per informazioni su come meditare!',
+      'ja':
+          '最後のステップでは、息をゆっくりと吐き出し、満足するまでこのステップを繰り返します。息を吐くと、背中に温かい感覚が伝わり、高揚感が湧き上がってくるのを感じるはずです。\n\n瞑想の方法についてはこちらのガイドをご覧ください。',
+      'ko':
+          '마지막 단계에서는 아주 천천히 숨을 내쉬고 만족스러울 때까지 반복하세요! 숨을 내쉴 때 따뜻한 느낌이 등을 타고 오르는 듯한 기분을 느껴야 합니다.\n\n명상 방법에 대한 도움말은 이 가이드를 참조하세요!',
+      'ru':
+          'Для последнего шага очень медленно выдохните и повторяйте шаги до тех пор, пока не будете удовлетворены! Когда вы выдыхаете, вы должны почувствовать теплое чувство, спускающееся по вашей спине с растущим чувством подъема. \n\nВернитесь к этому руководству для получения помощи о том, как медитировать!',
+      'uk':
+          'На останньому кроці надзвичайно повільно видихніть і повторюйте кроки, доки не відчуєте задоволення! Коли ви видихаєте, ви повинні відчути тепло, що проходить по спині, з наростаючим відчуттям піднесення.\n\nЗверніться до цього посібника, щоб отримати допомогу щодо медитації!',
+      'zh_Hans':
+          '最后一步，极其缓慢地呼气，重复这些步骤，直到满意为止！呼气时，你应该感到一股暖流顺着背部流淌，并伴有向上提升的感觉。\n\n请参阅本指南，了解如何冥想！',
+      'zh_Hant':
+          '最後一步，極度緩慢地呼氣，重複這些步驟，直到滿意為止！呼氣時，你應該感覺到一股暖流順著背部流淌，並伴隨著向上提升的感覺。\n\n請參閱本指南，了解如何冥想！',
+    },
+    '2oycgjc9': {
+      'en': 'Start Body Exercises',
+      'ar': 'نهاية البرنامج التعليمي',
+      'de': 'Tutorial beenden',
+      'es': 'Fin del tutorial',
+      'fr': 'Fin du tutoriel',
+      'it': 'Fine del tutorial',
+      'ja': 'チュートリアル終了',
+      'ko': '튜토리얼 종료',
+      'ru': 'Конец урока',
+      'uk': 'Закінчити навчальний посібник',
+      'zh_Hans': '结束教程',
+      'zh_Hant': '結束教程',
+    },
+  },
+  // SoundscapesHelpCopy
+  {
+    'wgxf1oyf': {
+      'en': 'Step 1',
+      'ar': 'الخطوة 1',
+      'de': 'Schritt 1',
+      'es': 'Paso 1',
+      'fr': 'Étape 1',
+      'it': 'Passo 1',
+      'ja': 'ステップ1',
+      'ko': '1단계',
+      'ru': 'Шаг 1',
+      'uk': 'Крок 1',
+      'zh_Hans': '步骤 1',
+      'zh_Hant': '步驟 1',
+    },
+    'f0okjhv0': {
+      'en': 'Find Your Posture',
+      'ar': 'ابحث عن وضعيتك',
+      'de': 'Finden Sie Ihre Haltung',
+      'es': 'Encuentra tu postura',
+      'fr': 'Trouvez votre posture',
+      'it': 'Trova la tua postura',
+      'ja': '自分の姿勢を見つける',
+      'ko': '자세를 찾으세요',
+      'ru': 'Найдите свою осанку',
+      'uk': 'Знайдіть свою поставу',
+      'zh_Hans': '找到你的姿势',
+      'zh_Hant': '找到你的姿勢',
+    },
+    'ucv263f4': {
+      'en':
+          'Once you find your peaceful space, take a seat with your back straight and lower back relaxed. Before moving into any meditation, posture is important when centering the breath and body.\n\nSwipe to Start!',
+      'ar':
+          'عندما تجد مكانك الهادئ، اجلس وظهرك مستقيمًا وأسفل ظهرك مسترخيًا. قبل البدء بأي تأمل، من المهم الحفاظ على وضعية الجسم والتركيز على التنفس.\n\nمرر للبدأ!',
+      'de':
+          'Sobald du deinen Ruhepol gefunden hast, setz dich mit geradem Rücken und entspanntem unteren Rücken hin. Bevor du mit der Meditation beginnst, ist die richtige Haltung wichtig, um Atem und Körper zu zentrieren.\n\nZum Starten wischen!',
+      'es':
+          'Una vez que encuentres tu espacio de paz, siéntate con la espalda recta y la zona lumbar relajada. Antes de comenzar la meditación, la postura es importante para centrar la respiración y el cuerpo.\n\n¡Desliza para comenzar!',
+      'fr':
+          'Une fois votre espace de paix trouvé, asseyez-vous, le dos droit et le bas du dos détendu. Avant toute méditation, il est important de bien se tenir pour centrer sa respiration et son corps.\n\nSwipez pour commencer !',
+      'it':
+          'Una volta trovato il tuo spazio di pace, siediti con la schiena dritta e la parte bassa della schiena rilassata. Prima di iniziare qualsiasi meditazione, la postura è importante per centrare il respiro e il corpo.\n\nScorri per iniziare!',
+      'ja':
+          '落ち着いた空間を見つけたら、背筋を伸ばして腰をリラックスさせ、座りましょう。瞑想に入る前に、呼吸と体を集中させる姿勢が大切です。\n\nスワイプしてスタート！',
+      'ko':
+          '평화로운 공간을 찾으면 등을 곧게 펴고 허리를 편안하게 한 채 자리에 앉으세요. 명상에 들어가기 전에는 호흡과 몸의 중심을 잡는 자세가 중요합니다.\n\n스와이프하여 시작하세요!',
+      'ru':
+          'Как только вы найдете свое спокойное место, сядьте, выпрямив спину и расслабив поясницу. Перед тем, как приступить к любой медитации, осанка важна для центрирования дыхания и тела.\n\nПроведите пальцем, чтобы начать!',
+      'uk':
+          'Як тільки ви знайдете своє спокійне місце, сядьте, тримаючи спину прямо, а поперек розслабленим. Перш ніж переходити до будь-якої медитації, важлива постава для зосередження дихання та тіла.\n\nПроведіть пальцем, щоб почати!',
+      'zh_Hans':
+          '找到平静的空间后，请坐下来，保持背部挺直，放松下背部。在开始任何冥想之前，姿势对于集中呼吸和身体至关重要。\n\n滑动即可开始！',
+      'zh_Hant':
+          '找到平靜的空間後，請坐下來，保持背部挺直，放鬆下背部。在開始任何冥想之前，姿勢對於集中呼吸和身體至關重要。\n\n滑動即可開始！',
+    },
+    'kqzybj59': {
+      'en': 'Step 2',
+      'ar': 'الخطوة 2',
+      'de': 'Schritt 2',
+      'es': 'Paso 2',
+      'fr': 'Étape 2',
+      'it': 'Passo 2',
+      'ja': 'ステップ2',
+      'ko': '2단계',
+      'ru': 'Шаг 2',
+      'uk': 'Крок 2',
+      'zh_Hans': '第 2 步',
+      'zh_Hant': '第 2 步',
+    },
+    'fjnupb3q': {
+      'en': 'Breathe In Slowly For 3 Seconds',
+      'ar': 'تنفس ببطء لمدة 3 ثوان',
+      'de': 'Atmen Sie 3 Sekunden lang langsam ein',
+      'es': 'Respira lentamente durante 3 segundos',
+      'fr': 'Inspirez lentement pendant 3 secondes',
+      'it': 'Inspira lentamente per 3 secondi',
+      'ja': '3秒間ゆっくりと息を吸います',
+      'ko': '3초 동안 천천히 숨을 들이마세요',
+      'ru': 'Медленно вдыхайте в течение 3 секунд.',
+      'uk': 'Повільно вдихайте протягом 3 секунд',
+      'zh_Hans': '缓慢吸气3秒',
+      'zh_Hant': '緩慢吸氣3秒',
+    },
+    'b271abrk': {
+      'en':
+          'Now take the time to breathe in extremely slow for three slow seconds, bringing the mind and heart to a slower pace. When the heartbeat has slowed, the need to exhale arises. \n\nSwipe for the Next Step!',
+      'ar':
+          'الآن، خذ وقتك في التنفس ببطء شديد لمدة ثلاث ثوانٍ، مما يُبطئ نبضات قلبك وعقلك. عندما يهدأ نبض قلبك، تشعر بالحاجة إلى الزفير.\n\nمرر للخطوة التالية!',
+      'de':
+          'Atme nun drei Sekunden lang extrem langsam ein und entspanne so Geist und Herz. Sobald sich der Herzschlag beruhigt hat, entsteht das Bedürfnis auszuatmen.\n\nWischen Sie für den nächsten Schritt!',
+      'es':
+          'Ahora tómate el tiempo para respirar muy despacio durante tres segundos, llevando la mente y el corazón a un ritmo más lento. Cuando el ritmo cardíaco se haya ralentizado, surgirá la necesidad de exhalar.\n\n¡Desliza para ver el siguiente paso!',
+      'fr':
+          'Prenez maintenant le temps d\'inspirer très lentement pendant trois secondes, en ralentissant le rythme de votre esprit et de votre cœur. Lorsque le rythme cardiaque ralentit, le besoin d\'expirer se fait sentir.\n\nSwipez pour passer à l\'étape suivante !',
+      'it':
+          'Ora prenditi il tempo di inspirare molto lentamente per tre secondi, portando la mente e il cuore a un ritmo più lento. Quando il battito cardiaco rallenta, nasce il bisogno di espirare.\n\nScorri per il passaggio successivo!',
+      'ja':
+          '3秒間、ゆっくりと息を吸い込み、心と心臓の鼓動をゆっくりとしたペースにしましょう。心拍が落ち着くと、息を吐き出す必要性が生まれます。\n\n次のステップへはスワイプ！',
+      'ko':
+          '이제 3초 동안 아주 천천히 숨을 들이마시며 마음과 심장의 속도를 늦춰보세요. 심장 박동이 느려지면 숨을 내쉬고 싶은 욕구가 생깁니다.\n\n다음 단계로 넘어가려면 스와이프하세요!',
+      'ru':
+          'Теперь найдите время, чтобы сделать очень медленный вдох в течение трех медленных секунд, замедляя темп ума и сердца. Когда сердцебиение замедлится, возникает необходимость выдохнуть. \n\nПроведите пальцем для следующего шага!',
+      'uk':
+          'Тепер виділіть час, щоб надзвичайно повільно вдихати протягом трьох секунд, уповільнюючи темп розуму та серця. Коли серцебиття сповільниться, виникне потреба видихнути.\n\nПроведіть пальцем, щоб перейти до наступного кроку!',
+      'zh_Hans': '现在，花三秒钟极慢地吸气，让思绪和心跳也慢下来。当心跳慢下来时，呼气的需要就产生了。\n\n滑动查看下一步！',
+      'zh_Hant': '現在，花三秒鐘極慢地吸氣，讓思緒和心跳也慢下來。當心跳慢下來時，呼氣的需要就產生了。\n\n滑動查看下一步！',
+    },
+    'sa0yjf6u': {
+      'en': 'Step 3',
+      'ar': 'الخطوة 3',
+      'de': 'Schritt 3',
+      'es': 'Paso 3',
+      'fr': 'Étape 3',
+      'it': 'Fase 3',
+      'ja': 'ステップ3',
+      'ko': '3단계',
+      'ru': 'Шаг 3',
+      'uk': 'Крок 3',
+      'zh_Hans': '步骤3',
+      'zh_Hant': '步驟3',
+    },
+    'agulekqm': {
+      'en': 'Breathe Out Slowly for 7 Seconds',
+      'ar': 'الزفير ببطء لمدة 7 ثوان',
+      'de': 'Atme 7 Sekunden lang langsam aus',
+      'es': 'Exhala lentamente durante 7 segundos',
+      'fr': 'Expirez lentement pendant 7 secondes',
+      'it': 'Espira lentamente per 7 secondi',
+      'ja': '7秒間ゆっくりと息を吐き出します',
+      'ko': '7초 동안 천천히 숨을 내쉬세요',
+      'ru': 'Медленно выдыхайте в течение 7 секунд.',
+      'uk': 'Повільно видихайте протягом 7 секунд',
+      'zh_Hans': '缓慢呼气7秒',
+      'zh_Hant': '緩慢呼氣7秒',
+    },
+    '06mg75zg': {
+      'en':
+          'For the final step, extremely slowly release your breath and repeat the steps until satisfied! When you exhale, you should feel a warm feeling go down your back with a rising feeling of uplift. \n\nRefer Back to this Guide for Help on How to Meditate!',
+      'ar':
+          'للخطوة الأخيرة، أطلق أنفاسك ببطء شديد وكرر الخطوات حتى تشعر بالرضا! عند الزفير، ستشعر بدفء يسري في ظهرك مع شعور متصاعد بالرفعة.\n\nارجع إلى هذا الدليل للحصول على مساعدة حول كيفية التأمل!',
+      'de':
+          'Atmen Sie im letzten Schritt ganz langsam aus und wiederholen Sie die Schritte, bis Sie zufrieden sind! Beim Ausatmen sollten Sie ein warmes Gefühl im Rücken spüren, gefolgt von einem aufsteigenden Gefühl der Erhabenheit.\n\nHier finden Sie weitere Informationen zum Meditieren!',
+      'es':
+          'Para el paso final, exhala muy lentamente y repite los pasos hasta que te sientas satisfecho. Al exhalar, deberías sentir una sensación cálida que te recorre la espalda y te eleva.\n\nConsulta esta guía para obtener ayuda sobre cómo meditar.',
+      'fr':
+          'Pour la dernière étape, expirez très lentement et répétez les étapes jusqu\'à satisfaction ! À l\'expiration, vous devriez ressentir une sensation de chaleur dans le dos, accompagnée d\'une sensation d\'élévation.\n\nReportez-vous à ce guide pour plus d\'aide sur la méditation !',
+      'it':
+          'Per l\'ultimo passaggio, rilascia il respiro molto lentamente e ripeti i passaggi fino a quando non sarai soddisfatto! Quando espiri, dovresti sentire una sensazione di calore lungo la schiena, seguita da una crescente sensazione di sollievo.\n\nConsulta questa guida per informazioni su come meditare!',
+      'ja':
+          '最後のステップでは、息をゆっくりと吐き出し、満足するまでこのステップを繰り返します。息を吐くと、背中に温かい感覚が伝わり、高揚感が湧き上がってくるのを感じるはずです。\n\n瞑想の方法についてはこちらのガイドをご覧ください。',
+      'ko':
+          '마지막 단계에서는 아주 천천히 숨을 내쉬고 만족스러울 때까지 반복하세요! 숨을 내쉴 때 따뜻한 느낌이 등을 타고 오르는 듯한 기분을 느껴야 합니다.\n\n명상 방법에 대한 도움말은 이 가이드를 참조하세요!',
+      'ru':
+          'Для последнего шага очень медленно выдохните и повторяйте шаги до тех пор, пока не будете удовлетворены! Когда вы выдыхаете, вы должны почувствовать теплое чувство, спускающееся по вашей спине с растущим чувством подъема. \n\nВернитесь к этому руководству для получения помощи о том, как медитировать!',
+      'uk':
+          'На останньому кроці надзвичайно повільно видихніть і повторюйте кроки, доки не відчуєте задоволення! Коли ви видихаєте, ви повинні відчути тепло, що проходить по спині, з наростаючим відчуттям піднесення.\n\nЗверніться до цього посібника, щоб отримати допомогу щодо медитації!',
+      'zh_Hans':
+          '最后一步，极其缓慢地呼气，重复这些步骤，直到满意为止！呼气时，你应该感到一股暖流顺着背部流淌，并伴有向上提升的感觉。\n\n请参阅本指南，了解如何冥想！',
+      'zh_Hant':
+          '最後一步，極度緩慢地呼氣，重複這些步驟，直到滿意為止！呼氣時，你應該感覺到一股暖流順著背部流淌，並伴隨著向上提升的感覺。\n\n請參閱本指南，了解如何冥想！',
+    },
+    'ep03ohwb': {
+      'en': 'Start Basic Breathing',
+      'ar': 'نهاية البرنامج التعليمي',
+      'de': 'Tutorial beenden',
+      'es': 'Fin del tutorial',
+      'fr': 'Fin du tutoriel',
+      'it': 'Fine del tutorial',
+      'ja': 'チュートリアル終了',
+      'ko': '튜토리얼 종료',
+      'ru': 'Конец урока',
+      'uk': 'Закінчити навчальний посібник',
+      'zh_Hans': '结束教程',
+      'zh_Hant': '結束教程',
+    },
+  },
+  // EnergyScannerHelpComp
+  {
+    'sn832efy': {
+      'en': 'Step 1',
+      'ar': 'الخطوة 1',
+      'de': 'Schritt 1',
+      'es': 'Paso 1',
+      'fr': 'Étape 1',
+      'it': 'Passo 1',
+      'ja': 'ステップ1',
+      'ko': '1단계',
+      'ru': 'Шаг 1',
+      'uk': 'Крок 1',
+      'zh_Hans': '步骤 1',
+      'zh_Hant': '步驟 1',
+    },
+    '5fii6ymy': {
+      'en': 'Enter the Energy Scan',
+      'ar': 'ابحث عن وضعيتك',
+      'de': 'Finden Sie Ihre Haltung',
+      'es': 'Encuentra tu postura',
+      'fr': 'Trouvez votre posture',
+      'it': 'Trova la tua postura',
+      'ja': '自分の姿勢を見つける',
+      'ko': '자세를 찾으세요',
+      'ru': 'Найдите свою осанку',
+      'uk': 'Знайдіть свою поставу',
+      'zh_Hans': '找到你的姿势',
+      'zh_Hant': '找到你的姿勢',
+    },
+    '3cqgkuhm': {
+      'en':
+          'Let Lucille instantly understand how you feel. Use text, voice, or visual input to capture your current emotional state.',
+      'ar':
+          'عندما تجد مكانك الهادئ، اجلس وظهرك مستقيمًا وأسفل ظهرك مسترخيًا. قبل البدء بأي تأمل، من المهم الحفاظ على وضعية الجسم والتركيز على التنفس.\n\nمرر للبدأ!',
+      'de':
+          'Sobald du deinen Ruhepol gefunden hast, setz dich mit geradem Rücken und entspanntem unteren Rücken hin. Bevor du mit der Meditation beginnst, ist die richtige Haltung wichtig, um Atem und Körper zu zentrieren.\n\nZum Starten wischen!',
+      'es':
+          'Una vez que encuentres tu espacio de paz, siéntate con la espalda recta y la zona lumbar relajada. Antes de comenzar la meditación, la postura es importante para centrar la respiración y el cuerpo.\n\n¡Desliza para comenzar!',
+      'fr':
+          'Une fois votre espace de paix trouvé, asseyez-vous, le dos droit et le bas du dos détendu. Avant toute méditation, il est important de bien se tenir pour centrer sa respiration et son corps.\n\nSwipez pour commencer !',
+      'it':
+          'Una volta trovato il tuo spazio di pace, siediti con la schiena dritta e la parte bassa della schiena rilassata. Prima di iniziare qualsiasi meditazione, la postura è importante per centrare il respiro e il corpo.\n\nScorri per iniziare!',
+      'ja':
+          '落ち着いた空間を見つけたら、背筋を伸ばして腰をリラックスさせ、座りましょう。瞑想に入る前に、呼吸と体を集中させる姿勢が大切です。\n\nスワイプしてスタート！',
+      'ko':
+          '평화로운 공간을 찾으면 등을 곧게 펴고 허리를 편안하게 한 채 자리에 앉으세요. 명상에 들어가기 전에는 호흡과 몸의 중심을 잡는 자세가 중요합니다.\n\n스와이프하여 시작하세요!',
+      'ru':
+          'Как только вы найдете свое спокойное место, сядьте, выпрямив спину и расслабив поясницу. Перед тем, как приступить к любой медитации, осанка важна для центрирования дыхания и тела.\n\nПроведите пальцем, чтобы начать!',
+      'uk':
+          'Як тільки ви знайдете своє спокійне місце, сядьте, тримаючи спину прямо, а поперек розслабленим. Перш ніж переходити до будь-якої медитації, важлива постава для зосередження дихання та тіла.\n\nПроведіть пальцем, щоб почати!',
+      'zh_Hans':
+          '找到平静的空间后，请坐下来，保持背部挺直，放松下背部。在开始任何冥想之前，姿势对于集中呼吸和身体至关重要。\n\n滑动即可开始！',
+      'zh_Hant':
+          '找到平靜的空間後，請坐下來，保持背部挺直，放鬆下背部。在開始任何冥想之前，姿勢對於集中呼吸和身體至關重要。\n\n滑動即可開始！',
+    },
+    'ek4a3il8': {
+      'en': 'Step 2',
+      'ar': 'الخطوة 1',
+      'de': 'Schritt 1',
+      'es': 'Paso 1',
+      'fr': 'Étape 1',
+      'it': 'Passo 1',
+      'ja': 'ステップ1',
+      'ko': '1단계',
+      'ru': 'Шаг 1',
+      'uk': 'Крок 1',
+      'zh_Hans': '步骤 1',
+      'zh_Hant': '步驟 1',
+    },
+    'i4eogio1': {
+      'en': 'Your System, Visualized',
+      'ar': 'ابحث عن وضعيتك',
+      'de': 'Finden Sie Ihre Haltung',
+      'es': 'Encuentra tu postura',
+      'fr': 'Trouvez votre posture',
+      'it': 'Trova la tua postura',
+      'ja': '自分の姿勢を見つける',
+      'ko': '자세를 찾으세요',
+      'ru': 'Найдите свою осанку',
+      'uk': 'Знайдіть свою поставу',
+      'zh_Hans': '找到你的姿势',
+      'zh_Hant': '找到你的姿勢',
+    },
+    '2xzfw46t': {
+      'en':
+          'Visualize how your energy flows—highlighting areas of balance, tension, and disconnection across your system.',
+      'ar':
+          'عندما تجد مكانك الهادئ، اجلس وظهرك مستقيمًا وأسفل ظهرك مسترخيًا. قبل البدء بأي تأمل، من المهم الحفاظ على وضعية الجسم والتركيز على التنفس.\n\nمرر للبدأ!',
+      'de':
+          'Sobald du deinen Ruhepol gefunden hast, setz dich mit geradem Rücken und entspanntem unteren Rücken hin. Bevor du mit der Meditation beginnst, ist die richtige Haltung wichtig, um Atem und Körper zu zentrieren.\n\nZum Starten wischen!',
+      'es':
+          'Una vez que encuentres tu espacio de paz, siéntate con la espalda recta y la zona lumbar relajada. Antes de comenzar la meditación, la postura es importante para centrar la respiración y el cuerpo.\n\n¡Desliza para comenzar!',
+      'fr':
+          'Une fois votre espace de paix trouvé, asseyez-vous, le dos droit et le bas du dos détendu. Avant toute méditation, il est important de bien se tenir pour centrer sa respiration et son corps.\n\nSwipez pour commencer !',
+      'it':
+          'Una volta trovato il tuo spazio di pace, siediti con la schiena dritta e la parte bassa della schiena rilassata. Prima di iniziare qualsiasi meditazione, la postura è importante per centrare il respiro e il corpo.\n\nScorri per iniziare!',
+      'ja':
+          '落ち着いた空間を見つけたら、背筋を伸ばして腰をリラックスさせ、座りましょう。瞑想に入る前に、呼吸と体を集中させる姿勢が大切です。\n\nスワイプしてスタート！',
+      'ko':
+          '평화로운 공간을 찾으면 등을 곧게 펴고 허리를 편안하게 한 채 자리에 앉으세요. 명상에 들어가기 전에는 호흡과 몸의 중심을 잡는 자세가 중요합니다.\n\n스와이프하여 시작하세요!',
+      'ru':
+          'Как только вы найдете свое спокойное место, сядьте, выпрямив спину и расслабив поясницу. Перед тем, как приступить к любой медитации, осанка важна для центрирования дыхания и тела.\n\nПроведите пальцем, чтобы начать!',
+      'uk':
+          'Як тільки ви знайдете своє спокійне місце, сядьте, тримаючи спину прямо, а поперек розслабленим. Перш ніж переходити до будь-якої медитації, важлива постава для зосередження дихання та тіла.\n\nПроведіть пальцем, щоб почати!',
+      'zh_Hans':
+          '找到平静的空间后，请坐下来，保持背部挺直，放松下背部。在开始任何冥想之前，姿势对于集中呼吸和身体至关重要。\n\n滑动即可开始！',
+      'zh_Hant':
+          '找到平靜的空間後，請坐下來，保持背部挺直，放鬆下背部。在開始任何冥想之前，姿勢對於集中呼吸和身體至關重要。\n\n滑動即可開始！',
+    },
+    'srjyequj': {
+      'en': 'Step 3',
+      'ar': 'الخطوة 1',
+      'de': 'Schritt 1',
+      'es': 'Paso 1',
+      'fr': 'Étape 1',
+      'it': 'Passo 1',
+      'ja': 'ステップ1',
+      'ko': '1단계',
+      'ru': 'Шаг 1',
+      'uk': 'Крок 1',
+      'zh_Hans': '步骤 1',
+      'zh_Hant': '步驟 1',
+    },
+    'qfl8oc4s': {
+      'en': 'Rebalance From Within',
+      'ar': 'ابحث عن وضعيتك',
+      'de': 'Finden Sie Ihre Haltung',
+      'es': 'Encuentra tu postura',
+      'fr': 'Trouvez votre posture',
+      'it': 'Trova la tua postura',
+      'ja': '自分の姿勢を見つける',
+      'ko': '자세를 찾으세요',
+      'ru': 'Найдите свою осанку',
+      'uk': 'Знайдіть свою поставу',
+      'zh_Hans': '找到你的姿势',
+      'zh_Hant': '找到你的姿勢',
+    },
+    'cfiv0h3b': {
+      'en':
+          'Receive targeted guidance to realign your energy through personalized exercises, habits, and self-care actions.',
+      'ar':
+          'عندما تجد مكانك الهادئ، اجلس وظهرك مستقيمًا وأسفل ظهرك مسترخيًا. قبل البدء بأي تأمل، من المهم الحفاظ على وضعية الجسم والتركيز على التنفس.\n\nمرر للبدأ!',
+      'de':
+          'Sobald du deinen Ruhepol gefunden hast, setz dich mit geradem Rücken und entspanntem unteren Rücken hin. Bevor du mit der Meditation beginnst, ist die richtige Haltung wichtig, um Atem und Körper zu zentrieren.\n\nZum Starten wischen!',
+      'es':
+          'Una vez que encuentres tu espacio de paz, siéntate con la espalda recta y la zona lumbar relajada. Antes de comenzar la meditación, la postura es importante para centrar la respiración y el cuerpo.\n\n¡Desliza para comenzar!',
+      'fr':
+          'Une fois votre espace de paix trouvé, asseyez-vous, le dos droit et le bas du dos détendu. Avant toute méditation, il est important de bien se tenir pour centrer sa respiration et son corps.\n\nSwipez pour commencer !',
+      'it':
+          'Una volta trovato il tuo spazio di pace, siediti con la schiena dritta e la parte bassa della schiena rilassata. Prima di iniziare qualsiasi meditazione, la postura è importante per centrare il respiro e il corpo.\n\nScorri per iniziare!',
+      'ja':
+          '落ち着いた空間を見つけたら、背筋を伸ばして腰をリラックスさせ、座りましょう。瞑想に入る前に、呼吸と体を集中させる姿勢が大切です。\n\nスワイプしてスタート！',
+      'ko':
+          '평화로운 공간을 찾으면 등을 곧게 펴고 허리를 편안하게 한 채 자리에 앉으세요. 명상에 들어가기 전에는 호흡과 몸의 중심을 잡는 자세가 중요합니다.\n\n스와이프하여 시작하세요!',
+      'ru':
+          'Как только вы найдете свое спокойное место, сядьте, выпрямив спину и расслабив поясницу. Перед тем, как приступить к любой медитации, осанка важна для центрирования дыхания и тела.\n\nПроведите пальцем, чтобы начать!',
+      'uk':
+          'Як тільки ви знайдете своє спокійне місце, сядьте, тримаючи спину прямо, а поперек розслабленим. Перш ніж переходити до будь-якої медитації, важлива постава для зосередження дихання та тіла.\n\nПроведіть пальцем, щоб почати!',
+      'zh_Hans':
+          '找到平静的空间后，请坐下来，保持背部挺直，放松下背部。在开始任何冥想之前，姿势对于集中呼吸和身体至关重要。\n\n滑动即可开始！',
+      'zh_Hant':
+          '找到平靜的空間後，請坐下來，保持背部挺直，放鬆下背部。在開始任何冥想之前，姿勢對於集中呼吸和身體至關重要。\n\n滑動即可開始！',
+    },
+    'nbsrfu9l': {
+      'en': 'Start Energy Scanner',
+      'ar': 'نهاية البرنامج التعليمي',
+      'de': 'Tutorial beenden',
+      'es': 'Fin del tutorial',
+      'fr': 'Fin du tutoriel',
+      'it': 'Fine del tutorial',
+      'ja': 'チュートリアル終了',
+      'ko': '튜토리얼 종료',
+      'ru': 'Конец урока',
+      'uk': 'Закінчити навчальний посібник',
+      'zh_Hans': '结束教程',
+      'zh_Hant': '結束教程',
+    },
+  },
+  // IntroWalkthrough1Version5
+  {
+    '9spha3fw': {
+      'en': 'Step 1',
+      'ar': 'الخطوة 1',
+      'de': 'Schritt 1',
+      'es': 'Paso 1',
+      'fr': 'Étape 1',
+      'it': 'Passo 1',
+      'ja': 'ステップ1',
+      'ko': '1단계',
+      'ru': 'Шаг 1',
+      'uk': 'Крок 1',
+      'zh_Hans': '步骤 1',
+      'zh_Hant': '步驟 1',
+    },
+    'x19vs710': {
+      'en': 'Welcome to Escape',
+      'ar': 'ابحث عن وضعيتك',
+      'de': 'Finden Sie Ihre Haltung',
+      'es': 'Encuentra tu postura',
+      'fr': 'Trouvez votre posture',
+      'it': 'Trova la tua postura',
+      'ja': '自分の姿勢を見つける',
+      'ko': '자세를 찾으세요',
+      'ru': 'Найдите свою осанку',
+      'uk': 'Знайдіть свою поставу',
+      'zh_Hans': '找到你的姿势',
+      'zh_Hant': '找到你的姿勢',
+    },
+    'oggyy35b': {
+      'en':
+          'Your personal space for self-care, guided by Lucille. Everything adapts to how you feel—right when you need it.',
+      'ar':
+          'عندما تجد مكانك الهادئ، اجلس وظهرك مستقيمًا وأسفل ظهرك مسترخيًا. قبل البدء بأي تأمل، من المهم الحفاظ على وضعية الجسم والتركيز على التنفس.\n\nمرر للبدأ!',
+      'de':
+          'Sobald du deinen Ruhepol gefunden hast, setz dich mit geradem Rücken und entspanntem unteren Rücken hin. Bevor du mit der Meditation beginnst, ist die richtige Haltung wichtig, um Atem und Körper zu zentrieren.\n\nZum Starten wischen!',
+      'es':
+          'Una vez que encuentres tu espacio de paz, siéntate con la espalda recta y la zona lumbar relajada. Antes de comenzar la meditación, la postura es importante para centrar la respiración y el cuerpo.\n\n¡Desliza para comenzar!',
+      'fr':
+          'Une fois votre espace de paix trouvé, asseyez-vous, le dos droit et le bas du dos détendu. Avant toute méditation, il est important de bien se tenir pour centrer sa respiration et son corps.\n\nSwipez pour commencer !',
+      'it':
+          'Una volta trovato il tuo spazio di pace, siediti con la schiena dritta e la parte bassa della schiena rilassata. Prima di iniziare qualsiasi meditazione, la postura è importante per centrare il respiro e il corpo.\n\nScorri per iniziare!',
+      'ja':
+          '落ち着いた空間を見つけたら、背筋を伸ばして腰をリラックスさせ、座りましょう。瞑想に入る前に、呼吸と体を集中させる姿勢が大切です。\n\nスワイプしてスタート！',
+      'ko':
+          '평화로운 공간을 찾으면 등을 곧게 펴고 허리를 편안하게 한 채 자리에 앉으세요. 명상에 들어가기 전에는 호흡과 몸의 중심을 잡는 자세가 중요합니다.\n\n스와이프하여 시작하세요!',
+      'ru':
+          'Как только вы найдете свое спокойное место, сядьте, выпрямив спину и расслабив поясницу. Перед тем, как приступить к любой медитации, осанка важна для центрирования дыхания и тела.\n\nПроведите пальцем, чтобы начать!',
+      'uk':
+          'Як тільки ви знайдете своє спокійне місце, сядьте, тримаючи спину прямо, а поперек розслабленим. Перш ніж переходити до будь-якої медитації, важлива постава для зосередження дихання та тіла.\n\nПроведіть пальцем, щоб почати!',
+      'zh_Hans':
+          '找到平静的空间后，请坐下来，保持背部挺直，放松下背部。在开始任何冥想之前，姿势对于集中呼吸和身体至关重要。\n\n滑动即可开始！',
+      'zh_Hant':
+          '找到平靜的空間後，請坐下來，保持背部挺直，放鬆下背部。在開始任何冥想之前，姿勢對於集中呼吸和身體至關重要。\n\n滑動即可開始！',
+    },
+  },
+  // IntroWalkthrough2Version5
+  {
+    'nz64pse1': {
+      'en': 'Step 2',
+      'ar': 'الخطوة 1',
+      'de': 'Schritt 1',
+      'es': 'Paso 1',
+      'fr': 'Étape 1',
+      'it': 'Passo 1',
+      'ja': 'ステップ1',
+      'ko': '1단계',
+      'ru': 'Шаг 1',
+      'uk': 'Крок 1',
+      'zh_Hans': '步骤 1',
+      'zh_Hant': '步驟 1',
+    },
+    'joxcrjjr': {
+      'en': 'Start With Your Mood',
+      'ar': 'ابحث عن وضعيتك',
+      'de': 'Finden Sie Ihre Haltung',
+      'es': 'Encuentra tu postura',
+      'fr': 'Trouvez votre posture',
+      'it': 'Trova la tua postura',
+      'ja': '自分の姿勢を見つける',
+      'ko': '자세를 찾으세요',
+      'ru': 'Найдите свою осанку',
+      'uk': 'Знайдіть свою поставу',
+      'zh_Hans': '找到你的姿势',
+      'zh_Hant': '找到你的姿勢',
+    },
+    'v8d6d9ea': {
+      'en':
+          'Tap “Scan Your Mood” to let Lucille understand how you’re feeling and guide your next step.',
+      'ar':
+          'عندما تجد مكانك الهادئ، اجلس وظهرك مستقيمًا وأسفل ظهرك مسترخيًا. قبل البدء بأي تأمل، من المهم الحفاظ على وضعية الجسم والتركيز على التنفس.\n\nمرر للبدأ!',
+      'de':
+          'Sobald du deinen Ruhepol gefunden hast, setz dich mit geradem Rücken und entspanntem unteren Rücken hin. Bevor du mit der Meditation beginnst, ist die richtige Haltung wichtig, um Atem und Körper zu zentrieren.\n\nZum Starten wischen!',
+      'es':
+          'Una vez que encuentres tu espacio de paz, siéntate con la espalda recta y la zona lumbar relajada. Antes de comenzar la meditación, la postura es importante para centrar la respiración y el cuerpo.\n\n¡Desliza para comenzar!',
+      'fr':
+          'Une fois votre espace de paix trouvé, asseyez-vous, le dos droit et le bas du dos détendu. Avant toute méditation, il est important de bien se tenir pour centrer sa respiration et son corps.\n\nSwipez pour commencer !',
+      'it':
+          'Una volta trovato il tuo spazio di pace, siediti con la schiena dritta e la parte bassa della schiena rilassata. Prima di iniziare qualsiasi meditazione, la postura è importante per centrare il respiro e il corpo.\n\nScorri per iniziare!',
+      'ja':
+          '落ち着いた空間を見つけたら、背筋を伸ばして腰をリラックスさせ、座りましょう。瞑想に入る前に、呼吸と体を集中させる姿勢が大切です。\n\nスワイプしてスタート！',
+      'ko':
+          '평화로운 공간을 찾으면 등을 곧게 펴고 허리를 편안하게 한 채 자리에 앉으세요. 명상에 들어가기 전에는 호흡과 몸의 중심을 잡는 자세가 중요합니다.\n\n스와이프하여 시작하세요!',
+      'ru':
+          'Как только вы найдете свое спокойное место, сядьте, выпрямив спину и расслабив поясницу. Перед тем, как приступить к любой медитации, осанка важна для центрирования дыхания и тела.\n\nПроведите пальцем, чтобы начать!',
+      'uk':
+          'Як тільки ви знайдете своє спокійне місце, сядьте, тримаючи спину прямо, а поперек розслабленим. Перш ніж переходити до будь-якої медитації, важлива постава для зосередження дихання та тіла.\n\nПроведіть пальцем, щоб почати!',
+      'zh_Hans':
+          '找到平静的空间后，请坐下来，保持背部挺直，放松下背部。在开始任何冥想之前，姿势对于集中呼吸和身体至关重要。\n\n滑动即可开始！',
+      'zh_Hant':
+          '找到平靜的空間後，請坐下來，保持背部挺直，放鬆下背部。在開始任何冥想之前，姿勢對於集中呼吸和身體至關重要。\n\n滑動即可開始！',
+    },
+  },
+  // IntroWalkthrough3Version5
+  {
+    'bxc60mbt': {
+      'en': 'Step 3',
+      'ar': 'الخطوة 1',
+      'de': 'Schritt 1',
+      'es': 'Paso 1',
+      'fr': 'Étape 1',
+      'it': 'Passo 1',
+      'ja': 'ステップ1',
+      'ko': '1단계',
+      'ru': 'Шаг 1',
+      'uk': 'Крок 1',
+      'zh_Hans': '步骤 1',
+      'zh_Hant': '步驟 1',
+    },
+    '9ftx9i0k': {
+      'en': 'Explore Your Paths',
+      'ar': 'ابحث عن وضعيتك',
+      'de': 'Finden Sie Ihre Haltung',
+      'es': 'Encuentra tu postura',
+      'fr': 'Trouvez votre posture',
+      'it': 'Trova la tua postura',
+      'ja': '自分の姿勢を見つける',
+      'ko': '자세를 찾으세요',
+      'ru': 'Найдите свою осанку',
+      'uk': 'Знайдіть свою поставу',
+      'zh_Hans': '找到你的姿势',
+      'zh_Hant': '找到你的姿勢',
+    },
+    '83j3515g': {
+      'en':
+          'Choose how you want to reset—reflect, move, listen, or explore deeper experiences.',
+      'ar':
+          'عندما تجد مكانك الهادئ، اجلس وظهرك مستقيمًا وأسفل ظهرك مسترخيًا. قبل البدء بأي تأمل، من المهم الحفاظ على وضعية الجسم والتركيز على التنفس.\n\nمرر للبدأ!',
+      'de':
+          'Sobald du deinen Ruhepol gefunden hast, setz dich mit geradem Rücken und entspanntem unteren Rücken hin. Bevor du mit der Meditation beginnst, ist die richtige Haltung wichtig, um Atem und Körper zu zentrieren.\n\nZum Starten wischen!',
+      'es':
+          'Una vez que encuentres tu espacio de paz, siéntate con la espalda recta y la zona lumbar relajada. Antes de comenzar la meditación, la postura es importante para centrar la respiración y el cuerpo.\n\n¡Desliza para comenzar!',
+      'fr':
+          'Une fois votre espace de paix trouvé, asseyez-vous, le dos droit et le bas du dos détendu. Avant toute méditation, il est important de bien se tenir pour centrer sa respiration et son corps.\n\nSwipez pour commencer !',
+      'it':
+          'Una volta trovato il tuo spazio di pace, siediti con la schiena dritta e la parte bassa della schiena rilassata. Prima di iniziare qualsiasi meditazione, la postura è importante per centrare il respiro e il corpo.\n\nScorri per iniziare!',
+      'ja':
+          '落ち着いた空間を見つけたら、背筋を伸ばして腰をリラックスさせ、座りましょう。瞑想に入る前に、呼吸と体を集中させる姿勢が大切です。\n\nスワイプしてスタート！',
+      'ko':
+          '평화로운 공간을 찾으면 등을 곧게 펴고 허리를 편안하게 한 채 자리에 앉으세요. 명상에 들어가기 전에는 호흡과 몸의 중심을 잡는 자세가 중요합니다.\n\n스와이프하여 시작하세요!',
+      'ru':
+          'Как только вы найдете свое спокойное место, сядьте, выпрямив спину и расслабив поясницу. Перед тем, как приступить к любой медитации, осанка важна для центрирования дыхания и тела.\n\nПроведите пальцем, чтобы начать!',
+      'uk':
+          'Як тільки ви знайдете своє спокійне місце, сядьте, тримаючи спину прямо, а поперек розслабленим. Перш ніж переходити до будь-якої медитації, важлива постава для зосередження дихання та тіла.\n\nПроведіть пальцем, щоб почати!',
+      'zh_Hans':
+          '找到平静的空间后，请坐下来，保持背部挺直，放松下背部。在开始任何冥想之前，姿势对于集中呼吸和身体至关重要。\n\n滑动即可开始！',
+      'zh_Hant':
+          '找到平靜的空間後，請坐下來，保持背部挺直，放鬆下背部。在開始任何冥想之前，姿勢對於集中呼吸和身體至關重要。\n\n滑動即可開始！',
+    },
+  },
+  // IntroWalkthrough4Version5
+  {
+    '0b4g38mt': {
+      'en': 'Step 4',
+      'ar': 'الخطوة 1',
+      'de': 'Schritt 1',
+      'es': 'Paso 1',
+      'fr': 'Étape 1',
+      'it': 'Passo 1',
+      'ja': 'ステップ1',
+      'ko': '1단계',
+      'ru': 'Шаг 1',
+      'uk': 'Крок 1',
+      'zh_Hans': '步骤 1',
+      'zh_Hant': '步驟 1',
+    },
+    'b0jnicgr': {
+      'en': 'Follow What You Need',
+      'ar': 'ابحث عن وضعيتك',
+      'de': 'Finden Sie Ihre Haltung',
+      'es': 'Encuentra tu postura',
+      'fr': 'Trouvez votre posture',
+      'it': 'Trova la tua postura',
+      'ja': '自分の姿勢を見つける',
+      'ko': '자세를 찾으세요',
+      'ru': 'Найдите свою осанку',
+      'uk': 'Знайдіть свою поставу',
+      'zh_Hans': '找到你的姿势',
+      'zh_Hant': '找到你的姿勢',
+    },
+    'kebz33os': {
+      'en':
+          'Start a personalized session designed for your current state—no guesswork required.',
+      'ar':
+          'عندما تجد مكانك الهادئ، اجلس وظهرك مستقيمًا وأسفل ظهرك مسترخيًا. قبل البدء بأي تأمل، من المهم الحفاظ على وضعية الجسم والتركيز على التنفس.\n\nمرر للبدأ!',
+      'de':
+          'Sobald du deinen Ruhepol gefunden hast, setz dich mit geradem Rücken und entspanntem unteren Rücken hin. Bevor du mit der Meditation beginnst, ist die richtige Haltung wichtig, um Atem und Körper zu zentrieren.\n\nZum Starten wischen!',
+      'es':
+          'Una vez que encuentres tu espacio de paz, siéntate con la espalda recta y la zona lumbar relajada. Antes de comenzar la meditación, la postura es importante para centrar la respiración y el cuerpo.\n\n¡Desliza para comenzar!',
+      'fr':
+          'Une fois votre espace de paix trouvé, asseyez-vous, le dos droit et le bas du dos détendu. Avant toute méditation, il est important de bien se tenir pour centrer sa respiration et son corps.\n\nSwipez pour commencer !',
+      'it':
+          'Una volta trovato il tuo spazio di pace, siediti con la schiena dritta e la parte bassa della schiena rilassata. Prima di iniziare qualsiasi meditazione, la postura è importante per centrare il respiro e il corpo.\n\nScorri per iniziare!',
+      'ja':
+          '落ち着いた空間を見つけたら、背筋を伸ばして腰をリラックスさせ、座りましょう。瞑想に入る前に、呼吸と体を集中させる姿勢が大切です。\n\nスワイプしてスタート！',
+      'ko':
+          '평화로운 공간을 찾으면 등을 곧게 펴고 허리를 편안하게 한 채 자리에 앉으세요. 명상에 들어가기 전에는 호흡과 몸의 중심을 잡는 자세가 중요합니다.\n\n스와이프하여 시작하세요!',
+      'ru':
+          'Как только вы найдете свое спокойное место, сядьте, выпрямив спину и расслабив поясницу. Перед тем, как приступить к любой медитации, осанка важна для центрирования дыхания и тела.\n\nПроведите пальцем, чтобы начать!',
+      'uk':
+          'Як тільки ви знайдете своє спокійне місце, сядьте, тримаючи спину прямо, а поперек розслабленим. Перш ніж переходити до будь-якої медитації, важлива постава для зосередження дихання та тіла.\n\nПроведіть пальцем, щоб почати!',
+      'zh_Hans':
+          '找到平静的空间后，请坐下来，保持背部挺直，放松下背部。在开始任何冥想之前，姿势对于集中呼吸和身体至关重要。\n\n滑动即可开始！',
+      'zh_Hant':
+          '找到平靜的空間後，請坐下來，保持背部挺直，放鬆下背部。在開始任何冥想之前，姿勢對於集中呼吸和身體至關重要。\n\n滑動即可開始！',
+    },
+  },
+  // IntroWalkthrough5Version5
+  {
+    'fvpnj30g': {
+      'en': 'Step 5',
+      'ar': 'الخطوة 1',
+      'de': 'Schritt 1',
+      'es': 'Paso 1',
+      'fr': 'Étape 1',
+      'it': 'Passo 1',
+      'ja': 'ステップ1',
+      'ko': '1단계',
+      'ru': 'Шаг 1',
+      'uk': 'Крок 1',
+      'zh_Hans': '步骤 1',
+      'zh_Hant': '步驟 1',
+    },
+    '721knxfp': {
+      'en': 'Quick Relief, Anytime',
+      'ar': 'ابحث عن وضعيتك',
+      'de': 'Finden Sie Ihre Haltung',
+      'es': 'Encuentra tu postura',
+      'fr': 'Trouvez votre posture',
+      'it': 'Trova la tua postura',
+      'ja': '自分の姿勢を見つける',
+      'ko': '자세를 찾으세요',
+      'ru': 'Найдите свою осанку',
+      'uk': 'Знайдіть свою поставу',
+      'zh_Hans': '找到你的姿势',
+      'zh_Hant': '找到你的姿勢',
+    },
+    '2xe8o0ab': {
+      'en':
+          'Jump into simple exercises to calm your mind, reduce stress, and regain focus in minutes.',
+      'ar':
+          'عندما تجد مكانك الهادئ، اجلس وظهرك مستقيمًا وأسفل ظهرك مسترخيًا. قبل البدء بأي تأمل، من المهم الحفاظ على وضعية الجسم والتركيز على التنفس.\n\nمرر للبدأ!',
+      'de':
+          'Sobald du deinen Ruhepol gefunden hast, setz dich mit geradem Rücken und entspanntem unteren Rücken hin. Bevor du mit der Meditation beginnst, ist die richtige Haltung wichtig, um Atem und Körper zu zentrieren.\n\nZum Starten wischen!',
+      'es':
+          'Una vez que encuentres tu espacio de paz, siéntate con la espalda recta y la zona lumbar relajada. Antes de comenzar la meditación, la postura es importante para centrar la respiración y el cuerpo.\n\n¡Desliza para comenzar!',
+      'fr':
+          'Une fois votre espace de paix trouvé, asseyez-vous, le dos droit et le bas du dos détendu. Avant toute méditation, il est important de bien se tenir pour centrer sa respiration et son corps.\n\nSwipez pour commencer !',
+      'it':
+          'Una volta trovato il tuo spazio di pace, siediti con la schiena dritta e la parte bassa della schiena rilassata. Prima di iniziare qualsiasi meditazione, la postura è importante per centrare il respiro e il corpo.\n\nScorri per iniziare!',
+      'ja':
+          '落ち着いた空間を見つけたら、背筋を伸ばして腰をリラックスさせ、座りましょう。瞑想に入る前に、呼吸と体を集中させる姿勢が大切です。\n\nスワイプしてスタート！',
+      'ko':
+          '평화로운 공간을 찾으면 등을 곧게 펴고 허리를 편안하게 한 채 자리에 앉으세요. 명상에 들어가기 전에는 호흡과 몸의 중심을 잡는 자세가 중요합니다.\n\n스와이프하여 시작하세요!',
+      'ru':
+          'Как только вы найдете свое спокойное место, сядьте, выпрямив спину и расслабив поясницу. Перед тем, как приступить к любой медитации, осанка важна для центрирования дыхания и тела.\n\nПроведите пальцем, чтобы начать!',
+      'uk':
+          'Як тільки ви знайдете своє спокійне місце, сядьте, тримаючи спину прямо, а поперек розслабленим. Перш ніж переходити до будь-якої медитації, важлива постава для зосередження дихання та тіла.\n\nПроведіть пальцем, щоб почати!',
+      'zh_Hans':
+          '找到平静的空间后，请坐下来，保持背部挺直，放松下背部。在开始任何冥想之前，姿势对于集中呼吸和身体至关重要。\n\n滑动即可开始！',
+      'zh_Hant':
+          '找到平靜的空間後，請坐下來，保持背部挺直，放鬆下背部。在開始任何冥想之前，姿勢對於集中呼吸和身體至關重要。\n\n滑動即可開始！',
+    },
+  },
+  // IntroWalkthrough6Version5
+  {
+    'c1gy4km4': {
+      'en': 'Step 6',
+      'ar': 'الخطوة 1',
+      'de': 'Schritt 1',
+      'es': 'Paso 1',
+      'fr': 'Étape 1',
+      'it': 'Passo 1',
+      'ja': 'ステップ1',
+      'ko': '1단계',
+      'ru': 'Шаг 1',
+      'uk': 'Крок 1',
+      'zh_Hans': '步骤 1',
+      'zh_Hant': '步驟 1',
+    },
+    'b1x4czxp': {
+      'en': 'Track Your Growth',
+      'ar': 'ابحث عن وضعيتك',
+      'de': 'Finden Sie Ihre Haltung',
+      'es': 'Encuentra tu postura',
+      'fr': 'Trouvez votre posture',
+      'it': 'Trova la tua postura',
+      'ja': '自分の姿勢を見つける',
+      'ko': '자세를 찾으세요',
+      'ru': 'Найдите свою осанку',
+      'uk': 'Знайдіть свою поставу',
+      'zh_Hans': '找到你的姿势',
+      'zh_Hant': '找到你的姿勢',
+    },
+    'f5xrdij2': {
+      'en':
+          'See your recent activity and build consistency over time—every step forward counts.',
+      'ar':
+          'عندما تجد مكانك الهادئ، اجلس وظهرك مستقيمًا وأسفل ظهرك مسترخيًا. قبل البدء بأي تأمل، من المهم الحفاظ على وضعية الجسم والتركيز على التنفس.\n\nمرر للبدأ!',
+      'de':
+          'Sobald du deinen Ruhepol gefunden hast, setz dich mit geradem Rücken und entspanntem unteren Rücken hin. Bevor du mit der Meditation beginnst, ist die richtige Haltung wichtig, um Atem und Körper zu zentrieren.\n\nZum Starten wischen!',
+      'es':
+          'Una vez que encuentres tu espacio de paz, siéntate con la espalda recta y la zona lumbar relajada. Antes de comenzar la meditación, la postura es importante para centrar la respiración y el cuerpo.\n\n¡Desliza para comenzar!',
+      'fr':
+          'Une fois votre espace de paix trouvé, asseyez-vous, le dos droit et le bas du dos détendu. Avant toute méditation, il est important de bien se tenir pour centrer sa respiration et son corps.\n\nSwipez pour commencer !',
+      'it':
+          'Una volta trovato il tuo spazio di pace, siediti con la schiena dritta e la parte bassa della schiena rilassata. Prima di iniziare qualsiasi meditazione, la postura è importante per centrare il respiro e il corpo.\n\nScorri per iniziare!',
+      'ja':
+          '落ち着いた空間を見つけたら、背筋を伸ばして腰をリラックスさせ、座りましょう。瞑想に入る前に、呼吸と体を集中させる姿勢が大切です。\n\nスワイプしてスタート！',
+      'ko':
+          '평화로운 공간을 찾으면 등을 곧게 펴고 허리를 편안하게 한 채 자리에 앉으세요. 명상에 들어가기 전에는 호흡과 몸의 중심을 잡는 자세가 중요합니다.\n\n스와이프하여 시작하세요!',
+      'ru':
+          'Как только вы найдете свое спокойное место, сядьте, выпрямив спину и расслабив поясницу. Перед тем, как приступить к любой медитации, осанка важна для центрирования дыхания и тела.\n\nПроведите пальцем, чтобы начать!',
+      'uk':
+          'Як тільки ви знайдете своє спокійне місце, сядьте, тримаючи спину прямо, а поперек розслабленим. Перш ніж переходити до будь-якої медитації, важлива постава для зосередження дихання та тіла.\n\nПроведіть пальцем, щоб почати!',
+      'zh_Hans':
+          '找到平静的空间后，请坐下来，保持背部挺直，放松下背部。在开始任何冥想之前，姿势对于集中呼吸和身体至关重要。\n\n滑动即可开始！',
+      'zh_Hant':
+          '找到平靜的空間後，請坐下來，保持背部挺直，放鬆下背部。在開始任何冥想之前，姿勢對於集中呼吸和身體至關重要。\n\n滑動即可開始！',
+    },
+  },
+  // MoodScannerComponent
+  {
+    'l3vvlxz7': {
+      'en': 'Mood Scanner',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+    'f48e7v7k': {
+      'en': 'Take a breath and let\'s check in with your mood today.',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+    'wmei1laa': {
+      'en': 'Simulated mode',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+    'wkaq0koy': {
+      'en': 'Scan Mood',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+  },
+  // ScanMoodLaodingComponent
+  {
+    'ercs3ya9': {
+      'en': 'Scanning your mood...',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+    'lptl7e56': {
+      'en': 'Analyzing emotional signals',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+  },
+  // MoodResultComponent
+  {
+    '0u4tm8u8': {
+      'en': 'Your Mood',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+    'jffh9p1g': {
+      'en': 'Scan complete',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+    'feuhc7z4': {
+      'en': 'MOOD TODAY',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+    'iti28a2p': {
+      'en': 'Focused',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+    'eh1wn0fb': {
+      'en': 'Energy Level',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+    '5mksotcm': {
+      'en': 'Moderate',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+    'dlqia1av': {
+      'en': 'Stress Level',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+    '7w9h8oig': {
+      'en': 'Moderate',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+    '9uyk2s5n': {
+      'en': 'RECOMMENDED FOR YOU',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+    'j33atj6h': {
+      'en': 'Breathing Exercise',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+    'x3a7ut2x': {
+      'en': '5 min guided breathwork',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+    '7tfl8ijm': {
+      'en': 'Scan Again',
+      'ar': '',
+      'de': '',
+      'es': '',
+      'fr': '',
+      'it': '',
+      'ja': '',
+      'ko': '',
+      'ru': '',
+      'uk': '',
+      'zh_Hans': '',
+      'zh_Hant': '',
+    },
+    'lkz6f17s': {
+      'en': 'Home',
       'ar': '',
       'de': '',
       'es': '',

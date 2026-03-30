@@ -1,5 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
+import '/backend/backend.dart';
 import '/components/help_comp_widget.dart';
 import '/components/side_nav_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
@@ -81,7 +82,12 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
         userID: currentUserUid,
       );
 
-      if (FFAppState().isFinishedIntroWalkthrough) {
+      if (FFAppState().hasSeenOnboarding == false) {
+        logFirebaseEvent('HomeVersion5_start_walkthrough');
+        safeSetState(() =>
+            _model.introWalkthroughController = createPageWalkthrough(context));
+        _model.introWalkthroughController?.show(context: context);
+      } else {
         logFirebaseEvent('HomeVersion5_show_snack_bar');
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
@@ -97,22 +103,32 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
             backgroundColor: FlutterFlowTheme.of(context).secondary,
           ),
         );
-      } else {
-        logFirebaseEvent('HomeVersion5_start_walkthrough');
-        safeSetState(() =>
-            _model.introWalkthroughController = createPageWalkthrough(context));
-        _model.introWalkthroughController?.show(context: context);
-        logFirebaseEvent('HomeVersion5_update_app_state');
-        FFAppState().isFinishedIntroWalkthrough = true;
-        FFAppState().update(() {});
       }
 
       logFirebaseEvent('HomeVersion5_update_app_state');
-      FFAppState().chatSessionId =
-          TheoryOfMindSessionManagementGroup.createIDCall.sessionID(
-        (_model.createSession?.jsonBody ?? ''),
-      )!;
+      FFAppState().isFinishedIntroWalkthrough = true;
+      FFAppState().chatSessionId = FFAppState().chatSessionId;
       FFAppState().update(() {});
+      logFirebaseEvent('HomeVersion5_backend_call');
+
+      await currentUserReference!.update(createUsersRecordData(
+        hasSeenWalkthrough: false,
+      ));
+      logFirebaseEvent('HomeVersion5_show_snack_bar');
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            'Please hit the help button to see the walkthrough again!',
+            style: TextStyle(
+              fontFamily: 'WorkSans',
+              color: FlutterFlowTheme.of(context).primaryText,
+              fontSize: 14.0,
+            ),
+          ),
+          duration: Duration(milliseconds: 4000),
+          backgroundColor: FlutterFlowTheme.of(context).secondary,
+        ),
+      );
     });
 
     animationsMap.addAll({
@@ -317,7 +333,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                     flex: 1,
                     child: Container(
                       width: double.infinity,
-                      height: 815.48,
+                      height: MediaQuery.sizeOf(context).height * 5.0,
                       decoration: BoxDecoration(
                         boxShadow: [
                           BoxShadow(
@@ -373,7 +389,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                           AlignmentDirectional(0.0, -1.0),
                                       child: Container(
                                         width: double.infinity,
-                                        height: 899.2,
+                                        height: 1268.82,
                                         decoration: BoxDecoration(
                                           gradient: LinearGradient(
                                             colors: [
@@ -397,7 +413,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                             ),
                                             child: Container(
                                               width: 100.0,
-                                              height: 124.0,
+                                              height: 381.6,
                                               decoration: BoxDecoration(
                                                 gradient: LinearGradient(
                                                   colors: [
@@ -577,9 +593,15 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                             .contain,
                                                                       ),
                                                                     ),
-                                                                  ).animateOnPageLoad(
-                                                                      animationsMap[
-                                                                          'imageOnPageLoadAnimation2']!),
+                                                                  )
+                                                                      .addWalkthrough(
+                                                                        image3wdxkp0v,
+                                                                        _model
+                                                                            .introWalkthroughController,
+                                                                      )
+                                                                      .animateOnPageLoad(
+                                                                          animationsMap[
+                                                                              'imageOnPageLoadAnimation2']!),
                                                                   Row(
                                                                     mainAxisSize:
                                                                         MainAxisSize
@@ -608,7 +630,8 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                           shape:
                                                                               BoxShape.circle,
                                                                         ),
-                                                                        child: InkWell(
+                                                                        child:
+                                                                            InkWell(
                                                                           splashColor:
                                                                               Colors.transparent,
                                                                           focusColor:
@@ -666,12 +689,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                             animate:
                                                                                 true,
                                                                           ),
-                                                                        )
-                                                                            .addWalkthrough(
-                                                                              lottieAnimationOiibrsns,
-                                                                              _model.introWalkthroughController,
-                                                                            )
-                                                                            .animateOnPageLoad(animationsMap['lottieAnimationOnPageLoadAnimation']!),
+                                                                        ).animateOnPageLoad(animationsMap['lottieAnimationOnPageLoadAnimation']!),
                                                                       ),
                                                                     ].divide(SizedBox(
                                                                         width:
@@ -896,10 +914,6 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                           ].divide(SizedBox(width: 8.0)),
                                                                         ),
                                                                       ],
-                                                                    ).addWalkthrough(
-                                                                      rowF58gzr5e,
-                                                                      _model
-                                                                          .introWalkthroughController,
                                                                     ),
                                                                   ),
                                                                 ),
@@ -1252,6 +1266,9 @@ Further ... */
                                                                                       ),
                                                                                     ),
                                                                                   ],
+                                                                                ).addWalkthrough(
+                                                                                  rowCrlyk2v5,
+                                                                                  _model.introWalkthroughController,
                                                                                 ),
                                                                               ),
                                                                             ].divide(SizedBox(height: 8.0)),
@@ -1460,10 +1477,6 @@ Further ... */
                                                                               ),
                                                                             ),
                                                                           ),
-                                                                        ).addWalkthrough(
-                                                                          containerQxoadm15,
-                                                                          _model
-                                                                              .introWalkthroughController,
                                                                         ),
                                                                       ),
                                                                     ),
@@ -1562,10 +1575,6 @@ Further ... */
                                                                               ),
                                                                             ),
                                                                           ),
-                                                                        ).addWalkthrough(
-                                                                          container42rk8lms,
-                                                                          _model
-                                                                              .introWalkthroughController,
                                                                         ),
                                                                       ),
                                                                     ),
@@ -1757,6 +1766,10 @@ Further ... */
                                                                       width:
                                                                           12.0)),
                                                                 ),
+                                                              ).addWalkthrough(
+                                                                rowWy6kwc96,
+                                                                _model
+                                                                    .introWalkthroughController,
                                                               ),
                                                             ),
                                                             Padding(
@@ -2378,6 +2391,10 @@ Further ... */
                                                                           16.0)),
                                                                 ),
                                                               ),
+                                                            ).addWalkthrough(
+                                                              container54qb5m7w,
+                                                              _model
+                                                                  .introWalkthroughController,
                                                             ),
                                                             Hero(
                                                               tag: 'logo',
