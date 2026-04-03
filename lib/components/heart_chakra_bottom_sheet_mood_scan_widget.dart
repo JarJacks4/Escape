@@ -107,10 +107,10 @@ class _HeartChakraBottomSheetMoodScanWidgetState
         decoration: BoxDecoration(
           color: Color(0xF30F1A3A),
           borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(24.0),
-            bottomRight: Radius.circular(24.0),
             topLeft: Radius.circular(24.0),
             topRight: Radius.circular(24.0),
+            bottomLeft: Radius.circular(24.0),
+            bottomRight: Radius.circular(24.0),
           ),
         ),
         child: Stack(

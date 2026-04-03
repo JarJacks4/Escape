@@ -1,4 +1,3 @@
-import '/components/mood_slider_component_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
 import 'mood_scan_version5_widget.dart' show MoodScanVersion5Widget;
@@ -32,19 +31,12 @@ class MoodScanVersion5Model extends FlutterFlowModel<MoodScanVersion5Widget> {
 
   // Stores action output result for [AI Agent - Send Message to LucilleMoodAnalyzerAgent] action in Button widget.
   String? aIMoodAnalyzeAction;
-  // Model for MoodSliderComponent component.
-  late MoodSliderComponentModel moodSliderComponentModel;
   AudioPlayer? soundPlayer2;
   AudioPlayer? soundPlayer3;
 
   @override
-  void initState(BuildContext context) {
-    moodSliderComponentModel =
-        createModel(context, () => MoodSliderComponentModel());
-  }
+  void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    moodSliderComponentModel.dispose();
-  }
+  void dispose() {}
 }

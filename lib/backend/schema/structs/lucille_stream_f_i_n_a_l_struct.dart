@@ -279,7 +279,7 @@ Map<String, dynamic> getLucilleStreamFINALFirestoreData(
   final firestoreData = mapToFirestore(lucilleStreamFINAL.toMap());
 
   // Add any Firestore field values
-  lucilleStreamFINAL.firestoreUtilData.fieldValues
+  mapToFirestore(lucilleStreamFINAL.firestoreUtilData.fieldValues)
       .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;

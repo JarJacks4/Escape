@@ -7,6 +7,7 @@ import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'deep_sleep_goal_model.dart';
 export 'deep_sleep_goal_model.dart';
 
@@ -222,14 +223,16 @@ class _DeepSleepGoalWidgetState extends State<DeepSleepGoalWidget> {
                                 backgroundColor: Colors.transparent,
                                 alignment: AlignmentDirectional(0.0, 0.0)
                                     .resolve(Directionality.of(context)),
-                                child: GestureDetector(
-                                  onTap: () {
-                                    FocusScope.of(dialogContext).unfocus();
-                                    FocusManager.instance.primaryFocus
-                                        ?.unfocus();
-                                  },
-                                  child: ConfettiPageIntermediateCompWidget(
-                                    exerciseTitle: 'Deep Breathing',
+                                child: WebViewAware(
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      FocusScope.of(dialogContext).unfocus();
+                                      FocusManager.instance.primaryFocus
+                                          ?.unfocus();
+                                    },
+                                    child: ConfettiPageIntermediateCompWidget(
+                                      exerciseTitle: 'Deep Breathing',
+                                    ),
                                   ),
                                 ),
                               );

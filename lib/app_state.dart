@@ -143,6 +143,14 @@ class FFAppState extends ChangeNotifier {
           await secureStorage.getBool('ff_hasSeenOnboarding') ??
               _hasSeenOnboarding;
     });
+    await _safeInitAsync(() async {
+      _isEnergyScore =
+          await secureStorage.getBool('ff_isEnergyScore') ?? _isEnergyScore;
+    });
+    await _safeInitAsync(() async {
+      _energyScore =
+          await secureStorage.getInt('ff_energyScore') ?? _energyScore;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -1999,6 +2007,35 @@ class FFAppState extends ChangeNotifier {
 
   void deleteHasSeenOnboarding() {
     secureStorage.delete(key: 'ff_hasSeenOnboarding');
+  }
+
+  bool _isWellnessCheckInStressedDecision = false;
+  bool get isWellnessCheckInStressedDecision =>
+      _isWellnessCheckInStressedDecision;
+  set isWellnessCheckInStressedDecision(bool value) {
+    _isWellnessCheckInStressedDecision = value;
+  }
+
+  bool _isEnergyScore = false;
+  bool get isEnergyScore => _isEnergyScore;
+  set isEnergyScore(bool value) {
+    _isEnergyScore = value;
+    secureStorage.setBool('ff_isEnergyScore', value);
+  }
+
+  void deleteIsEnergyScore() {
+    secureStorage.delete(key: 'ff_isEnergyScore');
+  }
+
+  int _energyScore = 0;
+  int get energyScore => _energyScore;
+  set energyScore(int value) {
+    _energyScore = value;
+    secureStorage.setInt('ff_energyScore', value);
+  }
+
+  void deleteEnergyScore() {
+    secureStorage.delete(key: 'ff_energyScore');
   }
 
   final _lucilleSuggestedExercisesManager =

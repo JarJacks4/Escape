@@ -51,8 +51,8 @@ class _MoodSaverWidgetState extends State<MoodSaverWidget> {
           decoration: BoxDecoration(
             image: DecorationImage(
               fit: BoxFit.cover,
-              image: Image.network(
-                '',
+              image: Image.asset(
+                'assets/images/2d9f7a444427843a600a8391d24faf38.gif',
               ).image,
             ),
             gradient: LinearGradient(

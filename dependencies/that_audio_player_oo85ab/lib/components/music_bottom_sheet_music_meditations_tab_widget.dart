@@ -84,8 +84,6 @@ class _MusicBottomSheetMusicMeditationsTabWidgetState
             ).image,
           ),
           borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(0.0),
-            bottomRight: Radius.circular(0.0),
             topLeft: Radius.circular(15.0),
             topRight: Radius.circular(15.0),
           ),

@@ -51,9 +51,15 @@ class _BeginSessionPageWidgetState extends State<BeginSessionPageWidget> {
           children: [
             Container(
               width: double.infinity,
-              height: 852.0,
+              height: 872.3,
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).secondaryBackground,
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: Image.asset(
+                    'assets/images/fdc4eed9423862348bcc86e35c0c78d0.gif',
+                  ).image,
+                ),
               ),
               child: wrapWithModel(
                 model: _model.beginSessionModel,

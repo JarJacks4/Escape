@@ -125,7 +125,8 @@ Map<String, dynamic> getXGroqFirestoreData(
   final firestoreData = mapToFirestore(xGroq.toMap());
 
   // Add any Firestore field values
-  xGroq.firestoreUtilData.fieldValues.forEach((k, v) => firestoreData[k] = v);
+  mapToFirestore(xGroq.firestoreUtilData.fieldValues)
+      .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;
 }

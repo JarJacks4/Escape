@@ -24,6 +24,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'lucille_soundscape_suggestion_model.dart';
 export 'lucille_soundscape_suggestion_model.dart';
 
@@ -96,8 +97,6 @@ class _LucilleSoundscapeSuggestionWidgetState
           ).image,
         ),
         borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(0.0),
-          bottomRight: Radius.circular(0.0),
           topLeft: Radius.circular(24.0),
           topRight: Radius.circular(24.0),
         ),
@@ -105,8 +104,6 @@ class _LucilleSoundscapeSuggestionWidgetState
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(0.0),
-            bottomRight: Radius.circular(0.0),
             topLeft: Radius.circular(24.0),
             topRight: Radius.circular(24.0),
           ),
@@ -871,9 +868,11 @@ class _LucilleSoundscapeSuggestionWidgetState
                           backgroundColor: Colors.transparent,
                           context: context,
                           builder: (context) {
-                            return Padding(
-                              padding: MediaQuery.viewInsetsOf(context),
-                              child: ComingSoonBodyCompWidget(),
+                            return WebViewAware(
+                              child: Padding(
+                                padding: MediaQuery.viewInsetsOf(context),
+                                child: ComingSoonBodyCompWidget(),
+                              ),
                             );
                           },
                         ).then((value) => safeSetState(() {}));

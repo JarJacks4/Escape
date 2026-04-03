@@ -288,7 +288,7 @@ Map<String, dynamic> getSlideActionDataTypeFirestoreData(
   final firestoreData = mapToFirestore(slideActionDataType.toMap());
 
   // Add any Firestore field values
-  slideActionDataType.firestoreUtilData.fieldValues
+  mapToFirestore(slideActionDataType.firestoreUtilData.fieldValues)
       .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;

@@ -176,7 +176,8 @@ Map<String, dynamic> getMaxresFirestoreData(
   final firestoreData = mapToFirestore(maxres.toMap());
 
   // Add any Firestore field values
-  maxres.firestoreUtilData.fieldValues.forEach((k, v) => firestoreData[k] = v);
+  mapToFirestore(maxres.firestoreUtilData.fieldValues)
+      .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;
 }

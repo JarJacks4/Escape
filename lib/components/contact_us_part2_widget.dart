@@ -56,8 +56,6 @@ class _ContactUsPart2WidgetState extends State<ContactUsPart2Widget> {
             end: AlignmentDirectional(0, 1.0),
           ),
           borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(0.0),
-            bottomRight: Radius.circular(0.0),
             topLeft: Radius.circular(24.0),
             topRight: Radius.circular(24.0),
           ),

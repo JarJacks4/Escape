@@ -187,7 +187,7 @@ Map<String, dynamic> getActionResponseFirestoreData(
   final firestoreData = mapToFirestore(actionResponse.toMap());
 
   // Add any Firestore field values
-  actionResponse.firestoreUtilData.fieldValues
+  mapToFirestore(actionResponse.firestoreUtilData.fieldValues)
       .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;

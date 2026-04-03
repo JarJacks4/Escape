@@ -216,12 +216,7 @@ class _SplashScreenVersion5WidgetState extends State<SplashScreenVersion5Widget>
                         begin: AlignmentDirectional(0.0, -1.0),
                         end: AlignmentDirectional(0, 1.0),
                       ),
-                      borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(0.0),
-                        bottomRight: Radius.circular(0.0),
-                        topLeft: Radius.circular(0.0),
-                        topRight: Radius.circular(0.0),
-                      ),
+                      borderRadius: BorderRadius.only(),
                     ),
                   ).animateOnPageLoad(
                       animationsMap['containerOnPageLoadAnimation']!),

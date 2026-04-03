@@ -151,7 +151,7 @@ Map<String, dynamic> getResourceIdFirestoreData(
   final firestoreData = mapToFirestore(resourceId.toMap());
 
   // Add any Firestore field values
-  resourceId.firestoreUtilData.fieldValues
+  mapToFirestore(resourceId.firestoreUtilData.fieldValues)
       .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;

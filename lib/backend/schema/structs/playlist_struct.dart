@@ -204,7 +204,7 @@ Map<String, dynamic> getPlaylistFirestoreData(
   final firestoreData = mapToFirestore(playlist.toMap());
 
   // Add any Firestore field values
-  playlist.firestoreUtilData.fieldValues
+  mapToFirestore(playlist.firestoreUtilData.fieldValues)
       .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;

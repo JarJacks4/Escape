@@ -271,7 +271,7 @@ Map<String, dynamic> getSoundscapesFirestoreData(
   final firestoreData = mapToFirestore(soundscapes.toMap());
 
   // Add any Firestore field values
-  soundscapes.firestoreUtilData.fieldValues
+  mapToFirestore(soundscapes.firestoreUtilData.fieldValues)
       .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;

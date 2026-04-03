@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:lottie/lottie.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'body_page_model.dart';
 export 'body_page_model.dart';
 
@@ -117,9 +118,11 @@ class _BodyPageWidgetState extends State<BodyPageWidget> {
                             backgroundColor: Colors.transparent,
                             context: context,
                             builder: (context) {
-                              return Padding(
-                                padding: MediaQuery.viewInsetsOf(context),
-                                child: HelpCompWidget(),
+                              return WebViewAware(
+                                child: Padding(
+                                  padding: MediaQuery.viewInsetsOf(context),
+                                  child: HelpCompWidget(),
+                                ),
                               );
                             },
                           ).then((value) => safeSetState(() {}));
@@ -195,9 +198,11 @@ class _BodyPageWidgetState extends State<BodyPageWidget> {
                           backgroundColor: Colors.transparent,
                           context: context,
                           builder: (context) {
-                            return Padding(
-                              padding: MediaQuery.viewInsetsOf(context),
-                              child: ComingSoonBodyCompWidget(),
+                            return WebViewAware(
+                              child: Padding(
+                                padding: MediaQuery.viewInsetsOf(context),
+                                child: ComingSoonBodyCompWidget(),
+                              ),
                             );
                           },
                         ).then((value) => safeSetState(() {}));
@@ -302,9 +307,11 @@ class _BodyPageWidgetState extends State<BodyPageWidget> {
                           backgroundColor: Colors.transparent,
                           context: context,
                           builder: (context) {
-                            return Padding(
-                              padding: MediaQuery.viewInsetsOf(context),
-                              child: ComingSoonBodyCompWidget(),
+                            return WebViewAware(
+                              child: Padding(
+                                padding: MediaQuery.viewInsetsOf(context),
+                                child: ComingSoonBodyCompWidget(),
+                              ),
                             );
                           },
                         ).then((value) => safeSetState(() {}));
@@ -414,9 +421,11 @@ class _BodyPageWidgetState extends State<BodyPageWidget> {
                           backgroundColor: Colors.transparent,
                           context: context,
                           builder: (context) {
-                            return Padding(
-                              padding: MediaQuery.viewInsetsOf(context),
-                              child: ComingSoonBodyCompWidget(),
+                            return WebViewAware(
+                              child: Padding(
+                                padding: MediaQuery.viewInsetsOf(context),
+                                child: ComingSoonBodyCompWidget(),
+                              ),
                             );
                           },
                         ).then((value) => safeSetState(() {}));
@@ -521,9 +530,11 @@ class _BodyPageWidgetState extends State<BodyPageWidget> {
                           backgroundColor: Colors.transparent,
                           context: context,
                           builder: (context) {
-                            return Padding(
-                              padding: MediaQuery.viewInsetsOf(context),
-                              child: ComingSoonBodyCompWidget(),
+                            return WebViewAware(
+                              child: Padding(
+                                padding: MediaQuery.viewInsetsOf(context),
+                                child: ComingSoonBodyCompWidget(),
+                              ),
                             );
                           },
                         ).then((value) => safeSetState(() {}));
@@ -650,9 +661,11 @@ class _BodyPageWidgetState extends State<BodyPageWidget> {
                           backgroundColor: Colors.transparent,
                           context: context,
                           builder: (context) {
-                            return Padding(
-                              padding: MediaQuery.viewInsetsOf(context),
-                              child: ComingSoonBodyCompWidget(),
+                            return WebViewAware(
+                              child: Padding(
+                                padding: MediaQuery.viewInsetsOf(context),
+                                child: ComingSoonBodyCompWidget(),
+                              ),
                             );
                           },
                         ).then((value) => safeSetState(() {}));
@@ -770,9 +783,11 @@ class _BodyPageWidgetState extends State<BodyPageWidget> {
                           backgroundColor: Colors.transparent,
                           context: context,
                           builder: (context) {
-                            return Padding(
-                              padding: MediaQuery.viewInsetsOf(context),
-                              child: ComingSoonBodyCompWidget(),
+                            return WebViewAware(
+                              child: Padding(
+                                padding: MediaQuery.viewInsetsOf(context),
+                                child: ComingSoonBodyCompWidget(),
+                              ),
                             );
                           },
                         ).then((value) => safeSetState(() {}));
@@ -890,9 +905,11 @@ class _BodyPageWidgetState extends State<BodyPageWidget> {
                           backgroundColor: Colors.transparent,
                           context: context,
                           builder: (context) {
-                            return Padding(
-                              padding: MediaQuery.viewInsetsOf(context),
-                              child: ComingSoonBodyCompWidget(),
+                            return WebViewAware(
+                              child: Padding(
+                                padding: MediaQuery.viewInsetsOf(context),
+                                child: ComingSoonBodyCompWidget(),
+                              ),
                             );
                           },
                         ).then((value) => safeSetState(() {}));
@@ -1010,9 +1027,11 @@ class _BodyPageWidgetState extends State<BodyPageWidget> {
                           backgroundColor: Colors.transparent,
                           context: context,
                           builder: (context) {
-                            return Padding(
-                              padding: MediaQuery.viewInsetsOf(context),
-                              child: ComingSoonBodyCompWidget(),
+                            return WebViewAware(
+                              child: Padding(
+                                padding: MediaQuery.viewInsetsOf(context),
+                                child: ComingSoonBodyCompWidget(),
+                              ),
                             );
                           },
                         ).then((value) => safeSetState(() {}));

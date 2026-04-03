@@ -67,8 +67,8 @@ class _LucilleBody1WidgetState extends State<LucilleBody1Widget> {
                         ),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(24.0),
-                          child: Image.network(
-                            'https://images.unsplash.com/photo-1643063692232-3e899da961c3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzQzNzg1NzZ8&ixlib=rb-4.1.0&q=80&w=1080',
+                          child: Image.asset(
+                            'assets/images/922f59d7455e56aacdec50df5571bcd744c166a0_(1)_(1)_(2).gif',
                             width: 140.0,
                             height: 180.0,
                             fit: BoxFit.cover,

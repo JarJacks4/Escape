@@ -157,16 +157,12 @@ class _IntroWalkthrough5Version5WidgetState
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(50.0),
                   bottomRight: Radius.circular(50.0),
-                  topLeft: Radius.circular(0.0),
-                  topRight: Radius.circular(0.0),
                 ),
               ),
               child: ClipRRect(
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(50.0),
                   bottomRight: Radius.circular(50.0),
-                  topLeft: Radius.circular(0.0),
-                  topRight: Radius.circular(0.0),
                 ),
                 child: BackdropFilter(
                   filter: ImageFilter.blur(

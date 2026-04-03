@@ -140,5 +140,17 @@ service cloud.firestore {
       allow write: if request.auth.uid == resource.data.userId;
       allow delete: if request.auth.uid == resource.data.userId;
     }
+
+    match /Users/{parent}/Check-In/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if true;
+    }
+
+    match /{path=**}/Check-In/{document} {
+      allow read: if true;
+    }
+
   }
 }

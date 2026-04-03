@@ -10,6 +10,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:lottie/lottie.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'reset_version5_copy_model.dart';
 export 'reset_version5_copy_model.dart';
 
@@ -160,7 +161,9 @@ class _ResetVersion5CopyWidgetState extends State<ResetVersion5CopyWidget>
                                   backgroundColor: Colors.transparent,
                                   alignment: AlignmentDirectional(0.0, 0.0)
                                       .resolve(Directionality.of(context)),
-                                  child: ResetDialogueCompWidget(),
+                                  child: WebViewAware(
+                                    child: ResetDialogueCompWidget(),
+                                  ),
                                 );
                               },
                             );

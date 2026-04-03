@@ -127,4 +127,18 @@ abstract class FFAppConstants {
     'Shoulder Pose - 3 Set'
   ];
   static const int monthlyGoal = 7000;
+  static const List<String> StressLevels = [
+    'Not stressed at all',
+    'Slightly Stressed',
+    'Moderately Stressed',
+    'Very Stressed',
+    'Overwhelmed'
+  ];
+  static const List<String> SupportLevels = [
+    'Yes, I have strong support',
+    'I have some support',
+    'Limited Support',
+    'Very Little Support',
+    'No Support System'
+  ];
 }

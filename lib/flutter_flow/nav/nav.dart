@@ -18,12 +18,12 @@ import 'package:cupertino_time_picker_hiuzb7/index.dart'
 import 'package:tiktokfeed_wz8en7/index.dart' as $tiktokfeed_wz8en7;
 import 'package:confetti_modualo_library_b75kfy/index.dart'
     as $confetti_modualo_library_b75kfy;
-import 'package:that_slideable_list_item_mrpo3s/index.dart'
-    as $that_slideable_list_item_mrpo3s;
 import 'package:utility_functions_library_8g4bud/index.dart'
     as $utility_functions_library_8g4bud;
 import 'package:that_audio_player_oo85ab/index.dart'
     as $that_audio_player_oo85ab;
+import 'package:that_slideable_list_item_mrpo3s/index.dart'
+    as $that_slideable_list_item_mrpo3s;
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
@@ -105,11 +105,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
     homePageWidgetPath: 'homePage1215',
   );
 
-  $that_slideable_list_item_mrpo3s.initializeRoutes(
-    homePageWidgetName: 'that_slideable_list_item_mrpo3s.HomePage',
-    homePageWidgetPath: 'homePage4',
-  );
-
   $utility_functions_library_8g4bud.initializeRoutes(
     testPageWidgetName: 'utility_functions_library_8g4bud.TestPage',
     testPageWidgetPath: 'testUtilityPage',
@@ -117,7 +112,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
 
   $that_audio_player_oo85ab.initializeRoutes(
     homePageWidgetName: 'that_audio_player_oo85ab.HomePage',
-    homePageWidgetPath: 'homePage',
+    homePageWidgetPath: 'homePage_that-audio-player-oo85ab',
     playerPageFocusWidgetName: 'that_audio_player_oo85ab.PlayerPageFocus',
     playerPageFocusWidgetPath: 'playerPageFocus',
     playerPageSleepWidgetName: 'that_audio_player_oo85ab.PlayerPageSleep',
@@ -134,6 +129,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
     sampleWidgetPath: 'sample',
     playerPageLucilleWidgetName: 'that_audio_player_oo85ab.PlayerPageLucille',
     playerPageLucilleWidgetPath: 'playerPageLucille',
+  );
+
+  $that_slideable_list_item_mrpo3s.initializeRoutes(
+    homePageWidgetName: 'that_slideable_list_item_mrpo3s.HomePage',
+    homePageWidgetPath: 'homePage4',
   );
 
   return GoRouter(
@@ -364,16 +364,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             builder: (context, params) => SettingsWidget(),
           ),
           FFRoute(
-            name: MeditationReorderWidget.routeName,
-            path: MeditationReorderWidget.routePath,
-            builder: (context, params) => MeditationReorderWidget(
-              tabIndex: params.getParam(
-                'tabIndex',
-                ParamType.int,
-              ),
-            ),
-          ),
-          FFRoute(
             name: BodyReorderWidget.routeName,
             path: BodyReorderWidget.routePath,
             builder: (context, params) => BodyReorderWidget(
@@ -594,24 +584,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
                       page: ConnectionCommunityStartPageVersion5Widget(),
                     )),
           FFRoute(
-            name: TestPage1Widget.routeName,
-            path: TestPage1Widget.routePath,
-            builder: (context, params) => TestPage1Widget(),
-          ),
-          FFRoute(
             name: EnergyScanVersion5Widget.routeName,
             path: EnergyScanVersion5Widget.routePath,
             builder: (context, params) => EnergyScanVersion5Widget(),
-          ),
-          FFRoute(
-            name: SampleBlankWidget.routeName,
-            path: SampleBlankWidget.routePath,
-            builder: (context, params) => SampleBlankWidget(),
-          ),
-          FFRoute(
-            name: SamppleWidget.routeName,
-            path: SamppleWidget.routePath,
-            builder: (context, params) => SamppleWidget(),
           ),
           FFRoute(
             name: ProfileVersion5Widget.routeName,
@@ -890,6 +865,26 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             builder: (context, params) => MoodResultPageWidget(),
           ),
           FFRoute(
+            name: WebViewSampleWidget.routeName,
+            path: WebViewSampleWidget.routePath,
+            builder: (context, params) => WebViewSampleWidget(),
+          ),
+          FFRoute(
+            name: Sample2Widget.routeName,
+            path: Sample2Widget.routePath,
+            builder: (context, params) => Sample2Widget(),
+          ),
+          FFRoute(
+            name: PlanetWidget.routeName,
+            path: PlanetWidget.routePath,
+            builder: (context, params) => PlanetWidget(),
+          ),
+          FFRoute(
+            name: HomePageWidget.routeName,
+            path: HomePageWidget.routePath,
+            builder: (context, params) => HomePageWidget(),
+          ),
+          FFRoute(
             name: $cupertino_time_picker_hiuzb7.HomePageWidget.routeName,
             path: $cupertino_time_picker_hiuzb7.HomePageWidget.routePath,
             builder: (context, params) =>
@@ -924,12 +919,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             path: $confetti_modualo_library_b75kfy.HomePageWidget.routePath,
             builder: (context, params) =>
                 $confetti_modualo_library_b75kfy.HomePageWidget(),
-          ),
-          FFRoute(
-            name: $that_slideable_list_item_mrpo3s.HomePageWidget.routeName,
-            path: $that_slideable_list_item_mrpo3s.HomePageWidget.routePath,
-            builder: (context, params) =>
-                $that_slideable_list_item_mrpo3s.HomePageWidget(),
           ),
           FFRoute(
             name: $utility_functions_library_8g4bud.TestPageWidget.routeName,
@@ -1024,6 +1013,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
                 ParamType.String,
               ),
             ),
+          ),
+          FFRoute(
+            name: $that_slideable_list_item_mrpo3s.HomePageWidget.routeName,
+            path: $that_slideable_list_item_mrpo3s.HomePageWidget.routePath,
+            builder: (context, params) =>
+                $that_slideable_list_item_mrpo3s.HomePageWidget(),
           )
         ].map((r) => r.toRoute(appStateNotifier)).toList(),
       ),
@@ -1112,9 +1107,9 @@ extension _GoRouterStateExtensions on GoRouterState {
       '__transition_info__cupertino_time_picker_hiuzb7',
       '__transition_info__tiktokfeed_wz8en7',
       '__transition_info__confetti_modualo_library_b75kfy',
-      '__transition_info__that_slideable_list_item_mrpo3s',
       '__transition_info__utility_functions_library_8g4bud',
-      '__transition_info__that_audio_player_oo85ab'
+      '__transition_info__that_audio_player_oo85ab',
+      '__transition_info__that_slideable_list_item_mrpo3s'
     ];
     for (final key in possibleKeys) {
       if (extraMap.containsKey(key)) {

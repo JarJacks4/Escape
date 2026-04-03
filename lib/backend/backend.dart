@@ -20,6 +20,7 @@ import 'schema/user_moods_record.dart';
 import 'schema/user_moods_main_record.dart';
 import 'schema/ritual_spark_journal_record.dart';
 import 'schema/user_agent_state_record.dart';
+import 'schema/check_in_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart' hide Order;
@@ -43,6 +44,7 @@ export 'schema/user_moods_record.dart';
 export 'schema/user_moods_main_record.dart';
 export 'schema/ritual_spark_journal_record.dart';
 export 'schema/user_agent_state_record.dart';
+export 'schema/check_in_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -618,6 +620,46 @@ Future<List<UserAgentStateRecord>> queryUserAgentStateRecordOnce({
     queryCollectionOnce(
       UserAgentStateRecord.collection,
       UserAgentStateRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query CheckInRecords (as a Stream and as a Future).
+Future<int> queryCheckInRecordCount({
+  DocumentReference? parent,
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      CheckInRecord.collection(parent),
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<CheckInRecord>> queryCheckInRecord({
+  DocumentReference? parent,
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      CheckInRecord.collection(parent),
+      CheckInRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<CheckInRecord>> queryCheckInRecordOnce({
+  DocumentReference? parent,
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      CheckInRecord.collection(parent),
+      CheckInRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,

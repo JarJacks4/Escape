@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/walkthroughs/intro_walkthrough.dart';
 import 'dart:ui';
+import '/actions/actions.dart' as action_blocks;
 import '/index.dart';
 import 'package:confetti_modualo_library_b75kfy/app_state.dart'
     as confetti_modualo_library_b75kfy_app_state;
@@ -28,6 +29,7 @@ import 'package:just_audio/just_audio.dart';
 import 'package:lottie/lottie.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'home_version5_model.dart';
 export 'home_version5_model.dart';
 
@@ -73,8 +75,37 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
           .then((_) => _model.soundPlayer1!.play());
 
       logFirebaseEvent('HomeVersion5_backend_call');
-      _model.createSession =
-          await TheoryOfMindSessionManagementGroup.createIDCall.call();
+      _model.usersCompleteProfile4 =
+          await TheoryOfMindOnboardingGroup.userCompleteProfileCall.call(
+        userID: currentUserUid,
+      );
+
+      if (FFAppState().chatSessionId != '') {
+        logFirebaseEvent('HomeVersion5_show_snack_bar');
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              'Session ID Set!',
+              style: TextStyle(
+                color: FlutterFlowTheme.of(context).primaryText,
+              ),
+            ),
+            duration: Duration(milliseconds: 4000),
+            backgroundColor: FlutterFlowTheme.of(context).secondary,
+          ),
+        );
+      } else {
+        logFirebaseEvent('HomeVersion5_backend_call');
+        _model.createSession =
+            await TheoryOfMindSessionManagementGroup.createIDCall.call();
+
+        logFirebaseEvent('HomeVersion5_update_app_state');
+        FFAppState().chatSessionId =
+            TheoryOfMindSessionManagementGroup.createIDCall.sessionID(
+          (_model.createSession?.jsonBody ?? ''),
+        )!;
+        FFAppState().update(() {});
+      }
 
       logFirebaseEvent('HomeVersion5_backend_call');
       _model.usersCompleteProfile =
@@ -82,6 +113,11 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
         userID: currentUserUid,
       );
 
+      logFirebaseEvent('HomeVersion5_action_block');
+      await action_blocks.annualReviews(context);
+      safeSetState(() {});
+      logFirebaseEvent('HomeVersion5_action_block');
+      await action_blocks.selfCareCheckIn(context);
       if (FFAppState().hasSeenOnboarding == false) {
         logFirebaseEvent('HomeVersion5_start_walkthrough');
         safeSetState(() =>
@@ -107,7 +143,6 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
 
       logFirebaseEvent('HomeVersion5_update_app_state');
       FFAppState().isFinishedIntroWalkthrough = true;
-      FFAppState().chatSessionId = FFAppState().chatSessionId;
       FFAppState().update(() {});
       logFirebaseEvent('HomeVersion5_backend_call');
 
@@ -315,10 +350,12 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
           width: MediaQuery.sizeOf(context).width * 0.7,
           child: Drawer(
             elevation: 16.0,
-            child: wrapWithModel(
-              model: _model.sideNavModel,
-              updateCallback: () => safeSetState(() {}),
-              child: SideNavWidget(),
+            child: WebViewAware(
+              child: wrapWithModel(
+                model: _model.sideNavModel,
+                updateCallback: () => safeSetState(() {}),
+                child: SideNavWidget(),
+              ),
             ),
           ),
         ),
@@ -547,14 +584,16 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                               context,
                                                                           builder:
                                                                               (context) {
-                                                                            return GestureDetector(
-                                                                              onTap: () {
-                                                                                FocusScope.of(context).unfocus();
-                                                                                FocusManager.instance.primaryFocus?.unfocus();
-                                                                              },
-                                                                              child: Padding(
-                                                                                padding: MediaQuery.viewInsetsOf(context),
-                                                                                child: SideNavWidget(),
+                                                                            return WebViewAware(
+                                                                              child: GestureDetector(
+                                                                                onTap: () {
+                                                                                  FocusScope.of(context).unfocus();
+                                                                                  FocusManager.instance.primaryFocus?.unfocus();
+                                                                                },
+                                                                                child: Padding(
+                                                                                  padding: MediaQuery.viewInsetsOf(context),
+                                                                                  child: SideNavWidget(),
+                                                                                ),
                                                                               ),
                                                                             );
                                                                           },
@@ -661,14 +700,16 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                               backgroundColor: Colors.transparent,
                                                                               context: context,
                                                                               builder: (context) {
-                                                                                return GestureDetector(
-                                                                                  onTap: () {
-                                                                                    FocusScope.of(context).unfocus();
-                                                                                    FocusManager.instance.primaryFocus?.unfocus();
-                                                                                  },
-                                                                                  child: Padding(
-                                                                                    padding: MediaQuery.viewInsetsOf(context),
-                                                                                    child: HelpCompWidget(),
+                                                                                return WebViewAware(
+                                                                                  child: GestureDetector(
+                                                                                    onTap: () {
+                                                                                      FocusScope.of(context).unfocus();
+                                                                                      FocusManager.instance.primaryFocus?.unfocus();
+                                                                                    },
+                                                                                    child: Padding(
+                                                                                      padding: MediaQuery.viewInsetsOf(context),
+                                                                                      child: HelpCompWidget(),
+                                                                                    ),
                                                                                   ),
                                                                                 );
                                                                               },

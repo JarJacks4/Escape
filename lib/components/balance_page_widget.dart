@@ -4,6 +4,7 @@ import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:percent_indicator/percent_indicator.dart';
 import 'balance_page_model.dart';
 export 'balance_page_model.dart';
 
@@ -77,34 +78,18 @@ class _BalancePageWidgetState extends State<BalancePageWidget> {
                   Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      Expanded(
-                        child: Container(
-                          width: double.infinity,
-                          height: 8.0,
-                          decoration: BoxDecoration(
-                            color: Color(0xFF1E2D3D),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          child: Align(
-                            alignment: AlignmentDirectional(-1.0, 0.0),
-                            child: Container(
-                              width: MediaQuery.sizeOf(context).width * 0.39,
-                              height: 8.0,
-                              decoration: BoxDecoration(
-                                gradient: LinearGradient(
-                                  colors: [
-                                    Color(0xFF9490EC),
-                                    Color(0xFF4FC3F7),
-                                    Color(0xFF4FC3F7)
-                                  ],
-                                  stops: [0.5, 1.0, 1.0],
-                                  begin: AlignmentDirectional(0.03, -1.0),
-                                  end: AlignmentDirectional(-0.03, 1.0),
-                                ),
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
-                            ),
-                          ),
+                      Align(
+                        alignment: AlignmentDirectional(0.0, 0.0),
+                        child: LinearPercentIndicator(
+                          percent: 0.5,
+                          width: 300.0,
+                          lineHeight: 12.0,
+                          animation: true,
+                          animateFromLastPercent: true,
+                          progressColor: Color(0xFF8B81FD),
+                          backgroundColor: Color(0x9C39519F),
+                          barRadius: Radius.circular(10.0),
+                          padding: EdgeInsets.zero,
                         ),
                       ),
                     ],

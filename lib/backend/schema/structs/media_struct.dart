@@ -242,7 +242,8 @@ Map<String, dynamic> getMediaFirestoreData(
   final firestoreData = mapToFirestore(media.toMap());
 
   // Add any Firestore field values
-  media.firestoreUtilData.fieldValues.forEach((k, v) => firestoreData[k] = v);
+  mapToFirestore(media.firestoreUtilData.fieldValues)
+      .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;
 }

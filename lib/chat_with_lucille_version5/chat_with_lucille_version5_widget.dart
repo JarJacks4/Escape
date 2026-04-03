@@ -5,7 +5,6 @@ import '/backend/schema/enums/enums.dart';
 import '/backend/schema/structs/index.dart';
 import '/components/empty_chats_widget.dart';
 import '/components/side_nav_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_audio_player.dart';
 import '/flutter_flow/flutter_flow_button_tabbar.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -15,6 +14,7 @@ import '/lucille_g_p_t_comp/writing_indicator/writing_indicator_widget.dart';
 import 'dart:convert';
 import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
+import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/permissions_util.dart';
 import 'package:confetti_modualo_library_b75kfy/app_state.dart'
     as confetti_modualo_library_b75kfy_app_state;
@@ -29,10 +29,10 @@ import 'package:ff_commons/api_requests/api_streaming.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'package:record/record.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'chat_with_lucille_version5_model.dart';
 export 'chat_with_lucille_version5_model.dart';
 
@@ -53,8 +53,6 @@ class _ChatWithLucilleVersion5WidgetState
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
-  final animationsMap = <String, AnimationInfo>{};
-
   @override
   void initState() {
     super.initState();
@@ -70,42 +68,6 @@ class _ChatWithLucilleVersion5WidgetState
 
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
-
-    animationsMap.addAll({
-      'richTextOnActionTriggerAnimation': AnimationInfo(
-        trigger: AnimationTrigger.onActionTrigger,
-        applyInitialState: true,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 220.ms),
-          FadeEffect(
-            curve: Curves.easeIn,
-            delay: 220.0.ms,
-            duration: 380.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-        ],
-      ),
-      'richTextOnPageLoadAnimation': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        applyInitialState: true,
-        effectsBuilder: () => [
-          FadeEffect(
-            curve: Curves.easeIn,
-            delay: 220.0.ms,
-            duration: 1090.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-        ],
-      ),
-    });
-    setupAnimations(
-      animationsMap.values.where((anim) =>
-          anim.trigger == AnimationTrigger.onActionTrigger ||
-          !anim.applyInitialState),
-      this,
-    );
   }
 
   @override
@@ -236,16 +198,18 @@ class _ChatWithLucilleVersion5WidgetState
                                     enableDrag: false,
                                     context: context,
                                     builder: (context) {
-                                      return GestureDetector(
-                                        onTap: () {
-                                          FocusScope.of(context).unfocus();
-                                          FocusManager.instance.primaryFocus
-                                              ?.unfocus();
-                                        },
-                                        child: Padding(
-                                          padding:
-                                              MediaQuery.viewInsetsOf(context),
-                                          child: SideNavWidget(),
+                                      return WebViewAware(
+                                        child: GestureDetector(
+                                          onTap: () {
+                                            FocusScope.of(context).unfocus();
+                                            FocusManager.instance.primaryFocus
+                                                ?.unfocus();
+                                          },
+                                          child: Padding(
+                                            padding: MediaQuery.viewInsetsOf(
+                                                context),
+                                            child: SideNavWidget(),
+                                          ),
                                         ),
                                       );
                                     },
@@ -810,10 +774,9 @@ class _ChatWithLucilleVersion5WidgetState
                                                                                                             decoration: BoxDecoration(
                                                                                                               color: FlutterFlowTheme.of(context).secondary,
                                                                                                               borderRadius: BorderRadius.only(
-                                                                                                                bottomLeft: Radius.circular(0.0),
-                                                                                                                bottomRight: Radius.circular(12.0),
                                                                                                                 topLeft: Radius.circular(12.0),
                                                                                                                 topRight: Radius.circular(12.0),
+                                                                                                                bottomRight: Radius.circular(12.0),
                                                                                                               ),
                                                                                                               border: Border.all(
                                                                                                                 color: FlutterFlowTheme.of(context).primary,
@@ -945,10 +908,9 @@ class _ChatWithLucilleVersion5WidgetState
                                                                                                       decoration: BoxDecoration(
                                                                                                         color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                                         borderRadius: BorderRadius.only(
-                                                                                                          bottomLeft: Radius.circular(12.0),
-                                                                                                          bottomRight: Radius.circular(0.0),
                                                                                                           topLeft: Radius.circular(12.0),
                                                                                                           topRight: Radius.circular(12.0),
+                                                                                                          bottomLeft: Radius.circular(12.0),
                                                                                                         ),
                                                                                                         border: Border.all(
                                                                                                           color: FlutterFlowTheme.of(context).alternate,
@@ -963,26 +925,18 @@ class _ChatWithLucilleVersion5WidgetState
                                                                                                             mainAxisSize: MainAxisSize.min,
                                                                                                             crossAxisAlignment: CrossAxisAlignment.start,
                                                                                                             children: [
-                                                                                                              RichText(
-                                                                                                                textScaler: MediaQuery.of(context).textScaler,
-                                                                                                                text: TextSpan(
-                                                                                                                  children: [
-                                                                                                                    TextSpan(
-                                                                                                                      text: chatItem.content,
-                                                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                            fontFamily: 'WorkSans',
-                                                                                                                            letterSpacing: 0.0,
-                                                                                                                          ),
-                                                                                                                    )
-                                                                                                                  ],
-                                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                        fontFamily: 'WorkSans',
-                                                                                                                        letterSpacing: 0.0,
-                                                                                                                      ),
-                                                                                                                ),
-                                                                                                              ).animateOnPageLoad(animationsMap['richTextOnPageLoadAnimation']!).animateOnActionTrigger(
-                                                                                                                    animationsMap['richTextOnActionTriggerAnimation']!,
+                                                                                                              Expanded(
+                                                                                                                flex: 1,
+                                                                                                                child: Container(
+                                                                                                                  width: double.infinity,
+                                                                                                                  height: MediaQuery.sizeOf(context).height * 0.15,
+                                                                                                                  child: custom_widgets.GptMarkdownWidget(
+                                                                                                                    width: double.infinity,
+                                                                                                                    height: MediaQuery.sizeOf(context).height * 0.15,
+                                                                                                                    data: chatItem.content,
                                                                                                                   ),
+                                                                                                                ),
+                                                                                                              ),
                                                                                                             ],
                                                                                                           ),
                                                                                                         ),

@@ -151,16 +151,12 @@ class _IntroWalkthrough2Version5WidgetState
                   end: AlignmentDirectional(-1.0, 0.64),
                 ),
                 borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(0.0),
-                  bottomRight: Radius.circular(0.0),
                   topLeft: Radius.circular(50.0),
                   topRight: Radius.circular(50.0),
                 ),
               ),
               child: ClipRRect(
                 borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(0.0),
-                  bottomRight: Radius.circular(0.0),
                   topLeft: Radius.circular(50.0),
                   topRight: Radius.circular(50.0),
                 ),

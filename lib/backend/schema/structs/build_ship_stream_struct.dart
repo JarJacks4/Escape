@@ -432,7 +432,7 @@ Map<String, dynamic> getBuildShipStreamFirestoreData(
   final firestoreData = mapToFirestore(buildShipStream.toMap());
 
   // Add any Firestore field values
-  buildShipStream.firestoreUtilData.fieldValues
+  mapToFirestore(buildShipStream.firestoreUtilData.fieldValues)
       .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;

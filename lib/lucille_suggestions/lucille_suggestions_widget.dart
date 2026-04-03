@@ -31,6 +31,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'lucille_suggestions_model.dart';
 export 'lucille_suggestions_model.dart';
 
@@ -1149,16 +1150,18 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                               context,
                                                                           builder:
                                                                               (context) {
-                                                                            return GestureDetector(
-                                                                              onTap: () {
-                                                                                FocusScope.of(context).unfocus();
-                                                                                FocusManager.instance.primaryFocus?.unfocus();
-                                                                              },
-                                                                              child: Padding(
-                                                                                padding: MediaQuery.viewInsetsOf(context),
-                                                                                child: Container(
-                                                                                  height: MediaQuery.sizeOf(context).height * 0.4,
-                                                                                  child: LucilleSuggestionDescriptionCompWidget(),
+                                                                            return WebViewAware(
+                                                                              child: GestureDetector(
+                                                                                onTap: () {
+                                                                                  FocusScope.of(context).unfocus();
+                                                                                  FocusManager.instance.primaryFocus?.unfocus();
+                                                                                },
+                                                                                child: Padding(
+                                                                                  padding: MediaQuery.viewInsetsOf(context),
+                                                                                  child: Container(
+                                                                                    height: MediaQuery.sizeOf(context).height * 0.4,
+                                                                                    child: LucilleSuggestionDescriptionCompWidget(),
+                                                                                  ),
                                                                                 ),
                                                                               ),
                                                                             );
@@ -2204,16 +2207,18 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                               backgroundColor: Colors.transparent,
                                                                               context: context,
                                                                               builder: (context) {
-                                                                                return GestureDetector(
-                                                                                  onTap: () {
-                                                                                    FocusScope.of(context).unfocus();
-                                                                                    FocusManager.instance.primaryFocus?.unfocus();
-                                                                                  },
-                                                                                  child: Padding(
-                                                                                    padding: MediaQuery.viewInsetsOf(context),
-                                                                                    child: Container(
-                                                                                      height: MediaQuery.sizeOf(context).height * 0.4,
-                                                                                      child: LucilleSuggestionDescriptionCompWidget(),
+                                                                                return WebViewAware(
+                                                                                  child: GestureDetector(
+                                                                                    onTap: () {
+                                                                                      FocusScope.of(context).unfocus();
+                                                                                      FocusManager.instance.primaryFocus?.unfocus();
+                                                                                    },
+                                                                                    child: Padding(
+                                                                                      padding: MediaQuery.viewInsetsOf(context),
+                                                                                      child: Container(
+                                                                                        height: MediaQuery.sizeOf(context).height * 0.4,
+                                                                                        child: LucilleSuggestionDescriptionCompWidget(),
+                                                                                      ),
                                                                                     ),
                                                                                   ),
                                                                                 );
@@ -3253,16 +3258,18 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                               backgroundColor: Colors.transparent,
                                                                               context: context,
                                                                               builder: (context) {
-                                                                                return GestureDetector(
-                                                                                  onTap: () {
-                                                                                    FocusScope.of(context).unfocus();
-                                                                                    FocusManager.instance.primaryFocus?.unfocus();
-                                                                                  },
-                                                                                  child: Padding(
-                                                                                    padding: MediaQuery.viewInsetsOf(context),
-                                                                                    child: Container(
-                                                                                      height: MediaQuery.sizeOf(context).height * 0.4,
-                                                                                      child: LucilleSuggestionDescriptionCompWidget(),
+                                                                                return WebViewAware(
+                                                                                  child: GestureDetector(
+                                                                                    onTap: () {
+                                                                                      FocusScope.of(context).unfocus();
+                                                                                      FocusManager.instance.primaryFocus?.unfocus();
+                                                                                    },
+                                                                                    child: Padding(
+                                                                                      padding: MediaQuery.viewInsetsOf(context),
+                                                                                      child: Container(
+                                                                                        height: MediaQuery.sizeOf(context).height * 0.4,
+                                                                                        child: LucilleSuggestionDescriptionCompWidget(),
+                                                                                      ),
                                                                                     ),
                                                                                   ),
                                                                                 );
