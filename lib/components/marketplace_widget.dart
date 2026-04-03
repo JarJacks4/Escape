@@ -253,8 +253,6 @@ class _MarketplaceWidgetState extends State<MarketplaceWidget> {
                                 children: [
                                   ClipRRect(
                                     borderRadius: BorderRadius.only(
-                                      bottomLeft: Radius.circular(0.0),
-                                      bottomRight: Radius.circular(0.0),
                                       topLeft: Radius.circular(16.0),
                                       topRight: Radius.circular(16.0),
                                     ),
@@ -351,8 +349,6 @@ class _MarketplaceWidgetState extends State<MarketplaceWidget> {
                                 children: [
                                   ClipRRect(
                                     borderRadius: BorderRadius.only(
-                                      bottomLeft: Radius.circular(0.0),
-                                      bottomRight: Radius.circular(0.0),
                                       topLeft: Radius.circular(16.0),
                                       topRight: Radius.circular(16.0),
                                     ),
@@ -451,10 +447,8 @@ class _MarketplaceWidgetState extends State<MarketplaceWidget> {
                             children: [
                               ClipRRect(
                                 borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(0.0),
-                                  bottomRight: Radius.circular(16.0),
                                   topLeft: Radius.circular(16.0),
-                                  topRight: Radius.circular(0.0),
+                                  bottomRight: Radius.circular(16.0),
                                 ),
                                 child: Image.network(
                                   'https://images.unsplash.com/photo-1720430498633-a8908d8706d1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzE3MTkzNzN8&ixlib=rb-4.1.0&q=80&w=1080',
@@ -569,10 +563,8 @@ class _MarketplaceWidgetState extends State<MarketplaceWidget> {
                             children: [
                               ClipRRect(
                                 borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(0.0),
-                                  bottomRight: Radius.circular(16.0),
                                   topLeft: Radius.circular(16.0),
-                                  topRight: Radius.circular(0.0),
+                                  bottomRight: Radius.circular(16.0),
                                 ),
                                 child: Image.network(
                                   'https://images.unsplash.com/photo-1609347744403-2306e8a9ae27?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzE3MTkzNzR8&ixlib=rb-4.1.0&q=80&w=1080',
@@ -688,10 +680,8 @@ class _MarketplaceWidgetState extends State<MarketplaceWidget> {
                             children: [
                               ClipRRect(
                                 borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(0.0),
-                                  bottomRight: Radius.circular(16.0),
                                   topLeft: Radius.circular(16.0),
-                                  topRight: Radius.circular(0.0),
+                                  bottomRight: Radius.circular(16.0),
                                 ),
                                 child: Image.network(
                                   'https://images.unsplash.com/photo-1722248211070-6a17915f5cba?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzE3MTkzNzR8&ixlib=rb-4.1.0&q=80&w=1080',
@@ -807,10 +797,8 @@ class _MarketplaceWidgetState extends State<MarketplaceWidget> {
                             children: [
                               ClipRRect(
                                 borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(0.0),
-                                  bottomRight: Radius.circular(16.0),
                                   topLeft: Radius.circular(16.0),
-                                  topRight: Radius.circular(0.0),
+                                  bottomRight: Radius.circular(16.0),
                                 ),
                                 child: Image.network(
                                   'https://images.unsplash.com/photo-1636138390625-80afec896b28?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzE3MTkzNzV8&ixlib=rb-4.1.0&q=80&w=1080',
@@ -925,10 +913,8 @@ class _MarketplaceWidgetState extends State<MarketplaceWidget> {
                             children: [
                               ClipRRect(
                                 borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(0.0),
-                                  bottomRight: Radius.circular(16.0),
                                   topLeft: Radius.circular(16.0),
-                                  topRight: Radius.circular(0.0),
+                                  bottomRight: Radius.circular(16.0),
                                 ),
                                 child: Image.network(
                                   'https://images.unsplash.com/photo-1562664377-709f2c337eb2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NzE3MTkzNzV8&ixlib=rb-4.1.0&q=80&w=1080',

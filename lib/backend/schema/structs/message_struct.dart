@@ -242,7 +242,8 @@ Map<String, dynamic> getMessageFirestoreData(
   final firestoreData = mapToFirestore(message.toMap());
 
   // Add any Firestore field values
-  message.firestoreUtilData.fieldValues.forEach((k, v) => firestoreData[k] = v);
+  mapToFirestore(message.firestoreUtilData.fieldValues)
+      .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;
 }

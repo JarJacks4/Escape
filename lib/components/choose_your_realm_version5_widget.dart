@@ -299,10 +299,9 @@ class _ChooseYourRealmVersion5WidgetState
                                     decoration: BoxDecoration(
                                       color: Color(0xFFF9F9F9),
                                       borderRadius: BorderRadius.only(
-                                        bottomLeft: Radius.circular(0.0),
-                                        bottomRight: Radius.circular(16.0),
                                         topLeft: Radius.circular(16.0),
                                         topRight: Radius.circular(16.0),
+                                        bottomRight: Radius.circular(16.0),
                                       ),
                                       border: Border.all(
                                         color: FlutterFlowTheme.of(context)
@@ -486,10 +485,9 @@ try a blo... */
                                       decoration: BoxDecoration(
                                         color: Color(0xFFF9F9F9),
                                         borderRadius: BorderRadius.only(
-                                          bottomLeft: Radius.circular(0.0),
-                                          bottomRight: Radius.circular(16.0),
                                           topLeft: Radius.circular(16.0),
                                           topRight: Radius.circular(16.0),
+                                          bottomRight: Radius.circular(16.0),
                                         ),
                                         border: Border.all(
                                           color: FlutterFlowTheme.of(context)
@@ -673,10 +671,9 @@ try a blo... */
                                       decoration: BoxDecoration(
                                         color: Color(0xFFF9F9F9),
                                         borderRadius: BorderRadius.only(
-                                          bottomLeft: Radius.circular(0.0),
-                                          bottomRight: Radius.circular(16.0),
                                           topLeft: Radius.circular(16.0),
                                           topRight: Radius.circular(16.0),
+                                          bottomRight: Radius.circular(16.0),
                                         ),
                                         border: Border.all(
                                           color: FlutterFlowTheme.of(context)

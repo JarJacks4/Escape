@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'short_breathing_goal_model.dart';
 export 'short_breathing_goal_model.dart';
 
@@ -256,14 +257,16 @@ class _ShortBreathingGoalWidgetState extends State<ShortBreathingGoalWidget>
                                 backgroundColor: Colors.transparent,
                                 alignment: AlignmentDirectional(0.0, 0.0)
                                     .resolve(Directionality.of(context)),
-                                child: GestureDetector(
-                                  onTap: () {
-                                    FocusScope.of(dialogContext).unfocus();
-                                    FocusManager.instance.primaryFocus
-                                        ?.unfocus();
-                                  },
-                                  child: ConfettiPageIntermediateCompWidget(
-                                    exerciseTitle: 'Short Breathing',
+                                child: WebViewAware(
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      FocusScope.of(dialogContext).unfocus();
+                                      FocusManager.instance.primaryFocus
+                                          ?.unfocus();
+                                    },
+                                    child: ConfettiPageIntermediateCompWidget(
+                                      exerciseTitle: 'Short Breathing',
+                                    ),
                                   ),
                                 ),
                               );

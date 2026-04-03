@@ -985,8 +985,6 @@ class _CustomdrawerWidgetState extends State<CustomdrawerWidget> {
                                 borderRadius: BorderRadius.only(
                                   bottomLeft: Radius.circular(12.0),
                                   bottomRight: Radius.circular(12.0),
-                                  topLeft: Radius.circular(0.0),
-                                  topRight: Radius.circular(0.0),
                                 ),
                               ),
                               child: Padding(
@@ -1058,8 +1056,6 @@ class _CustomdrawerWidgetState extends State<CustomdrawerWidget> {
                                 borderRadius: BorderRadius.only(
                                   bottomLeft: Radius.circular(12.0),
                                   bottomRight: Radius.circular(12.0),
-                                  topLeft: Radius.circular(0.0),
-                                  topRight: Radius.circular(0.0),
                                 ),
                               ),
                               child: Padding(
@@ -1131,8 +1127,6 @@ class _CustomdrawerWidgetState extends State<CustomdrawerWidget> {
                                 borderRadius: BorderRadius.only(
                                   bottomLeft: Radius.circular(12.0),
                                   bottomRight: Radius.circular(12.0),
-                                  topLeft: Radius.circular(0.0),
-                                  topRight: Radius.circular(0.0),
                                 ),
                               ),
                               child: Padding(

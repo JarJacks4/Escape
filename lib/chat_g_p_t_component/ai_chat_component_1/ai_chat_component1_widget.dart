@@ -176,17 +176,14 @@ class _AiChatComponent1WidgetState extends State<AiChatComponent1Widget> {
                                                                   borderRadius:
                                                                       BorderRadius
                                                                           .only(
-                                                                    bottomLeft:
-                                                                        Radius.circular(
-                                                                            0.0),
-                                                                    bottomRight:
-                                                                        Radius.circular(
-                                                                            12.0),
                                                                     topLeft: Radius
                                                                         .circular(
                                                                             12.0),
                                                                     topRight: Radius
                                                                         .circular(
+                                                                            12.0),
+                                                                    bottomRight:
+                                                                        Radius.circular(
                                                                             12.0),
                                                                   ),
                                                                   border: Border
@@ -382,16 +379,13 @@ class _AiChatComponent1WidgetState extends State<AiChatComponent1Widget> {
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .only(
-                                                                bottomLeft: Radius
-                                                                    .circular(
-                                                                        12.0),
-                                                                bottomRight: Radius
-                                                                    .circular(
-                                                                        0.0),
                                                                 topLeft: Radius
                                                                     .circular(
                                                                         12.0),
                                                                 topRight: Radius
+                                                                    .circular(
+                                                                        12.0),
+                                                                bottomLeft: Radius
                                                                     .circular(
                                                                         12.0),
                                                               ),

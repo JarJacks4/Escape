@@ -12,6 +12,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:lottie/lottie.dart';
 import 'package:percent_indicator/percent_indicator.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'quest_comp_version5_model.dart';
 export 'quest_comp_version5_model.dart';
 
@@ -171,7 +172,9 @@ class _QuestCompVersion5WidgetState extends State<QuestCompVersion5Widget>
                                   backgroundColor: Colors.transparent,
                                   alignment: AlignmentDirectional(0.0, 0.0)
                                       .resolve(Directionality.of(context)),
-                                  child: HelpCompWidget(),
+                                  child: WebViewAware(
+                                    child: HelpCompWidget(),
+                                  ),
                                 );
                               },
                             );

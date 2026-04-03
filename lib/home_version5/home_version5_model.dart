@@ -13,6 +13,8 @@ class HomeVersion5Model extends FlutterFlowModel<HomeVersion5Widget> {
 
   TutorialCoachMark? introWalkthroughController;
   AudioPlayer? soundPlayer1;
+  // Stores action output result for [Backend Call - API (User Complete Profile)] action in HomeVersion5 widget.
+  ApiCallResponse? usersCompleteProfile4;
   // Stores action output result for [Backend Call - API (CreateID)] action in HomeVersion5 widget.
   ApiCallResponse? createSession;
   // Stores action output result for [Backend Call - API (User Complete Profile)] action in HomeVersion5 widget.

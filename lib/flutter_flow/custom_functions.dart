@@ -11,24 +11,24 @@ import 'package:ff_commons/flutter_flow/uploaded_file.dart';
 import '/backend/backend.dart';
 import "package:tiktokfeed_wz8en7/backend/schema/structs/index.dart"
     as tiktokfeed_wz8en7_data_schema;
-import "package:that_slideable_list_item_mrpo3s/backend/schema/structs/index.dart"
-    as that_slideable_list_item_mrpo3s_data_schema;
 import "package:utility_functions_library_8g4bud/backend/schema/structs/index.dart"
     as utility_functions_library_8g4bud_data_schema;
 import "package:that_audio_player_oo85ab/backend/schema/structs/index.dart"
     as that_audio_player_oo85ab_data_schema;
+import "package:that_slideable_list_item_mrpo3s/backend/schema/structs/index.dart"
+    as that_slideable_list_item_mrpo3s_data_schema;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '/backend/schema/structs/index.dart';
 import '/backend/schema/enums/enums.dart';
 import '/auth/firebase_auth/auth_util.dart';
 import "package:tiktokfeed_wz8en7/backend/schema/structs/index.dart"
     as tiktokfeed_wz8en7_data_schema;
-import "package:that_slideable_list_item_mrpo3s/backend/schema/structs/index.dart"
-    as that_slideable_list_item_mrpo3s_data_schema;
 import "package:utility_functions_library_8g4bud/backend/schema/structs/index.dart"
     as utility_functions_library_8g4bud_data_schema;
 import "package:that_audio_player_oo85ab/backend/schema/structs/index.dart"
     as that_audio_player_oo85ab_data_schema;
+import "package:that_slideable_list_item_mrpo3s/backend/schema/structs/index.dart"
+    as that_slideable_list_item_mrpo3s_data_schema;
 import "package:that_slideable_list_item_mrpo3s/backend/schema/enums/enums.dart"
     as that_slideable_list_item_mrpo3s_enums;
 import 'package:utility_functions_library_8g4bud/flutter_flow/custom_functions.dart'
@@ -83,4 +83,10 @@ String formatSecondsToMinutes(
   });
 
   return format;
+}
+
+int? doubleToInt() {
+  int doubleToInt(double value) {
+    return value.toInt();
+  }
 }

@@ -24,6 +24,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'edit_profile_version5_model.dart';
 export 'edit_profile_version5_model.dart';
 
@@ -1907,10 +1908,12 @@ class _EditProfileVersion5WidgetState extends State<EditProfileVersion5Widget> {
                                     backgroundColor: Colors.transparent,
                                     context: context,
                                     builder: (context) {
-                                      return Padding(
-                                        padding:
-                                            MediaQuery.viewInsetsOf(context),
-                                        child: TimePickerBottomSheetWidget(),
+                                      return WebViewAware(
+                                        child: Padding(
+                                          padding:
+                                              MediaQuery.viewInsetsOf(context),
+                                          child: TimePickerBottomSheetWidget(),
+                                        ),
                                       );
                                     },
                                   ).then((value) => safeSetState(() {}));

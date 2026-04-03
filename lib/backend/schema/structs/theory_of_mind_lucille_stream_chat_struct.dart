@@ -285,7 +285,7 @@ Map<String, dynamic> getTheoryOfMindLucilleStreamChatFirestoreData(
   final firestoreData = mapToFirestore(theoryOfMindLucilleStreamChat.toMap());
 
   // Add any Firestore field values
-  theoryOfMindLucilleStreamChat.firestoreUtilData.fieldValues
+  mapToFirestore(theoryOfMindLucilleStreamChat.firestoreUtilData.fieldValues)
       .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;

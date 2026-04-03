@@ -304,7 +304,7 @@ Map<String, dynamic> getThumbnailsAllFirestoreData(
   );
 
   // Add any Firestore field values
-  thumbnailsAll.firestoreUtilData.fieldValues
+  mapToFirestore(thumbnailsAll.firestoreUtilData.fieldValues)
       .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;

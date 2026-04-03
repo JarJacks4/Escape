@@ -23,6 +23,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'new_home_comp_model.dart';
 export 'new_home_comp_model.dart';
 
@@ -242,9 +243,11 @@ class _NewHomeCompWidgetState extends State<NewHomeCompWidget>
                                 backgroundColor: Colors.transparent,
                                 context: context,
                                 builder: (context) {
-                                  return Padding(
-                                    padding: MediaQuery.viewInsetsOf(context),
-                                    child: SideNavWidget(),
+                                  return WebViewAware(
+                                    child: Padding(
+                                      padding: MediaQuery.viewInsetsOf(context),
+                                      child: SideNavWidget(),
+                                    ),
                                   );
                                 },
                               ).then((value) => safeSetState(() {}));
@@ -308,10 +311,12 @@ class _NewHomeCompWidgetState extends State<NewHomeCompWidget>
                                     backgroundColor: Colors.transparent,
                                     context: context,
                                     builder: (context) {
-                                      return Padding(
-                                        padding:
-                                            MediaQuery.viewInsetsOf(context),
-                                        child: HelpCompWidget(),
+                                      return WebViewAware(
+                                        child: Padding(
+                                          padding:
+                                              MediaQuery.viewInsetsOf(context),
+                                          child: HelpCompWidget(),
+                                        ),
                                       );
                                     },
                                   ).then((value) => safeSetState(() {}));
@@ -343,9 +348,12 @@ class _NewHomeCompWidgetState extends State<NewHomeCompWidget>
                                   enableDrag: false,
                                   context: context,
                                   builder: (context) {
-                                    return Padding(
-                                      padding: MediaQuery.viewInsetsOf(context),
-                                      child: LucilleHelpCompWidget(),
+                                    return WebViewAware(
+                                      child: Padding(
+                                        padding:
+                                            MediaQuery.viewInsetsOf(context),
+                                        child: LucilleHelpCompWidget(),
+                                      ),
                                     );
                                   },
                                 ).then((value) => safeSetState(() {}));
@@ -398,10 +406,12 @@ class _NewHomeCompWidgetState extends State<NewHomeCompWidget>
                                       backgroundColor: Colors.transparent,
                                       context: context,
                                       builder: (context) {
-                                        return Padding(
-                                          padding:
-                                              MediaQuery.viewInsetsOf(context),
-                                          child: LucilleHelpCompWidget(),
+                                        return WebViewAware(
+                                          child: Padding(
+                                            padding: MediaQuery.viewInsetsOf(
+                                                context),
+                                            child: LucilleHelpCompWidget(),
+                                          ),
                                         );
                                       },
                                     ).then((value) => safeSetState(() {}));

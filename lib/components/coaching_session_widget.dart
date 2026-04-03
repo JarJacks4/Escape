@@ -1,8 +1,11 @@
+import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
+import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:percent_indicator/percent_indicator.dart';
 import 'coaching_session_model.dart';
 export 'coaching_session_model.dart';
 
@@ -27,6 +30,8 @@ class _CoachingSessionWidgetState extends State<CoachingSessionWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => CoachingSessionModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -49,7 +54,7 @@ class _CoachingSessionWidgetState extends State<CoachingSessionWidget> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Align(
-                  alignment: AlignmentDirectional(-1.0, -1.0),
+                  alignment: AlignmentDirectional(0.0, 0.0),
                   child: Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(16.0, 48.0, 16.0, 0.0),
@@ -63,22 +68,34 @@ class _CoachingSessionWidgetState extends State<CoachingSessionWidget> {
                           color: FlutterFlowTheme.of(context).tertiary,
                         ),
                       ),
-                      child: Align(
-                        alignment: AlignmentDirectional(0.0, 0.0),
-                        child: Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Text(
-                            FFLocalizations.of(context).getText(
-                              'ddrv6io4' /* 0:04 */,
+                      alignment: AlignmentDirectional(0.0, 0.0),
+                      child: Opacity(
+                        opacity: 0.8,
+                        child: Align(
+                          alignment: AlignmentDirectional(0.0, 0.0),
+                          child: FlutterFlowTimer(
+                            initialTime: _model.timerInitialTimeMs,
+                            getDisplayTime: (value) =>
+                                StopWatchTimer.getDisplayTime(
+                              value,
+                              hours: false,
+                              milliSecond: false,
                             ),
-                            textAlign: TextAlign.center,
+                            controller: _model.timerController,
+                            updateStateInterval: Duration(milliseconds: 1000),
+                            onChanged: (value, displayTime, shouldUpdate) {
+                              _model.timerMilliseconds = value;
+                              _model.timerValue = displayTime;
+                              if (shouldUpdate) safeSetState(() {});
+                            },
+                            textAlign: TextAlign.start,
                             style: FlutterFlowTheme.of(context)
-                                .bodyMedium
+                                .headlineSmall
                                 .override(
                                   fontFamily: 'WorkSans',
-                                  color: Colors.white,
+                                  color: FlutterFlowTheme.of(context).secondary,
+                                  fontSize: 16.0,
                                   letterSpacing: 0.0,
-                                  fontWeight: FontWeight.w500,
                                 ),
                           ),
                         ),
@@ -134,22 +151,6 @@ class _CoachingSessionWidgetState extends State<CoachingSessionWidget> {
                                     fontSize: 12.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w300,
-                                  ),
-                            ),
-                            Text(
-                              FFLocalizations.of(context).getText(
-                                '4alui0ki' /* 66% */,
-                              ),
-                              textAlign: TextAlign.center,
-                              style: FlutterFlowTheme.of(context)
-                                  .displaySmall
-                                  .override(
-                                    fontFamily: 'WorkSans',
-                                    color: FlutterFlowTheme.of(context).info,
-                                    fontSize: 30.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w300,
-                                    lineHeight: 1.0,
                                   ),
                             ),
                           ].divide(SizedBox(height: 4.0)),
@@ -276,6 +277,29 @@ class _CoachingSessionWidgetState extends State<CoachingSessionWidget> {
               ),
             ),
           ],
+        ),
+        Align(
+          alignment: AlignmentDirectional(0.81, -0.92),
+          child: CircularPercentIndicator(
+            percent: 0.5,
+            radius: 60.0,
+            lineWidth: 3.0,
+            animation: true,
+            animateFromLastPercent: true,
+            progressColor: Color(0x67D0E3F7),
+            backgroundColor: FlutterFlowTheme.of(context).accent4,
+            center: Text(
+              FFLocalizations.of(context).getText(
+                '7u8m715n' /* 50% */,
+              ),
+              style: FlutterFlowTheme.of(context).headlineSmall.override(
+                    fontFamily: 'WorkSans',
+                    color: FlutterFlowTheme.of(context).secondary,
+                    fontSize: 32.0,
+                    letterSpacing: 0.0,
+                  ),
+            ),
+          ),
         ),
       ],
     );

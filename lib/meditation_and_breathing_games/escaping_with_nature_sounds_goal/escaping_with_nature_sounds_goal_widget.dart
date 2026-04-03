@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'escaping_with_nature_sounds_goal_model.dart';
 export 'escaping_with_nature_sounds_goal_model.dart';
 
@@ -205,15 +206,17 @@ Water Sounds */
                           backgroundColor: Colors.transparent,
                           context: context,
                           builder: (context) {
-                            return GestureDetector(
-                              onTap: () {
-                                FocusScope.of(context).unfocus();
-                                FocusManager.instance.primaryFocus?.unfocus();
-                              },
-                              child: Padding(
-                                padding: MediaQuery.viewInsetsOf(context),
-                                child: ConfettiPageBasicCompWidget(
-                                  exerciseTitle: 'Water Sounds',
+                            return WebViewAware(
+                              child: GestureDetector(
+                                onTap: () {
+                                  FocusScope.of(context).unfocus();
+                                  FocusManager.instance.primaryFocus?.unfocus();
+                                },
+                                child: Padding(
+                                  padding: MediaQuery.viewInsetsOf(context),
+                                  child: ConfettiPageBasicCompWidget(
+                                    exerciseTitle: 'Water Sounds',
+                                  ),
                                 ),
                               ),
                             );

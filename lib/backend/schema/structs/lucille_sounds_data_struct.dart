@@ -235,7 +235,7 @@ Map<String, dynamic> getLucilleSoundsDataFirestoreData(
   final firestoreData = mapToFirestore(lucilleSoundsData.toMap());
 
   // Add any Firestore field values
-  lucilleSoundsData.firestoreUtilData.fieldValues
+  mapToFirestore(lucilleSoundsData.firestoreUtilData.fieldValues)
       .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;

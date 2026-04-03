@@ -182,7 +182,7 @@ Map<String, dynamic> getImageHelperFirestoreData(
   final firestoreData = mapToFirestore(imageHelper.toMap());
 
   // Add any Firestore field values
-  imageHelper.firestoreUtilData.fieldValues
+  mapToFirestore(imageHelper.firestoreUtilData.fieldValues)
       .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;

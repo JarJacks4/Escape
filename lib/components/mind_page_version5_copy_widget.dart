@@ -13,6 +13,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:lottie/lottie.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'mind_page_version5_copy_model.dart';
 export 'mind_page_version5_copy_model.dart';
 
@@ -189,7 +190,9 @@ class _MindPageVersion5CopyWidgetState extends State<MindPageVersion5CopyWidget>
                               backgroundColor: Colors.transparent,
                               alignment: AlignmentDirectional(0.0, 0.0)
                                   .resolve(Directionality.of(context)),
-                              child: MindDialogueCompWidget(),
+                              child: WebViewAware(
+                                child: MindDialogueCompWidget(),
+                              ),
                             );
                           },
                         );
@@ -366,12 +369,14 @@ class _MindPageVersion5CopyWidgetState extends State<MindPageVersion5CopyWidget>
                                                       Color(0xFFEDF1F7),
                                                   context: context,
                                                   builder: (context) {
-                                                    return Padding(
-                                                      padding: MediaQuery
-                                                          .viewInsetsOf(
-                                                              context),
-                                                      child:
-                                                          MeditateChoiceCompWidget(),
+                                                    return WebViewAware(
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child:
+                                                            MeditateChoiceCompWidget(),
+                                                      ),
                                                     );
                                                   },
                                                 ).then((value) =>
@@ -727,12 +732,14 @@ Calm... */
                                                       Color(0xDEEDF1F7),
                                                   context: context,
                                                   builder: (context) {
-                                                    return Padding(
-                                                      padding: MediaQuery
-                                                          .viewInsetsOf(
-                                                              context),
-                                                      child:
-                                                          BinauralBeatsChoiceCompWidget(),
+                                                    return WebViewAware(
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child:
+                                                            BinauralBeatsChoiceCompWidget(),
+                                                      ),
                                                     );
                                                   },
                                                 ).then((value) =>
@@ -3652,12 +3659,14 @@ Help Calm... */
                                                         enableDrag: false,
                                                         context: context,
                                                         builder: (context) {
-                                                          return Padding(
-                                                            padding: MediaQuery
-                                                                .viewInsetsOf(
-                                                                    context),
-                                                            child:
-                                                                MeditateChoiceCompWidget(),
+                                                          return WebViewAware(
+                                                            child: Padding(
+                                                              padding: MediaQuery
+                                                                  .viewInsetsOf(
+                                                                      context),
+                                                              child:
+                                                                  MeditateChoiceCompWidget(),
+                                                            ),
                                                           );
                                                         },
                                                       ).then((value) =>

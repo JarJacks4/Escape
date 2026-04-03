@@ -241,8 +241,6 @@ class _FlightCardWidgetState extends State<FlightCardWidget>
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(8.0),
                   bottomRight: Radius.circular(8.0),
-                  topLeft: Radius.circular(0.0),
-                  topRight: Radius.circular(0.0),
                 ),
                 border: Border.all(
                   color: FlutterFlowTheme.of(context).primaryBackground,

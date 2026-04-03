@@ -155,7 +155,7 @@ Map<String, dynamic> getOnboardingGoalsFirestoreData(
   final firestoreData = mapToFirestore(onboardingGoals.toMap());
 
   // Add any Firestore field values
-  onboardingGoals.firestoreUtilData.fieldValues
+  mapToFirestore(onboardingGoals.firestoreUtilData.fieldValues)
       .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;

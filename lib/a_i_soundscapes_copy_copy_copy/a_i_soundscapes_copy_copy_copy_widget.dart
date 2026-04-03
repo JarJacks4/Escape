@@ -28,6 +28,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'a_i_soundscapes_copy_copy_copy_model.dart';
 export 'a_i_soundscapes_copy_copy_copy_model.dart';
 
@@ -79,14 +80,16 @@ class _AISoundscapesCopyCopyCopyWidgetState
           backgroundColor: Colors.transparent,
           context: context,
           builder: (context) {
-            return GestureDetector(
-              onTap: () {
-                FocusScope.of(context).unfocus();
-                FocusManager.instance.primaryFocus?.unfocus();
-              },
-              child: Padding(
-                padding: MediaQuery.viewInsetsOf(context),
-                child: SoundscapesStarterPageVersion5CopyCopyWidget(),
+            return WebViewAware(
+              child: GestureDetector(
+                onTap: () {
+                  FocusScope.of(context).unfocus();
+                  FocusManager.instance.primaryFocus?.unfocus();
+                },
+                child: Padding(
+                  padding: MediaQuery.viewInsetsOf(context),
+                  child: SoundscapesStarterPageVersion5CopyCopyWidget(),
+                ),
               ),
             );
           },
@@ -548,14 +551,16 @@ class _AISoundscapesCopyCopyCopyWidgetState
                                                                               backgroundColor: Colors.transparent,
                                                                               context: context,
                                                                               builder: (context) {
-                                                                                return GestureDetector(
-                                                                                  onTap: () {
-                                                                                    FocusScope.of(context).unfocus();
-                                                                                    FocusManager.instance.primaryFocus?.unfocus();
-                                                                                  },
-                                                                                  child: Padding(
-                                                                                    padding: MediaQuery.viewInsetsOf(context),
-                                                                                    child: LucilleSoundscapeSuggestionWidget(),
+                                                                                return WebViewAware(
+                                                                                  child: GestureDetector(
+                                                                                    onTap: () {
+                                                                                      FocusScope.of(context).unfocus();
+                                                                                      FocusManager.instance.primaryFocus?.unfocus();
+                                                                                    },
+                                                                                    child: Padding(
+                                                                                      padding: MediaQuery.viewInsetsOf(context),
+                                                                                      child: LucilleSoundscapeSuggestionWidget(),
+                                                                                    ),
                                                                                   ),
                                                                                 );
                                                                               },

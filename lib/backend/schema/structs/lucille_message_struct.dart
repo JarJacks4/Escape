@@ -206,7 +206,7 @@ Map<String, dynamic> getLucilleMessageFirestoreData(
   final firestoreData = mapToFirestore(lucilleMessage.toMap());
 
   // Add any Firestore field values
-  lucilleMessage.firestoreUtilData.fieldValues
+  mapToFirestore(lucilleMessage.firestoreUtilData.fieldValues)
       .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;

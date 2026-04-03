@@ -54,8 +54,6 @@ class _NextSongsSoundscapeCompWidgetState
             end: AlignmentDirectional(0, 1.0),
           ),
           borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(0.0),
-            bottomRight: Radius.circular(0.0),
             topLeft: Radius.circular(10.0),
             topRight: Radius.circular(10.0),
           ),
@@ -77,10 +75,10 @@ class _NextSongsSoundscapeCompWidgetState
                       decoration: BoxDecoration(
                         color: Color(0x4BFFFFFF),
                         borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(50.0),
-                          bottomRight: Radius.circular(50.0),
                           topLeft: Radius.circular(50.0),
                           topRight: Radius.circular(50.0),
+                          bottomLeft: Radius.circular(50.0),
+                          bottomRight: Radius.circular(50.0),
                         ),
                       ),
                     ),

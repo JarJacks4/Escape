@@ -8,6 +8,7 @@ import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'help_comp_model.dart';
 export 'help_comp_model.dart';
 
@@ -536,7 +537,9 @@ class _HelpCompWidgetState extends State<HelpCompWidget> {
                                             AlignmentDirectional(0.0, 0.0)
                                                 .resolve(
                                                     Directionality.of(context)),
-                                        child: LoginIntroDialogueCompWidget(),
+                                        child: WebViewAware(
+                                          child: LoginIntroDialogueCompWidget(),
+                                        ),
                                       );
                                     },
                                   );

@@ -1,5 +1,6 @@
 import '/backend/api_requests/api_calls.dart';
 import '/components/confetti_page_expert_comp_widget.dart';
+import '/components/exercise_assessment_bottom_sheet_copy_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_audio_player.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -24,6 +25,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'lucille_suggestion_page_model.dart';
 export 'lucille_suggestion_page_model.dart';
 
@@ -449,11 +451,19 @@ class _LucilleSuggestionPageWidgetState
                                         0.0, 0.0, 0.0, 8.0),
                                     child: FlutterFlowAudioPlayer(
                                       audio: Audio.network(
-                                        'https://firebasestorage.googleapis.com/v0/b/escape-self-care-ai.firebasestorage.app/o/ES_A%20Prayer%20for%20Light%20-%20Sayuri%20Hayashi%20Egnell.mp3?alt=media&token=01416c12-7b48-425a-8001-2d315409650f',
+                                        FFAppState()
+                                            .SoundscapesAllTab
+                                            .firstOrNull!
+                                            .songUrl,
                                         metas: Metas(
-                                          id: 'ES_A%20Prayer%20for%20Light%20-%20Sayuri%20Hayashi%20Egnell.mp3?alt=media&token=01416c12-7b48-425a-8001-2d315409650f-a395745e',
-                                          title:
-                                              'A Prayer for Light - Sayuri Hayashi Egnell',
+                                          title: valueOrDefault<String>(
+                                            that_audio_player_oo85ab_app_state
+                                                    .FFAppState()
+                                                .currentMediaAllTab
+                                                .firstOrNull
+                                                ?.mediaTitle,
+                                            'Title',
+                                          ),
                                         ),
                                       ),
                                       titleTextStyle:
@@ -522,6 +532,30 @@ class _LucilleSuggestionPageWidgetState
                                         FFAppState().pointsEarnedPercentage +
                                             0.15;
                                     safeSetState(() {});
+                                    logFirebaseEvent('Button_bottom_sheet');
+                                    await showModalBottomSheet(
+                                      isScrollControlled: true,
+                                      backgroundColor: Colors.transparent,
+                                      context: context,
+                                      builder: (context) {
+                                        return WebViewAware(
+                                          child: GestureDetector(
+                                            onTap: () {
+                                              FocusScope.of(context).unfocus();
+                                              FocusManager.instance.primaryFocus
+                                                  ?.unfocus();
+                                            },
+                                            child: Padding(
+                                              padding: MediaQuery.viewInsetsOf(
+                                                  context),
+                                              child:
+                                                  ExerciseAssessmentBottomSheetCopyWidget(),
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                    ).then((value) => safeSetState(() {}));
+
                                     logFirebaseEvent('Button_backend_call');
                                     _model.memory = await LucilleMemoriesGroup
                                         .createMemoryCall
@@ -547,15 +581,19 @@ class _LucilleSuggestionPageWidgetState
                                                   0.0, 0.0)
                                               .resolve(
                                                   Directionality.of(context)),
-                                          child: GestureDetector(
-                                            onTap: () {
-                                              FocusScope.of(dialogContext)
-                                                  .unfocus();
-                                              FocusManager.instance.primaryFocus
-                                                  ?.unfocus();
-                                            },
-                                            child: ConfettiPageExpertCompWidget(
-                                              exerciseTitle: '',
+                                          child: WebViewAware(
+                                            child: GestureDetector(
+                                              onTap: () {
+                                                FocusScope.of(dialogContext)
+                                                    .unfocus();
+                                                FocusManager
+                                                    .instance.primaryFocus
+                                                    ?.unfocus();
+                                              },
+                                              child:
+                                                  ConfettiPageExpertCompWidget(
+                                                exerciseTitle: '',
+                                              ),
                                             ),
                                           ),
                                         );

@@ -23,6 +23,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'profile_version5_comp_model.dart';
 export 'profile_version5_comp_model.dart';
 
@@ -1064,9 +1065,12 @@ This Week */
                                   backgroundColor: Colors.transparent,
                                   context: context,
                                   builder: (context) {
-                                    return Padding(
-                                      padding: MediaQuery.viewInsetsOf(context),
-                                      child: EditProfileVersion5Widget(),
+                                    return WebViewAware(
+                                      child: Padding(
+                                        padding:
+                                            MediaQuery.viewInsetsOf(context),
+                                        child: EditProfileVersion5Widget(),
+                                      ),
                                     );
                                   },
                                 ).then((value) => safeSetState(() {}));
@@ -1150,9 +1154,12 @@ This Week */
                                   backgroundColor: Colors.transparent,
                                   context: context,
                                   builder: (context) {
-                                    return Padding(
-                                      padding: MediaQuery.viewInsetsOf(context),
-                                      child: DeleteAccountBottomSheetWidget(),
+                                    return WebViewAware(
+                                      child: Padding(
+                                        padding:
+                                            MediaQuery.viewInsetsOf(context),
+                                        child: DeleteAccountBottomSheetWidget(),
+                                      ),
                                     );
                                   },
                                 ).then((value) => safeSetState(() {}));

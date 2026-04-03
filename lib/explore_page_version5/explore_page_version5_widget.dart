@@ -9,6 +9,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'explore_page_version5_model.dart';
 export 'explore_page_version5_model.dart';
 
@@ -104,10 +105,12 @@ class _ExplorePageVersion5WidgetState extends State<ExplorePageVersion5Widget>
           width: MediaQuery.sizeOf(context).width * 0.7,
           child: Drawer(
             elevation: 16.0,
-            child: wrapWithModel(
-              model: _model.sideNavModel,
-              updateCallback: () => safeSetState(() {}),
-              child: SideNavWidget(),
+            child: WebViewAware(
+              child: wrapWithModel(
+                model: _model.sideNavModel,
+                updateCallback: () => safeSetState(() {}),
+                child: SideNavWidget(),
+              ),
             ),
           ),
         ),

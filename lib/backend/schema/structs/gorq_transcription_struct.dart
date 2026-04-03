@@ -170,7 +170,7 @@ Map<String, dynamic> getGorqTranscriptionFirestoreData(
   );
 
   // Add any Firestore field values
-  gorqTranscription.firestoreUtilData.fieldValues
+  mapToFirestore(gorqTranscription.firestoreUtilData.fieldValues)
       .forEach((k, v) => firestoreData[k] = v);
 
   return forFieldValue ? mergeNestedFields(firestoreData) : firestoreData;

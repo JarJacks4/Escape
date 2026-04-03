@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:lottie/lottie.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'contact_us_comp_model.dart';
 export 'contact_us_comp_model.dart';
 
@@ -138,7 +139,9 @@ class _ContactUsCompWidgetState extends State<ContactUsCompWidget> {
                                     backgroundColor: Colors.transparent,
                                     alignment: AlignmentDirectional(0.0, 0.0)
                                         .resolve(Directionality.of(context)),
-                                    child: HelpCompWidget(),
+                                    child: WebViewAware(
+                                      child: HelpCompWidget(),
+                                    ),
                                   );
                                 },
                               );
