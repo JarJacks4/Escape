@@ -1,5 +1,4 @@
 import '/backend/api_requests/api_calls.dart';
-import '/backend/schema/structs/index.dart';
 import '/components/coming_soon_body_comp_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
@@ -520,42 +519,39 @@ class _LucilleSoundscapeSuggestionWidgetState
                 ),
                 Flexible(
                   flex: 1,
-                  child: FutureBuilder<ApiCallResponse>(
-                    future: _model.soundscapesCache(
-                      requestFn: () =>
-                          LucilleSoundscapesGroup.getSoundscapeCall.call(),
-                    ),
-                    builder: (context, snapshot) {
-                      // Customize what your widget looks like when it's loading.
-                      if (!snapshot.hasData) {
-                        return Center(
-                          child: SizedBox(
-                            width: 100.0,
-                            height: 100.0,
-                            child: SpinKitWave(
-                              color: FlutterFlowTheme.of(context).accent1,
-                              size: 100.0,
-                            ),
-                          ),
-                        );
-                      }
-                      final columnGetSoundscapeResponse = snapshot.data!;
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      FutureBuilder<ApiCallResponse>(
+                        future: _model.soundscapesCache(
+                          requestFn: () =>
+                              LucilleSoundscapesGroup.getSoundscapeCall.call(),
+                        ),
+                        builder: (context, snapshot) {
+                          // Customize what your widget looks like when it's loading.
+                          if (!snapshot.hasData) {
+                            return Center(
+                              child: SizedBox(
+                                width: 100.0,
+                                height: 100.0,
+                                child: SpinKitWave(
+                                  color: FlutterFlowTheme.of(context).accent1,
+                                  size: 100.0,
+                                ),
+                              ),
+                            );
+                          }
+                          final listViewGetSoundscapeResponse = snapshot.data!;
 
-                      return Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Builder(
+                          return Builder(
                             builder: (context) {
                               final recommendations =
-                                  (columnGetSoundscapeResponse.jsonBody
-                                                  .toList()
-                                                  .map<Soundscapes1Struct?>(
-                                                      Soundscapes1Struct
-                                                          .maybeFromMap)
-                                                  .toList()
-                                              as Iterable<Soundscapes1Struct?>)
-                                          .withoutNulls
-                                          .toList() ??
+                                  LucilleSoundscapesGroup.getSoundscapeCall
+                                          .soundscapes(
+                                            listViewGetSoundscapeResponse
+                                                .jsonBody,
+                                          )
+                                          ?.toList() ??
                                       [];
 
                               return ListView.separated(
@@ -604,20 +600,32 @@ class _LucilleSoundscapeSuggestionWidgetState
                                               .routeName,
                                           queryParameters: {
                                             'lucilleAudioUrl': serializeParam(
-                                              recommendationsItem.audioUrl,
+                                              getJsonField(
+                                                recommendationsItem,
+                                                r'''$.audiourl''',
+                                              ).toString(),
                                               ParamType.String,
                                             ),
                                             'soundscapeTitle': serializeParam(
-                                              recommendationsItem.title,
+                                              getJsonField(
+                                                recommendationsItem,
+                                                r'''$.title''',
+                                              ).toString(),
                                               ParamType.String,
                                             ),
                                             'soundscapeID': serializeParam(
-                                              recommendationsItem.soundscapeId,
+                                              getJsonField(
+                                                recommendationsItem,
+                                                r'''$.soundscapes_id''',
+                                              ).toString(),
                                               ParamType.String,
                                             ),
                                             'soundscapeCategory':
                                                 serializeParam(
-                                              recommendationsItem.category,
+                                              getJsonField(
+                                                recommendationsItem,
+                                                r'''$.category''',
+                                              ).toString(),
                                               ParamType.String,
                                             ),
                                             'sessionID': serializeParam(
@@ -637,7 +645,9 @@ class _LucilleSoundscapeSuggestionWidgetState
                                           },
                                         );
                                       },
-                                      child: Container(
+                                      child: AnimatedContainer(
+                                        duration: Duration(milliseconds: 150),
+                                        curve: Curves.easeIn,
                                         width: 302.4,
                                         height: 117.5,
                                         decoration: BoxDecoration(
@@ -730,8 +740,10 @@ class _LucilleSoundscapeSuggestionWidgetState
                                                           milliseconds: 270),
                                                       curve: Curves.easeIn,
                                                       child: Text(
-                                                        recommendationsItem
-                                                            .title,
+                                                        getJsonField(
+                                                          recommendationsItem,
+                                                          r'''$.title''',
+                                                        ).toString(),
                                                         overflow: TextOverflow
                                                             .ellipsis,
                                                       ),
@@ -755,8 +767,10 @@ class _LucilleSoundscapeSuggestionWidgetState
                                                           milliseconds: 375),
                                                       curve: Curves.easeIn,
                                                       child: Text(
-                                                        recommendationsItem
-                                                            .category,
+                                                        getJsonField(
+                                                          recommendationsItem,
+                                                          r'''$.category''',
+                                                        ).toString(),
                                                         overflow:
                                                             TextOverflow.fade,
                                                       ),
@@ -787,8 +801,10 @@ class _LucilleSoundscapeSuggestionWidgetState
                                                             milliseconds: 285),
                                                         curve: Curves.easeIn,
                                                         child: Text(
-                                                          recommendationsItem
-                                                              .description,
+                                                          getJsonField(
+                                                            recommendationsItem,
+                                                            r'''$.description''',
+                                                          ).toString(),
                                                           overflow: TextOverflow
                                                               .ellipsis,
                                                         ),
@@ -814,10 +830,10 @@ class _LucilleSoundscapeSuggestionWidgetState
                                 },
                               );
                             },
-                          ),
-                        ].divide(SizedBox(height: 10.0)),
-                      );
-                    },
+                          );
+                        },
+                      ),
+                    ].divide(SizedBox(height: 10.0)),
                   ),
                 ),
                 Padding(

@@ -212,3 +212,9 @@ export '/web_view_sample/web_view_sample_widget.dart' show WebViewSampleWidget;
 export '/sample2/sample2_widget.dart' show Sample2Widget;
 export '/planet/planet_widget.dart' show PlanetWidget;
 export '/home_page/home_page_widget.dart' show HomePageWidget;
+export '/pages/onboarding_login/mood_scan_result_version5/mood_scan_result_version5_widget.dart'
+    show MoodScanResultVersion5Widget;
+export '/mood_result_transition/mood_result_transition_widget.dart'
+    show MoodResultTransitionWidget;
+export '/soundscapes_see_all_page/soundscapes_see_all_page_widget.dart'
+    show SoundscapesSeeAllPageWidget;

@@ -51,7 +51,7 @@ class _GeneralTransitonSpalshPageWidgetState
       logFirebaseEvent('GeneralTransitonSpalshPage_wait__delay');
       await Future.delayed(
         Duration(
-          milliseconds: 3000,
+          milliseconds: 2000,
         ),
       );
       logFirebaseEvent('GeneralTransitonSpalshPage_navigate_to');

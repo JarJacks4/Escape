@@ -6,6 +6,7 @@ import '/lucille_g_p_t_comp/writing_indicator/writing_indicator_widget.dart';
 import 'chat_with_lucille_version5_widget.dart'
     show ChatWithLucilleVersion5Widget;
 import 'package:flutter/material.dart';
+import 'package:just_audio/just_audio.dart';
 import 'package:record/record.dart';
 
 class ChatWithLucilleVersion5Model
@@ -66,10 +67,17 @@ class ChatWithLucilleVersion5Model
   int get tabBarPreviousIndex =>
       tabBarController != null ? tabBarController!.previousIndex : 0;
 
+  AudioPlayer? soundPlayer1;
   AudioRecorder? audioRecorder;
+  AudioPlayer? soundPlayer2;
   String? stopUserVoice;
   FFUploadedFile recordedFileBytes =
       FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
+  bool isDataUploading_uploadAudioFile = false;
+  List<FFUploadedFile> uploadedLocalFiles_uploadAudioFile = [];
+
+  // Stores action output result for [Custom Action - audioPathFromUploadedFile] action in LottieAnimation widget.
+  String? recordedFileToBase642;
   // Stores action output result for [Backend Call - API (Speech To Text)] action in LottieAnimation widget.
   ApiCallResponse? speechToText;
   // Stores action output result for [Backend Call - API (Lucille Chat Main)] action in LottieAnimation widget.

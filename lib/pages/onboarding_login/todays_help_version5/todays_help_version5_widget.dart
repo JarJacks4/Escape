@@ -54,7 +54,7 @@ class _TodaysHelpVersion5WidgetState extends State<TodaysHelpVersion5Widget> {
               Align(
                 alignment: AlignmentDirectional(0.0, 0.0),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(8.0),
+                  borderRadius: BorderRadius.circular(26.0),
                   child: Image.asset(
                     'assets/images/922f59d7455e56aacdec50df5571bcd744c166a0_(1)_(1)_(2).gif',
                     width: double.infinity,
@@ -67,10 +67,10 @@ class _TodaysHelpVersion5WidgetState extends State<TodaysHelpVersion5Widget> {
                 width: double.infinity,
                 height: MediaQuery.sizeOf(context).height * 1.0,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8.0),
+                  borderRadius: BorderRadius.circular(26.0),
                 ),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(25.0),
+                  borderRadius: BorderRadius.circular(0.0),
                   child: BackdropFilter(
                     filter: ImageFilter.blur(
                       sigmaX: 30.0,
@@ -91,7 +91,7 @@ class _TodaysHelpVersion5WidgetState extends State<TodaysHelpVersion5Widget> {
                           begin: AlignmentDirectional(1.0, -0.64),
                           end: AlignmentDirectional(-1.0, 0.64),
                         ),
-                        borderRadius: BorderRadius.circular(8.0),
+                        borderRadius: BorderRadius.circular(26.0),
                       ),
                       child: wrapWithModel(
                         model: _model.todaysHelpVersion5CompModel,

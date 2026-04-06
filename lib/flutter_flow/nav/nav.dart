@@ -885,6 +885,21 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             builder: (context, params) => HomePageWidget(),
           ),
           FFRoute(
+            name: MoodScanResultVersion5Widget.routeName,
+            path: MoodScanResultVersion5Widget.routePath,
+            builder: (context, params) => MoodScanResultVersion5Widget(),
+          ),
+          FFRoute(
+            name: MoodResultTransitionWidget.routeName,
+            path: MoodResultTransitionWidget.routePath,
+            builder: (context, params) => MoodResultTransitionWidget(),
+          ),
+          FFRoute(
+            name: SoundscapesSeeAllPageWidget.routeName,
+            path: SoundscapesSeeAllPageWidget.routePath,
+            builder: (context, params) => SoundscapesSeeAllPageWidget(),
+          ),
+          FFRoute(
             name: $cupertino_time_picker_hiuzb7.HomePageWidget.routeName,
             path: $cupertino_time_picker_hiuzb7.HomePageWidget.routePath,
             builder: (context, params) =>
