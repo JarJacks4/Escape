@@ -57,10 +57,11 @@ class _MoodSaverWidgetState extends State<MoodSaverWidget> {
             ),
             gradient: LinearGradient(
               colors: [
-                FlutterFlowTheme.of(context).tertiary,
-                FlutterFlowTheme.of(context).alternate
+                FlutterFlowTheme.of(context).accent3,
+                FlutterFlowTheme.of(context).secondaryText,
+                FlutterFlowTheme.of(context).tertiary
               ],
-              stops: [0.0, 1.0],
+              stops: [0.0, 0.5, 1.0],
               begin: AlignmentDirectional(0.0, -1.0),
               end: AlignmentDirectional(0, 1.0),
             ),

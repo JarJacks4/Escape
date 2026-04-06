@@ -1103,15 +1103,14 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                               backgroundColor:
                                                                   FlutterFlowTheme.of(
                                                                           context)
-                                                                      .accent1,
+                                                                      .secondary,
                                                               action:
                                                                   SnackBarAction(
                                                                 label:
                                                                     'Click Here to Scan Your Mood.',
-                                                                textColor:
-                                                                    FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primary,
+                                                                textColor: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .alternate,
                                                                 onPressed:
                                                                     () async {
                                                                   context

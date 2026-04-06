@@ -10,6 +10,7 @@ import '/flutter_flow/flutter_flow_button_tabbar.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/upload_data.dart';
 import '/lucille_g_p_t_comp/writing_indicator/writing_indicator_widget.dart';
 import 'dart:convert';
 import 'dart:ui';
@@ -29,6 +30,7 @@ import 'package:ff_commons/api_requests/api_streaming.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:just_audio/just_audio.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'package:record/record.dart';
@@ -354,39 +356,34 @@ class _ChatWithLucilleVersion5WidgetState
                                                         BorderRadius.circular(
                                                             50.0),
                                                   ),
-                                                  child: InkWell(
-                                                    splashColor:
-                                                        Colors.transparent,
-                                                    focusColor:
-                                                        Colors.transparent,
-                                                    hoverColor:
-                                                        Colors.transparent,
-                                                    highlightColor:
-                                                        Colors.transparent,
-                                                    onTap: () async {
+                                                  child: GestureDetector(
+                                                    onLongPressEnd:
+                                                        (details) async {
                                                       logFirebaseEvent(
                                                           'CHAT_WITH_LUCILLE_VERSION5_LottieAnimati');
                                                       logFirebaseEvent(
-                                                          'LottieAnimation_request_permissions');
-                                                      await requestPermission(
-                                                          microphonePermission);
+                                                          'LottieAnimation_haptic_feedback');
+                                                      HapticFeedback
+                                                          .heavyImpact();
                                                       logFirebaseEvent(
-                                                          'LottieAnimation_start_audio_recording');
-                                                      await startAudioRecording(
-                                                        context,
-                                                        audioRecorder: _model
-                                                                .audioRecorder ??=
-                                                            AudioRecorder(),
-                                                      );
+                                                          'LottieAnimation_play_sound');
+                                                      _model.soundPlayer2 ??=
+                                                          AudioPlayer();
+                                                      if (_model.soundPlayer2!
+                                                          .playing) {
+                                                        await _model
+                                                            .soundPlayer2!
+                                                            .stop();
+                                                      }
+                                                      _model.soundPlayer2!
+                                                          .setVolume(1.0);
+                                                      _model.soundPlayer2!
+                                                          .setAsset(
+                                                              'assets/audios/ES_Game,_Jingle,_Chime,_Positive_01_-_Epidemic_Sound_-_0000-1106.wav')
+                                                          .then((_) => _model
+                                                              .soundPlayer2!
+                                                              .play());
 
-                                                      logFirebaseEvent(
-                                                          'LottieAnimation_update_page_state');
-                                                      _model.isRecording = true;
-                                                      safeSetState(() {});
-                                                    },
-                                                    onDoubleTap: () async {
-                                                      logFirebaseEvent(
-                                                          'CHAT_WITH_LUCILLE_VERSION5_LottieAnimati');
                                                       logFirebaseEvent(
                                                           'LottieAnimation_stop_audio_recording');
                                                       await stopAudioRecording(
@@ -405,19 +402,98 @@ class _ChatWithLucilleVersion5WidgetState
                                                       );
 
                                                       logFirebaseEvent(
+                                                          'LottieAnimation_show_snack_bar');
+                                                      ScaffoldMessenger.of(
+                                                              context)
+                                                          .showSnackBar(
+                                                        SnackBar(
+                                                          content: Text(
+                                                            'Recording Stopped',
+                                                            style: TextStyle(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .primaryText,
+                                                            ),
+                                                          ),
+                                                          duration: Duration(
+                                                              milliseconds:
+                                                                  4000),
+                                                          backgroundColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .secondary,
+                                                        ),
+                                                      );
+                                                      logFirebaseEvent(
+                                                          'LottieAnimation_store_file_for_upload');
+                                                      final selectedFiles =
+                                                          await selectFiles(
+                                                        allowedExtensions: [
+                                                          'mp3'
+                                                        ],
+                                                        multiFile: true,
+                                                      );
+                                                      if (selectedFiles !=
+                                                          null) {
+                                                        safeSetState(() => _model
+                                                                .isDataUploading_uploadAudioFile =
+                                                            true);
+                                                        var selectedUploadedFiles =
+                                                            <FFUploadedFile>[];
+
+                                                        try {
+                                                          selectedUploadedFiles =
+                                                              selectedFiles
+                                                                  .map((m) =>
+                                                                      FFUploadedFile(
+                                                                        name: m
+                                                                            .storagePath
+                                                                            .split('/')
+                                                                            .last,
+                                                                        bytes: m
+                                                                            .bytes,
+                                                                        originalFilename:
+                                                                            m.originalFilename,
+                                                                      ))
+                                                                  .toList();
+                                                        } finally {
+                                                          _model.isDataUploading_uploadAudioFile =
+                                                              false;
+                                                        }
+                                                        if (selectedUploadedFiles
+                                                                .length ==
+                                                            selectedFiles
+                                                                .length) {
+                                                          safeSetState(() {
+                                                            _model.uploadedLocalFiles_uploadAudioFile =
+                                                                selectedUploadedFiles;
+                                                          });
+                                                        } else {
+                                                          safeSetState(() {});
+                                                          return;
+                                                        }
+                                                      }
+
+                                                      logFirebaseEvent(
+                                                          'LottieAnimation_custom_action');
+                                                      _model.recordedFileToBase642 =
+                                                          await actions
+                                                              .audioPathFromUploadedFile(
+                                                        _model
+                                                            .recordedFileBytes,
+                                                      );
+                                                      logFirebaseEvent(
                                                           'LottieAnimation_backend_call');
                                                       _model.speechToText =
                                                           await LucilleVoiceChatGroup
                                                               .speechToTextCall
                                                               .call(
                                                         audio: _model
-                                                            .stopUserVoice,
+                                                            .recordedFileToBase642,
                                                       );
 
                                                       logFirebaseEvent(
                                                           'LottieAnimation_update_page_state');
-                                                      _model.recordedAudioBase64 =
-                                                          _model.stopUserVoice;
                                                       _model.isRecording =
                                                           false;
                                                       _model
@@ -426,6 +502,9 @@ class _ChatWithLucilleVersion5WidgetState
                                                                   ?.jsonBody ??
                                                               '')
                                                           .toString();
+                                                      _model.recordedAudioBase64 =
+                                                          _model
+                                                              .recordedFileToBase642;
                                                       safeSetState(() {});
                                                       logFirebaseEvent(
                                                           'LottieAnimation_backend_call');
@@ -455,6 +534,7 @@ class _ChatWithLucilleVersion5WidgetState
                                                             ''),
                                                         voice:
                                                             'en-US-AriaNeural',
+                                                        rate: 50,
                                                       );
 
                                                       logFirebaseEvent(
@@ -477,13 +557,109 @@ class _ChatWithLucilleVersion5WidgetState
 
                                                       safeSetState(() {});
                                                     },
+                                                    onLongPressStart:
+                                                        (details) async {
+                                                      logFirebaseEvent(
+                                                          'CHAT_WITH_LUCILLE_VERSION5_LottieAnimati');
+                                                      logFirebaseEvent(
+                                                          'LottieAnimation_haptic_feedback');
+                                                      HapticFeedback
+                                                          .heavyImpact();
+                                                      logFirebaseEvent(
+                                                          'LottieAnimation_play_sound');
+                                                      _model.soundPlayer1 ??=
+                                                          AudioPlayer();
+                                                      if (_model.soundPlayer1!
+                                                          .playing) {
+                                                        await _model
+                                                            .soundPlayer1!
+                                                            .stop();
+                                                      }
+                                                      _model.soundPlayer1!
+                                                          .setVolume(0.52);
+                                                      _model.soundPlayer1!
+                                                          .setAsset(
+                                                              'assets/audios/ES_UI_Buttons,_Glassy,_Touch_-_Epidemic_Sound.mp3')
+                                                          .then((_) => _model
+                                                              .soundPlayer1!
+                                                              .play());
+
+                                                      logFirebaseEvent(
+                                                          'LottieAnimation_request_permissions');
+                                                      await requestPermission(
+                                                          microphonePermission);
+                                                      if (await getPermissionStatus(
+                                                          microphonePermission)) {
+                                                        logFirebaseEvent(
+                                                            'LottieAnimation_start_audio_recording');
+                                                        await startAudioRecording(
+                                                          context,
+                                                          audioRecorder: _model
+                                                                  .audioRecorder ??=
+                                                              AudioRecorder(),
+                                                        );
+                                                      } else {
+                                                        logFirebaseEvent(
+                                                            'LottieAnimation_show_snack_bar');
+                                                        ScaffoldMessenger.of(
+                                                                context)
+                                                            .showSnackBar(
+                                                          SnackBar(
+                                                            content: Text(
+                                                              'User Input action invalid.',
+                                                              style: TextStyle(
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
+                                                              ),
+                                                            ),
+                                                            duration: Duration(
+                                                                milliseconds:
+                                                                    4000),
+                                                            backgroundColor:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondary,
+                                                          ),
+                                                        );
+                                                      }
+
+                                                      logFirebaseEvent(
+                                                          'LottieAnimation_update_page_state');
+                                                      _model.isRecording = true;
+                                                      safeSetState(() {});
+                                                      logFirebaseEvent(
+                                                          'LottieAnimation_show_snack_bar');
+                                                      ScaffoldMessenger.of(
+                                                              context)
+                                                          .showSnackBar(
+                                                        SnackBar(
+                                                          content: Text(
+                                                            'Now Recording...',
+                                                            style: TextStyle(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .primaryText,
+                                                            ),
+                                                          ),
+                                                          duration: Duration(
+                                                              milliseconds:
+                                                                  4000),
+                                                          backgroundColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .secondary,
+                                                        ),
+                                                      );
+                                                    },
                                                     child: Lottie.asset(
                                                       'assets/jsons/Enable_mic.json',
                                                       width: 209.6,
                                                       height: 334.3,
                                                       fit: BoxFit.contain,
-                                                      reverse: true,
-                                                      animate: true,
+                                                      animate:
+                                                          _model.isRecording ==
+                                                              true,
                                                     ),
                                                   ),
                                                 ),

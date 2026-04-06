@@ -53,7 +53,7 @@ class _RespirationPageWidgetState extends State<RespirationPageWidget> {
               alignment: AlignmentDirectional(0.0, 0.0),
               child: Container(
                 width: double.infinity,
-                height: 852.0,
+                height: 874.0,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).secondaryBackground,
                 ),
