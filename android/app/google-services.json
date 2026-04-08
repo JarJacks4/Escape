@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "286076426888",
+    "project_id": "escape-self-care-ai",
+    "storage_bucket": "escape-self-care-ai.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:286076426888:android:54005e2950d658b7221d3d",
+        "android_client_info": {
+          "package_name": "com.flutterflow.escapellc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "286076426888-d6j96nnp3d0rjinbgrstaq7qpsutbc0v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.flutterflow.escapellc",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "286076426888-67cbrvgtd8cdptdmf3bjlc25sqnm46ba.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8f77p2R-0W0P8MU6vg6O6Y3RXW11vTVE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "286076426888-67cbrvgtd8cdptdmf3bjlc25sqnm46ba.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "286076426888-bjuqp3v20r0n6f99d9lpn07pvpfti4ei.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.flutterflow.escapellc"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

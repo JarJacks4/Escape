@@ -1,0 +1,2698 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
+import '/flutter_flow/flutter_flow_choice_chips.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/form_field_controller.dart';
+import 'dart:ui';
+import "package:that_audio_player_oo85ab/backend/schema/structs/index.dart"
+    as that_audio_player_oo85ab_data_schema;
+import "package:that_slideable_list_item_mrpo3s/backend/schema/structs/index.dart"
+    as that_slideable_list_item_mrpo3s_data_schema;
+import "package:tiktokfeed_wz8en7/backend/schema/structs/index.dart"
+    as tiktokfeed_wz8en7_data_schema;
+import "package:utility_functions_library_8g4bud/backend/schema/structs/index.dart"
+    as utility_functions_library_8g4bud_data_schema;
+import '/flutter_flow/random_data_util.dart' as random_data;
+import '/index.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart'
+    as smooth_page_indicator;
+import 'package:utility_functions_library_8g4bud/app_constants.dart'
+    as utility_functions_library_8g4bud_app_constant;
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_debounce/easy_debounce.dart';
+import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:just_audio/just_audio.dart';
+import 'package:provider/provider.dart';
+import 'new_sign_in_version5_model.dart';
+export 'new_sign_in_version5_model.dart';
+
+class NewSignInVersion5Widget extends StatefulWidget {
+  const NewSignInVersion5Widget({
+    super.key,
+    this.tabIndexLogin,
+  });
+
+  final int? tabIndexLogin;
+
+  static String routeName = 'NewSignInVersion5';
+  static String routePath = 'newLogInVersion5';
+
+  @override
+  State<NewSignInVersion5Widget> createState() =>
+      _NewSignInVersion5WidgetState();
+}
+
+class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
+  late NewSignInVersion5Model _model;
+
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => NewSignInVersion5Model());
+
+    logFirebaseEvent('screen_view',
+        parameters: {'screen_name': 'NewSignInVersion5'});
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('NEW_SIGN_IN_VERSION5_NewSignInVersion5_O');
+      logFirebaseEvent('NewSignInVersion5_haptic_feedback');
+      HapticFeedback.vibrate();
+      logFirebaseEvent('NewSignInVersion5_play_sound');
+      _model.soundPlayer1 ??= AudioPlayer();
+      if (_model.soundPlayer1!.playing) {
+        await _model.soundPlayer1!.stop();
+      }
+      _model.soundPlayer1!.setVolume(1.0);
+      _model.soundPlayer1!
+          .setAsset(
+              'assets/audios/lucadialessandro-calm-ambient-intro-490646.mp3')
+          .then((_) => _model.soundPlayer1!.play());
+    });
+
+    _model.loginEmailTextController ??= TextEditingController();
+    _model.loginEmailFocusNode ??= FocusNode();
+
+    _model.loginPasswordTextController ??= TextEditingController();
+    _model.loginPasswordFocusNode ??= FocusNode();
+
+    _model.displayNameTextController ??= TextEditingController();
+    _model.displayNameFocusNode ??= FocusNode();
+
+    _model.createEmailTextController ??= TextEditingController();
+    _model.createEmailFocusNode ??= FocusNode();
+
+    _model.createPasswordTextController ??= TextEditingController();
+    _model.createPasswordFocusNode ??= FocusNode();
+
+    _model.confirmPasswordTextController ??= TextEditingController();
+    _model.confirmPasswordFocusNode ??= FocusNode();
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        body: Column(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Expanded(
+              child: Container(
+                width: double.infinity,
+                height: 500.0,
+                child: Stack(
+                  children: [
+                    PageView(
+                      controller: _model.pageViewController ??=
+                          PageController(initialPage: 0),
+                      scrollDirection: Axis.horizontal,
+                      children: [
+                        Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Expanded(
+                              child: Container(
+                                width: double.infinity,
+                                height: MediaQuery.sizeOf(context).height * 1.0,
+                                decoration: BoxDecoration(
+                                  gradient: LinearGradient(
+                                    colors: [
+                                      Color(0xFF6B5B95),
+                                      Color(0xFF4A90E2)
+                                    ],
+                                    stops: [0.0, 1.0],
+                                    begin: AlignmentDirectional(0.0, -1.0),
+                                    end: AlignmentDirectional(0, 1.0),
+                                  ),
+                                ),
+                                child: Stack(
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(8.0),
+                                      child: Image.asset(
+                                        'assets/images/922f59d7455e56aacdec50df5571bcd744c166a0_(1)_(1)_(2).gif',
+                                        width: double.infinity,
+                                        height: 878.3,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                    Container(
+                                      width: double.infinity,
+                                      height: 880.89,
+                                      decoration: BoxDecoration(),
+                                      child: ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(0.0),
+                                        child: BackdropFilter(
+                                          filter: ImageFilter.blur(
+                                            sigmaX: 10.0,
+                                            sigmaY: 10.0,
+                                          ),
+                                          child: Container(
+                                            width: 100.0,
+                                            height: 128.8,
+                                            decoration: BoxDecoration(
+                                              gradient: LinearGradient(
+                                                colors: [
+                                                  Color(0x46EDF1F7),
+                                                  Color(0x46D0E3F7),
+                                                  Color(0x8F8C70BE),
+                                                  Color(0x7A2196F3)
+                                                ],
+                                                stops: [0.0, 0.5, 0.75, 1.0],
+                                                begin: AlignmentDirectional(
+                                                    1.0, -0.64),
+                                                end: AlignmentDirectional(
+                                                    -1.0, 0.64),
+                                              ),
+                                            ),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      24.0, 24.0, 24.0, 24.0),
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                children: [
+                                                  Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Hero(
+                                                        tag: 'logo',
+                                                        transitionOnUserGestures:
+                                                            true,
+                                                        child: ClipRRect(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      8.0),
+                                                          child: Image.asset(
+                                                            'assets/images/Logo_ESCAPE_DarkBlue.png',
+                                                            width: 200.0,
+                                                            height: 76.4,
+                                                            fit: BoxFit.contain,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      Text(
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          'bpgep09t' /* Enter your cosmic dimension */,
+                                                        ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'WorkSans',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .tertiary,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                      ),
+                                                    ].divide(
+                                                        SizedBox(height: 8.0)),
+                                                  ),
+                                                  Material(
+                                                    color: Colors.transparent,
+                                                    elevation: 3.0,
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              16.0),
+                                                    ),
+                                                    child: Container(
+                                                      width: double.infinity,
+                                                      decoration: BoxDecoration(
+                                                        color:
+                                                            Color(0x32EDF1F7),
+                                                        boxShadow: [
+                                                          BoxShadow(
+                                                            blurRadius: 20.0,
+                                                            color: Color(
+                                                                0xCAD0E3F7),
+                                                            offset: Offset(
+                                                              0.0,
+                                                              2.0,
+                                                            ),
+                                                            spreadRadius: 15.0,
+                                                          )
+                                                        ],
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(16.0),
+                                                        border: Border.all(
+                                                          color:
+                                                              Color(0xA2D0E3F7),
+                                                        ),
+                                                      ),
+                                                      child: Container(
+                                                        width: double.infinity,
+                                                        child: Form(
+                                                          key: _model.formKey2,
+                                                          autovalidateMode:
+                                                              AutovalidateMode
+                                                                  .disabled,
+                                                          child: Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        20.0,
+                                                                        20.0,
+                                                                        20.0,
+                                                                        20.0),
+                                                            child: Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              children: [
+                                                                Column(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  crossAxisAlignment:
+                                                                      CrossAxisAlignment
+                                                                          .start,
+                                                                  children: [
+                                                                    Text(
+                                                                      FFLocalizations.of(
+                                                                              context)
+                                                                          .getText(
+                                                                        '2uoit0xy' /* Email */,
+                                                                      ),
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .labelMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'The Seasons',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).alternate,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                            fontWeight:
+                                                                                FontWeight.bold,
+                                                                          ),
+                                                                    ),
+                                                                    Container(
+                                                                      width: double
+                                                                          .infinity,
+                                                                      child:
+                                                                          TextFormField(
+                                                                        controller:
+                                                                            _model.loginEmailTextController,
+                                                                        focusNode:
+                                                                            _model.loginEmailFocusNode,
+                                                                        onChanged:
+                                                                            (_) =>
+                                                                                EasyDebounce.debounce(
+                                                                          '_model.loginEmailTextController',
+                                                                          Duration(
+                                                                              milliseconds: 2000),
+                                                                          () =>
+                                                                              safeSetState(() {}),
+                                                                        ),
+                                                                        onFieldSubmitted:
+                                                                            (_) async {
+                                                                          logFirebaseEvent(
+                                                                              'NEW_SIGN_IN_VERSION5_LoginEmail_ON_TEXTF');
+                                                                          logFirebaseEvent(
+                                                                              'LoginEmail_haptic_feedback');
+                                                                          HapticFeedback
+                                                                              .selectionClick();
+                                                                        },
+                                                                        autofocus:
+                                                                            false,
+                                                                        enabled:
+                                                                            true,
+                                                                        textInputAction:
+                                                                            TextInputAction.done,
+                                                                        obscureText:
+                                                                            false,
+                                                                        decoration:
+                                                                            InputDecoration(
+                                                                          hintText:
+                                                                              FFLocalizations.of(context).getText(
+                                                                            'nvcof9dg' /* Enter Your Cosmic Identity */,
+                                                                          ),
+                                                                          hintStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .override(
+                                                                                fontFamily: 'WorkSans',
+                                                                                color: FlutterFlowTheme.of(context).tertiary,
+                                                                                letterSpacing: 0.0,
+                                                                              ),
+                                                                          enabledBorder:
+                                                                              OutlineInputBorder(
+                                                                            borderSide:
+                                                                                BorderSide(
+                                                                              color: Color(0x66FFFFFF),
+                                                                              width: 1.0,
+                                                                            ),
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(8.0),
+                                                                          ),
+                                                                          focusedBorder:
+                                                                              OutlineInputBorder(
+                                                                            borderSide:
+                                                                                BorderSide(
+                                                                              color: Color(0x00000000),
+                                                                              width: 1.0,
+                                                                            ),
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(8.0),
+                                                                          ),
+                                                                          errorBorder:
+                                                                              OutlineInputBorder(
+                                                                            borderSide:
+                                                                                BorderSide(
+                                                                              color: Color(0x00000000),
+                                                                              width: 1.0,
+                                                                            ),
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(8.0),
+                                                                          ),
+                                                                          focusedErrorBorder:
+                                                                              OutlineInputBorder(
+                                                                            borderSide:
+                                                                                BorderSide(
+                                                                              color: Color(0x00000000),
+                                                                              width: 1.0,
+                                                                            ),
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(8.0),
+                                                                          ),
+                                                                          filled:
+                                                                              true,
+                                                                          fillColor:
+                                                                              Color(0x33FFFFFF),
+                                                                          suffixIcon: _model.loginEmailTextController!.text.isNotEmpty
+                                                                              ? InkWell(
+                                                                                  onTap: () async {
+                                                                                    _model.loginEmailTextController?.clear();
+                                                                                    safeSetState(() {});
+                                                                                  },
+                                                                                  child: Icon(
+                                                                                    Icons.clear,
+                                                                                    size: 22,
+                                                                                  ),
+                                                                                )
+                                                                              : null,
+                                                                        ),
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'WorkSans',
+                                                                              color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                              letterSpacing: 0.0,
+                                                                            ),
+                                                                        enableInteractiveSelection:
+                                                                            true,
+                                                                        validator: _model
+                                                                            .loginEmailTextControllerValidator
+                                                                            .asValidator(context),
+                                                                      ),
+                                                                    ),
+                                                                  ].divide(SizedBox(
+                                                                      height:
+                                                                          8.0)),
+                                                                ),
+                                                                Column(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  crossAxisAlignment:
+                                                                      CrossAxisAlignment
+                                                                          .start,
+                                                                  children: [
+                                                                    Text(
+                                                                      FFLocalizations.of(
+                                                                              context)
+                                                                          .getText(
+                                                                        '129oigfx' /* Password */,
+                                                                      ),
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .labelMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'The Seasons',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).alternate,
+                                                                            letterSpacing:
+                                                                                0.0,
+                                                                            fontWeight:
+                                                                                FontWeight.bold,
+                                                                          ),
+                                                                    ),
+                                                                    Container(
+                                                                      width: double
+                                                                          .infinity,
+                                                                      child:
+                                                                          TextFormField(
+                                                                        controller:
+                                                                            _model.loginPasswordTextController,
+                                                                        focusNode:
+                                                                            _model.loginPasswordFocusNode,
+                                                                        onFieldSubmitted:
+                                                                            (_) async {
+                                                                          logFirebaseEvent(
+                                                                              'NEW_SIGN_IN_VERSION5_LoginPassword_ON_TE');
+                                                                          logFirebaseEvent(
+                                                                              'LoginPassword_haptic_feedback');
+                                                                          HapticFeedback
+                                                                              .selectionClick();
+                                                                        },
+                                                                        autofocus:
+                                                                            false,
+                                                                        enabled:
+                                                                            true,
+                                                                        textInputAction:
+                                                                            TextInputAction.done,
+                                                                        obscureText:
+                                                                            !_model.loginPasswordVisibility,
+                                                                        decoration:
+                                                                            InputDecoration(
+                                                                          labelStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .override(
+                                                                                fontFamily: 'WorkSans',
+                                                                                color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                                letterSpacing: 0.0,
+                                                                              ),
+                                                                          hintText:
+                                                                              FFLocalizations.of(context).getText(
+                                                                            '0iw332wr' /* Enter Your Password */,
+                                                                          ),
+                                                                          hintStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .override(
+                                                                                fontFamily: 'WorkSans',
+                                                                                color: FlutterFlowTheme.of(context).tertiary,
+                                                                                letterSpacing: 0.0,
+                                                                              ),
+                                                                          enabledBorder:
+                                                                              OutlineInputBorder(
+                                                                            borderSide:
+                                                                                BorderSide(
+                                                                              color: Color(0x66FFFFFF),
+                                                                              width: 1.0,
+                                                                            ),
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(8.0),
+                                                                          ),
+                                                                          focusedBorder:
+                                                                              OutlineInputBorder(
+                                                                            borderSide:
+                                                                                BorderSide(
+                                                                              color: Color(0x00000000),
+                                                                              width: 1.0,
+                                                                            ),
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(8.0),
+                                                                          ),
+                                                                          errorBorder:
+                                                                              OutlineInputBorder(
+                                                                            borderSide:
+                                                                                BorderSide(
+                                                                              color: Color(0x00000000),
+                                                                              width: 1.0,
+                                                                            ),
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(8.0),
+                                                                          ),
+                                                                          focusedErrorBorder:
+                                                                              OutlineInputBorder(
+                                                                            borderSide:
+                                                                                BorderSide(
+                                                                              color: Color(0x00000000),
+                                                                              width: 1.0,
+                                                                            ),
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(8.0),
+                                                                          ),
+                                                                          filled:
+                                                                              true,
+                                                                          fillColor:
+                                                                              Color(0x33FFFFFF),
+                                                                          suffixIcon:
+                                                                              InkWell(
+                                                                            onTap:
+                                                                                () async {
+                                                                              safeSetState(() => _model.loginPasswordVisibility = !_model.loginPasswordVisibility);
+                                                                            },
+                                                                            focusNode:
+                                                                                FocusNode(skipTraversal: true),
+                                                                            child:
+                                                                                Icon(
+                                                                              _model.loginPasswordVisibility ? Icons.visibility_outlined : Icons.visibility_off_outlined,
+                                                                              size: 22,
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'WorkSans',
+                                                                              color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                                              letterSpacing: 0.0,
+                                                                            ),
+                                                                        keyboardType:
+                                                                            TextInputType.visiblePassword,
+                                                                        validator: _model
+                                                                            .loginPasswordTextControllerValidator
+                                                                            .asValidator(context),
+                                                                      ),
+                                                                    ),
+                                                                  ].divide(SizedBox(
+                                                                      height:
+                                                                          8.0)),
+                                                                ),
+                                                                InkWell(
+                                                                  splashColor:
+                                                                      Colors
+                                                                          .transparent,
+                                                                  focusColor: Colors
+                                                                      .transparent,
+                                                                  hoverColor: Colors
+                                                                      .transparent,
+                                                                  highlightColor:
+                                                                      Colors
+                                                                          .transparent,
+                                                                  onTap:
+                                                                      () async {
+                                                                    logFirebaseEvent(
+                                                                        'NEW_SIGN_IN_VERSION5_Text_e7stxjns_ON_TA');
+                                                                    logFirebaseEvent(
+                                                                        'Text_haptic_feedback');
+                                                                    HapticFeedback
+                                                                        .heavyImpact();
+                                                                  },
+                                                                  child: Text(
+                                                                    FFLocalizations.of(
+                                                                            context)
+                                                                        .getText(
+                                                                      'rm6ic3zg' /* Forgot your password? */,
+                                                                    ),
+                                                                    textAlign:
+                                                                        TextAlign
+                                                                            .center,
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodySmall
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'WorkSans',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).tertiary,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                        ),
+                                                                  ),
+                                                                ),
+                                                                Divider(
+                                                                  thickness:
+                                                                      1.0,
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .accent1,
+                                                                ),
+                                                                Text(
+                                                                  FFLocalizations.of(
+                                                                          context)
+                                                                      .getText(
+                                                                    'pawt737r' /* OR CONTINUE WITH */,
+                                                                  ),
+                                                                  textAlign:
+                                                                      TextAlign
+                                                                          .center,
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelSmall
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'WorkSans',
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .tertiary,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
+                                                                ),
+                                                                FFButtonWidget(
+                                                                  onPressed:
+                                                                      () async {
+                                                                    logFirebaseEvent(
+                                                                        'NEW_SIGN_IN_VERSION5_CONTINUE_WITH_GOOGL');
+                                                                    logFirebaseEvent(
+                                                                        'Button_haptic_feedback');
+                                                                    HapticFeedback
+                                                                        .lightImpact();
+                                                                    logFirebaseEvent(
+                                                                        'Button_play_sound');
+                                                                    _model.soundPlayer2 ??=
+                                                                        AudioPlayer();
+                                                                    if (_model
+                                                                        .soundPlayer2!
+                                                                        .playing) {
+                                                                      await _model
+                                                                          .soundPlayer2!
+                                                                          .stop();
+                                                                    }
+                                                                    _model
+                                                                        .soundPlayer2!
+                                                                        .setVolume(
+                                                                            1.0);
+                                                                    _model
+                                                                        .soundPlayer2!
+                                                                        .setAsset(
+                                                                            'assets/audios/ES_Pings,_Tings,_Generic,_High,_Tings_-_Epidemic_Sound.mp3')
+                                                                        .then((_) => _model
+                                                                            .soundPlayer2!
+                                                                            .play());
+
+                                                                    logFirebaseEvent(
+                                                                        'Button_auth');
+                                                                    GoRouter.of(
+                                                                            context)
+                                                                        .prepareAuthEvent();
+                                                                    final user =
+                                                                        await authManager
+                                                                            .signInWithGoogle(context);
+                                                                    if (user ==
+                                                                        null) {
+                                                                      return;
+                                                                    }
+                                                                    logFirebaseEvent(
+                                                                        'Button_navigate_to');
+
+                                                                    context
+                                                                        .pushNamedAuth(
+                                                                      MoodScanVersion5Widget
+                                                                          .routeName,
+                                                                      context
+                                                                          .mounted,
+                                                                      extra: <String,
+                                                                          dynamic>{
+                                                                        '__transition_info__':
+                                                                            TransitionInfo(
+                                                                          hasTransition:
+                                                                              true,
+                                                                          transitionType:
+                                                                              PageTransitionType.rightToLeft,
+                                                                          duration:
+                                                                              Duration(milliseconds: 1),
+                                                                        ),
+                                                                      },
+                                                                    );
+                                                                  },
+                                                                  text: FFLocalizations.of(
+                                                                          context)
+                                                                      .getText(
+                                                                    'es0rpht1' /* Continue with Google */,
+                                                                  ),
+                                                                  icon: FaIcon(
+                                                                    FontAwesomeIcons
+                                                                        .google,
+                                                                    size: 20.0,
+                                                                  ),
+                                                                  options:
+                                                                      FFButtonOptions(
+                                                                    width: double
+                                                                        .infinity,
+                                                                    height:
+                                                                        48.0,
+                                                                    padding:
+                                                                        EdgeInsets.all(
+                                                                            8.0),
+                                                                    iconPadding:
+                                                                        EdgeInsetsDirectional.fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                    iconColor: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .alternate,
+                                                                    color: Color(
+                                                                        0xA6E65454),
+                                                                    textStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'WorkSans',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).primary,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                        ),
+                                                                    elevation:
+                                                                        3.0,
+                                                                    borderSide:
+                                                                        BorderSide(
+                                                                      color: Color(
+                                                                          0x98EDF1F7),
+                                                                    ),
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            8.0),
+                                                                  ),
+                                                                ),
+                                                                isAndroid
+                                                                    ? Container()
+                                                                    : FFButtonWidget(
+                                                                        onPressed:
+                                                                            () async {
+                                                                          logFirebaseEvent(
+                                                                              'NEW_SIGN_IN_VERSION5_CONTINUE_WITH_APPLE');
+                                                                          logFirebaseEvent(
+                                                                              'Button_haptic_feedback');
+                                                                          HapticFeedback
+                                                                              .lightImpact();
+                                                                          logFirebaseEvent(
+                                                                              'Button_play_sound');
+                                                                          _model.soundPlayer3 ??=
+                                                                              AudioPlayer();
+                                                                          if (_model
+                                                                              .soundPlayer3!
+                                                                              .playing) {
+                                                                            await _model.soundPlayer3!.stop();
+                                                                          }
+                                                                          _model
+                                                                              .soundPlayer3!
+                                                                              .setVolume(1.0);
+                                                                          _model
+                                                                              .soundPlayer3!
+                                                                              .setAsset('assets/audios/ES_Pings,_Tings,_Generic,_High,_Tings_-_Epidemic_Sound.mp3')
+                                                                              .then((_) => _model.soundPlayer3!.play());
+
+                                                                          logFirebaseEvent(
+                                                                              'Button_auth');
+                                                                          GoRouter.of(context)
+                                                                              .prepareAuthEvent();
+                                                                          final user =
+                                                                              await authManager.signInWithApple(context);
+                                                                          if (user ==
+                                                                              null) {
+                                                                            return;
+                                                                          }
+                                                                          logFirebaseEvent(
+                                                                              'Button_navigate_to');
+
+                                                                          context
+                                                                              .pushNamedAuth(
+                                                                            MoodScanVersion5Widget.routeName,
+                                                                            context.mounted,
+                                                                            extra: <String,
+                                                                                dynamic>{
+                                                                              '__transition_info__': TransitionInfo(
+                                                                                hasTransition: true,
+                                                                                transitionType: PageTransitionType.rightToLeft,
+                                                                                duration: Duration(milliseconds: 1),
+                                                                              ),
+                                                                            },
+                                                                          );
+                                                                        },
+                                                                        text: FFLocalizations.of(context)
+                                                                            .getText(
+                                                                          '4z712oxn' /* Continue with Apple */,
+                                                                        ),
+                                                                        icon:
+                                                                            Icon(
+                                                                          Icons
+                                                                              .apple,
+                                                                          size:
+                                                                              20.0,
+                                                                        ),
+                                                                        options:
+                                                                            FFButtonOptions(
+                                                                          width:
+                                                                              double.infinity,
+                                                                          height:
+                                                                              48.0,
+                                                                          padding:
+                                                                              EdgeInsets.all(8.0),
+                                                                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              0.0,
+                                                                              0.0,
+                                                                              0.0),
+                                                                          color:
+                                                                              Color(0xB71C2444),
+                                                                          textStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .override(
+                                                                                fontFamily: 'WorkSans',
+                                                                                color: FlutterFlowTheme.of(context).primary,
+                                                                                letterSpacing: 0.0,
+                                                                              ),
+                                                                          elevation:
+                                                                              3.0,
+                                                                          borderSide:
+                                                                              BorderSide(
+                                                                            color:
+                                                                                Color(0x98EDF1F7),
+                                                                          ),
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(8.0),
+                                                                        ),
+                                                                      ),
+                                                              ].divide(SizedBox(
+                                                                  height:
+                                                                      16.0)),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Text(
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          'df1ucsxy' /* Don't have an account? */,
+                                                        ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodySmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'WorkSans',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryText,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                      ),
+                                                      InkWell(
+                                                        splashColor:
+                                                            Colors.transparent,
+                                                        focusColor:
+                                                            Colors.transparent,
+                                                        hoverColor:
+                                                            Colors.transparent,
+                                                        highlightColor:
+                                                            Colors.transparent,
+                                                        onTap: () async {
+                                                          logFirebaseEvent(
+                                                              'NEW_SIGN_IN_VERSION5_Text_z16v01xq_ON_TA');
+                                                          logFirebaseEvent(
+                                                              'Text_haptic_feedback');
+                                                          HapticFeedback
+                                                              .heavyImpact();
+                                                          logFirebaseEvent(
+                                                              'Text_play_sound');
+                                                          _model.soundPlayer4 ??=
+                                                              AudioPlayer();
+                                                          if (_model
+                                                              .soundPlayer4!
+                                                              .playing) {
+                                                            await _model
+                                                                .soundPlayer4!
+                                                                .stop();
+                                                          }
+                                                          _model.soundPlayer4!
+                                                              .setVolume(1.0);
+                                                          _model.soundPlayer4!
+                                                              .setAsset(
+                                                                  'assets/audios/ES_Sci_Fi_Games,_UI_Menu,_Very_Short,_Open_10_-_Epidemic_Sound.mp3')
+                                                              .then((_) => _model
+                                                                  .soundPlayer4!
+                                                                  .play());
+
+                                                          logFirebaseEvent(
+                                                              'Text_page_view');
+                                                          await _model
+                                                              .pageViewController
+                                                              ?.nextPage(
+                                                            duration: Duration(
+                                                                milliseconds:
+                                                                    300),
+                                                            curve: Curves.ease,
+                                                          );
+                                                        },
+                                                        child: Text(
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            '6bv6s5l6' /* Create your cosmic identity */,
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                            fontFamily:
+                                                                'The Seasons',
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primary,
+                                                            letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                            shadows: [
+                                                              Shadow(
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .alternate,
+                                                                offset: Offset(
+                                                                    8.0, 8.0),
+                                                                blurRadius: 8.0,
+                                                              )
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ].divide(
+                                                        SizedBox(height: 8.0)),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 25.0,
+                                                                0.0, 0.0),
+                                                    child: Container(
+                                                      width: MediaQuery.sizeOf(
+                                                                  context)
+                                                              .width *
+                                                          0.7,
+                                                      height: 56.9,
+                                                      decoration: BoxDecoration(
+                                                        boxShadow: [
+                                                          BoxShadow(
+                                                            blurRadius: 40.0,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .accent3,
+                                                            spreadRadius: 20.0,
+                                                          )
+                                                        ],
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(50.0),
+                                                      ),
+                                                      child: FFButtonWidget(
+                                                        onPressed: () async {
+                                                          logFirebaseEvent(
+                                                              'NEW_SIGN_IN_VERSION5_BEGIN_MY_JOURNEY_BT');
+                                                          logFirebaseEvent(
+                                                              'Button_haptic_feedback');
+                                                          HapticFeedback
+                                                              .heavyImpact();
+                                                          logFirebaseEvent(
+                                                              'Button_validate_form');
+                                                          _model.validateLogin2 =
+                                                              true;
+                                                          if (_model.formKey2
+                                                                      .currentState ==
+                                                                  null ||
+                                                              !_model.formKey2
+                                                                  .currentState!
+                                                                  .validate()) {
+                                                            _model.validateLogin2 =
+                                                                false;
+                                                          }
+                                                          logFirebaseEvent(
+                                                              'Button_auth');
+                                                          GoRouter.of(context)
+                                                              .prepareAuthEvent();
+
+                                                          final user =
+                                                              await authManager
+                                                                  .signInWithEmail(
+                                                            context,
+                                                            _model
+                                                                .loginEmailTextController
+                                                                .text,
+                                                            _model
+                                                                .loginPasswordTextController
+                                                                .text,
+                                                          );
+                                                          if (user == null) {
+                                                            return;
+                                                          }
+
+                                                          logFirebaseEvent(
+                                                              'Button_play_sound');
+                                                          _model.soundPlayer5 ??=
+                                                              AudioPlayer();
+                                                          if (_model
+                                                              .soundPlayer5!
+                                                              .playing) {
+                                                            await _model
+                                                                .soundPlayer5!
+                                                                .stop();
+                                                          }
+                                                          _model.soundPlayer5!
+                                                              .setVolume(1.0);
+                                                          _model.soundPlayer5!
+                                                              .setAsset(
+                                                                  'assets/audios/ES_Game,_Jingle,_Chime,_Positive_01_-_Epidemic_Sound_-_3038-4627.wav')
+                                                              .then((_) => _model
+                                                                  .soundPlayer5!
+                                                                  .play());
+
+                                                          logFirebaseEvent(
+                                                              'Button_show_snack_bar');
+                                                          ScaffoldMessenger.of(
+                                                                  context)
+                                                              .clearSnackBars();
+                                                          ScaffoldMessenger.of(
+                                                                  context)
+                                                              .showSnackBar(
+                                                            SnackBar(
+                                                              content: Text(
+                                                                'Login Successful!',
+                                                                style:
+                                                                    TextStyle(
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primary,
+                                                                ),
+                                                              ),
+                                                              duration: Duration(
+                                                                  milliseconds:
+                                                                      4000),
+                                                              backgroundColor:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .accent1,
+                                                              action:
+                                                                  SnackBarAction(
+                                                                label:
+                                                                    'Click Here to Scan Your Mood.',
+                                                                textColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
+                                                                onPressed:
+                                                                    () async {
+                                                                  context
+                                                                      .pushNamedAuth(
+                                                                    MoodScanVersion5Widget
+                                                                        .routeName,
+                                                                    context
+                                                                        .mounted,
+                                                                    extra: <String,
+                                                                        dynamic>{
+                                                                      '__transition_info__':
+                                                                          TransitionInfo(
+                                                                        hasTransition:
+                                                                            true,
+                                                                        transitionType:
+                                                                            PageTransitionType.fade,
+                                                                        duration:
+                                                                            Duration(milliseconds: 9),
+                                                                      ),
+                                                                    },
+                                                                  );
+                                                                },
+                                                              ),
+                                                            ),
+                                                          );
+
+                                                          safeSetState(() {});
+                                                        },
+                                                        text:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                          'vmqojecj' /* Begin My Journey */,
+                                                        ),
+                                                        options:
+                                                            FFButtonOptions(
+                                                          width: 269.1,
+                                                          height: 56.0,
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  8.0),
+                                                          iconPadding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          color:
+                                                              Color(0xFFFF6B35),
+                                                          textStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'WorkSans',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                  ),
+                                                          elevation: 4.0,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      28.0),
+                                                          hoverColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .tertiary,
+                                                          hoverTextColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .primary,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ].divide(
+                                                    SizedBox(height: 24.0)),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Expanded(
+                              child: Container(
+                                width: double.infinity,
+                                height: MediaQuery.sizeOf(context).height * 1.0,
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    fit: BoxFit.cover,
+                                    image: Image.asset(
+                                      'assets/images/922f59d7455e56aacdec50df5571bcd744c166a0_(1)_(1).gif',
+                                    ).image,
+                                  ),
+                                  gradient: LinearGradient(
+                                    colors: [
+                                      Color(0xFF6B5B95),
+                                      Color(0xFF4A90E2)
+                                    ],
+                                    stops: [0.0, 1.0],
+                                    begin: AlignmentDirectional(0.0, -1.0),
+                                    end: AlignmentDirectional(0, 1.0),
+                                  ),
+                                ),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(0.0),
+                                  child: BackdropFilter(
+                                    filter: ImageFilter.blur(
+                                      sigmaX: 80.0,
+                                      sigmaY: 80.0,
+                                    ),
+                                    child: Container(
+                                      width: 100.0,
+                                      height: 128.8,
+                                      decoration: BoxDecoration(
+                                        gradient: LinearGradient(
+                                          colors: [
+                                            Color(0x26EDF1F7),
+                                            Color(0x3C39519F),
+                                            Color(0x78673AB7)
+                                          ],
+                                          stops: [0.0, 0.5, 1.0],
+                                          begin:
+                                              AlignmentDirectional(1.0, -0.64),
+                                          end: AlignmentDirectional(-1.0, 0.64),
+                                        ),
+                                      ),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 80.0, 0.0, 0.0),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
+                                              children: [
+                                                ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.0),
+                                                  child: Image.asset(
+                                                    'assets/images/Logo_ESCAPE_Black.png',
+                                                    width: 200.0,
+                                                    height: 75.2,
+                                                    fit: BoxFit.contain,
+                                                  ),
+                                                ),
+                                                Text(
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'dupalt31' /* Every journey begins with a ch... */,
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'WorkSans',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondary,
+                                                        fontSize: 18.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                ),
+                                              ].divide(SizedBox(height: 8.0)),
+                                            ),
+                                          ),
+                                          Container(
+                                            width: double.infinity,
+                                            child: Form(
+                                              key: _model.formKey1,
+                                              autovalidateMode:
+                                                  AutovalidateMode.disabled,
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Container(
+                                                    width: 300.0,
+                                                    child: TextFormField(
+                                                      controller: _model
+                                                          .displayNameTextController,
+                                                      focusNode: _model
+                                                          .displayNameFocusNode,
+                                                      onChanged: (_) =>
+                                                          EasyDebounce.debounce(
+                                                        '_model.displayNameTextController',
+                                                        Duration(
+                                                            milliseconds: 2000),
+                                                        () =>
+                                                            safeSetState(() {}),
+                                                      ),
+                                                      onFieldSubmitted:
+                                                          (_) async {
+                                                        logFirebaseEvent(
+                                                            'NEW_SIGN_IN_VERSION5_DisplayName_ON_TEXT');
+                                                        logFirebaseEvent(
+                                                            'DisplayName_haptic_feedback');
+                                                        HapticFeedback
+                                                            .lightImpact();
+                                                      },
+                                                      autofocus: false,
+                                                      enabled: true,
+                                                      textInputAction:
+                                                          TextInputAction.done,
+                                                      obscureText: false,
+                                                      decoration:
+                                                          InputDecoration(
+                                                        hintText:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                          'y80ib0bv' /* Name */,
+                                                        ),
+                                                        hintStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'WorkSans',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primary,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                        enabledBorder:
+                                                            InputBorder.none,
+                                                        focusedBorder:
+                                                            InputBorder.none,
+                                                        errorBorder:
+                                                            InputBorder.none,
+                                                        focusedErrorBorder:
+                                                            InputBorder.none,
+                                                        filled: true,
+                                                        fillColor:
+                                                            Color(0x31D0E3F7),
+                                                        contentPadding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    16.0,
+                                                                    16.0,
+                                                                    16.0,
+                                                                    16.0),
+                                                        hoverColor:
+                                                            Color(0x44EDF1F7),
+                                                        suffixIcon: _model
+                                                                .displayNameTextController!
+                                                                .text
+                                                                .isNotEmpty
+                                                            ? InkWell(
+                                                                onTap:
+                                                                    () async {
+                                                                  _model
+                                                                      .displayNameTextController
+                                                                      ?.clear();
+                                                                  safeSetState(
+                                                                      () {});
+                                                                },
+                                                                child: Icon(
+                                                                  Icons.clear,
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondary,
+                                                                  size: 22.0,
+                                                                ),
+                                                              )
+                                                            : null,
+                                                      ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'WorkSans',
+                                                            color: Color(
+                                                                0xEEEDF1F7),
+                                                            letterSpacing: 0.0,
+                                                          ),
+                                                      validator: _model
+                                                          .displayNameTextControllerValidator
+                                                          .asValidator(context),
+                                                    ),
+                                                  ),
+                                                  Container(
+                                                    width: 300.0,
+                                                    child: TextFormField(
+                                                      controller: _model
+                                                          .createEmailTextController,
+                                                      focusNode: _model
+                                                          .createEmailFocusNode,
+                                                      onChanged: (_) =>
+                                                          EasyDebounce.debounce(
+                                                        '_model.createEmailTextController',
+                                                        Duration(
+                                                            milliseconds: 2000),
+                                                        () =>
+                                                            safeSetState(() {}),
+                                                      ),
+                                                      onFieldSubmitted:
+                                                          (_) async {
+                                                        logFirebaseEvent(
+                                                            'NEW_SIGN_IN_VERSION5_CreateEmail_ON_TEXT');
+                                                        logFirebaseEvent(
+                                                            'CreateEmail_haptic_feedback');
+                                                        HapticFeedback
+                                                            .lightImpact();
+                                                      },
+                                                      autofocus: false,
+                                                      enabled: true,
+                                                      textInputAction:
+                                                          TextInputAction.done,
+                                                      obscureText: false,
+                                                      decoration:
+                                                          InputDecoration(
+                                                        hintText:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                          'y6i199pj' /* Enter your email */,
+                                                        ),
+                                                        hintStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'WorkSans',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primary,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                        enabledBorder:
+                                                            InputBorder.none,
+                                                        focusedBorder:
+                                                            InputBorder.none,
+                                                        errorBorder:
+                                                            InputBorder.none,
+                                                        focusedErrorBorder:
+                                                            InputBorder.none,
+                                                        filled: true,
+                                                        fillColor:
+                                                            Color(0x31D0E3F7),
+                                                        contentPadding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    16.0,
+                                                                    16.0,
+                                                                    16.0,
+                                                                    16.0),
+                                                        hoverColor:
+                                                            Color(0x44EDF1F7),
+                                                        suffixIcon: _model
+                                                                .createEmailTextController!
+                                                                .text
+                                                                .isNotEmpty
+                                                            ? InkWell(
+                                                                onTap:
+                                                                    () async {
+                                                                  _model
+                                                                      .createEmailTextController
+                                                                      ?.clear();
+                                                                  safeSetState(
+                                                                      () {});
+                                                                },
+                                                                child: Icon(
+                                                                  Icons.clear,
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondary,
+                                                                  size: 22.0,
+                                                                ),
+                                                              )
+                                                            : null,
+                                                      ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'WorkSans',
+                                                            color: Color(
+                                                                0xEEEDF1F7),
+                                                            letterSpacing: 0.0,
+                                                          ),
+                                                      keyboardType:
+                                                          TextInputType
+                                                              .emailAddress,
+                                                      validator: _model
+                                                          .createEmailTextControllerValidator
+                                                          .asValidator(context),
+                                                    ),
+                                                  ),
+                                                  Container(
+                                                    width: 300.0,
+                                                    child: TextFormField(
+                                                      controller: _model
+                                                          .createPasswordTextController,
+                                                      focusNode: _model
+                                                          .createPasswordFocusNode,
+                                                      onFieldSubmitted:
+                                                          (_) async {
+                                                        logFirebaseEvent(
+                                                            'NEW_SIGN_IN_VERSION5_CreatePassword_ON_T');
+                                                        logFirebaseEvent(
+                                                            'CreatePassword_haptic_feedback');
+                                                        HapticFeedback
+                                                            .lightImpact();
+                                                      },
+                                                      autofocus: false,
+                                                      enabled: true,
+                                                      textInputAction:
+                                                          TextInputAction.done,
+                                                      obscureText: !_model
+                                                          .createPasswordVisibility,
+                                                      decoration:
+                                                          InputDecoration(
+                                                        hintText:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                          'xjsbnu6r' /* Create a password */,
+                                                        ),
+                                                        hintStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'WorkSans',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primary,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                        enabledBorder:
+                                                            InputBorder.none,
+                                                        focusedBorder:
+                                                            InputBorder.none,
+                                                        errorBorder:
+                                                            InputBorder.none,
+                                                        focusedErrorBorder:
+                                                            InputBorder.none,
+                                                        filled: true,
+                                                        fillColor:
+                                                            Color(0x31D0E3F7),
+                                                        contentPadding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    16.0,
+                                                                    16.0,
+                                                                    16.0,
+                                                                    16.0),
+                                                        hoverColor:
+                                                            Color(0x44EDF1F7),
+                                                        suffixIcon: InkWell(
+                                                          onTap: () async {
+                                                            safeSetState(() => _model
+                                                                    .createPasswordVisibility =
+                                                                !_model
+                                                                    .createPasswordVisibility);
+                                                          },
+                                                          focusNode: FocusNode(
+                                                              skipTraversal:
+                                                                  true),
+                                                          child: Icon(
+                                                            _model.createPasswordVisibility
+                                                                ? Icons
+                                                                    .visibility_outlined
+                                                                : Icons
+                                                                    .visibility_off_outlined,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondary,
+                                                            size: 22.0,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'WorkSans',
+                                                            color: Color(
+                                                                0xEEEDF1F7),
+                                                            letterSpacing: 0.0,
+                                                          ),
+                                                      validator: _model
+                                                          .createPasswordTextControllerValidator
+                                                          .asValidator(context),
+                                                    ),
+                                                  ),
+                                                  Container(
+                                                    width: 300.0,
+                                                    child: TextFormField(
+                                                      controller: _model
+                                                          .confirmPasswordTextController,
+                                                      focusNode: _model
+                                                          .confirmPasswordFocusNode,
+                                                      onFieldSubmitted:
+                                                          (_) async {
+                                                        logFirebaseEvent(
+                                                            'NEW_SIGN_IN_VERSION5_ConfirmPassword_ON_');
+                                                        logFirebaseEvent(
+                                                            'ConfirmPassword_haptic_feedback');
+                                                        HapticFeedback
+                                                            .lightImpact();
+                                                      },
+                                                      autofocus: false,
+                                                      enabled: true,
+                                                      textInputAction:
+                                                          TextInputAction.done,
+                                                      obscureText: !_model
+                                                          .confirmPasswordVisibility,
+                                                      decoration:
+                                                          InputDecoration(
+                                                        hintText:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                          'jm1lxjlu' /* Confirm your password */,
+                                                        ),
+                                                        hintStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                          fontFamily:
+                                                              'WorkSans',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primary,
+                                                          letterSpacing: 0.0,
+                                                          shadows: [
+                                                            Shadow(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .alternate,
+                                                              offset: Offset(
+                                                                  8.0, 8.0),
+                                                              blurRadius: 8.0,
+                                                            )
+                                                          ],
+                                                        ),
+                                                        enabledBorder:
+                                                            InputBorder.none,
+                                                        focusedBorder:
+                                                            InputBorder.none,
+                                                        errorBorder:
+                                                            InputBorder.none,
+                                                        focusedErrorBorder:
+                                                            InputBorder.none,
+                                                        filled: true,
+                                                        fillColor:
+                                                            Color(0x31D0E3F7),
+                                                        contentPadding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    16.0,
+                                                                    16.0,
+                                                                    16.0,
+                                                                    16.0),
+                                                        hoverColor:
+                                                            Color(0x44EDF1F7),
+                                                        suffixIcon: InkWell(
+                                                          onTap: () async {
+                                                            safeSetState(() => _model
+                                                                    .confirmPasswordVisibility =
+                                                                !_model
+                                                                    .confirmPasswordVisibility);
+                                                          },
+                                                          focusNode: FocusNode(
+                                                              skipTraversal:
+                                                                  true),
+                                                          child: Icon(
+                                                            _model.confirmPasswordVisibility
+                                                                ? Icons
+                                                                    .visibility_outlined
+                                                                : Icons
+                                                                    .visibility_off_outlined,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondary,
+                                                            size: 22.0,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'WorkSans',
+                                                            color: Color(
+                                                                0xEEEDF1F7),
+                                                            letterSpacing: 0.0,
+                                                          ),
+                                                      validator: _model
+                                                          .confirmPasswordTextControllerValidator
+                                                          .asValidator(context),
+                                                    ),
+                                                  ),
+                                                ].divide(
+                                                    SizedBox(height: 16.0)),
+                                              ),
+                                            ),
+                                          ),
+                                          Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: [
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        8.0, 0.0, 8.0, 0.0),
+                                                child: Text(
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'qijyx8bk' /* Which energy resonates with yo... */,
+                                                  ),
+                                                  textAlign: TextAlign.center,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .titleMedium
+                                                      .override(
+                                                        fontFamily: 'WorkSans',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
+                                                        fontSize: 16.0,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                ),
+                                              ),
+                                              Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Expanded(
+                                                        child: Align(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  0.0, -1.0),
+                                                          child: Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        15.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            child:
+                                                                FlutterFlowChoiceChips(
+                                                              options: [
+                                                                ChipData(FFLocalizations.of(
+                                                                        context)
+                                                                    .getText(
+                                                                  'bg2ttxkr' /* Grounding */,
+                                                                )),
+                                                                ChipData(FFLocalizations.of(
+                                                                        context)
+                                                                    .getText(
+                                                                  'wgq6tz2b' /* Creator */,
+                                                                ))
+                                                              ],
+                                                              onChanged:
+                                                                  (val) async {
+                                                                safeSetState(() =>
+                                                                    _model.lowerChakraMoodsValue =
+                                                                        val?.firstOrNull);
+                                                                logFirebaseEvent(
+                                                                    'NEW_SIGN_IN_VERSION5_LowerChakraMoods_ON');
+                                                                logFirebaseEvent(
+                                                                    'LowerChakraMoods_haptic_feedback');
+                                                                HapticFeedback
+                                                                    .mediumImpact();
+                                                              },
+                                                              selectedChipStyle:
+                                                                  ChipStyle(
+                                                                backgroundColor:
+                                                                    Color(
+                                                                        0x848B4513),
+                                                                textStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'WorkSans',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .info,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
+                                                                iconColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .info,
+                                                                iconSize: 16.0,
+                                                                elevation: 0.0,
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            8.0),
+                                                              ),
+                                                              unselectedChipStyle:
+                                                                  ChipStyle(
+                                                                backgroundColor:
+                                                                    Color(
+                                                                        0xB6FF8C00),
+                                                                textStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'WorkSans',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primary,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
+                                                                iconColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
+                                                                iconSize: 16.0,
+                                                                elevation: 0.0,
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            8.0),
+                                                              ),
+                                                              chipSpacing: 15.0,
+                                                              rowSpacing: 20.0,
+                                                              multiselect:
+                                                                  false,
+                                                              alignment:
+                                                                  WrapAlignment
+                                                                      .spaceEvenly,
+                                                              controller: _model
+                                                                      .lowerChakraMoodsValueController ??=
+                                                                  FormFieldController<
+                                                                      List<
+                                                                          String>>(
+                                                                [],
+                                                              ),
+                                                              wrapped: true,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ].divide(
+                                                        SizedBox(width: 12.0)),
+                                                  ),
+                                                  Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Expanded(
+                                                        child: Align(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  0.0, -1.0),
+                                                          child: Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        5.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            child:
+                                                                FlutterFlowChoiceChips(
+                                                              options: [
+                                                                ChipData(FFLocalizations.of(
+                                                                        context)
+                                                                    .getText(
+                                                                  'wzdcld6o' /* Warrior */,
+                                                                )),
+                                                                ChipData(FFLocalizations.of(
+                                                                        context)
+                                                                    .getText(
+                                                                  'kz20m7ig' /* Healer */,
+                                                                ))
+                                                              ],
+                                                              onChanged:
+                                                                  (val) async {
+                                                                safeSetState(() =>
+                                                                    _model.middleChakraMoodsValue =
+                                                                        val?.firstOrNull);
+                                                                logFirebaseEvent(
+                                                                    'NEW_SIGN_IN_VERSION5_MiddleChakraMoods_O');
+                                                                logFirebaseEvent(
+                                                                    'MiddleChakraMoods_haptic_feedback');
+                                                                HapticFeedback
+                                                                    .mediumImpact();
+                                                              },
+                                                              selectedChipStyle:
+                                                                  ChipStyle(
+                                                                backgroundColor:
+                                                                    Color(
+                                                                        0xA5DAA520),
+                                                                textStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'WorkSans',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .info,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
+                                                                iconColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .info,
+                                                                iconSize: 16.0,
+                                                                elevation: 0.0,
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            8.0),
+                                                              ),
+                                                              unselectedChipStyle:
+                                                                  ChipStyle(
+                                                                backgroundColor:
+                                                                    Color(
+                                                                        0x8C228B22),
+                                                                textStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'WorkSans',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primary,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
+                                                                iconColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
+                                                                iconSize: 16.0,
+                                                                elevation: 0.0,
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            8.0),
+                                                              ),
+                                                              chipSpacing: 25.0,
+                                                              rowSpacing: 8.0,
+                                                              multiselect:
+                                                                  false,
+                                                              alignment:
+                                                                  WrapAlignment
+                                                                      .spaceEvenly,
+                                                              controller: _model
+                                                                      .middleChakraMoodsValueController ??=
+                                                                  FormFieldController<
+                                                                      List<
+                                                                          String>>(
+                                                                [],
+                                                              ),
+                                                              wrapped: true,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ].divide(
+                                                        SizedBox(width: 12.0)),
+                                                  ),
+                                                  Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Expanded(
+                                                        child: Align(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  0.0, -1.0),
+                                                          child:
+                                                              FlutterFlowChoiceChips(
+                                                            options: [
+                                                              ChipData(
+                                                                  FFLocalizations.of(
+                                                                          context)
+                                                                      .getText(
+                                                                '98ws6791' /* Speaker */,
+                                                              )),
+                                                              ChipData(
+                                                                  FFLocalizations.of(
+                                                                          context)
+                                                                      .getText(
+                                                                'zo8k03ne' /* Intuition */,
+                                                              ))
+                                                            ],
+                                                            onChanged:
+                                                                (val) async {
+                                                              safeSetState(() =>
+                                                                  _model.higherChakraMoodsValue =
+                                                                      val?.firstOrNull);
+                                                              logFirebaseEvent(
+                                                                  'NEW_SIGN_IN_VERSION5_HigherChakraMoods_O');
+                                                              logFirebaseEvent(
+                                                                  'HigherChakraMoods_haptic_feedback');
+                                                              HapticFeedback
+                                                                  .mediumImpact();
+                                                            },
+                                                            selectedChipStyle:
+                                                                ChipStyle(
+                                                              backgroundColor:
+                                                                  Color(
+                                                                      0xA61E90FF),
+                                                              textStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'WorkSans',
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .info,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
+                                                              iconColor:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .info,
+                                                              iconSize: 16.0,
+                                                              elevation: 0.0,
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          8.0),
+                                                            ),
+                                                            unselectedChipStyle:
+                                                                ChipStyle(
+                                                              backgroundColor:
+                                                                  Color(
+                                                                      0xFFA400BD),
+                                                              textStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'WorkSans',
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .primary,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                      ),
+                                                              iconColor:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primary,
+                                                              iconSize: 16.0,
+                                                              elevation: 0.0,
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          8.0),
+                                                            ),
+                                                            chipSpacing: 25.0,
+                                                            rowSpacing: 8.0,
+                                                            multiselect: false,
+                                                            alignment:
+                                                                WrapAlignment
+                                                                    .spaceEvenly,
+                                                            controller: _model
+                                                                    .higherChakraMoodsValueController ??=
+                                                                FormFieldController<
+                                                                    List<
+                                                                        String>>(
+                                                              [],
+                                                            ),
+                                                            wrapped: true,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ].divide(
+                                                        SizedBox(width: 12.0)),
+                                                  ),
+                                                  Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                    children: [
+                                                      Expanded(
+                                                        child: Align(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  0.0, -1.0),
+                                                          child: Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        5.0,
+                                                                        15.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            child:
+                                                                FlutterFlowChoiceChips(
+                                                              options: [
+                                                                ChipData(FFLocalizations.of(
+                                                                        context)
+                                                                    .getText(
+                                                                  'jtbbig6p' /* Ascended */,
+                                                                ))
+                                                              ],
+                                                              onChanged:
+                                                                  (val) async {
+                                                                safeSetState(() =>
+                                                                    _model.crownChakraMoodsValue =
+                                                                        val?.firstOrNull);
+                                                                logFirebaseEvent(
+                                                                    'NEW_SIGN_IN_VERSION5_CrownChakraMoods_ON');
+                                                                logFirebaseEvent(
+                                                                    'CrownChakraMoods_haptic_feedback');
+                                                                HapticFeedback
+                                                                    .mediumImpact();
+                                                              },
+                                                              selectedChipStyle:
+                                                                  ChipStyle(
+                                                                backgroundColor:
+                                                                    Color(
+                                                                        0x717171F0),
+                                                                textStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'WorkSans',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .info,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
+                                                                iconColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .info,
+                                                                iconSize: 16.0,
+                                                                elevation: 0.0,
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            8.0),
+                                                              ),
+                                                              unselectedChipStyle:
+                                                                  ChipStyle(
+                                                                backgroundColor:
+                                                                    Color(
+                                                                        0x717171F0),
+                                                                textStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'WorkSans',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primary,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
+                                                                iconColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
+                                                                iconSize: 16.0,
+                                                                elevation: 0.0,
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            8.0),
+                                                              ),
+                                                              chipSpacing: 8.0,
+                                                              rowSpacing: 8.0,
+                                                              multiselect:
+                                                                  false,
+                                                              alignment:
+                                                                  WrapAlignment
+                                                                      .start,
+                                                              controller: _model
+                                                                      .crownChakraMoodsValueController ??=
+                                                                  FormFieldController<
+                                                                      List<
+                                                                          String>>(
+                                                                [],
+                                                              ),
+                                                              wrapped: true,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ].divide(
+                                                    SizedBox(height: 12.0)),
+                                              ),
+                                            ].divide(SizedBox(height: 16.0)),
+                                          ),
+                                          Container(
+                                            width: 257.7,
+                                            height: 53.39,
+                                            decoration: BoxDecoration(
+                                              boxShadow: [
+                                                BoxShadow(
+                                                  blurRadius: 40.0,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .accent3,
+                                                  offset: Offset(
+                                                    0.0,
+                                                    0.0,
+                                                  ),
+                                                  spreadRadius: 20.0,
+                                                )
+                                              ],
+                                              borderRadius:
+                                                  BorderRadius.circular(24.0),
+                                            ),
+                                            child: FFButtonWidget(
+                                              onPressed: () async {
+                                                logFirebaseEvent(
+                                                    'NEW_SIGN_IN_VERSION5_BEGIN_MY_JOURNEY_BT');
+                                                logFirebaseEvent(
+                                                    'Button_haptic_feedback');
+                                                HapticFeedback.heavyImpact();
+                                                logFirebaseEvent(
+                                                    'Button_validate_form');
+                                                _model.createAccountValidation =
+                                                    true;
+                                                if (_model.formKey1
+                                                            .currentState ==
+                                                        null ||
+                                                    !_model
+                                                        .formKey1.currentState!
+                                                        .validate()) {
+                                                  _model.createAccountValidation =
+                                                      false;
+                                                }
+                                                logFirebaseEvent('Button_auth');
+                                                GoRouter.of(context)
+                                                    .prepareAuthEvent();
+                                                if (_model
+                                                        .createPasswordTextController
+                                                        .text !=
+                                                    _model
+                                                        .confirmPasswordTextController
+                                                        .text) {
+                                                  ScaffoldMessenger.of(context)
+                                                      .showSnackBar(
+                                                    SnackBar(
+                                                      content: Text(
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          'eni3v0ol' /* Passwords do not match. Try ag... */,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  );
+                                                  return;
+                                                }
+
+                                                final user = await authManager
+                                                    .createAccountWithEmail(
+                                                  context,
+                                                  _model
+                                                      .createEmailTextController
+                                                      .text,
+                                                  _model
+                                                      .createPasswordTextController
+                                                      .text,
+                                                );
+                                                if (user == null) {
+                                                  return;
+                                                }
+
+                                                try {
+                                                  await UsersRecord.collection
+                                                      .doc(user.uid)
+                                                      .update(
+                                                          createUsersRecordData(
+                                                        email: _model
+                                                            .createEmailTextController
+                                                            .text,
+                                                        createdTime:
+                                                            getCurrentTimestamp,
+                                                        displayName: _model
+                                                            .displayNameTextController
+                                                            .text,
+                                                        uid: random_data
+                                                            .randomInteger(
+                                                                0, 10000)
+                                                            .toString(),
+                                                      ));
+                                                } catch (e) {
+                                                  debugPrint(
+                                                      'UsersRecord update failed: $e');
+                                                }
+
+                                                logFirebaseEvent(
+                                                    'Button_show_snack_bar');
+                                                ScaffoldMessenger.of(context)
+                                                    .showSnackBar(
+                                                  SnackBar(
+                                                    content: Text(
+                                                      'Account Created!',
+                                                      style: TextStyle(
+                                                        fontFamily: 'WorkSans',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondary,
+                                                      ),
+                                                    ),
+                                                    duration: Duration(
+                                                        milliseconds: 4000),
+                                                    backgroundColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .alternate,
+                                                  ),
+                                                );
+                                                logFirebaseEvent(
+                                                    'Button_hide_snack_bar');
+                                                ScaffoldMessenger.of(context)
+                                                    .hideCurrentSnackBar();
+                                                logFirebaseEvent(
+                                                    'Button_backend_call');
+
+                                                try {
+                                                  await currentUserReference!
+                                                      .update(
+                                                          createUsersRecordData(
+                                                    lowerChakraMood: _model
+                                                        .lowerChakraMoodsValue,
+                                                    middleChakraMood: _model
+                                                        .middleChakraMoodsValue,
+                                                    higherChakraMood: _model
+                                                        .higherChakraMoodsValue,
+                                                    ascendedMood: _model
+                                                        .crownChakraMoodsValue,
+                                                  ));
+                                                } catch (e) {
+                                                  debugPrint(
+                                                      'chakra mood update failed: $e');
+                                                }
+                                                logFirebaseEvent(
+                                                    'Button_show_snack_bar');
+                                                ScaffoldMessenger.of(context)
+                                                    .clearSnackBars();
+                                                ScaffoldMessenger.of(context)
+                                                    .showSnackBar(
+                                                  SnackBar(
+                                                    content: Text(
+                                                      'Mood Saved!',
+                                                      style: TextStyle(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
+                                                      ),
+                                                    ),
+                                                    duration: Duration(
+                                                        milliseconds: 5300),
+                                                    backgroundColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .accent1,
+                                                    action: SnackBarAction(
+                                                      label:
+                                                          'Click Here to continue.',
+                                                      textColor:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primary,
+                                                      onPressed: () async {
+                                                        context.goNamedAuth(
+                                                          CreateAccountOnboardingFlowWidget
+                                                              .routeName,
+                                                          context.mounted,
+                                                          extra: <String,
+                                                              dynamic>{
+                                                            '__transition_info__':
+                                                                TransitionInfo(
+                                                              hasTransition:
+                                                                  true,
+                                                              transitionType:
+                                                                  PageTransitionType
+                                                                      .fade,
+                                                              duration: Duration(
+                                                                  milliseconds:
+                                                                      9),
+                                                            ),
+                                                          },
+                                                        );
+                                                      },
+                                                    ),
+                                                  ),
+                                                );
+                                                logFirebaseEvent(
+                                                    'Button_play_sound');
+                                                _model.soundPlayer6 ??=
+                                                    AudioPlayer();
+                                                if (_model
+                                                    .soundPlayer6!.playing) {
+                                                  await _model.soundPlayer6!
+                                                      .stop();
+                                                }
+                                                _model.soundPlayer6!
+                                                    .setVolume(1.0);
+                                                await _model.soundPlayer6!
+                                                    .setAsset(
+                                                        'assets/audios/ES_Game,_Jingle,_Chime,_Positive_01_-_Epidemic_Sound_-_3038-4627.wav')
+                                                    .then((_) => _model
+                                                        .soundPlayer6!
+                                                        .play());
+
+                                                logFirebaseEvent(
+                                                    'Button_navigate_to');
+
+                                                context.pushNamedAuth(
+                                                  CreateAccountOnboardingFlowWidget
+                                                      .routeName,
+                                                  context.mounted,
+                                                  extra: <String, dynamic>{
+                                                    '__transition_info__':
+                                                        TransitionInfo(
+                                                      hasTransition: true,
+                                                      transitionType:
+                                                          PageTransitionType
+                                                              .fade,
+                                                      duration: Duration(
+                                                          milliseconds: 2),
+                                                    ),
+                                                  },
+                                                );
+
+                                                safeSetState(() {});
+                                              },
+                                              text: FFLocalizations.of(context)
+                                                  .getText(
+                                                'dc5moz0y' /* Begin My Journey */,
+                                              ),
+                                              options: FFButtonOptions(
+                                                width: 300.0,
+                                                height: 50.0,
+                                                padding: EdgeInsets.all(8.0),
+                                                iconPadding:
+                                                    EdgeInsetsDirectional
+                                                        .fromSTEB(
+                                                            0.0, 0.0, 0.0, 0.0),
+                                                color: Color(0xFFF97316),
+                                                textStyle: FlutterFlowTheme.of(
+                                                        context)
+                                                    .titleMedium
+                                                    .override(
+                                                      fontFamily: 'WorkSans',
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primary,
+                                                      letterSpacing: 0.0,
+                                                    ),
+                                                elevation: 0.0,
+                                                borderSide: BorderSide(
+                                                  color: Color(0x5CEDF1F7),
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(24.0),
+                                                hoverColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .alternate,
+                                                hoverBorderSide: BorderSide(
+                                                  color: Color(0x38EDF1F7),
+                                                ),
+                                                hoverTextColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                hoverElevation: 2.0,
+                                              ),
+                                            ),
+                                          ),
+                                          Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Text(
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  '040pxtfz' /* Already have an account? */,
+                                                ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'WorkSans',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryBackground,
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                              ),
+                                              InkWell(
+                                                splashColor: Colors.transparent,
+                                                focusColor: Colors.transparent,
+                                                hoverColor: Colors.transparent,
+                                                highlightColor:
+                                                    Colors.transparent,
+                                                onTap: () async {
+                                                  logFirebaseEvent(
+                                                      'NEW_SIGN_IN_VERSION5_Text_dotzx0s7_ON_TA');
+                                                  logFirebaseEvent(
+                                                      'Text_haptic_feedback');
+                                                  HapticFeedback.lightImpact();
+                                                  logFirebaseEvent(
+                                                      'Text_play_sound');
+                                                  _model.soundPlayer7 ??=
+                                                      AudioPlayer();
+                                                  if (_model
+                                                      .soundPlayer7!.playing) {
+                                                    await _model.soundPlayer7!
+                                                        .stop();
+                                                  }
+                                                  _model.soundPlayer7!
+                                                      .setVolume(1.0);
+                                                  _model.soundPlayer7!
+                                                      .setAsset(
+                                                          'assets/audios/ES_Pops,_Wobble,_Bloop,_Pops_-_Epidemic_Sound.mp3')
+                                                      .then((_) => _model
+                                                          .soundPlayer7!
+                                                          .play());
+
+                                                  logFirebaseEvent(
+                                                      'Text_page_view');
+                                                  await _model
+                                                      .pageViewController
+                                                      ?.previousPage(
+                                                    duration: Duration(
+                                                        milliseconds: 300),
+                                                    curve: Curves.ease,
+                                                  );
+                                                },
+                                                child: Text(
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    '1ryjw59e' /* Log In */,
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'WorkSans',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .accent1,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FontWeight.w600,
+                                                      ),
+                                                ),
+                                              ),
+                                            ].divide(SizedBox(width: 4.0)),
+                                          ),
+                                        ].divide(SizedBox(height: 24.0)),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    Align(
+                      alignment: AlignmentDirectional(0.0, 1.0),
+                      child: Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
+                        child: smooth_page_indicator.SmoothPageIndicator(
+                          controller: _model.pageViewController ??=
+                              PageController(initialPage: 0),
+                          count: 2,
+                          axisDirection: Axis.horizontal,
+                          onDotClicked: (i) async {
+                            await _model.pageViewController!.animateToPage(
+                              i,
+                              duration: Duration(milliseconds: 500),
+                              curve: Curves.ease,
+                            );
+                            safeSetState(() {});
+                          },
+                          effect: smooth_page_indicator.SlideEffect(
+                            spacing: 8.0,
+                            radius: 8.0,
+                            dotWidth: 8.0,
+                            dotHeight: 8.0,
+                            dotColor: FlutterFlowTheme.of(context).secondary,
+                            activeDotColor:
+                                FlutterFlowTheme.of(context).accent1,
+                            paintStyle: PaintingStyle.fill,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

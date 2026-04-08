@@ -1,0 +1,7 @@
+NSLocationWhenInUseUsageDescription = "In order to help Lucille give you a better self-care experience, we will need your permission for your device location when in usage of Escape.";
+NSCameraUsageDescription = "In order to take a picture for your mood, Escape will need permission to access your camera.";
+NSPhotoLibraryUsageDescription = "In order to take a picture for your mood, Escape will need permission to access your photo library.";
+NSMicrophoneUsageDescription = "In order to take a picture for your mood, Escape will need permission to access your microphone.";
+PermissionGroupNotification = "In order to take a picture for your mood, Escape will need permission to access your notifications.";
+NSPushNotification = "In order to send notifications, Escape will need permission to send push notifications when your mood updates.";
+NSSpeechRecognitionUsageDescription = "Escape requires access to your Speech Recognition in order to use Talk With Lucille and many more features.";
