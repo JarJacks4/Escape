@@ -168,9 +168,9 @@ class ChatStreamCall {
 
     final ffApiRequestBody = '''
 {
-  "message": "I've been feeling anxious about work lately",
-  "session_id": "optional-uuid (auto-generated if omitted)",
-  "user_id": "optional-user-id (enables personalization)"
+  "message": "${escapeStringForJson(message)}",
+  "session_id": "${escapeStringForJson(sessionID)}",
+  "user_id": "${escapeStringForJson(userID)}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'ChatStream',
@@ -3162,8 +3162,7 @@ class EscapeAudioScriptCall {
     String? model = 'whisper-large-v3',
     FFUploadedFile? file,
     String? responseFormat = 'verbose_json',
-    String? gorqKey =
-        '',
+    String? gorqKey = '',
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'Escape AudioScript',
