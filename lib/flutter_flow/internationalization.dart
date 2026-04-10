@@ -63619,6 +63619,63 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hant': '',
     },
   },
+  // ResetWalkthrough1Version5
+  {
+    'ntdvqxlr': {
+      'en': 'Step 1',
+      'ar': 'الخطوة 1',
+      'de': 'Schritt 1',
+      'es': 'Paso 1',
+      'fr': 'Étape 1',
+      'it': 'Passo 1',
+      'ja': 'ステップ1',
+      'ko': '1단계',
+      'ru': 'Шаг 1',
+      'uk': 'Крок 1',
+      'zh_Hans': '步骤 1',
+      'zh_Hant': '步驟 1',
+    },
+    'pqnandeg': {
+      'en': 'Welcome to Escape',
+      'ar': 'ابحث عن وضعيتك',
+      'de': 'Finden Sie Ihre Haltung',
+      'es': 'Encuentra tu postura',
+      'fr': 'Trouvez votre posture',
+      'it': 'Trova la tua postura',
+      'ja': '自分の姿勢を見つける',
+      'ko': '자세를 찾으세요',
+      'ru': 'Найдите свою осанку',
+      'uk': 'Знайдіть свою поставу',
+      'zh_Hans': '找到你的姿势',
+      'zh_Hant': '找到你的姿勢',
+    },
+    'cjazsgo9': {
+      'en':
+          'Your personal space for self-care, guided by Lucille. Everything adapts to how you feel—right when you need it.',
+      'ar':
+          'عندما تجد مكانك الهادئ، اجلس وظهرك مستقيمًا وأسفل ظهرك مسترخيًا. قبل البدء بأي تأمل، من المهم الحفاظ على وضعية الجسم والتركيز على التنفس.\n\nمرر للبدأ!',
+      'de':
+          'Sobald du deinen Ruhepol gefunden hast, setz dich mit geradem Rücken und entspanntem unteren Rücken hin. Bevor du mit der Meditation beginnst, ist die richtige Haltung wichtig, um Atem und Körper zu zentrieren.\n\nZum Starten wischen!',
+      'es':
+          'Una vez que encuentres tu espacio de paz, siéntate con la espalda recta y la zona lumbar relajada. Antes de comenzar la meditación, la postura es importante para centrar la respiración y el cuerpo.\n\n¡Desliza para comenzar!',
+      'fr':
+          'Une fois votre espace de paix trouvé, asseyez-vous, le dos droit et le bas du dos détendu. Avant toute méditation, il est important de bien se tenir pour centrer sa respiration et son corps.\n\nSwipez pour commencer !',
+      'it':
+          'Una volta trovato il tuo spazio di pace, siediti con la schiena dritta e la parte bassa della schiena rilassata. Prima di iniziare qualsiasi meditazione, la postura è importante per centrare il respiro e il corpo.\n\nScorri per iniziare!',
+      'ja':
+          '落ち着いた空間を見つけたら、背筋を伸ばして腰をリラックスさせ、座りましょう。瞑想に入る前に、呼吸と体を集中させる姿勢が大切です。\n\nスワイプしてスタート！',
+      'ko':
+          '평화로운 공간을 찾으면 등을 곧게 펴고 허리를 편안하게 한 채 자리에 앉으세요. 명상에 들어가기 전에는 호흡과 몸의 중심을 잡는 자세가 중요합니다.\n\n스와이프하여 시작하세요!',
+      'ru':
+          'Как только вы найдете свое спокойное место, сядьте, выпрямив спину и расслабив поясницу. Перед тем, как приступить к любой медитации, осанка важна для центрирования дыхания и тела.\n\nПроведите пальцем, чтобы начать!',
+      'uk':
+          'Як тільки ви знайдете своє спокійне місце, сядьте, тримаючи спину прямо, а поперек розслабленим. Перш ніж переходити до будь-якої медитації, важлива постава для зосередження дихання та тіла.\n\nПроведіть пальцем, щоб почати!',
+      'zh_Hans':
+          '找到平静的空间后，请坐下来，保持背部挺直，放松下背部。在开始任何冥想之前，姿势对于集中呼吸和身体至关重要。\n\n滑动即可开始！',
+      'zh_Hant':
+          '找到平靜的空間後，請坐下來，保持背部挺直，放鬆下背部。在開始任何冥想之前，姿勢對於集中呼吸和身體至關重要。\n\n滑動即可開始！',
+    },
+  },
   // Miscellaneous
   {
     'plg76jpa': {

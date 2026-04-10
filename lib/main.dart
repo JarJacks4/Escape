@@ -24,6 +24,8 @@ import 'package:confetti_modualo_library_b75kfy/app_state.dart'
 import 'package:that_audio_player_oo85ab/app_state.dart'
     as that_audio_player_oo85ab_app_state;
 
+import '/app_events/index.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   GoRouter.optionURLReflectsImperativeAPIs = true;
@@ -54,6 +56,8 @@ void main() async {
   if (!kIsWeb) {
     FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
   }
+
+  FFAppEventService.instance.init(onGlobalEvent: handleGlobalEvent);
 
   runApp(MultiProvider(
     providers: [

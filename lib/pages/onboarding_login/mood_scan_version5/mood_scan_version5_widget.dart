@@ -1,5 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
-import '/backend/ai_agents/ai_agent.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import 'dart:ui';
+import '/app_events/index.dart';
 import '/index.dart';
 import 'package:confetti_modualo_library_b75kfy/app_state.dart'
     as confetti_modualo_library_b75kfy_app_state;
@@ -579,25 +580,29 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                       ),
                                                     );
                                                     logFirebaseEvent(
-                                                        'Button_a_i_agent');
-                                                    await callAiAgent(
-                                                      context: context,
-                                                      prompt:
-                                                          'Analyze the users picture to generate a single text word that describes the mood analyzed in the photo.',
-                                                      imageUrl: _model
-                                                          .uploadedFileUrl_mdPhoto,
-                                                      threadId: '1',
-                                                      agentCloudFunctionName:
-                                                          'lucilleMoodAnalyzerAgent',
-                                                      provider: 'GOOGLE',
-                                                      agentJson:
-                                                          '{\"status\":\"LIVE\",\"identifier\":{\"name\":\"lucilleMoodAnalyzerAgent\",\"key\":\"qs0vq\"},\"name\":\"LucilleMoodAnalyzerAgent\",\"description\":\"This Self-Care agent is for primarily giving a one word response to \\\"What is the user\'s mood, according to their uploaded photo?\\\"\",\"aiModel\":{\"provider\":\"GOOGLE\",\"model\":\"gemini-2.5-flash-lite\",\"parameters\":{\"temperature\":{\"inputValue\":1},\"maxTokens\":{\"inputValue\":65535},\"topP\":{\"inputValue\":0.95}},\"messages\":[{\"role\":\"SYSTEM\",\"text\":\"You are a Self-Care agent for the AI Self Care company Escapeapp.ai and you are here to give a one word response to their uploaded photo. The response should be the mood that you analyze from the photo, as a completely one word response.\"},{\"role\":\"USER\",\"text\":\"What is the my mood today, in one word, according to the photo they just uploaded for text-to-image mood analyzation?\"}]},\"requestOptions\":{\"requestTypes\":[\"PLAINTEXT\",\"IMAGE\"]},\"responseOptions\":{\"responseType\":\"PLAINTEXT\"}}',
-                                                      responseType: 'PLAINTEXT',
-                                                    ).then((generatedText) {
-                                                      safeSetState(() => _model
-                                                              .aIMoodAnalyzeAction =
-                                                          generatedText);
-                                                    });
+                                                        'Button_backend_call');
+                                                    _model.moodScan =
+                                                        await TheoryOfMindLucilleGroup
+                                                            .lucilleChatMainCall
+                                                            .call(
+                                                      message:
+                                                          'What is the my mood today, in one word, according to the photoI am uploading for text-to-image mood analyzation? Here is the photo:${_model.uploadedFileUrl_mdPhoto}',
+                                                      sessionId: FFAppState()
+                                                          .chatSessionId,
+                                                      userId: currentUserUid,
+                                                    );
+
+                                                    logFirebaseEvent(
+                                                        'Button_trigger_app_event');
+                                                    FFAppEventService.instance
+                                                        .triggerAppEvent(
+                                                      AiThinkingEvent(
+                                                        timestamp:
+                                                            DateTime.now(),
+                                                        waitForCompletion: true,
+                                                        debugId: '7',
+                                                      ),
+                                                    );
 
                                                     logFirebaseEvent(
                                                         'Button_backend_call');
@@ -605,8 +610,14 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                     await currentUserReference!
                                                         .update(
                                                             createUsersRecordData(
-                                                      currentMood: _model
-                                                          .aIMoodAnalyzeAction,
+                                                      currentMood:
+                                                          TheoryOfMindLucilleGroup
+                                                              .lucilleChatMainCall
+                                                              .response(
+                                                        (_model.moodScan
+                                                                ?.jsonBody ??
+                                                            ''),
+                                                      ),
                                                       timeStamp:
                                                           getCurrentTimestamp,
                                                       createdTime:
@@ -617,9 +628,39 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                         'Button_update_app_state');
                                                     FFAppState().moodPhoto = _model
                                                         .uploadedFileUrl_mdPhoto;
-                                                    FFAppState().moods = _model
-                                                        .aIMoodAnalyzeAction!;
+                                                    FFAppState().moods =
+                                                        TheoryOfMindLucilleGroup
+                                                            .lucilleChatMainCall
+                                                            .response(
+                                                      (_model.moodScan
+                                                              ?.jsonBody ??
+                                                          ''),
+                                                    )!;
                                                     FFAppState().update(() {});
+                                                    logFirebaseEvent(
+                                                        'Button_trigger_app_event');
+                                                    FFAppEventService.instance
+                                                        .triggerAppEvent(
+                                                      MoodScannedEvent(
+                                                        data: AiResponseStruct(
+                                                          message:
+                                                              TheoryOfMindLucilleGroup
+                                                                  .lucilleChatMainCall
+                                                                  .response(
+                                                            (_model.moodScan
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          ),
+                                                          type: 'Mood',
+                                                        ),
+                                                        timestamp:
+                                                            DateTime.now(),
+                                                        waitForCompletion:
+                                                            false,
+                                                        debugId: '2',
+                                                      ),
+                                                    );
+
                                                     logFirebaseEvent(
                                                         'Button_navigate_to');
 

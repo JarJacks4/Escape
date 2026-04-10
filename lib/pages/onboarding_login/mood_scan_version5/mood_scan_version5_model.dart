@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/index.dart';
 import 'mood_scan_version5_widget.dart' show MoodScanVersion5Widget;
@@ -19,8 +20,8 @@ class MoodScanVersion5Model extends FlutterFlowModel<MoodScanVersion5Widget> {
       FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
   String uploadedFileUrl_mdPhoto = '';
 
-  // Stores action output result for [AI Agent - Send Message to LucilleMoodAnalyzerAgent] action in Button widget.
-  String? aIMoodAnalyzeAction;
+  // Stores action output result for [Backend Call - API (Lucille Chat Main)] action in Button widget.
+  ApiCallResponse? moodScan;
 
   @override
   void initState(BuildContext context) {}

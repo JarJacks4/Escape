@@ -8,7 +8,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/walkthroughs/intro_walkthrough.dart';
 import 'dart:ui';
-import '/actions/actions.dart' as action_blocks;
+import '/app_events/index.dart';
 import '/index.dart';
 import 'package:confetti_modualo_library_b75kfy/app_state.dart'
     as confetti_modualo_library_b75kfy_app_state;
@@ -27,6 +27,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:lottie/lottie.dart';
+import 'package:material_palette/material_palette.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -109,15 +110,37 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
 
       logFirebaseEvent('HomeVersion5_backend_call');
       _model.usersCompleteProfile =
-          await TheoryOfMindOnboardingGroup.userCompleteProfileCall.call(
+          await TheoryOfMindOnboardingGroup.updateUserProfileCall.call(
         userID: currentUserUid,
       );
 
-      logFirebaseEvent('HomeVersion5_action_block');
-      await action_blocks.annualReviews(context);
-      safeSetState(() {});
-      logFirebaseEvent('HomeVersion5_action_block');
-      await action_blocks.selfCareCheckIn(context);
+      logFirebaseEvent('HomeVersion5_trigger_app_event');
+      FFAppEventService.instance.triggerAppEvent(
+        AiRecommendationReadyEvent(
+          timestamp: DateTime.now(),
+          waitForCompletion: false,
+          debugId: '6',
+        ),
+      );
+
+      logFirebaseEvent('HomeVersion5_trigger_app_event');
+      FFAppEventService.instance.triggerAppEvent(
+        AiThinkingEvent(
+          timestamp: DateTime.now(),
+          waitForCompletion: false,
+          debugId: '8',
+        ),
+      );
+
+      logFirebaseEvent('HomeVersion5_trigger_app_event');
+      FFAppEventService.instance.triggerAppEvent(
+        SafetyAndCrisisAssessmentEvent(
+          timestamp: DateTime.now(),
+          waitForCompletion: true,
+          debugId: '5',
+        ),
+      );
+
       if (FFAppState().hasSeenOnboarding == false) {
         logFirebaseEvent('HomeVersion5_start_walkthrough');
         safeSetState(() =>
@@ -612,35 +635,61 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                     ).animateOnPageLoad(
                                                                             animationsMap['iconOnPageLoadAnimation']!),
                                                                   ),
-                                                                  Hero(
-                                                                    tag: 'logo',
-                                                                    transitionOnUserGestures:
-                                                                        true,
-                                                                    child:
-                                                                        ClipRRect(
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              8.0),
-                                                                      child: Image
-                                                                          .asset(
-                                                                        'assets/images/Logo_ESCAPE_White.png',
-                                                                        width:
-                                                                            166.1,
-                                                                        height:
-                                                                            52.8,
-                                                                        fit: BoxFit
-                                                                            .contain,
-                                                                      ),
-                                                                    ),
-                                                                  )
-                                                                      .addWalkthrough(
-                                                                        image3wdxkp0v,
-                                                                        _model
-                                                                            .introWalkthroughController,
-                                                                      )
-                                                                      .animateOnPageLoad(
-                                                                          animationsMap[
-                                                                              'imageOnPageLoadAnimation2']!),
+                                                                  AnimatedShaderParams(
+                                                                      params: ShaderParams(
+                                                                          values: {
+                                                                            'angle':
+                                                                                14.0,
+                                                                            'scale':
+                                                                                1.0,
+                                                                            'offset':
+                                                                                0.0,
+                                                                            'pixelSize':
+                                                                                5.11,
+                                                                            'edgeWidth':
+                                                                                0.35,
+                                                                            'scatter':
+                                                                                0.36,
+                                                                            'noiseAmount':
+                                                                                0.93,
+                                                                            'speed':
+                                                                                0.21
+                                                                          }),
+                                                                      duration: Duration(
+                                                                          milliseconds: (140.0)
+                                                                              .round()),
+                                                                      curve: Curves
+                                                                          .easeIn,
+                                                                      builder: (params,
+                                                                              backgroundColor) =>
+                                                                          PixelDissolveShaderWrap(
+                                                                            params:
+                                                                                params,
+                                                                            animationMode:
+                                                                                ShaderAnimationMode.explicit,
+                                                                            animationConfig: ShaderAnimationConfig(
+                                                                                duration: Duration(milliseconds: (2400.0).round()),
+                                                                                curve: Curves.easeIn,
+                                                                                invert: true),
+                                                                            child: Hero(
+                                                                              tag: 'logo',
+                                                                              transitionOnUserGestures: true,
+                                                                              child: ClipRRect(
+                                                                                borderRadius: BorderRadius.circular(8.0),
+                                                                                child: Image.asset(
+                                                                                  'assets/images/Logo_ESCAPE_White.png',
+                                                                                  width: 166.1,
+                                                                                  height: 52.8,
+                                                                                  fit: BoxFit.contain,
+                                                                                ),
+                                                                              ),
+                                                                            )
+                                                                                .addWalkthrough(
+                                                                                  imageYxunjfxe,
+                                                                                  _model.introWalkthroughController,
+                                                                                )
+                                                                                .animateOnPageLoad(animationsMap['imageOnPageLoadAnimation2']!),
+                                                                          )),
                                                                   Row(
                                                                     mainAxisSize:
                                                                         MainAxisSize

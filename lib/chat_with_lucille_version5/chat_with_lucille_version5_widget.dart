@@ -14,6 +14,7 @@ import '/flutter_flow/upload_data.dart';
 import '/lucille_g_p_t_comp/writing_indicator/writing_indicator_widget.dart';
 import 'dart:convert';
 import 'dart:ui';
+import '/app_events/index.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/permissions_util.dart';
@@ -32,6 +33,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:lottie/lottie.dart';
+import 'package:material_palette/material_palette.dart';
 import 'package:provider/provider.dart';
 import 'package:record/record.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -112,7 +114,7 @@ class _ChatWithLucilleVersion5WidgetState
                 ),
                 child: Container(
                   width: double.infinity,
-                  height: 795.9,
+                  height: 817.9,
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
                       colors: [
@@ -894,7 +896,7 @@ class _ChatWithLucilleVersion5WidgetState
                                                                               alignment: AlignmentDirectional(0.0, -1.0),
                                                                               child: Builder(
                                                                                 builder: (context) {
-                                                                                  final chat = FFAppState().messagesTheoryOfMind.toList();
+                                                                                  final chat = _model.streamMessages.toList();
                                                                                   if (chat.isEmpty) {
                                                                                     return Center(
                                                                                       child: Container(
@@ -959,34 +961,48 @@ class _ChatWithLucilleVersion5WidgetState
                                                                                                                 width: 2.0,
                                                                                                               ),
                                                                                                             ),
-                                                                                                            child: Padding(
-                                                                                                              padding: EdgeInsetsDirectional.fromSTEB(12.0, 8.0, 12.0, 8.0),
-                                                                                                              child: SingleChildScrollView(
-                                                                                                                primary: false,
-                                                                                                                controller: _model.columnController2,
-                                                                                                                child: Column(
-                                                                                                                  mainAxisSize: MainAxisSize.min,
-                                                                                                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                                                  children: [
-                                                                                                                    RichText(
-                                                                                                                      textScaler: MediaQuery.of(context).textScaler,
-                                                                                                                      text: TextSpan(
-                                                                                                                        children: [
-                                                                                                                          TextSpan(
-                                                                                                                            text: FFAppState().messagesTheoryOfMind.contains(FFAppState().messagesTheoryOfMind.where((e) => Role.User != null).toList().firstOrNull).toString(),
-                                                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                                  fontFamily: 'WorkSans',
-                                                                                                                                  letterSpacing: 0.0,
-                                                                                                                                ),
-                                                                                                                          )
-                                                                                                                        ],
-                                                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                                              fontFamily: 'WorkSans',
-                                                                                                                              letterSpacing: 0.0,
-                                                                                                                            ),
+                                                                                                            child: PixelDissolveShaderWrap(
+                                                                                                              params: ShaderParams(values: {
+                                                                                                                'angle': 14.0,
+                                                                                                                'scale': 1.0,
+                                                                                                                'offset': 0.0,
+                                                                                                                'pixelSize': 5.11,
+                                                                                                                'edgeWidth': 0.35,
+                                                                                                                'scatter': 0.36,
+                                                                                                                'noiseAmount': 0.93,
+                                                                                                                'speed': 0.21
+                                                                                                              }),
+                                                                                                              animationMode: ShaderAnimationMode.explicit,
+                                                                                                              animationConfig: ShaderAnimationConfig(duration: Duration(milliseconds: (2100.0).round()), curve: Curves.easeIn, invert: true),
+                                                                                                              child: Padding(
+                                                                                                                padding: EdgeInsetsDirectional.fromSTEB(12.0, 8.0, 12.0, 8.0),
+                                                                                                                child: SingleChildScrollView(
+                                                                                                                  primary: false,
+                                                                                                                  controller: _model.columnController2,
+                                                                                                                  child: Column(
+                                                                                                                    mainAxisSize: MainAxisSize.min,
+                                                                                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                                                    children: [
+                                                                                                                      RichText(
+                                                                                                                        textScaler: MediaQuery.of(context).textScaler,
+                                                                                                                        text: TextSpan(
+                                                                                                                          children: [
+                                                                                                                            TextSpan(
+                                                                                                                              text: FFAppState().messagesTheoryOfMind.contains(FFAppState().messagesTheoryOfMind.where((e) => Role.User != null).toList().firstOrNull).toString(),
+                                                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                                    fontFamily: 'WorkSans',
+                                                                                                                                    letterSpacing: 0.0,
+                                                                                                                                  ),
+                                                                                                                            )
+                                                                                                                          ],
+                                                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                                                fontFamily: 'WorkSans',
+                                                                                                                                letterSpacing: 0.0,
+                                                                                                                              ),
+                                                                                                                        ),
                                                                                                                       ),
-                                                                                                                    ),
-                                                                                                                  ],
+                                                                                                                    ],
+                                                                                                                  ),
                                                                                                                 ),
                                                                                                               ),
                                                                                                             ),
@@ -1092,28 +1108,65 @@ class _ChatWithLucilleVersion5WidgetState
                                                                                                           color: FlutterFlowTheme.of(context).alternate,
                                                                                                         ),
                                                                                                       ),
-                                                                                                      child: Padding(
-                                                                                                        padding: EdgeInsetsDirectional.fromSTEB(12.0, 8.0, 12.0, 8.0),
-                                                                                                        child: SingleChildScrollView(
-                                                                                                          primary: false,
-                                                                                                          controller: _model.columnController3,
-                                                                                                          child: Column(
-                                                                                                            mainAxisSize: MainAxisSize.min,
-                                                                                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                                            children: [
-                                                                                                              Expanded(
-                                                                                                                flex: 1,
-                                                                                                                child: Container(
-                                                                                                                  width: double.infinity,
-                                                                                                                  height: MediaQuery.sizeOf(context).height * 0.15,
-                                                                                                                  child: custom_widgets.GptMarkdownWidget(
-                                                                                                                    width: double.infinity,
-                                                                                                                    height: MediaQuery.sizeOf(context).height * 0.15,
-                                                                                                                    data: chatItem.content,
+                                                                                                      child: PixelDissolveShaderWrap(
+                                                                                                        params: ShaderParams(values: {
+                                                                                                          'angle': 14.0,
+                                                                                                          'scale': 1.0,
+                                                                                                          'offset': 0.0,
+                                                                                                          'pixelSize': 5.11,
+                                                                                                          'edgeWidth': 0.35,
+                                                                                                          'scatter': 0.36,
+                                                                                                          'noiseAmount': 0.93,
+                                                                                                          'speed': 0.21
+                                                                                                        }),
+                                                                                                        animationMode: ShaderAnimationMode.explicit,
+                                                                                                        animationConfig: ShaderAnimationConfig(duration: Duration(milliseconds: (4000.0).round()), curve: Curves.easeIn, invert: true),
+                                                                                                        child: Container(
+                                                                                                          constraints: BoxConstraints(
+                                                                                                            maxWidth: () {
+                                                                                                              if (MediaQuery.sizeOf(context).width >= 1170.0) {
+                                                                                                                return 700.0;
+                                                                                                              } else if (MediaQuery.sizeOf(context).width <= 470.0) {
+                                                                                                                return 330.0;
+                                                                                                              } else {
+                                                                                                                return 530.0;
+                                                                                                              }
+                                                                                                            }(),
+                                                                                                          ),
+                                                                                                          decoration: BoxDecoration(
+                                                                                                            borderRadius: BorderRadius.only(
+                                                                                                              topLeft: Radius.circular(12.0),
+                                                                                                              topRight: Radius.circular(12.0),
+                                                                                                              bottomLeft: Radius.circular(12.0),
+                                                                                                            ),
+                                                                                                            border: Border.all(
+                                                                                                              color: Color(0x45EDF1F7),
+                                                                                                            ),
+                                                                                                          ),
+                                                                                                          child: Padding(
+                                                                                                            padding: EdgeInsetsDirectional.fromSTEB(12.0, 8.0, 12.0, 8.0),
+                                                                                                            child: SingleChildScrollView(
+                                                                                                              primary: false,
+                                                                                                              controller: _model.columnController3,
+                                                                                                              child: Column(
+                                                                                                                mainAxisSize: MainAxisSize.min,
+                                                                                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                                                children: [
+                                                                                                                  Expanded(
+                                                                                                                    flex: 1,
+                                                                                                                    child: Container(
+                                                                                                                      width: double.infinity,
+                                                                                                                      height: MediaQuery.sizeOf(context).height * 0.15,
+                                                                                                                      child: custom_widgets.GptMarkdownWidget(
+                                                                                                                        width: double.infinity,
+                                                                                                                        height: MediaQuery.sizeOf(context).height * 0.15,
+                                                                                                                        data: chatItem.content,
+                                                                                                                      ),
+                                                                                                                    ),
                                                                                                                   ),
-                                                                                                                ),
+                                                                                                                ],
                                                                                                               ),
-                                                                                                            ],
+                                                                                                            ),
                                                                                                           ),
                                                                                                         ),
                                                                                                       ),
@@ -1442,9 +1495,22 @@ class _ChatWithLucilleVersion5WidgetState
                                                                                 ResponseStreamMessage(message: m))
                                                                             .listen(
                                                                           (onMessageInput) async {
+                                                                            var _shouldSetState =
+                                                                                false;
                                                                             if (_model.newMessage!) {
                                                                               logFirebaseEvent('_update_page_state');
                                                                               _model.newMessage = false;
+                                                                              _model.updateStreamMessagesAtIndex(
+                                                                                onMessageInput.serverSentEvent.jsonData,
+                                                                                (e) => e
+                                                                                  ..content = TheoryOfMindLucilleStreamChatStruct.maybeFromMap(onMessageInput.serverSentEvent.jsonData)?.content
+                                                                                  ..sessionId = TheoryOfMindLucilleStreamChatStruct.maybeFromMap(onMessageInput.serverSentEvent.jsonData)?.sessionId
+                                                                                  ..response = TheoryOfMindLucilleStreamChatStruct.maybeFromMap(onMessageInput.serverSentEvent.jsonData)?.response
+                                                                                  ..messageCount = TheoryOfMindLucilleStreamChatStruct.maybeFromMap(onMessageInput.serverSentEvent.jsonData)?.messageCount
+                                                                                  ..detectedEmotion = TheoryOfMindLucilleStreamChatStruct.maybeFromMap(onMessageInput.serverSentEvent.jsonData)?.detectedEmotion
+                                                                                  ..done = TheoryOfMindLucilleStreamChatStruct.maybeFromMap(onMessageInput.serverSentEvent.jsonData)?.done
+                                                                                  ..detectedIntent = TheoryOfMindLucilleStreamChatStruct.maybeFromMap(onMessageInput.serverSentEvent.jsonData)?.detectedIntent,
+                                                                              );
                                                                               safeSetState(() {});
                                                                               logFirebaseEvent('_update_app_state');
                                                                               FFAppState().addToMessagesTheoryOfMind(TheoryOfMindLucilleStreamChatStruct(
@@ -1477,6 +1543,19 @@ class _ChatWithLucilleVersion5WidgetState
                                                                                   ..detectedIntent = TheoryOfMindLucilleStreamChatStruct.maybeFromMap(onMessageInput.serverSentEvent.jsonData)?.detectedIntent,
                                                                               );
                                                                               safeSetState(() {});
+                                                                            }
+
+                                                                            if (TheoryOfMindLucilleStreamChatStruct.maybeFromMap(onMessageInput.serverSentEvent.jsonData)!.done) {
+                                                                              logFirebaseEvent('_backend_call');
+                                                                              _model.chatMemory = await LucilleMemoriesGroup.createMemoryCall.call(
+                                                                                content: (_model.streamMessages.isNotEmpty).toString(),
+                                                                                memoryType: 'Semantic',
+                                                                                importance: 5,
+                                                                              );
+
+                                                                              _shouldSetState = true;
+                                                                            } else {
+                                                                              return;
                                                                             }
                                                                           },
                                                                           onError:
@@ -1513,12 +1592,64 @@ class _ChatWithLucilleVersion5WidgetState
                                                                             .textController
                                                                             ?.clear();
                                                                       });
-                                                                      if (TheoryOfMindLucilleGroup
-                                                                          .chatStreamCall
-                                                                          .done(
-                                                                        (_model.lucilleStreamChat?.jsonBody ??
-                                                                            ''),
-                                                                      )!) {
+                                                                      logFirebaseEvent(
+                                                                          'IconButton_trigger_app_event');
+                                                                      FFAppEventService
+                                                                          .instance
+                                                                          .triggerAppEvent(
+                                                                        ChatSentEvent(
+                                                                          data:
+                                                                              AiResponseStruct(
+                                                                            message:
+                                                                                TheoryOfMindLucilleGroup.chatStreamCall.content(
+                                                                              (_model.lucilleStreamChat?.jsonBody ?? ''),
+                                                                            ),
+                                                                            type:
+                                                                                'Episodic',
+                                                                          ),
+                                                                          timestamp:
+                                                                              DateTime.now(),
+                                                                          waitForCompletion:
+                                                                              true,
+                                                                          debugId:
+                                                                              '3',
+                                                                        ),
+                                                                      );
+
+                                                                      logFirebaseEvent(
+                                                                          'IconButton_trigger_app_event');
+                                                                      FFAppEventService
+                                                                          .instance
+                                                                          .triggerAppEvent(
+                                                                        AiRecommendationReadyEvent(
+                                                                          timestamp:
+                                                                              DateTime.now(),
+                                                                          waitForCompletion:
+                                                                              true,
+                                                                          debugId:
+                                                                              '8',
+                                                                        ),
+                                                                      );
+
+                                                                      logFirebaseEvent(
+                                                                          'IconButton_trigger_app_event');
+                                                                      FFAppEventService
+                                                                          .instance
+                                                                          .triggerAppEvent(
+                                                                        AiThinkingEvent(
+                                                                          timestamp:
+                                                                              DateTime.now(),
+                                                                          waitForCompletion:
+                                                                              false,
+                                                                          debugId:
+                                                                              '8',
+                                                                        ),
+                                                                      );
+
+                                                                      if ((_model
+                                                                              .lucilleStreamChat
+                                                                              ?.succeeded ??
+                                                                          true)) {
                                                                         logFirebaseEvent(
                                                                             'IconButton_update_page_state');
                                                                         _model
@@ -1529,7 +1660,8 @@ class _ChatWithLucilleVersion5WidgetState
                                                                             .streamMessages
                                                                             .length;
                                                                         _model.insertAtIndexInStreamMessages(
-                                                                            TheoryOfMindLucilleStreamChatStruct.maybeFromMap((_model.lucilleStreamChat?.jsonBody ?? ''))!.messageCount,
+                                                                            (_model.getChatHistory?.jsonBody ??
+                                                                                ''),
                                                                             ((_model.lucilleStreamChat?.jsonBody ?? '').toList().map<TheoryOfMindLucilleStreamChatStruct?>(TheoryOfMindLucilleStreamChatStruct.maybeFromMap).toList() as Iterable<TheoryOfMindLucilleStreamChatStruct?>).withoutNulls.firstOrNull!);
                                                                         safeSetState(
                                                                             () {});

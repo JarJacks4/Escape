@@ -28,6 +28,7 @@ class FlutterFlowDropDown<T> extends StatefulWidget {
     required this.borderWidth,
     required this.borderRadius,
     required this.borderColor,
+    this.focusBorderColor,
     required this.margin,
     this.hidesUnderline = false,
     this.disabled = false,
@@ -71,6 +72,7 @@ class FlutterFlowDropDown<T> extends StatefulWidget {
   final double borderWidth;
   final double borderRadius;
   final Color borderColor;
+  final Color? focusBorderColor;
   final EdgeInsetsGeometry margin;
   final bool hidesUnderline;
   final bool disabled;
@@ -127,6 +129,9 @@ class _FlutterFlowDropDownState<T> extends State<FlutterFlowDropDown<T>> {
 
   late void Function() _listener;
   final TextEditingController _textEditingController = TextEditingController();
+  late final FocusNode _focusNode = FocusNode()
+    ..addListener(() => setState(() => _isFocused = _focusNode.hasFocus));
+  bool _isFocused = false;
 
   @override
   void initState() {
@@ -148,12 +153,16 @@ class _FlutterFlowDropDownState<T> extends State<FlutterFlowDropDown<T>> {
     } else {
       controller.removeListener(_listener);
     }
+    _focusNode.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     final dropdownWidget = _buildDropdownWidget();
+    final effectiveBorderColor = _isFocused && widget.focusBorderColor != null
+        ? widget.focusBorderColor!
+        : widget.borderColor;
     return SizedBox(
       width: widget.width,
       height: widget.height,
@@ -161,7 +170,7 @@ class _FlutterFlowDropDownState<T> extends State<FlutterFlowDropDown<T>> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(widget.borderRadius),
           border: Border.all(
-            color: widget.borderColor,
+            color: effectiveBorderColor,
             width: widget.borderWidth,
           ),
           color: widget.fillColor,
@@ -298,6 +307,7 @@ class _FlutterFlowDropDownState<T> extends State<FlutterFlowDropDown<T>> {
       value: currentValue,
       hint: _createHintText(),
       items: isMultiSelect ? _createMultiselectMenuItems() : _createMenuItems(),
+      focusNode: _focusNode,
       iconStyleData: iconStyleData,
       buttonStyleData: ButtonStyleData(
         elevation: widget.elevation.toInt(),
@@ -385,13 +395,14 @@ class _FlutterFlowDropDownState<T> extends State<FlutterFlowDropDown<T>> {
             )
           : null,
       // This is to clear the search value when you close the menu
-      onMenuStateChange: widget.isSearchable
-          ? (isOpen) {
-              if (!isOpen) {
-                _textEditingController.clear();
-              }
-            }
-          : null,
+      onMenuStateChange: (isOpen) {
+        if (!isOpen) {
+          if (widget.isSearchable) {
+            _textEditingController.clear();
+          }
+          _focusNode.requestFocus();
+        }
+      },
     );
   }
 }
