@@ -104,6 +104,8 @@ class ChatWithLucilleVersion5Model
   ApiCallResponse? getChatHistory;
   // Stores action output result for [Backend Call - API (ChatStream)] action in IconButton widget.
   ApiCallResponse? lucilleStreamChat;
+  // Stores action output result for [Backend Call - API (Create Memory)] action in IconButton widget.
+  ApiCallResponse? chatMemory;
 
   @override
   void initState(BuildContext context) {

@@ -9,7 +9,7 @@ import '/components/intro_walkthrough5_version5_widget.dart';
 import '/components/intro_walkthrough6_version5_widget.dart';
 
 // Focus widget keys for this walkthrough
-final image3wdxkp0v = GlobalKey();
+final imageYxunjfxe = GlobalKey();
 final rowCrlyk2v5 = GlobalKey();
 final rowWy6kwc96 = GlobalKey();
 final buttonUkofocq2 = GlobalKey();
@@ -22,7 +22,7 @@ final container54qb5m7w = GlobalKey();
 List<TargetFocus> createWalkthroughTargets(BuildContext context) => [
       /// Intro 1
       TargetFocus(
-        keyTarget: image3wdxkp0v,
+        keyTarget: imageYxunjfxe,
         enableOverlayTab: true,
         alignSkip: Alignment.topRight,
         shape: ShapeLightFocus.Circle,
