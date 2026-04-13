@@ -1,19 +1,19 @@
 import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
+import '/backend/schema/enums/enums.dart';
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/lucille_g_p_t_comp/writing_indicator/writing_indicator_widget.dart';
 import 'chat_with_lucille_version5_widget.dart'
     show ChatWithLucilleVersion5Widget;
+import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:just_audio/just_audio.dart';
-import 'package:record/record.dart';
 
 class ChatWithLucilleVersion5Model
     extends FlutterFlowModel<ChatWithLucilleVersion5Widget> {
   ///  Local state fields for this page.
 
-  bool aiIsResponsing = true;
+  bool aiIsResponsing = false;
 
   String userInput = 'userResponse';
 
@@ -32,31 +32,35 @@ class ChatWithLucilleVersion5Model
 
   String? sessionID;
 
-  List<TheoryOfMindLucilleStreamChatStruct> streamMessages = [];
-  void addToStreamMessages(TheoryOfMindLucilleStreamChatStruct item) =>
+  // Uses LucilleStreamFINALStruct for proper role-based rendering
+  List<LucilleStreamFINALStruct> streamMessages = [];
+  void addToStreamMessages(LucilleStreamFINALStruct item) =>
       streamMessages.add(item);
-  void removeFromStreamMessages(TheoryOfMindLucilleStreamChatStruct item) =>
+  void removeFromStreamMessages(LucilleStreamFINALStruct item) =>
       streamMessages.remove(item);
   void removeAtIndexFromStreamMessages(int index) =>
       streamMessages.removeAt(index);
   void insertAtIndexInStreamMessages(
-          int index, TheoryOfMindLucilleStreamChatStruct item) =>
+          int index, LucilleStreamFINALStruct item) =>
       streamMessages.insert(index, item);
   void updateStreamMessagesAtIndex(
-          int index, Function(TheoryOfMindLucilleStreamChatStruct) updateFn) =>
+          int index, Function(LucilleStreamFINALStruct) updateFn) =>
       streamMessages[index] = updateFn(streamMessages[index]);
 
   String? accumulatedResponse;
 
   int? aiMessageIndex = 0;
 
-  bool? isRecording = true;
+  // Text chat streaming fields
+  String accumulatedTextResponse = '';
+  bool needsTextUpdate = false;
+  Timer? updateTimer;
+  StreamSubscription? textStreamSubscription;
 
-  String? recordedAudioBase64;
-
-  String? voiceTextUser;
-
-  String? lucilleBase64ConvertedFile;
+  // Voice streaming fields
+  StreamSubscription? voiceStreamSubscription;
+  ApiCallResponse? voiceChatLucilleResponse1;
+  String? returnedVoiceText;
 
   ///  State fields for stateful widgets in this page.
 
@@ -67,62 +71,38 @@ class ChatWithLucilleVersion5Model
   int get tabBarPreviousIndex =>
       tabBarController != null ? tabBarController!.previousIndex : 0;
 
-  AudioPlayer? soundPlayer1;
-  AudioRecorder? audioRecorder;
-  AudioPlayer? soundPlayer2;
-  String? stopUserVoice;
-  FFUploadedFile recordedFileBytes =
-      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
-  bool isDataUploading_uploadAudioFile = false;
-  List<FFUploadedFile> uploadedLocalFiles_uploadAudioFile = [];
+  // State field(s) for outer Scrollbar/SingleChildScrollView
+  ScrollController? columnController;
 
-  // Stores action output result for [Custom Action - audioPathFromUploadedFile] action in LottieAnimation widget.
-  String? recordedFileToBase642;
-  // Stores action output result for [Backend Call - API (Speech To Text)] action in LottieAnimation widget.
-  ApiCallResponse? speechToText;
-  // Stores action output result for [Backend Call - API (Lucille Chat Main)] action in LottieAnimation widget.
-  ApiCallResponse? speechToTextChatResponse;
-  // Stores action output result for [Backend Call - API (Text to Speech)] action in LottieAnimation widget.
-  ApiCallResponse? ttsResponse;
-  // Stores action output result for [Custom Action - base64ToAudioFile] action in LottieAnimation widget.
-  String? base64AudioConversion;
   // State field(s) for ListView widget.
   ScrollController? listViewController;
-  // State field(s) for Column widget.
-  ScrollController? columnController1;
-  // State field(s) for Column widget.
-  ScrollController? columnController2;
-  // State field(s) for Column widget.
-  ScrollController? columnController3;
+
   // Model for writingIndicator component.
   late WritingIndicatorModel writingIndicatorModel;
+
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
-  // Stores action output result for [Backend Call - API (Get Chat History)] action in IconButton widget.
-  ApiCallResponse? getChatHistory;
+
   // Stores action output result for [Backend Call - API (ChatStream)] action in IconButton widget.
   ApiCallResponse? lucilleStreamChat;
-  // Stores action output result for [Backend Call - API (Create Memory)] action in IconButton widget.
-  ApiCallResponse? chatMemory;
 
   @override
   void initState(BuildContext context) {
+    columnController = ScrollController();
     listViewController = ScrollController();
-    columnController1 = ScrollController();
-    columnController2 = ScrollController();
-    columnController3 = ScrollController();
     writingIndicatorModel = createModel(context, () => WritingIndicatorModel());
   }
 
   @override
   void dispose() {
     tabBarController?.dispose();
+    updateTimer?.cancel();
+    textStreamSubscription?.cancel();
+    voiceStreamSubscription?.cancel();
+    columnController?.dispose();
     listViewController?.dispose();
-    columnController1?.dispose();
-    columnController2?.dispose();
-    columnController3?.dispose();
     writingIndicatorModel.dispose();
     textFieldFocusNode?.dispose();
     textController?.dispose();

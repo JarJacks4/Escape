@@ -2,6 +2,10 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/components/influencer_ambassador_program_button_widget.dart';
 import '/components/marketplace_button_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:ui';
+import "package:tiktokfeed_wz8en7/backend/schema/structs/index.dart"
+    as tiktokfeed_wz8en7_data_schema;
 import 'package:confetti_modualo_library_b75kfy/app_state.dart'
     as confetti_modualo_library_b75kfy_app_state;
 import 'package:cupertino_time_picker_hiuzb7/app_state.dart'
@@ -14,9 +18,14 @@ import 'package:tiktokfeed_wz8en7/custom_code/actions/index.dart'
     as tiktokfeed_wz8en7_actions;
 import 'package:tiktokfeed_wz8en7/custom_code/widgets/index.dart'
     as tiktokfeed_wz8en7_custom_widgets;
+import 'package:utility_functions_library_8g4bud/app_constants.dart'
+    as utility_functions_library_8g4bud_app_constant;
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:provider/provider.dart';
 import 'connection_community_start_page_version5_model.dart';
@@ -48,6 +57,15 @@ class _ConnectionCommunityStartPageVersion5WidgetState
 
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'ConnectionCommunityStartPageVersion5'});
+
+    // 初始化 reorderVideos，避免 build 时 null crash
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      safeSetState(() {
+        _model.reorderVideos =
+            tiktokfeed_wz8en7_app_state.FFAppState().ListTikTokPages.toList();
+      });
+    });
+
     _model.tabBarController = TabController(
       vsync: this,
       length: 3,
@@ -298,25 +316,28 @@ class _ConnectionCommunityStartPageVersion5WidgetState
                                                                             context)
                                                                     .height *
                                                                 0.82,
-                                                            child:
-                                                                tiktokfeed_wz8en7_custom_widgets
+                                                            // reorderVideos が null の間は ListTikTokPages を使う
+                                                            child: _model.reorderVideos == null
+                                                                ? Center(
+                                                                    child: CircularProgressIndicator(),
+                                                                  )
+                                                                : tiktokfeed_wz8en7_custom_widgets
                                                                     .ChewieWidget(
-                                                              width: double
-                                                                  .infinity,
-                                                              height: MediaQuery
-                                                                          .sizeOf(
-                                                                              context)
-                                                                      .height *
-                                                                  0.82,
-                                                              userID:
-                                                                  currentUserUid,
-                                                              data: _model
-                                                                  .reorderVideos!,
-                                                              likerebuidpage:
-                                                                  () async {},
-                                                              bookedrebuidpage:
-                                                                  () async {},
-                                                            ),
+                                                                    width: double
+                                                                        .infinity,
+                                                                    height: MediaQuery
+                                                                                .sizeOf(
+                                                                                    context)
+                                                                            .height *
+                                                                        0.82,
+                                                                    userID:
+                                                                        currentUserUid,
+                                                                    data: _model.reorderVideos!,
+                                                                    likerebuidpage:
+                                                                        () async {},
+                                                                    bookedrebuidpage:
+                                                                        () async {},
+                                                                  ),
                                                           ),
                                                         ],
                                                       ),

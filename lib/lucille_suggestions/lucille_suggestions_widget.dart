@@ -1,8 +1,12 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
+import '/backend/schema/structs/index.dart';
 import '/components/lucille_suggestion_description_comp_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:convert';
+import 'dart:math';
 import 'dart:ui';
 import "package:that_slideable_list_item_mrpo3s/backend/schema/enums/enums.dart"
     as that_slideable_list_item_mrpo3s_enums;
@@ -17,18 +21,25 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:that_audio_player_oo85ab/app_state.dart'
     as that_audio_player_oo85ab_app_state;
+import 'package:that_audio_player_oo85ab/backend/api_requests/api_calls.dart'
+    as that_audio_player_oo85ab_api_calls_util;
 import 'package:that_slideable_list_item_mrpo3s/components/swipe_left_comp_widget.dart'
     as that_slideable_list_item_mrpo3s;
 import 'package:that_slideable_list_item_mrpo3s/custom_code/widgets/index.dart'
     as that_slideable_list_item_mrpo3s_custom_widgets;
 import 'package:tiktokfeed_wz8en7/app_state.dart'
     as tiktokfeed_wz8en7_app_state;
+import 'package:utility_functions_library_8g4bud/app_constants.dart'
+    as utility_functions_library_8g4bud_app_constant;
+import 'package:ff_commons/api_requests/api_streaming.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -57,6 +68,7 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
   @override
   void initState() {
     super.initState();
+    FFAppState().clearLucilleSuggestedExercisesCache();
     _model = createModel(context, () => LucilleSuggestionsModel());
 
     logFirebaseEvent('screen_view',
@@ -848,6 +860,12 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                     }
                                                     final columnRecommendedExercisesResponse =
                                                         snapshot.data!;
+                                                    print(
+                                                        'exercises count: ${LucilleTherapyExercisesGroup.recommendedExercisesCall.title(columnRecommendedExercisesResponse.jsonBody)?.length}');
+                                                    print(
+                                                        'titles: ${LucilleTherapyExercisesGroup.recommendedExercisesCall.title(columnRecommendedExercisesResponse.jsonBody)}');
+                                                    print(
+                                                        'raw json: ${columnRecommendedExercisesResponse.jsonBody}');
 
                                                     return Column(
                                                       mainAxisSize:
@@ -2025,7 +2043,7 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                               .title(
                                                                                 columnRecommendedExercisesResponse.jsonBody,
                                                                               )
-                                                                              ?.elementAtOrNull(5),
+                                                                              ?.elementAtOrNull(1),
                                                                           'Calm Breathing',
                                                                         ),
                                                                         style: FlutterFlowTheme.of(context)
@@ -2047,7 +2065,7 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                                 .description(
                                                                                   columnRecommendedExercisesResponse.jsonBody,
                                                                                 )
-                                                                                ?.elementAtOrNull(5),
+                                                                                ?.elementAtOrNull(1),
                                                                             'A gentle breathing exercise to help focus your mind and body.',
                                                                           ),
                                                                           style: FlutterFlowTheme.of(context)
@@ -2095,17 +2113,8 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                               ),
                                                                               Text(
                                                                                 valueOrDefault<String>(
-                                                                                  LucilleTherapyExercisesGroup.recommendedExercisesCall
-                                                                                      .reason(
-                                                                                        columnRecommendedExercisesResponse.jsonBody,
-                                                                                      )
-                                                                                      ?.sortedList(
-                                                                                          keyOf: (e) => LucilleTherapyExercisesGroup.recommendedExercisesCall.detectedEmotion(
-                                                                                                columnRecommendedExercisesResponse.jsonBody,
-                                                                                              )!,
-                                                                                          desc: true)
-                                                                                      .elementAtOrNull(3),
-                                                                                  'Reason',
+                                                                                  LucilleTherapyExercisesGroup.recommendedExercisesCall.duration(columnRecommendedExercisesResponse.jsonBody)?.elementAtOrNull(1)?.toString(),
+                                                                                  'None',
                                                                                 ),
                                                                                 style: FlutterFlowTheme.of(context).labelLarge.override(
                                                                                       fontFamily: 'WorkSans',
@@ -3075,7 +3084,7 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                               .title(
                                                                                 columnRecommendedExercisesResponse.jsonBody,
                                                                               )
-                                                                              ?.elementAtOrNull(3),
+                                                                              ?.elementAtOrNull(2),
                                                                           'Calm Breathing',
                                                                         ),
                                                                         style: FlutterFlowTheme.of(context)
@@ -3099,7 +3108,7 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                                 .description(
                                                                                   columnRecommendedExercisesResponse.jsonBody,
                                                                                 )
-                                                                                ?.elementAtOrNull(3),
+                                                                                ?.elementAtOrNull(2),
                                                                             'A gentle breathing exercise to help focus your mind and body.',
                                                                           ),
                                                                           style: FlutterFlowTheme.of(context)
@@ -3147,16 +3156,8 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                                                                               ),
                                                                               Text(
                                                                                 valueOrDefault<String>(
-                                                                                  (LucilleTherapyExercisesGroup.recommendedExercisesCall.reason(
-                                                                                                columnRecommendedExercisesResponse.jsonBody,
-                                                                                              ) !=
-                                                                                              null &&
-                                                                                          (LucilleTherapyExercisesGroup.recommendedExercisesCall.reason(
-                                                                                            columnRecommendedExercisesResponse.jsonBody,
-                                                                                          ))!
-                                                                                              .isNotEmpty)
-                                                                                      .toString(),
-                                                                                  'Reason',
+                                                                                  LucilleTherapyExercisesGroup.recommendedExercisesCall.duration(columnRecommendedExercisesResponse.jsonBody)?.elementAtOrNull(2)?.toString(),
+                                                                                  'None',
                                                                                 ),
                                                                                 style: FlutterFlowTheme.of(context).labelLarge.override(
                                                                                       fontFamily: 'WorkSans',

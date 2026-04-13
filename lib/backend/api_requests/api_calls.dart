@@ -4,7 +4,6 @@ import 'package:flutter/foundation.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:ff_commons/api_requests/api_manager.dart';
 
-
 export 'package:ff_commons/api_requests/api_manager.dart' show ApiCallResponse;
 
 const _kPrivateApiFunctionName = 'PartnerToken';
@@ -155,9 +154,9 @@ class ChatStreamCall {
 
     final ffApiRequestBody = '''
 {
-  "message": "I've been feeling anxious about work lately",
-  "session_id": "optional-uuid (auto-generated if omitted)",
-  "user_id": "optional-user-id (enables personalization)"
+  "message": "${message}",
+  "session_id": "${sessionID}",
+  "user_id": "${userID}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'ChatStream',
@@ -1351,12 +1350,14 @@ class RecommendedExercisesCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'Recommended Exercises',
-      apiUrl: '${baseUrl}/therapy/recommend/{user_id}',
+      apiUrl: '${baseUrl}/therapy/recommend/$userID',
       callType: ApiCallType.GET,
       headers: {
         'Content-Type': 'application/json',
       },
-      params: {},
+      params: {
+        'limit': limit,
+      },
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
@@ -1376,7 +1377,7 @@ class RecommendedExercisesCall {
       ));
   List<int>? duration(dynamic response) => (getJsonField(
         response,
-        r'''$.duration_minutes''',
+        r'''$.recommendations[:].duration_minutes''',
         true,
       ) as List?)
           ?.withoutNulls
@@ -1385,7 +1386,7 @@ class RecommendedExercisesCall {
           .toList();
   List<String>? reason(dynamic response) => (getJsonField(
         response,
-        r'''$.reason''',
+        r'''$.recommendations[:].reason''',
         true,
       ) as List?)
           ?.withoutNulls
@@ -1403,7 +1404,7 @@ class RecommendedExercisesCall {
       ) as List?;
   List<String>? difficulty(dynamic response) => (getJsonField(
         response,
-        r'''$.difficulty''',
+        r'''$.recommendations[:].difficulty''',
         true,
       ) as List?)
           ?.withoutNulls
@@ -1412,7 +1413,7 @@ class RecommendedExercisesCall {
           .toList();
   List<String>? description(dynamic response) => (getJsonField(
         response,
-        r'''$.description''',
+        r'''$.recommendations[:].description''',
         true,
       ) as List?)
           ?.withoutNulls
@@ -1421,7 +1422,7 @@ class RecommendedExercisesCall {
           .toList();
   List<String>? title(dynamic response) => (getJsonField(
         response,
-        r'''$.title''',
+        r'''$.recommendations[:].title''',
         true,
       ) as List?)
           ?.withoutNulls
@@ -1430,7 +1431,7 @@ class RecommendedExercisesCall {
           .toList();
   List<String>? modality(dynamic response) => (getJsonField(
         response,
-        r'''$.modality''',
+        r'''$.recommendations[:].modality''',
         true,
       ) as List?)
           ?.withoutNulls
@@ -1439,7 +1440,7 @@ class RecommendedExercisesCall {
           .toList();
   List<String>? exerciseID(dynamic response) => (getJsonField(
         response,
-        r'''$.exercise_id''',
+        r'''$.recommendations[:].exercise_id''',
         true,
       ) as List?)
           ?.withoutNulls
@@ -3157,7 +3158,7 @@ class EscapeAudioScriptCall {
       apiUrl: 'https://api.groq.com/openai/v1/audio/transcriptions',
       callType: ApiCallType.POST,
       headers: {
-        'Authorization': 'Bearer \${gorpKey}',
+        'Authorization': 'Bearer ${gorqKey}',
       },
       params: {
         'file': file,
