@@ -132,16 +132,12 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
         ),
       );
 
-      logFirebaseEvent('HomeVersion5_trigger_app_event');
-      FFAppEventService.instance.triggerAppEvent(
-        SafetyAndCrisisAssessmentEvent(
-          timestamp: DateTime.now(),
-          waitForCompletion: true,
-          debugId: '5',
-        ),
-      );
-
-      if (FFAppState().hasSeenOnboarding == false) {
+      if (FFAppState().hasSeenOnboarding == false &&
+          FFAppState().isOnboardingFinished == true) {
+        debugPrint('>>> before delay');
+        await Future.delayed(const Duration(milliseconds: 2000));
+        debugPrint('>>> after delay');
+        if (!mounted) return;
         logFirebaseEvent('HomeVersion5_start_walkthrough');
         safeSetState(() =>
             _model.introWalkthroughController = createPageWalkthrough(context));
@@ -164,14 +160,27 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
         );
       }
 
+      logFirebaseEvent('HomeVersion5_trigger_app_event');
+      FFAppEventService.instance.triggerAppEvent(
+        SafetyAndCrisisAssessmentEvent(
+          timestamp: DateTime.now(),
+          waitForCompletion: true,
+          debugId: '5',
+        ),
+      );
+
       logFirebaseEvent('HomeVersion5_update_app_state');
       FFAppState().isFinishedIntroWalkthrough = true;
       FFAppState().update(() {});
       logFirebaseEvent('HomeVersion5_backend_call');
 
-      await currentUserReference!.update(createUsersRecordData(
-        hasSeenWalkthrough: false,
-      ));
+      try {
+        await currentUserReference!.update(createUsersRecordData(
+          hasSeenWalkthrough: false,
+        ));
+      } catch (e) {
+        debugPrint('hasSeenWalkthrough update failed (continuing): $e');
+      }
       logFirebaseEvent('HomeVersion5_show_snack_bar');
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
@@ -671,7 +680,8 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                                 duration: Duration(milliseconds: (2400.0).round()),
                                                                                 curve: Curves.easeIn,
                                                                                 invert: true),
-                                                                            child: Hero(
+                                                                            child:
+                                                                                Hero(
                                                                               tag: 'logo',
                                                                               transitionOnUserGestures: true,
                                                                               child: ClipRRect(
@@ -683,13 +693,12 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                                   fit: BoxFit.contain,
                                                                                 ),
                                                                               ),
-                                                                            )
-                                                                                .addWalkthrough(
-                                                                                  imageYxunjfxe,
-                                                                                  _model.introWalkthroughController,
-                                                                                )
-                                                                                .animateOnPageLoad(animationsMap['imageOnPageLoadAnimation2']!),
-                                                                          )),
+                                                                            ).animateOnPageLoad(animationsMap['imageOnPageLoadAnimation2']!),
+                                                                          )).addWalkthrough(
+                                                                    imageYxunjfxe,
+                                                                    _model
+                                                                        .introWalkthroughController,
+                                                                  ),
                                                                   Row(
                                                                     mainAxisSize:
                                                                         MainAxisSize
@@ -981,7 +990,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                                 }
                                                                                 _model.soundPlayer4!.setVolume(1.0);
                                                                                 _model.soundPlayer4!.setAsset('assets/audios/ES_Game,_Jingle,_Chime,_Positive_01_-_Epidemic_Sound_-_0000-1106.wav').then((_) => _model.soundPlayer4!.play());
-                                                                                                                                                            },
+                                                                              },
                                                                               child: Material(
                                                                                 color: Colors.transparent,
                                                                                 elevation: 2.0,
@@ -1054,8 +1063,10 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                       Builder(
                                                                     builder:
                                                                         (context) {
-                                                                      if (valueOrDefault(currentUserDocument?.currentMood, '') !=
-                                                                              '') {
+                                                                      if (valueOrDefault(
+                                                                              currentUserDocument?.currentMood,
+                                                                              '') !=
+                                                                          '') {
                                                                         return ListView(
                                                                           padding:
                                                                               EdgeInsets.zero,
@@ -2545,9 +2556,34 @@ Further ... */
       TutorialCoachMark(
         targets: createWalkthroughTargets(context),
         onFinish: () async {
-          safeSetState(() => _model.introWalkthroughController = null);
+          FFAppState().hasSeenOnboarding = true;
+          try {
+            await currentUserReference!.update(createUsersRecordData(
+              hasSeenWalkthrough: true,
+            ));
+          } catch (e) {
+            debugPrint('hasSeenWalkthrough update failed: $e');
+          }
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            if (mounted) {
+              safeSetState(() => _model.introWalkthroughController = null);
+            }
+          });
         },
         onSkip: () {
+          FFAppState().hasSeenOnboarding = true;
+          currentUserReference!
+              .update(createUsersRecordData(
+            hasSeenWalkthrough: true,
+          ))
+              .catchError((e) {
+            debugPrint('hasSeenWalkthrough update failed: $e');
+          });
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            if (mounted) {
+              safeSetState(() => _model.introWalkthroughController = null);
+            }
+          });
           return true;
         },
       );

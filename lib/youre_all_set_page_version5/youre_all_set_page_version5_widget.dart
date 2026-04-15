@@ -1,13 +1,20 @@
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
 import 'dart:ui';
 import '/index.dart';
+import 'package:utility_functions_library_8g4bud/app_constants.dart'
+    as utility_functions_library_8g4bud_app_constant;
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:provider/provider.dart';
 import 'youre_all_set_page_version5_model.dart';
 export 'youre_all_set_page_version5_model.dart';
 
@@ -1815,7 +1822,7 @@ class _YoureAllSetPageVersion5WidgetState
                                           logFirebaseEvent(
                                               'Button_navigate_to');
 
-                                          context.pushNamed(
+                                          context.goNamed(
                                             SplashHomeScreenWidget.routeName,
                                             extra: <String, dynamic>{
                                               '__transition_info__':

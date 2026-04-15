@@ -1,7 +1,16 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/nav/nav.dart';
+import '/index.dart';
+import 'dart:ui';
+import 'package:utility_functions_library_8g4bud/app_constants.dart'
+    as utility_functions_library_8g4bud_app_constant;
+import '/auth/firebase_auth/auth_util.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'new_sign_up_model.dart';
 export 'new_sign_up_model.dart';
 
@@ -550,8 +559,46 @@ class _NewSignUpWidgetState extends State<NewSignUpWidget> {
                 ].divide(SizedBox(height: 16.0)),
               ),
               FFButtonWidget(
-                onPressed: () {
-                  print('Button pressed ...');
+                onPressed: () async {
+                  final email = _model.textController2.text.trim();
+                  final password = _model.textController3.text;
+                  final confirmPassword = _model.textController4.text;
+
+                  if (email.isEmpty || password.isEmpty) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                          content: Text('Please fill in all fields')),
+                    );
+                    return;
+                  }
+
+                  if (password != confirmPassword) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text('Passwords do not match')),
+                    );
+                    return;
+                  }
+
+                  GoRouter.of(context).prepareAuthEvent();
+
+                  final user = await authManager.createAccountWithEmail(
+                    context,
+                    _model.textController2.text,
+                    _model.textController3.text,
+                  );
+                  if (user == null) return;
+
+                  context.pushNamedAuth(
+                    CreateAccountOnboardingFlowWidget.routeName,
+                    context.mounted,
+                    extra: <String, dynamic>{
+                      '__transition_info__': TransitionInfo(
+                        hasTransition: true,
+                        transitionType: PageTransitionType.fade,
+                        duration: Duration(milliseconds: 2),
+                      ),
+                    },
+                  );
                 },
                 text: FFLocalizations.of(context).getText(
                   't1cmo883' /* Begin My Journey */,

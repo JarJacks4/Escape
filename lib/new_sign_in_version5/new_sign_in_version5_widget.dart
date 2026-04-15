@@ -5,17 +5,33 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'dart:ui';
+import "package:that_audio_player_oo85ab/backend/schema/structs/index.dart"
+    as that_audio_player_oo85ab_data_schema;
+import "package:that_slideable_list_item_mrpo3s/backend/schema/structs/index.dart"
+    as that_slideable_list_item_mrpo3s_data_schema;
+import "package:tiktokfeed_wz8en7/backend/schema/structs/index.dart"
+    as tiktokfeed_wz8en7_data_schema;
+import "package:utility_functions_library_8g4bud/backend/schema/structs/index.dart"
+    as utility_functions_library_8g4bud_data_schema;
 import '/flutter_flow/random_data_util.dart' as random_data;
 import '/index.dart';
+import '/flutter_flow/nav/nav.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
+import 'package:utility_functions_library_8g4bud/app_constants.dart'
+    as utility_functions_library_8g4bud_app_constant;
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:provider/provider.dart';
+import '/auth/base_auth_user_provider.dart';
 import 'new_sign_in_version5_model.dart';
 export 'new_sign_in_version5_model.dart';
 
@@ -1043,22 +1059,26 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                               'Button_auth');
                                                           GoRouter.of(context)
                                                               .prepareAuthEvent();
-
-                                                          final user =
-                                                              await authManager
-                                                                  .signInWithEmail(
-                                                            context,
-                                                            _model
-                                                                .loginEmailTextController
-                                                                .text,
-                                                            _model
-                                                                .loginPasswordTextController
-                                                                .text,
-                                                          );
-                                                          if (user == null) {
+                                                          BaseAuthUser? user;
+                                                          try {
+                                                            user = await authManager
+                                                                .signInWithEmail(
+                                                              context,
+                                                              _model
+                                                                  .loginEmailTextController
+                                                                  .text,
+                                                              _model
+                                                                  .loginPasswordTextController
+                                                                  .text,
+                                                            );
+                                                          } catch (e) {
+                                                            debugPrint(
+                                                                'signInWithEmail error (continuing): $e');
+                                                          }
+                                                          if (user == null &&
+                                                              !loggedIn) {
                                                             return;
                                                           }
-
                                                           logFirebaseEvent(
                                                               'Button_play_sound');
                                                           _model.soundPlayer5 ??=
@@ -1103,14 +1123,15 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                               backgroundColor:
                                                                   FlutterFlowTheme.of(
                                                                           context)
-                                                                      .secondary,
+                                                                      .accent1,
                                                               action:
                                                                   SnackBarAction(
                                                                 label:
                                                                     'Click Here to Scan Your Mood.',
-                                                                textColor: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .alternate,
+                                                                textColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
                                                                 onPressed:
                                                                     () async {
                                                                   context
@@ -1136,7 +1157,25 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                               ),
                                                             ),
                                                           );
-
+                                                          context.pushNamedAuth(
+                                                            HomeVersion5Widget
+                                                                .routeName,
+                                                            context.mounted,
+                                                            extra: <String,
+                                                                dynamic>{
+                                                              '__transition_info__':
+                                                                  TransitionInfo(
+                                                                hasTransition:
+                                                                    true,
+                                                                transitionType:
+                                                                    PageTransitionType
+                                                                        .fade,
+                                                                duration: Duration(
+                                                                    milliseconds:
+                                                                        9),
+                                                              ),
+                                                            },
+                                                          );
                                                           safeSetState(() {});
                                                         },
                                                         text:
@@ -2325,37 +2364,49 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                   return;
                                                 }
 
-                                                final user = await authManager
-                                                    .createAccountWithEmail(
-                                                  context,
-                                                  _model
-                                                      .createEmailTextController
-                                                      .text,
-                                                  _model
-                                                      .createPasswordTextController
-                                                      .text,
-                                                );
-                                                if (user == null) {
+                                                BaseAuthUser? user;
+                                                try {
+                                                  user = await authManager
+                                                      .createAccountWithEmail(
+                                                    context,
+                                                    _model
+                                                        .createEmailTextController
+                                                        .text,
+                                                    _model
+                                                        .createPasswordTextController
+                                                        .text,
+                                                  );
+                                                } catch (e) {
+                                                  debugPrint(
+                                                      'createAccountWithEmail error (continuing): $e');
+                                                }
+                                                if (user == null && !loggedIn) {
                                                   return;
                                                 }
 
-                                                await UsersRecord.collection
-                                                    .doc(user.uid)
-                                                    .update(
-                                                        createUsersRecordData(
-                                                      email: _model
-                                                          .createEmailTextController
-                                                          .text,
-                                                      createdTime:
-                                                          getCurrentTimestamp,
-                                                      displayName: _model
-                                                          .displayNameTextController
-                                                          .text,
-                                                      uid: random_data
-                                                          .randomInteger(
-                                                              0, 10000)
-                                                          .toString(),
-                                                    ));
+                                                try {
+                                                  await UsersRecord.collection
+                                                      .doc(user?.uid ??
+                                                          currentUserUid)
+                                                      .update(
+                                                          createUsersRecordData(
+                                                        email: _model
+                                                            .createEmailTextController
+                                                            .text,
+                                                        createdTime:
+                                                            getCurrentTimestamp,
+                                                        displayName: _model
+                                                            .displayNameTextController
+                                                            .text,
+                                                        uid: random_data
+                                                            .randomInteger(
+                                                                0, 10000)
+                                                            .toString(),
+                                                      ));
+                                                } catch (e) {
+                                                  debugPrint(
+                                                      'UsersRecord update failed: $e');
+                                                }
 
                                                 logFirebaseEvent(
                                                     'Button_show_snack_bar');
@@ -2387,18 +2438,23 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                 logFirebaseEvent(
                                                     'Button_backend_call');
 
-                                                await currentUserReference!
-                                                    .update(
-                                                        createUsersRecordData(
-                                                  lowerChakraMood: _model
-                                                      .lowerChakraMoodsValue,
-                                                  middleChakraMood: _model
-                                                      .middleChakraMoodsValue,
-                                                  higherChakraMood: _model
-                                                      .higherChakraMoodsValue,
-                                                  ascendedMood: _model
-                                                      .crownChakraMoodsValue,
-                                                ));
+                                                try {
+                                                  await currentUserReference!
+                                                      .update(
+                                                          createUsersRecordData(
+                                                    lowerChakraMood: _model
+                                                        .lowerChakraMoodsValue,
+                                                    middleChakraMood: _model
+                                                        .middleChakraMoodsValue,
+                                                    higherChakraMood: _model
+                                                        .higherChakraMoodsValue,
+                                                    ascendedMood: _model
+                                                        .crownChakraMoodsValue,
+                                                  ));
+                                                } catch (e) {
+                                                  debugPrint(
+                                                      'chakra mood update failed: $e');
+                                                }
                                                 logFirebaseEvent(
                                                     'Button_show_snack_bar');
                                                 ScaffoldMessenger.of(context)
@@ -2407,7 +2463,7 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                     .showSnackBar(
                                                   SnackBar(
                                                     content: Text(
-                                                      'Mood Saved!',
+                                                      'Welcome to Escape!',
                                                       style: TextStyle(
                                                         color:
                                                             FlutterFlowTheme.of(
@@ -2421,35 +2477,6 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                         FlutterFlowTheme.of(
                                                                 context)
                                                             .accent1,
-                                                    action: SnackBarAction(
-                                                      label:
-                                                          'Click Here to continue.',
-                                                      textColor:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .primary,
-                                                      onPressed: () async {
-                                                        context.goNamedAuth(
-                                                          ProfileDetailsWidget
-                                                              .routeName,
-                                                          context.mounted,
-                                                          extra: <String,
-                                                              dynamic>{
-                                                            '__transition_info__':
-                                                                TransitionInfo(
-                                                              hasTransition:
-                                                                  true,
-                                                              transitionType:
-                                                                  PageTransitionType
-                                                                      .fade,
-                                                              duration: Duration(
-                                                                  milliseconds:
-                                                                      9),
-                                                            ),
-                                                          },
-                                                        );
-                                                      },
-                                                    ),
                                                   ),
                                                 );
                                                 logFirebaseEvent(
@@ -2473,6 +2500,18 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                 logFirebaseEvent(
                                                     'Button_navigate_to');
 
+                                                FFAppState().hasSeenOnboarding =
+                                                    false;
+                                                AppStateNotifier.instance
+                                                    .updateNotifyOnAuthChange(
+                                                        false);
+
+                                                FFAppState().hasSeenOnboarding =
+                                                    false;
+                                                FFAppState()
+                                                        .isOnboardingFinished =
+                                                    false;
+
                                                 context.pushNamedAuth(
                                                   CreateAccountOnboardingFlowWidget
                                                       .routeName,
@@ -2489,6 +2528,7 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                     ),
                                                   },
                                                 );
+                                                safeSetState(() {});
 
                                                 safeSetState(() {});
                                               },

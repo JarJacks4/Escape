@@ -22,10 +22,10 @@ final container54qb5m7w = GlobalKey();
 List<TargetFocus> createWalkthroughTargets(BuildContext context) => [
       /// Intro 1
       TargetFocus(
-        keyTarget: imageYxunjfxe,
+        keyTarget: rowCrlyk2v5,
         enableOverlayTab: true,
         alignSkip: Alignment.topRight,
-        shape: ShapeLightFocus.Circle,
+        shape: ShapeLightFocus.RRect,
         color: Color(0x461C2444),
         contents: [
           TargetContent(
