@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:ff_commons/flutter_flow/uploaded_file.dart';
 import 'package:firebase_vertexai/firebase_vertexai.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_app_check/firebase_app_check.dart';
 
 /// A singleton class that manages chat sessions for Firebase Vertex AI.
 ///
@@ -24,9 +25,13 @@ class ChatManager {
     Map<String, dynamic> agentJson,
   ) async {
     if (!_chats.containsKey(threadId)) {
-      // Create Vertex AI instance
+      // Get the App Check instance
+      final appCheck = FirebaseAppCheck.instance;
+
+      // Create Vertex AI instance with App Check
       final vertexAI = FirebaseVertexAI.instanceFor(
         auth: FirebaseAuth.instance,
+        appCheck: appCheck,
       );
       final aiModel = agentJson['aiModel'];
       final responseOptions = agentJson['responseOptions'];
