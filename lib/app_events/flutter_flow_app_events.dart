@@ -63,3 +63,113 @@ class AiThinkingEvent extends FFAppEvent {
           scope: FFAppEventScope.GLOBAL,
         );
 }
+
+class OnboardingHomeEvent extends FFAppEvent {
+  const OnboardingHomeEvent({
+    super.debugId,
+    super.waitForCompletion = true,
+    required super.timestamp,
+  }) : super(
+          scope: FFAppEventScope.LOCAL,
+        );
+}
+
+class OnboardingResetEvent extends FFAppEvent {
+  const OnboardingResetEvent({
+    super.debugId,
+    super.waitForCompletion = true,
+    required super.timestamp,
+  }) : super(
+          scope: FFAppEventScope.LOCAL,
+        );
+}
+
+class OnboardingJournalEvent extends FFAppEvent {
+  const OnboardingJournalEvent({
+    super.debugId,
+    super.waitForCompletion = true,
+    required super.timestamp,
+  }) : super(
+          scope: FFAppEventScope.LOCAL,
+        );
+}
+
+class OnboardingSoundscapesEvent extends FFAppEvent {
+  const OnboardingSoundscapesEvent({
+    super.debugId,
+    super.waitForCompletion = true,
+    required super.timestamp,
+  }) : super(
+          scope: FFAppEventScope.LOCAL,
+        );
+}
+
+class OnboardingMindEvent extends FFAppEvent {
+  const OnboardingMindEvent({
+    super.debugId,
+    super.waitForCompletion = true,
+    required super.timestamp,
+  }) : super(
+          scope: FFAppEventScope.LOCAL,
+        );
+}
+
+class OnboardingEnergyScanEvent extends FFAppEvent {
+  const OnboardingEnergyScanEvent({
+    super.debugId,
+    super.waitForCompletion = true,
+    required super.timestamp,
+  }) : super(
+          scope: FFAppEventScope.LOCAL,
+        );
+}
+
+class OnboardingMoodScanEvent extends FFAppEvent {
+  const OnboardingMoodScanEvent({
+    super.debugId,
+    super.waitForCompletion = true,
+    required super.timestamp,
+  }) : super(
+          scope: FFAppEventScope.LOCAL,
+        );
+}
+
+class OnboardingHabitsEvent extends FFAppEvent {
+  const OnboardingHabitsEvent({
+    super.debugId,
+    super.waitForCompletion = true,
+    required super.timestamp,
+  }) : super(
+          scope: FFAppEventScope.LOCAL,
+        );
+}
+
+class OnboardingQuestsGoalsEvent extends FFAppEvent {
+  const OnboardingQuestsGoalsEvent({
+    super.debugId,
+    super.waitForCompletion = true,
+    required super.timestamp,
+  }) : super(
+          scope: FFAppEventScope.LOCAL,
+        );
+}
+
+class OnboardingProfileEvent extends FFAppEvent {
+  const OnboardingProfileEvent({
+    super.debugId,
+    super.waitForCompletion = true,
+    required super.timestamp,
+  }) : super(
+          scope: FFAppEventScope.LOCAL,
+        );
+}
+
+class OnboardingExerciseEvent extends FFAppEvent {
+  const OnboardingExerciseEvent({
+    super.debugId,
+    super.waitForCompletion = true,
+    required super.timestamp,
+  }) : super(
+          scope: FFAppEventScope.LOCAL,
+        );
+}
