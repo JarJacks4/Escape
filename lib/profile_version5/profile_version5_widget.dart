@@ -119,92 +119,90 @@ class _ProfileVersion5WidgetState extends State<ProfileVersion5Widget> {
                         ),
                         child: Align(
                           alignment: AlignmentDirectional(0.0, -1.0),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                16.0, 16.0, 16.0, 16.0),
-                            child: SingleChildScrollView(
-                              controller: _model.columnController,
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Flexible(
-                                    flex: 1,
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 55.0, 0.0, 0.0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          FlutterFlowIconButton(
-                                            buttonSize: 40.0,
-                                            icon: Icon(
-                                              Icons.arrow_back,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .alternate,
-                                              size: 24.0,
-                                            ),
-                                            onPressed: () async {
-                                              logFirebaseEvent(
-                                                  'PROFILE_VERSION5_arrow_back_ICN_ON_TAP');
-                                              logFirebaseEvent(
-                                                  'IconButton_navigate_back');
-                                              context.safePop();
-                                            },
+                          child: SingleChildScrollView(
+                            controller: _model.columnController,
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Flexible(
+                                  flex: 1,
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        16.0, 55.0, 16.0, 0.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        FlutterFlowIconButton(
+                                          buttonSize: 40.0,
+                                          icon: Icon(
+                                            Icons.arrow_back,
+                                            color: FlutterFlowTheme.of(context)
+                                                .alternate,
+                                            size: 24.0,
                                           ),
-                                          Text(
-                                            FFLocalizations.of(context).getText(
-                                              '3ykfqy16' /* Profile */,
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .headlineMedium
-                                                .override(
-                                                  fontFamily: 'The Seasons',
-                                                  letterSpacing: 0.0,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
+                                          onPressed: () async {
+                                            logFirebaseEvent(
+                                                'PROFILE_VERSION5_arrow_back_ICN_ON_TAP');
+                                            logFirebaseEvent(
+                                                'IconButton_navigate_back');
+                                            context.safePop();
+                                          },
+                                        ),
+                                        Text(
+                                          FFLocalizations.of(context).getText(
+                                            '3ykfqy16' /* Profile */,
                                           ),
-                                          FlutterFlowIconButton(
-                                            buttonSize: 40.0,
-                                            icon: Icon(
-                                              Icons.settings,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .tertiary,
-                                              size: 24.0,
-                                            ),
-                                            onPressed: () async {
-                                              logFirebaseEvent(
-                                                  'PROFILE_VERSION5_settings_ICN_ON_TAP');
-                                              logFirebaseEvent(
-                                                  'IconButton_navigate_to');
+                                          style: FlutterFlowTheme.of(context)
+                                              .headlineMedium
+                                              .override(
+                                                fontFamily: 'The Seasons',
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                        ),
+                                        FlutterFlowIconButton(
+                                          buttonSize: 40.0,
+                                          icon: Icon(
+                                            Icons.settings,
+                                            color: FlutterFlowTheme.of(context)
+                                                .tertiary,
+                                            size: 24.0,
+                                          ),
+                                          onPressed: () async {
+                                            logFirebaseEvent(
+                                                'PROFILE_VERSION5_settings_ICN_ON_TAP');
+                                            logFirebaseEvent(
+                                                'IconButton_navigate_to');
 
-                                              context.pushNamed(
-                                                SettingsWidget.routeName,
-                                                extra: <String, dynamic>{
-                                                  '__transition_info__':
-                                                      TransitionInfo(
-                                                    hasTransition: true,
-                                                    transitionType:
-                                                        PageTransitionType
-                                                            .rightToLeft,
-                                                    duration: Duration(
-                                                        milliseconds: 2),
-                                                  ),
-                                                },
-                                              );
-                                            },
-                                          ),
-                                        ].divide(SizedBox(width: 8.0)),
-                                      ),
+                                            context.pushNamed(
+                                              SettingsWidget.routeName,
+                                              extra: <String, dynamic>{
+                                                '__transition_info__':
+                                                    TransitionInfo(
+                                                  hasTransition: true,
+                                                  transitionType:
+                                                      PageTransitionType
+                                                          .rightToLeft,
+                                                  duration:
+                                                      Duration(milliseconds: 2),
+                                                ),
+                                              },
+                                            );
+                                          },
+                                        ),
+                                      ].divide(SizedBox(width: 8.0)),
                                     ),
                                   ),
-                                  Flexible(
-                                    flex: 1,
+                                ),
+                                Flexible(
+                                  flex: 1,
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        16.0, 0.0, 16.0, 0.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       crossAxisAlignment:
@@ -251,42 +249,36 @@ class _ProfileVersion5WidgetState extends State<ProfileVersion5Widget> {
                                               Align(
                                                 alignment: AlignmentDirectional(
                                                     0.0, 0.0),
-                                                child: AuthUserStreamWidget(
-                                                  builder: (context) => Hero(
-                                                    tag: currentUserPhoto,
-                                                    transitionOnUserGestures:
-                                                        true,
-                                                    child: ClipRRect(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              100.0),
-                                                      child: CachedNetworkImage(
-                                                        fadeInDuration:
-                                                            Duration(
-                                                                milliseconds:
-                                                                    700),
-                                                        fadeOutDuration:
-                                                            Duration(
-                                                                milliseconds:
-                                                                    700),
-                                                        imageUrl:
-                                                            currentUserPhoto,
+                                                child: Hero(
+                                                  tag: _model.newProfilePic!,
+                                                  transitionOnUserGestures:
+                                                      true,
+                                                  child: ClipRRect(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            100.0),
+                                                    child: CachedNetworkImage(
+                                                      fadeInDuration: Duration(
+                                                          milliseconds: 700),
+                                                      fadeOutDuration: Duration(
+                                                          milliseconds: 700),
+                                                      imageUrl:
+                                                          _model.newProfilePic!,
+                                                      width: 117.6,
+                                                      height: 120.0,
+                                                      fit: BoxFit.cover,
+                                                      alignment:
+                                                          Alignment(0.0, 0.0),
+                                                      errorWidget: (context,
+                                                              error,
+                                                              stackTrace) =>
+                                                          Image.asset(
+                                                        'assets/images/error_image.jpg',
                                                         width: 117.6,
                                                         height: 120.0,
                                                         fit: BoxFit.cover,
                                                         alignment:
                                                             Alignment(0.0, 0.0),
-                                                        errorWidget: (context,
-                                                                error,
-                                                                stackTrace) =>
-                                                            Image.asset(
-                                                          'assets/images/error_image.jpg',
-                                                          width: 117.6,
-                                                          height: 120.0,
-                                                          fit: BoxFit.cover,
-                                                          alignment: Alignment(
-                                                              0.0, 0.0),
-                                                        ),
                                                       ),
                                                     ),
                                                   ),
@@ -537,7 +529,7 @@ class _ProfileVersion5WidgetState extends State<ProfileVersion5Widget> {
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .alternate,
+                                                                .secondary,
                                                         letterSpacing: 0.0,
                                                       ),
                                             ),
@@ -546,492 +538,523 @@ class _ProfileVersion5WidgetState extends State<ProfileVersion5Widget> {
                                       ].divide(SizedBox(height: 16.0)),
                                     ),
                                   ),
-                                  Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Material(
-                                        color: Colors.transparent,
-                                        elevation: 5.0,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(12.0),
-                                        ),
-                                        child: Container(
-                                          width: double.infinity,
-                                          height: 126.0,
-                                          decoration: BoxDecoration(
-                                            color: Color(0x2CEDF1F7),
-                                            boxShadow: [
-                                              BoxShadow(
-                                                blurRadius: 10.0,
-                                                color: Color(0xE6EDF1F7),
-                                                offset: Offset(
-                                                  0.0,
-                                                  0.0,
-                                                ),
-                                              )
-                                            ],
+                                ),
+                                Flexible(
+                                  flex: 1,
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        16.0, 0.0, 16.0, 0.0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Material(
+                                          color: Colors.transparent,
+                                          elevation: 5.0,
+                                          shape: RoundedRectangleBorder(
                                             borderRadius:
                                                 BorderRadius.circular(12.0),
-                                            border: Border.all(
-                                              color: Color(0x48EDF1F7),
-                                            ),
                                           ),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 16.0, 16.0, 16.0),
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.spaceEvenly,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  children: [
-                                                    Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        Text(
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                            'l6td3vta' /* Journey Progress */,
-                                                          ),
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .titleMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'The Seasons',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .tertiary,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold,
-                                                              ),
-                                                        ),
-                                                        Text(
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                            '0vxeacjm' /* Keep nurturing your growth */,
-                                                          ),
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodySmall
-                                                              .override(
-                                                                fontFamily:
-                                                                    'WorkSans',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryText,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                              ),
-                                                        ),
-                                                      ].divide(SizedBox(
-                                                          height: 4.0)),
-                                                    ),
-                                                    Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        AnimatedDefaultTextStyle(
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .headlineMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'WorkSans',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .alternate,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold,
-                                                              ),
-                                                          duration: Duration(
-                                                              milliseconds:
-                                                                  1650),
-                                                          curve: Curves.easeIn,
-                                                          child: Text(
-                                                            valueOrDefault<
-                                                                String>(
-                                                              formatNumber(
-                                                                FFAppState()
-                                                                    .pointsEarnedPercentage,
-                                                                formatType:
-                                                                    FormatType
-                                                                        .percent,
-                                                              ),
-                                                              '0',
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        Icon(
-                                                          Icons
-                                                              .local_fire_department,
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .accent1,
-                                                          size: 24.0,
-                                                        ),
-                                                      ].divide(
-                                                          SizedBox(width: 4.0)),
-                                                    ),
-                                                  ],
-                                                ),
-                                                Container(
-                                                  width: double.infinity,
-                                                  height: 26.76,
-                                                  decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            4.0),
+                                          child: Container(
+                                            width: double.infinity,
+                                            height: 126.0,
+                                            decoration: BoxDecoration(
+                                              color: Color(0x2CEDF1F7),
+                                              boxShadow: [
+                                                BoxShadow(
+                                                  blurRadius: 10.0,
+                                                  color: Color(0xE6EDF1F7),
+                                                  offset: Offset(
+                                                    0.0,
+                                                    0.0,
                                                   ),
-                                                  child: Align(
-                                                    alignment:
-                                                        AlignmentDirectional(
-                                                            0.0, 0.0),
-                                                    child:
-                                                        LinearPercentIndicator(
-                                                      percent: valueOrDefault<
-                                                          double>(
-                                                        FFAppState()
-                                                            .pointsEarnedPercentage,
-                                                        0.0,
-                                                      ),
-                                                      width: MediaQuery.sizeOf(
-                                                                  context)
-                                                              .width *
-                                                          0.85,
-                                                      lineHeight: 30.0,
-                                                      animation: true,
-                                                      animateFromLastPercent:
-                                                          true,
-                                                      progressColor:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .accent1,
-                                                      backgroundColor:
-                                                          Color(0xB4D0E3F7),
-                                                      center: Text(
-                                                        formatNumber(
-                                                          FFAppState()
-                                                              .pointsEarnedPercentage,
-                                                          formatType: FormatType
-                                                              .percent,
-                                                        ),
-                                                        textAlign:
-                                                            TextAlign.center,
-                                                        style:
-                                                            FlutterFlowTheme.of(
+                                                )
+                                              ],
+                                              borderRadius:
+                                                  BorderRadius.circular(12.0),
+                                              border: Border.all(
+                                                color: Color(0x48EDF1F7),
+                                              ),
+                                            ),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      16.0, 16.0, 16.0, 16.0),
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceEvenly,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                    children: [
+                                                      Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Text(
+                                                            FFLocalizations.of(
                                                                     context)
-                                                                .headlineSmall
+                                                                .getText(
+                                                              'l6td3vta' /* Journey Progress */,
+                                                            ),
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .titleMedium
                                                                 .override(
                                                                   fontFamily:
-                                                                      'WorkSans',
+                                                                      'The Seasons',
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .tertiary,
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold,
                                                                 ),
-                                                        overflow:
-                                                            TextOverflow.fade,
-                                                      ),
-                                                      barRadius:
-                                                          Radius.circular(50.0),
-                                                      padding: EdgeInsets.zero,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ].divide(SizedBox(height: 8.0)),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      Material(
-                                        color: Colors.transparent,
-                                        elevation: 5.0,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(12.0),
-                                        ),
-                                        child: Container(
-                                          width: double.infinity,
-                                          height: 126.0,
-                                          decoration: BoxDecoration(
-                                            color: Color(0x2CEDF1F7),
-                                            boxShadow: [
-                                              BoxShadow(
-                                                blurRadius: 10.0,
-                                                color: Color(0xE6EDF1F7),
-                                                offset: Offset(
-                                                  0.0,
-                                                  0.0,
-                                                ),
-                                              )
-                                            ],
-                                            borderRadius:
-                                                BorderRadius.circular(12.0),
-                                            border: Border.all(
-                                              color: Color(0x48EDF1F7),
-                                            ),
-                                          ),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    16.0, 16.0, 16.0, 16.0),
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.spaceEvenly,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  children: [
-                                                    Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        Text(
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                            'cenq1ik1' /* Escape Coins Earned 
-This Week */
-                                                            ,
                                                           ),
+                                                          Text(
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                              '0vxeacjm' /* Keep nurturing your growth */,
+                                                            ),
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodySmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'WorkSans',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondaryText,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                          ),
+                                                        ].divide(SizedBox(
+                                                            height: 4.0)),
+                                                      ),
+                                                      Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          AnimatedDefaultTextStyle(
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .headlineMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'WorkSans',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .alternate,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold,
+                                                                ),
+                                                            duration: Duration(
+                                                                milliseconds:
+                                                                    1650),
+                                                            curve:
+                                                                Curves.easeIn,
+                                                            child: Text(
+                                                              valueOrDefault<
+                                                                  String>(
+                                                                formatNumber(
+                                                                  FFAppState()
+                                                                      .pointsEarnedPercentage,
+                                                                  formatType:
+                                                                      FormatType
+                                                                          .percent,
+                                                                ),
+                                                                '0',
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Icon(
+                                                            Icons
+                                                                .local_fire_department,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .accent1,
+                                                            size: 24.0,
+                                                          ),
+                                                        ].divide(SizedBox(
+                                                            width: 4.0)),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Container(
+                                                    width: double.infinity,
+                                                    height: 26.76,
+                                                    decoration: BoxDecoration(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              4.0),
+                                                    ),
+                                                    child: Align(
+                                                      alignment:
+                                                          AlignmentDirectional(
+                                                              0.0, 0.0),
+                                                      child:
+                                                          LinearPercentIndicator(
+                                                        percent: valueOrDefault<
+                                                            double>(
+                                                          FFAppState()
+                                                              .pointsEarnedPercentage,
+                                                          0.0,
+                                                        ),
+                                                        width:
+                                                            MediaQuery.sizeOf(
+                                                                        context)
+                                                                    .width *
+                                                                0.85,
+                                                        lineHeight: 30.0,
+                                                        animation: true,
+                                                        animateFromLastPercent:
+                                                            true,
+                                                        progressColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .accent1,
+                                                        backgroundColor:
+                                                            Color(0xB4D0E3F7),
+                                                        center: Text(
+                                                          formatNumber(
+                                                            FFAppState()
+                                                                .pointsEarnedPercentage,
+                                                            formatType:
+                                                                FormatType
+                                                                    .percent,
+                                                          ),
+                                                          textAlign:
+                                                              TextAlign.center,
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .titleMedium
+                                                              .headlineSmall
                                                               .override(
                                                                 fontFamily:
-                                                                    'The Seasons',
+                                                                    'WorkSans',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .tertiary,
                                                                 letterSpacing:
                                                                     0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold,
                                                               ),
+                                                          overflow:
+                                                              TextOverflow.fade,
                                                         ),
-                                                        Text(
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                            '7x4244r8' /* Number of Escape Coins Earned ... */,
-                                                          ),
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodySmall
-                                                              .override(
-                                                                fontFamily:
-                                                                    'WorkSans',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryText,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                              ),
-                                                        ),
-                                                      ].divide(SizedBox(
-                                                          height: 4.0)),
+                                                        barRadius:
+                                                            Radius.circular(
+                                                                50.0),
+                                                        padding:
+                                                            EdgeInsets.zero,
+                                                      ),
                                                     ),
-                                                    Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        AnimatedDefaultTextStyle(
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .headlineMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'WorkSans',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .alternate,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold,
-                                                              ),
-                                                          duration: Duration(
-                                                              milliseconds:
-                                                                  600),
-                                                          curve: Curves.easeIn,
-                                                          child: Text(
-                                                            valueOrDefault<
-                                                                String>(
-                                                              FFAppState()
-                                                                  .pointsEarned
-                                                                  .toString(),
-                                                              '0',
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        FaIcon(
-                                                          FontAwesomeIcons
-                                                              .coins,
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .accent1,
-                                                          size: 24.0,
-                                                        ),
-                                                      ].divide(
-                                                          SizedBox(width: 4.0)),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ].divide(SizedBox(height: 12.0)),
+                                                  ),
+                                                ].divide(SizedBox(height: 8.0)),
+                                              ),
                                             ),
                                           ),
                                         ),
-                                      ),
-                                    ].divide(SizedBox(height: 16.0)),
+                                        Material(
+                                          color: Colors.transparent,
+                                          elevation: 5.0,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(12.0),
+                                          ),
+                                          child: Container(
+                                            width: double.infinity,
+                                            height: 126.0,
+                                            decoration: BoxDecoration(
+                                              color: Color(0x2CEDF1F7),
+                                              boxShadow: [
+                                                BoxShadow(
+                                                  blurRadius: 10.0,
+                                                  color: Color(0xE6EDF1F7),
+                                                  offset: Offset(
+                                                    0.0,
+                                                    0.0,
+                                                  ),
+                                                )
+                                              ],
+                                              borderRadius:
+                                                  BorderRadius.circular(12.0),
+                                              border: Border.all(
+                                                color: Color(0x48EDF1F7),
+                                              ),
+                                            ),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      16.0, 16.0, 16.0, 16.0),
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceEvenly,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Flexible(
+                                                    flex: 1,
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Flexible(
+                                                          flex: 1,
+                                                          child: Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            crossAxisAlignment:
+                                                                CrossAxisAlignment
+                                                                    .start,
+                                                            children: [
+                                                              Text(
+                                                                FFLocalizations.of(
+                                                                        context)
+                                                                    .getText(
+                                                                  'cenq1ik1' /* Escape Coins Earned 
+This Week */
+                                                                  ,
+                                                                ),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'The Seasons',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .tertiary,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .bold,
+                                                                    ),
+                                                              ),
+                                                              Text(
+                                                                FFLocalizations.of(
+                                                                        context)
+                                                                    .getText(
+                                                                  '7x4244r8' /* Number of Escape Coins Earned ... */,
+                                                                ),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodySmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'WorkSans',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondaryText,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                    ),
+                                                              ),
+                                                            ].divide(SizedBox(
+                                                                height: 4.0)),
+                                                          ),
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      5.0,
+                                                                      0.0),
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: [
+                                                              AnimatedDefaultTextStyle(
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .headlineMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'WorkSans',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .alternate,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .bold,
+                                                                    ),
+                                                                duration: Duration(
+                                                                    milliseconds:
+                                                                        600),
+                                                                curve: Curves
+                                                                    .easeIn,
+                                                                child: Text(
+                                                                  valueOrDefault<
+                                                                      String>(
+                                                                    FFAppState()
+                                                                        .pointsEarned
+                                                                        .toString(),
+                                                                    '0',
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                              FaIcon(
+                                                                FontAwesomeIcons
+                                                                    .coins,
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .accent1,
+                                                                size: 24.0,
+                                                              ),
+                                                            ].divide(SizedBox(
+                                                                width: 4.0)),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ].divide(
+                                                    SizedBox(height: 12.0)),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ].divide(SizedBox(height: 16.0)),
+                                    ),
                                   ),
-                                  Flexible(
-                                    flex: 1,
-                                    child: Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
-                                      child: Container(
-                                        width: 351.8,
-                                        height: 100.0,
-                                        decoration: BoxDecoration(
-                                          boxShadow: [
-                                            BoxShadow(
-                                              blurRadius: 20.0,
+                                ),
+                                Flexible(
+                                  flex: 1,
+                                  child: Align(
+                                    alignment: AlignmentDirectional(0.0, 0.0),
+                                    child: Container(
+                                      width: 351.8,
+                                      height: 100.0,
+                                      decoration: BoxDecoration(
+                                        boxShadow: [
+                                          BoxShadow(
+                                            blurRadius: 20.0,
+                                            color: FlutterFlowTheme.of(context)
+                                                .accent3,
+                                            offset: Offset(
+                                              0.0,
+                                              0.0,
+                                            ),
+                                          )
+                                        ],
+                                        borderRadius:
+                                            BorderRadius.circular(24.0),
+                                      ),
+                                      child: Align(
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 8.0, 0.0, 0.0),
+                                          child: FFButtonWidget(
+                                            onPressed: () async {
+                                              logFirebaseEvent(
+                                                  'PROFILE_VERSION5_EDIT_PROFILE_BTN_ON_TAP');
+                                              logFirebaseEvent(
+                                                  'Button_bottom_sheet');
+                                              await showModalBottomSheet(
+                                                isScrollControlled: true,
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                context: context,
+                                                builder: (context) {
+                                                  return WebViewAware(
+                                                    child: GestureDetector(
+                                                      onTap: () {
+                                                        FocusScope.of(context)
+                                                            .unfocus();
+                                                        FocusManager.instance
+                                                            .primaryFocus
+                                                            ?.unfocus();
+                                                      },
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child:
+                                                            EditProfileVersion5Widget(),
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                              ).then((value) =>
+                                                  safeSetState(() {}));
+                                            },
+                                            text: FFLocalizations.of(context)
+                                                .getText(
+                                              'f8234cvd' /* Edit Profile */,
+                                            ),
+                                            icon: Icon(
+                                              Icons.edit,
+                                              size: 24.0,
+                                            ),
+                                            options: FFButtonOptions(
+                                              width: MediaQuery.sizeOf(context)
+                                                      .width *
+                                                  0.75,
+                                              height: 57.6,
+                                              padding: EdgeInsets.all(8.0),
+                                              iconPadding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                              iconColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryBackground,
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .accent3,
-                                              offset: Offset(
-                                                0.0,
-                                                0.0,
-                                              ),
-                                            )
-                                          ],
-                                          borderRadius:
-                                              BorderRadius.circular(24.0),
-                                        ),
-                                        child: Align(
-                                          alignment:
-                                              AlignmentDirectional(0.0, 0.0),
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 8.0, 0.0, 0.0),
-                                            child: FFButtonWidget(
-                                              onPressed: () async {
-                                                logFirebaseEvent(
-                                                    'PROFILE_VERSION5_EDIT_PROFILE_BTN_ON_TAP');
-                                                logFirebaseEvent(
-                                                    'Button_bottom_sheet');
-                                                await showModalBottomSheet(
-                                                  isScrollControlled: true,
-                                                  backgroundColor:
-                                                      Colors.transparent,
-                                                  context: context,
-                                                  builder: (context) {
-                                                    return WebViewAware(
-                                                      child: GestureDetector(
-                                                        onTap: () {
-                                                          FocusScope.of(context)
-                                                              .unfocus();
-                                                          FocusManager.instance
-                                                              .primaryFocus
-                                                              ?.unfocus();
-                                                        },
-                                                        child: Padding(
-                                                          padding: MediaQuery
-                                                              .viewInsetsOf(
-                                                                  context),
-                                                          child:
-                                                              EditProfileVersion5Widget(),
-                                                        ),
-                                                      ),
-                                                    );
-                                                  },
-                                                ).then((value) =>
-                                                    safeSetState(() {}));
-                                              },
-                                              text: FFLocalizations.of(context)
-                                                  .getText(
-                                                'f8234cvd' /* Edit Profile */,
-                                              ),
-                                              icon: Icon(
-                                                Icons.edit,
-                                                size: 24.0,
-                                              ),
-                                              options: FFButtonOptions(
-                                                width:
-                                                    MediaQuery.sizeOf(context)
-                                                            .width *
-                                                        0.75,
-                                                height: 57.6,
-                                                padding: EdgeInsets.all(8.0),
-                                                iconPadding:
-                                                    EdgeInsetsDirectional
-                                                        .fromSTEB(
-                                                            0.0, 0.0, 0.0, 0.0),
-                                                iconColor:
-                                                    FlutterFlowTheme.of(context)
+                                                      .accent1,
+                                              textStyle: FlutterFlowTheme.of(
+                                                      context)
+                                                  .titleSmall
+                                                  .override(
+                                                    fontFamily: 'The Seasons',
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
                                                         .primaryBackground,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .accent1,
-                                                textStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleSmall
-                                                        .override(
-                                                          fontFamily:
-                                                              'The Seasons',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryBackground,
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                                elevation: 0.0,
-                                                borderRadius:
-                                                    BorderRadius.circular(24.0),
-                                              ),
+                                                    letterSpacing: 0.0,
+                                                  ),
+                                              elevation: 0.0,
+                                              borderRadius:
+                                                  BorderRadius.circular(24.0),
                                             ),
                                           ),
                                         ),
                                       ),
                                     ),
                                   ),
-                                  Flexible(
-                                    flex: 1,
+                                ),
+                                Flexible(
+                                  flex: 1,
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        16.0, 0.0, 16.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
@@ -1158,254 +1181,248 @@ This Week */
                                       ].divide(SizedBox(width: 12.0)),
                                     ),
                                   ),
-                                  Flexible(
-                                    flex: 1,
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 25.0, 0.0, 0.0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Container(
-                                            width: 162.4,
-                                            height: 64.7,
-                                            decoration: BoxDecoration(
-                                              boxShadow: [
-                                                BoxShadow(
-                                                  blurRadius: 40.0,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .accent3,
-                                                  offset: Offset(
-                                                    0.0,
-                                                    0.0,
-                                                  ),
-                                                  spreadRadius: 5.0,
-                                                )
-                                              ],
+                                ),
+                                Flexible(
+                                  flex: 1,
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 25.0, 0.0, 0.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Container(
+                                          width: 162.4,
+                                          height: 64.7,
+                                          decoration: BoxDecoration(
+                                            boxShadow: [
+                                              BoxShadow(
+                                                blurRadius: 40.0,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .accent3,
+                                                offset: Offset(
+                                                  0.0,
+                                                  0.0,
+                                                ),
+                                                spreadRadius: 5.0,
+                                              )
+                                            ],
+                                            borderRadius:
+                                                BorderRadius.circular(12.0),
+                                          ),
+                                          child: FFButtonWidget(
+                                            onPressed: () async {
+                                              logFirebaseEvent(
+                                                  'PROFILE_VERSION5_DELETE_ACCOUNT_BTN_ON_T');
+                                              logFirebaseEvent(
+                                                  'Button_haptic_feedback');
+                                              HapticFeedback.heavyImpact();
+                                              logFirebaseEvent(
+                                                  'Button_play_sound');
+                                              _model.soundPlayer2 ??=
+                                                  AudioPlayer();
+                                              if (_model
+                                                  .soundPlayer2!.playing) {
+                                                await _model.soundPlayer2!
+                                                    .stop();
+                                              }
+                                              _model.soundPlayer2!
+                                                  .setVolume(1.0);
+                                              _model.soundPlayer2!
+                                                  .setAsset(
+                                                      'assets/audios/ES_Game_Over,_Defeat,_Loss,_Negative,_Notification_01_-_Epidemic_Sound.mp3')
+                                                  .then((_) => _model
+                                                      .soundPlayer2!
+                                                      .play());
+
+                                              logFirebaseEvent(
+                                                  'Button_bottom_sheet');
+                                              await showModalBottomSheet(
+                                                isScrollControlled: true,
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                context: context,
+                                                builder: (context) {
+                                                  return WebViewAware(
+                                                    child: GestureDetector(
+                                                      onTap: () {
+                                                        FocusScope.of(context)
+                                                            .unfocus();
+                                                        FocusManager.instance
+                                                            .primaryFocus
+                                                            ?.unfocus();
+                                                      },
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child:
+                                                            DeleteAccountBottomSheetWidget(),
+                                                      ),
+                                                    ),
+                                                  );
+                                                },
+                                              ).then((value) =>
+                                                  safeSetState(() {}));
+                                            },
+                                            text: FFLocalizations.of(context)
+                                                .getText(
+                                              'z5724ter' /* Delete Account */,
+                                            ),
+                                            icon: Icon(
+                                              FFIcons.kdeleteDocument,
+                                              size: 24.0,
+                                            ),
+                                            options: FFButtonOptions(
+                                              height: 36.0,
+                                              padding: EdgeInsets.all(8.0),
+                                              iconPadding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                              iconColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryBackground,
+                                              color: Colors.black,
+                                              textStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmall
+                                                      .override(
+                                                        fontFamily: 'WorkSans',
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .primaryBackground,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                              elevation: 5.0,
                                               borderRadius:
                                                   BorderRadius.circular(12.0),
-                                            ),
-                                            child: FFButtonWidget(
-                                              onPressed: () async {
-                                                logFirebaseEvent(
-                                                    'PROFILE_VERSION5_DELETE_ACCOUNT_BTN_ON_T');
-                                                logFirebaseEvent(
-                                                    'Button_haptic_feedback');
-                                                HapticFeedback.heavyImpact();
-                                                logFirebaseEvent(
-                                                    'Button_play_sound');
-                                                _model.soundPlayer2 ??=
-                                                    AudioPlayer();
-                                                if (_model
-                                                    .soundPlayer2!.playing) {
-                                                  await _model.soundPlayer2!
-                                                      .stop();
-                                                }
-                                                _model.soundPlayer2!
-                                                    .setVolume(1.0);
-                                                _model.soundPlayer2!
-                                                    .setAsset(
-                                                        'assets/audios/ES_Game_Over,_Defeat,_Loss,_Negative,_Notification_01_-_Epidemic_Sound.mp3')
-                                                    .then((_) => _model
-                                                        .soundPlayer2!
-                                                        .play());
-
-                                                logFirebaseEvent(
-                                                    'Button_bottom_sheet');
-                                                await showModalBottomSheet(
-                                                  isScrollControlled: true,
-                                                  backgroundColor:
-                                                      Colors.transparent,
-                                                  context: context,
-                                                  builder: (context) {
-                                                    return WebViewAware(
-                                                      child: GestureDetector(
-                                                        onTap: () {
-                                                          FocusScope.of(context)
-                                                              .unfocus();
-                                                          FocusManager.instance
-                                                              .primaryFocus
-                                                              ?.unfocus();
-                                                        },
-                                                        child: Padding(
-                                                          padding: MediaQuery
-                                                              .viewInsetsOf(
-                                                                  context),
-                                                          child:
-                                                              DeleteAccountBottomSheetWidget(),
-                                                        ),
-                                                      ),
-                                                    );
-                                                  },
-                                                ).then((value) =>
-                                                    safeSetState(() {}));
-                                              },
-                                              text: FFLocalizations.of(context)
-                                                  .getText(
-                                                'z5724ter' /* Delete Account */,
-                                              ),
-                                              icon: Icon(
-                                                FFIcons.kdeleteDocument,
-                                                size: 24.0,
-                                              ),
-                                              options: FFButtonOptions(
-                                                height: 36.0,
-                                                padding: EdgeInsets.all(8.0),
-                                                iconPadding:
-                                                    EdgeInsetsDirectional
-                                                        .fromSTEB(
-                                                            0.0, 0.0, 0.0, 0.0),
-                                                iconColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryBackground,
-                                                color: Colors.black,
-                                                textStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleSmall
-                                                        .override(
-                                                          fontFamily:
-                                                              'WorkSans',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryBackground,
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                                elevation: 5.0,
-                                                borderRadius:
-                                                    BorderRadius.circular(12.0),
-                                              ),
                                             ),
                                           ),
-                                          Container(
-                                            width: 180.0,
-                                            height: 60.0,
-                                            decoration: BoxDecoration(
-                                              boxShadow: [
-                                                BoxShadow(
-                                                  blurRadius: 40.0,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .error,
-                                                  offset: Offset(
-                                                    0.0,
-                                                    0.0,
-                                                  ),
-                                                  spreadRadius: 5.0,
-                                                )
-                                              ],
-                                              borderRadius:
-                                                  BorderRadius.circular(12.0),
-                                            ),
-                                            child: FFButtonWidget(
-                                              onPressed: () async {
-                                                logFirebaseEvent(
-                                                    'PROFILE_VERSION5_PAGE_LOG_OUT_BTN_ON_TAP');
-                                                logFirebaseEvent(
-                                                    'Button_haptic_feedback');
-                                                HapticFeedback.heavyImpact();
-                                                logFirebaseEvent(
-                                                    'Button_play_sound');
-                                                _model.soundPlayer3 ??=
-                                                    AudioPlayer();
-                                                if (_model
-                                                    .soundPlayer3!.playing) {
-                                                  await _model.soundPlayer3!
-                                                      .stop();
-                                                }
-                                                _model.soundPlayer3!
-                                                    .setVolume(1.0);
-                                                _model.soundPlayer3!
-                                                    .setAsset(
-                                                        'assets/audios/ES_Game_Over,_Defeat,_Loss,_Negative,_Notification_01_-_Epidemic_Sound.mp3')
-                                                    .then((_) => _model
-                                                        .soundPlayer3!
-                                                        .play());
-
-                                                logFirebaseEvent('Button_auth');
-                                                GoRouter.of(context)
-                                                    .prepareAuthEvent();
-                                                await authManager.signOut();
-                                                GoRouter.of(context)
-                                                    .clearRedirectLocation();
-
-                                                context.goNamedAuth(
-                                                    SplashScreenVersion5Widget
-                                                        .routeName,
-                                                    context.mounted);
-                                              },
-                                              text: FFLocalizations.of(context)
-                                                  .getText(
-                                                'jd2z2up9' /* Log-Out */,
-                                              ),
-                                              icon: Icon(
-                                                Icons.logout,
-                                                size: 24.0,
-                                              ),
-                                              options: FFButtonOptions(
-                                                height: 60.0,
-                                                padding: EdgeInsets.all(8.0),
-                                                iconPadding:
-                                                    EdgeInsetsDirectional
-                                                        .fromSTEB(
-                                                            0.0, 0.0, 0.0, 0.0),
-                                                iconColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryBackground,
+                                        ),
+                                        Container(
+                                          width: 180.0,
+                                          height: 60.0,
+                                          decoration: BoxDecoration(
+                                            boxShadow: [
+                                              BoxShadow(
+                                                blurRadius: 40.0,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .error,
-                                                textStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleSmall
-                                                        .override(
-                                                          fontFamily:
-                                                              'WorkSans',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryBackground,
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                                elevation: 5.0,
-                                                borderRadius:
-                                                    BorderRadius.circular(12.0),
-                                              ),
+                                                offset: Offset(
+                                                  0.0,
+                                                  0.0,
+                                                ),
+                                                spreadRadius: 5.0,
+                                              )
+                                            ],
+                                            borderRadius:
+                                                BorderRadius.circular(12.0),
+                                          ),
+                                          child: FFButtonWidget(
+                                            onPressed: () async {
+                                              logFirebaseEvent(
+                                                  'PROFILE_VERSION5_PAGE_LOG_OUT_BTN_ON_TAP');
+                                              logFirebaseEvent(
+                                                  'Button_haptic_feedback');
+                                              HapticFeedback.heavyImpact();
+                                              logFirebaseEvent(
+                                                  'Button_play_sound');
+                                              _model.soundPlayer3 ??=
+                                                  AudioPlayer();
+                                              if (_model
+                                                  .soundPlayer3!.playing) {
+                                                await _model.soundPlayer3!
+                                                    .stop();
+                                              }
+                                              _model.soundPlayer3!
+                                                  .setVolume(1.0);
+                                              _model.soundPlayer3!
+                                                  .setAsset(
+                                                      'assets/audios/ES_Game_Over,_Defeat,_Loss,_Negative,_Notification_01_-_Epidemic_Sound.mp3')
+                                                  .then((_) => _model
+                                                      .soundPlayer3!
+                                                      .play());
+
+                                              logFirebaseEvent('Button_auth');
+                                              GoRouter.of(context)
+                                                  .prepareAuthEvent();
+                                              await authManager.signOut();
+                                              GoRouter.of(context)
+                                                  .clearRedirectLocation();
+
+                                              context.goNamedAuth(
+                                                  SplashScreenVersion5Widget
+                                                      .routeName,
+                                                  context.mounted);
+                                            },
+                                            text: FFLocalizations.of(context)
+                                                .getText(
+                                              'jd2z2up9' /* Log-Out */,
+                                            ),
+                                            icon: Icon(
+                                              Icons.logout,
+                                              size: 24.0,
+                                            ),
+                                            options: FFButtonOptions(
+                                              height: 60.0,
+                                              padding: EdgeInsets.all(8.0),
+                                              iconPadding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                              iconColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryBackground,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .error,
+                                              textStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmall
+                                                      .override(
+                                                        fontFamily: 'WorkSans',
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .primaryBackground,
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                              elevation: 5.0,
+                                              borderRadius:
+                                                  BorderRadius.circular(12.0),
                                             ),
                                           ),
-                                        ].divide(SizedBox(width: 16.0)),
-                                      ),
+                                        ),
+                                      ].divide(SizedBox(width: 16.0)),
                                     ),
                                   ),
-                                  Flexible(
-                                    flex: 1,
-                                    child: Align(
-                                      alignment: AlignmentDirectional(0.0, 1.0),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 25.0, 0.0, 25.0),
-                                        child: Hero(
-                                          tag: 'logo',
-                                          transitionOnUserGestures: true,
-                                          child: ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                            child: Image.asset(
-                                              'assets/images/Logo_ESCAPE_White.png',
-                                              width: 200.0,
-                                              height: MediaQuery.sizeOf(context)
-                                                      .height *
-                                                  0.09,
-                                              fit: BoxFit.contain,
-                                            ),
+                                ),
+                                Flexible(
+                                  flex: 1,
+                                  child: Align(
+                                    alignment: AlignmentDirectional(0.0, 1.0),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 25.0, 0.0, 25.0),
+                                      child: Hero(
+                                        tag: 'logo',
+                                        transitionOnUserGestures: true,
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                          child: Image.asset(
+                                            'assets/images/Logo_ESCAPE_White.png',
+                                            width: 200.0,
+                                            height: MediaQuery.sizeOf(context)
+                                                    .height *
+                                                0.09,
+                                            fit: BoxFit.contain,
                                           ),
                                         ),
                                       ),
                                     ),
                                   ),
-                                ].divide(SizedBox(height: 24.0)),
-                              ),
+                                ),
+                              ].divide(SizedBox(height: 24.0)),
                             ),
                           ),
                         ),

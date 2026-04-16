@@ -900,6 +900,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             builder: (context, params) => SoundscapesSeeAllPageWidget(),
           ),
           FFRoute(
+            name: ForgotPasswordWidget.routeName,
+            path: ForgotPasswordWidget.routePath,
+            builder: (context, params) => ForgotPasswordWidget(),
+          ),
+          FFRoute(
+            name: ForgotPasswordCopyWidget.routeName,
+            path: ForgotPasswordCopyWidget.routePath,
+            builder: (context, params) => ForgotPasswordCopyWidget(),
+          ),
+          FFRoute(
             name: $cupertino_time_picker_hiuzb7.HomePageWidget.routeName,
             path: $cupertino_time_picker_hiuzb7.HomePageWidget.routePath,
             builder: (context, params) =>

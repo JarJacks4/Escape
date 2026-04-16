@@ -4,6 +4,7 @@ import '/backend/backend.dart';
 import '/backend/schema/enums/enums.dart';
 import '/backend/schema/structs/index.dart';
 import '/components/empty_chats_widget.dart';
+import '/components/response_assessment_comp_widget.dart';
 import '/components/side_nav_widget.dart';
 import '/flutter_flow/flutter_flow_audio_player.dart';
 import '/flutter_flow/flutter_flow_button_tabbar.dart';
@@ -1700,6 +1701,61 @@ class _ChatWithLucilleVersion5WidgetState
                                                                         curve: Curves
                                                                             .ease,
                                                                       );
+                                                                      if (_model
+                                                                              .streamMessages
+                                                                              .take(5)
+                                                                              .toList()
+                                                                              .isNotEmpty
+                                                                          ? true
+                                                                          : false) {
+                                                                        logFirebaseEvent(
+                                                                            'IconButton_bottom_sheet');
+                                                                        await showModalBottomSheet(
+                                                                          isScrollControlled:
+                                                                              true,
+                                                                          backgroundColor:
+                                                                              Colors.transparent,
+                                                                          context:
+                                                                              context,
+                                                                          builder:
+                                                                              (context) {
+                                                                            return WebViewAware(
+                                                                              child: GestureDetector(
+                                                                                onTap: () {
+                                                                                  FocusScope.of(context).unfocus();
+                                                                                  FocusManager.instance.primaryFocus?.unfocus();
+                                                                                },
+                                                                                child: Padding(
+                                                                                  padding: MediaQuery.viewInsetsOf(context),
+                                                                                  child: ResponseAssessmentCompWidget(),
+                                                                                ),
+                                                                              ),
+                                                                            );
+                                                                          },
+                                                                        ).then((value) =>
+                                                                            safeSetState(() {}));
+                                                                      } else {
+                                                                        logFirebaseEvent(
+                                                                            'IconButton_show_snack_bar');
+                                                                        ScaffoldMessenger.of(context)
+                                                                            .clearSnackBars();
+                                                                        ScaffoldMessenger.of(context)
+                                                                            .showSnackBar(
+                                                                          SnackBar(
+                                                                            content:
+                                                                                Text(
+                                                                              'Try asking more questions and we can set up an assessment to help us give better responses!',
+                                                                              style: TextStyle(
+                                                                                color: FlutterFlowTheme.of(context).primaryText,
+                                                                              ),
+                                                                            ),
+                                                                            duration:
+                                                                                Duration(milliseconds: 4000),
+                                                                            backgroundColor:
+                                                                                FlutterFlowTheme.of(context).accent3,
+                                                                          ),
+                                                                        );
+                                                                      }
 
                                                                       safeSetState(
                                                                           () {});
