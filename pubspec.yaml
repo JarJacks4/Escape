@@ -63,7 +63,11 @@ dependencies:
     path: ./dependencies/cupertino_time_picker_hiuzb7 # 0.0.1
   device_info_plus: 11.5.0
   device_info_plus_platform_interface: 7.0.3
-  dropdown_button2: 2.3.9
+  dropdown_button2: 
+    git:
+      url: https://github.com/FlutterFlow/dropdown_button2.git
+      ref: 9bbeb2fd68e12615251a67208eb21bc75628c02c
+      path: packages/dropdown_button2
   easy_debounce: 2.0.1
   equatable: 2.0.7
   faker:
@@ -283,7 +287,10 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   shaders:
+    - packages/material_palette/shaders/click_ripple.frag
     - packages/material_palette/shaders/pixel_dissolve.frag
+    - packages/material_palette/shaders/radial_pixel_dissolve.frag
+    - packages/material_palette/shaders/smoke.frag
 
   assets:
     - assets/fonts/

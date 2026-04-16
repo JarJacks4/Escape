@@ -218,3 +218,6 @@ export '/mood_result_transition/mood_result_transition_widget.dart'
     show MoodResultTransitionWidget;
 export '/soundscapes_see_all_page/soundscapes_see_all_page_widget.dart'
     show SoundscapesSeeAllPageWidget;
+export '/forgot_password/forgot_password_widget.dart' show ForgotPasswordWidget;
+export '/forgot_password_copy/forgot_password_copy_widget.dart'
+    show ForgotPasswordCopyWidget;

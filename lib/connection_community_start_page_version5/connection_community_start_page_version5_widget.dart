@@ -84,6 +84,19 @@ class _ConnectionCommunityStartPageVersion5WidgetState
           _model.tabBarCurrentIndex,
           FFAppState().ReorderedVideosIndex,
         );
+        logFirebaseEvent('TabBar_custom_action');
+        _model.reorderBreathingVideos =
+            await tiktokfeed_wz8en7_actions.reorderTiktokPages(
+          tiktokfeed_wz8en7_app_state.FFAppState().meditationTikToks.toList(),
+          tiktokfeed_wz8en7_app_state.FFAppState().meditationTikToks.length,
+          tiktokfeed_wz8en7_app_state.FFAppState().meditationTikToks.length,
+        );
+        logFirebaseEvent('TabBar_custom_action');
+        _model.reorderBody = await tiktokfeed_wz8en7_actions.reorderTiktokPages(
+          tiktokfeed_wz8en7_app_state.FFAppState().BodyTikToks.toList(),
+          tiktokfeed_wz8en7_app_state.FFAppState().BodyTikToks.firstOrNull!.id,
+          tiktokfeed_wz8en7_app_state.FFAppState().meditationTikToks.length,
+        );
 
         safeSetState(() {});
       });
@@ -344,9 +357,8 @@ class _ConnectionCommunityStartPageVersion5WidgetState
                                                                   0.9,
                                                               userID:
                                                                   currentUserUid,
-                                                              data: tiktokfeed_wz8en7_app_state
-                                                                      .FFAppState()
-                                                                  .BreathingTikTok,
+                                                              data: _model
+                                                                  .reorderBreathingVideos!,
                                                               likerebuidpage:
                                                                   () async {},
                                                               bookedrebuidpage:
@@ -379,9 +391,8 @@ class _ConnectionCommunityStartPageVersion5WidgetState
                                                                   0.9,
                                                               userID:
                                                                   currentUserUid,
-                                                              data: tiktokfeed_wz8en7_app_state
-                                                                      .FFAppState()
-                                                                  .BodyTikToks,
+                                                              data: _model
+                                                                  .reorderBody!,
                                                               likerebuidpage:
                                                                   () async {},
                                                               bookedrebuidpage:

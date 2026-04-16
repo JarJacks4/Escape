@@ -944,7 +944,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                               curve: Curves.easeIn,
                                                                               child: Text(
                                                                                 valueOrDefault<String>(
-                                                                                  currentUserDisplayName,
+                                                                                  currentUserDisplayName != '' ? currentUserDisplayName : currentUserEmail,
                                                                                   'Escape',
                                                                                 ),
                                                                                 overflow: TextOverflow.fade,

@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/index.dart';
@@ -48,9 +49,13 @@ class NewSignInVersion5Model extends FlutterFlowModel<NewSignInVersion5Widget> {
 
   AudioPlayer? soundPlayer2;
   AudioPlayer? soundPlayer3;
+  // Stores action output result for [Backend Call - API (CreateID)] action in Button widget.
+  ApiCallResponse? createIDForLogin;
+  // Stores action output result for [Backend Call - API (Validate Session)] action in Button widget.
+  ApiCallResponse? validateSession;
   AudioPlayer? soundPlayer4;
   // Stores action output result for [Validate Form] action in Button widget.
-  bool? validateLogin2;
+  bool? validateLogin23;
   AudioPlayer? soundPlayer5;
   // State field(s) for DisplayName widget.
   FocusNode? displayNameFocusNode;
@@ -164,9 +169,9 @@ class NewSignInVersion5Model extends FlutterFlowModel<NewSignInVersion5Widget> {
       crownChakraMoodsValueController?.value?.firstOrNull;
   set crownChakraMoodsValue(String? val) =>
       crownChakraMoodsValueController?.value = val != null ? [val] : [];
+  AudioPlayer? soundPlayer6;
   // Stores action output result for [Validate Form] action in Button widget.
   bool? createAccountValidation;
-  AudioPlayer? soundPlayer6;
   AudioPlayer? soundPlayer7;
 
   @override

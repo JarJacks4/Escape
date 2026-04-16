@@ -6,6 +6,12 @@ import 'package:just_audio/just_audio.dart';
 
 class EditProfileVersion5Model
     extends FlutterFlowModel<EditProfileVersion5Widget> {
+  ///  Local state fields for this component.
+
+  String? newProfilePicture;
+
+  String? preferredSessionLength;
+
   ///  State fields for stateful widgets in this component.
 
   final formKey = GlobalKey<FormState>();
@@ -109,6 +115,7 @@ class EditProfileVersion5Model
   String? dropDownValue;
   FormFieldController<String>? dropDownValueController;
   AudioPlayer? soundPlayer9;
+  DateTime? datePicked;
   // State field(s) for Switch widget.
   bool? switchValue1;
   // State field(s) for Switch widget.
