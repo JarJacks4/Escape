@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:provider/provider.dart';
 import 'side_nav_model.dart';
 export 'side_nav_model.dart';
 
@@ -141,6 +142,7 @@ class _SideNavWidgetState extends State<SideNavWidget>
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
     return Visibility(
       visible: responsiveVisibility(
         context: context,
@@ -954,11 +956,24 @@ class _SideNavWidgetState extends State<SideNavWidget>
                                                               Duration(
                                                                   milliseconds:
                                                                       500),
-                                                          imageUrl:
-                                                              currentUserPhoto,
+                                                          imageUrl: FFAppState()
+                                                                  .ProfilePicture
+                                                                  .isNotEmpty
+                                                              ? FFAppState()
+                                                                  .ProfilePicture
+                                                              : currentUserPhoto,
                                                           width: 44.0,
                                                           height: 44.0,
                                                           fit: BoxFit.cover,
+                                                          errorWidget: (context,
+                                                                  error,
+                                                                  stackTrace) =>
+                                                              Image.asset(
+                                                            'assets/images/error_image.jpg',
+                                                            width: 44.0,
+                                                            height: 44.0,
+                                                            fit: BoxFit.cover,
+                                                          ),
                                                         ),
                                                       ),
                                                     ),

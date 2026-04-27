@@ -269,8 +269,12 @@ class _ProfileVersion5WidgetState extends State<ProfileVersion5Widget> {
                                                             Duration(
                                                                 milliseconds:
                                                                     700),
-                                                        imageUrl:
-                                                            currentUserPhoto,
+                                                        imageUrl: FFAppState()
+                                                                .ProfilePicture
+                                                                .isNotEmpty
+                                                            ? FFAppState()
+                                                                .ProfilePicture
+                                                            : currentUserPhoto,
                                                         width: 117.6,
                                                         height: 120.0,
                                                         fit: BoxFit.cover,
@@ -455,12 +459,17 @@ class _ProfileVersion5WidgetState extends State<ProfileVersion5Widget> {
                                                       logFirebaseEvent(
                                                           'IconButton_backend_call');
 
-                                                      await currentUserReference!
-                                                          .update(
-                                                              createUsersRecordData(
-                                                        photoUrl: _model
-                                                            .uploadedFileUrl_uploadDataTyq8,
-                                                      ));
+                                                      try {
+                                                        await currentUserReference!
+                                                            .update(
+                                                                createUsersRecordData(
+                                                          photoUrl: _model
+                                                              .uploadedFileUrl_uploadDataTyq8,
+                                                        ));
+                                                      } catch (e) {
+                                                        debugPrint(
+                                                            'Profile photo Firestore update failed: $e');
+                                                      }
                                                       logFirebaseEvent(
                                                           'IconButton_show_snack_bar');
                                                       ScaffoldMessenger.of(

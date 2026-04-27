@@ -135,12 +135,42 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
       if (FFAppState().hasSeenOnboarding == false &&
           FFAppState().isOnboardingFinished == true) {
         debugPrint('>>> before delay');
-        await Future.delayed(const Duration(milliseconds: 2000));
+        await Future.delayed(const Duration(milliseconds: 3500));
         debugPrint('>>> after delay');
         if (!mounted) return;
         logFirebaseEvent('HomeVersion5_start_walkthrough');
-        safeSetState(() =>
-            _model.introWalkthroughController = createPageWalkthrough(context));
+        _model.introWalkthroughController = TutorialCoachMark(
+          targets: createWalkthroughTargets(context),
+          onFinish: () async {
+            FFAppState().hasSeenOnboarding = true;
+            try {
+              await currentUserReference!.update(createUsersRecordData(
+                hasSeenWalkthrough: true,
+              ));
+            } catch (e) {
+              debugPrint('hasSeenWalkthrough update failed: $e');
+            }
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              if (mounted) {
+                safeSetState(() => _model.introWalkthroughController = null);
+              }
+            });
+          },
+          onSkip: () {
+            FFAppState().hasSeenOnboarding = true;
+            currentUserReference!
+                .update(createUsersRecordData(hasSeenWalkthrough: true))
+                .catchError((e) {
+              debugPrint('hasSeenWalkthrough update failed: $e');
+            });
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              if (mounted) {
+                safeSetState(() => _model.introWalkthroughController = null);
+              }
+            });
+            return true;
+          },
+        );
         _model.introWalkthroughController?.show(context: context);
       } else {
         logFirebaseEvent('HomeVersion5_show_snack_bar');

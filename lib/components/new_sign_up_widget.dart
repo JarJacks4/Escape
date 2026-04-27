@@ -563,6 +563,15 @@ class _NewSignUpWidgetState extends State<NewSignUpWidget> {
                   final email = _model.textController2.text.trim();
                   final password = _model.textController3.text;
                   final confirmPassword = _model.textController4.text;
+                  final name = _model.textController1.text.trim();
+                  
+                  if (name.length < 9) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                          content: Text('Name must be at least 9 characters')),
+                    );
+                    return;
+                  }
 
                   if (email.isEmpty || password.isEmpty) {
                     ScaffoldMessenger.of(context).showSnackBar(

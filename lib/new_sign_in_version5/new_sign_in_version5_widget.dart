@@ -2340,6 +2340,7 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                   _model.createAccountValidation =
                                                       false;
                                                 }
+                                                if (_model.createAccountValidation != true) return;
                                                 logFirebaseEvent('Button_auth');
                                                 GoRouter.of(context)
                                                     .prepareAuthEvent();
