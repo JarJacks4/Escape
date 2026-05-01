@@ -3603,7 +3603,7 @@ class _LucilleSuggestionsWidgetState extends State<LucilleSuggestionsWidget>
                       alignment: AlignmentDirectional(0.0, 1.0),
                       child: Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
-                            5.0, 10.0, 5.0, 170.0),
+                            5.0, 10.0, 5.0, 175.0),
                         child: smooth_page_indicator.SmoothPageIndicator(
                           controller: _model.pageViewController ??=
                               PageController(initialPage: 0),

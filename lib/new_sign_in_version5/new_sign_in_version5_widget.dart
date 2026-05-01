@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'dart:ui';
+import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/random_data_util.dart' as random_data;
 import '/index.dart';
 import 'package:confetti_modualo_library_b75kfy/app_state.dart'
@@ -1144,6 +1145,80 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                             );
                                                             if (user == null) {
                                                               return;
+                                                            }
+
+                                                            logFirebaseEvent(
+                                                                'Button_custom_action');
+                                                            _model.firebaseUID =
+                                                                await actions
+                                                                    .getFirebaseToken();
+                                                            if (_model.firebaseUID !=
+                                                                    null &&
+                                                                _model.firebaseUID !=
+                                                                    '') {
+                                                              logFirebaseEvent(
+                                                                  'Button_update_app_state');
+                                                              FFAppState()
+                                                                      .lucilleUserID =
+                                                                  currentUserUid;
+                                                              FFAppState()
+                                                                      .firebaseIDToken =
+                                                                  FFAppState()
+                                                                      .firebaseIDToken;
+                                                              safeSetState(
+                                                                  () {});
+                                                              logFirebaseEvent(
+                                                                  'Button_show_snack_bar');
+                                                              ScaffoldMessenger
+                                                                      .of(context)
+                                                                  .clearSnackBars();
+                                                              ScaffoldMessenger
+                                                                      .of(context)
+                                                                  .showSnackBar(
+                                                                SnackBar(
+                                                                  content: Text(
+                                                                    'Database ID: ${_model.firebaseUID}',
+                                                                    style:
+                                                                        TextStyle(
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primary,
+                                                                    ),
+                                                                  ),
+                                                                  duration: Duration(
+                                                                      milliseconds:
+                                                                          4000),
+                                                                  backgroundColor:
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .alternate,
+                                                                ),
+                                                              );
+                                                            } else {
+                                                              logFirebaseEvent(
+                                                                  'Button_show_snack_bar');
+                                                              ScaffoldMessenger
+                                                                      .of(context)
+                                                                  .showSnackBar(
+                                                                SnackBar(
+                                                                  content: Text(
+                                                                    'Database ID Error',
+                                                                    style:
+                                                                        TextStyle(
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primary,
+                                                                    ),
+                                                                  ),
+                                                                  duration: Duration(
+                                                                      milliseconds:
+                                                                          4000),
+                                                                  backgroundColor:
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .error,
+                                                                ),
+                                                              );
                                                             }
 
                                                             logFirebaseEvent(
@@ -2429,7 +2504,7 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                       child: FFButtonWidget(
                                                         onPressed: () async {
                                                           logFirebaseEvent(
-                                                              'NEW_SIGN_IN_VERSION5_BEGIN_MY_JOURNEY_BT');
+                                                              'NEW_SIGN_IN_VERSION5_START_MY_JOURNEY_BT');
                                                           logFirebaseEvent(
                                                               'Button_haptic_feedback');
                                                           HapticFeedback
@@ -2576,6 +2651,79 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                                   context)
                                                               .hideCurrentSnackBar();
                                                           logFirebaseEvent(
+                                                              'Button_custom_action');
+                                                          _model.getFirebaseToken =
+                                                              await actions
+                                                                  .getFirebaseToken();
+                                                          if (_model.getFirebaseToken !=
+                                                                  null &&
+                                                              _model.getFirebaseToken !=
+                                                                  '') {
+                                                            logFirebaseEvent(
+                                                                'Button_update_app_state');
+                                                            FFAppState()
+                                                                    .lucilleUserID =
+                                                                currentUserUid;
+                                                            FFAppState()
+                                                                    .firebaseIDToken =
+                                                                FFAppState()
+                                                                    .firebaseIDToken;
+                                                            safeSetState(() {});
+                                                            logFirebaseEvent(
+                                                                'Button_show_snack_bar');
+                                                            ScaffoldMessenger
+                                                                    .of(context)
+                                                                .clearSnackBars();
+                                                            ScaffoldMessenger
+                                                                    .of(context)
+                                                                .showSnackBar(
+                                                              SnackBar(
+                                                                content: Text(
+                                                                  'Database ID: ${_model.firebaseUID}',
+                                                                  style:
+                                                                      TextStyle(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
+                                                                  ),
+                                                                ),
+                                                                duration: Duration(
+                                                                    milliseconds:
+                                                                        4000),
+                                                                backgroundColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .alternate,
+                                                              ),
+                                                            );
+                                                          } else {
+                                                            logFirebaseEvent(
+                                                                'Button_show_snack_bar');
+                                                            ScaffoldMessenger
+                                                                    .of(context)
+                                                                .showSnackBar(
+                                                              SnackBar(
+                                                                content: Text(
+                                                                  'Database ID Error',
+                                                                  style:
+                                                                      TextStyle(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primary,
+                                                                  ),
+                                                                ),
+                                                                duration: Duration(
+                                                                    milliseconds:
+                                                                        4000),
+                                                                backgroundColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .error,
+                                                              ),
+                                                            );
+                                                          }
+
+                                                          logFirebaseEvent(
                                                               'Button_navigate_to');
 
                                                           context.pushNamedAuth(
@@ -2604,7 +2752,7 @@ class _NewSignInVersion5WidgetState extends State<NewSignInVersion5Widget> {
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                          'acnpc4a1' /* Begin My Journey */,
+                                                          'acnpc4a1' /* Start My Journey! */,
                                                         ),
                                                         options:
                                                             FFButtonOptions(

@@ -11,7 +11,19 @@ import 'mood_result_transition_model.dart';
 export 'mood_result_transition_model.dart';
 
 class MoodResultTransitionWidget extends StatefulWidget {
-  const MoodResultTransitionWidget({super.key});
+  const MoodResultTransitionWidget({
+    super.key,
+    required this.moodResult,
+    double? stressLevel,
+    String? energyLevel,
+    this.moodPhoto,
+  })  : this.stressLevel = stressLevel ?? 0.5,
+        this.energyLevel = energyLevel ?? 'Moderate';
+
+  final String? moodResult;
+  final double stressLevel;
+  final String energyLevel;
+  final String? moodPhoto;
 
   static String routeName = 'MoodResultTransition';
   static String routePath = 'moodResultTransition';
@@ -52,13 +64,68 @@ class _MoodResultTransitionWidgetState
       logFirebaseEvent('MoodResultTransition_wait__delay');
       await Future.delayed(
         Duration(
-          milliseconds: 2000,
+          milliseconds: 5000,
         ),
       );
+      if (widget.moodResult != null && widget.moodResult != '') {
+        logFirebaseEvent('MoodResultTransition_show_snack_bar');
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              'Mood Scan Success!',
+              style: TextStyle(
+                color: FlutterFlowTheme.of(context).primary,
+              ),
+            ),
+            duration: Duration(milliseconds: 4000),
+            backgroundColor: Color(0x8EF0831A),
+          ),
+        );
+        logFirebaseEvent('MoodResultTransition_hide_snack_bar');
+        ScaffoldMessenger.of(context).clearSnackBars();
+      } else {
+        logFirebaseEvent('MoodResultTransition_show_snack_bar');
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              'Mood Scan Failure, please make sure to retake your picture so that we can get a good read on your mood!',
+              style: TextStyle(
+                color: FlutterFlowTheme.of(context).primaryText,
+              ),
+            ),
+            duration: Duration(milliseconds: 4000),
+            backgroundColor: FlutterFlowTheme.of(context).accent3,
+          ),
+        );
+        logFirebaseEvent('MoodResultTransition_navigate_back');
+        context.safePop();
+        logFirebaseEvent('MoodResultTransition_hide_snack_bar');
+        ScaffoldMessenger.of(context).hideCurrentSnackBar();
+        return;
+      }
+
       logFirebaseEvent('MoodResultTransition_navigate_to');
 
       context.pushNamed(
-        MoodScanResultVersion5Widget.routeName,
+        MoodResultPageWidget.routeName,
+        queryParameters: {
+          'moodResult': serializeParam(
+            widget.moodResult,
+            ParamType.String,
+          ),
+          'energyLevel': serializeParam(
+            widget.energyLevel,
+            ParamType.String,
+          ),
+          'stressLevel': serializeParam(
+            widget.stressLevel,
+            ParamType.double,
+          ),
+          'moodPhoto': serializeParam(
+            widget.moodPhoto,
+            ParamType.String,
+          ),
+        }.withoutNulls,
         extra: <String, dynamic>{
           '__transition_info__': TransitionInfo(
             hasTransition: true,
@@ -86,7 +153,7 @@ class _MoodResultTransitionWidgetState
       },
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: Color(0x08000000),
         body: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
@@ -95,7 +162,7 @@ class _MoodResultTransitionWidgetState
               children: [
                 Container(
                   width: double.infinity,
-                  height: 876.09,
+                  height: 946.37,
                   decoration: BoxDecoration(
                     image: DecorationImage(
                       fit: BoxFit.cover,
@@ -151,7 +218,7 @@ class _MoodResultTransitionWidgetState
                             ),
                             Column(
                               mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 Column(
                                   mainAxisSize: MainAxisSize.max,
@@ -245,13 +312,13 @@ class _MoodResultTransitionWidgetState
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 50.0, 0.0, 0.0),
+                                      0.0, 300.0, 0.0, 0.0),
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(8.0),
                                     child: Image.asset(
-                                      'assets/images/ESCAPE_Logo_Clear.png',
+                                      'assets/images/Logo_ESCAPE_Black.png',
                                       width: 200.0,
-                                      height: 112.9,
+                                      height: 143.9,
                                       fit: BoxFit.contain,
                                     ),
                                   ),

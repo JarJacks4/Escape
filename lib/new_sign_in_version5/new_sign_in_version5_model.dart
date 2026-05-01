@@ -56,6 +56,8 @@ class NewSignInVersion5Model extends FlutterFlowModel<NewSignInVersion5Widget> {
   AudioPlayer? soundPlayer4;
   // Stores action output result for [Validate Form] action in Button widget.
   bool? validateLogin23;
+  // Stores action output result for [Custom Action - getFirebaseToken] action in Button widget.
+  String? firebaseUID;
   AudioPlayer? soundPlayer5;
   // State field(s) for DisplayName widget.
   FocusNode? displayNameFocusNode;
@@ -172,6 +174,8 @@ class NewSignInVersion5Model extends FlutterFlowModel<NewSignInVersion5Widget> {
   AudioPlayer? soundPlayer6;
   // Stores action output result for [Validate Form] action in Button widget.
   bool? createAccountValidation;
+  // Stores action output result for [Custom Action - getFirebaseToken] action in Button widget.
+  String? getFirebaseToken;
   AudioPlayer? soundPlayer7;
 
   @override

@@ -28,3 +28,4 @@ export 'base64_to_audio_file.dart' show base64ToAudioFile;
 export 'audio_path_from_uploaded_file.dart' show audioPathFromUploadedFile;
 export 'get_audio_path.dart' show getAudioPath;
 export 'extract_audio_path.dart' show extractAudioPath;
+export 'get_firebase_token.dart' show getFirebaseToken;

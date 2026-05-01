@@ -300,6 +300,7 @@ class _FlutterFlowDropDownState<T> extends State<FlutterFlowDropDown<T>> {
   Widget _buildDropdown() {
     final overlayColor = WidgetStateProperty.resolveWith<Color?>((states) =>
         states.contains(WidgetState.focused) ? Colors.transparent : null);
+    final menuItemOverlayColor = kIsWeb ? null : overlayColor;
     final iconStyleData = widget.icon != null
         ? IconStyleData(icon: widget.icon!)
         : const IconStyleData();
@@ -315,8 +316,8 @@ class _FlutterFlowDropDownState<T> extends State<FlutterFlowDropDown<T>> {
         padding: widget.margin,
       ),
       menuItemStyleData: MenuItemStyleData(
-        overlayColor: overlayColor,
         padding: EdgeInsets.zero,
+        overlayColor: menuItemOverlayColor,
       ),
       dropdownStyleData: DropdownStyleData(
         elevation: widget.elevation.toInt(),

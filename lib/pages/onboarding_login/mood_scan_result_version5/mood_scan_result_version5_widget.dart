@@ -23,7 +23,12 @@ import 'mood_scan_result_version5_model.dart';
 export 'mood_scan_result_version5_model.dart';
 
 class MoodScanResultVersion5Widget extends StatefulWidget {
-  const MoodScanResultVersion5Widget({super.key});
+  const MoodScanResultVersion5Widget({
+    super.key,
+    required this.moodResult,
+  });
+
+  final String? moodResult;
 
   static String routeName = 'MoodScanResultVersion5';
   static String routePath = 'moodScanResultVersion5';

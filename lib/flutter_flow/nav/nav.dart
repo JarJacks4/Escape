@@ -444,14 +444,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             builder: (context, params) => ChatAiScreenWidget(),
           ),
           FFRoute(
-              name: ChatWithLucilleVersion5Widget.routeName,
-              path: ChatWithLucilleVersion5Widget.routePath,
-              builder: (context, params) => params.isEmpty
-                  ? NavBarPage(initialPage: 'ChatWithLucilleVersion5')
-                  : NavBarPage(
-                      initialPage: 'ChatWithLucilleVersion5',
-                      page: ChatWithLucilleVersion5Widget(),
-                    )),
+            name: ChatWithLucilleVersion5Widget.routeName,
+            path: ChatWithLucilleVersion5Widget.routePath,
+            builder: (context, params) => ChatWithLucilleVersion5Widget(),
+          ),
           FFRoute(
             name: NewSignInVersion5Widget.routeName,
             path: NewSignInVersion5Widget.routePath,
@@ -670,14 +666,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             builder: (context, params) => EnergyScanVersion5CopyWidget(),
           ),
           FFRoute(
-              name: ExplorePageVersion5Widget.routeName,
-              path: ExplorePageVersion5Widget.routePath,
-              builder: (context, params) => params.isEmpty
-                  ? NavBarPage(initialPage: 'ExplorePageVersion5')
-                  : NavBarPage(
-                      initialPage: 'ExplorePageVersion5',
-                      page: ExplorePageVersion5Widget(),
-                    )),
+            name: ExplorePageVersion5Widget.routeName,
+            path: ExplorePageVersion5Widget.routePath,
+            builder: (context, params) => ExplorePageVersion5Widget(),
+          ),
           FFRoute(
               name: AISoundscapesCopyCopyCopyWidget.routeName,
               path: AISoundscapesCopyCopyCopyWidget.routePath,
@@ -862,7 +854,24 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
           FFRoute(
             name: MoodResultPageWidget.routeName,
             path: MoodResultPageWidget.routePath,
-            builder: (context, params) => MoodResultPageWidget(),
+            builder: (context, params) => MoodResultPageWidget(
+              moodResult: params.getParam(
+                'moodResult',
+                ParamType.String,
+              ),
+              energyLevel: params.getParam(
+                'energyLevel',
+                ParamType.String,
+              ),
+              stressLevel: params.getParam(
+                'stressLevel',
+                ParamType.double,
+              ),
+              moodPhoto: params.getParam(
+                'moodPhoto',
+                ParamType.String,
+              ),
+            ),
           ),
           FFRoute(
             name: WebViewSampleWidget.routeName,
@@ -887,12 +896,34 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
           FFRoute(
             name: MoodScanResultVersion5Widget.routeName,
             path: MoodScanResultVersion5Widget.routePath,
-            builder: (context, params) => MoodScanResultVersion5Widget(),
+            builder: (context, params) => MoodScanResultVersion5Widget(
+              moodResult: params.getParam(
+                'moodResult',
+                ParamType.String,
+              ),
+            ),
           ),
           FFRoute(
             name: MoodResultTransitionWidget.routeName,
             path: MoodResultTransitionWidget.routePath,
-            builder: (context, params) => MoodResultTransitionWidget(),
+            builder: (context, params) => MoodResultTransitionWidget(
+              moodResult: params.getParam(
+                'moodResult',
+                ParamType.String,
+              ),
+              stressLevel: params.getParam(
+                'stressLevel',
+                ParamType.double,
+              ),
+              energyLevel: params.getParam(
+                'energyLevel',
+                ParamType.String,
+              ),
+              moodPhoto: params.getParam(
+                'moodPhoto',
+                ParamType.String,
+              ),
+            ),
           ),
           FFRoute(
             name: SoundscapesSeeAllPageWidget.routeName,
@@ -909,6 +940,34 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) {
             path: ForgotPasswordCopyWidget.routePath,
             builder: (context, params) => ForgotPasswordCopyWidget(),
           ),
+          FFRoute(
+            name: ComingSoonBodWidget.routeName,
+            path: ComingSoonBodWidget.routePath,
+            builder: (context, params) => ComingSoonBodWidget(),
+          ),
+          FFRoute(
+              name: ExplorePageVersion5FINALWidget.routeName,
+              path: ExplorePageVersion5FINALWidget.routePath,
+              builder: (context, params) => params.isEmpty
+                  ? NavBarPage(initialPage: 'ExplorePageVersion5FINAL')
+                  : NavBarPage(
+                      initialPage: 'ExplorePageVersion5FINAL',
+                      page: ExplorePageVersion5FINALWidget(),
+                    )),
+          FFRoute(
+            name: MarketplaceVersion5Widget.routeName,
+            path: MarketplaceVersion5Widget.routePath,
+            builder: (context, params) => MarketplaceVersion5Widget(),
+          ),
+          FFRoute(
+              name: LucilleHomeWidget.routeName,
+              path: LucilleHomeWidget.routePath,
+              builder: (context, params) => params.isEmpty
+                  ? NavBarPage(initialPage: 'LucilleHome')
+                  : NavBarPage(
+                      initialPage: 'LucilleHome',
+                      page: LucilleHomeWidget(),
+                    )),
           FFRoute(
             name: $cupertino_time_picker_hiuzb7.HomePageWidget.routeName,
             path: $cupertino_time_picker_hiuzb7.HomePageWidget.routePath,

@@ -17,6 +17,8 @@ import 'package:that_audio_player_oo85ab/app_state.dart'
     as that_audio_player_oo85ab_app_state;
 import 'package:tiktokfeed_wz8en7/app_state.dart'
     as tiktokfeed_wz8en7_app_state;
+import 'package:utility_functions_library_8g4bud/flutter_flow/custom_functions.dart'
+    as utility_functions_library_8g4bud_functions;
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -301,266 +303,106 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                       ).animateOnPageLoad(animationsMap[
                                           'containerOnPageLoadAnimation2']!),
                                     ),
-                                    Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
-                                      child: AnimatedContainer(
-                                        duration: Duration(milliseconds: 550),
-                                        curve: Curves.easeIn,
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                0.8,
-                                        height: 100.0,
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(24.0),
-                                        ),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Container(
-                                              width: 150.0,
-                                              height: 60.0,
-                                              decoration: BoxDecoration(
-                                                boxShadow: [
-                                                  BoxShadow(
-                                                    blurRadius: 40.0,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primary,
-                                                    offset: Offset(
-                                                      0.0,
-                                                      2.0,
-                                                    ),
-                                                    spreadRadius: 4.0,
-                                                  )
-                                                ],
-                                                borderRadius:
-                                                    BorderRadius.circular(24.0),
-                                              ),
-                                              child: Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
-                                                child: FFButtonWidget(
-                                                  onPressed: () async {
-                                                    logFirebaseEvent(
-                                                        'MOOD_SCAN_VERSION5_GO_HOME_BTN_ON_TAP');
-                                                    logFirebaseEvent(
-                                                        'Button_haptic_feedback');
-                                                    HapticFeedback
-                                                        .lightImpact();
-                                                    logFirebaseEvent(
-                                                        'Button_navigate_to');
-
-                                                    context.pushNamed(
-                                                      HomeVersion5Widget
-                                                          .routeName,
-                                                      extra: <String, dynamic>{
-                                                        '__transition_info__':
-                                                            TransitionInfo(
-                                                          hasTransition: true,
-                                                          transitionType:
-                                                              PageTransitionType
-                                                                  .rightToLeft,
-                                                          duration: Duration(
-                                                              milliseconds: 1),
-                                                        ),
-                                                      },
-                                                    );
-                                                  },
-                                                  text: FFLocalizations.of(
-                                                          context)
-                                                      .getText(
-                                                    'i4dfofhv' /* Go Home */,
-                                                  ),
-                                                  options: FFButtonOptions(
-                                                    width: double.infinity,
-                                                    height: 50.0,
-                                                    padding:
-                                                        EdgeInsets.all(8.0),
-                                                    iconPadding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 0.0),
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .alternate,
-                                                    textStyle: FlutterFlowTheme
-                                                            .of(context)
-                                                        .titleMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'WorkSans',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
+                                    if (_model.isScanLoading == false)
+                                      Align(
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
+                                        child: AnimatedContainer(
+                                          duration: Duration(milliseconds: 550),
+                                          curve: Curves.easeIn,
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  0.8,
+                                          height: 100.0,
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(24.0),
+                                          ),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Container(
+                                                width: 150.0,
+                                                height: 60.0,
+                                                decoration: BoxDecoration(
+                                                  boxShadow: [
+                                                    BoxShadow(
+                                                      blurRadius: 40.0,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
                                                               .primary,
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                                    elevation: 3.0,
-                                                    borderSide: BorderSide(
-                                                      color: Color(0x4CEDF1F7),
-                                                    ),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            24.0),
-                                                  ),
+                                                      offset: Offset(
+                                                        0.0,
+                                                        2.0,
+                                                      ),
+                                                      spreadRadius: 4.0,
+                                                    )
+                                                  ],
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          24.0),
                                                 ),
-                                              ),
-                                            ),
-                                            Container(
-                                              width: 150.0,
-                                              height: 60.0,
-                                              decoration: BoxDecoration(
-                                                boxShadow: [
-                                                  BoxShadow(
-                                                    blurRadius: 40.0,
-                                                    color:
-                                                        valueOrDefault<Color>(
-                                                      FFAppState()
-                                                              .isOnboardingFinished
-                                                          ? FlutterFlowTheme.of(
-                                                                  context)
-                                                              .accent3
-                                                          : FlutterFlowTheme.of(
-                                                                  context)
-                                                              .accent1,
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .accent3,
-                                                    ),
-                                                    offset: Offset(
-                                                      0.0,
-                                                      2.0,
-                                                    ),
-                                                    spreadRadius: 4.0,
-                                                  )
-                                                ],
-                                                borderRadius:
-                                                    BorderRadius.circular(24.0),
-                                              ),
-                                              child: Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
-                                                child: FFButtonWidget(
-                                                  onPressed: () async {
-                                                    logFirebaseEvent(
-                                                        'MOOD_SCAN_VERSION5_SCAN_MOOD_BTN_ON_TAP');
-                                                    logFirebaseEvent(
-                                                        'Button_haptic_feedback');
-                                                    HapticFeedback
-                                                        .heavyImpact();
-                                                    logFirebaseEvent(
-                                                        'Button_upload_media_to_firebase');
-                                                    final selectedMedia =
-                                                        await selectMediaWithSourceBottomSheet(
-                                                      context: context,
-                                                      allowPhoto: true,
-                                                    );
-                                                    if (selectedMedia != null &&
-                                                        selectedMedia.every((m) =>
-                                                            validateFileFormat(
-                                                                m.storagePath,
-                                                                context))) {
-                                                      safeSetState(() => _model
-                                                              .isDataUploading_mdPhoto =
-                                                          true);
-                                                      var selectedUploadedFiles =
-                                                          <FFUploadedFile>[];
+                                                child: Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          0.0, 0.0),
+                                                  child: FFButtonWidget(
+                                                    onPressed: () async {
+                                                      logFirebaseEvent(
+                                                          'MOOD_SCAN_VERSION5_GO_HOME_BTN_ON_TAP');
+                                                      logFirebaseEvent(
+                                                          'Button_haptic_feedback');
+                                                      HapticFeedback
+                                                          .lightImpact();
+                                                      logFirebaseEvent(
+                                                          'Button_navigate_to');
 
-                                                      var downloadUrls =
-                                                          <String>[];
-                                                      try {
-                                                        showUploadMessage(
-                                                          context,
-                                                          'Uploading file...',
-                                                          showLoading: true,
-                                                        );
-                                                        selectedUploadedFiles =
-                                                            selectedMedia
-                                                                .map((m) =>
-                                                                    FFUploadedFile(
-                                                                      name: m
-                                                                          .storagePath
-                                                                          .split(
-                                                                              '/')
-                                                                          .last,
-                                                                      bytes: m
-                                                                          .bytes,
-                                                                      height: m
-                                                                          .dimensions
-                                                                          ?.height,
-                                                                      width: m
-                                                                          .dimensions
-                                                                          ?.width,
-                                                                      blurHash:
-                                                                          m.blurHash,
-                                                                      originalFilename:
-                                                                          m.originalFilename,
-                                                                    ))
-                                                                .toList();
-
-                                                        downloadUrls =
-                                                            (await Future.wait(
-                                                          selectedMedia.map(
-                                                            (m) async =>
-                                                                await uploadData(
-                                                                    m.storagePath,
-                                                                    m.bytes),
+                                                      context.pushNamed(
+                                                        HomeVersion5Widget
+                                                            .routeName,
+                                                        extra: <String,
+                                                            dynamic>{
+                                                          '__transition_info__':
+                                                              TransitionInfo(
+                                                            hasTransition: true,
+                                                            transitionType:
+                                                                PageTransitionType
+                                                                    .rightToLeft,
+                                                            duration: Duration(
+                                                                milliseconds:
+                                                                    1),
                                                           ),
-                                                        ))
-                                                                .where((u) =>
-                                                                    u != null)
-                                                                .map((u) => u!)
-                                                                .toList();
-                                                      } finally {
-                                                        ScaffoldMessenger.of(
-                                                                context)
-                                                            .hideCurrentSnackBar();
-                                                        _model.isDataUploading_mdPhoto =
-                                                            false;
-                                                      }
-                                                      if (selectedUploadedFiles
-                                                                  .length ==
-                                                              selectedMedia
-                                                                  .length &&
-                                                          downloadUrls.length ==
-                                                              selectedMedia
-                                                                  .length) {
-                                                        safeSetState(() {
-                                                          _model.uploadedLocalFile_mdPhoto =
-                                                              selectedUploadedFiles
-                                                                  .first;
-                                                          _model.uploadedFileUrl_mdPhoto =
-                                                              downloadUrls
-                                                                  .first;
-                                                        });
-                                                        showUploadMessage(
-                                                            context,
-                                                            'Success!');
-                                                      } else {
-                                                        safeSetState(() {});
-                                                        showUploadMessage(
-                                                            context,
-                                                            'Failed to upload data');
-                                                        return;
-                                                      }
-                                                    }
-
-                                                    logFirebaseEvent(
-                                                        'Button_show_snack_bar');
-                                                    ScaffoldMessenger.of(
+                                                        },
+                                                      );
+                                                    },
+                                                    text: FFLocalizations.of(
                                                             context)
-                                                        .clearSnackBars();
-                                                    ScaffoldMessenger.of(
-                                                            context)
-                                                        .showSnackBar(
-                                                      SnackBar(
-                                                        content: Text(
-                                                          'Mood photo has been saved! Please wait while I analyze your mood...',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .labelLarge
+                                                        .getText(
+                                                      'i4dfofhv' /* Go Home */,
+                                                    ),
+                                                    options: FFButtonOptions(
+                                                      width: double.infinity,
+                                                      height: 50.0,
+                                                      padding:
+                                                          EdgeInsets.all(8.0),
+                                                      iconPadding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .alternate,
+                                                      textStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'WorkSans',
@@ -570,159 +412,438 @@ class _MoodScanVersion5WidgetState extends State<MoodScanVersion5Widget>
                                                                 letterSpacing:
                                                                     0.0,
                                                               ),
-                                                        ),
-                                                        duration: Duration(
-                                                            milliseconds: 4000),
-                                                        backgroundColor:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
+                                                      elevation: 3.0,
+                                                      borderSide: BorderSide(
+                                                        color:
+                                                            Color(0x4CEDF1F7),
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              24.0),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                              Container(
+                                                width: 150.0,
+                                                height: 60.0,
+                                                decoration: BoxDecoration(
+                                                  boxShadow: [
+                                                    BoxShadow(
+                                                      blurRadius: 40.0,
+                                                      color:
+                                                          valueOrDefault<Color>(
+                                                        FFAppState()
+                                                                .isOnboardingFinished
+                                                            ? FlutterFlowTheme
+                                                                    .of(context)
+                                                                .accent3
+                                                            : FlutterFlowTheme
+                                                                    .of(context)
                                                                 .accent1,
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .accent3,
                                                       ),
-                                                    );
-                                                    logFirebaseEvent(
-                                                        'Button_backend_call');
-                                                    _model.moodScan =
-                                                        await TheoryOfMindLucilleGroup
-                                                            .lucilleChatMainCall
-                                                            .call(
-                                                      message:
-                                                          'What is the my mood today, in one word, according to the photoI am uploading for text-to-image mood analyzation? Here is the photo:${_model.uploadedFileUrl_mdPhoto}',
-                                                      sessionId: FFAppState()
-                                                          .chatSessionId,
-                                                      userId: currentUserUid,
-                                                    );
-
-                                                    logFirebaseEvent(
-                                                        'Button_trigger_app_event');
-                                                    FFAppEventService.instance
-                                                        .triggerAppEvent(
-                                                      AiThinkingEvent(
-                                                        timestamp:
-                                                            DateTime.now(),
-                                                        waitForCompletion: true,
-                                                        debugId: '7',
+                                                      offset: Offset(
+                                                        0.0,
+                                                        2.0,
                                                       ),
-                                                    );
+                                                      spreadRadius: 4.0,
+                                                    )
+                                                  ],
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          24.0),
+                                                ),
+                                                child: Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          0.0, 0.0),
+                                                  child: FFButtonWidget(
+                                                    onPressed: () async {
+                                                      logFirebaseEvent(
+                                                          'MOOD_SCAN_VERSION5_SCAN_MOOD_BTN_ON_TAP');
+                                                      logFirebaseEvent(
+                                                          'Button_haptic_feedback');
+                                                      HapticFeedback
+                                                          .heavyImpact();
+                                                      logFirebaseEvent(
+                                                          'Button_update_page_state');
+                                                      _model.isScanLoading =
+                                                          true;
+                                                      safeSetState(() {});
+                                                      logFirebaseEvent(
+                                                          'Button_upload_media_to_firebase');
+                                                      final selectedMedia =
+                                                          await selectMediaWithSourceBottomSheet(
+                                                        context: context,
+                                                        allowPhoto: true,
+                                                      );
+                                                      if (selectedMedia !=
+                                                              null &&
+                                                          selectedMedia.every((m) =>
+                                                              validateFileFormat(
+                                                                  m.storagePath,
+                                                                  context))) {
+                                                        safeSetState(() => _model
+                                                                .isDataUploading_mdPhoto =
+                                                            true);
+                                                        var selectedUploadedFiles =
+                                                            <FFUploadedFile>[];
 
-                                                    logFirebaseEvent(
-                                                        'Button_backend_call');
+                                                        var downloadUrls =
+                                                            <String>[];
+                                                        try {
+                                                          showUploadMessage(
+                                                            context,
+                                                            'Uploading file...',
+                                                            showLoading: true,
+                                                          );
+                                                          selectedUploadedFiles =
+                                                              selectedMedia
+                                                                  .map((m) =>
+                                                                      FFUploadedFile(
+                                                                        name: m
+                                                                            .storagePath
+                                                                            .split('/')
+                                                                            .last,
+                                                                        bytes: m
+                                                                            .bytes,
+                                                                        height: m
+                                                                            .dimensions
+                                                                            ?.height,
+                                                                        width: m
+                                                                            .dimensions
+                                                                            ?.width,
+                                                                        blurHash:
+                                                                            m.blurHash,
+                                                                        originalFilename:
+                                                                            m.originalFilename,
+                                                                      ))
+                                                                  .toList();
 
-                                                    await currentUserReference!
-                                                        .update(
-                                                            createUsersRecordData(
-                                                      currentMood:
+                                                          downloadUrls =
+                                                              (await Future
+                                                                      .wait(
+                                                            selectedMedia.map(
+                                                              (m) async =>
+                                                                  await uploadData(
+                                                                      m.storagePath,
+                                                                      m.bytes),
+                                                            ),
+                                                          ))
+                                                                  .where((u) =>
+                                                                      u != null)
+                                                                  .map(
+                                                                      (u) => u!)
+                                                                  .toList();
+                                                        } finally {
+                                                          ScaffoldMessenger.of(
+                                                                  context)
+                                                              .hideCurrentSnackBar();
+                                                          _model.isDataUploading_mdPhoto =
+                                                              false;
+                                                        }
+                                                        if (selectedUploadedFiles
+                                                                    .length ==
+                                                                selectedMedia
+                                                                    .length &&
+                                                            downloadUrls
+                                                                    .length ==
+                                                                selectedMedia
+                                                                    .length) {
+                                                          safeSetState(() {
+                                                            _model.uploadedLocalFile_mdPhoto =
+                                                                selectedUploadedFiles
+                                                                    .first;
+                                                            _model.uploadedFileUrl_mdPhoto =
+                                                                downloadUrls
+                                                                    .first;
+                                                          });
+                                                          showUploadMessage(
+                                                              context,
+                                                              'Success!');
+                                                        } else {
+                                                          safeSetState(() {});
+                                                          showUploadMessage(
+                                                              context,
+                                                              'Failed to upload data');
+                                                          return;
+                                                        }
+                                                      }
+
+                                                      logFirebaseEvent(
+                                                          'Button_show_snack_bar');
+                                                      ScaffoldMessenger.of(
+                                                              context)
+                                                          .clearSnackBars();
+                                                      ScaffoldMessenger.of(
+                                                              context)
+                                                          .showSnackBar(
+                                                        SnackBar(
+                                                          content: Text(
+                                                            'Mood photo has been saved! Lucille is reading your energy...',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .labelLarge
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'WorkSans',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primary,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                          ),
+                                                          duration: Duration(
+                                                              milliseconds:
+                                                                  4000),
+                                                          backgroundColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .accent1,
+                                                        ),
+                                                      );
+                                                      logFirebaseEvent(
+                                                          'Button_hide_snack_bar');
+                                                      ScaffoldMessenger.of(
+                                                              context)
+                                                          .hideCurrentSnackBar();
+                                                      logFirebaseEvent(
+                                                          'Button_backend_call');
+                                                      _model.moodScan =
+                                                          await TheoryOfMindLucilleGroup
+                                                              .lucilleChatMainCall
+                                                              .call(
+                                                        message:
+                                                            'What is the my mood today, in one word, according to the photoI am uploading for text-to-image mood analyzation? Here is the photo:${_model.uploadedFileUrl_mdPhoto}',
+                                                        sessionId: FFAppState()
+                                                            .chatSessionId,
+                                                        userId: currentUserUid,
+                                                      );
+
+                                                      logFirebaseEvent(
+                                                          'Button_backend_call');
+                                                      _model.stressLevel =
+                                                          await TheoryOfMindLucilleGroup
+                                                              .lucilleChatMainCall
+                                                              .call(
+                                                        message:
+                                                            'What is the my Stress Level today, in one double I can convert into a percantage, according to the photo I am uploading for text-to-image mood analyzation? Here is the photo:${_model.uploadedFileUrl_mdPhoto}',
+                                                        sessionId: FFAppState()
+                                                            .chatSessionId,
+                                                        userId: currentUserUid,
+                                                      );
+
+                                                      logFirebaseEvent(
+                                                          'Button_backend_call');
+                                                      _model.energyScan =
+                                                          await TheoryOfMindLucilleGroup
+                                                              .lucilleChatMainCall
+                                                              .call(
+                                                        message:
+                                                            'What is the my energy level today, in one word, according to the photo I am uploading for text-to-image mood analyzation? Here is the photo:${_model.uploadedFileUrl_mdPhoto}',
+                                                        sessionId: FFAppState()
+                                                            .chatSessionId,
+                                                        userId: currentUserUid,
+                                                      );
+
+                                                      logFirebaseEvent(
+                                                          'Button_trigger_app_event');
+                                                      FFAppEventService.instance
+                                                          .triggerAppEvent(
+                                                        AiThinkingEvent(
+                                                          timestamp:
+                                                              DateTime.now(),
+                                                          waitForCompletion:
+                                                              true,
+                                                          debugId: '7',
+                                                        ),
+                                                      );
+
+                                                      logFirebaseEvent(
+                                                          'Button_backend_call');
+
+                                                      await currentUserReference!
+                                                          .update(
+                                                              createUsersRecordData(
+                                                        currentMood:
+                                                            TheoryOfMindLucilleGroup
+                                                                .lucilleChatMainCall
+                                                                .response(
+                                                          (_model.moodScan
+                                                                  ?.jsonBody ??
+                                                              ''),
+                                                        ),
+                                                        timeStamp:
+                                                            getCurrentTimestamp,
+                                                        createdTime:
+                                                            getCurrentTimestamp,
+                                                        uid: currentUserUid,
+                                                      ));
+                                                      logFirebaseEvent(
+                                                          'Button_update_app_state');
+                                                      FFAppState().moodPhoto =
+                                                          _model
+                                                              .uploadedFileUrl_mdPhoto;
+                                                      FFAppState().moods =
                                                           TheoryOfMindLucilleGroup
                                                               .lucilleChatMainCall
                                                               .response(
                                                         (_model.moodScan
                                                                 ?.jsonBody ??
                                                             ''),
-                                                      ),
-                                                      timeStamp:
-                                                          getCurrentTimestamp,
-                                                      createdTime:
-                                                          getCurrentTimestamp,
-                                                      uid: 'user1',
-                                                    ));
-                                                    logFirebaseEvent(
-                                                        'Button_update_app_state');
-                                                    FFAppState().moodPhoto = _model
-                                                        .uploadedFileUrl_mdPhoto;
-                                                    FFAppState().moods =
-                                                        TheoryOfMindLucilleGroup
-                                                            .lucilleChatMainCall
-                                                            .response(
-                                                      (_model.moodScan
-                                                              ?.jsonBody ??
-                                                          ''),
-                                                    )!;
-                                                    FFAppState().update(() {});
-                                                    logFirebaseEvent(
-                                                        'Button_trigger_app_event');
-                                                    FFAppEventService.instance
-                                                        .triggerAppEvent(
-                                                      MoodScannedEvent(
-                                                        data: AiResponseStruct(
-                                                          message:
-                                                              TheoryOfMindLucilleGroup
-                                                                  .lucilleChatMainCall
-                                                                  .response(
-                                                            (_model.moodScan
-                                                                    ?.jsonBody ??
-                                                                ''),
+                                                      )!;
+                                                      FFAppState()
+                                                          .update(() {});
+                                                      logFirebaseEvent(
+                                                          'Button_trigger_app_event');
+                                                      FFAppEventService.instance
+                                                          .triggerAppEvent(
+                                                        MoodScannedEvent(
+                                                          data:
+                                                              AiResponseStruct(
+                                                            message:
+                                                                TheoryOfMindLucilleGroup
+                                                                    .lucilleChatMainCall
+                                                                    .response(
+                                                              (_model.moodScan
+                                                                      ?.jsonBody ??
+                                                                  ''),
+                                                            ),
+                                                            type: 'Mood',
                                                           ),
-                                                          type: 'Mood',
+                                                          timestamp:
+                                                              DateTime.now(),
+                                                          waitForCompletion:
+                                                              false,
+                                                          debugId: '2',
                                                         ),
-                                                        timestamp:
-                                                            DateTime.now(),
-                                                        waitForCompletion:
-                                                            false,
-                                                        debugId: '2',
-                                                      ),
-                                                    );
+                                                      );
 
-                                                    logFirebaseEvent(
-                                                        'Button_navigate_to');
+                                                      logFirebaseEvent(
+                                                          'Button_update_page_state');
+                                                      _model.isScanLoading =
+                                                          false;
+                                                      safeSetState(() {});
+                                                      logFirebaseEvent(
+                                                          'Button_navigate_to');
 
-                                                    context.pushNamed(
-                                                      MoodResultTransitionWidget
-                                                          .routeName,
-                                                      extra: <String, dynamic>{
-                                                        '__transition_info__':
-                                                            TransitionInfo(
-                                                          hasTransition: true,
-                                                          transitionType:
-                                                              PageTransitionType
-                                                                  .rightToLeft,
-                                                          duration: Duration(
-                                                              milliseconds: 2),
-                                                        ),
-                                                      },
-                                                    );
+                                                      context.pushNamed(
+                                                        MoodResultTransitionWidget
+                                                            .routeName,
+                                                        queryParameters: {
+                                                          'moodResult':
+                                                              serializeParam(
+                                                            TheoryOfMindLucilleGroup
+                                                                .lucilleChatMainCall
+                                                                .detectedEmotion(
+                                                              (_model.moodScan
+                                                                      ?.jsonBody ??
+                                                                  ''),
+                                                            ),
+                                                            ParamType.String,
+                                                          ),
+                                                          'stressLevel':
+                                                              serializeParam(
+                                                            utility_functions_library_8g4bud_functions
+                                                                .convertStringToDouble(
+                                                                    TheoryOfMindLucilleGroup
+                                                                        .lucilleChatMainCall
+                                                                        .response(
+                                                              (_model.stressLevel
+                                                                      ?.jsonBody ??
+                                                                  ''),
+                                                            )!),
+                                                            ParamType.double,
+                                                          ),
+                                                          'energyLevel':
+                                                              serializeParam(
+                                                            TheoryOfMindLucilleGroup
+                                                                .lucilleChatMainCall
+                                                                .response(
+                                                              (_model.energyScan
+                                                                      ?.jsonBody ??
+                                                                  ''),
+                                                            ),
+                                                            ParamType.String,
+                                                          ),
+                                                          'moodPhoto':
+                                                              serializeParam(
+                                                            _model
+                                                                .uploadedFileUrl_mdPhoto,
+                                                            ParamType.String,
+                                                          ),
+                                                        }.withoutNulls,
+                                                        extra: <String,
+                                                            dynamic>{
+                                                          '__transition_info__':
+                                                              TransitionInfo(
+                                                            hasTransition: true,
+                                                            transitionType:
+                                                                PageTransitionType
+                                                                    .rightToLeft,
+                                                            duration: Duration(
+                                                                milliseconds:
+                                                                    2),
+                                                          ),
+                                                        },
+                                                      );
 
-                                                    safeSetState(() {});
-                                                  },
-                                                  text: FFLocalizations.of(
-                                                          context)
-                                                      .getText(
-                                                    '7ofblemc' /* Scan Mood */,
-                                                  ),
-                                                  options: FFButtonOptions(
-                                                    width: double.infinity,
-                                                    height: 50.0,
-                                                    padding:
-                                                        EdgeInsets.all(8.0),
-                                                    iconPadding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 0.0),
-                                                    color: Color(0xD7F0831A),
-                                                    textStyle: FlutterFlowTheme
-                                                            .of(context)
-                                                        .titleMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'WorkSans',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primary,
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                                    elevation: 3.0,
-                                                    borderSide: BorderSide(
-                                                      color: Color(0x4CEDF1F7),
+                                                      safeSetState(() {});
+                                                    },
+                                                    text: FFLocalizations.of(
+                                                            context)
+                                                        .getText(
+                                                      '7ofblemc' /* Scan Mood */,
                                                     ),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            24.0),
+                                                    options: FFButtonOptions(
+                                                      width: double.infinity,
+                                                      height: 50.0,
+                                                      padding:
+                                                          EdgeInsets.all(8.0),
+                                                      iconPadding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      color: Color(0xD7F0831A),
+                                                      textStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'WorkSans',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primary,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                              ),
+                                                      elevation: 3.0,
+                                                      borderSide: BorderSide(
+                                                        color:
+                                                            Color(0x4CEDF1F7),
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              24.0),
+                                                    ),
+                                                    showLoadingIndicator:
+                                                        _model.isScanLoading ==
+                                                            true,
                                                   ),
                                                 ),
                                               ),
-                                            ),
-                                          ],
+                                            ],
+                                          ),
                                         ),
                                       ),
-                                    ),
                                   ].divide(SizedBox(height: 32.0)),
                                 ),
                               ),

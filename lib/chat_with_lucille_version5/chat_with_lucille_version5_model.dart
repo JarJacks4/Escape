@@ -6,8 +6,6 @@ import '/lucille_g_p_t_comp/writing_indicator/writing_indicator_widget.dart';
 import 'chat_with_lucille_version5_widget.dart'
     show ChatWithLucilleVersion5Widget;
 import 'package:flutter/material.dart';
-import 'package:just_audio/just_audio.dart';
-import 'package:record/record.dart';
 
 class ChatWithLucilleVersion5Model
     extends FlutterFlowModel<ChatWithLucilleVersion5Widget> {
@@ -60,32 +58,6 @@ class ChatWithLucilleVersion5Model
 
   ///  State fields for stateful widgets in this page.
 
-  // State field(s) for TabBar widget.
-  TabController? tabBarController;
-  int get tabBarCurrentIndex =>
-      tabBarController != null ? tabBarController!.index : 0;
-  int get tabBarPreviousIndex =>
-      tabBarController != null ? tabBarController!.previousIndex : 0;
-
-  AudioPlayer? soundPlayer1;
-  AudioRecorder? audioRecorder;
-  AudioPlayer? soundPlayer2;
-  String? stopUserVoice;
-  FFUploadedFile recordedFileBytes =
-      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
-  bool isDataUploading_uploadAudioFile = false;
-  List<FFUploadedFile> uploadedLocalFiles_uploadAudioFile = [];
-
-  // Stores action output result for [Custom Action - audioPathFromUploadedFile] action in LottieAnimation widget.
-  String? recordedFileToBase642;
-  // Stores action output result for [Backend Call - API (Speech To Text)] action in LottieAnimation widget.
-  ApiCallResponse? speechToText;
-  // Stores action output result for [Backend Call - API (Lucille Chat Main)] action in LottieAnimation widget.
-  ApiCallResponse? speechToTextChatResponse;
-  // Stores action output result for [Backend Call - API (Text to Speech)] action in LottieAnimation widget.
-  ApiCallResponse? ttsResponse;
-  // Stores action output result for [Custom Action - base64ToAudioFile] action in LottieAnimation widget.
-  String? base64AudioConversion;
   // State field(s) for ListView widget.
   ScrollController? listViewController;
   // State field(s) for Column widget.
@@ -102,6 +74,8 @@ class ChatWithLucilleVersion5Model
   String? Function(BuildContext, String?)? textControllerValidator;
   // Stores action output result for [Backend Call - API (Get Chat History)] action in IconButton widget.
   ApiCallResponse? getChatHistory;
+  // Stores action output result for [Backend Call - API (Lucille Chat Main)] action in IconButton widget.
+  ApiCallResponse? conversationHistory;
   // Stores action output result for [Backend Call - API (ChatStream)] action in IconButton widget.
   ApiCallResponse? lucilleStreamChat;
   // Stores action output result for [Backend Call - API (Create Memory)] action in IconButton widget.
@@ -118,7 +92,6 @@ class ChatWithLucilleVersion5Model
 
   @override
   void dispose() {
-    tabBarController?.dispose();
     listViewController?.dispose();
     columnController1?.dispose();
     columnController2?.dispose();

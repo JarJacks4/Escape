@@ -1,6 +1,8 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/components/influencer_ambassador_program_button_widget.dart';
 import '/components/marketplace_button_widget.dart';
+import '/components/marketplace_coming_soon_comp_widget.dart';
+import '/components/marketplace_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:confetti_modualo_library_b75kfy/app_state.dart'
     as confetti_modualo_library_b75kfy_app_state;
@@ -19,6 +21,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'connection_community_start_page_version5_model.dart';
 export 'connection_community_start_page_version5_model.dart';
 
@@ -63,15 +66,15 @@ class _ConnectionCommunityStartPageVersion5WidgetState
         logFirebaseEvent('TabBar_haptic_feedback');
         HapticFeedback.lightImpact();
         logFirebaseEvent('TabBar_play_sound');
-        _model.soundPlayer ??= AudioPlayer();
-        if (_model.soundPlayer!.playing) {
-          await _model.soundPlayer!.stop();
+        _model.soundPlayer1 ??= AudioPlayer();
+        if (_model.soundPlayer1!.playing) {
+          await _model.soundPlayer1!.stop();
         }
-        _model.soundPlayer!.setVolume(0.68);
-        _model.soundPlayer!
+        _model.soundPlayer1!.setVolume(0.68);
+        _model.soundPlayer1!
             .setAsset(
                 'assets/audios/ES_Pops,_Wobble,_Bloop,_Pops_-_Epidemic_Sound.mp3')
-            .then((_) => _model.soundPlayer!.play());
+            .then((_) => _model.soundPlayer1!.play());
 
         logFirebaseEvent('TabBar_update_app_state');
         FFAppState().ReorderedVideosIndex =
@@ -344,7 +347,7 @@ class _ConnectionCommunityStartPageVersion5WidgetState
                                                                         .sizeOf(
                                                                             context)
                                                                     .height *
-                                                                0.9,
+                                                                0.82,
                                                             child:
                                                                 tiktokfeed_wz8en7_custom_widgets
                                                                     .ChewieWidget(
@@ -354,7 +357,7 @@ class _ConnectionCommunityStartPageVersion5WidgetState
                                                                           .sizeOf(
                                                                               context)
                                                                       .height *
-                                                                  0.9,
+                                                                  0.82,
                                                               userID:
                                                                   currentUserUid,
                                                               data: _model
@@ -378,7 +381,7 @@ class _ConnectionCommunityStartPageVersion5WidgetState
                                                                         .sizeOf(
                                                                             context)
                                                                     .height *
-                                                                0.9,
+                                                                0.82,
                                                             child:
                                                                 tiktokfeed_wz8en7_custom_widgets
                                                                     .ChewieWidget(
@@ -388,7 +391,7 @@ class _ConnectionCommunityStartPageVersion5WidgetState
                                                                           .sizeOf(
                                                                               context)
                                                                       .height *
-                                                                  0.9,
+                                                                  0.82,
                                                               userID:
                                                                   currentUserUid,
                                                               data: _model
@@ -415,21 +418,161 @@ class _ConnectionCommunityStartPageVersion5WidgetState
                                                     MainAxisAlignment
                                                         .spaceBetween,
                                                 children: [
-                                                  wrapWithModel(
-                                                    model: _model
-                                                        .marketplaceButtonModel,
-                                                    updateCallback: () =>
-                                                        safeSetState(() {}),
-                                                    child:
-                                                        MarketplaceButtonWidget(),
+                                                  InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      logFirebaseEvent(
+                                                          'CONNECTION_COMMUNITY_START_VERSION5_Cont');
+                                                      logFirebaseEvent(
+                                                          'MarketplaceButton_haptic_feedback');
+                                                      HapticFeedback
+                                                          .heavyImpact();
+                                                      logFirebaseEvent(
+                                                          'MarketplaceButton_play_sound');
+                                                      _model.soundPlayer2 ??=
+                                                          AudioPlayer();
+                                                      if (_model.soundPlayer2!
+                                                          .playing) {
+                                                        await _model
+                                                            .soundPlayer2!
+                                                            .stop();
+                                                      }
+                                                      _model.soundPlayer2!
+                                                          .setVolume(0.5);
+                                                      _model.soundPlayer2!
+                                                          .setAsset(
+                                                              'assets/audios/ES_Futuristic_Technology,_UI_Confirm_Tone,_Bright_02_-_Epidemic_Sound_-_3410-4218.wav')
+                                                          .then((_) => _model
+                                                              .soundPlayer2!
+                                                              .play());
+
+                                                      logFirebaseEvent(
+                                                          'MarketplaceButton_bottom_sheet');
+                                                      await showModalBottomSheet(
+                                                        isScrollControlled:
+                                                            true,
+                                                        backgroundColor:
+                                                            Colors.transparent,
+                                                        context: context,
+                                                        builder: (context) {
+                                                          return WebViewAware(
+                                                            child:
+                                                                GestureDetector(
+                                                              onTap: () {
+                                                                FocusScope.of(
+                                                                        context)
+                                                                    .unfocus();
+                                                                FocusManager
+                                                                    .instance
+                                                                    .primaryFocus
+                                                                    ?.unfocus();
+                                                              },
+                                                              child: Padding(
+                                                                padding: MediaQuery
+                                                                    .viewInsetsOf(
+                                                                        context),
+                                                                child:
+                                                                    MarketplaceWidget(),
+                                                              ),
+                                                            ),
+                                                          );
+                                                        },
+                                                      ).then((value) =>
+                                                          safeSetState(() {}));
+                                                    },
+                                                    child: wrapWithModel(
+                                                      model: _model
+                                                          .marketplaceButtonModel,
+                                                      updateCallback: () =>
+                                                          safeSetState(() {}),
+                                                      child:
+                                                          MarketplaceButtonWidget(),
+                                                    ),
                                                   ),
-                                                  wrapWithModel(
-                                                    model: _model
-                                                        .influencerAmbassadorProgramButtonModel,
-                                                    updateCallback: () =>
-                                                        safeSetState(() {}),
-                                                    child:
-                                                        InfluencerAmbassadorProgramButtonWidget(),
+                                                  InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      logFirebaseEvent(
+                                                          'CONNECTION_COMMUNITY_START_VERSION5_Cont');
+                                                      logFirebaseEvent(
+                                                          'InfluencerAmbassadorProgramButton_haptic');
+                                                      HapticFeedback
+                                                          .heavyImpact();
+                                                      logFirebaseEvent(
+                                                          'InfluencerAmbassadorProgramButton_play_s');
+                                                      _model.soundPlayer3 ??=
+                                                          AudioPlayer();
+                                                      if (_model.soundPlayer3!
+                                                          .playing) {
+                                                        await _model
+                                                            .soundPlayer3!
+                                                            .stop();
+                                                      }
+                                                      _model.soundPlayer3!
+                                                          .setVolume(1.0);
+                                                      _model.soundPlayer3!
+                                                          .setAsset(
+                                                              'assets/audios/ES_Futuristic_Technology,_UI_Confirm_Tone,_Bright_02_-_Epidemic_Sound_-_3410-4218.wav')
+                                                          .then((_) => _model
+                                                              .soundPlayer3!
+                                                              .play());
+
+                                                      logFirebaseEvent(
+                                                          'InfluencerAmbassadorProgramButton_bottom');
+                                                      await showModalBottomSheet(
+                                                        isScrollControlled:
+                                                            true,
+                                                        backgroundColor:
+                                                            Colors.transparent,
+                                                        context: context,
+                                                        builder: (context) {
+                                                          return WebViewAware(
+                                                            child:
+                                                                GestureDetector(
+                                                              onTap: () {
+                                                                FocusScope.of(
+                                                                        context)
+                                                                    .unfocus();
+                                                                FocusManager
+                                                                    .instance
+                                                                    .primaryFocus
+                                                                    ?.unfocus();
+                                                              },
+                                                              child: Padding(
+                                                                padding: MediaQuery
+                                                                    .viewInsetsOf(
+                                                                        context),
+                                                                child:
+                                                                    MarketplaceComingSoonCompWidget(),
+                                                              ),
+                                                            ),
+                                                          );
+                                                        },
+                                                      ).then((value) =>
+                                                          safeSetState(() {}));
+                                                    },
+                                                    child: wrapWithModel(
+                                                      model: _model
+                                                          .influencerAmbassadorProgramButtonModel,
+                                                      updateCallback: () =>
+                                                          safeSetState(() {}),
+                                                      child:
+                                                          InfluencerAmbassadorProgramButtonWidget(),
+                                                    ),
                                                   ),
                                                 ],
                                               ),

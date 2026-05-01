@@ -2558,7 +2558,7 @@ personalized n... */
                                                       logFirebaseEvent(
                                                           'Button_haptic_feedback');
                                                       HapticFeedback
-                                                          .lightImpact();
+                                                          .heavyImpact();
                                                       logFirebaseEvent(
                                                           'Button_play_sound');
                                                       _model.soundPlayer8 ??=

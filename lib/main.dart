@@ -106,7 +106,7 @@ class _MyAppState extends State<MyApp> {
     final RouteMatchList matchList = lastMatch is ImperativeRouteMatch
         ? lastMatch.matches
         : _router.routerDelegate.currentConfiguration;
-    return matchList.uri.toString();
+    return matchList.uri.path;
   }
 
   List<String> getRouteStack() =>
@@ -232,11 +232,11 @@ class _NavBarPageState extends State<NavBarPage> {
   Widget build(BuildContext context) {
     final tabs = {
       'HomeVersion5': HomeVersion5Widget(),
+      'LucilleHome': LucilleHomeWidget(),
+      'ExplorePageVersion5FINAL': ExplorePageVersion5FINALWidget(),
       'AISoundscapesCopyCopyCopy': AISoundscapesCopyCopyCopyWidget(),
-      'ExplorePageVersion5': ExplorePageVersion5Widget(),
       'ConnectionCommunityStartPageVersion5':
           ConnectionCommunityStartPageVersion5Widget(),
-      'ChatWithLucilleVersion5': ChatWithLucilleVersion5Widget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -275,13 +275,11 @@ class _NavBarPageState extends State<NavBarPage> {
             ),
             BottomNavigationBarItem(
               icon: Icon(
-                FFIcons.kmusic1,
-              ),
-              activeIcon: Icon(
-                Icons.surround_sound,
+                FFIcons.ksparkleStarAi,
+                size: 24.0,
               ),
               label: FFLocalizations.of(context).getText(
-                's8tgji9v' /* Sound */,
+                'vpri7wqm' /* Lucille */,
               ),
               tooltip: '',
             ),
@@ -291,7 +289,19 @@ class _NavBarPageState extends State<NavBarPage> {
                 size: 24.0,
               ),
               label: FFLocalizations.of(context).getText(
-                'ur65wcp8' /* Explore */,
+                'hfk8faw6' /* Explore */,
+              ),
+              tooltip: '',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                FFIcons.kmusic1,
+              ),
+              activeIcon: Icon(
+                Icons.surround_sound,
+              ),
+              label: FFLocalizations.of(context).getText(
+                's8tgji9v' /* Sound */,
               ),
               tooltip: '',
             ),
@@ -306,16 +316,6 @@ class _NavBarPageState extends State<NavBarPage> {
               ),
               label: FFLocalizations.of(context).getText(
                 'cly8mku8' /* Community */,
-              ),
-              tooltip: '',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                FFIcons.ksparkleStarAi,
-                size: 24.0,
-              ),
-              label: FFLocalizations.of(context).getText(
-                'ueplikou' /* Lucille */,
               ),
               tooltip: '',
             )

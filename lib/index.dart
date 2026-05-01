@@ -221,3 +221,9 @@ export '/soundscapes_see_all_page/soundscapes_see_all_page_widget.dart'
 export '/forgot_password/forgot_password_widget.dart' show ForgotPasswordWidget;
 export '/forgot_password_copy/forgot_password_copy_widget.dart'
     show ForgotPasswordCopyWidget;
+export '/coming_soon_bod/coming_soon_bod_widget.dart' show ComingSoonBodWidget;
+export '/explore_page_version5_f_i_n_a_l/explore_page_version5_f_i_n_a_l_widget.dart'
+    show ExplorePageVersion5FINALWidget;
+export '/marketplace_version5/marketplace_version5_widget.dart'
+    show MarketplaceVersion5Widget;
+export '/lucille_home/lucille_home_widget.dart' show LucilleHomeWidget;

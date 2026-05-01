@@ -13,6 +13,8 @@ class MoodScanVersion5Model extends FlutterFlowModel<MoodScanVersion5Widget> {
 
   String? mood;
 
+  bool? isScanLoading = false;
+
   ///  State fields for stateful widgets in this page.
 
   bool isDataUploading_mdPhoto = false;
@@ -22,6 +24,10 @@ class MoodScanVersion5Model extends FlutterFlowModel<MoodScanVersion5Widget> {
 
   // Stores action output result for [Backend Call - API (Lucille Chat Main)] action in Button widget.
   ApiCallResponse? moodScan;
+  // Stores action output result for [Backend Call - API (Lucille Chat Main)] action in Button widget.
+  ApiCallResponse? stressLevel;
+  // Stores action output result for [Backend Call - API (Lucille Chat Main)] action in Button widget.
+  ApiCallResponse? energyScan;
 
   @override
   void initState(BuildContext context) {}

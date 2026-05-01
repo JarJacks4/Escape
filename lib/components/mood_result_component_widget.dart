@@ -1,8 +1,10 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
 import 'package:ff_theme/flutter_flow/flutter_flow_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'mood_result_component_model.dart';
 export 'mood_result_component_model.dart';
 
@@ -15,8 +17,11 @@ class MoodResultComponentWidget extends StatefulWidget {
       _MoodResultComponentWidgetState();
 }
 
-class _MoodResultComponentWidgetState extends State<MoodResultComponentWidget> {
+class _MoodResultComponentWidgetState extends State<MoodResultComponentWidget>
+    with TickerProviderStateMixin {
   late MoodResultComponentModel _model;
+
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void setState(VoidCallback callback) {
@@ -28,6 +33,22 @@ class _MoodResultComponentWidgetState extends State<MoodResultComponentWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => MoodResultComponentModel());
+
+    animationsMap.addAll({
+      'buttonOnPageLoadAnimation': AnimationInfo(
+        loop: true,
+        trigger: AnimationTrigger.onPageLoad,
+        effectsBuilder: () => [
+          ShimmerEffect(
+            curve: Curves.easeIn,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            color: Color(0xC3FFFFFF),
+            angle: 0.524,
+          ),
+        ],
+      ),
+    });
   }
 
   @override
@@ -72,7 +93,7 @@ class _MoodResultComponentWidgetState extends State<MoodResultComponentWidget> {
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'WorkSans',
-                          color: FlutterFlowTheme.of(context).secondaryText,
+                          color: FlutterFlowTheme.of(context).primary,
                           letterSpacing: 0.0,
                         ),
                   ),
@@ -97,13 +118,13 @@ class _MoodResultComponentWidgetState extends State<MoodResultComponentWidget> {
                           color: FlutterFlowTheme.of(context).alternate,
                           boxShadow: [
                             BoxShadow(
-                              blurRadius: 12.0,
+                              blurRadius: 40.0,
                               color: Color(0x87397B9F),
                               offset: Offset(
                                 0.0,
                                 2.0,
                               ),
-                              spreadRadius: 10.0,
+                              spreadRadius: 15.0,
                             )
                           ],
                           borderRadius: BorderRadius.circular(70.0),
@@ -123,8 +144,22 @@ class _MoodResultComponentWidgetState extends State<MoodResultComponentWidget> {
               child: Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: Color(0x7A1C2444),
+                  color: Color(0xA91C2444),
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: 40.0,
+                      color: Color(0xC9D0E3F7),
+                      offset: Offset(
+                        0.0,
+                        0.0,
+                      ),
+                      spreadRadius: 5.0,
+                    )
+                  ],
                   borderRadius: BorderRadius.circular(20.0),
+                  border: Border.all(
+                    color: Color(0x37EDF1F7),
+                  ),
                 ),
                 child: Padding(
                   padding:
@@ -153,7 +188,7 @@ class _MoodResultComponentWidgetState extends State<MoodResultComponentWidget> {
                         style:
                             FlutterFlowTheme.of(context).displayMedium.override(
                                   fontFamily: 'The Seasons',
-                                  color: Color(0xFF5B73C2),
+                                  color: FlutterFlowTheme.of(context).accent3,
                                   fontSize: 36.0,
                                   letterSpacing: 2.0,
                                   fontWeight: FontWeight.w300,
@@ -171,8 +206,11 @@ class _MoodResultComponentWidgetState extends State<MoodResultComponentWidget> {
                             child: Container(
                               height: 80.0,
                               decoration: BoxDecoration(
-                                color: Color(0x7F1C2444),
+                                color: Color(0x771C2444),
                                 borderRadius: BorderRadius.circular(16.0),
+                                border: Border.all(
+                                  color: Color(0x25EDF1F7),
+                                ),
                               ),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
@@ -197,9 +235,7 @@ class _MoodResultComponentWidgetState extends State<MoodResultComponentWidget> {
                                               .labelSmall
                                               .override(
                                                 fontFamily: 'WorkSans',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryText,
+                                                color: Color(0xB2D0E3F7),
                                                 fontSize: 11.0,
                                                 letterSpacing: 0.0,
                                               ),
@@ -215,7 +251,7 @@ class _MoodResultComponentWidgetState extends State<MoodResultComponentWidget> {
                                           .override(
                                             fontFamily: 'WorkSans',
                                             color: FlutterFlowTheme.of(context)
-                                                .accent2,
+                                                .primary,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w300,
                                           ),
@@ -231,6 +267,9 @@ class _MoodResultComponentWidgetState extends State<MoodResultComponentWidget> {
                               decoration: BoxDecoration(
                                 color: Color(0x7F1C2444),
                                 borderRadius: BorderRadius.circular(16.0),
+                                border: Border.all(
+                                  color: Color(0x24EDF1F7),
+                                ),
                               ),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
@@ -255,9 +294,7 @@ class _MoodResultComponentWidgetState extends State<MoodResultComponentWidget> {
                                               .labelSmall
                                               .override(
                                                 fontFamily: 'WorkSans',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryText,
+                                                color: Color(0xB2D0E3F7),
                                                 fontSize: 11.0,
                                                 letterSpacing: 0.0,
                                               ),
@@ -273,7 +310,7 @@ class _MoodResultComponentWidgetState extends State<MoodResultComponentWidget> {
                                           .override(
                                             fontFamily: 'WorkSans',
                                             color: FlutterFlowTheme.of(context)
-                                                .accent2,
+                                                .primary,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w300,
                                           ),
@@ -302,7 +339,7 @@ class _MoodResultComponentWidgetState extends State<MoodResultComponentWidget> {
                     ),
                     style: FlutterFlowTheme.of(context).labelMedium.override(
                           fontFamily: 'WorkSans',
-                          color: FlutterFlowTheme.of(context).secondaryText,
+                          color: FlutterFlowTheme.of(context).primary,
                           fontSize: 12.0,
                           letterSpacing: 1.0,
                           fontWeight: FontWeight.w500,
@@ -314,7 +351,21 @@ class _MoodResultComponentWidgetState extends State<MoodResultComponentWidget> {
                     height: 90.0,
                     decoration: BoxDecoration(
                       color: Color(0x801C2444),
+                      boxShadow: [
+                        BoxShadow(
+                          blurRadius: 40.0,
+                          color: Color(0x82D0E3F7),
+                          offset: Offset(
+                            0.0,
+                            0.0,
+                          ),
+                          spreadRadius: 8.0,
+                        )
+                      ],
                       borderRadius: BorderRadius.circular(20.0),
+                      border: Border.all(
+                        color: Color(0x43EDF1F7),
+                      ),
                     ),
                     child: Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(
@@ -333,16 +384,16 @@ class _MoodResultComponentWidgetState extends State<MoodResultComponentWidget> {
                               width: 50.0,
                               height: 50.0,
                               decoration: BoxDecoration(
-                                color: Color(0x771C2444),
+                                color: Color(0xB61C2444),
                                 boxShadow: [
                                   BoxShadow(
-                                    blurRadius: 4.0,
-                                    color: Color(0x6B2D6276),
+                                    blurRadius: 40.0,
+                                    color: Color(0x5AFCC462),
                                     offset: Offset(
                                       0.0,
-                                      2.0,
+                                      0.0,
                                     ),
-                                    spreadRadius: 4.0,
+                                    spreadRadius: 3.0,
                                   )
                                 ],
                                 borderRadius: BorderRadius.circular(12.0),
@@ -371,7 +422,7 @@ class _MoodResultComponentWidgetState extends State<MoodResultComponentWidget> {
                                       .override(
                                         fontFamily: 'WorkSans',
                                         color: FlutterFlowTheme.of(context)
-                                            .accent2,
+                                            .primary,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w300,
                                         lineHeight: 2.0,
@@ -386,7 +437,7 @@ class _MoodResultComponentWidgetState extends State<MoodResultComponentWidget> {
                                       .override(
                                         fontFamily: 'WorkSans',
                                         color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
+                                            .secondary,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -432,6 +483,9 @@ class _MoodResultComponentWidgetState extends State<MoodResultComponentWidget> {
                                 fontWeight: FontWeight.w300,
                               ),
                       elevation: 0.0,
+                      borderSide: BorderSide(
+                        color: Color(0x31D0E3F7),
+                      ),
                       borderRadius: BorderRadius.circular(22.0),
                       hoverColor: Color(0x6039519F),
                       hoverBorderSide: BorderSide(
@@ -470,13 +524,17 @@ class _MoodResultComponentWidgetState extends State<MoodResultComponentWidget> {
                                 fontWeight: FontWeight.w300,
                               ),
                       elevation: 0.0,
+                      borderSide: BorderSide(
+                        color: Color(0x3FF0831A),
+                      ),
                       borderRadius: BorderRadius.circular(22.0),
                       hoverColor: Color(0x6039519F),
                       hoverBorderSide: BorderSide(
                         color: Color(0xB239519F),
                       ),
                     ),
-                  ),
+                  ).animateOnPageLoad(
+                      animationsMap['buttonOnPageLoadAnimation']!),
                 ].divide(SizedBox(width: 22.0)),
               ),
             ),

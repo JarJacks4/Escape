@@ -19,7 +19,7 @@ class ConnectionCommunityStartPageVersion5Model
   int get tabBarPreviousIndex =>
       tabBarController != null ? tabBarController!.previousIndex : 0;
 
-  AudioPlayer? soundPlayer;
+  AudioPlayer? soundPlayer1;
   // Stores action output result for [Custom Action - reorderTiktokPages] action in TabBar widget.
   List<tiktokfeed_wz8en7_data_schema.TiktokPageStruct>? reorderVideos;
   // Stores action output result for [Custom Action - reorderTiktokPages] action in TabBar widget.
@@ -28,9 +28,11 @@ class ConnectionCommunityStartPageVersion5Model
   List<tiktokfeed_wz8en7_data_schema.TiktokPageStruct>? reorderBody;
   // Model for MarketplaceButton component.
   late MarketplaceButtonModel marketplaceButtonModel;
+  AudioPlayer? soundPlayer2;
   // Model for InfluencerAmbassadorProgramButton component.
   late InfluencerAmbassadorProgramButtonModel
       influencerAmbassadorProgramButtonModel;
+  AudioPlayer? soundPlayer3;
 
   @override
   void initState(BuildContext context) {

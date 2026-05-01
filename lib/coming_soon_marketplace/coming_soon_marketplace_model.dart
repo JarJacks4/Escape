@@ -1,18 +1,23 @@
+import '/components/marketplace_coming_soon_comp_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/index.dart';
 import 'coming_soon_marketplace_widget.dart' show ComingSoonMarketplaceWidget;
 import 'package:flutter/material.dart';
-import 'package:just_audio/just_audio.dart';
 
 class ComingSoonMarketplaceModel
     extends FlutterFlowModel<ComingSoonMarketplaceWidget> {
   ///  State fields for stateful widgets in this page.
 
-  AudioPlayer? soundPlayer;
+  // Model for MarketplaceComingSoonComp component.
+  late MarketplaceComingSoonCompModel marketplaceComingSoonCompModel;
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    marketplaceComingSoonCompModel =
+        createModel(context, () => MarketplaceComingSoonCompModel());
+  }
 
   @override
-  void dispose() {}
+  void dispose() {
+    marketplaceComingSoonCompModel.dispose();
+  }
 }

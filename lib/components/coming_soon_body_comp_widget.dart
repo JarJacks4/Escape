@@ -144,15 +144,14 @@ class _ComingSoonBodyCompWidgetState extends State<ComingSoonBodyCompWidget> {
                                   0.0, 0.0, 0.0, 15.0),
                               child: Text(
                                 FFLocalizations.of(context).getText(
-                                  'xucls0v4' /* We have more coming soon for t... */,
+                                  'xucls0v4' /* We are currently finding new i... */,
                                 ),
                                 textAlign: TextAlign.center,
                                 style: FlutterFlowTheme.of(context)
                                     .bodyLarge
                                     .override(
                                       fontFamily: 'WorkSans',
-                                      color:
-                                          FlutterFlowTheme.of(context).primary,
+                                      color: Colors.black,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w300,
                                     ),

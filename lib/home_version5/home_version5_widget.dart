@@ -449,7 +449,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                           AlignmentDirectional(0.0, -1.0),
                                       child: Container(
                                         width: double.infinity,
-                                        height: 1268.82,
+                                        height: 1295.42,
                                         decoration: BoxDecoration(
                                           gradient: LinearGradient(
                                             colors: [
@@ -473,7 +473,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                             ),
                                             child: Container(
                                               width: 100.0,
-                                              height: 381.6,
+                                              height: 413.04,
                                               decoration: BoxDecoration(
                                                 gradient: LinearGradient(
                                                   colors: [
@@ -812,7 +812,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                       FFLocalizations.of(
                                                                               context)
                                                                           .getText(
-                                                                        'vqq0k5jr' /* Find out */,
+                                                                        'vqq0k5jr' /* Goodmorning */,
                                                                       ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
@@ -827,31 +827,33 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                             fontWeight:
                                                                                 FontWeight.w300,
                                                                           ),
+                                                                      overflow:
+                                                                          TextOverflow
+                                                                              .ellipsis,
                                                                     ).animateOnPageLoad(
                                                                         animationsMap[
                                                                             'textOnPageLoadAnimation1']!),
-                                                                    Text(
-                                                                      FFLocalizations.of(
-                                                                              context)
-                                                                          .getText(
-                                                                        '0rba0up5' /* Who You Are */,
-                                                                      ),
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .displaySmall
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'The Seasons',
-                                                                            color:
-                                                                                Colors.white,
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                            fontWeight:
-                                                                                FontWeight.w300,
-                                                                          ),
-                                                                    ).animateOnPageLoad(
-                                                                        animationsMap[
-                                                                            'textOnPageLoadAnimation2']!),
+                                                                    AuthUserStreamWidget(
+                                                                      builder:
+                                                                          (context) =>
+                                                                              Text(
+                                                                        valueOrDefault<
+                                                                            String>(
+                                                                          currentUserDisplayName,
+                                                                          'Escape User',
+                                                                        ),
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .displaySmall
+                                                                            .override(
+                                                                              fontFamily: 'The Seasons',
+                                                                              color: Colors.white,
+                                                                              letterSpacing: 0.0,
+                                                                              fontWeight: FontWeight.w300,
+                                                                            ),
+                                                                        overflow:
+                                                                            TextOverflow.ellipsis,
+                                                                      ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation2']!),
+                                                                    ),
                                                                   ].divide(SizedBox(
                                                                       height:
                                                                           8.0)),
@@ -945,7 +947,7 @@ class _HomeVersion5WidgetState extends State<HomeVersion5Widget>
                                                                               child: Text(
                                                                                 valueOrDefault<String>(
                                                                                   currentUserDisplayName != '' ? currentUserDisplayName : currentUserEmail,
-                                                                                  'Escape',
+                                                                                  'Escape User',
                                                                                 ),
                                                                                 overflow: TextOverflow.fade,
                                                                               ),
@@ -2001,15 +2003,21 @@ Further ... */
                                                                               CrossAxisAlignment.start,
                                                                           children:
                                                                               [
-                                                                            Text(
-                                                                              FFLocalizations.of(context).getText(
-                                                                                'lgl1rbvv' /* Your Path Today */,
+                                                                            Flexible(
+                                                                              flex: 1,
+                                                                              child: Text(
+                                                                                'Your Path ${dateTimeFormat(
+                                                                                  "MMMEd",
+                                                                                  getCurrentTimestamp,
+                                                                                  locale: FFLocalizations.of(context).languageCode,
+                                                                                )}',
+                                                                                style: FlutterFlowTheme.of(context).titleMedium.override(
+                                                                                      fontFamily: 'WorkSans',
+                                                                                      color: FlutterFlowTheme.of(context).alternate,
+                                                                                      letterSpacing: 0.0,
+                                                                                    ),
+                                                                                overflow: TextOverflow.fade,
                                                                               ),
-                                                                              style: FlutterFlowTheme.of(context).titleMedium.override(
-                                                                                    fontFamily: 'WorkSans',
-                                                                                    color: FlutterFlowTheme.of(context).alternate,
-                                                                                    letterSpacing: 0.0,
-                                                                                  ),
                                                                             ),
                                                                             Text(
                                                                               FFLocalizations.of(context).getText(

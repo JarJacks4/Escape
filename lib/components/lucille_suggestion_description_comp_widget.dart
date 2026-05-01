@@ -1,8 +1,6 @@
 import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
-import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/form_field_controller.dart';
 import 'package:confetti_modualo_library_b75kfy/app_state.dart'
     as confetti_modualo_library_b75kfy_app_state;
 import 'package:cupertino_time_picker_hiuzb7/app_state.dart'
@@ -160,107 +158,50 @@ class _LucilleSuggestionDescriptionCompWidgetState
                     children: [
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(25.0, 0.0, 0.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 4.0, 8.0, 4.0),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  FlutterFlowChoiceChips(
-                                    options: [
-                                      ChipData(
-                                          FFLocalizations.of(context).getText(
-                                        '2991cfy3' /* Option 1 */,
-                                      )),
-                                      ChipData(
-                                          FFLocalizations.of(context).getText(
-                                        't8cry4q3' /* Option 2 */,
-                                      )),
-                                      ChipData(
-                                          FFLocalizations.of(context).getText(
-                                        'wr6cx9dk' /* Option 3 */,
-                                      ))
-                                    ],
-                                    onChanged: (val) => safeSetState(() =>
-                                        _model.choiceChipsValue =
-                                            val?.firstOrNull),
-                                    selectedChipStyle: ChipStyle(
-                                      backgroundColor: Color(0xC21C2444),
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'The Seasons',
-                                            color: FlutterFlowTheme.of(context)
-                                                .info,
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                      iconColor:
-                                          FlutterFlowTheme.of(context).info,
-                                      iconSize: 16.0,
-                                      elevation: 0.0,
-                                      borderColor: Color(0x50EDF1F7),
-                                      borderRadius: BorderRadius.circular(8.0),
-                                    ),
-                                    unselectedChipStyle: ChipStyle(
-                                      backgroundColor: Color(0xBB1C2444),
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'The Seasons',
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                      iconColor: Color(0x00EDF1F7),
-                                      iconSize: 16.0,
-                                      elevation: 0.0,
-                                      borderRadius: BorderRadius.circular(8.0),
-                                    ),
-                                    chipSpacing: 15.0,
-                                    rowSpacing: 8.0,
-                                    multiselect: false,
-                                    alignment: WrapAlignment.spaceEvenly,
-                                    controller:
-                                        _model.choiceChipsValueController ??=
-                                            FormFieldController<List<String>>(
-                                      [],
-                                    ),
-                                    wrapped: true,
-                                  ),
-                                  Align(
-                                    alignment: AlignmentDirectional(-1.0, -1.0),
-                                    child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 9.0, 0.0, 0.0),
-                                      child: Text(
-                                        FFLocalizations.of(context).getText(
-                                          'g0bio37g' /* Title */,
+                            Align(
+                              alignment: AlignmentDirectional(-1.0, 0.0),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 4.0, 8.0, 4.0),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Align(
+                                      alignment:
+                                          AlignmentDirectional(-1.0, -1.0),
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 9.0, 0.0, 0.0),
+                                        child: Text(
+                                          getJsonField(
+                                            carDetailsGetExerciseDetailResponse
+                                                .jsonBody,
+                                            r'''$.title''',
+                                          ).toString(),
+                                          style: FlutterFlowTheme.of(context)
+                                              .headlineSmall
+                                              .override(
+                                                fontFamily: 'WorkSans',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryBackground,
+                                                letterSpacing: 0.0,
+                                              ),
                                         ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .headlineSmall
-                                            .override(
-                                              fontFamily: 'WorkSans',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryBackground,
-                                              letterSpacing: 0.0,
-                                            ),
                                       ),
                                     ),
-                                  ),
-                                  Container(
-                                    width: 200.0,
-                                  ),
-                                ],
+                                    Container(
+                                      width: 200.0,
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ],
@@ -305,8 +246,9 @@ class _LucilleSuggestionDescriptionCompWidgetState
                                           duration: Duration(milliseconds: 75),
                                           curve: Curves.easeIn,
                                           child: Text(
-                                            FFLocalizations.of(context).getText(
-                                              'hy9lr56r' /* Description */,
+                                            valueOrDefault<String>(
+                                              widget.exerciseDescription,
+                                              'Description',
                                             ),
                                             overflow: TextOverflow.fade,
                                           ),

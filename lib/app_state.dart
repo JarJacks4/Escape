@@ -2038,6 +2038,31 @@ class FFAppState extends ChangeNotifier {
     secureStorage.delete(key: 'ff_energyScore');
   }
 
+  String _energyLevel = '';
+  String get energyLevel => _energyLevel;
+  set energyLevel(String value) {
+    _energyLevel = value;
+  }
+
+  double _stressLevel = 0.0;
+  double get stressLevel => _stressLevel;
+  set stressLevel(double value) {
+    _stressLevel = value;
+  }
+
+  String _firebaseIDToken =
+      'cc273c8e6eaff5487bf644bf5d5f0d048cc96d5308fb87651d2551ec716206da';
+  String get firebaseIDToken => _firebaseIDToken;
+  set firebaseIDToken(String value) {
+    _firebaseIDToken = value;
+  }
+
+  String _lucilleUserID = '';
+  String get lucilleUserID => _lucilleUserID;
+  set lucilleUserID(String value) {
+    _lucilleUserID = value;
+  }
+
   final _lucilleSuggestedExercisesManager =
       FutureRequestManager<ApiCallResponse>();
   Future<ApiCallResponse> lucilleSuggestedExercises({
@@ -2054,6 +2079,23 @@ class FFAppState extends ChangeNotifier {
       _lucilleSuggestedExercisesManager.clear();
   void clearLucilleSuggestedExercisesCacheKey(String? uniqueKey) =>
       _lucilleSuggestedExercisesManager.clearRequest(uniqueKey);
+
+  final _recommendedExercisesMoodScanManager =
+      FutureRequestManager<ApiCallResponse>();
+  Future<ApiCallResponse> recommendedExercisesMoodScan({
+    String? uniqueQueryKey,
+    bool? overrideCache,
+    required Future<ApiCallResponse> Function() requestFn,
+  }) =>
+      _recommendedExercisesMoodScanManager.performRequest(
+        uniqueQueryKey: uniqueQueryKey,
+        overrideCache: overrideCache,
+        requestFn: requestFn,
+      );
+  void clearRecommendedExercisesMoodScanCache() =>
+      _recommendedExercisesMoodScanManager.clear();
+  void clearRecommendedExercisesMoodScanCacheKey(String? uniqueKey) =>
+      _recommendedExercisesMoodScanManager.clearRequest(uniqueKey);
 }
 
 void _safeInit(Function() initializeField) {
